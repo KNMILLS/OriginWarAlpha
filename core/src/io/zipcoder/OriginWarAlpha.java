@@ -180,41 +180,42 @@ public class OriginWarAlpha extends ApplicationAdapter {
         // close to touching the edges of the message box it's in.
         lang = new String[]
                 {
-                        FakeLanguageGen.ENGLISH.sentence(5, 10, new String[]{",", ",", ",", ";"},
-                                new String[]{".", ".", ".", "!", "?", "..."}, 0.17, gridWidth - 4),
-                        FakeLanguageGen.GREEK_AUTHENTIC.sentence(5, 11, new String[]{",", ",", ";"},
-                                new String[]{".", ".", ".", "!", "?", "..."}, 0.2, gridWidth - 4),
-                        FakeLanguageGen.GREEK_ROMANIZED.sentence(5, 11, new String[]{",", ",", ";"},
-                                new String[]{".", ".", ".", "!", "?", "..."}, 0.2, gridWidth - 4),
-                        FakeLanguageGen.LOVECRAFT.sentence(3, 9, new String[]{",", ",", ";"},
-                                new String[]{".", ".", "!", "!", "?", "...", "..."}, 0.15, gridWidth - 4),
-                        FakeLanguageGen.FRENCH.sentence(4, 12, new String[]{",", ",", ",", ";", ";"},
-                                new String[]{".", ".", ".", "!", "?", "..."}, 0.17, gridWidth - 4),
-                        FakeLanguageGen.RUSSIAN_AUTHENTIC.sentence(6, 13, new String[]{",", ",", ",", ",", ";", " -"},
-                                new String[]{".", ".", ".", "!", "?", "..."}, 0.25, gridWidth - 4),
-                        FakeLanguageGen.RUSSIAN_ROMANIZED.sentence(6, 13, new String[]{",", ",", ",", ",", ";", " -"},
-                                new String[]{".", ".", ".", "!", "?", "..."}, 0.25, gridWidth - 4),
-                        FakeLanguageGen.JAPANESE_ROMANIZED.sentence(5, 13, new String[]{",", ",", ",", ",", ";"},
-                                new String[]{".", ".", ".", "!", "?", "...", "..."}, 0.12, gridWidth - 4),
-                        FakeLanguageGen.SWAHILI.sentence(4, 9, new String[]{",", ",", ",", ";", ";"},
-                                new String[]{".", ".", ".", "!", "?"}, 0.12, gridWidth - 4),
-                        FakeLanguageGen.SOMALI.sentence(3, 8, new String[]{",", ",", ",", ";", ";"},
-                                new String[]{".", ".", ".", "!", "!", "...", "?"}, 0.1, gridWidth - 4),
-                        FakeLanguageGen.HINDI_ROMANIZED.sentence(3, 7, new String[]{",", ",", ",", ";", ";"},
-                                new String[]{".", ".", ".", "!", "?", "?", "..."}, 0.22, gridWidth - 4),
-                        FakeLanguageGen.FANTASY_NAME.sentence(4, 8, new String[]{",", ",", ",", ";", ";"},
-                                new String[]{".", ".", ".", "!", "?", "..."}, 0.22, gridWidth - 4),
-                        FakeLanguageGen.FANCY_FANTASY_NAME.sentence(4, 8, new String[]{",", ",", ",", ";", ";"},
-                                new String[]{".", ".", ".", "!", "?", "..."}, 0.22, gridWidth - 4),
-                        FakeLanguageGen.FRENCH.mix(FakeLanguageGen.JAPANESE_ROMANIZED, 0.65).sentence(5, 9, new String[]{",", ",", ",", ";"},
-                                new String[]{".", ".", ".", "!", "?", "?", "..."}, 0.14, gridWidth - 4),
-                        FakeLanguageGen.ENGLISH.addAccents(0.5, 0.15).sentence(5, 10, new String[]{",", ",", ",", ";"},
-                                new String[]{".", ".", ".", "!", "?", "..."}, 0.17, gridWidth - 4),
-                        FakeLanguageGen.SWAHILI.mix(FakeLanguageGen.JAPANESE_ROMANIZED, 0.5).mix(FakeLanguageGen.FRENCH, 0.35)
-                                .mix(FakeLanguageGen.RUSSIAN_ROMANIZED, 0.25).mix(FakeLanguageGen.GREEK_ROMANIZED, 0.2).mix(FakeLanguageGen.ENGLISH, 0.15)
-                                .mix(FakeLanguageGen.FANCY_FANTASY_NAME, 0.12).mix(FakeLanguageGen.LOVECRAFT, 0.1)
-                                .sentence(5, 10, new String[]{",", ",", ",", ";"},
-                                new String[]{".", ".", ".", "!", "?", "..."}, 0.2, gridWidth - 4),
+                        "ORIGIN WAR ALPHA", "KEN, EVAN, CHRIS", "Use WASD or Mouse to move around", "Use Q to quit",
+//                        FakeLanguageGen.ENGLISH.sentence(5, 10, new String[]{",", ",", ",", ";"},
+//                                new String[]{".", ".", ".", "!", "?", "..."}, 0.17, gridWidth - 4),
+//                        FakeLanguageGen.GREEK_AUTHENTIC.sentence(5, 11, new String[]{",", ",", ";"},
+//                                new String[]{".", ".", ".", "!", "?", "..."}, 0.2, gridWidth - 4),
+//                        FakeLanguageGen.GREEK_ROMANIZED.sentence(5, 11, new String[]{",", ",", ";"},
+//                                new String[]{".", ".", ".", "!", "?", "..."}, 0.2, gridWidth - 4),
+//                        FakeLanguageGen.LOVECRAFT.sentence(3, 9, new String[]{",", ",", ";"},
+//                                new String[]{".", ".", "!", "!", "?", "...", "..."}, 0.15, gridWidth - 4),
+//                        FakeLanguageGen.FRENCH.sentence(4, 12, new String[]{",", ",", ",", ";", ";"},
+//                                new String[]{".", ".", ".", "!", "?", "..."}, 0.17, gridWidth - 4),
+//                        FakeLanguageGen.RUSSIAN_AUTHENTIC.sentence(6, 13, new String[]{",", ",", ",", ",", ";", " -"},
+//                                new String[]{".", ".", ".", "!", "?", "..."}, 0.25, gridWidth - 4),
+//                        FakeLanguageGen.RUSSIAN_ROMANIZED.sentence(6, 13, new String[]{",", ",", ",", ",", ";", " -"},
+//                                new String[]{".", ".", ".", "!", "?", "..."}, 0.25, gridWidth - 4),
+//                        FakeLanguageGen.JAPANESE_ROMANIZED.sentence(5, 13, new String[]{",", ",", ",", ",", ";"},
+//                                new String[]{".", ".", ".", "!", "?", "...", "..."}, 0.12, gridWidth - 4),
+//                        FakeLanguageGen.SWAHILI.sentence(4, 9, new String[]{",", ",", ",", ";", ";"},
+//                                new String[]{".", ".", ".", "!", "?"}, 0.12, gridWidth - 4),
+//                        FakeLanguageGen.SOMALI.sentence(3, 8, new String[]{",", ",", ",", ";", ";"},
+//                                new String[]{".", ".", ".", "!", "!", "...", "?"}, 0.1, gridWidth - 4),
+//                        FakeLanguageGen.HINDI_ROMANIZED.sentence(3, 7, new String[]{",", ",", ",", ";", ";"},
+//                                new String[]{".", ".", ".", "!", "?", "?", "..."}, 0.22, gridWidth - 4),
+//                        FakeLanguageGen.FANTASY_NAME.sentence(4, 8, new String[]{",", ",", ",", ";", ";"},
+//                                new String[]{".", ".", ".", "!", "?", "..."}, 0.22, gridWidth - 4),
+//                        FakeLanguageGen.FANCY_FANTASY_NAME.sentence(4, 8, new String[]{",", ",", ",", ";", ";"},
+//                                new String[]{".", ".", ".", "!", "?", "..."}, 0.22, gridWidth - 4),
+//                        FakeLanguageGen.FRENCH.mix(FakeLanguageGen.JAPANESE_ROMANIZED, 0.65).sentence(5, 9, new String[]{",", ",", ",", ";"},
+//                                new String[]{".", ".", ".", "!", "?", "?", "..."}, 0.14, gridWidth - 4),
+//                        FakeLanguageGen.ENGLISH.addAccents(0.5, 0.15).sentence(5, 10, new String[]{",", ",", ",", ";"},
+//                                new String[]{".", ".", ".", "!", "?", "..."}, 0.17, gridWidth - 4),
+//                        FakeLanguageGen.SWAHILI.mix(FakeLanguageGen.JAPANESE_ROMANIZED, 0.5).mix(FakeLanguageGen.FRENCH, 0.35)
+//                                .mix(FakeLanguageGen.RUSSIAN_ROMANIZED, 0.25).mix(FakeLanguageGen.GREEK_ROMANIZED, 0.2).mix(FakeLanguageGen.ENGLISH, 0.15)
+//                                .mix(FakeLanguageGen.FANCY_FANTASY_NAME, 0.12).mix(FakeLanguageGen.LOVECRAFT, 0.1)
+//                                .sentence(5, 10, new String[]{",", ",", ",", ";"},
+//                                new String[]{".", ".", ".", "!", "?", "..."}, 0.2, gridWidth - 4),
                 };
 
 
@@ -346,7 +347,7 @@ public class OriginWarAlpha extends ApplicationAdapter {
             player = player.translate(xmod, ymod);
         }
         // loops through the text snippets displayed whenever the player moves
-        langIndex = (langIndex + 1) % lang.length;
+        //langIndex = (langIndex + 1) % lang.length;
     }
 
     /**
@@ -376,9 +377,14 @@ public class OriginWarAlpha extends ApplicationAdapter {
 
         // The arrays we produced in create() are used here to provide a blank area behind text
         display.put(0, gridHeight + 1, spaces, languageFG, languageBG);
-        for (int i = 0; i < 6; i++) {
-            display.putString(2, gridHeight + i + 1, lang[(langIndex + i) % lang.length], 0, 1);
-        }
+        display.putString(2, gridHeight+1,lang[0],0,1);
+        display.putString(2, gridHeight+2,lang[1],0,1);
+        display.putString(2, gridHeight+3,lang[2],0,1);
+        display.putString(2, gridHeight+4,lang[3],0,1);
+
+//        for (int i = 0; i < 6; i++) {
+//            display.putString(2, gridHeight + i + 1, lang[(langIndex + i) % lang.length], 0, 1);
+//        }
     }
     @Override
     public void render () {
