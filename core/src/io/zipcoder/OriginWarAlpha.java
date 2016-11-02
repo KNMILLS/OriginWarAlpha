@@ -16,6 +16,7 @@ import squidpony.squidgrid.gui.gdx.*;
 import squidpony.squidgrid.mapping.DungeonGenerator;
 import squidpony.squidgrid.mapping.DungeonUtility;
 import squidpony.squidgrid.mapping.styled.TilesetType;
+
 import squidpony.squidmath.Coord;
 import squidpony.squidmath.CoordPacker;
 import squidpony.squidmath.RNG;
@@ -130,6 +131,8 @@ public class OriginWarAlpha extends ApplicationAdapter {
         //decoDungeon is given the dungeon with any decorations we specified. (Here, we didn't, unless you chose to add
         //water to the dungeon. In that case, decoDungeon will have different contents than bareDungeon, next.)
         decoDungeon = dungeonGen.generate(TilesetType.ROOMS_AND_CORRIDORS_B);
+        decoDungeon = dungeonGen.generate();
+
         //There are lots of options for dungeon generation in SquidLib; you can pass a TilesetType enum to generate()
         //as shown on the following lines to change the style of dungeon generated from ruined areas, which are made
         //when no argument is passed to generate or when TilesetType.DEFAULT_DUNGEON is, to caves or other styles.
@@ -359,6 +362,9 @@ public class OriginWarAlpha extends ApplicationAdapter {
         if(player == exit){
             create();
         }
+        // loops through the text snippets displayed whenever the player moves
+        langIndex = (langIndex + 1) % lang.length;
+
     }
 
     /**
@@ -378,6 +384,9 @@ public class OriginWarAlpha extends ApplicationAdapter {
         }
         //places the player as an '@' at his position in orange (6 is an index into SColor.LIMITED_PALETTE).
         display.put(exit.x, exit.y, '*', 7);
+        display.put(player.x, player.y, '@', 6);
+
+
         display.put(player.x, player.y, '@', 6);
 
         // for clarity, you could replace the above line with the uncommented line below
