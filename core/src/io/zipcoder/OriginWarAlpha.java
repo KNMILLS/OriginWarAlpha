@@ -15,6 +15,7 @@ import squidpony.squidai.DijkstraMap;
 import squidpony.squidgrid.gui.gdx.*;
 import squidpony.squidgrid.mapping.DungeonGenerator;
 import squidpony.squidgrid.mapping.DungeonUtility;
+import squidpony.squidgrid.mapping.styled.TilesetType;
 import squidpony.squidmath.Coord;
 import squidpony.squidmath.CoordPacker;
 import squidpony.squidmath.RNG;
@@ -58,7 +59,7 @@ public class OriginWarAlpha extends ApplicationAdapter {
     private Color bgColor;
     private Stage stage;
     private DijkstraMap playerToCursor;
-    private Coord cursor, player;
+    private Coord cursor, player, exit;
     private ArrayList<Coord> toCursor;
     private ArrayList<Coord> awaitedMoves;
     private float secondsWithoutMoves;
@@ -89,7 +90,7 @@ public class OriginWarAlpha extends ApplicationAdapter {
         cellWidth = 11;
         cellHeight = 22;
         // gotta have a random number generator. We can seed an RNG with any long we want, or even a String.
-        rng = new RNG("SquidLib!");
+        rng = new RNG(System.currentTimeMillis());
 
         //Some classes in SquidLib need access to a batch to render certain things, so it's a good idea to have one.
         batch = new SpriteBatch();
@@ -123,11 +124,12 @@ public class OriginWarAlpha extends ApplicationAdapter {
         //This uses the seeded RNG we made earlier to build a procedural dungeon using a method that takes rectangular
         //sections of pre-drawn dungeon and drops them into place in a tiling pattern. It makes good "ruined" dungeons.
         dungeonGen = new DungeonGenerator(gridWidth, gridHeight, rng);
+        dungeonGen.addDoors(25, true);
         //uncomment this next line to randomly add water to the dungeon in pools.
         //dungeonGen.addWater(15);
         //decoDungeon is given the dungeon with any decorations we specified. (Here, we didn't, unless you chose to add
         //water to the dungeon. In that case, decoDungeon will have different contents than bareDungeon, next.)
-        decoDungeon = dungeonGen.generate();
+        decoDungeon = dungeonGen.generate(TilesetType.ROOMS_AND_CORRIDORS_B);
         //There are lots of options for dungeon generation in SquidLib; you can pass a TilesetType enum to generate()
         //as shown on the following lines to change the style of dungeon generated from ruined areas, which are made
         //when no argument is passed to generate or when TilesetType.DEFAULT_DUNGEON is, to caves or other styles.
@@ -149,6 +151,7 @@ public class OriginWarAlpha extends ApplicationAdapter {
         //player is, here, just a Coord that stores his position. In a real game, you would probably have a class for
         //creatures, and possibly a subclass for the player.
         player = dungeonGen.utility.randomCell(placement);
+        exit = dungeonGen.utility.randomCell(placement);
         //This is used to allow clicks or taps to take the player to the desired area.
         toCursor = new ArrayList<Coord>(100);
         awaitedMoves = new ArrayList<Coord>(100);
@@ -279,6 +282,11 @@ public class OriginWarAlpha extends ApplicationAdapter {
                         Gdx.app.exit();
                         break;
                     }
+                    case SquidInput.ENTER:
+                    {
+                        move(0,0);
+                        break;
+                    }
                 }
             }
         },
@@ -345,8 +353,12 @@ public class OriginWarAlpha extends ApplicationAdapter {
         {
             player = player.translate(xmod, ymod);
         }
+
         // loops through the text snippets displayed whenever the player moves
         langIndex = (langIndex + 1) % lang.length;
+        if(player == exit){
+            create();
+        }
     }
 
     /**
@@ -365,7 +377,9 @@ public class OriginWarAlpha extends ApplicationAdapter {
             display.highlight(pt.x, pt.y, 100);
         }
         //places the player as an '@' at his position in orange (6 is an index into SColor.LIMITED_PALETTE).
+        display.put(exit.x, exit.y, '*', 7);
         display.put(player.x, player.y, '@', 6);
+
         // for clarity, you could replace the above line with the uncommented line below
         //display.put(player.x, player.y, '@', SColor.INTERNATIONAL_ORANGE);
         // since this is what 6 refers to, a color constant in a palette where 6 refers to this shade of orange.
