@@ -69,7 +69,7 @@ public class OriginWarAlpha extends ApplicationAdapter {
     private int langIndex = 0;
     @Override
     public void create () {
-        player = new Player();
+        player = Player.getPlayer();
         //These variables, corresponding to the screen's width and height in cells and a cell's width and height in
         //pixels, must match the size you specified in the launcher for input to behave.
         //This is one of the more common places a mistake can happen.
@@ -368,7 +368,6 @@ public class OriginWarAlpha extends ApplicationAdapter {
         //langIndex = (langIndex + 1) % lang.length;
         if(player.getPosition() == stairSwitch){
             stairsDown = dungeonGen.stairsDown;
-            display.putBoxedString(2, gridHeight+4, "You hit the switch, now find the exit!");
         }
         if(player.getPosition() == stairsDown){
             create();
@@ -424,10 +423,8 @@ public class OriginWarAlpha extends ApplicationAdapter {
         Gdx.gl.glClearColor(bgColor.r / 255.0f, bgColor.g / 255.0f, bgColor.b / 255.0f, 1.0f);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
         Gdx.gl.glEnable(GL20.GL_BLEND);
-
         // need to display the map every frame, since we clear the screen to avoid artifacts.
         putMap();
-
         // if the user clicked, we have a list of moves to perform.
         if(!awaitedMoves.isEmpty())
         {
@@ -444,7 +441,6 @@ public class OriginWarAlpha extends ApplicationAdapter {
         else if(input.hasNext()) {
             input.next();
         }
-
         //stage has its own batch and must be explicitly told to draw().
         stage.draw();
         //you may need to explicitly tell stage to act() if input isn't working.
