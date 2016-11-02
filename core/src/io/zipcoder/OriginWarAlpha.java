@@ -60,7 +60,8 @@ public class OriginWarAlpha extends ApplicationAdapter {
     private Color bgColor;
     private Stage stage;
     private DijkstraMap playerToCursor;
-    private Coord cursor, player, stairsDown, stairsUp;
+    private Coord cursor, stairsDown, stairsUp;
+    private Player player;
     private ArrayList<Coord> toCursor;
     private ArrayList<Coord> awaitedMoves;
     private float secondsWithoutMoves;
@@ -68,6 +69,7 @@ public class OriginWarAlpha extends ApplicationAdapter {
     private int langIndex = 0;
     @Override
     public void create () {
+        player = new Player();
         //These variables, corresponding to the screen's width and height in cells and a cell's width and height in
         //pixels, must match the size you specified in the launcher for input to behave.
         //This is one of the more common places a mistake can happen.
@@ -128,7 +130,7 @@ public class OriginWarAlpha extends ApplicationAdapter {
         dungeonGen.addDoors(25, true);
         //uncomment this next line to randomly add water to the dungeon in pools.
         //dungeonGen.addWater(15);
-        //decoDungeon is given the dungeon with any decorations we specified. (Here, we didn't, unless you chose to add
+        //decoDungeon is given the dungeon with any decorations wge specified. (Here, we didn't, unless you chose to add
         //water to the dungeon. In that case, decoDungeon will have different contents than bareDungeon, next.)
         decoDungeon = dungeonGen.generate(TilesetType.ROOMS_AND_CORRIDORS_B);
 
@@ -153,7 +155,7 @@ public class OriginWarAlpha extends ApplicationAdapter {
         cursor = Coord.get(-1, -1);
         //player is, here, just a Coord that stores his position. In a real game, you would probably have a class for
         //creatures, and possibly a subclass for the player.
-        player = dungeonGen.utility.randomCell(placement);
+        player.setPosition((dungeonGen.utility.randomCell(placement)));
         stairsDown = dungeonGen.stairsDown;
         stairsUp = dungeonGen.stairsUp;
         //This is used to allow clicks or taps to take the player to the desired area.
@@ -314,7 +316,7 @@ public class OriginWarAlpha extends ApplicationAdapter {
                         cursor = Coord.get(screenX, screenY);
                         //This uses DijkstraMap.findPath to get a possibly long path from the current player position
                         //to the position the user clicked on.
-                        toCursor = playerToCursor.findPath(100, null, null, player, cursor);
+                        toCursor = playerToCursor.findPath(100, null, null, player.getPosition(), cursor);
                     }
                     awaitedMoves = new ArrayList<Coord>(toCursor);
                 }
@@ -337,7 +339,7 @@ public class OriginWarAlpha extends ApplicationAdapter {
                     return false;
                 }
                 cursor = Coord.get(screenX, screenY);
-                toCursor = playerToCursor.findPath(100, null, null, player, cursor);
+                toCursor = playerToCursor.findPath(100, null, null, player.getPosition(), cursor);
                 return false;
             }
         }));
@@ -356,16 +358,16 @@ public class OriginWarAlpha extends ApplicationAdapter {
      * @param ymod
      */
     private void move(int xmod, int ymod) {
-        int newX = player.x + xmod, newY = player.y + ymod;
+        int newX = player.getPosition().x + xmod, newY = player.getPosition().y + ymod;
         if (newX >= 0 && newY >= 0 && newX < gridWidth && newY < gridHeight
                 && bareDungeon[newX][newY] != '#')
         {
-            player = player.translate(xmod, ymod);
+            player.setPosition(player.getPosition().translate(xmod, ymod));
         }
         // loops through the text snippets displayed whenever the player moves
         //langIndex = (langIndex + 1) % lang.length;
 
-        if(player == stairsDown){
+        if(player.getPosition() == stairsDown){
             create();
         }
         // loops through the text snippets displayed whenever the player moves
@@ -390,7 +392,7 @@ public class OriginWarAlpha extends ApplicationAdapter {
         //places the player as an '@' at his position in orange (6 is an index into SColor.LIMITED_PALETTE).
 
         display.put(stairsDown.x, stairsDown.y, '*', 7);
-        display.put(player.x, player.y, 'X', 6);
+        display.put(player.getPosition().x, player.getPosition().y, 'X', 20);
 
         // for clarity, you could replace the above line with the uncommented line below
         //display.put(player.x, player.y, '@', SColor.INTERNATIONAL_ORANGE);
@@ -430,7 +432,7 @@ public class OriginWarAlpha extends ApplicationAdapter {
                 secondsWithoutMoves = 0;
                 Coord m = awaitedMoves.remove(0);
                 toCursor.remove(0);
-                move(m.x - player.x, m.y - player.y);
+                move(m.x - player.getPosition().x, m.y - player.getPosition().y);
             }
         }
         // if we are waiting for the player's input and get input, process it.
