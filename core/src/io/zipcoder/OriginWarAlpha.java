@@ -56,7 +56,8 @@ public class OriginWarAlpha extends ApplicationAdapter {
     private int cellWidth;
     /** The pixel height of a cell */
     private int cellHeight;
-    private SquidInput input;
+    private OriginInput input;
+    private SquidInput baseInput;
     private Color bgColor;
     private Stage stage;
     private DijkstraMap playerToCursor;
@@ -255,7 +256,7 @@ public class OriginWarAlpha extends ApplicationAdapter {
         // You can also set up a series of future moves by clicking within FOV range, using mouseMoved to determine the
         // path to the mouse position with a DijkstraMap (called playerToCursor), and using touchUp to actually trigger
         // the event when someone clicks.
-        input = new SquidInput(new SquidInput.KeyHandler() {
+        baseInput = new SquidInput(new SquidInput.KeyHandler() {
             @Override
             public void handle(char key, boolean alt, boolean ctrl, boolean shift) {
                 switch (key)
@@ -359,6 +360,7 @@ public class OriginWarAlpha extends ApplicationAdapter {
                 return false;
             }
         }));
+        input = new OriginInput(baseInput.getKeyHandler(), baseInput.getMouse());
         //Setting the InputProcessor is ABSOLUTELY NEEDED TO HANDLE INPUT
         Gdx.input.setInputProcessor(new InputMultiplexer(stage, input));
         //You might be able to get by with the next line instead of the above line, but the former is preferred.
