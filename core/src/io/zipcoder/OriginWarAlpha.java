@@ -128,6 +128,7 @@ public class OriginWarAlpha extends ApplicationAdapter {
         //decoDungeon is given the dungeon with any decorations we specified. (Here, we didn't, unless you chose to add
         //water to the dungeon. In that case, decoDungeon will have different contents than bareDungeon, next.)
         decoDungeon = dungeonGen.generate();
+
         //There are lots of options for dungeon generation in SquidLib; you can pass a TilesetType enum to generate()
         //as shown on the following lines to change the style of dungeon generated from ruined areas, which are made
         //when no argument is passed to generate or when TilesetType.DEFAULT_DUNGEON is, to caves or other styles.
