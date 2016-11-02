@@ -9,7 +9,6 @@ import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.utils.viewport.StretchViewport;
-import squidpony.FakeLanguageGen;
 import squidpony.GwtCompatibility;
 import squidpony.squidai.DijkstraMap;
 import squidpony.squidgrid.gui.gdx.*;
@@ -22,7 +21,6 @@ import squidpony.squidmath.CoordPacker;
 import squidpony.squidmath.RNG;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 
 /**
  * The main class of the game, constructed once in each of the platform-specific Launcher classes. Doesn't use any
@@ -60,7 +58,7 @@ public class OriginWarAlpha extends ApplicationAdapter {
     private Color bgColor;
     private Stage stage;
     private DijkstraMap playerToCursor;
-    private Coord cursor, player, stairsDown, stairsUp;
+    private Coord cursor, player, stairsDown, stairSwitch;
     private ArrayList<Coord> toCursor;
     private ArrayList<Coord> awaitedMoves;
     private float secondsWithoutMoves;
@@ -154,8 +152,8 @@ public class OriginWarAlpha extends ApplicationAdapter {
         //player is, here, just a Coord that stores his position. In a real game, you would probably have a class for
         //creatures, and possibly a subclass for the player.
         player = dungeonGen.utility.randomCell(placement);
-        stairsDown = dungeonGen.stairsDown;
-        stairsUp = dungeonGen.stairsUp;
+        stairsDown = null;
+        stairSwitch = dungeonGen.stairsUp;
         //This is used to allow clicks or taps to take the player to the desired area.
         toCursor = new ArrayList<Coord>(100);
         awaitedMoves = new ArrayList<Coord>(100);
@@ -232,7 +230,7 @@ public class OriginWarAlpha extends ApplicationAdapter {
         // this is a big one.
         // SquidInput can be constructed with a KeyHandler (which just processes specific keypresses), a SquidMouse
         // (which is given an InputProcessor implementation and can handle multiple kinds of mouse move), or both.
-        // keyHandler is meant to be able to handle complex, modified key input, typically for games that distinguish
+        // keyHandler is meant to be able to handle complex, modified stairSwitch input, typically for games that distinguish
         // between, say, 'q' and 'Q' for 'quaff' and 'Quip' or whatever obtuse combination you choose. The
         // implementation here handles hjkl keys (also called vi-keys), numpad, arrow keys, and wasd for 4-way movement.
         // Shifted letter keys produce capitalized chars when passed to KeyHandler.handle(), but we don't care about
@@ -364,7 +362,10 @@ public class OriginWarAlpha extends ApplicationAdapter {
         }
         // loops through the text snippets displayed whenever the player moves
         //langIndex = (langIndex + 1) % lang.length;
-
+        if(player == stairSwitch){
+            stairsDown = dungeonGen.stairsDown;
+            display.putBoxedString(2, gridHeight+4, "You hit the switch, now find the exit!");
+        }
         if(player == stairsDown){
             create();
         }
@@ -388,8 +389,10 @@ public class OriginWarAlpha extends ApplicationAdapter {
             display.highlight(pt.x, pt.y, 100);
         }
         //places the player as an '@' at his position in orange (6 is an index into SColor.LIMITED_PALETTE).
-
-        display.put(stairsDown.x, stairsDown.y, '*', 7);
+        if(stairsDown != null){
+            display.put(stairsDown.x, stairsDown.y, '*', 7);
+        }
+        display.put(stairSwitch.x, stairSwitch.y, '?', 7);
         display.put(player.x, player.y, 'X', 6);
 
         // for clarity, you could replace the above line with the uncommented line below
