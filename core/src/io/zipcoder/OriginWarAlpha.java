@@ -67,6 +67,8 @@ public class OriginWarAlpha extends ApplicationAdapter {
     private float secondsWithoutMoves;
     private String[] lang;
     private int langIndex = 0;
+    private boolean helpOn = false;
+    private String[] helpText;
     @Override
     public void create () {
         player = new Player();
@@ -192,6 +194,7 @@ public class OriginWarAlpha extends ApplicationAdapter {
                         "ORIGIN WAR ALPHA",
                         "KEN, EVAN, CHRIS",
                         "Use WASD or Mouse to move around",
+                        "Use H for help",
                         "Use Q to quit",
 //                        FakeLanguageGen.ENGLISH.sentence(5, 10, new String[]{",", ",", ",", ";"},
 //                                new String[]{".", ".", ".", "!", "?", "..."}, 0.17, gridWidth - 4),
@@ -230,6 +233,16 @@ public class OriginWarAlpha extends ApplicationAdapter {
 //                                new String[]{".", ".", ".", "!", "?", "..."}, 0.2, gridWidth - 4),
                 };
 
+                helpText = new String[]
+                        {
+                                "Collect the '?' symbol!",
+                                "It has the power to open the door to the next stage.",
+                                "Stand on the '?' to collect it.",
+                                "Use H for close help",
+                                "Use Q to quit",
+                };
+
+
 
         // this is a big one.
         // SquidInput can be constructed with a KeyHandler (which just processes specific keypresses), a SquidMouse
@@ -248,9 +261,7 @@ public class OriginWarAlpha extends ApplicationAdapter {
                 switch (key)
                 {
                     case SquidInput.UP_ARROW:
-                    case 'k':
                     case 'w':
-                    case 'K':
                     case 'W':
                     {
                         //-1 is up on the screen
@@ -258,9 +269,7 @@ public class OriginWarAlpha extends ApplicationAdapter {
                         break;
                     }
                     case SquidInput.DOWN_ARROW:
-                    case 'j':
                     case 's':
-                    case 'J':
                     case 'S':
                     {
                         //+1 is down on the screen
@@ -268,21 +277,28 @@ public class OriginWarAlpha extends ApplicationAdapter {
                         break;
                     }
                     case SquidInput.LEFT_ARROW:
-                    case 'h':
                     case 'a':
-                    case 'H':
                     case 'A':
                     {
                         move(-1, 0);
                         break;
                     }
                     case SquidInput.RIGHT_ARROW:
-                    case 'l':
                     case 'd':
-                    case 'L':
                     case 'D':
                     {
                         move(1, 0);
+                        break;
+                    }
+                    case 'H':
+                    case 'h':
+                    {
+                        if(helpOn){
+                            helpOn = false;
+                        }
+                        else{
+                            helpOn = true;
+                        }
                         break;
                     }
                     case 'Q':
@@ -409,11 +425,20 @@ public class OriginWarAlpha extends ApplicationAdapter {
 
         // The arrays we produced in create() are used here to provide a blank area behind text
         display.put(0, gridHeight + 1, spaces, languageFG, languageBG);
-        display.putString(2, gridHeight+1,lang[0],0,1);
-        display.putString(2, gridHeight+2,lang[1],0,1);
-        display.putString(2, gridHeight+3,lang[2],0,1);
-        display.putString(2, gridHeight+4,lang[3],0,1);
-
+        if(!helpOn){
+            display.putString(2, gridHeight + 1, lang[0], 0, 1);
+            display.putString(2, gridHeight + 2, lang[1], 0, 1);
+            display.putString(2, gridHeight + 3, lang[2], 0, 1);
+            display.putString(2, gridHeight + 4, lang[3], 0, 1);
+            display.putString(2, gridHeight + 5, lang[4], 0, 1);
+        }
+        else {
+            display.putString(2, gridHeight + 1, helpText[0], 0, 1);
+            display.putString(2, gridHeight + 2, helpText[1], 0, 1);
+            display.putString(2, gridHeight + 3, helpText[2], 0, 1);
+            display.putString(2, gridHeight + 4, helpText[3], 0, 1);
+            display.putString(2, gridHeight + 5, helpText[4], 0, 1);
+        }
 //        for (int i = 0; i < 6; i++) {
 //            display.putString(2, gridHeight + i + 1, lang[(langIndex + i) % lang.length], 0, 1);
 //        }
