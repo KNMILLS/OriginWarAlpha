@@ -180,7 +180,10 @@ public class OriginWarAlpha extends ApplicationAdapter {
         // close to touching the edges of the message box it's in.
         lang = new String[]
                 {
-                        "ORIGIN WAR ALPHA", "KEN, EVAN, CHRIS", "Use WASD or Mouse to move around", "Use Q to quit",
+                        "ORIGIN WAR ALPHA",
+                        "KEN, EVAN, CHRIS",
+                        "Use WASD or Mouse to move around",
+                        "Use Q to quit",
 //                        FakeLanguageGen.ENGLISH.sentence(5, 10, new String[]{",", ",", ",", ";"},
 //                                new String[]{".", ".", ".", "!", "?", "..."}, 0.17, gridWidth - 4),
 //                        FakeLanguageGen.GREEK_AUTHENTIC.sentence(5, 11, new String[]{",", ",", ";"},
@@ -366,6 +369,7 @@ public class OriginWarAlpha extends ApplicationAdapter {
             display.highlight(pt.x, pt.y, 100);
         }
         //places the player as an '@' at his position in orange (6 is an index into SColor.LIMITED_PALETTE).
+
         display.put(player.x, player.y, 'X', 6);
         // for clarity, you could replace the above line with the uncommented line below
         //display.put(player.x, player.y, '@', SColor.INTERNATIONAL_ORANGE);
