@@ -22,7 +22,6 @@ import squidpony.squidmath.CoordPacker;
 import squidpony.squidmath.RNG;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 
 /**
  * The main class of the game, constructed once in each of the platform-specific Launcher classes. Doesn't use any
@@ -60,7 +59,7 @@ public class OriginWarAlpha extends ApplicationAdapter {
     private Color bgColor;
     private Stage stage;
     private DijkstraMap playerToCursor;
-    private Coord cursor, player, exit;
+    private Coord cursor, player, stairsDown, stairsUp;
     private ArrayList<Coord> toCursor;
     private ArrayList<Coord> awaitedMoves;
     private float secondsWithoutMoves;
@@ -154,12 +153,13 @@ public class OriginWarAlpha extends ApplicationAdapter {
         //player is, here, just a Coord that stores his position. In a real game, you would probably have a class for
         //creatures, and possibly a subclass for the player.
         player = dungeonGen.utility.randomCell(placement);
-        exit = dungeonGen.utility.randomCell(placement);
+        stairsDown = dungeonGen.stairsDown;
+        stairsUp = dungeonGen.stairsUp;
         //This is used to allow clicks or taps to take the player to the desired area.
         toCursor = new ArrayList<Coord>(100);
         awaitedMoves = new ArrayList<Coord>(100);
         //DijkstraMap is the pathfinding swiss-army knife we use here to find a path to the latest cursor position.
-        playerToCursor = new DijkstraMap(decoDungeon, DijkstraMap.Measurement.MANHATTAN);
+        playerToCursor = new DijkstraMap(decoDungeon, DijkstraMap.Measurement.EUCLIDEAN);
         bgColor = SColor.DARK_SLATE_GRAY;
         // DungeonUtility provides various ways to get default colors or other information from a dungeon char 2D array.
         colorIndices = DungeonUtility.generatePaletteIndices(decoDungeon);
@@ -359,7 +359,7 @@ public class OriginWarAlpha extends ApplicationAdapter {
 
         // loops through the text snippets displayed whenever the player moves
         langIndex = (langIndex + 1) % lang.length;
-        if(player == exit){
+        if(player == stairsDown){
             create();
         }
         // loops through the text snippets displayed whenever the player moves
@@ -383,7 +383,7 @@ public class OriginWarAlpha extends ApplicationAdapter {
             display.highlight(pt.x, pt.y, 100);
         }
         //places the player as an '@' at his position in orange (6 is an index into SColor.LIMITED_PALETTE).
-        display.put(exit.x, exit.y, '*', 7);
+        display.put(stairsDown.x, stairsDown.y, '*', 7);
         display.put(player.x, player.y, '@', 6);
 
 
