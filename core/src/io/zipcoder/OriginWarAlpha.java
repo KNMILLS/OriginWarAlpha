@@ -89,7 +89,7 @@ public class OriginWarAlpha extends ApplicationAdapter {
         cellWidth = 11;
         cellHeight = 22;
         // gotta have a random number generator. We can seed an RNG with any long we want, or even a String.
-        rng = new RNG("SquidLib!");
+        rng = new RNG(System.currentTimeMillis() * (long)Math.PI);
 
         //Some classes in SquidLib need access to a batch to render certain things, so it's a good idea to have one.
         batch = new SpriteBatch();
@@ -365,7 +365,7 @@ public class OriginWarAlpha extends ApplicationAdapter {
             display.highlight(pt.x, pt.y, 100);
         }
         //places the player as an '@' at his position in orange (6 is an index into SColor.LIMITED_PALETTE).
-        display.put(player.x, player.y, '@', 6);
+        display.put(player.x, player.y, 'X', 6);
         // for clarity, you could replace the above line with the uncommented line below
         //display.put(player.x, player.y, '@', SColor.INTERNATIONAL_ORANGE);
         // since this is what 6 refers to, a color constant in a palette where 6 refers to this shade of orange.
