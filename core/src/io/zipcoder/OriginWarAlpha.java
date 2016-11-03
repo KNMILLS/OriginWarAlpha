@@ -379,6 +379,8 @@ public class OriginWarAlpha extends ApplicationAdapter {
         lang[0] = "Turns:\t"+player.getTurns() + "\t\t" + "Health:\t"+player.getHealth();
         if(player.getPosition() == stairsDown){
             levelCount += 1;
+            player.setHealth(100);
+            player.setTurns(0);
             create();
         }
 
