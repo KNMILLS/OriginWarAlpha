@@ -12,6 +12,8 @@ import com.badlogic.gdx.utils.viewport.StretchViewport;
 import squidpony.FakeLanguageGen;
 import squidpony.GwtCompatibility;
 import squidpony.squidai.DijkstraMap;
+import squidpony.squidgrid.FOV;
+import squidpony.squidgrid.Radius;
 import squidpony.squidgrid.gui.gdx.*;
 import squidpony.squidgrid.mapping.DungeonGenerator;
 import squidpony.squidgrid.mapping.DungeonUtility;
@@ -47,7 +49,10 @@ public class OriginWarAlpha extends ApplicationAdapter {
     private SquidLayers display;
     private DungeonGenerator dungeonGen;
     private char[][] decoDungeon, bareDungeon, lineDungeon, spaces;
-    private int[][] colorIndices, bgColorIndices, languageBG, languageFG;
+    private int[][] colorIndices, bgColorIndices, languageBG, languageFG, lights;
+    private double[][] fovmap, resMap;
+    private boolean explored[][];
+    private FOV fov;
     /** In number of cells */
     private int gridWidth;
     /** In number of cells */
@@ -60,6 +65,7 @@ public class OriginWarAlpha extends ApplicationAdapter {
     private SquidInput baseInput;
     private Color bgColor;
     private Stage stage;
+    private double lightCounter;
     private DijkstraMap playerToCursor;
     private Player player;
     private Coord cursor, stairsDown, stairSwitch;
@@ -70,6 +76,8 @@ public class OriginWarAlpha extends ApplicationAdapter {
     private int langIndex = 0;
     private boolean helpOn = false;
     private String[] helpText;
+    private int levelCount = 1;
+    private boolean foundSwitch;
     @Override
     public void create () {
         player = Player.getPlayer();
@@ -131,11 +139,13 @@ public class OriginWarAlpha extends ApplicationAdapter {
         //sections of pre-drawn dungeon and drops them into place in a tiling pattern. It makes good "ruined" dungeons.
         dungeonGen = new DungeonGenerator(gridWidth, gridHeight, rng);
         dungeonGen.addDoors(25, true);
+        dungeonGen.generate(TilesetType.ROOMS_AND_CORRIDORS_B);
+        explored = new boolean[gridWidth][gridHeight];
         //uncomment this next line to randomly add water to the dungeon in pools.
         //dungeonGen.addWater(15);
         //decoDungeon is given the dungeon with any decorations we specified. (Here, we didn't, unless you chose to add
         //water to the dungeon. In that case, decoDungeon will have different contents than bareDungeon, next.)
-        decoDungeon = dungeonGen.generate(TilesetType.ROOMS_AND_CORRIDORS_B);
+        decoDungeon = dungeonGen.generate();
 
 
         //There are lots of options for dungeon generation in SquidLib; you can pass a TilesetType enum to generate()
@@ -159,6 +169,9 @@ public class OriginWarAlpha extends ApplicationAdapter {
         //player is, here, just a Coord that stores his position. In a real game, you would probably have a class for
         //creatures, and possibly a subclass for the player.
         player.setPosition((dungeonGen.utility.randomCell(placement)));
+        fov = new FOV(FOV.RIPPLE_TIGHT);
+        resMap = DungeonUtility.generateResistances(decoDungeon);
+        fovmap = fov.calculateFOV(resMap, player.getPosition().getX(), player.getPosition().getY(), 8, Radius.CIRCLE);
         stairsDown = null;
         stairSwitch = dungeonGen.stairsUp;
         //This is used to allow clicks or taps to take the player to the desired area.
@@ -167,6 +180,7 @@ public class OriginWarAlpha extends ApplicationAdapter {
         //DijkstraMap is the pathfinding swiss-army knife we use here to find a path to the latest cursor position.
         playerToCursor = new DijkstraMap(decoDungeon, DijkstraMap.Measurement.EUCLIDEAN);
         bgColor = SColor.DARK_SLATE_GRAY;
+        lights = DungeonUtility.generateLightnessModifiers(decoDungeon, lightCounter);
         // DungeonUtility provides various ways to get default colors or other information from a dungeon char 2D array.
         colorIndices = DungeonUtility.generatePaletteIndices(decoDungeon);
         bgColorIndices = DungeonUtility.generateBGPaletteIndices(decoDungeon);
@@ -181,6 +195,7 @@ public class OriginWarAlpha extends ApplicationAdapter {
         spaces = GwtCompatibility.fill2D(' ', gridWidth, 6);
         languageBG = GwtCompatibility.fill2D(1, gridWidth, 6);
         languageFG = GwtCompatibility.fill2D(0, gridWidth, 6);
+        foundSwitch = false;
 
         // this creates an array of sentences, where each imitates a different sort of language or mix of languages.
         // this serves to demonstrate the large amount of glyphs SquidLib supports.
@@ -192,46 +207,11 @@ public class OriginWarAlpha extends ApplicationAdapter {
         // close to touching the edges of the message box it's in.
         lang = new String[]
                 {
-                        "ORIGIN WAR ALPHA",
+                        player.getTurns() + "",
                         "KEN, EVAN, CHRIS",
                         "Use WASD or Mouse to move around",
                         "Use H for help",
                         "Use Q to quit",
-//                        FakeLanguageGen.ENGLISH.sentence(5, 10, new String[]{",", ",", ",", ";"},
-//                                new String[]{".", ".", ".", "!", "?", "..."}, 0.17, gridWidth - 4),
-//                        FakeLanguageGen.GREEK_AUTHENTIC.sentence(5, 11, new String[]{",", ",", ";"},
-//                                new String[]{".", ".", ".", "!", "?", "..."}, 0.2, gridWidth - 4),
-//                        FakeLanguageGen.GREEK_ROMANIZED.sentence(5, 11, new String[]{",", ",", ";"},
-//                                new String[]{".", ".", ".", "!", "?", "..."}, 0.2, gridWidth - 4),
-//                        FakeLanguageGen.LOVECRAFT.sentence(3, 9, new String[]{",", ",", ";"},
-//                                new String[]{".", ".", "!", "!", "?", "...", "..."}, 0.15, gridWidth - 4),
-//                        FakeLanguageGen.FRENCH.sentence(4, 12, new String[]{",", ",", ",", ";", ";"},
-//                                new String[]{".", ".", ".", "!", "?", "..."}, 0.17, gridWidth - 4),
-//                        FakeLanguageGen.RUSSIAN_AUTHENTIC.sentence(6, 13, new String[]{",", ",", ",", ",", ";", " -"},
-//                                new String[]{".", ".", ".", "!", "?", "..."}, 0.25, gridWidth - 4),
-//                        FakeLanguageGen.RUSSIAN_ROMANIZED.sentence(6, 13, new String[]{",", ",", ",", ",", ";", " -"},
-//                                new String[]{".", ".", ".", "!", "?", "..."}, 0.25, gridWidth - 4),
-//                        FakeLanguageGen.JAPANESE_ROMANIZED.sentence(5, 13, new String[]{",", ",", ",", ",", ";"},
-//                                new String[]{".", ".", ".", "!", "?", "...", "..."}, 0.12, gridWidth - 4),
-//                        FakeLanguageGen.SWAHILI.sentence(4, 9, new String[]{",", ",", ",", ";", ";"},
-//                                new String[]{".", ".", ".", "!", "?"}, 0.12, gridWidth - 4),
-//                        FakeLanguageGen.SOMALI.sentence(3, 8, new String[]{",", ",", ",", ";", ";"},
-//                                new String[]{".", ".", ".", "!", "!", "...", "?"}, 0.1, gridWidth - 4),
-//                        FakeLanguageGen.HINDI_ROMANIZED.sentence(3, 7, new String[]{",", ",", ",", ";", ";"},
-//                                new String[]{".", ".", ".", "!", "?", "?", "..."}, 0.22, gridWidth - 4),
-//                        FakeLanguageGen.FANTASY_NAME.sentence(4, 8, new String[]{",", ",", ",", ";", ";"},
-//                                new String[]{".", ".", ".", "!", "?", "..."}, 0.22, gridWidth - 4),
-//                        FakeLanguageGen.FANCY_FANTASY_NAME.sentence(4, 8, new String[]{",", ",", ",", ";", ";"},
-//                                new String[]{".", ".", ".", "!", "?", "..."}, 0.22, gridWidth - 4),
-//                        FakeLanguageGen.FRENCH.mix(FakeLanguageGen.JAPANESE_ROMANIZED, 0.65).sentence(5, 9, new String[]{",", ",", ",", ";"},
-//                                new String[]{".", ".", ".", "!", "?", "?", "..."}, 0.14, gridWidth - 4),
-//                        FakeLanguageGen.ENGLISH.addAccents(0.5, 0.15).sentence(5, 10, new String[]{",", ",", ",", ";"},
-//                                new String[]{".", ".", ".", "!", "?", "..."}, 0.17, gridWidth - 4),
-//                        FakeLanguageGen.SWAHILI.mix(FakeLanguageGen.JAPANESE_ROMANIZED, 0.5).mix(FakeLanguageGen.FRENCH, 0.35)
-//                                .mix(FakeLanguageGen.RUSSIAN_ROMANIZED, 0.25).mix(FakeLanguageGen.GREEK_ROMANIZED, 0.2).mix(FakeLanguageGen.ENGLISH, 0.15)
-//                                .mix(FakeLanguageGen.FANCY_FANTASY_NAME, 0.12).mix(FakeLanguageGen.LOVECRAFT, 0.1)
-//                                .sentence(5, 10, new String[]{",", ",", ",", ";"},
-//                                new String[]{".", ".", ".", "!", "?", "..."}, 0.2, gridWidth - 4),
                 };
 
                 helpText = new String[]
@@ -328,7 +308,7 @@ public class OriginWarAlpha extends ApplicationAdapter {
             // hasn't been generated already by mouseMoved, then copy it over to awaitedMoves.
             @Override
             public boolean touchUp(int screenX, int screenY, int pointer, int button) {
-                if(awaitedMoves.isEmpty()) {
+                if(explored[screenX][screenY] && awaitedMoves.isEmpty()) {
                     if (toCursor.isEmpty()) {
                         cursor = Coord.get(screenX, screenY);
                         //This uses DijkstraMap.findPath to get a possibly long path from the current player position
@@ -376,20 +356,32 @@ public class OriginWarAlpha extends ApplicationAdapter {
      * @param ymod
      */
     private void move(int xmod, int ymod) {
+        if(player.getHealth() <= 0){
+            return;
+        }
         int newX = player.getPosition().x + xmod, newY = player.getPosition().y + ymod;
         if (newX >= 0 && newY >= 0 && newX < gridWidth && newY < gridHeight
                 && bareDungeon[newX][newY] != '#')
         {
             player.setPosition(player.getPosition().translate(xmod, ymod));
+            if(lineDungeon[newX][newY] == '+' || lineDungeon[newX][newY] == '/'){
+                resMap = DungeonUtility.generateResistances(decoDungeon);
+            }
+            fovmap = fov.calculateFOV(resMap, newX, newY, 8, Radius.CIRCLE);
+        } else if (newX == 0 && newY == 0){
+            player.incrementTurn();
         }
         // loops through the text snippets displayed whenever the player moves
         //langIndex = (langIndex + 1) % lang.length;
         if(player.getPosition() == stairSwitch){
             stairsDown = dungeonGen.stairsDown;
         }
+        lang[0] = "Turns:\t"+player.getTurns() + "\t\t" + "Health:\t"+player.getHealth();
         if(player.getPosition() == stairsDown){
+            levelCount += 1;
             create();
         }
+
         // loops through the text snippets displayed whenever the player moves
 
     }
@@ -399,21 +391,39 @@ public class OriginWarAlpha extends ApplicationAdapter {
      */
     public void putMap()
     {
+        boolean occupied;
         for (int i = 0; i < gridWidth; i++) {
             for (int j = 0; j < gridHeight; j++) {
-                display.put(i, j, lineDungeon[i][j], colorIndices[i][j], bgColorIndices[i][j], 40);
+                occupied = player.getPosition().getX() == i && player.getPosition().getY() == j;
+                if(fovmap[i][j] > 0.0){
+                    explored[i][j] = true;
+                    if(occupied){
+                        display.put(i, j, ' ');
+                    } else {
+
+
+                        display.put(i, j, lineDungeon[i][j], colorIndices[i][j], bgColorIndices[i][j],
+                                lights[i][j] + (int) (-105 + 320 * fovmap[i][j]));
+                    }
+                } else if(explored[i][j]){
+                    display.put(i, j, lineDungeon[i][j], colorIndices[i][j], bgColorIndices[i][j], 40);
+                }
             }
         }
         for (Coord pt : toCursor)
         {
             // use a brighter light to trace the path to the cursor, from 170 max lightness to 0 min.
-            display.highlight(pt.x, pt.y, 100);
+            display.highlight(pt.x, pt.y, lights[pt.x][pt.y] + (int)(170 * fovmap[pt.x][pt.y]));
         }
         //places the player as an '@' at his position in orange (6 is an index into SColor.LIMITED_PALETTE).
-        if(stairsDown != null){
+        if(stairsDown != null && explored[stairsDown.x][stairsDown.y]){
+
             display.put(stairsDown.x, stairsDown.y, '*', 7);
         }
-        display.put(stairSwitch.x, stairSwitch.y, '?', 7);
+        if(explored[stairSwitch.x][stairSwitch.y]){
+            display.put(stairSwitch.x, stairSwitch.y, '?', 7);
+        }
+
         display.put(player.getPosition().x, player.getPosition().y, 'X', 20);
 
         // for clarity, you could replace the above line with the uncommented line below
@@ -450,6 +460,9 @@ public class OriginWarAlpha extends ApplicationAdapter {
         Gdx.gl.glClearColor(bgColor.r / 255.0f, bgColor.g / 255.0f, bgColor.b / 255.0f, 1.0f);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
         Gdx.gl.glEnable(GL20.GL_BLEND);
+        lightCounter += Gdx.graphics.getDeltaTime() * 15;
+        // this does the standard lighting for walls, floors, etc. but also uses counter to do the Simplex noise thing.
+        lights = DungeonUtility.generateLightnessModifiers(decoDungeon, lightCounter);
         // need to display the map every frame, since we clear the screen to avoid artifacts.
         putMap();
         // if the user clicked, we have a list of moves to perform.
