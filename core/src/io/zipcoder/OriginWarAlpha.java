@@ -444,6 +444,7 @@ public class OriginWarAlpha extends ApplicationAdapter {
         }
         if(player.getPosition() == stairSwitch){
             stairsDown = dungeonGen.stairsDown;
+            foundSwitch = true;
         }
         lang[0] = "Turns:\t"+player.getTurns() + "\t\t" + "Health Remaining:\t"+player.getHealth();
 
@@ -496,7 +497,7 @@ public class OriginWarAlpha extends ApplicationAdapter {
 
             display.put(stairsDown.x, stairsDown.y, '*', 12);
         }
-        if(explored[stairSwitch.x][stairSwitch.y]){
+        if(explored[stairSwitch.x][stairSwitch.y] && !foundSwitch){
             display.put(stairSwitch.x, stairSwitch.y, '?', 12);
         }
         for(Food food : foodList){
