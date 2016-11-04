@@ -18,6 +18,7 @@ import squidpony.squidgrid.Radius;
 import squidpony.squidgrid.gui.gdx.*;
 import squidpony.squidgrid.mapping.DungeonGenerator;
 import squidpony.squidgrid.mapping.DungeonUtility;
+import squidpony.squidgrid.mapping.ModularMapGenerator;
 import squidpony.squidgrid.mapping.RoomFinder;
 import squidpony.squidgrid.mapping.styled.TilesetType;
 
@@ -372,6 +373,8 @@ public class OriginWarAlpha extends ApplicationAdapter {
                 return mouseMoved(screenX, screenY);
             }
 
+
+
             // causes the path to the mouse position to become highlighted (toCursor contains a list of points that
             // receive highlighting). Uses DijkstraMap.findPath() to find the path, which is surprisingly fast.
             @Override
@@ -474,16 +477,16 @@ public class OriginWarAlpha extends ApplicationAdapter {
         //places the player as an '@' at his position in orange (6 is an index into SColor.LIMITED_PALETTE).
         if(stairsDown != null && explored[stairsDown.x][stairsDown.y]){
 
-            display.put(stairsDown.x, stairsDown.y, '*', 6);
+            display.put(stairsDown.x, stairsDown.y, '*', 12);
         }
         if(explored[stairSwitch.x][stairSwitch.y]){
-            display.put(stairSwitch.x, stairSwitch.y, '?', 6);
+            display.put(stairSwitch.x, stairSwitch.y, '?', 12);
         }
         for(Food food : foodList){
             int x = food.getPostion().getX();
             int y = food.getPostion().getY();
             if(explored[x][y]){
-                display.put(x, y, food.getSymbol(), 6);
+                display.put(x, y, food.getSymbol(), 39);
             }
         }
 
