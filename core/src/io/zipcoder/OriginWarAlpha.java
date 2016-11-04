@@ -8,6 +8,7 @@ import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.scenes.scene2d.Stage;
+import com.badlogic.gdx.scenes.scene2d.ui.List;
 import com.badlogic.gdx.utils.viewport.StretchViewport;
 import squidpony.FakeLanguageGen;
 import squidpony.GwtCompatibility;
@@ -86,6 +87,7 @@ public class OriginWarAlpha extends ApplicationAdapter {
     private int levelCount = 1;
     private boolean foundSwitch;
     private RoomFinder roomFinder;
+    private ArrayList<Food> foodList;
     @Override
     public void create () {
         player = Player.getPlayer();
@@ -208,6 +210,8 @@ public class OriginWarAlpha extends ApplicationAdapter {
         languageFG = GwtCompatibility.fill2D(0, gridWidth, 6);
         foundSwitch = false;
         roomFinder = new RoomFinder(decoDungeon);
+        foodList = addFood();
+
 
 
         // this creates an array of sentences, where each imitates a different sort of language or mix of languages.
@@ -219,7 +223,7 @@ public class OriginWarAlpha extends ApplicationAdapter {
         // It is recommended that you don't increase the max characters per sentence much more, since it's already very
         // close to touching the edges of the message box it's in.
         lang = new String[]{
-                "Turns:\t"+player.getTurns() + "\t\t" + "Food Remaining:\t"+player.getHealth(),
+                "Turns:\t"+player.getTurns() + "\t\t" + "Health Remaining:\t"+player.getHealth(),
                 "USE 'H' FOR HELP/CONTROLS",
                 "KEN 'LEX LUTHOR' RAGONESE",
                 "EVAN 'SOUNDBYTE' HITCHINGS",
@@ -398,6 +402,13 @@ public class OriginWarAlpha extends ApplicationAdapter {
                 decoDungeon[newX][newY] = '/';
                 resMap = DungeonUtility.generateResistances(decoDungeon);
             }
+            for(Food food : foodList){
+                if(food.getPostion().equals(player.getPosition())){
+                    foodList.remove(food);
+                    player.setHealth(player.getHealth() + 10);
+                    break;
+                }
+            }
             fovmap = fov.calculateFOV(resMap, newX, newY, 8, Radius.CIRCLE);
         }
         if(player.getPosition() == stairSwitch){
@@ -455,6 +466,13 @@ public class OriginWarAlpha extends ApplicationAdapter {
         }
         if(explored[stairSwitch.x][stairSwitch.y]){
             display.put(stairSwitch.x, stairSwitch.y, '?', 6);
+        }
+        for(Food food : foodList){
+            int x = food.getPostion().getX();
+            int y = food.getPostion().getY();
+            if(explored[x][y]){
+                display.put(x, y, food.getSymbol(), 6);
+            }
         }
 
         if(player.getHealth()>50)display.put(player.getPosition().x, player.getPosition().y, '∆', 21);
@@ -534,4 +552,25 @@ public class OriginWarAlpha extends ApplicationAdapter {
         // about the changes to the screen as well.
 		input.getMouse().reinitialize((float) width / this.gridWidth, (float)height / (this.gridHeight + 8), this.gridWidth, this.gridHeight, 0, 0);
 	}
+
+	public ArrayList<Food> addFood(){
+	    int foodToAdd = 7 - levelCount;
+        ArrayList<Food> toReturn = new ArrayList<>();
+        while(foodToAdd > 0){
+            foodToAdd--;
+            for(char[][] room : this.roomFinder.findRooms()){
+                DungeonUtility dungeonUtility = new DungeonUtility(rng);
+                double chance = Math.random();
+                if(chance >= .5){
+                    Coord position = dungeonUtility.randomMatchingTile(room, '.');
+                    toReturn.add(new Food(position));
+                    foodToAdd--;
+                    continue;
+                }
+
+            }
+        }
+        return toReturn;
+
+    }
 }
