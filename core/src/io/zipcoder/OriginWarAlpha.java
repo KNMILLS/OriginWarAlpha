@@ -150,7 +150,24 @@ public class OriginWarAlpha extends ApplicationAdapter {
         dungeonGen.generate(TilesetType.ROOMS_AND_CORRIDORS_B);
         explored = new boolean[gridWidth][gridHeight];
         //uncomment this next line to randomly add water to the dungeon in pools.
-        //dungeonGen.addWater(15);
+        switch(levelCount){
+            case 1:
+                dungeonGen.addWater(75);
+                dungeonGen.addGrass(50);
+                break;
+            case 2:
+                dungeonGen.addWater(50);
+                dungeonGen.addGrass(25);
+                break;
+            case 3:
+                dungeonGen.addWater(25);
+                break;
+            case 4:
+                dungeonGen.addWater(100);
+                break;
+            default:
+                dungeonGen.clearEffects();
+        }
         //decoDungeon is given the dungeon with any decorations we specified. (Here, we didn't, unless you chose to add
         //water to the dungeon. In that case, decoDungeon will have different contents than bareDungeon, next.)
         decoDungeon = dungeonGen.generate();
@@ -168,6 +185,7 @@ public class OriginWarAlpha extends ApplicationAdapter {
         //When we draw, we may want to use a nicer representation of walls. DungeonUtility has lots of useful methods
         //for modifying char[][] dungeon grids, and this one takes each '#' and replaces it with a box-drawing character.
         lineDungeon = DungeonUtility.hashesToLines(decoDungeon);
+        DungeonUtility.transposeLines(lineDungeon);
         // it's more efficient to get random floors from a packed set containing only (compressed) floor positions.
         // CoordPacker is a deep and involved class, but when other classes request packed data, you usually just need
         // to give them a short[] representing a region, as produced by CoordPacker.pack().
@@ -402,6 +420,7 @@ public class OriginWarAlpha extends ApplicationAdapter {
         }
         if(player.getPosition() == stairSwitch){
             stairsDown = dungeonGen.stairsDown;
+            foundSwitch = true;
         }
         lang[0] = "Turns:\t"+player.getTurns() + "\t\t" + "Food Remaining:\t"+player.getHealth();
         if(player.getPosition() == stairsDown){
@@ -427,13 +446,9 @@ public class OriginWarAlpha extends ApplicationAdapter {
                     explored[i][j] = true;
                     Coord toRemove = Coord.get(i, j);
                     unexploredSet.remove(toRemove);
-
-
                     if(occupied){
                         display.put(i, j, ' ');
                     } else {
-
-
                         display.put(i, j, lineDungeon[i][j], colorIndices[i][j], bgColorIndices[i][j],
                                 lights[i][j] + (int) (320 * fovmap[i][j]));
                     }
@@ -450,10 +465,9 @@ public class OriginWarAlpha extends ApplicationAdapter {
         }
         //places the player as an '@' at his position in orange (6 is an index into SColor.LIMITED_PALETTE).
         if(stairsDown != null && explored[stairsDown.x][stairsDown.y]){
-
             display.put(stairsDown.x, stairsDown.y, '*', 6);
         }
-        if(explored[stairSwitch.x][stairSwitch.y]){
+        if(explored[stairSwitch.x][stairSwitch.y] && !foundSwitch){
             display.put(stairSwitch.x, stairSwitch.y, '?', 6);
         }
 
