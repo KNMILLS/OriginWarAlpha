@@ -453,8 +453,8 @@ public class OriginWarAlpha extends ApplicationAdapter {
             display.put(stairSwitch.x, stairSwitch.y, '?', 6);
         }
 
-        if(player.getHealth()>80)display.put(player.getPosition().x, player.getPosition().y, '∆', 21);
-        else if(player.getHealth()>30)display.put(player.getPosition().x, player.getPosition().y, '∆', 18);
+        if(player.getHealth()>50)display.put(player.getPosition().x, player.getPosition().y, '∆', 21);
+        else if(player.getHealth()>25)display.put(player.getPosition().x, player.getPosition().y, '∆', 18);
         else if(player.getHealth()>1)display.put(player.getPosition().x, player.getPosition().y, '∆', 12);
         else{
             display.put(player.getPosition().x, player.getPosition().y, '±', 2);
