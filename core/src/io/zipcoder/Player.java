@@ -45,9 +45,9 @@ public class Player extends Creature{
     }
 
     public void incrementTurn(){
-        this.turns += 1;
+        this.turns++;
         if(this.turns % 5 == 0){
-            this.health -= 1;
+            this.health --;
         }
     }
 

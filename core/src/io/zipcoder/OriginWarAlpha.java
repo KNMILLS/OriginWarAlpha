@@ -72,10 +72,13 @@ public class OriginWarAlpha extends ApplicationAdapter {
     private ArrayList<Coord> toCursor;
     private ArrayList<Coord> awaitedMoves;
     private float secondsWithoutMoves;
-    private String[] lang;
     private int langIndex = 0;
-    private boolean helpOn = false;
+    private boolean helpOn;
+    private boolean normal;
+    private String[] lang;
     private String[] helpText;
+    private String[] displayText;
+    private String[] deathText;
     private int levelCount = 1;
     private boolean foundSwitch;
     @Override
@@ -206,24 +209,36 @@ public class OriginWarAlpha extends ApplicationAdapter {
         // 0.0 to 1.0 of putting between-word punctuation after a word, and lastly the max characters per sentence.
         // It is recommended that you don't increase the max characters per sentence much more, since it's already very
         // close to touching the edges of the message box it's in.
-        lang = new String[]
-                {
-                        player.getTurns() + "",
-                        "KEN, EVAN, CHRIS",
-                        "Use WASD or Mouse to move around",
-                        "Use H for help",
-                        "Use Q to quit",
+        lang = new String[]{
+                "",
+                "ORIGIN WAR",
+                "USE 'H' FOR HELP/CONTROLS",
+                "USE 'Q' FOR QUIT",
+                "CREATED BY KEN 'LEX LUTHOR' RAGONESE, EVAN 'SOUNDBYTE' HITCHINGS, AND CHRIS 'BOOM' NOBLES",
                 };
-
-                helpText = new String[]
-                        {
-                                "Collect the '?' symbol!",
-                                "It has the power to open the door to the next stage.",
-                                "Stand on the '?' to collect it.",
-                                "Use H for close help",
-                                "Use Q to quit",
+        helpText = new String[]{
+                "PICK UP THE '?' SYMBOL TO UNLOCK THE DOOR TO THE NEXT STAGE",
+                "STAND ON THE '?' SYMBOL TO PICK IT UP.",
+                "THEN STAND ON THE '*' SYMBOL TO ADVANCE TO THE NEXT LEVEL",
+                "USE 'H' TO CLOSE HELP",
+                "USE 'Q' TO QUIT",
                 };
+        deathText = new String[]{
+                "********************",
+                "*     YOU DIED     *",
+                "*        :(        *",
+                "*  USE 'Q' TO QUIT *",
+                "********************",
+        };
 
+        displayText = new String[]{
+                "",
+                "",
+                "",
+                "",
+                "",
+        };
+        displayText = lang;
 
 
         // this is a big one.
@@ -277,9 +292,11 @@ public class OriginWarAlpha extends ApplicationAdapter {
                     {
                         if(helpOn){
                             helpOn = false;
+                            normal = true;
                         }
                         else{
                             helpOn = true;
+                            normal = false;
                         }
                         break;
                     }
@@ -358,6 +375,7 @@ public class OriginWarAlpha extends ApplicationAdapter {
      */
     private void move(int xmod, int ymod) {
         if(player.getHealth() <= 0){
+            displayText = deathText;
             return;
         }
         int newX = player.getPosition().x + xmod, newY = player.getPosition().y + ymod;
@@ -380,11 +398,10 @@ public class OriginWarAlpha extends ApplicationAdapter {
         if(player.getPosition() == stairSwitch){
             stairsDown = dungeonGen.stairsDown;
         }
-        lang[0] = "Turns:\t"+player.getTurns() + "\t\t" + "Health:\t"+player.getHealth();
+        lang[0] = "Turns:\t"+player.getTurns() + "\t\t" + "Food Remaining:\t"+player.getHealth();
         if(player.getPosition() == stairsDown){
-            levelCount += 1;
-            player.setHealth(100);
-            player.setTurns(0);
+            levelCount++;
+            player.setHealth(Math.min(100, player.getHealth()+50-(levelCount*2)));
             create();
         }
 
@@ -430,7 +447,7 @@ public class OriginWarAlpha extends ApplicationAdapter {
             display.put(stairSwitch.x, stairSwitch.y, '?', 6);
         }
 
-        display.put(player.getPosition().x, player.getPosition().y, 'X', 20);
+        display.put(player.getPosition().x, player.getPosition().y, 'X', 21);
 
         // for clarity, you could replace the above line with the uncommented line below
         //display.put(player.x, player.y, '@', SColor.INTERNATIONAL_ORANGE);
@@ -442,20 +459,13 @@ public class OriginWarAlpha extends ApplicationAdapter {
 
         // The arrays we produced in create() are used here to provide a blank area behind text
         display.put(0, gridHeight + 1, spaces, languageFG, languageBG);
-        if(!helpOn){
-            display.putString(2, gridHeight + 1, lang[0], 0, 1);
-            display.putString(2, gridHeight + 2, lang[1], 0, 1);
-            display.putString(2, gridHeight + 3, lang[2], 0, 1);
-            display.putString(2, gridHeight + 4, lang[3], 0, 1);
-            display.putString(2, gridHeight + 5, lang[4], 0, 1);
-        }
-        else {
-            display.putString(2, gridHeight + 1, helpText[0], 0, 1);
-            display.putString(2, gridHeight + 2, helpText[1], 0, 1);
-            display.putString(2, gridHeight + 3, helpText[2], 0, 1);
-            display.putString(2, gridHeight + 4, helpText[3], 0, 1);
-            display.putString(2, gridHeight + 5, helpText[4], 0, 1);
-        }
+        if(helpOn) displayText = helpText;
+        else if(normal) displayText = lang;
+        display.putString(2, gridHeight + 1, displayText[0], 0, 1);
+        display.putString(2, gridHeight + 2, displayText[1], 0, 1);
+        display.putString(2, gridHeight + 3, displayText[2], 0, 1);
+        display.putString(2, gridHeight + 4, displayText[3], 0, 1);
+        display.putString(2, gridHeight + 5, displayText[4], 0, 1);
 //        for (int i = 0; i < 6; i++) {
 //            display.putString(2, gridHeight + i + 1, lang[(langIndex + i) % lang.length], 0, 1);
 //        }
