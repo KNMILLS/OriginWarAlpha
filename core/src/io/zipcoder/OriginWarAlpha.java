@@ -57,6 +57,7 @@ public class OriginWarAlpha extends ApplicationAdapter {
     private int[][] colorIndices, bgColorIndices, languageBG, languageFG, lights;
     private double[][] fovmap, resMap;
     private boolean explored[][];
+    private Color[][] fgColor, bgColorArr;
     private FOV fov;
     /** In number of cells */
     private int gridWidth;
@@ -146,11 +147,13 @@ public class OriginWarAlpha extends ApplicationAdapter {
         //There is no offset used here, but it's still a good practice here to set positions early on.
         display.setPosition(0, 0);
 
+
+
         //This uses the seeded RNG we made earlier to build a procedural dungeon using a method that takes rectangular
         //sections of pre-drawn dungeon and drops them into place in a tiling pattern. It makes good "ruined" dungeons.
         dungeonGen = new DungeonGenerator(gridWidth, gridHeight, rng);
         dungeonGen.addDoors(25, true);
-        dungeonGen.generate(TilesetType.ROOMS_AND_CORRIDORS_B);
+        dungeonGen.generate(TilesetType.ROOMS_LIMIT_CONNECTIVITY);
         explored = new boolean[gridWidth][gridHeight];
         //uncomment this next line to randomly add water to the dungeon in pools.
         switch(levelCount){
@@ -210,10 +213,29 @@ public class OriginWarAlpha extends ApplicationAdapter {
         unexploredSet = new LinkedHashSet<>();
         unexploredSet.addAll(Arrays.asList(CoordPacker.allPacked(placement)));
         bgColor = SColor.DARK_SLATE_GRAY;
+
         lights = DungeonUtility.generateLightnessModifiers(decoDungeon, lightCounter);
         // DungeonUtility provides various ways to get default colors or other information from a dungeon char 2D array.
+        fgColor = new Color[gridWidth][gridHeight];
+        bgColorArr = new Color[gridWidth][gridHeight];
         colorIndices = DungeonUtility.generatePaletteIndices(decoDungeon);
         bgColorIndices = DungeonUtility.generateBGPaletteIndices(decoDungeon);
+
+        for(int i = 0; i < gridWidth; i++){
+            for(int j = 0; j < gridHeight; j++){
+                int colorVal = colorIndices[i][j];
+                if(colorVal <= 3){
+                    fgColor[i][j] = display.getPalette().get(30);
+                }else if(colorVal == 4){
+                    fgColor[i][j] = display.getPalette().get(29);
+                } else {
+                    fgColor[i][j] = display.getPalette().get(colorVal);
+                }
+
+                bgColorArr[i][j] = display.getPalette().get(bgColorIndices[i][j]);
+            }
+        }
+
         // Here, we're preparing some 2D arrays so they don't get created during rendering.
         // Creating new arrays or objects during rendering can put lots of pressure on Java's garbage collector,
         // and Android's garbage collector can be very slow, especially when compared to desktop.
@@ -477,11 +499,11 @@ public class OriginWarAlpha extends ApplicationAdapter {
                     } else {
 
 
-                        display.put(i, j, lineDungeon[i][j], colorIndices[i][j], bgColorIndices[i][j],
+                        display.put(i, j, lineDungeon[i][j], fgColor[i][j], bgColorArr[i][j],
                                 lights[i][j] + (int) (320 * fovmap[i][j]));
                     }
                 } else if(explored[i][j]){
-                    display.put(i, j, lineDungeon[i][j], colorIndices[i][j], bgColorIndices[i][j], 40);
+                    display.put(i, j, lineDungeon[i][j], fgColor[i][j], bgColorArr[i][j], 40);
                 }
             }
         }
