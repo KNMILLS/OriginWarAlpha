@@ -146,6 +146,7 @@ public class OriginWarAlpha extends ApplicationAdapter {
         //decoDungeon is given the dungeon with any decorations we specified. (Here, we didn't, unless you chose to add
         //water to the dungeon. In that case, decoDungeon will have different contents than bareDungeon, next.)
         decoDungeon = dungeonGen.generate();
+        decoDungeon = DungeonUtility.closeDoors(decoDungeon);
 
 
         //There are lots of options for dungeon generation in SquidLib; you can pass a TilesetType enum to generate()
@@ -364,7 +365,10 @@ public class OriginWarAlpha extends ApplicationAdapter {
                 && bareDungeon[newX][newY] != '#')
         {
             player.setPosition(player.getPosition().translate(xmod, ymod));
-            if(lineDungeon[newX][newY] == '+' || lineDungeon[newX][newY] == '/'){
+            if(lineDungeon[newX][newY] == '+'){
+                lineDungeon[newX][newY] = '/';
+                decoDungeon[newX][newY] = '/';
+
                 resMap = DungeonUtility.generateResistances(decoDungeon);
             }
             fovmap = fov.calculateFOV(resMap, newX, newY, 8, Radius.CIRCLE);
@@ -405,7 +409,7 @@ public class OriginWarAlpha extends ApplicationAdapter {
 
 
                         display.put(i, j, lineDungeon[i][j], colorIndices[i][j], bgColorIndices[i][j],
-                                lights[i][j] + (int) (-105 + 320 * fovmap[i][j]));
+                                lights[i][j] + (int) (320 * fovmap[i][j]));
                     }
                 } else if(explored[i][j]){
                     display.put(i, j, lineDungeon[i][j], colorIndices[i][j], bgColorIndices[i][j], 40);
@@ -420,10 +424,10 @@ public class OriginWarAlpha extends ApplicationAdapter {
         //places the player as an '@' at his position in orange (6 is an index into SColor.LIMITED_PALETTE).
         if(stairsDown != null && explored[stairsDown.x][stairsDown.y]){
 
-            display.put(stairsDown.x, stairsDown.y, '*', 7);
+            display.put(stairsDown.x, stairsDown.y, '*', 6);
         }
         if(explored[stairSwitch.x][stairSwitch.y]){
-            display.put(stairSwitch.x, stairSwitch.y, '?', 7);
+            display.put(stairSwitch.x, stairSwitch.y, '?', 6);
         }
 
         display.put(player.getPosition().x, player.getPosition().y, 'X', 20);
