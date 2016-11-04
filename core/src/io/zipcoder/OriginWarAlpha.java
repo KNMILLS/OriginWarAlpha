@@ -155,18 +155,17 @@ public class OriginWarAlpha extends ApplicationAdapter {
         //uncomment this next line to randomly add water to the dungeon in pools.
         switch(levelCount){
             case 1:
-                dungeonGen.addWater(75);
-                dungeonGen.addGrass(50);
+                dungeonGen.addWater(50);
                 break;
             case 2:
-                dungeonGen.addWater(50);
-                dungeonGen.addGrass(25);
+                dungeonGen.addWater(10);
+                dungeonGen.addGrass(10);
                 break;
             case 3:
-                dungeonGen.addWater(25);
+                dungeonGen.addWater(10);
                 break;
             case 4:
-                dungeonGen.addWater(100);
+                dungeonGen.addGrass(10);
                 break;
             default:
                 dungeonGen.clearEffects();
@@ -249,8 +248,8 @@ public class OriginWarAlpha extends ApplicationAdapter {
                 };
         helpText = new String[]{
                 "PICK UP THE '?' SYMBOL TO UNLOCK THE DOOR TO THE NEXT STAGE",
-                "STAND ON THE '?' SYMBOL TO PICK IT UP.",
-                "THEN STAND ON THE '*' SYMBOL TO ADVANCE TO THE NEXT LEVEL",
+                "PICK UP THE '%' TO EAT FOOD",
+                "ONCE YOU FIND THE '?', PICK UP THE '*' SYMBOL TO ADVANCE TO THE NEXT LEVEL",
                 "USE 'H' TO CLOSE HELP",
                 "USE 'Q' TO QUIT, 'T' TO TRY AGAIN",
                 };
@@ -614,7 +613,8 @@ public class OriginWarAlpha extends ApplicationAdapter {
                 DungeonUtility dungeonUtility = new DungeonUtility(rng);
                 double chance = Math.random();
                 if(chance >= .5){
-                    Coord position = dungeonUtility.randomMatchingTile(room, '.');
+                    Coord position = dungeonUtility.randomFloor(room);
+                    if(position == null) continue;
                     toReturn.add(new Food(position));
                     foodToAdd--;
                     continue;

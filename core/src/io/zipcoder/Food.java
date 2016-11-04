@@ -10,8 +10,8 @@ public class Food extends Item {
     public Food() {
     }
 
-    public Food(Coord postion) {
-        super(postion);
+    public Food(Coord position) {
+        super(position);
         this.setSymbol('%');
     }
 }
