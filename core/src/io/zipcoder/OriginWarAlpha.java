@@ -234,13 +234,13 @@ public class OriginWarAlpha extends ApplicationAdapter {
                 "STAND ON THE '?' SYMBOL TO PICK IT UP.",
                 "THEN STAND ON THE '*' SYMBOL TO ADVANCE TO THE NEXT LEVEL",
                 "USE 'H' TO CLOSE HELP",
-                "USE 'Q' TO QUIT",
+                "USE 'Q' TO QUIT, 'T' TO TRY AGAIN",
                 };
         deathText = new String[]{
                 "********************",
-                "*     YOU DIED     *",
-                "*        :(        *",
-                "*  USE 'Q' TO QUIT *",
+                "*   YOU DIED :(    *",
+                "* 'T' TO TRY AGAIN *",
+                "*    'Q' TO QUIT   *",
                 "********************",
         };
 
@@ -320,6 +320,11 @@ public class OriginWarAlpha extends ApplicationAdapter {
                         Gdx.app.exit();
                         break;
                     }
+                    case 't':
+                    case 'T':
+                    {
+                        restart();
+                    }
                     //skip a turn
                     case SquidInput.ENTER:
                     case 'z':
@@ -328,6 +333,15 @@ public class OriginWarAlpha extends ApplicationAdapter {
                         move(0,0);
                         break;
                     }
+                    //debug mode
+                    case 'p':
+                    case 'P':
+                        player.setHealth(120);
+                        break;
+                    case 'o':
+                    case 'O':
+                        player.setHealth(5);
+                        break;
                 }
             }
         },
@@ -389,7 +403,10 @@ public class OriginWarAlpha extends ApplicationAdapter {
      * @param ymod
      */
     private void move(int xmod, int ymod) {
+        displayText = lang;
         if(player.getHealth() <= 0){
+            input.drain();
+            awaitedMoves.clear();
             return;
         }
         int newX = player.getPosition().x + xmod, newY = player.getPosition().y + ymod;
@@ -402,19 +419,14 @@ public class OriginWarAlpha extends ApplicationAdapter {
                 decoDungeon[newX][newY] = '/';
                 resMap = DungeonUtility.generateResistances(decoDungeon);
             }
-            for(Food food : foodList){
-                if(food.getPostion().equals(player.getPosition())){
-                    foodList.remove(food);
-                    player.setHealth(player.getHealth() + 10);
-                    break;
-                }
-            }
+            eatFood();
             fovmap = fov.calculateFOV(resMap, newX, newY, 8, Radius.CIRCLE);
         }
         if(player.getPosition() == stairSwitch){
             stairsDown = dungeonGen.stairsDown;
         }
-        lang[0] = "Turns:\t"+player.getTurns() + "\t\t" + "Food Remaining:\t"+player.getHealth();
+        lang[0] = "Turns:\t"+player.getTurns() + "\t\t" + "Health Remaining:\t"+player.getHealth();
+
         if(player.getPosition() == stairsDown){
             levelCount++;
             player.setHealth(Math.min(100, player.getHealth()+50-(levelCount*2)));
@@ -553,6 +565,25 @@ public class OriginWarAlpha extends ApplicationAdapter {
 		input.getMouse().reinitialize((float) width / this.gridWidth, (float)height / (this.gridHeight + 8), this.gridWidth, this.gridHeight, 0, 0);
 	}
 
+	public void eatFood(){
+        for(Food food : foodList){
+            if(food.getPostion().equals(player.getPosition())){
+                foodList.remove(food);
+                player.setHealth(player.getHealth() + 10);
+                if(player.getHealth() >= 125){
+                    displayText = new String[] {
+                        "You ate too much food!",
+                            "",
+                        "You'll move at half speed",
+                            "",
+                            "Until you recover."
+                    };
+                }
+                break;
+            }
+        }
+    }
+
 	public ArrayList<Food> addFood(){
 	    int foodToAdd = 7 - levelCount;
         ArrayList<Food> toReturn = new ArrayList<>();
@@ -572,5 +603,12 @@ public class OriginWarAlpha extends ApplicationAdapter {
         }
         return toReturn;
 
+    }
+
+    public void restart(){
+        player.setHealth(101);
+        player.setTurns(-1);
+        levelCount = 1;
+        create();
     }
 }

@@ -36,8 +36,11 @@ public class Player extends Creature{
     }
 
     public void incrementTurn(){
+        if(this.getHealth() >= 125){
+            this.turns++;
+        }
         this.turns++;
-        if(this.turns % 5 == 0){
+        if(this.turns % 4 == 0){
             //this.setHealth(this.getHealth() - 20);
             this.setHealth(this.getHealth() - 1);
         }
