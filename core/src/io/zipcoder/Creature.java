@@ -9,6 +9,7 @@ import squidpony.squidmath.Coord;
 public abstract class Creature{
     private double id;
     private Coord position;
+    private int health;
 
     public double getId() {
         return id;
@@ -24,5 +25,13 @@ public abstract class Creature{
 
     public void setPosition(Coord position) {
         this.position = position;
+    }
+
+    public int getHealth() {
+        return health;
+    }
+
+    public void setHealth(int health) {
+        this.health = health;
     }
 }

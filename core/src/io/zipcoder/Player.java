@@ -6,13 +6,11 @@ public class Player extends Creature{
 
     private static Player instance;
     private int turns;
-    private int health;
-
 
     private Player(){
         setId(Math.random());
         this.turns = 0;
-        this.health = 100;
+        this.setHealth(100);
         Player.instance = this;
     }
     public static Player getPlayer(){
@@ -37,18 +35,10 @@ public class Player extends Creature{
         this.turns = turns;
     }
 
-    public int getHealth() {
-        return health;
-    }
-
-    public void setHealth(int health) {
-        this.health = health;
-    }
-
     public void incrementTurn(){
         this.turns++;
         if(this.turns % 5 == 0){
-            this.health --;
+            this.setHealth(this.getHealth() - 1);
         }
     }
 
