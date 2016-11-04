@@ -42,12 +42,12 @@ project(":desktop") {
         compile "com.badlogicgames.gdx:gdx-freetype-platform:$gdxVersion:natives-desktop"
         compile "com.badlogicgames.gdx:gdx-tools:$gdxVersion"
         compile "com.badlogicgames.gdx:gdx-box2d-platform:$gdxVersion:natives-desktop"
+        testCompile 'junit:junit:4.12'
     }
 }
 
 project(":core") {
     apply plugin: "java"
-
 
     dependencies {
         compile "com.squidpony:squidlib:$squidlibVersion"
@@ -59,6 +59,7 @@ project(":core") {
         compile "com.badlogicgames.gdx:gdx-ai:$aiVersion"
         compile "com.badlogicgames.box2dlights:box2dlights:$box2DLightsVersion"
         compile "com.badlogicgames.gdx:gdx-box2d:$gdxVersion"
+        testCompile 'junit:junit:4.12'
     }
 }
 
