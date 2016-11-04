@@ -44,16 +44,29 @@ public class OriginInput extends SquidInput{
     @Override
     public boolean keyDown (int keycode) {
         if(ignoreInput) return false;
-
         boolean alt =  Gdx.input.isKeyPressed(Input.Keys.ALT_LEFT) || Gdx.input.isKeyPressed(Input.Keys.ALT_RIGHT),
                 ctrl =  Gdx.input.isKeyPressed(Input.Keys.CONTROL_LEFT) || Gdx.input.isKeyPressed(Input.Keys.CONTROL_RIGHT),
                 shift = Gdx.input.isKeyPressed(Input.Keys.SHIFT_LEFT) || Gdx.input.isKeyPressed(Input.Keys.SHIFT_RIGHT);
         char c = fromCode(keycode, shift);
-        if(c == UP_ARROW || c == DOWN_ARROW || c == LEFT_ARROW || c == RIGHT_ARROW){
-            queue.add(c);
-            queue.add('0');
-
+        switch(c){
+            case UP_ARROW:
+                return keyTyped('w');
+            case DOWN_ARROW:
+                return keyTyped('s');
+            case LEFT_ARROW:
+                return keyTyped('a');
+            case RIGHT_ARROW:
+                return keyTyped('d');
+            case ENTER:
+                return keyTyped('z');
+            default:
+                return false;
         }
-        return false;
+//        if(c == UP_ARROW || c == DOWN_ARROW || c == LEFT_ARROW || c == RIGHT_ARROW || c == ENTER){
+//            queue.add(c);
+//            queue.add('0');
+//
+//        }
+//        return false;
     }
 }

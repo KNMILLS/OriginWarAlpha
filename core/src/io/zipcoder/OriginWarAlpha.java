@@ -25,6 +25,8 @@ import squidpony.squidmath.RNG;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
+import java.util.LinkedHashSet;
 
 /**
  * The main class of the game, constructed once in each of the platform-specific Launcher classes. Doesn't use any
@@ -68,6 +70,7 @@ public class OriginWarAlpha extends ApplicationAdapter {
     private double lightCounter;
     private DijkstraMap playerToCursor;
     private Player player;
+    private LinkedHashSet<Coord> unexploredSet;
     private Coord cursor, stairsDown, stairSwitch;
     private ArrayList<Coord> toCursor;
     private ArrayList<Coord> awaitedMoves;
@@ -183,6 +186,8 @@ public class OriginWarAlpha extends ApplicationAdapter {
         awaitedMoves = new ArrayList<Coord>(100);
         //DijkstraMap is the pathfinding swiss-army knife we use here to find a path to the latest cursor position.
         playerToCursor = new DijkstraMap(decoDungeon, DijkstraMap.Measurement.EUCLIDEAN);
+        unexploredSet = new LinkedHashSet<>();
+        unexploredSet.addAll(Arrays.asList(CoordPacker.allPacked(placement)));
         bgColor = SColor.DARK_SLATE_GRAY;
         lights = DungeonUtility.generateLightnessModifiers(decoDungeon, lightCounter);
         // DungeonUtility provides various ways to get default colors or other information from a dungeon char 2D array.
@@ -210,11 +215,11 @@ public class OriginWarAlpha extends ApplicationAdapter {
         // It is recommended that you don't increase the max characters per sentence much more, since it's already very
         // close to touching the edges of the message box it's in.
         lang = new String[]{
-                "",
-                "ORIGIN WAR",
+                "Turns:\t"+player.getTurns() + "\t\t" + "Food Remaining:\t"+player.getHealth(),
                 "USE 'H' FOR HELP/CONTROLS",
-                "USE 'Q' FOR QUIT",
-                "CREATED BY KEN 'LEX LUTHOR' RAGONESE, EVAN 'SOUNDBYTE' HITCHINGS, AND CHRIS 'BOOM' NOBLES",
+                "KEN 'LEX LUTHOR' RAGONESE",
+                "EVAN 'SOUNDBYTE' HITCHINGS",
+                "CHRIS 'BOOM' NOBLES",
                 };
         helpText = new String[]{
                 "PICK UP THE '?' SYMBOL TO UNLOCK THE DOOR TO THE NEXT STAGE",
@@ -309,6 +314,8 @@ public class OriginWarAlpha extends ApplicationAdapter {
                     }
                     //skip a turn
                     case SquidInput.ENTER:
+                    case 'z':
+                    case 'Z':
                     {
                         move(0,0);
                         break;
@@ -326,13 +333,13 @@ public class OriginWarAlpha extends ApplicationAdapter {
             // hasn't been generated already by mouseMoved, then copy it over to awaitedMoves.
             @Override
             public boolean touchUp(int screenX, int screenY, int pointer, int button) {
-                if(explored[screenX][screenY] && awaitedMoves.isEmpty()) {
-                    if (toCursor.isEmpty()) {
+                if(explored[screenX][screenY]) {
+
                         cursor = Coord.get(screenX, screenY);
                         //This uses DijkstraMap.findPath to get a possibly long path from the current player position
                         //to the position the user clicked on.
-                        toCursor = playerToCursor.findPath(100, null, null, player.getPosition(), cursor);
-                    }
+                        toCursor = playerToCursor.findPath(100, unexploredSet, null, player.getPosition(), cursor);
+
                     awaitedMoves = new ArrayList<Coord>(toCursor);
                 }
                 return false;
@@ -354,7 +361,7 @@ public class OriginWarAlpha extends ApplicationAdapter {
                     return false;
                 }
                 cursor = Coord.get(screenX, screenY);
-                toCursor = playerToCursor.findPath(100, null, null, player.getPosition(), cursor);
+                toCursor = playerToCursor.findPath(100, unexploredSet, null, player.getPosition(), cursor);
                 return false;
             }
         }));
@@ -375,7 +382,6 @@ public class OriginWarAlpha extends ApplicationAdapter {
      */
     private void move(int xmod, int ymod) {
         if(player.getHealth() <= 0){
-            displayText = deathText;
             return;
         }
         int newX = player.getPosition().x + xmod, newY = player.getPosition().y + ymod;
@@ -389,8 +395,6 @@ public class OriginWarAlpha extends ApplicationAdapter {
                 resMap = DungeonUtility.generateResistances(decoDungeon);
             }
             fovmap = fov.calculateFOV(resMap, newX, newY, 8, Radius.CIRCLE);
-        } else if (newX == 0 && newY == 0){
-            player.incrementTurn();
         }
         if(player.getPosition() == stairSwitch){
             stairsDown = dungeonGen.stairsDown;
@@ -417,6 +421,10 @@ public class OriginWarAlpha extends ApplicationAdapter {
                 occupied = player.getPosition().getX() == i && player.getPosition().getY() == j;
                 if(fovmap[i][j] > 0.0){
                     explored[i][j] = true;
+                    Coord toRemove = Coord.get(i, j);
+                    unexploredSet.remove(toRemove);
+
+
                     if(occupied){
                         display.put(i, j, ' ');
                     } else {
@@ -430,6 +438,7 @@ public class OriginWarAlpha extends ApplicationAdapter {
                 }
             }
         }
+
         for (Coord pt : toCursor)
         {
             // use a brighter light to trace the path to the cursor, from 170 max lightness to 0 min.
@@ -444,8 +453,13 @@ public class OriginWarAlpha extends ApplicationAdapter {
             display.put(stairSwitch.x, stairSwitch.y, '?', 6);
         }
 
-        display.put(player.getPosition().x, player.getPosition().y, 'X', 21);
-
+        if(player.getHealth()>80)display.put(player.getPosition().x, player.getPosition().y, '∆', 21);
+        else if(player.getHealth()>30)display.put(player.getPosition().x, player.getPosition().y, '∆', 18);
+        else if(player.getHealth()>1)display.put(player.getPosition().x, player.getPosition().y, '∆', 12);
+        else{
+            display.put(player.getPosition().x, player.getPosition().y, '±', 2);
+            displayText = deathText;
+        }
         // for clarity, you could replace the above line with the uncommented line below
         //display.put(player.x, player.y, '@', SColor.INTERNATIONAL_ORANGE);
         // since this is what 6 refers to, a color constant in a palette where 6 refers to this shade of orange.

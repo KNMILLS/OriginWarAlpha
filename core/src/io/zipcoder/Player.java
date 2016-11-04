@@ -26,6 +26,7 @@ public class Player extends Creature{
     public void setPosition(Coord position){
         super.setPosition(position);
         this.incrementTurn();
+
     }
 
     public int getTurns() {
