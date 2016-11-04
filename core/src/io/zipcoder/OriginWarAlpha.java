@@ -386,15 +386,12 @@ public class OriginWarAlpha extends ApplicationAdapter {
             if(lineDungeon[newX][newY] == '+'){
                 lineDungeon[newX][newY] = '/';
                 decoDungeon[newX][newY] = '/';
-
                 resMap = DungeonUtility.generateResistances(decoDungeon);
             }
             fovmap = fov.calculateFOV(resMap, newX, newY, 8, Radius.CIRCLE);
         } else if (newX == 0 && newY == 0){
             player.incrementTurn();
         }
-        // loops through the text snippets displayed whenever the player moves
-        //langIndex = (langIndex + 1) % lang.length;
         if(player.getPosition() == stairSwitch){
             stairsDown = dungeonGen.stairsDown;
         }
@@ -485,6 +482,10 @@ public class OriginWarAlpha extends ApplicationAdapter {
         if(!awaitedMoves.isEmpty())
         {
             // this doesn't check for input, but instead processes and removes Points from awaitedMoves.
+            if(this.input.hasNext()){
+                awaitedMoves.clear();
+                playerToCursor.clearGoals();
+            }
             secondsWithoutMoves += Gdx.graphics.getDeltaTime();
             if (secondsWithoutMoves >= 0.1) {
                 secondsWithoutMoves = 0;
