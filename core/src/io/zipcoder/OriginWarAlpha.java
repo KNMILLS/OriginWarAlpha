@@ -17,6 +17,7 @@ import squidpony.squidgrid.Radius;
 import squidpony.squidgrid.gui.gdx.*;
 import squidpony.squidgrid.mapping.DungeonGenerator;
 import squidpony.squidgrid.mapping.DungeonUtility;
+import squidpony.squidgrid.mapping.RoomFinder;
 import squidpony.squidgrid.mapping.styled.TilesetType;
 
 import squidpony.squidmath.Coord;
@@ -84,6 +85,7 @@ public class OriginWarAlpha extends ApplicationAdapter {
     private String[] deathText;
     private int levelCount = 1;
     private boolean foundSwitch;
+    private RoomFinder roomFinder;
     @Override
     public void create () {
         player = Player.getPlayer();
@@ -205,6 +207,8 @@ public class OriginWarAlpha extends ApplicationAdapter {
         languageBG = GwtCompatibility.fill2D(1, gridWidth, 6);
         languageFG = GwtCompatibility.fill2D(0, gridWidth, 6);
         foundSwitch = false;
+        roomFinder = new RoomFinder(decoDungeon);
+
 
         // this creates an array of sentences, where each imitates a different sort of language or mix of languages.
         // this serves to demonstrate the large amount of glyphs SquidLib supports.
