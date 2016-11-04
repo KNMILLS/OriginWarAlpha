@@ -153,7 +153,24 @@ public class OriginWarAlpha extends ApplicationAdapter {
         dungeonGen.generate(TilesetType.ROOMS_AND_CORRIDORS_B);
         explored = new boolean[gridWidth][gridHeight];
         //uncomment this next line to randomly add water to the dungeon in pools.
-        //dungeonGen.addWater(15);
+        switch(levelCount){
+            case 1:
+                dungeonGen.addWater(75);
+                dungeonGen.addGrass(50);
+                break;
+            case 2:
+                dungeonGen.addWater(50);
+                dungeonGen.addGrass(25);
+                break;
+            case 3:
+                dungeonGen.addWater(25);
+                break;
+            case 4:
+                dungeonGen.addWater(100);
+                break;
+            default:
+                dungeonGen.clearEffects();
+        }
         //decoDungeon is given the dungeon with any decorations we specified. (Here, we didn't, unless you chose to add
         //water to the dungeon. In that case, decoDungeon will have different contents than bareDungeon, next.)
         decoDungeon = dungeonGen.generate();
