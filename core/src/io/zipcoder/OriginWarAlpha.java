@@ -262,7 +262,7 @@ public class OriginWarAlpha extends ApplicationAdapter {
         // It is recommended that you don't increase the max characters per sentence much more, since it's already very
         // close to touching the edges of the message box it's in.
         lang = new String[]{
-                "Turns:\t"+player.getTurns() + "\t\t" + "Health Remaining:\t"+player.getHealth(),
+                "Turns:\t"+player.getTurns() + "\t\t" + "Health Remaining:\t"+player.getHealth() + " Current Level:\t"+levelCount,
                 "USE 'H' FOR HELP/CONTROLS",
                 "KEN 'LEX LUTHOR' RAGONESE",
                 "EVAN 'SOUNDBYTE' HITCHINGS",
@@ -395,7 +395,6 @@ public class OriginWarAlpha extends ApplicationAdapter {
             @Override
             public boolean touchUp(int screenX, int screenY, int pointer, int button) {
                 if(explored[screenX][screenY]) {
-
                         cursor = Coord.get(screenX, screenY);
                         //This uses DijkstraMap.findPath to get a possibly long path from the current player position
                         //to the position the user clicked on.
@@ -467,16 +466,14 @@ public class OriginWarAlpha extends ApplicationAdapter {
             stairsDown = dungeonGen.stairsDown;
             foundSwitch = true;
         }
-        lang[0] = "Turns:\t"+player.getTurns() + "\t\t" + "Health Remaining:\t"+player.getHealth();
+
 
         if(player.getPosition() == stairsDown){
             levelCount++;
             player.setHealth(Math.min(100, player.getHealth()+50-(levelCount*2)));
             create();
         }
-
-        // loops through the text snippets displayed whenever the player moves
-
+        lang[0] = "Turns:\t"+player.getTurns() + "\t\t" + "Health Remaining:\t"+player.getHealth() + " Current Level:\t"+levelCount;
     }
 
     /**
@@ -492,13 +489,9 @@ public class OriginWarAlpha extends ApplicationAdapter {
                     explored[i][j] = true;
                     Coord toRemove = Coord.get(i, j);
                     unexploredSet.remove(toRemove);
-
-
                     if(occupied){
                         display.put(i, j, ' ');
                     } else {
-
-
                         display.put(i, j, lineDungeon[i][j], fgColor[i][j], bgColorArr[i][j],
                                 lights[i][j] + (int) (320 * fovmap[i][j]));
                     }
