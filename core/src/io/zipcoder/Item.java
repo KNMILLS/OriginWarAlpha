@@ -6,22 +6,22 @@ import squidpony.squidmath.Coord;
  * Created by evanhitchings on 11/4/16.
  */
 public class Item {
-    private Coord postion;
+    private Coord position;
     private char symbol;
 
     public Item() {
     }
 
-    public Item(Coord postion) {
-        this.postion = postion;
+    public Item(Coord position) {
+        this.position = position;
     }
 
-    public Coord getPostion() {
-        return postion;
+    public Coord getPosition() {
+        return position;
     }
 
-    public void setPostion(Coord postion) {
-        this.postion = postion;
+    public void setPosition(Coord position) {
+        this.position = position;
     }
 
     public char getSymbol() {
