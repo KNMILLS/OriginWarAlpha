@@ -8,9 +8,7 @@ import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.scenes.scene2d.Stage;
-import com.badlogic.gdx.scenes.scene2d.ui.List;
 import com.badlogic.gdx.utils.viewport.StretchViewport;
-import squidpony.FakeLanguageGen;
 import squidpony.GwtCompatibility;
 import squidpony.squidai.DijkstraMap;
 import squidpony.squidgrid.FOV;
@@ -18,7 +16,6 @@ import squidpony.squidgrid.Radius;
 import squidpony.squidgrid.gui.gdx.*;
 import squidpony.squidgrid.mapping.DungeonGenerator;
 import squidpony.squidgrid.mapping.DungeonUtility;
-import squidpony.squidgrid.mapping.ModularMapGenerator;
 import squidpony.squidgrid.mapping.RoomFinder;
 import squidpony.squidgrid.mapping.styled.TilesetType;
 
@@ -28,7 +25,6 @@ import squidpony.squidmath.RNG;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.LinkedHashSet;
 
 /**
@@ -515,8 +511,8 @@ public class OriginWarAlpha extends ApplicationAdapter {
             display.put(stairSwitch.x, stairSwitch.y, '?', 12);
         }
         for(Food food : foodList){
-            int x = food.getPostion().getX();
-            int y = food.getPostion().getY();
+            int x = food.getPosition().getX();
+            int y = food.getPosition().getY();
             if(explored[x][y]){
                 display.put(x, y, food.getSymbol(), 39);
             }
@@ -602,16 +598,17 @@ public class OriginWarAlpha extends ApplicationAdapter {
 
 	public void eatFood(){
         for(Food food : foodList){
-            if(food.getPostion().equals(player.getPosition())){
+            if(food.getPosition().equals(player.getPosition())){
                 foodList.remove(food);
                 player.setHealth(player.getHealth() + 10);
                 if(player.getHealth() >= 125){
                     displayText = new String[] {
-                        "You ate too much food!",
+                        "A.L.I.C.E: Starvation is the enemy//" +
+                                "But no enemy is absolute. ",
                             "",
-                        "You'll move at half speed",
+                        "No solution is either. You will be slower when gorged. Do keep this in mind.",
                             "",
-                            "Until you recover."
+                            ""
                     };
                 }
                 break;
