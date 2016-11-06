@@ -520,19 +520,19 @@ public class OriginWarAlpha extends ApplicationAdapter {
 
         if(player.getHealth()>50){
             display.put(player.getPosition().x, player.getPosition().y, '∆', 21);
-            lang[3] = "A.L.I.C.E: I would not go so far as to call you healthy but//";
-            lang[4] = "...you aren't dying. Continue that.";
+            displayText[3] = "A.L.I.C.E: I would not go so far as to call you healthy but//";
+            displayText[4] = "...you aren't dying. Continue that.";
         }
         else if(player.getHealth()>25){
             display.put(player.getPosition().x, player.getPosition().y, '∆', 18);
-            lang[3] = "A.L.I.C.E: I actually need to remind you to eat. This is not inspiring.";
-            lang[4] = "";
+            displayText[3] = "A.L.I.C.E: I actually need to remind you to eat. This is not inspiring.";
+            displayText[4] = "";
         }
         else if(player.getHealth()>1){
             display.put(player.getPosition().x, player.getPosition().y, '∆', 12);
-            lang[2] = "A.L.I.C.E: You are dying. Not to make this about me//";
-            lang[3] = "But you aren't terribly useful to me dead//";
-            lang[4] = "Fix it. Please.";
+            displayText[2] = "A.L.I.C.E: You are dying. Not to make this about me//";
+            displayText[3] = "But you aren't terribly useful to me dead//";
+            displayText[4] = "Fix it. Please.";
         }
         else{
             display.put(player.getPosition().x, player.getPosition().y, '±', 2);
