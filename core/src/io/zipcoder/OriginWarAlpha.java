@@ -260,16 +260,16 @@ public class OriginWarAlpha extends ApplicationAdapter {
         lang = new String[]{
                 "Turns:\t"+player.getTurns() + "\t\t" + "Health Remaining:\t"+player.getHealth() + " Current Level:\t"+levelCount,
                 "USE 'H' FOR HELP/CONTROLS",
-                "KEN 'LEX LUTHOR' RAGONESE",
-                "EVAN 'SOUNDBYTE' HITCHINGS",
-                "CHRIS 'BOOM' NOBLES",
+                "",
+                "",
+                "",
                 };
         helpText = new String[]{
-                "PICK UP THE '?' SYMBOL TO UNLOCK THE DOOR TO THE NEXT STAGE",
-                "PICK UP THE '%' TO EAT FOOD",
-                "ONCE YOU FIND THE '?', PICK UP THE '*' SYMBOL TO ADVANCE TO THE NEXT LEVEL",
-                "USE 'H' TO CLOSE HELP",
-                "USE 'Q' TO QUIT, 'T' TO TRY AGAIN",
+                "A.L.I.C.E: You need to find the switch ( \"?\" symbol) to unlock the hatch (\"*\" symbol).",
+                "There are rations (\"%\" symbol) scattered about. Make use of them.",
+                "[[ONCE YOU FIND THE '?', PICK UP THE '*' SYMBOL TO ADVANCE TO THE NEXT LEVEL]]",
+                "[[USE 'H' TO CLOSE HELP]]",
+                "[[USE 'Q' TO QUIT, 'T' TO TRY AGAIN]]",
                 };
         deathText = new String[]{
                 "********************",
@@ -518,9 +518,22 @@ public class OriginWarAlpha extends ApplicationAdapter {
             }
         }
 
-        if(player.getHealth()>50)display.put(player.getPosition().x, player.getPosition().y, '∆', 21);
-        else if(player.getHealth()>25)display.put(player.getPosition().x, player.getPosition().y, '∆', 18);
-        else if(player.getHealth()>1)display.put(player.getPosition().x, player.getPosition().y, '∆', 12);
+        if(player.getHealth()>50){
+            display.put(player.getPosition().x, player.getPosition().y, '∆', 21);
+            lang[3] = "A.L.I.C.E: I would not go so far as to call you healthy but//";
+            lang[4] = "...you aren't dying. Continue that.";
+        }
+        else if(player.getHealth()>25){
+            display.put(player.getPosition().x, player.getPosition().y, '∆', 18);
+            lang[3] = "A.L.I.C.E: I actually need to remind you to eat. This is not inspiring.";
+            lang[4] = "";
+        }
+        else if(player.getHealth()>1){
+            display.put(player.getPosition().x, player.getPosition().y, '∆', 12);
+            lang[2] = "A.L.I.C.E: You are dying. Not to make this about me//";
+            lang[3] = "But you aren't terribly useful to me dead//";
+            lang[4] = "Fix it. Please.";
+        }
         else{
             display.put(player.getPosition().x, player.getPosition().y, '±', 2);
             displayText = deathText;
