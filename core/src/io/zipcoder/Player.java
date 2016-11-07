@@ -6,6 +6,7 @@ public class Player extends Creature{
 
     private static Player instance;
     private int turns;
+    public String name;
 
     private Player(){
         setId(Math.random());
@@ -44,6 +45,7 @@ public class Player extends Creature{
             //this.setHealth(this.getHealth() - 20);
             this.setHealth(this.getHealth() - 1);
         }
+
     }
 
 }

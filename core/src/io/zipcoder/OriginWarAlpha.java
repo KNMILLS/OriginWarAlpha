@@ -81,14 +81,22 @@ public class OriginWarAlpha extends ApplicationAdapter {
     private String[] lang;
     private String[] helpText;
     private String[] displayText;
-    private String[] deathText;
+    private String[] victoryText;
+    private String[] scoreScreen;
     private int levelCount = 1;
     private boolean foundSwitch;
     private RoomFinder roomFinder;
     private ArrayList<Food> foodList;
+    private boolean scoreScreenOn;
+    private boolean debugMode;
+    private int foodEaten;
+    private boolean playerIsAlive;
+    private boolean victoryState;
+
     @Override
     public void create () {
         player = Player.getPlayer();
+        victoryState = false;
         //These variables, corresponding to the screen's width and height in cells and a cell's width and height in
         //pixels, must match the size you specified in the launcher for input to behave.
         //This is one of the more common places a mistake can happen.
@@ -154,20 +162,38 @@ public class OriginWarAlpha extends ApplicationAdapter {
         //uncomment this next line to randomly add water to the dungeon in pools.
         switch(levelCount){
             case 1:
-                dungeonGen.addWater(50);
+                dungeonGen.addGrass(75);
                 break;
             case 2:
-                dungeonGen.addWater(10);
-                dungeonGen.addGrass(10);
+                dungeonGen.addGrass(60);
                 break;
             case 3:
-                dungeonGen.addWater(10);
+                dungeonGen.addGrass(35);
                 break;
             case 4:
                 dungeonGen.addGrass(10);
                 break;
+            case 5:
+                dungeonGen.addGrass(25);
+                dungeonGen.addWater(10);
+                break;
+            case 6:
+                dungeonGen.addGrass(10);
+                dungeonGen.addWater(35);
+                break;
+            case 7:
+                dungeonGen.addWater(35);
+                break;
+            case 8:
+                dungeonGen.addWater(60);
+                break;
+            case 9:
+                dungeonGen.addWater(75);
+                break;
+            case 10:
+                victoryState = true;
             default:
-                dungeonGen.clearEffects();
+                dungeonGen.addGrass(100);
         }
         //decoDungeon is given the dungeon with any decorations we specified. (Here, we didn't, unless you chose to add
         //water to the dungeon. In that case, decoDungeon will have different contents than bareDungeon, next.)
@@ -246,8 +272,8 @@ public class OriginWarAlpha extends ApplicationAdapter {
         foundSwitch = false;
         roomFinder = new RoomFinder(decoDungeon);
         foodList = addFood();
-
-
+        foodEaten = 0;
+        playerIsAlive = true;
 
         // this creates an array of sentences, where each imitates a different sort of language or mix of languages.
         // this serves to demonstrate the large amount of glyphs SquidLib supports.
@@ -258,28 +284,34 @@ public class OriginWarAlpha extends ApplicationAdapter {
         // It is recommended that you don't increase the max characters per sentence much more, since it's already very
         // close to touching the edges of the message box it's in.
         lang = new String[]{
-                "Turns:\t"+player.getTurns() + "\t\t" + "Health Remaining:\t"+player.getHealth() + " Current Level:\t"+levelCount,
-                "USE 'H' FOR HELP/CONTROLS",
+                "Controls:\t WASD/Arrow Keys/Mouse to move.",
+                "'H' for help screen.\t'E' for score screen",
+                "'Q' to quit.\t'T' restart the game",
                 "",
                 "",
-                "",
-                };
-        helpText = new String[]{
-                "A.L.I.C.E: You need to find the switch ( \"?\" symbol) to unlock the hatch (\"*\" symbol).",
-                "There are rations (\"%\" symbol) scattered about. Make use of them.",
-                "[[ONCE YOU FIND THE '?', PICK UP THE '*' SYMBOL TO ADVANCE TO THE NEXT LEVEL]]",
-                "[[USE 'H' TO CLOSE HELP]]",
-                "[[USE 'Q' TO QUIT, 'T' TO TRY AGAIN]]",
-                };
-        deathText = new String[]{
-                "********************",
-                "*   YOU DIED :(    *",
-                "* 'T' TO TRY AGAIN *",
-                "*    'Q' TO QUIT   *",
-                "********************",
         };
-
+        helpText = new String[]{
+                "You need to find the switch '?' to unlock the hatch '*' to the next level.",
+                "There are rations '%' scattered about. Make use of them.",
+                "Movement is modified by terrain: shallow water:2x, deep water:3x, grass:free.",
+                "",
+                "",
+        };
         displayText = new String[]{
+                "",
+                "",
+                "",
+                "",
+                "",
+        };
+        scoreScreen = new String[]{
+                "",
+                "",
+                "",
+                "",
+                "",
+        };
+        victoryText = new String[]{
                 "",
                 "",
                 "",
@@ -338,13 +370,13 @@ public class OriginWarAlpha extends ApplicationAdapter {
                     case 'H':
                     case 'h':
                     {
-                        if(helpOn){
-                            helpOn = false;
-                            normal = true;
-                        }
-                        else{
+                        if(!helpOn){
                             helpOn = true;
                             normal = false;
+                        }
+                        else{
+                            helpOn = false;
+                            normal = true;
                         }
                         break;
                     }
@@ -368,15 +400,36 @@ public class OriginWarAlpha extends ApplicationAdapter {
                         move(0,0);
                         break;
                     }
-                    //debug mode
+                    case 'e':
+                    case 'E':
+                        if(!scoreScreenOn){
+                            scoreScreenOn = true;
+                            normal = false;
+                        }
+                        else{
+                            scoreScreenOn = false;
+                            normal = true;
+                        }
+                        break;
+                    case '!':
+                        if(debugMode) debugMode = false;
+                        else debugMode = true;
+
+                        break;
                     case 'p':
                     case 'P':
-                        player.setHealth(120);
+                        if(debugMode)player.setHealth(126);
                         break;
                     case 'o':
                     case 'O':
-                        player.setHealth(5);
+                        if(debugMode)player.setHealth(5);
                         break;
+                    case 'i':
+                    case 'I':
+                        if(debugMode){
+                            levelCount++;
+                            create();
+                        }
                 }
             }
         },
@@ -439,8 +492,10 @@ public class OriginWarAlpha extends ApplicationAdapter {
      * @param ymod
      */
     private void move(int xmod, int ymod) {
+
         displayText = lang;
         if(player.getHealth() <= 0){
+            playerIsAlive = false;
             input.drain();
             awaitedMoves.clear();
             return;
@@ -455,6 +510,17 @@ public class OriginWarAlpha extends ApplicationAdapter {
                 decoDungeon[newX][newY] = '/';
                 resMap = DungeonUtility.generateResistances(decoDungeon);
             }
+            if(decoDungeon[newX][newY] == '~') {
+                player.incrementTurn();
+                player.incrementTurn();
+            }
+            if(decoDungeon[newX][newY] == ',') {
+                player.incrementTurn();
+            }
+            if(decoDungeon[newX][newY] == '"') {
+                if(player.getTurns() % 4 == 0)player.setHealth(player.getHealth() + 1);
+                player.setTurns(player.getTurns()-1);
+            }
             eatFood();
             fovmap = fov.calculateFOV(resMap, newX, newY, 8, Radius.CIRCLE);
         }
@@ -466,10 +532,12 @@ public class OriginWarAlpha extends ApplicationAdapter {
 
         if(player.getPosition() == stairsDown){
             levelCount++;
-            player.setHealth(Math.min(100, player.getHealth()+50-(levelCount*2)));
+            player.setHealth(player.getHealth()+50-(levelCount*3));
             create();
         }
-        lang[0] = "Turns:\t"+player.getTurns() + "\t\t" + "Health Remaining:\t"+player.getHealth() + " Current Level:\t"+levelCount;
+        scoreScreen[0] = "Player ID\t" + player.getId() + "\tCurrent Level:\t"  + levelCount + "\tTurns:\t" + player.getTurns();
+        scoreScreen[1] = "Switch Found:\t" + foundSwitch + "\tFood remaining:\t" + Math.max(0,(10 - levelCount)-foodEaten);
+        scoreScreen[2] = "Health Remaining:\t" + player.getHealth() + "\tFood Eaten:\t" + foodEaten;
     }
 
     /**
@@ -503,11 +571,10 @@ public class OriginWarAlpha extends ApplicationAdapter {
             display.highlight(pt.x, pt.y, lights[pt.x][pt.y] + (int)(170 * fovmap[pt.x][pt.y]));
         }
         //places the player as an '@' at his position in orange (6 is an index into SColor.LIMITED_PALETTE).
-        if(stairsDown != null && explored[stairsDown.x][stairsDown.y]){
-
+        if((stairsDown != null && explored[stairsDown.x][stairsDown.y]) && levelCount < 10){
             display.put(stairsDown.x, stairsDown.y, '*', 12);
         }
-        if(explored[stairSwitch.x][stairSwitch.y] && !foundSwitch){
+        if((explored[stairSwitch.x][stairSwitch.y] && !foundSwitch) && levelCount < 10){
             display.put(stairSwitch.x, stairSwitch.y, '?', 12);
         }
         for(Food food : foodList){
@@ -517,26 +584,43 @@ public class OriginWarAlpha extends ApplicationAdapter {
                 display.put(x, y, food.getSymbol(), 39);
             }
         }
-
-        if(player.getHealth()>50){
+        if(victoryState){
+            lang[0] = "Submit a screenshot of your score screen to the devs.";
+            lang[1] = "Top scores will be posted to the website.";
+            lang[2] = "'H' for help screen\t'E' for score screen\t'Q' to quit\t'T' restart the game";
+            displayText[3] = "A.L.I.C.E: I... I can't believe you did it.//";
+            displayText[4] = "You actually escaped! 'THANKS FOR PLAYING!!!' -DEV TEAM";
+            input.drain();
+            awaitedMoves.clear();
+        }
+        else if(player.getHealth() >= 125){
+            display.put(player.getPosition().x, player.getPosition().y, '∆', 27);
+            displayText[3] = "A.L.I.C.E: Starvation is the enemy but no enemy is absolute...";
+            displayText[4] = "No solution is either. You will be slower when gorged. Do keep this in mind.";
+        }
+        else if(player.getHealth()>50){
             display.put(player.getPosition().x, player.getPosition().y, '∆', 21);
             displayText[3] = "A.L.I.C.E: I would not go so far as to call you healthy but//";
             displayText[4] = "...you aren't dying. Continue that.";
         }
         else if(player.getHealth()>25){
             display.put(player.getPosition().x, player.getPosition().y, '∆', 18);
-            displayText[3] = "A.L.I.C.E: I actually need to remind you to eat. This is not inspiring.";
-            displayText[4] = "";
+            displayText[3] = "A.L.I.C.E: I actually need to remind you to eat.";
+            displayText[4] = "This is not inspiring.";
         }
-        else if(player.getHealth()>1){
+        else if(playerIsAlive){
             display.put(player.getPosition().x, player.getPosition().y, '∆', 12);
-            displayText[2] = "A.L.I.C.E: You are dying. Not to make this about me//";
-            displayText[3] = "But you aren't terribly useful to me dead//";
-            displayText[4] = "Fix it. Please.";
+            displayText[3] = "A.L.I.C.E: You are dying. Not to make this about me//";
+            displayText[4] = "But you aren't terribly useful to me dead. Fix it. Please.";
         }
         else{
             display.put(player.getPosition().x, player.getPosition().y, '±', 2);
-            displayText = deathText;
+            playerIsAlive = false;
+            lang[0] = "Submit a screenshot of your score screen to the devs.";
+            lang[1] = "Top scores will be posted to the website.";
+            lang[2] = "'H' for help screen\t'E' for score screen\t'Q' to quit\t'T' restart the game";
+            displayText[3] = "A.L.I.C.E: You have died. What a waste...";
+            displayText[4] = "You can try again if you really think you're worthy.";
         }
         // for clarity, you could replace the above line with the uncommented line below
         //display.put(player.x, player.y, '@', SColor.INTERNATIONAL_ORANGE);
@@ -549,6 +633,7 @@ public class OriginWarAlpha extends ApplicationAdapter {
         // The arrays we produced in create() are used here to provide a blank area behind text
         display.put(0, gridHeight + 1, spaces, languageFG, languageBG);
         if(helpOn) displayText = helpText;
+        if(scoreScreenOn) displayText = scoreScreen;
         else if(normal) displayText = lang;
         display.putString(2, gridHeight + 1, displayText[0], 0, 1);
         display.putString(2, gridHeight + 2, displayText[1], 0, 1);
@@ -613,24 +698,15 @@ public class OriginWarAlpha extends ApplicationAdapter {
         for(Food food : foodList){
             if(food.getPosition().equals(player.getPosition())){
                 foodList.remove(food);
+                foodEaten++;
                 player.setHealth(player.getHealth() + 10);
-                if(player.getHealth() >= 125){
-                    displayText = new String[] {
-                        "A.L.I.C.E: Starvation is the enemy//" +
-                                "But no enemy is absolute. ",
-                            "",
-                        "No solution is either. You will be slower when gorged. Do keep this in mind.",
-                            "",
-                            ""
-                    };
-                }
                 break;
             }
         }
     }
 
 	public ArrayList<Food> addFood(){
-	    int foodToAdd = 7 - levelCount;
+	    int foodToAdd = 10 - levelCount;
         ArrayList<Food> toReturn = new ArrayList<>();
         while(foodToAdd > 0){
             foodToAdd--;
@@ -652,9 +728,11 @@ public class OriginWarAlpha extends ApplicationAdapter {
     }
 
     public void restart(){
+        playerIsAlive = true;
         player.setHealth(101);
         player.setTurns(-1);
         levelCount = 1;
+        foodEaten = 0;
         create();
     }
 }
