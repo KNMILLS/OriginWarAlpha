@@ -164,7 +164,7 @@ public class OriginWarAlpha extends ApplicationAdapter {
         //sections of pre-drawn dungeon and drops them into place in a tiling pattern. It makes good "ruined" dungeons.
         dungeonGen = new DungeonGenerator(gridWidth, gridHeight, rng);
         dungeonGen.addDoors(25, true);
-        dungeonGen.generate(TilesetType.ROOMS_LIMIT_CONNECTIVITY);
+        dungeonGen.generate(TilesetType.ROOMS_AND_CORRIDORS_B);
         explored = new boolean[gridWidth][gridHeight];
         //uncomment this next line to randomly add water to the dungeon in pools.
         switch(levelCount){
