@@ -25,6 +25,7 @@ import squidpony.squidmath.RNG;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.LinkedHashSet;
 
 /**
@@ -51,7 +52,7 @@ public class OriginWarAlpha extends ApplicationAdapter {
     private DungeonGenerator dungeonGen;
     private char[][] decoDungeon, bareDungeon, lineDungeon, spaces;
     private int[][] colorIndices, bgColorIndices, languageBG, languageFG, lights;
-    private double[][] fovmap, resMap;
+    private double[][] fovmap, resMap, costArray;
     private boolean explored[][];
     private Color[][] fgColor, bgColorArr;
     private FOV fov;
@@ -70,6 +71,7 @@ public class OriginWarAlpha extends ApplicationAdapter {
     private double lightCounter;
     private DijkstraMap playerToCursor;
     private Player player;
+    private HashMap<Character, Double> costMap;
     private LinkedHashSet<Coord> unexploredSet;
     private Coord cursor, stairsDown, stairSwitch;
     private ArrayList<Coord> toCursor;
@@ -97,6 +99,11 @@ public class OriginWarAlpha extends ApplicationAdapter {
     public void create () {
         player = Player.getPlayer();
         victoryState = false;
+        costMap= new HashMap<>();
+        costMap.put('.', 1.0);
+        costMap.put('~', 3.0);
+        costMap.put('"', 0.1);
+        costMap.put(',', 2.0);
         //These variables, corresponding to the screen's width and height in cells and a cell's width and height in
         //pixels, must match the size you specified in the launcher for input to behave.
         //This is one of the more common places a mistake can happen.
@@ -199,6 +206,7 @@ public class OriginWarAlpha extends ApplicationAdapter {
         //water to the dungeon. In that case, decoDungeon will have different contents than bareDungeon, next.)
         decoDungeon = dungeonGen.generate();
         decoDungeon = DungeonUtility.closeDoors(decoDungeon);
+        costArray = DungeonUtility.generateCostMap(decoDungeon, costMap, 1.0);
 
 
         //There are lots of options for dungeon generation in SquidLib; you can pass a TilesetType enum to generate()
@@ -232,6 +240,8 @@ public class OriginWarAlpha extends ApplicationAdapter {
         awaitedMoves = new ArrayList<Coord>(100);
         //DijkstraMap is the pathfinding swiss-army knife we use here to find a path to the latest cursor position.
         playerToCursor = new DijkstraMap(decoDungeon, DijkstraMap.Measurement.EUCLIDEAN);
+        playerToCursor = playerToCursor.initializeCost(costArray);
+
         unexploredSet = new LinkedHashSet<>();
         unexploredSet.addAll(Arrays.asList(CoordPacker.allPacked(placement)));
         bgColor = SColor.DARK_SLATE_GRAY;
