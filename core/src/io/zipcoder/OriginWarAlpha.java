@@ -97,12 +97,11 @@ public class OriginWarAlpha extends ApplicationAdapter {
     private boolean playerIsAlive;
     private boolean victoryState;
     private AStarSearch validLevelSearch;
-    private DijkstraMap validSwitch;
-    private HashMap<Character, Double> resMapValues;
+    private Sound backgroundMusic;
 
     @Override
     public void create () {
-        Sound backgroundMusic = Gdx.audio.newSound(Gdx.files.internal("backgroundMusic.mp3"));
+        backgroundMusic = Gdx.audio.newSound(Gdx.files.internal("backgroundMusic.mp3"));
         backgroundMusic.loop();
         player = Player.getPlayer();
         victoryState = false;
@@ -111,8 +110,6 @@ public class OriginWarAlpha extends ApplicationAdapter {
         costMap.put('~', 3.0);
         costMap.put('"', 0.1);
         costMap.put(',', 2.0);
-        resMapValues = new HashMap<>();
-        resMapValues.put('+', .95);
 
 
         //These variables, corresponding to the screen's width and height in cells and a cell's width and height in
