@@ -23,10 +23,12 @@ import squidpony.squidgrid.mapping.DungeonGenerator;
 import squidpony.squidgrid.mapping.DungeonUtility;
 import squidpony.squidgrid.mapping.RoomFinder;
 import squidpony.squidgrid.mapping.styled.TilesetType;
+import squidpony.squidmath.AStarSearch;
 import squidpony.squidmath.Coord;
 import squidpony.squidmath.CoordPacker;
 import squidpony.squidmath.RNG;
 import java.util.*;
+import java.util.Queue;
 
 /**
  * The main class of the game, constructed once in each of the platform-specific Launcher classes. Doesn't use any
@@ -94,6 +96,8 @@ public class OriginWarAlpha extends ApplicationAdapter {
     private int foodEaten;
     private boolean playerIsAlive;
     private boolean victoryState;
+    private AStarSearch validLevelSearch;
+    private DijkstraMap validSwitch;
 
     @Override
     public void create () {
@@ -165,8 +169,9 @@ public class OriginWarAlpha extends ApplicationAdapter {
         //This uses the seeded RNG we made earlier to build a procedural dungeon using a method that takes rectangular
         //sections of pre-drawn dungeon and drops them into place in a tiling pattern. It makes good "ruined" dungeons.
         dungeonGen = new DungeonGenerator(gridWidth, gridHeight, rng);
+
         dungeonGen.addDoors(25, true);
-        dungeonGen.generate(TilesetType.ROOMS_AND_CORRIDORS_B);
+        dungeonGen.generate(TilesetType.OPEN_AREAS);
         explored = new boolean[gridWidth][gridHeight];
         //uncomment this next line to randomly add water to the dungeon in pools.
         switch(levelCount){
@@ -232,11 +237,24 @@ public class OriginWarAlpha extends ApplicationAdapter {
         //player is, here, just a Coord that stores his position. In a real game, you would probably have a class for
         //creatures, and possibly a subclass for the player.
         player.setPosition((dungeonGen.utility.randomCell(placement)));
+        while(lineDungeon[player.getPosition().getX()][player.getPosition().getY()] == '+'){
+            player.setPosition(((dungeonGen.utility.randomCell(placement))));
+        }
+        stairsDown = null;
+        stairSwitch = dungeonGen.stairsUp;
+
+        validLevelSearch = new AStarSearch(costArray, AStarSearch.SearchType.EUCLIDEAN);
+        Queue<Coord> validPathToExit = null;
+        while(validPathToExit == null){
+            validPathToExit = validLevelSearch.path(player.getPosition(), stairSwitch);
+            if(validPathToExit == null){
+                player.setPosition(dungeonGen.utility.randomCell(placement));
+            }
+        }
         fov = new FOV(FOV.RIPPLE_TIGHT);
         resMap = DungeonUtility.generateResistances(decoDungeon);
         fovmap = fov.calculateFOV(resMap, player.getPosition().getX(), player.getPosition().getY(), 8, Radius.CIRCLE);
-        stairsDown = null;
-        stairSwitch = dungeonGen.stairsUp;
+
         //This is used to allow clicks or taps to take the player to the desired area.
         toCursor = new ArrayList<Coord>(100);
         awaitedMoves = new ArrayList<Coord>(100);
@@ -520,7 +538,7 @@ public class OriginWarAlpha extends ApplicationAdapter {
             if(lineDungeon[newX][newY] == '+'){
                 lineDungeon[newX][newY] = '/';
                 decoDungeon[newX][newY] = '/';
-                resMap = DungeonUtility.generateResistances(decoDungeon);
+                resMap = DungeonUtility.generateResistances(bareDungeon);
             }
             if(decoDungeon[newX][newY] == '~') {
                 player.incrementTurn();
@@ -581,7 +599,7 @@ public class OriginWarAlpha extends ApplicationAdapter {
             display.highlight(pt.x, pt.y, lights[pt.x][pt.y] + (int)(170 * fovmap[pt.x][pt.y]));
         }
         //places the player as an '@' at his position in orange (6 is an index into SColor.LIMITED_PALETTE).
-        if((stairsDown != null && explored[stairsDown.x][stairsDown.y]) && levelCount < 10){
+        if((stairsDown != null) && levelCount < 10){
             display.put(stairsDown.x, stairsDown.y, '*', 12);
         }
         if((explored[stairSwitch.x][stairSwitch.y] && !foundSwitch) && levelCount < 10){
