@@ -1,13 +1,18 @@
 package io.zipcoder;
 
+import com.badlogic.gdx.utils.Timer;
+import com.badlogic.gdx.utils.Timer.*;
 import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.InputAdapter;
 import com.badlogic.gdx.InputMultiplexer;
+import com.badlogic.gdx.audio.Music;
+import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.scenes.scene2d.Stage;
+import com.badlogic.gdx.utils.*;
 import com.badlogic.gdx.utils.viewport.StretchViewport;
 import squidpony.GwtCompatibility;
 import squidpony.squidai.DijkstraMap;
@@ -18,15 +23,10 @@ import squidpony.squidgrid.mapping.DungeonGenerator;
 import squidpony.squidgrid.mapping.DungeonUtility;
 import squidpony.squidgrid.mapping.RoomFinder;
 import squidpony.squidgrid.mapping.styled.TilesetType;
-
 import squidpony.squidmath.Coord;
 import squidpony.squidmath.CoordPacker;
 import squidpony.squidmath.RNG;
-
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.LinkedHashSet;
+import java.util.*;
 
 /**
  * The main class of the game, constructed once in each of the platform-specific Launcher classes. Doesn't use any
@@ -97,6 +97,8 @@ public class OriginWarAlpha extends ApplicationAdapter {
 
     @Override
     public void create () {
+        Sound backgroundMusic = Gdx.audio.newSound(Gdx.files.internal("backgroundMusic.mp3"));
+        backgroundMusic.loop();
         player = Player.getPlayer();
         victoryState = false;
         costMap= new HashMap<>();
@@ -538,8 +540,6 @@ public class OriginWarAlpha extends ApplicationAdapter {
             stairsDown = dungeonGen.stairsDown;
             foundSwitch = true;
         }
-
-
         if(player.getPosition() == stairsDown){
             levelCount++;
             player.setHealth(player.getHealth()+50-(levelCount*3));
@@ -653,6 +653,7 @@ public class OriginWarAlpha extends ApplicationAdapter {
 //        for (int i = 0; i < 6; i++) {
 //            display.putString(2, gridHeight + i + 1, lang[(langIndex + i) % lang.length], 0, 1);
 //        }
+
     }
     @Override
     public void render () {

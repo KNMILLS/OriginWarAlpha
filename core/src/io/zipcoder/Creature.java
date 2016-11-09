@@ -10,6 +10,15 @@ public abstract class Creature{
     private double id;
     private Coord position;
     private int health;
+    private int damage;
+
+    public Creature(int health, int damage) {
+        this.health = health;
+        this.damage = damage;
+    }
+    public Creature(){
+        setId(Math.random());
+    }
 
     public double getId() {
         return id;
@@ -33,5 +42,13 @@ public abstract class Creature{
 
     public void setHealth(int health) {
         this.health = health;
+    }
+
+    public int getDamage() {
+        return damage;
+    }
+
+    public void setDamage(int damage) {
+        this.damage = damage;
     }
 }

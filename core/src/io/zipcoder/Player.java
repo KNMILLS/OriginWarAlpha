@@ -9,9 +9,10 @@ public class Player extends Creature{
     public String name;
 
     private Player(){
-        setId(Math.random());
+        super();
         this.turns = 0;
         this.setHealth(100);
+        this.setDamage(4);
         Player.instance = this;
     }
     public static Player getPlayer(){
