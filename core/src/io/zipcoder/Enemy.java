@@ -5,4 +5,8 @@ package io.zipcoder;
  */
 public abstract class Enemy extends Creature {
 
+    public Enemy(){
+
+    }
+
 }
