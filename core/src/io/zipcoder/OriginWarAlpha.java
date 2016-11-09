@@ -98,6 +98,7 @@ public class OriginWarAlpha extends ApplicationAdapter {
     private boolean victoryState;
     private AStarSearch validLevelSearch;
     private DijkstraMap validSwitch;
+    private HashMap<Character, Double> resMapValues;
 
     @Override
     public void create () {
@@ -110,6 +111,10 @@ public class OriginWarAlpha extends ApplicationAdapter {
         costMap.put('~', 3.0);
         costMap.put('"', 0.1);
         costMap.put(',', 2.0);
+        resMapValues = new HashMap<>();
+        resMapValues.put('+', .95);
+
+
         //These variables, corresponding to the screen's width and height in cells and a cell's width and height in
         //pixels, must match the size you specified in the launcher for input to behave.
         //This is one of the more common places a mistake can happen.
@@ -171,7 +176,7 @@ public class OriginWarAlpha extends ApplicationAdapter {
         dungeonGen = new DungeonGenerator(gridWidth, gridHeight, rng);
 
         dungeonGen.addDoors(25, true);
-        dungeonGen.generate(TilesetType.OPEN_AREAS);
+        //dungeonGen.generate(TilesetType.OPEN_AREAS);
         explored = new boolean[gridWidth][gridHeight];
         //uncomment this next line to randomly add water to the dungeon in pools.
         switch(levelCount){
@@ -211,7 +216,7 @@ public class OriginWarAlpha extends ApplicationAdapter {
         }
         //decoDungeon is given the dungeon with any decorations we specified. (Here, we didn't, unless you chose to add
         //water to the dungeon. In that case, decoDungeon will have different contents than bareDungeon, next.)
-        decoDungeon = dungeonGen.generate();
+        decoDungeon = dungeonGen.generate(TilesetType.ROOMS_AND_CORRIDORS_B);
         decoDungeon = DungeonUtility.closeDoors(decoDungeon);
         costArray = DungeonUtility.generateCostMap(decoDungeon, costMap, 1.0);
 
@@ -253,6 +258,13 @@ public class OriginWarAlpha extends ApplicationAdapter {
         }
         fov = new FOV(FOV.RIPPLE_TIGHT);
         resMap = DungeonUtility.generateResistances(decoDungeon);
+        for(int i = 0; i < resMap.length; i++){
+            for(int j = 0; j < resMap[i].length; j++){
+                if(decoDungeon[i][j] == '"'){
+                    resMap[i][j] = 0.0;
+                }
+            }
+        }
         fovmap = fov.calculateFOV(resMap, player.getPosition().getX(), player.getPosition().getY(), 8, Radius.CIRCLE);
 
         //This is used to allow clicks or taps to take the player to the desired area.
