@@ -98,11 +98,12 @@ public class OriginWarAlpha extends ApplicationAdapter {
     private boolean victoryState;
     private AStarSearch validLevelSearch;
     private DijkstraMap validSwitch;
+    private Sound backgroundMusic;
 
     @Override
     public void create () {
-        Sound backgroundMusic = Gdx.audio.newSound(Gdx.files.internal("backgroundMusic.mp3"));
-        backgroundMusic.loop();
+        //backgroundMusic = Gdx.audio.newSound(Gdx.files.internal("backgroundMusic.mp3"));
+        //backgroundMusic.loop();
         player = Player.getPlayer();
         victoryState = false;
         costMap= new HashMap<>();
