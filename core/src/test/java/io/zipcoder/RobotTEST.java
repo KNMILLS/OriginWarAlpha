@@ -11,8 +11,8 @@ public class RobotTEST {
     @Test
     public void getHealthTEST(){
         Robot robotto = new Robot();
-        int expectedHealth = 100;
+        int expectedHealth = 10;
         int actualHealth = robotto.getHealth();
-        assertEquals("The value should be 100", expectedHealth, actualHealth);
+        assertEquals("The value should be 10", expectedHealth, actualHealth);
     }
 }

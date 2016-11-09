@@ -1,0 +1,6 @@
+Known Bugs:
+
+Spawn in on closed door, no vision. (AKA, SeeNoEvil) [FIX IN PROGRESS]
+Movement Order Conflict Crash (AKA, MoveMapPimpslap) [FLAGGED, CAUSE UNKNOWN]
+Health points do not decrement (AKA, Gluttony) [FLAGGED, CAUSE UNKNOWN]
+Sometimes you spawn in a closed off room (AKA, SchrödingersCat) [FIX IN PROGRESS]
