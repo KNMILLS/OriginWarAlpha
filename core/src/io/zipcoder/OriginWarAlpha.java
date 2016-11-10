@@ -42,21 +42,9 @@ public class OriginWarAlpha extends ApplicationAdapter {
     private boolean explored[][];
     private Color[][] fgColor, bgColorArr;
     private FOV fov;
-    /**
-     * In number of cells
-     */
     private int gridWidth;
-    /**
-     * In number of cells
-     */
     private int gridHeight;
-    /**
-     * The pixel width of a cell
-     */
     private int cellWidth;
-    /**
-     * The pixel height of a cell
-     */
     private int cellHeight;
     private OriginInput input;
     private SquidInput baseInput;
