@@ -101,8 +101,8 @@ public class OriginWarAlpha extends ApplicationAdapter {
 
     @Override
     public void create () {
-        backgroundMusic = Gdx.audio.newSound(Gdx.files.internal("backgroundMusic.mp3"));
-        backgroundMusic.loop();
+//        backgroundMusic = Gdx.audio.newSound(Gdx.files.internal("backgroundMusic.mp3"));
+//        backgroundMusic.loop();
         player = Player.getPlayer();
         victoryState = false;
         costMap= new HashMap<>();
@@ -247,6 +247,7 @@ public class OriginWarAlpha extends ApplicationAdapter {
 
         validLevelSearch = new AStarSearch(costArray, AStarSearch.SearchType.EUCLIDEAN);
         Queue<Coord> validPathToExit = null;
+        //This isn't working yet
         while(validPathToExit == null){
             validPathToExit = validLevelSearch.path(player.getPosition(), stairSwitch);
             if(validPathToExit == null){
@@ -749,11 +750,12 @@ public class OriginWarAlpha extends ApplicationAdapter {
         while(foodToAdd > 0){
             foodToAdd--;
             for(char[][] room : this.roomFinder.findRooms()){
-                DungeonUtility dungeonUtility = new DungeonUtility(rng);
+                DungeonUtility dungeonUtility = new DungeonUtility();
                 double chance = Math.random();
                 if(chance >= .5){
                     Coord position = dungeonUtility.randomFloor(room);
                     if(position == null) continue;
+
                     toReturn.add(new Food(position));
                     foodToAdd--;
                     continue;
@@ -764,7 +766,6 @@ public class OriginWarAlpha extends ApplicationAdapter {
         return toReturn;
 
     }
-
     public void restart(){
         playerIsAlive = true;
         player.setHealth(101);
