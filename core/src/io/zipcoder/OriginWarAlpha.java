@@ -101,8 +101,8 @@ public class OriginWarAlpha extends ApplicationAdapter {
 
     @Override
     public void create () {
-        backgroundMusic = Gdx.audio.newSound(Gdx.files.internal("backgroundMusic.mp3"));
-        backgroundMusic.loop();
+//        backgroundMusic = Gdx.audio.newSound(Gdx.files.internal("backgroundMusic.mp3"));
+//        backgroundMusic.loop();
         player = Player.getPlayer();
         victoryState = false;
         costMap= new HashMap<>();
@@ -764,7 +764,6 @@ public class OriginWarAlpha extends ApplicationAdapter {
         return toReturn;
 
     }
-
     public void restart(){
         playerIsAlive = true;
         player.setHealth(101);
