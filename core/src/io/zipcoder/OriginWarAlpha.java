@@ -39,7 +39,7 @@ public class OriginWarAlpha extends ApplicationAdapter {
     private DungeonGenerator dungeonGen;
     private char[][] decoDungeon, bareDungeon, lineDungeon, spaces;
     private int[][] colorIndices, bgColorIndices, languageBG, languageFG, lights;
-    private double[][] fovmap, resMap, costArray;
+    private double[][] costArray;
     private boolean explored[][];
     private Color[][] fgColor, bgColorArr;
     private FOV fov;
@@ -161,16 +161,7 @@ public class OriginWarAlpha extends ApplicationAdapter {
                 player.setPosition(dungeonGen.utility.randomCell(placement));
             }
         }
-        fov = new FOV(FOV.RIPPLE_TIGHT);
-        resMap = DungeonUtility.generateResistances(decoDungeon);
-        for (int i = 0; i < resMap.length; i++) {
-            for (int j = 0; j < resMap[i].length; j++) {
-                if (decoDungeon[i][j] == '"') {
-                    resMap[i][j] = 0.0;
-                }
-            }
-        }
-        fovmap = fov.calculateFOV(resMap, player.getPosition().getX(), player.getPosition().getY(), 8, Radius.CIRCLE);
+        player.initFOV(decoDungeon);
         toCursor = new ArrayList<Coord>(100);
         awaitedMoves = new ArrayList<Coord>(100);
         playerToCursor = new DijkstraMap(decoDungeon, DijkstraMap.Measurement.EUCLIDEAN);
@@ -349,7 +340,7 @@ public class OriginWarAlpha extends ApplicationAdapter {
             if (lineDungeon[newX][newY] == '+') {
                 lineDungeon[newX][newY] = '/';
                 decoDungeon[newX][newY] = '/';
-                resMap = DungeonUtility.generateResistances(bareDungeon);
+                player.getResMap()[newX][newY] = .15;
             }
             if (decoDungeon[newX][newY] == '~') {
                 player.incrementTurn();
@@ -363,7 +354,8 @@ public class OriginWarAlpha extends ApplicationAdapter {
                 player.setTurns(player.getTurns() - 1);
             }
             eatFood();
-            fovmap = fov.calculateFOV(resMap, newX, newY, 8, Radius.CIRCLE);
+            player.updateFOVMap();
+            //fovmap = fov.calculateFOV(resMap, newX, newY, 8, Radius.CIRCLE);
         }
         if (player.getPosition() == stairSwitch) {
             stairsDown = dungeonGen.stairsDown;
@@ -381,7 +373,7 @@ public class OriginWarAlpha extends ApplicationAdapter {
         for (int i = 0; i < gridWidth; i++) {
             for (int j = 0; j < gridHeight; j++) {
                 occupied = player.getPosition().getX() == i && player.getPosition().getY() == j;
-                if (fovmap[i][j] > 0.0) {
+                if (player.getFovMap()[i][j] > 0.0) {
                     explored[i][j] = true;
                     Coord toRemove = Coord.get(i, j);
                     unexploredSet.remove(toRemove);
@@ -389,7 +381,7 @@ public class OriginWarAlpha extends ApplicationAdapter {
                         display.put(i, j, ' ');
                     } else {
                         display.put(i, j, lineDungeon[i][j], fgColor[i][j], bgColorArr[i][j],
-                                lights[i][j] + (int) (320 * fovmap[i][j]));
+                                lights[i][j] + (int) (320 * player.getFovMap()[i][j]));
                     }
                 } else if (explored[i][j]) {
                     display.put(i, j, lineDungeon[i][j], fgColor[i][j], bgColorArr[i][j], 40);
@@ -398,7 +390,7 @@ public class OriginWarAlpha extends ApplicationAdapter {
         }
 
         for (Coord pt : toCursor) {
-            display.highlight(pt.x, pt.y, lights[pt.x][pt.y] + (int) (170 * fovmap[pt.x][pt.y]));
+            display.highlight(pt.x, pt.y, lights[pt.x][pt.y] + (int) (170 * player.getFovMap()[pt.x][pt.y]));
         }
         if ((stairsDown != null) && levelCount < 10) {
             display.put(stairsDown.x, stairsDown.y, '*', 12);
