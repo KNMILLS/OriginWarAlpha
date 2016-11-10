@@ -29,7 +29,6 @@ public class TextDisplay {
         setControlsBanner();
     }
 
-
     public String[] getHelpText() {
         return helpText;
     }
@@ -49,7 +48,7 @@ public class TextDisplay {
     public void setDefaultText(OriginWarAlpha game) {
         this.defaultText = new String[]{
                 "Player ID\t" + Player.getPlayer().getId() + "\tCurrent Level:\t" + game.getLevelCount() + "\tTurns:\t" + Player.getPlayer().getTurns(),
-                "Switch Found:\t" + game.isFoundSwitch() + "\tFood remaining:\t" + Math.max(0, (10 - game.getLevelCount()) - game.getFoodEaten()),
+                "Switch Found:\t" + game.isFoundSwitch() + "\tFood remaining:\t" + Math.max(0, (6 - game.getLevelCount()) - game.getFoodEaten()),
                 "Health Remaining:\t" + Player.getPlayer().getHealth() + "\tFood Eaten:\t" + game.getFoodEaten()
         };
     }
