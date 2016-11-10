@@ -1,24 +1,19 @@
 package io.zipcoder;
 
-import com.badlogic.gdx.utils.Timer;
-import com.badlogic.gdx.utils.Timer.*;
 import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.InputAdapter;
 import com.badlogic.gdx.InputMultiplexer;
-import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.scenes.scene2d.Stage;
-import com.badlogic.gdx.utils.*;
 import com.badlogic.gdx.utils.viewport.StretchViewport;
 import io.zipcoder.graphics.TextDisplay;
 import squidpony.GwtCompatibility;
 import squidpony.squidai.DijkstraMap;
 import squidpony.squidgrid.FOV;
-import squidpony.squidgrid.Radius;
 import squidpony.squidgrid.gui.gdx.*;
 import squidpony.squidgrid.mapping.DungeonGenerator;
 import squidpony.squidgrid.mapping.DungeonUtility;
@@ -61,15 +56,12 @@ public class OriginWarAlpha extends ApplicationAdapter {
     private ArrayList<Coord> awaitedMoves;
     private float secondsWithoutMoves;
     private boolean helpOn;
-    private boolean normal;
     private int levelCount = 1;
     private boolean foundSwitch;
     private RoomFinder roomFinder;
     private ArrayList<Food> foodList;
-    private boolean scoreScreenOn;
     private boolean debugMode;
     private int foodEaten;
-    private boolean playerIsAlive;
     private boolean victoryState;
     private AStarSearch validLevelSearch;
     private Sound backgroundMusic;
@@ -78,12 +70,10 @@ public class OriginWarAlpha extends ApplicationAdapter {
     @Override
     public void create() {
         textDisplay = new TextDisplay();
-        textDisplay.setScoreText(this);
-        normal = true;
+        textDisplay.setDefaultText(this);
 //        backgroundMusic = Gdx.audio.newSound(Gdx.files.internal("backgroundMusic.mp3"));
 //        backgroundMusic.loop();
         player = Player.getPlayer();
-        victoryState = false;
         costMap = new HashMap<>();
         costMap.put('.', 1.0);
         costMap.put('~', 3.0);
@@ -197,9 +187,7 @@ public class OriginWarAlpha extends ApplicationAdapter {
         roomFinder = new RoomFinder(decoDungeon);
         foodList = addFood();
         foodEaten = 0;
-        playerIsAlive = true;
-
-
+        player.setAlive(true);
 
         baseInput = new SquidInput(new SquidInput.KeyHandler() {
             @Override
@@ -233,10 +221,8 @@ public class OriginWarAlpha extends ApplicationAdapter {
                     case 'h': {
                         if (!helpOn) {
                             helpOn = true;
-                            normal = false;
                         } else {
                             helpOn = false;
-                            normal = true;
                         }
                         break;
                     }
@@ -256,16 +242,6 @@ public class OriginWarAlpha extends ApplicationAdapter {
                         move(0, 0);
                         break;
                     }
-                    case 'e':
-                    case 'E':
-                        if (!scoreScreenOn) {
-                            scoreScreenOn = true;
-                            normal = false;
-                        } else {
-                            scoreScreenOn = false;
-                            normal = true;
-                        }
-                        break;
                     case '!':
                         if (debugMode) debugMode = false;
                         else debugMode = true;
@@ -324,38 +300,39 @@ public class OriginWarAlpha extends ApplicationAdapter {
     }
 
     private void move(int xmod, int ymod) {
-        textDisplay.setScoreText(this);
+        int newX = player.getPosition().x + xmod, newY = player.getPosition().y + ymod;
+        textDisplay.setDefaultText(this);
         textDisplay.setDisplayText(textDisplay.getDefaultText());
         textDisplay.setAliceDisplayText(textDisplay.updateAliceDisplayByPlayerHealth(player.getHealth()));
-        if (player.getHealth() <= 0) {
-            playerIsAlive = false;
+        if (!player.isAlive()) {
             input.drain();
             awaitedMoves.clear();
             return;
         }
-        int newX = player.getPosition().x + xmod, newY = player.getPosition().y + ymod;
-        if (newX >= 0 && newY >= 0 && newX < gridWidth && newY < gridHeight
-                && bareDungeon[newX][newY] != '#') {
-            player.setPosition(player.getPosition().translate(xmod, ymod));
-            if (lineDungeon[newX][newY] == '+') {
-                lineDungeon[newX][newY] = '/';
-                decoDungeon[newX][newY] = '/';
-                player.getResMap()[newX][newY] = .15;
+        else {
+            if (newX >= 0 && newY >= 0 && newX < gridWidth && newY < gridHeight
+                    && bareDungeon[newX][newY] != '#') {
+                player.setPosition(player.getPosition().translate(xmod, ymod));
+                if (lineDungeon[newX][newY] == '+') {
+                    lineDungeon[newX][newY] = '/';
+                    decoDungeon[newX][newY] = '/';
+                    player.getResMap()[newX][newY] = .15;
+                }
+                if (decoDungeon[newX][newY] == '~') {
+                    player.incrementTurn();
+                    player.incrementTurn();
+                }
+                if (decoDungeon[newX][newY] == ',') {
+                    player.incrementTurn();
+                }
+                if (decoDungeon[newX][newY] == '"') {
+                    if (player.getTurns() % 4 == 0) player.setHealth(player.getHealth() + 1);
+                    player.setTurns(player.getTurns() - 1);
+                }
+                eatFood();
+                player.updateFOVMap();
+                //fovmap = fov.calculateFOV(resMap, newX, newY, 8, Radius.CIRCLE);
             }
-            if (decoDungeon[newX][newY] == '~') {
-                player.incrementTurn();
-                player.incrementTurn();
-            }
-            if (decoDungeon[newX][newY] == ',') {
-                player.incrementTurn();
-            }
-            if (decoDungeon[newX][newY] == '"') {
-                if (player.getTurns() % 4 == 0) player.setHealth(player.getHealth() + 1);
-                player.setTurns(player.getTurns() - 1);
-            }
-            eatFood();
-            player.updateFOVMap();
-            //fovmap = fov.calculateFOV(resMap, newX, newY, 8, Radius.CIRCLE);
         }
         if (player.getPosition() == stairSwitch) {
             stairsDown = dungeonGen.stairsDown;
@@ -406,34 +383,34 @@ public class OriginWarAlpha extends ApplicationAdapter {
             }
         }
         if (victoryState) {
-            textDisplay.getVictoryText();
-            textDisplay.getAliceVictoryText();
-            input.drain();
-            awaitedMoves.clear();
+            player.setHealth(0);
+            player.setAlive(false);
+            display.put(player.getPosition().x, player.getPosition().y, '±', Color.GOLD);
+            textDisplay.setDisplayText(textDisplay.getEndGameText());
+            textDisplay.setAliceDisplayText(textDisplay.getAliceVictoryText());
         } else if (player.getHealth() >= 125) {
             display.put(player.getPosition().x, player.getPosition().y, '∆', 27);
         } else if (player.getHealth() > 50) {
             display.put(player.getPosition().x, player.getPosition().y, '∆', 21);
         } else if (player.getHealth() > 25) {
             display.put(player.getPosition().x, player.getPosition().y, '∆', 18);
-
-        } else if (playerIsAlive) {
+        } else if (player.isAlive()) {
             display.put(player.getPosition().x, player.getPosition().y, '∆', 12);
-
         } else {
             display.put(player.getPosition().x, player.getPosition().y, '±', 2);
-            playerIsAlive = false;
+            player.setAlive(false);
+            textDisplay.setDisplayText(textDisplay.getEndGameText());
+            textDisplay.setAliceDisplayText(textDisplay.getAliceDeathText());
         }
         display.put(0, gridHeight + 1, spaces, languageFG, languageBG);
         if (helpOn) textDisplay.setDisplayText(textDisplay.getHelpText());
-        if (scoreScreenOn) textDisplay.setDisplayText(textDisplay.getScoreText());
-        else if (normal) textDisplay.setDisplayText(textDisplay.getDefaultText());
+        else textDisplay.setDisplayText(textDisplay.getDefaultText());
         display.putString(2, gridHeight + 1, textDisplay.getDisplayText()[0], 0, 1);
         display.putString(2, gridHeight + 2, textDisplay.getDisplayText()[1], 0, 1);
         display.putString(2, gridHeight + 3, textDisplay.getDisplayText()[2], 0, 1);
         display.putString(2, gridHeight + 4, textDisplay.getAliceDisplayText()[0], 0, 1);
         display.putString(2, gridHeight + 5, textDisplay.getAliceDisplayText()[1], 0, 1);
-
+        display.putString(2, gridHeight + 6, textDisplay.getControlsBanner()[0], 0, 1);
     }
 
     @Override
@@ -505,51 +482,20 @@ public class OriginWarAlpha extends ApplicationAdapter {
     }
 
     public void restart() {
-        playerIsAlive = true;
+        player.setAlive(true);
         player.setHealth(101);
         player.setTurns(-1);
         levelCount = 1;
         foodEaten = 0;
         create();
     }
-
-    public boolean isHelpOn() {
-        return helpOn;
-    }
-
-    public void setHelpOn(boolean helpOn) {
-        this.helpOn = helpOn;
-    }
-
     public int getLevelCount() {
         return levelCount;
     }
-
-    public void setLevelCount(int levelCount) {
-        this.levelCount = levelCount;
-    }
-
     public int getFoodEaten() {
         return foodEaten;
     }
-
-    public void setFoodEaten(int foodEaten) {
-        this.foodEaten = foodEaten;
-    }
-
-    public boolean isVictoryState() {
-        return victoryState;
-    }
-
-    public void setVictoryState(boolean victoryState) {
-        this.victoryState = victoryState;
-    }
-
     public boolean isFoundSwitch() {
         return foundSwitch;
-    }
-
-    public void setFoundSwitch(boolean foundSwitch) {
-        this.foundSwitch = foundSwitch;
     }
 }

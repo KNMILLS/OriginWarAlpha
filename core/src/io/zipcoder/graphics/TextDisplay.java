@@ -11,21 +11,22 @@ public class TextDisplay {
 
     private String[] defaultText;
     private String[] displayText;
-    private String[] scoreText;
-    private String[] victoryText;
+    private String[] endGameText;
     private String[] helpText;
-    private String[] deathText;
     private String[] aliceDisplayText;
     private String[] aliceVictoryText;
     private String[] aliceDeathText;
+    private String[] controlsBanner;
 
     public TextDisplay() {
         setDefaultText();
         setDisplayText(getDefaultText());
         setHelpText();
         setVictoryText();
-        setDeathText();
         setAliceDisplayText();
+        setAliceDeathText();
+        setAliceVictoryText();
+        setControlsBanner();
     }
 
 
@@ -45,11 +46,19 @@ public class TextDisplay {
         return defaultText;
     }
 
-    private void setDefaultText() {
+    public void setDefaultText(OriginWarAlpha game) {
         this.defaultText = new String[]{
-                "Controls:\t WASD/Arrow Keys/Mouse to move.",
-                "'H' for help screen.\t'E' for score screen",
-                "'Q' to quit.\t'T' restart the game",
+                "Player ID\t" + Player.getPlayer().getId() + "\tCurrent Level:\t" + game.getLevelCount() + "\tTurns:\t" + Player.getPlayer().getTurns(),
+                "Switch Found:\t" + game.isFoundSwitch() + "\tFood remaining:\t" + Math.max(0, (10 - game.getLevelCount()) - game.getFoodEaten()),
+                "Health Remaining:\t" + Player.getPlayer().getHealth() + "\tFood Eaten:\t" + game.getFoodEaten()
+        };
+    }
+
+    public void setDefaultText() {
+        this.defaultText = new String[]{
+                "",
+                "",
+                ""
         };
     }
 
@@ -61,27 +70,15 @@ public class TextDisplay {
         this.displayText = displayText;
     }
 
-    public String[] getScoreText() {
-        return scoreText;
-    }
-
-    public void setScoreText(OriginWarAlpha game) {
-        this.scoreText = new String[]{
-                "Player ID\t" + Player.getPlayer().getId() + "\tCurrent Level:\t" + game.getLevelCount() + "\tTurns:\t" + Player.getPlayer().getTurns(),
-                "Switch Found:\t" + game.isFoundSwitch() + "\tFood remaining:\t" + Math.max(0, (10 - game.getLevelCount()) - game.getFoodEaten()),
-                "Health Remaining:\t" + Player.getPlayer().getHealth() + "\tFood Eaten:\t" + game.getFoodEaten(),
-        };
-    }
-
-    public String[] getVictoryText() {
-        return victoryText;
+    public String[] getEndGameText() {
+        return endGameText;
     }
 
     public void setVictoryText() {
-        this.victoryText = new String[]{
+        this.endGameText = new String[]{
                 "Submit a screenshot of your score screen to the devs.",
                 "Top scores will be posted to the website.",
-                "'H' for help screen\t'E' for score screen\t'Q' to quit\t'T' restart the game",
+                "",
         };
     }
 
@@ -106,33 +103,15 @@ public class TextDisplay {
         this.defaultText = defaultText;
     }
 
-    public void setScoreText(String[] scoreText) {
-        this.scoreText = scoreText;
-    }
-
     public void setAliceVictoryText() {
-        this.aliceDisplayText[0] = "A.L.I.C.E: I... I can't believe you did it.//";
-        this.aliceDisplayText[1] = "You actually escaped! 'THANKS FOR PLAYING!!!' -DEV TEAM";
+        this.aliceVictoryText = new String[]{
+                "A.L.I.C.E: I... I can't believe you did it.//",
+                "You actually escaped! 'THANKS FOR PLAYING!!!' -DEV TEAM"
+        };
     }
 
     public void setHelpText(String[] helpText) {
         this.helpText = helpText;
-    }
-
-    public String[] getDeathText() {
-        return deathText;
-    }
-
-    public void setDeathText() {
-        this.deathText = new String[]{
-                "Submit a screenshot of your score screen to the devs.",
-                "Top scores will be posted to the website.",
-                "'H' for help screen\t'E' for score screen\t'Q' to quit\t'T' restart the game"
-        };
-    }
-
-    public void setDeathText(String[] deathText) {
-        this.deathText = deathText;
     }
 
     public String[] getAliceDisplayText() {
@@ -142,6 +121,7 @@ public class TextDisplay {
     public void setAliceDisplayText(String[] aliceDisplayText) {
         this.aliceDisplayText = aliceDisplayText;
     }
+
     public void setAliceDisplayText() {
         this.aliceDisplayText = new String[]{
                 "A.L.I.C.E: Hello, I am A.L.I.C.E//",
@@ -149,9 +129,8 @@ public class TextDisplay {
         };
     }
 
-
-    public void setVictoryText(String[] victoryText) {
-        this.victoryText = victoryText;
+    public void setEndGameText(String[] endGameText) {
+        this.endGameText = endGameText;
     }
 
     public String[] getAliceVictoryText() {
@@ -167,7 +146,27 @@ public class TextDisplay {
     }
 
     public void setAliceDeathText() {
-        this.aliceDeathText[0] = "A.L.I.C.E: You have died. What a waste...";
-        this.aliceDeathText[1] = "You can try again if you really think you're worthy.";
+        this.aliceDeathText = new String[]{
+                "A.L.I.C.E: You have died. What a waste...",
+                "You can try again if you really think you're worthy."
+        };
+    }
+
+    public void setAliceDeathText(String[] aliceDeathText) {
+        this.aliceDeathText = aliceDeathText;
+    }
+
+    public String[] getControlsBanner() {
+        return controlsBanner;
+    }
+
+    public void setControlsBanner() {
+        this.controlsBanner = new String[]{
+                "'H' for help screen\t'Q' to quit\t'T' restart the game"
+        };
+    }
+
+    public void setControlsBanner(String[] controlsBanner) {
+        this.controlsBanner = controlsBanner;
     }
 }

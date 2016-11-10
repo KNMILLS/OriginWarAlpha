@@ -6,13 +6,14 @@ public class Player extends Creature{
 
     private static Player instance;
     private int turns;
-    public String name;
+    private Boolean alive;
 
     private Player(){
         super();
         this.turns = 0;
         this.setHealth(100);
         this.setDamage(4);
+        this.alive = true;
         Player.instance = this;
     }
     public static Player getPlayer(){
@@ -46,7 +47,13 @@ public class Player extends Creature{
             //this.setHealth(this.getHealth() - 20);
             this.setHealth(this.getHealth() - 1);
         }
-
     }
 
+    public Boolean isAlive() {
+        return alive;
+    }
+
+    public void setAlive(Boolean alive) {
+        this.alive = alive;
+    }
 }
