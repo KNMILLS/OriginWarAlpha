@@ -705,8 +705,10 @@ public class OriginWarAlpha extends ApplicationAdapter {
             secondsWithoutMoves += Gdx.graphics.getDeltaTime();
             if (secondsWithoutMoves >= 0.1) {
                 secondsWithoutMoves = 0;
-                Coord m = awaitedMoves.remove(0);
-                toCursor.remove(0);
+                Coord m = null;
+                if(!awaitedMoves.isEmpty()){m = awaitedMoves.remove(0);}
+                if(!toCursor.isEmpty())toCursor.remove(0);
+                if(m == null)m = player.getPosition();
                 move(m.x - player.getPosition().x, m.y - player.getPosition().y);
             }
         }
