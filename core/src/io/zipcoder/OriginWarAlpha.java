@@ -167,7 +167,8 @@ public class OriginWarAlpha extends ApplicationAdapter {
 
         validLevelSearch = new AStarSearch(costArray, AStarSearch.SearchType.EUCLIDEAN);
         Queue<Coord> validPathToExit = null;
-        while (validPathToExit == null) {
+        //This isn't working yet
+        while(validPathToExit == null){
             validPathToExit = validLevelSearch.path(player.getPosition(), stairSwitch);
             if (validPathToExit == null) {
                 player.setPosition(dungeonGen.utility.randomCell(placement));
@@ -523,8 +524,10 @@ public class OriginWarAlpha extends ApplicationAdapter {
             secondsWithoutMoves += Gdx.graphics.getDeltaTime();
             if (secondsWithoutMoves >= 0.1) {
                 secondsWithoutMoves = 0;
-                Coord m = awaitedMoves.remove(0);
-                toCursor.remove(0);
+                Coord m = null;
+                if(!awaitedMoves.isEmpty()){m = awaitedMoves.remove(0);}
+                if(!toCursor.isEmpty())toCursor.remove(0);
+                if(m == null)m = player.getPosition();
                 move(m.x - player.getPosition().x, m.y - player.getPosition().y);
             }
         } else if (input.hasNext()) {
@@ -556,12 +559,12 @@ public class OriginWarAlpha extends ApplicationAdapter {
         ArrayList<Food> toReturn = new ArrayList<>();
         while (foodToAdd > 0) {
             foodToAdd--;
-            for (char[][] room : this.roomFinder.findRooms()) {
-                DungeonUtility dungeonUtility = new DungeonUtility(rng);
+            for(char[][] room : this.roomFinder.findRooms()){
+                DungeonUtility dungeonUtility = new DungeonUtility();
                 double chance = Math.random();
                 if (chance >= .5) {
                     Coord position = dungeonUtility.randomFloor(room);
-                    if (position == null) continue;
+                    if(position == null) continue;
                     toReturn.add(new Food(position));
                     foodToAdd--;
                     continue;
