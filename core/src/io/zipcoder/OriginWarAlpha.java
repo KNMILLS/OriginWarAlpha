@@ -96,23 +96,23 @@ public class OriginWarAlpha extends ApplicationAdapter {
         explored = new boolean[gridWidth][gridHeight];
         switch (levelCount) {
             case 1:
-                dungeonGen.addGrass(75);
+                dungeonGen.addGrass(35);
                 break;
             case 2:
-                dungeonGen.addGrass(60);
+                dungeonGen.addGrass(25);
                 break;
             case 3:
-                dungeonGen.addGrass(35);
+                dungeonGen.addGrass(15);
                 break;
             case 4:
                 dungeonGen.addGrass(10);
                 break;
             case 5:
-                dungeonGen.addGrass(25);
+                dungeonGen.addGrass(10);
                 dungeonGen.addWater(10);
                 break;
             case 6:
-                dungeonGen.addGrass(10);
+                dungeonGen.addGrass(5);
                 dungeonGen.addWater(35);
                 break;
             case 7:
@@ -133,7 +133,7 @@ public class OriginWarAlpha extends ApplicationAdapter {
         decoDungeon = DungeonUtility.closeDoors(decoDungeon);
         costArray = DungeonUtility.generateCostMap(decoDungeon, costMap, 1.0);
         bareDungeon = dungeonGen.getBareDungeon();
-        lineDungeon = DungeonUtility.hashesToLines(decoDungeon);
+        lineDungeon = DungeonUtility.hashesToLines(decoDungeon, false);
         short[] placement = CoordPacker.pack(bareDungeon, '.');
         cursor = Coord.get(-1, -1);
         player.setPosition((dungeonGen.utility.randomCell(placement)));
@@ -341,7 +341,9 @@ public class OriginWarAlpha extends ApplicationAdapter {
         }
         if (player.getPosition() == stairsDown) {
             levelCount++;
-            player.setHealth(player.getHealth() + 50 - (levelCount * 3));
+            if(player.getHealth()<100){
+                player.setHealth(Math.min(100, player.getHealth() + (10*(10-levelCount))));
+            }
             create();
         }
     }
@@ -395,7 +397,7 @@ public class OriginWarAlpha extends ApplicationAdapter {
             display.put(player.getPosition().x, player.getPosition().y, '∆', 21);
         } else if (player.getHealth() > 25) {
             display.put(player.getPosition().x, player.getPosition().y, '∆', 18);
-        } else if (player.isAlive()) {
+        } else if (player.getHealth() > 0) {
             display.put(player.getPosition().x, player.getPosition().y, '∆', 12);
         } else {
             display.put(player.getPosition().x, player.getPosition().y, '±', 2);
@@ -461,11 +463,10 @@ public class OriginWarAlpha extends ApplicationAdapter {
     }
 
     public ArrayList<Food> addFood() {
-        int foodToAdd = 10 - levelCount;
+        int foodToAdd = 6 - levelCount;
         ArrayList<Food> toReturn = new ArrayList<>();
         DungeonUtility dungeonUtility = new DungeonUtility(rng);
         while (foodToAdd > 0) {
-            //foodToAdd--;
             for(char[][] room : this.roomFinder.findRooms()){
                 boolean notDuplicate = true;
                 double chance = rng.nextDouble(1.0);

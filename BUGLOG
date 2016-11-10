@@ -2,3 +2,4 @@ Known Bugs:
 
 Health points do not decrement (AKA, Gluttony) [FLAGGED, CAUSE UNKNOWN]
 Exit spawns on wall at door (AKA, There'sNoEscape) [IN PROGRESS, CAUSE UNKNOWN]
+Spawn in closed off room(AKA, NoEasyWayOut) [FLAGGED, CAUSE UNKNOWN]
