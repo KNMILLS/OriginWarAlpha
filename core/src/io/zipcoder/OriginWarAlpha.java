@@ -14,6 +14,7 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.utils.*;
 import com.badlogic.gdx.utils.viewport.StretchViewport;
+import io.zipcoder.graphics.TextDisplay;
 import squidpony.GwtCompatibility;
 import squidpony.squidai.DijkstraMap;
 import squidpony.squidgrid.FOV;
@@ -59,14 +60,8 @@ public class OriginWarAlpha extends ApplicationAdapter {
     private ArrayList<Coord> toCursor;
     private ArrayList<Coord> awaitedMoves;
     private float secondsWithoutMoves;
-    private int langIndex = 0;
     private boolean helpOn;
     private boolean normal;
-    private String[] lang;
-    private String[] helpText;
-    private String[] displayText;
-    private String[] victoryText;
-    private String[] scoreScreen;
     private int levelCount = 1;
     private boolean foundSwitch;
     private RoomFinder roomFinder;
@@ -78,9 +73,13 @@ public class OriginWarAlpha extends ApplicationAdapter {
     private boolean victoryState;
     private AStarSearch validLevelSearch;
     private Sound backgroundMusic;
+    private TextDisplay textDisplay;
 
     @Override
     public void create() {
+        textDisplay = new TextDisplay();
+        textDisplay.setScoreText(this);
+        normal = true;
 //        backgroundMusic = Gdx.audio.newSound(Gdx.files.internal("backgroundMusic.mp3"));
 //        backgroundMusic.loop();
         player = Player.getPlayer();
@@ -209,42 +208,7 @@ public class OriginWarAlpha extends ApplicationAdapter {
         foodEaten = 0;
         playerIsAlive = true;
 
-        lang = new String[]{
-                "Controls:\t WASD/Arrow Keys/Mouse to move.",
-                "'H' for help screen.\t'E' for score screen",
-                "'Q' to quit.\t'T' restart the game",
-                "",
-                "",
-        };
-        helpText = new String[]{
-                "You need to find the switch '?' to unlock the hatch '*' to the next level.",
-                "There are rations '%' scattered about. Make use of them.",
-                "Movement is modified by terrain: shallow water:2x, deep water:3x, grass:free.",
-                "",
-                "",
-        };
-        displayText = new String[]{
-                "",
-                "",
-                "",
-                "",
-                "",
-        };
-        scoreScreen = new String[]{
-                "",
-                "",
-                "",
-                "",
-                "",
-        };
-        victoryText = new String[]{
-                "",
-                "",
-                "",
-                "",
-                "",
-        };
-        displayText = lang;
+
 
         baseInput = new SquidInput(new SquidInput.KeyHandler() {
             @Override
@@ -369,8 +333,9 @@ public class OriginWarAlpha extends ApplicationAdapter {
     }
 
     private void move(int xmod, int ymod) {
-
-        displayText = lang;
+        textDisplay.setScoreText(this);
+        textDisplay.setDisplayText(textDisplay.getDefaultText());
+        textDisplay.setAliceDisplayText(textDisplay.updateAliceDisplayByPlayerHealth(player.getHealth()));
         if (player.getHealth() <= 0) {
             playerIsAlive = false;
             input.drain();
@@ -409,9 +374,6 @@ public class OriginWarAlpha extends ApplicationAdapter {
             player.setHealth(player.getHealth() + 50 - (levelCount * 3));
             create();
         }
-        scoreScreen[0] = "Player ID\t" + player.getId() + "\tCurrent Level:\t" + levelCount + "\tTurns:\t" + player.getTurns();
-        scoreScreen[1] = "Switch Found:\t" + foundSwitch + "\tFood remaining:\t" + Math.max(0, (10 - levelCount) - foodEaten);
-        scoreScreen[2] = "Health Remaining:\t" + player.getHealth() + "\tFood Eaten:\t" + foodEaten;
     }
 
     public void putMap() {
@@ -452,47 +414,33 @@ public class OriginWarAlpha extends ApplicationAdapter {
             }
         }
         if (victoryState) {
-            lang[0] = "Submit a screenshot of your score screen to the devs.";
-            lang[1] = "Top scores will be posted to the website.";
-            lang[2] = "'H' for help screen\t'E' for score screen\t'Q' to quit\t'T' restart the game";
-            displayText[3] = "A.L.I.C.E: I... I can't believe you did it.//";
-            displayText[4] = "You actually escaped! 'THANKS FOR PLAYING!!!' -DEV TEAM";
+            textDisplay.getVictoryText();
+            textDisplay.getAliceVictoryText();
             input.drain();
             awaitedMoves.clear();
         } else if (player.getHealth() >= 125) {
             display.put(player.getPosition().x, player.getPosition().y, '∆', 27);
-            displayText[3] = "A.L.I.C.E: Starvation is the enemy but no enemy is absolute...";
-            displayText[4] = "No solution is either. You will be slower when gorged. Do keep this in mind.";
         } else if (player.getHealth() > 50) {
             display.put(player.getPosition().x, player.getPosition().y, '∆', 21);
-            displayText[3] = "A.L.I.C.E: I would not go so far as to call you healthy but//";
-            displayText[4] = "...you aren't dying. Continue that.";
         } else if (player.getHealth() > 25) {
             display.put(player.getPosition().x, player.getPosition().y, '∆', 18);
-            displayText[3] = "A.L.I.C.E: I actually need to remind you to eat.";
-            displayText[4] = "This is not inspiring.";
+
         } else if (playerIsAlive) {
             display.put(player.getPosition().x, player.getPosition().y, '∆', 12);
-            displayText[3] = "A.L.I.C.E: You are dying. Not to make this about me//";
-            displayText[4] = "But you aren't terribly useful to me dead. Fix it. Please.";
+
         } else {
             display.put(player.getPosition().x, player.getPosition().y, '±', 2);
             playerIsAlive = false;
-            lang[0] = "Submit a screenshot of your score screen to the devs.";
-            lang[1] = "Top scores will be posted to the website.";
-            lang[2] = "'H' for help screen\t'E' for score screen\t'Q' to quit\t'T' restart the game";
-            displayText[3] = "A.L.I.C.E: You have died. What a waste...";
-            displayText[4] = "You can try again if you really think you're worthy.";
         }
         display.put(0, gridHeight + 1, spaces, languageFG, languageBG);
-        if (helpOn) displayText = helpText;
-        if (scoreScreenOn) displayText = scoreScreen;
-        else if (normal) displayText = lang;
-        display.putString(2, gridHeight + 1, displayText[0], 0, 1);
-        display.putString(2, gridHeight + 2, displayText[1], 0, 1);
-        display.putString(2, gridHeight + 3, displayText[2], 0, 1);
-        display.putString(2, gridHeight + 4, displayText[3], 0, 1);
-        display.putString(2, gridHeight + 5, displayText[4], 0, 1);
+        if (helpOn) textDisplay.setDisplayText(textDisplay.getHelpText());
+        if (scoreScreenOn) textDisplay.setDisplayText(textDisplay.getScoreText());
+        else if (normal) textDisplay.setDisplayText(textDisplay.getDefaultText());
+        display.putString(2, gridHeight + 1, textDisplay.getDisplayText()[0], 0, 1);
+        display.putString(2, gridHeight + 2, textDisplay.getDisplayText()[1], 0, 1);
+        display.putString(2, gridHeight + 3, textDisplay.getDisplayText()[2], 0, 1);
+        display.putString(2, gridHeight + 4, textDisplay.getAliceDisplayText()[0], 0, 1);
+        display.putString(2, gridHeight + 5, textDisplay.getAliceDisplayText()[1], 0, 1);
 
     }
 
@@ -571,5 +519,45 @@ public class OriginWarAlpha extends ApplicationAdapter {
         levelCount = 1;
         foodEaten = 0;
         create();
+    }
+
+    public boolean isHelpOn() {
+        return helpOn;
+    }
+
+    public void setHelpOn(boolean helpOn) {
+        this.helpOn = helpOn;
+    }
+
+    public int getLevelCount() {
+        return levelCount;
+    }
+
+    public void setLevelCount(int levelCount) {
+        this.levelCount = levelCount;
+    }
+
+    public int getFoodEaten() {
+        return foodEaten;
+    }
+
+    public void setFoodEaten(int foodEaten) {
+        this.foodEaten = foodEaten;
+    }
+
+    public boolean isVictoryState() {
+        return victoryState;
+    }
+
+    public void setVictoryState(boolean victoryState) {
+        this.victoryState = victoryState;
+    }
+
+    public boolean isFoundSwitch() {
+        return foundSwitch;
+    }
+
+    public void setFoundSwitch(boolean foundSwitch) {
+        this.foundSwitch = foundSwitch;
     }
 }
