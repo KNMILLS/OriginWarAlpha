@@ -9,6 +9,7 @@ import static org.junit.Assert.assertEquals;
  * Created by christophernobles on 11/10/16.
  */
 public class TextDisplayTEST {
+    //TODO 78 character limit
     @Test
     public void getAliceVictoryTextTEST(){
         TextDisplay testDisplay = new TextDisplay();
