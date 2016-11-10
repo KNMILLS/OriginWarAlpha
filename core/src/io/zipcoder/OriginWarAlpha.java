@@ -29,6 +29,7 @@ import squidpony.squidmath.Coord;
 import squidpony.squidmath.CoordPacker;
 import squidpony.squidmath.RNG;
 
+import java.awt.*;
 import java.util.*;
 import java.util.Queue;
 
@@ -155,9 +156,9 @@ public class OriginWarAlpha extends ApplicationAdapter {
         validLevelSearch = new AStarSearch(costArray, AStarSearch.SearchType.EUCLIDEAN);
         Queue<Coord> validPathToExit = null;
         //TODO This isn't working yet
-        while(validPathToExit == null){
+        while(validPathToExit == null || validPathToExit.size() == 0){
             validPathToExit = validLevelSearch.path(player.getPosition(), stairSwitch);
-            if (validPathToExit == null) {
+            if (validPathToExit.size() == 0) {
                 player.setPosition(dungeonGen.utility.randomCell(placement));
             }
         }
@@ -485,17 +486,27 @@ public class OriginWarAlpha extends ApplicationAdapter {
     public ArrayList<Food> addFood() {
         int foodToAdd = 10 - levelCount;
         ArrayList<Food> toReturn = new ArrayList<>();
+        DungeonUtility dungeonUtility = new DungeonUtility(rng);
         while (foodToAdd > 0) {
-            foodToAdd--;
+            //foodToAdd--;
             for(char[][] room : this.roomFinder.findRooms()){
-                DungeonUtility dungeonUtility = new DungeonUtility();
-                double chance = Math.random();
-                if (chance >= .5) {
+                boolean notDuplicate = true;
+                double chance = rng.nextDouble(1.0);
+                if (chance > 0.5) {
                     Coord position = dungeonUtility.randomFloor(room);
                     if(position == null) continue;
-                    toReturn.add(new Food(position));
-                    foodToAdd--;
-                    continue;
+                    for(Food food : toReturn){
+                        if (food.getPosition().equals(position)){
+                            notDuplicate = false;
+                            break;
+                        }
+                    }
+                    if(notDuplicate){
+                        toReturn.add(new Food(position));
+                        foodToAdd--;
+                        continue;
+                    }
+
                 }
 
             }
