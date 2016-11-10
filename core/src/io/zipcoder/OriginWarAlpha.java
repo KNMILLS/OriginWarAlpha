@@ -155,7 +155,7 @@ public class OriginWarAlpha extends ApplicationAdapter {
 
         validLevelSearch = new AStarSearch(costArray, AStarSearch.SearchType.EUCLIDEAN);
         Queue<Coord> validPathToExit = null;
-        //This isn't working yet
+        //TODO This isn't working yet
         while(validPathToExit == null){
             validPathToExit = validLevelSearch.path(player.getPosition(), stairSwitch);
             if (validPathToExit == null) {
