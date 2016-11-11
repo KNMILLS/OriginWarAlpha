@@ -39,7 +39,6 @@ public class OriginWarAlpha extends ApplicationAdapter {
     private double[][] costArray;
     private boolean explored[][];
     private Color[][] fgColor, bgColorArr;
-    private FOV fov;
     private int gridWidth;
     private int gridHeight;
     private int cellWidth;
@@ -82,9 +81,9 @@ public class OriginWarAlpha extends ApplicationAdapter {
 
     @Override
     public void create() {
-        if(levelCount==1){
-            init();
-        }
+//        if(levelCount==1){
+//            init();
+//        }
         textDisplay = new TextDisplay();
         textDisplay.setDefaultText(this);
         player = Player.getPlayer();
@@ -203,115 +202,7 @@ public class OriginWarAlpha extends ApplicationAdapter {
         foodEaten = 0;
         player.setAlive(true);
 
-        baseInput = new SquidInput(new SquidInput.KeyHandler() {
-            @Override
-            public void handle(char key, boolean alt, boolean ctrl, boolean shift) {
-                switch (key) {
-                    case SquidInput.UP_ARROW:
-                    case 'w':
-                    case 'W': {
-                        move(0, -1);
-                        break;
-                    }
-                    case SquidInput.DOWN_ARROW:
-                    case 's':
-                    case 'S': {
-                        move(0, 1);
-                        break;
-                    }
-                    case SquidInput.LEFT_ARROW:
-                    case 'a':
-                    case 'A': {
-                        move(-1, 0);
-                        break;
-                    }
-                    case SquidInput.RIGHT_ARROW:
-                    case 'd':
-                    case 'D': {
-                        move(1, 0);
-                        break;
-                    }
-                    case 'H':
-                    case 'h': {
-                        if (!helpOn) {
-                            helpOn = true;
-                        } else {
-                            helpOn = false;
-                        }
-                        break;
-                    }
-                    case 'Q':
-                    case 'q':
-                    case SquidInput.ESCAPE: {
-                        Gdx.app.exit();
-                        break;
-                    }
-                    case 't':
-                    case 'T': {
-                        restart();
-                    }
-                    case SquidInput.ENTER:
-                    case 'z':
-                    case 'Z': {
-                        move(0, 0);
-                        break;
-                    }
-                    case '!':
-                        if (debugMode) debugMode = false;
-                        else debugMode = true;
-
-                        break;
-                    case 'p':
-                    case 'P':
-                        if (debugMode) player.setHealth(126);
-                        break;
-                    case 'o':
-                    case 'O':
-                        if (debugMode) player.setHealth(5);
-                        break;
-                    case 'i':
-                    case 'I':
-                        if (debugMode) {
-                            levelCount++;
-                            create();
-                        }
-                        break;
-                    case 'u':
-                    case 'U':
-                        if(debugMode)revealMap();
-                        break;
-                }
-            }
-        },
-                new SquidMouse(cellWidth, cellHeight, gridWidth, gridHeight, 0, 0, new InputAdapter() {
-
-                    @Override
-                    public boolean touchUp(int screenX, int screenY, int pointer, int button) {
-                        if (explored[screenX][screenY]) {
-                            cursor = Coord.get(screenX, screenY);
-                            toCursor = playerToCursor.findPath(100, unexploredSet, null, player.getPosition(), cursor);
-                            awaitedMoves = new ArrayList<Coord>(toCursor);
-                        }
-                        return false;
-                    }
-
-                    @Override
-                    public boolean touchDragged(int screenX, int screenY, int pointer) {
-                        return mouseMoved(screenX, screenY);
-                    }
-
-                    @Override
-                    public boolean mouseMoved(int screenX, int screenY) {
-                        if (!awaitedMoves.isEmpty())
-                            return false;
-                        if (cursor.x == screenX && cursor.y == screenY) {
-                            return false;
-                        }
-                        cursor = Coord.get(screenX, screenY);
-                        toCursor = playerToCursor.findPath(100, unexploredSet, null, player.getPosition(), cursor);
-                        return false;
-                    }
-                }));
+        baseInput = inputConfig();
         input = new OriginInput(baseInput.getKeyHandler(), baseInput.getMouse());
         Gdx.input.setInputProcessor(new InputMultiplexer(stage, input));
         stage.addActor(display);
@@ -350,7 +241,7 @@ public class OriginWarAlpha extends ApplicationAdapter {
                 }
                 eatFood();
                 player.updateFOVMap();
-                //fovmap = fov.calculateFOV(resMap, newX, newY, 8, Radius.CIRCLE);
+
             }
         }
         if (player.getPosition() == stairSwitch) {
@@ -476,7 +367,7 @@ public class OriginWarAlpha extends ApplicationAdapter {
             if (food.getPosition().equals(player.getPosition())) {
                 foodList.remove(food);
                 foodEaten++;
-                foodSound.play();
+                //foodSound.play();
                 player.setHealth(player.getHealth() + 10);
                 break;
             }
@@ -488,12 +379,13 @@ public class OriginWarAlpha extends ApplicationAdapter {
         ArrayList<Food> toReturn = new ArrayList<>();
         DungeonUtility dungeonUtility = new DungeonUtility(rng);
         while (foodToAdd > 0) {
-            for(char[][] room : this.roomFinder.findRooms()){
+            ArrayList<char[][]> rooms = this.roomFinder.findRooms();
+            for(char[][] room : rooms){
                 boolean notDuplicate = true;
                 double chance = rng.nextDouble(1.0);
-                if (chance > 0.5) {
+                if (chance > 0.66) {
                     Coord position = dungeonUtility.randomFloor(room);
-                    if(position == null) continue;
+                    if(position == null || position == player.getPosition()) continue;
                     for(Food food : toReturn){
                         if (food.getPosition().equals(position)){
                             notDuplicate = false;
@@ -541,5 +433,118 @@ public class OriginWarAlpha extends ApplicationAdapter {
                 unexploredSet.clear();
             }
         }
+    }
+
+    public SquidInput inputConfig(){
+        SquidInput toReturn = new SquidInput(new SquidInput.KeyHandler() {
+            @Override
+            public void handle(char key, boolean alt, boolean ctrl, boolean shift) {
+                switch (key) {
+                    case SquidInput.UP_ARROW:
+                    case 'w':
+                    case 'W': {
+                        move(0, -1);
+                        break;
+                    }
+                    case SquidInput.DOWN_ARROW:
+                    case 's':
+                    case 'S': {
+                        move(0, 1);
+                        break;
+                    }
+                    case SquidInput.LEFT_ARROW:
+                    case 'a':
+                    case 'A': {
+                        move(-1, 0);
+                        break;
+                    }
+                    case SquidInput.RIGHT_ARROW:
+                    case 'd':
+                    case 'D': {
+                        move(1, 0);
+                        break;
+                    }
+                    case 'H':
+                    case 'h': {
+                        if (!helpOn) {
+                            helpOn = true;
+                        } else {
+                            helpOn = false;
+                        }
+                        break;
+                    }
+                    case 'Q':
+                    case 'q':
+                    case SquidInput.ESCAPE: {
+                        Gdx.app.exit();
+                        break;
+                    }
+                    case 't':
+                    case 'T': {
+                        restart();
+                    }
+                    case SquidInput.ENTER:
+                    case 'z':
+                    case 'Z': {
+                        move(0, 0);
+                        break;
+                    }
+                    case '!':
+                        if (debugMode) debugMode = false;
+                        else debugMode = true;
+
+                        break;
+                    case 'p':
+                    case 'P':
+                        if (debugMode) player.setHealth(126);
+                        break;
+                    case 'o':
+                    case 'O':
+                        if (debugMode) player.setHealth(5);
+                        break;
+                    case 'i':
+                    case 'I':
+                        if (debugMode) {
+                            levelCount++;
+                            create();
+                        }
+                        break;
+                    case 'u':
+                    case 'U':
+                        if(debugMode)revealMap();
+                        break;
+                }
+            }
+        },
+                new SquidMouse(cellWidth, cellHeight, gridWidth, gridHeight, 0, 0, new InputAdapter() {
+
+                    @Override
+                    public boolean touchUp(int screenX, int screenY, int pointer, int button) {
+                        if (explored[screenX][screenY]) {
+                            cursor = Coord.get(screenX, screenY);
+                            toCursor = playerToCursor.findPath(100, unexploredSet, null, player.getPosition(), cursor);
+                            awaitedMoves = new ArrayList<Coord>(toCursor);
+                        }
+                        return false;
+                    }
+
+                    @Override
+                    public boolean touchDragged(int screenX, int screenY, int pointer) {
+                        return mouseMoved(screenX, screenY);
+                    }
+
+                    @Override
+                    public boolean mouseMoved(int screenX, int screenY) {
+                        if (!awaitedMoves.isEmpty())
+                            return false;
+                        if (cursor.x == screenX && cursor.y == screenY) {
+                            return false;
+                        }
+                        cursor = Coord.get(screenX, screenY);
+                        toCursor = playerToCursor.findPath(100, unexploredSet, null, player.getPosition(), cursor);
+                        return false;
+                    }
+                }));
+        return toReturn;
     }
 }
