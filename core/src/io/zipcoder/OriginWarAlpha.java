@@ -81,9 +81,9 @@ public class OriginWarAlpha extends ApplicationAdapter {
 
     @Override
     public void create() {
-//        if(levelCount==1){
-//            init();
-//        }
+        if(levelCount==1){
+            init();
+        }
         textDisplay = new TextDisplay();
         textDisplay.setDefaultText(this);
         player = Player.getPlayer();
@@ -364,7 +364,7 @@ public class OriginWarAlpha extends ApplicationAdapter {
             if (food.getPosition().equals(player.getPosition())) {
                 foodList.remove(food);
                 foodEaten++;
-                //foodSound.play();
+                foodSound.play();
                 player.setHealth(player.getHealth() + 10);
                 break;
             }
