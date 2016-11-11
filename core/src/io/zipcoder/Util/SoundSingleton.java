@@ -9,14 +9,14 @@ import com.badlogic.gdx.audio.Sound;
 public class SoundSingleton {
     private Sound backgroundMusic;
     private Sound stairSound;
-    private Sound foodSound;
+    private Sound oxygenSound;
     private Sound keySound;
     private static SoundSingleton instance;
 
     private SoundSingleton(){
         backgroundMusic = Gdx.audio.newSound(Gdx.files.internal("21_Derelict_Freighter.mp3"));
         stairSound = Gdx.audio.newSound(Gdx.files.internal("door.wav"));
-        foodSound = Gdx.audio.newSound(Gdx.files.internal("cha-ching.wav"));
+        oxygenSound = Gdx.audio.newSound(Gdx.files.internal("cha-ching.wav"));
         keySound = Gdx.audio.newSound(Gdx.files.internal("ohyeah.wav"));
         SoundSingleton.instance = this;
     }
@@ -44,12 +44,12 @@ public class SoundSingleton {
         this.stairSound = stairSound;
     }
 
-    public Sound getFoodSound() {
-        return foodSound;
+    public Sound getOxygenSound() {
+        return oxygenSound;
     }
 
-    public void setFoodSound(Sound foodSound) {
-        this.foodSound = foodSound;
+    public void setOxygenSound(Sound oxygenSound) {
+        this.oxygenSound = oxygenSound;
     }
 
     public Sound getKeySound() {

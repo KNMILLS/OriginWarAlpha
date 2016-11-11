@@ -36,8 +36,8 @@ public class TextDisplay {
     private void setHelpText() {
         this.helpText = new String[]{
                 "You need to find the switch '?' to unlock the hatch '*' to the next level.",
-                "There are rations '%' scattered about. Make use of them.",
-                "Movement is modified by terrain: shallow water:2x, deep water:3x, grass:free.",
+                "There are O2 tanks '%' scattered about. Make use of them.",
+                "Movement is modified by terrain: low grav:2x, no grav:3x, fully functional:free.",
         };
     }
 
@@ -48,8 +48,8 @@ public class TextDisplay {
     public void setDefaultText(OriginWarAlpha game) {
         this.defaultText = new String[]{
                 "Player ID\t" + Player.getPlayer().getId() + "\tCurrent Level:\t" + game.getLevelCount() + "\tTurns:\t" + Player.getPlayer().getTurns(),
-                "Switch Found:\t" + game.isFoundSwitch() + "\tFood remaining:\t" + Math.max(0, (6 - game.getLevelCount()) - game.getFoodEaten()),
-                "Health Remaining:\t" + Player.getPlayer().getHealth() + "\tFood Eaten:\t" + game.getFoodEaten()
+                "Switch Found:\t" + game.isFoundSwitch() + "\tO2 tanks remaining:\t" + Math.max(0, (6 - game.getLevelCount()) - game.getOxygenUsed()),
+                "Oxygen Remaining:\t" + Player.getPlayer().getHealth() + "\tO2 tanks used:\t" + game.getOxygenUsed()
         };
     }
 
@@ -83,13 +83,13 @@ public class TextDisplay {
 
     public String[] updateAliceDisplayByPlayerHealth(int playerhealth) {
         if (playerhealth >= 125) {
-            this.aliceDisplayText[0] = "A.L.I.C.E: Starvation is the enemy but no enemy is absolute...";
-            this.aliceDisplayText[1] = "No solution is either. You will be slower when gorged. Do keep this in mind.";
+            this.aliceDisplayText[0] = "A.L.I.C.E: Asphyxiation is the enemy but no enemy is absolute...";
+            this.aliceDisplayText[1] = "No solution is either. Hyperventilation will slow you. Do keep this in mind.";
         } else if (playerhealth > 50) {
             this.aliceDisplayText[0] = "A.L.I.C.E: I would not go so far as to call you healthy but//";
             this.aliceDisplayText[1] = "...you aren't dying. Continue that.";
         } else if (playerhealth > 35) {
-            this.aliceDisplayText[0] = "A.L.I.C.E: I actually need to remind you to eat.";
+            this.aliceDisplayText[0] = "A.L.I.C.E: I actually need to remind you to breathe.";
             this.aliceDisplayText[1] = "This is not inspiring.";
         } else if (playerhealth > 0) {
             this.aliceDisplayText[0] = "A.L.I.C.E: You are dying. Not to make this about me//";

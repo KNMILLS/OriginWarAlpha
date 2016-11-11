@@ -4,20 +4,18 @@ import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.InputAdapter;
 import com.badlogic.gdx.InputMultiplexer;
-import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.utils.viewport.StretchViewport;
 import io.zipcoder.Entities.Player;
-import io.zipcoder.Items.Food;
+import io.zipcoder.Items.Oxygen;
 import io.zipcoder.Util.OriginInput;
 import io.zipcoder.Util.SoundSingleton;
 import io.zipcoder.graphics.TextDisplay;
 import squidpony.GwtCompatibility;
 import squidpony.squidai.DijkstraMap;
-import squidpony.squidgrid.FOV;
 import squidpony.squidgrid.gui.gdx.*;
 import squidpony.squidgrid.mapping.DungeonGenerator;
 import squidpony.squidgrid.mapping.DungeonUtility;
@@ -61,9 +59,9 @@ public class OriginWarAlpha extends ApplicationAdapter {
     private int levelCount = 1;
     private boolean foundSwitch;
     private RoomFinder roomFinder;
-    private ArrayList<Food> foodList;
+    private ArrayList<Oxygen> oxygenList;
     private boolean debugMode;
-    private int foodEaten;
+    private int oxygenUsed;
     private boolean victoryState;
     private AStarSearch validLevelSearch;
     private TextDisplay textDisplay;
@@ -192,8 +190,8 @@ public class OriginWarAlpha extends ApplicationAdapter {
         languageFG = GwtCompatibility.fill2D(40, gridWidth, 6);
         foundSwitch = false;
         roomFinder = new RoomFinder(decoDungeon);
-        foodList = addFood();
-        foodEaten = 0;
+        oxygenList = addOxygen();
+        oxygenUsed = 0;
         player.setAlive(true);
 
         baseInput = inputConfig();
@@ -233,7 +231,7 @@ public class OriginWarAlpha extends ApplicationAdapter {
                     if (player.getTurns() % 4 == 0) player.setHealth(player.getHealth() + 1);
                     player.setTurns(player.getTurns() - 1);
                 }
-                eatFood();
+                refillOxygen();
                 player.updateFOVMap();
 
             }
@@ -283,11 +281,11 @@ public class OriginWarAlpha extends ApplicationAdapter {
         if ((explored[stairSwitch.x][stairSwitch.y] && !foundSwitch) && levelCount < 10) {
             display.put(stairSwitch.x, stairSwitch.y, '?', 12);
         }
-        for (Food food : foodList) {
-            int x = food.getPosition().getX();
-            int y = food.getPosition().getY();
+        for (Oxygen oxygen : oxygenList) {
+            int x = oxygen.getPosition().getX();
+            int y = oxygen.getPosition().getY();
             if (explored[x][y]) {
-                display.put(x, y, food.getSymbol(), 12);
+                display.put(x, y, oxygen.getSymbol(), 12);
             }
         }
         if(decoDungeon[player.getPosition().getX()][player.getPosition().getY()] == '~'){
@@ -372,23 +370,23 @@ public class OriginWarAlpha extends ApplicationAdapter {
         input.getMouse().reinitialize((float) width / this.gridWidth, (float) height / (this.gridHeight + 8), this.gridWidth, this.gridHeight, 0, 0);
     }
 
-    private void eatFood() {
-        for (Food food : foodList) {
-            if (food.getPosition().equals(player.getPosition())) {
-                foodList.remove(food);
-                foodEaten++;
-                soundSingleton.getFoodSound().play();
+    private void refillOxygen() {
+        for (Oxygen oxygen : oxygenList) {
+            if (oxygen.getPosition().equals(player.getPosition())) {
+                oxygenList.remove(oxygen);
+                oxygenUsed++;
+                soundSingleton.getOxygenSound().play();
                 player.setHealth(player.getHealth() + 10);
                 break;
             }
         }
     }
 
-    private ArrayList<Food> addFood() {
-        int foodToAdd = 6 - levelCount;
-        ArrayList<Food> toReturn = new ArrayList<>();
+    private ArrayList<Oxygen> addOxygen() {
+        int oxygenToAdd = 6 - levelCount;
+        ArrayList<Oxygen> toReturn = new ArrayList<>();
         DungeonUtility dungeonUtility = new DungeonUtility(rng);
-        while (foodToAdd > 0) {
+        while (oxygenToAdd > 0) {
             ArrayList<char[][]> rooms = this.roomFinder.findRooms();
             for(char[][] room : rooms){
                 boolean notDuplicate = true;
@@ -396,15 +394,15 @@ public class OriginWarAlpha extends ApplicationAdapter {
                 if (chance > 0.66) {
                     Coord position = dungeonUtility.randomFloor(room);
                     if(position == null || position == player.getPosition()) continue;
-                    for(Food food : toReturn){
-                        if (food.getPosition().equals(position)){
+                    for(Oxygen oxygen : toReturn){
+                        if (oxygen.getPosition().equals(position)){
                             notDuplicate = false;
                             break;
                         }
                     }
                     if(notDuplicate){
-                        toReturn.add(new Food(position));
-                        foodToAdd--;
+                        toReturn.add(new Oxygen(position));
+                        oxygenToAdd--;
                         continue;
                     }
 
@@ -421,14 +419,14 @@ public class OriginWarAlpha extends ApplicationAdapter {
         player.setHealth(101);
         player.setTurns(-1);
         levelCount = 1;
-        foodEaten = 0;
+        oxygenUsed = 0;
         create();
     }
     public int getLevelCount() {
         return levelCount;
     }
-    public int getFoodEaten() {
-        return foodEaten;
+    public int getOxygenUsed() {
+        return oxygenUsed;
     }
     public boolean isFoundSwitch() {
         return foundSwitch;
