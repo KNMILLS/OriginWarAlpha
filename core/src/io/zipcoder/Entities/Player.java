@@ -7,6 +7,7 @@ public class Player extends Creature{
     private static Player instance;
     private int turns;
     private Boolean alive;
+    private int hpColor;
 
     private Player(){
         super();
@@ -55,5 +56,17 @@ public class Player extends Creature{
 
     public void setAlive(Boolean alive) {
         this.alive = alive;
+    }
+
+    public Boolean getAlive() {
+        return alive;
+    }
+
+    public int getHpColor() {
+        return hpColor;
+    }
+
+    public void setHpColor(int hpColor) {
+        this.hpColor = hpColor;
     }
 }

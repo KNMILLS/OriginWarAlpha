@@ -71,8 +71,9 @@ public class OriginWarAlpha extends ApplicationAdapter {
     private Sound keySound;
     private TextDisplay textDisplay;
 
+
     public void init(){
-        backgroundMusic = Gdx.audio.newSound(Gdx.files.internal("21_Derelict_Freighter.mp3"));
+        backgroundMusic = Gdx.audio.newSound(Gdx.files.internal("39_Derelict_Freighter.mp3"));
         stairSound = Gdx.audio.newSound(Gdx.files.internal("door.wav"));
         foodSound = Gdx.audio.newSound(Gdx.files.internal("cha-ching.wav"));
         keySound = Gdx.audio.newSound(Gdx.files.internal("ohyeah.wav"));
@@ -81,6 +82,7 @@ public class OriginWarAlpha extends ApplicationAdapter {
 
     @Override
     public void create() {
+
 //        if(levelCount==1){
 //            init();
 //        }
@@ -103,6 +105,7 @@ public class OriginWarAlpha extends ApplicationAdapter {
         display.setTextSize(cellWidth, cellHeight + 1);
         display.setAnimationDuration(0.03f);
         display.setPosition(0, 0);
+        display.extendPalette(Color.CLEAR);
         dungeonGen = new DungeonGenerator(gridWidth, gridHeight, rng);
         dungeonGen.addDoors(25, true);
         explored = new boolean[gridWidth][gridHeight];
@@ -194,8 +197,8 @@ public class OriginWarAlpha extends ApplicationAdapter {
         }
 
         spaces = GwtCompatibility.fill2D(' ', gridWidth, 6);
-        languageBG = GwtCompatibility.fill2D(1, gridWidth, 6);
-        languageFG = GwtCompatibility.fill2D(0, gridWidth, 6);
+        languageBG = GwtCompatibility.fill2D(40, gridWidth, 6);
+        languageFG = GwtCompatibility.fill2D(40, gridWidth, 6);
         foundSwitch = false;
         roomFinder = new RoomFinder(decoDungeon);
         foodList = addFood();
@@ -247,7 +250,7 @@ public class OriginWarAlpha extends ApplicationAdapter {
         if (player.getPosition() == stairSwitch) {
             stairsDown = dungeonGen.stairsDown;
             foundSwitch = true;
-            keySound.play();
+            //keySound.play();
         }
         if (player.getPosition() == stairsDown) {
             levelCount++;
@@ -293,7 +296,7 @@ public class OriginWarAlpha extends ApplicationAdapter {
             int x = food.getPosition().getX();
             int y = food.getPosition().getY();
             if (explored[x][y]) {
-                display.put(x, y, food.getSymbol(), 39);
+                display.put(x, y, food.getSymbol(), 12);
             }
         }
         if (victoryState) {
@@ -303,15 +306,20 @@ public class OriginWarAlpha extends ApplicationAdapter {
             textDisplay.setDisplayText(textDisplay.getEndGameText());
             textDisplay.setAliceDisplayText(textDisplay.getAliceVictoryText());
         } else if (player.getHealth() >= 125) {
-            display.put(player.getPosition().x, player.getPosition().y, '∆', 27);
+            player.setHpColor(27);
+            display.put(player.getPosition().x, player.getPosition().y, '∆', player.getHpColor());
         } else if (player.getHealth() > 50) {
-            display.put(player.getPosition().x, player.getPosition().y, '∆', 21);
+            player.setHpColor(24);
+            display.put(player.getPosition().x, player.getPosition().y, '∆', player.getHpColor());
         } else if (player.getHealth() > 25) {
-            display.put(player.getPosition().x, player.getPosition().y, '∆', 18);
+            player.setHpColor(18);
+            display.put(player.getPosition().x, player.getPosition().y, '∆', player.getHpColor());
         } else if (player.getHealth() > 0) {
-            display.put(player.getPosition().x, player.getPosition().y, '∆', 12);
+            player.setHpColor(12);
+            display.put(player.getPosition().x, player.getPosition().y, '∆', player.getHpColor());
         } else {
-            display.put(player.getPosition().x, player.getPosition().y, '±', 2);
+            player.setHpColor(2);
+            display.put(player.getPosition().x, player.getPosition().y, '±', player.getHpColor());
             player.setAlive(false);
             textDisplay.setDisplayText(textDisplay.getEndGameText());
             textDisplay.setAliceDisplayText(textDisplay.getAliceDeathText());
@@ -319,12 +327,12 @@ public class OriginWarAlpha extends ApplicationAdapter {
         display.put(0, gridHeight + 1, spaces, languageFG, languageBG);
         if (helpOn) textDisplay.setDisplayText(textDisplay.getHelpText());
         else textDisplay.setDisplayText(textDisplay.getDefaultText());
-        display.putString(2, gridHeight + 1, textDisplay.getDisplayText()[0], 0, 1);
-        display.putString(2, gridHeight + 2, textDisplay.getDisplayText()[1], 0, 1);
-        display.putString(2, gridHeight + 3, textDisplay.getDisplayText()[2], 0, 1);
-        display.putString(2, gridHeight + 4, textDisplay.getAliceDisplayText()[0], 0, 1);
-        display.putString(2, gridHeight + 5, textDisplay.getAliceDisplayText()[1], 0, 1);
-        display.putString(2, gridHeight + 6, textDisplay.getControlsBanner()[0], 0, 1);
+        display.putString(2, gridHeight + 1, textDisplay.getDisplayText()[0], player.getHpColor(), 40);
+        display.putString(2, gridHeight + 2, textDisplay.getDisplayText()[1], player.getHpColor(), 40);
+        display.putString(2, gridHeight + 3, textDisplay.getDisplayText()[2], player.getHpColor(), 40);
+        display.putString(2, gridHeight + 4, textDisplay.getAliceDisplayText()[0], player.getHpColor(), 40);
+        display.putString(2, gridHeight + 5, textDisplay.getAliceDisplayText()[1], player.getHpColor(), 40);
+        display.putString(2, gridHeight + 6, textDisplay.getControlsBanner()[0], player.getHpColor(), 40);
     }
 
     @Override
