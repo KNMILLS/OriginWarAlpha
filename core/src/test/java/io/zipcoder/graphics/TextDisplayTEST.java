@@ -1,6 +1,5 @@
-package graphics;
+package io.zipcoder.graphics;
 
-import io.zipcoder.graphics.TextDisplay;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;

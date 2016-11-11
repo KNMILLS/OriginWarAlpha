@@ -448,7 +448,7 @@ public class OriginResources implements LifecycleListener{
      * "stretchable" fonts and be resized in the same way. These will not look as-expected if stretchable fonts are not
      * in use, and will seem hazy and indistinct if the shader hasn't been set up for a distance field effect by
      * TextCellFactory (which stretchable fonts will do automatically). The one page of the TextureAtlas is 2048x2048,
-     * which may be too large for some old, low-end Android phones, and possibly integrated graphics with fairly old
+     * which may be too large for some old, low-end Android phones, and possibly integrated io.zipcoder.graphics with fairly old
      * processors on desktop. It has over 2000 icons.
      * <br>
      * The icons are CC-BY and the license is distributed with them, though the icons are not necessarily included with

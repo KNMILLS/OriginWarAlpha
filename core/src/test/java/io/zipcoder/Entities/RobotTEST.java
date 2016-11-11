@@ -1,6 +1,5 @@
-package io.zipcoder;
+package io.zipcoder.Entities;
 
-import io.zipcoder.Entities.Robot;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;

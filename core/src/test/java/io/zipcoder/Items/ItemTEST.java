@@ -1,4 +1,4 @@
-package io.zipcoder;
+package io.zipcoder.Items;
 
 /**
  * Created by christophernobles on 11/6/16.
