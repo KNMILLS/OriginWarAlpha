@@ -13,6 +13,7 @@ import com.badlogic.gdx.utils.viewport.StretchViewport;
 import io.zipcoder.Entities.Player;
 import io.zipcoder.Items.Food;
 import io.zipcoder.Util.OriginInput;
+import io.zipcoder.Util.SoundSingleton;
 import io.zipcoder.graphics.TextDisplay;
 import squidpony.GwtCompatibility;
 import squidpony.squidai.DijkstraMap;
@@ -65,18 +66,12 @@ public class OriginWarAlpha extends ApplicationAdapter {
     private int foodEaten;
     private boolean victoryState;
     private AStarSearch validLevelSearch;
-    private Sound backgroundMusic;
-    private Sound stairSound;
-    private Sound foodSound;
-    private Sound keySound;
     private TextDisplay textDisplay;
+    private SoundSingleton soundSingleton;
 
     public void init(){
-        backgroundMusic = Gdx.audio.newSound(Gdx.files.internal("21_Derelict_Freighter.mp3"));
-        stairSound = Gdx.audio.newSound(Gdx.files.internal("door.wav"));
-        foodSound = Gdx.audio.newSound(Gdx.files.internal("cha-ching.wav"));
-        keySound = Gdx.audio.newSound(Gdx.files.internal("ohyeah.wav"));
-        backgroundMusic.loop();
+        soundSingleton = SoundSingleton.getSoundSingleton();
+        soundSingleton.getBackgroundMusic().loop();
     }
 
     @Override
@@ -244,7 +239,7 @@ public class OriginWarAlpha extends ApplicationAdapter {
         if (player.getPosition() == stairSwitch) {
             stairsDown = dungeonGen.stairsDown;
             foundSwitch = true;
-            keySound.play();
+            soundSingleton.getKeySound().play();
         }
         if (player.getPosition() == stairsDown) {
             levelCount++;
@@ -252,7 +247,7 @@ public class OriginWarAlpha extends ApplicationAdapter {
                 player.setHealth(Math.min(100, player.getHealth() + (10*(10-levelCount))));
             }
             create();
-            stairSound.play();
+            soundSingleton.getStairSound().play();
         }
     }
 
@@ -364,7 +359,7 @@ public class OriginWarAlpha extends ApplicationAdapter {
             if (food.getPosition().equals(player.getPosition())) {
                 foodList.remove(food);
                 foodEaten++;
-                foodSound.play();
+                soundSingleton.getFoodSound().play();
                 player.setHealth(player.getHealth() + 10);
                 break;
             }
