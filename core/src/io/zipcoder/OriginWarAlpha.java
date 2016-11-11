@@ -223,9 +223,11 @@ public class OriginWarAlpha extends ApplicationAdapter {
                 if (decoDungeon[newX][newY] == '~') {
                     player.incrementTurn();
                     player.incrementTurn();
+                    soundSingleton.getWaterStep().play(.5f);
                 }
                 if (decoDungeon[newX][newY] == ',') {
                     player.incrementTurn();
+                    soundSingleton.getWaterStep().play(.1f);
                 }
                 if (decoDungeon[newX][newY] == '"') {
                     if (player.getTurns() % 4 == 0) player.setHealth(player.getHealth() + 1);
@@ -250,6 +252,7 @@ public class OriginWarAlpha extends ApplicationAdapter {
             create();
             soundSingleton.getStairSound().play();
         }
+
     }
 
     private void putMap() {
@@ -289,15 +292,15 @@ public class OriginWarAlpha extends ApplicationAdapter {
                 display.put(x, y, food.getSymbol(), 12);
             }
         }
-        if(decoDungeon[player.getPosition().getX()][player.getPosition().getY()] == '~'){
-            display.setAnimationDuration(0.9f);
-        } else if(decoDungeon[player.getPosition().getX()][player.getPosition().getY()] == ','){
-            display.setAnimationDuration(0.6f);
-        } else if(decoDungeon[player.getPosition().getX()][player.getPosition().getY()] == '"'){
-            display.setAnimationDuration(2000.1f);
-        } else {
-            display.setAnimationDuration(0.3f);
-        }
+//        if(decoDungeon[player.getPosition().getX()][player.getPosition().getY()] == '~'){
+//            display.setAnimationDuration(0.9f);
+//        } else if(decoDungeon[player.getPosition().getX()][player.getPosition().getY()] == ','){
+//            display.setAnimationDuration(0.6f);
+//        } else if(decoDungeon[player.getPosition().getX()][player.getPosition().getY()] == '"'){
+//            display.setAnimationDuration(2000.1f);
+//        } else {
+//            display.setAnimationDuration(0.3f);
+//        }
         if (victoryState) {
             player.setHealth(0);
             player.setAlive(false);
@@ -363,6 +366,20 @@ public class OriginWarAlpha extends ApplicationAdapter {
         }
         stage.draw();
         stage.act();
+        if (player.getHealth() <= 0) {
+            // still need to display the map, then write over it with a message.
+            putMap();
+            display.putBoxedString(gridWidth / 2 - 18, gridHeight / 2 - 8, "       THANKS FOR PLAYING!          ");
+            display.putBoxedString(gridWidth / 2 - 18, gridHeight / 2 - 5, "            -DEV TEAM               ");
+            display.putBoxedString(gridWidth / 2 - 18, gridHeight / 2 + 5, "             q to quit.             ");
+
+            // because we return early, we still need to draw.
+            stage.draw();
+            // q still needs to quit.
+            if (input.hasNext())
+                input.next();
+            return;
+        }
     }
 
     @Override
@@ -378,6 +395,7 @@ public class OriginWarAlpha extends ApplicationAdapter {
                 foodEaten++;
                 soundSingleton.getFoodSound().play();
                 player.setHealth(player.getHealth() + 10);
+                display.putBoxedString(gridWidth / 2 - 18, gridHeight / 2 + 5, "             YUM!             ");
                 break;
             }
         }

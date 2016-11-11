@@ -11,6 +11,7 @@ public class SoundSingleton {
     private Sound stairSound;
     private Sound foodSound;
     private Sound keySound;
+    private Sound waterStep;
     private static SoundSingleton instance;
 
     private SoundSingleton(){
@@ -18,6 +19,7 @@ public class SoundSingleton {
         stairSound = Gdx.audio.newSound(Gdx.files.internal("door.wav"));
         foodSound = Gdx.audio.newSound(Gdx.files.internal("cha-ching.wav"));
         keySound = Gdx.audio.newSound(Gdx.files.internal("ohyeah.wav"));
+        waterStep = Gdx.audio.newSound(Gdx.files.internal("splash.wav"));
         SoundSingleton.instance = this;
     }
 
@@ -58,5 +60,13 @@ public class SoundSingleton {
 
     public void setKeySound(Sound keySound) {
         this.keySound = keySound;
+    }
+
+    public Sound getWaterStep() {
+        return waterStep;
+    }
+
+    public void setWaterStep(Sound waterStep) {
+        this.waterStep = waterStep;
     }
 }
