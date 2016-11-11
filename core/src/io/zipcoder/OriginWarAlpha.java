@@ -4,7 +4,9 @@ import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.InputAdapter;
 import com.badlogic.gdx.InputMultiplexer;
+import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.audio.Sound;
+import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
@@ -25,11 +27,13 @@ import squidpony.squidmath.CoordPacker;
 import squidpony.squidmath.RNG;
 
 import java.awt.*;
+import java.io.File;
 import java.util.*;
 import java.util.Queue;
 
 public class OriginWarAlpha extends ApplicationAdapter {
-    SpriteBatch batch;
+    private static AssetManager assetManager = new AssetManager();
+    private SpriteBatch batch;
     private RNG rng;
     private SquidLayers display;
     private DungeonGenerator dungeonGen;
@@ -66,14 +70,22 @@ public class OriginWarAlpha extends ApplicationAdapter {
     private boolean victoryState;
     private AStarSearch validLevelSearch;
     private Sound backgroundMusic;
+    private Sound stairSound;
     private TextDisplay textDisplay;
+
+    public void init(){
+        backgroundMusic = Gdx.audio.newSound(Gdx.files.internal("21_Derelict_Freighter.mp3"));
+        stairSound = Gdx.audio.newSound(Gdx.files.internal("door.wav"));
+        backgroundMusic.loop();
+    }
 
     @Override
     public void create() {
+        if(levelCount==1){
+            init();
+        }
         textDisplay = new TextDisplay();
         textDisplay.setDefaultText(this);
-//        backgroundMusic = Gdx.audio.newSound(Gdx.files.internal("backgroundMusic.mp3"));
-//        backgroundMusic.loop();
         player = Player.getPlayer();
         costMap = new HashMap<>();
         costMap.put('.', 1.0);
@@ -350,6 +362,7 @@ public class OriginWarAlpha extends ApplicationAdapter {
                 player.setHealth(Math.min(100, player.getHealth() + (10*(10-levelCount))));
             }
             create();
+            stairSound.play();
         }
     }
 
