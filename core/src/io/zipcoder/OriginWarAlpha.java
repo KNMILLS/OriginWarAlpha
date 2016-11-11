@@ -262,6 +262,11 @@ public class OriginWarAlpha extends ApplicationAdapter {
                             levelCount++;
                             create();
                         }
+                        break;
+                    case 'u':
+                    case 'U':
+                        if(debugMode)revealMap();
+                        break;
                 }
             }
         },
@@ -509,5 +514,16 @@ public class OriginWarAlpha extends ApplicationAdapter {
     }
     public boolean isFoundSwitch() {
         return foundSwitch;
+    }
+
+    public void revealMap(){
+
+        for(int i = 0; i < player.getResMap().length; i++ ){
+            for(int j = 0; j < player.getResMap()[0].length; j++ ){
+                player.getResMap()[i][j] = 0.0;
+                explored[i][j] = true;
+                unexploredSet.clear();
+            }
+        }
     }
 }
