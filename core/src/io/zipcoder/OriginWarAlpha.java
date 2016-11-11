@@ -34,7 +34,7 @@ public class OriginWarAlpha extends ApplicationAdapter {
     private RNG rng;
     private SquidLayers display;
     private DungeonGenerator dungeonGen;
-    private char[][] decoDungeon, bareDungeon, lineDungeon, spaces;
+    private char[][] decoDungeon, bareDungeon, lineDungeon, spaces, stairDungeon;
     private int[][] colorIndices, bgColorIndices, languageBG, languageFG, lights;
     private double[][] costArray;
     private boolean explored[][];
@@ -87,11 +87,7 @@ public class OriginWarAlpha extends ApplicationAdapter {
         textDisplay = new TextDisplay();
         textDisplay.setDefaultText(this);
         player = Player.getPlayer();
-        costMap = new HashMap<>();
-        costMap.put('.', 1.0);
-        costMap.put('~', 3.0);
-        costMap.put('"', 0.1);
-        costMap.put(',', 2.0);
+        costMap = initializeCostMap();
         gridWidth = 80;
         gridHeight = 24;
         cellWidth = 11;
@@ -104,6 +100,7 @@ public class OriginWarAlpha extends ApplicationAdapter {
         display.setAnimationDuration(0.03f);
         display.setPosition(0, 0);
         dungeonGen = new DungeonGenerator(gridWidth, gridHeight, rng);
+        stairDungeon = dungeonGen.generate(TilesetType.ROOMS_AND_CORRIDORS_B);
         dungeonGen.addDoors(25, true);
         explored = new boolean[gridWidth][gridHeight];
         switch (levelCount) {
@@ -141,7 +138,7 @@ public class OriginWarAlpha extends ApplicationAdapter {
             default:
                 dungeonGen.addGrass(100);
         }
-        decoDungeon = dungeonGen.generate(TilesetType.ROOMS_AND_CORRIDORS_B);
+        decoDungeon = dungeonGen.generate(stairDungeon);
         decoDungeon = DungeonUtility.closeDoors(decoDungeon);
         costArray = DungeonUtility.generateCostMap(decoDungeon, costMap, 1.0);
         bareDungeon = dungeonGen.getBareDungeon();
@@ -259,7 +256,7 @@ public class OriginWarAlpha extends ApplicationAdapter {
         }
     }
 
-    public void putMap() {
+    private void putMap() {
         boolean occupied;
         for (int i = 0; i < gridWidth; i++) {
             for (int j = 0; j < gridHeight; j++) {
@@ -362,7 +359,7 @@ public class OriginWarAlpha extends ApplicationAdapter {
         input.getMouse().reinitialize((float) width / this.gridWidth, (float) height / (this.gridHeight + 8), this.gridWidth, this.gridHeight, 0, 0);
     }
 
-    public void eatFood() {
+    private void eatFood() {
         for (Food food : foodList) {
             if (food.getPosition().equals(player.getPosition())) {
                 foodList.remove(food);
@@ -374,7 +371,7 @@ public class OriginWarAlpha extends ApplicationAdapter {
         }
     }
 
-    public ArrayList<Food> addFood() {
+    private ArrayList<Food> addFood() {
         int foodToAdd = 6 - levelCount;
         ArrayList<Food> toReturn = new ArrayList<>();
         DungeonUtility dungeonUtility = new DungeonUtility(rng);
@@ -406,7 +403,7 @@ public class OriginWarAlpha extends ApplicationAdapter {
 
     }
 
-    public void restart() {
+    private void restart() {
         player.setAlive(true);
         player.setHealth(101);
         player.setTurns(-1);
@@ -424,8 +421,7 @@ public class OriginWarAlpha extends ApplicationAdapter {
         return foundSwitch;
     }
 
-    public void revealMap(){
-
+    private void revealMap(){
         for(int i = 0; i < player.getResMap().length; i++ ){
             for(int j = 0; j < player.getResMap()[0].length; j++ ){
                 player.getResMap()[i][j] = 0.0;
@@ -435,7 +431,7 @@ public class OriginWarAlpha extends ApplicationAdapter {
         }
     }
 
-    public SquidInput inputConfig(){
+    private SquidInput inputConfig(){
         SquidInput toReturn = new SquidInput(new SquidInput.KeyHandler() {
             @Override
             public void handle(char key, boolean alt, boolean ctrl, boolean shift) {
@@ -545,6 +541,15 @@ public class OriginWarAlpha extends ApplicationAdapter {
                         return false;
                     }
                 }));
+        return toReturn;
+    }
+
+    private HashMap<Character, Double> initializeCostMap(){
+        HashMap<Character, Double> toReturn = new HashMap<>();
+        toReturn.put('.', 1.0);
+        toReturn.put('~', 3.0);
+        toReturn.put('"', 0.1);
+        toReturn.put(',', 2.0);
         return toReturn;
     }
 }
