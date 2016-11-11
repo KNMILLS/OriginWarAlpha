@@ -72,12 +72,14 @@ public class OriginWarAlpha extends ApplicationAdapter {
     private Sound backgroundMusic;
     private Sound stairSound;
     private Sound foodSound;
+    private Sound keySound;
     private TextDisplay textDisplay;
 
     public void init(){
         backgroundMusic = Gdx.audio.newSound(Gdx.files.internal("21_Derelict_Freighter.mp3"));
         stairSound = Gdx.audio.newSound(Gdx.files.internal("door.wav"));
         foodSound = Gdx.audio.newSound(Gdx.files.internal("cha-ching.wav"));
+        keySound = Gdx.audio.newSound(Gdx.files.internal("ohyeah.wav"));
         backgroundMusic.loop();
     }
 
@@ -357,6 +359,7 @@ public class OriginWarAlpha extends ApplicationAdapter {
         if (player.getPosition() == stairSwitch) {
             stairsDown = dungeonGen.stairsDown;
             foundSwitch = true;
+            stairSound.play();
         }
         if (player.getPosition() == stairsDown) {
             levelCount++;
