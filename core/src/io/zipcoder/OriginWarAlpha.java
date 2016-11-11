@@ -6,7 +6,6 @@ import com.badlogic.gdx.InputAdapter;
 import com.badlogic.gdx.InputMultiplexer;
 import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.audio.Sound;
-import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
@@ -25,14 +24,10 @@ import squidpony.squidmath.AStarSearch;
 import squidpony.squidmath.Coord;
 import squidpony.squidmath.CoordPacker;
 import squidpony.squidmath.RNG;
-
-import java.awt.*;
-import java.io.File;
 import java.util.*;
 import java.util.Queue;
 
 public class OriginWarAlpha extends ApplicationAdapter {
-    private static AssetManager assetManager = new AssetManager();
     private SpriteBatch batch;
     private RNG rng;
     private SquidLayers display;
