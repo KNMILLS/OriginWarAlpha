@@ -1,4 +1,4 @@
-package io.zipcoder;
+package io.zipcoder.Entities;
 
 import squidpony.squidmath.Coord;
 

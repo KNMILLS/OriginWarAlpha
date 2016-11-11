@@ -1,4 +1,4 @@
-package io.zipcoder;
+package io.zipcoder.Entities;
 
 /**
  * Created by kenragonese on 11/9/16.

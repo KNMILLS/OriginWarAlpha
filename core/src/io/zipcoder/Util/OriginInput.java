@@ -1,4 +1,4 @@
-package io.zipcoder;
+package io.zipcoder.Util;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;

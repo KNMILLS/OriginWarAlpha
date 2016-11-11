@@ -4,14 +4,15 @@ import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.InputAdapter;
 import com.badlogic.gdx.InputMultiplexer;
-import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.audio.Sound;
-import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.utils.viewport.StretchViewport;
+import io.zipcoder.Entities.Player;
+import io.zipcoder.Items.Food;
+import io.zipcoder.Util.OriginInput;
 import io.zipcoder.graphics.TextDisplay;
 import squidpony.GwtCompatibility;
 import squidpony.squidai.DijkstraMap;
@@ -25,14 +26,10 @@ import squidpony.squidmath.AStarSearch;
 import squidpony.squidmath.Coord;
 import squidpony.squidmath.CoordPacker;
 import squidpony.squidmath.RNG;
-
-import java.awt.*;
-import java.io.File;
 import java.util.*;
 import java.util.Queue;
 
 public class OriginWarAlpha extends ApplicationAdapter {
-    private static AssetManager assetManager = new AssetManager();
     private SpriteBatch batch;
     private RNG rng;
     private SquidLayers display;
@@ -72,12 +69,14 @@ public class OriginWarAlpha extends ApplicationAdapter {
     private Sound backgroundMusic;
     private Sound stairSound;
     private Sound foodSound;
+    private Sound keySound;
     private TextDisplay textDisplay;
 
     public void init(){
         backgroundMusic = Gdx.audio.newSound(Gdx.files.internal("21_Derelict_Freighter.mp3"));
         stairSound = Gdx.audio.newSound(Gdx.files.internal("door.wav"));
         foodSound = Gdx.audio.newSound(Gdx.files.internal("cha-ching.wav"));
+        keySound = Gdx.audio.newSound(Gdx.files.internal("ohyeah.wav"));
         backgroundMusic.loop();
     }
 
@@ -357,6 +356,7 @@ public class OriginWarAlpha extends ApplicationAdapter {
         if (player.getPosition() == stairSwitch) {
             stairsDown = dungeonGen.stairsDown;
             foundSwitch = true;
+            keySound.play();
         }
         if (player.getPosition() == stairsDown) {
             levelCount++;
