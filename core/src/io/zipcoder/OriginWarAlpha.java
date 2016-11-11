@@ -290,6 +290,15 @@ public class OriginWarAlpha extends ApplicationAdapter {
                 display.put(x, y, food.getSymbol(), 12);
             }
         }
+        if(decoDungeon[player.getPosition().getX()][player.getPosition().getY()] == '~'){
+            display.setAnimationDuration(0.9f);
+        } else if(decoDungeon[player.getPosition().getX()][player.getPosition().getY()] == ','){
+            display.setAnimationDuration(0.6f);
+        } else if(decoDungeon[player.getPosition().getX()][player.getPosition().getY()] == '"'){
+            display.setAnimationDuration(2000.1f);
+        } else {
+            display.setAnimationDuration(0.3f);
+        }
         if (victoryState) {
             player.setHealth(0);
             player.setAlive(false);
@@ -324,6 +333,7 @@ public class OriginWarAlpha extends ApplicationAdapter {
         display.putString(2, gridHeight + 4, textDisplay.getAliceDisplayText()[0], player.getHpColor(), 40);
         display.putString(2, gridHeight + 5, textDisplay.getAliceDisplayText()[1], player.getHpColor(), 40);
         display.putString(2, gridHeight + 6, textDisplay.getControlsBanner()[0], player.getHpColor(), 40);
+
     }
 
     @Override
@@ -339,8 +349,9 @@ public class OriginWarAlpha extends ApplicationAdapter {
                 awaitedMoves.clear();
                 playerToCursor.clearGoals();
             }
+            double moveValue = costMap.get(decoDungeon[player.getPosition().getX()][player.getPosition().getY()]);
             secondsWithoutMoves += Gdx.graphics.getDeltaTime();
-            if (secondsWithoutMoves >= 0.1) {
+            if (secondsWithoutMoves >= 0.1 * moveValue) {
                 secondsWithoutMoves = 0;
                 Coord m = null;
                 if(!awaitedMoves.isEmpty()){m = awaitedMoves.remove(0);}
@@ -552,6 +563,8 @@ public class OriginWarAlpha extends ApplicationAdapter {
         toReturn.put('~', 3.0);
         toReturn.put('"', 0.1);
         toReturn.put(',', 2.0);
+        toReturn.put('/',1.0);
+        toReturn.put('+', 1.0);
         return toReturn;
     }
 }
