@@ -5,12 +5,12 @@ import squidpony.squidmath.Coord;
 /**
  * Created by evanhitchings on 11/4/16.
  */
-public class Food extends Item {
+public class Oxygen extends Item {
 
-    public Food() {
+    public Oxygen() {
     }
 
-    public Food(Coord position) {
+    public Oxygen(Coord position) {
         super(position);
         this.setSymbol('%');
     }
