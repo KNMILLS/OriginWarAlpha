@@ -238,8 +238,9 @@ public class OriginWarAlpha extends ApplicationAdapter {
         }
         if (player.getPosition() == stairSwitch) {
             stairsDown = dungeonGen.stairsDown;
+            if(!foundSwitch)soundSingleton.getKeySound().play();
             foundSwitch = true;
-            soundSingleton.getKeySound().play();
+
         }
         if (player.getPosition() == stairsDown) {
             levelCount++;
