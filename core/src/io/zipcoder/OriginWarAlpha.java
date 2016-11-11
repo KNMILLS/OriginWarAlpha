@@ -89,7 +89,7 @@ public class OriginWarAlpha extends ApplicationAdapter {
         rng = new RNG(System.currentTimeMillis() * (long) Math.PI);
         batch = new SpriteBatch();
         stage = new Stage(new StretchViewport(gridWidth * cellWidth, (gridHeight + 8) * cellHeight), batch);
-        display = new SquidLayers(gridWidth, gridHeight + 8, cellWidth, cellHeight, DefaultResources.getStretchableFont());
+        display = new SquidLayers(gridWidth, gridHeight + 8, cellWidth, cellHeight, DefaultResources.getLargeNarrowFont());
         display.setTextSize(cellWidth, cellHeight + 1);
         display.setAnimationDuration(0.03f);
         display.setPosition(0, 0);
@@ -137,7 +137,7 @@ public class OriginWarAlpha extends ApplicationAdapter {
         decoDungeon = DungeonUtility.closeDoors(decoDungeon);
         costArray = DungeonUtility.generateCostMap(decoDungeon, costMap, 1.0);
         bareDungeon = dungeonGen.getBareDungeon();
-        lineDungeon = DungeonUtility.hashesToLines(decoDungeon, false);
+        lineDungeon = DungeonUtility.hashesToLines(decoDungeon);
         short[] placement = CoordPacker.pack(bareDungeon, '.');
         cursor = Coord.get(-1, -1);
         player.setPosition((dungeonGen.utility.randomCell(placement)));
@@ -146,7 +146,6 @@ public class OriginWarAlpha extends ApplicationAdapter {
         }
         stairsDown = null;
         stairSwitch = dungeonGen.stairsUp;
-
         validLevelSearch = new AStarSearch(costArray, AStarSearch.SearchType.EUCLIDEAN);
         Queue<Coord> validPathToExit = null;
         //TODO This isn't working yet
@@ -238,8 +237,9 @@ public class OriginWarAlpha extends ApplicationAdapter {
         }
         if (player.getPosition() == stairSwitch) {
             stairsDown = dungeonGen.stairsDown;
+            if(!foundSwitch)soundSingleton.getKeySound().play();
             foundSwitch = true;
-            soundSingleton.getKeySound().play();
+
         }
         if (player.getPosition() == stairsDown) {
             levelCount++;
@@ -325,12 +325,12 @@ public class OriginWarAlpha extends ApplicationAdapter {
         display.put(0, gridHeight + 1, spaces, languageFG, languageBG);
         if (helpOn) textDisplay.setDisplayText(textDisplay.getHelpText());
         else textDisplay.setDisplayText(textDisplay.getDefaultText());
-        display.putString(2, gridHeight + 1, textDisplay.getDisplayText()[0], player.getHpColor(), 40);
-        display.putString(2, gridHeight + 2, textDisplay.getDisplayText()[1], player.getHpColor(), 40);
-        display.putString(2, gridHeight + 3, textDisplay.getDisplayText()[2], player.getHpColor(), 40);
-        display.putString(2, gridHeight + 4, textDisplay.getAliceDisplayText()[0], player.getHpColor(), 40);
-        display.putString(2, gridHeight + 5, textDisplay.getAliceDisplayText()[1], player.getHpColor(), 40);
-        display.putString(2, gridHeight + 6, textDisplay.getControlsBanner()[0], player.getHpColor(), 40);
+        display.putString(1, gridHeight + 1, textDisplay.getDisplayText()[0], player.getHpColor(), 40);
+        display.putString(1, gridHeight + 2, textDisplay.getDisplayText()[1], player.getHpColor(), 40);
+        display.putString(1, gridHeight + 3, textDisplay.getDisplayText()[2], player.getHpColor(), 40);
+        display.putString(1, gridHeight + 4, textDisplay.getAliceDisplayText()[0], player.getHpColor(), 40);
+        display.putString(1, gridHeight + 5, textDisplay.getAliceDisplayText()[1], player.getHpColor(), 40);
+        display.putString(1, gridHeight + 6, textDisplay.getControlsBanner()[0], player.getHpColor(), 40);
 
     }
 
