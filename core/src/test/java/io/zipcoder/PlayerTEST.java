@@ -1,5 +1,6 @@
 package io.zipcoder;
 
+import io.zipcoder.Entities.Player;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
