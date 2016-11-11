@@ -71,11 +71,13 @@ public class OriginWarAlpha extends ApplicationAdapter {
     private AStarSearch validLevelSearch;
     private Sound backgroundMusic;
     private Sound stairSound;
+    private Sound foodSound;
     private TextDisplay textDisplay;
 
     public void init(){
         backgroundMusic = Gdx.audio.newSound(Gdx.files.internal("21_Derelict_Freighter.mp3"));
         stairSound = Gdx.audio.newSound(Gdx.files.internal("door.wav"));
+        foodSound = Gdx.audio.newSound(Gdx.files.internal("cha-ching.wav"));
         backgroundMusic.loop();
     }
 
@@ -469,6 +471,7 @@ public class OriginWarAlpha extends ApplicationAdapter {
             if (food.getPosition().equals(player.getPosition())) {
                 foodList.remove(food);
                 foodEaten++;
+                foodSound.play();
                 player.setHealth(player.getHealth() + 10);
                 break;
             }
