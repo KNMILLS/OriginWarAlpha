@@ -12,14 +12,29 @@ public class SoundSingleton {
     private Sound oxygenSound;
     private Sound keySound;
     private Sound waterStep;
+    private Sound doorSound;
+    private Sound footStep;
+    private Sound breathSound;
+    private Sound heartbeatSound;
+    private Sound whatAreYouDoingHereSound;
+    private Sound monsterSound;
+    private Sound evilLaugh;
+    private Sound cardLockSound;
     private static SoundSingleton instance;
 
     private SoundSingleton(){
         backgroundMusic = Gdx.audio.newSound(Gdx.files.internal("21_Derelict_Freighter.mp3"));
-        stairSound = Gdx.audio.newSound(Gdx.files.internal("door.wav"));
-        oxygenSound = Gdx.audio.newSound(Gdx.files.internal("cha-ching.wav"));
-        keySound = Gdx.audio.newSound(Gdx.files.internal("ohyeah.wav"));
+        stairSound = Gdx.audio.newSound(Gdx.files.internal("nextLevel.wav"));
+        oxygenSound = Gdx.audio.newSound(Gdx.files.internal("airtank.wav"));
+        whatAreYouDoingHereSound = Gdx.audio.newSound(Gdx.files.internal("whatAreYouDoingHere.wav"));
         waterStep = Gdx.audio.newSound(Gdx.files.internal("splash.wav"));
+        doorSound = Gdx.audio.newSound(Gdx.files.internal("door.wav"));
+        footStep = Gdx.audio.newSound(Gdx.files.internal("footstep.wav"));
+        breathSound = Gdx.audio.newSound(Gdx.files.internal("breathing.wav"));
+        heartbeatSound = Gdx.audio.newSound(Gdx.files.internal("heartbeat.mp3"));
+        evilLaugh = Gdx.audio.newSound(Gdx.files.internal("evilLaugh.wav"));
+        monsterSound = Gdx.audio.newSound(Gdx.files.internal("monster.wav"));
+        cardLockSound = Gdx.audio.newSound(Gdx.files.internal("cardlock.wav"));
         SoundSingleton.instance = this;
     }
 
@@ -68,5 +83,77 @@ public class SoundSingleton {
 
     public void setWaterStep(Sound waterStep) {
         this.waterStep = waterStep;
+    }
+
+    public Sound getDoorSound() {
+        return doorSound;
+    }
+
+    public void setDoorSound(Sound doorSound) {
+        this.doorSound = doorSound;
+    }
+
+//    public Sound getGreenStep() {
+//        return greenStep;
+//    }
+//
+//    public void setGreenStep(Sound greenStep) {
+//        this.greenStep = greenStep;
+//    }
+
+    public Sound getFootStep() {
+        return footStep;
+    }
+
+    public void setFootStep(Sound footStep) {
+        this.footStep = footStep;
+    }
+
+    public Sound getBreathSound() {
+        return breathSound;
+    }
+
+    public void setBreathSound(Sound breathSound) {
+        this.breathSound = breathSound;
+    }
+
+    public Sound getHeartbeatSound() {
+        return heartbeatSound;
+    }
+
+    public void setHeartbeatSound(Sound heartbeatSound) {
+        this.heartbeatSound = heartbeatSound;
+    }
+
+    public Sound getWhatAreYouDoingHereSound() {
+        return whatAreYouDoingHereSound;
+    }
+
+    public void setWhatAreYouDoingHereSound(Sound whatAreYouDoingHereSound) {
+        this.whatAreYouDoingHereSound = whatAreYouDoingHereSound;
+    }
+
+    public Sound getMonsterSound() {
+        return monsterSound;
+    }
+
+    public void setMonsterSound(Sound monsterSound) {
+        this.monsterSound = monsterSound;
+    }
+
+    public Sound getEvilLaugh() {
+        return evilLaugh;
+    }
+
+    public void setEvilLaugh(Sound evilLaugh) {
+        this.evilLaugh = evilLaugh;
+    }
+
+    public Sound getCardLockSound() {
+        return cardLockSound;
+    }
+
+    public void setCardLockSound(Sound cardLockSound) {
+        this.cardLockSound = cardLockSound;
     }
 }

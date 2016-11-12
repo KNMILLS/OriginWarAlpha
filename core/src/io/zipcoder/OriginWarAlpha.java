@@ -67,10 +67,11 @@ public class OriginWarAlpha extends ApplicationAdapter {
     private TextDisplay textDisplay;
     private SoundSingleton soundSingleton;
 
-
     public void init(){
         soundSingleton = SoundSingleton.getSoundSingleton();
-        soundSingleton.getBackgroundMusic().loop();
+        soundSingleton.getBackgroundMusic().loop(.5f);
+        soundSingleton.getHeartbeatSound().loop(.1f);
+        soundSingleton.getBreathSound().loop(.1f);
     }
 
     @Override
@@ -217,12 +218,13 @@ public class OriginWarAlpha extends ApplicationAdapter {
                 if (lineDungeon[newX][newY] == '+') {
                     lineDungeon[newX][newY] = '/';
                     decoDungeon[newX][newY] = '/';
+                    soundSingleton.getDoorSound().play(.2f);
                     player.getResMap()[newX][newY] = .15;
                 }
                 if (decoDungeon[newX][newY] == '~') {
                     player.incrementTurn();
                     player.incrementTurn();
-                    soundSingleton.getWaterStep().play(.5f);
+                    soundSingleton.getWaterStep().play(.15f);
                 }
                 if (decoDungeon[newX][newY] == ',') {
                     player.incrementTurn();
@@ -232,6 +234,9 @@ public class OriginWarAlpha extends ApplicationAdapter {
                     if (player.getTurns() % 4 == 0) player.setHealth(player.getHealth() + 1);
                     player.setTurns(player.getTurns() - 1);
                 }
+                else{
+                    soundSingleton.getFootStep().play(.08f);
+                }
                 refillOxygen();
                 player.updateFOVMap();
 
@@ -239,7 +244,18 @@ public class OriginWarAlpha extends ApplicationAdapter {
         }
         if (player.getPosition() == stairSwitch) {
             stairsDown = dungeonGen.stairsDown;
-            if(!foundSwitch)soundSingleton.getKeySound().play();
+            if(!foundSwitch){
+                switch(levelCount){
+                    case 1:
+                        soundSingleton.getWhatAreYouDoingHereSound().play(.2f);
+                        break;
+                    case 2:
+                        soundSingleton.getMonsterSound().play(.3f);
+                        break;
+                    default:
+                        soundSingleton.getCardLockSound().play(.2f);
+                }
+            }
             foundSwitch = true;
 
         }
@@ -249,7 +265,7 @@ public class OriginWarAlpha extends ApplicationAdapter {
                 player.setHealth(Math.min(100, player.getHealth() + (10*(10-levelCount))));
             }
             create();
-            soundSingleton.getStairSound().play();
+            soundSingleton.getStairSound().play(.5f);
         }
 
     }
@@ -267,10 +283,11 @@ public class OriginWarAlpha extends ApplicationAdapter {
                         display.put(i, j, ' ');
                     } else {
                         display.put(i, j, lineDungeon[i][j], fgColor[i][j], bgColorArr[i][j],
-                                lights[i][j] + (int) (320 * player.getFovMap()[i][j]));
+                                lights[i][j] + (int) (-200 + 320 * player.getFovMap()[i][j]));
                     }
-                } else if (explored[i][j]) {
-                    display.put(i, j, lineDungeon[i][j], fgColor[i][j], bgColorArr[i][j], 40);
+                }
+                else if (explored[i][j]) {
+                    display.put(i, j, lineDungeon[i][j], fgColor[i][j], bgColorArr[i][j], -300);
                 }
             }
         }
@@ -351,6 +368,7 @@ public class OriginWarAlpha extends ApplicationAdapter {
                 playerToCursor.clearGoals();
             }
             double moveValue = costMap.get(decoDungeon[player.getPosition().getX()][player.getPosition().getY()]);
+            if(moveValue<1)moveValue=.5;
             secondsWithoutMoves += Gdx.graphics.getDeltaTime();
             if (secondsWithoutMoves >= 0.1 * moveValue) {
                 secondsWithoutMoves = 0;
@@ -392,16 +410,16 @@ public class OriginWarAlpha extends ApplicationAdapter {
             if (oxygen.getPosition().equals(player.getPosition())) {
                 oxygenList.remove(oxygen);
                 oxygenUsed++;
-                soundSingleton.getOxygenSound().play();
+                soundSingleton.getOxygenSound().play(.2f);
                 player.setHealth(player.getHealth() + 10);
-                display.putBoxedString(gridWidth / 2 - 18, gridHeight / 2 + 5, "             YUM!             ");
+                //display.putBoxedString(gridWidth / 2 - 18, gridHeight / 2 + 5, "             YUM!             ");
                 break;
             }
         }
     }
 
     private ArrayList<Oxygen> addOxygen() {
-        int oxygenToAdd = 6 - levelCount;
+        int oxygenToAdd = 8 - levelCount;
         ArrayList<Oxygen> toReturn = new ArrayList<>();
         DungeonUtility dungeonUtility = new DungeonUtility(rng);
         while (oxygenToAdd > 0) {
