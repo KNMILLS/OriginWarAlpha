@@ -71,7 +71,7 @@ public class OriginWarAlpha extends ApplicationAdapter {
         soundSingleton = SoundSingleton.getSoundSingleton();
         soundSingleton.getBackgroundMusic().loop(.3f);
         soundSingleton.getHeartbeatSound().loop(.7f);
-        //soundSingleton.getLaboredBreathing().loop();
+        soundSingleton.getLaboredBreathing().loop();
 
     }
 
@@ -103,6 +103,7 @@ public class OriginWarAlpha extends ApplicationAdapter {
         switch (levelCount) {
             case 1:
                 dungeonGen.addGrass(35);
+
                 break;
             case 2:
                 dungeonGen.addGrass(25);
@@ -170,21 +171,8 @@ public class OriginWarAlpha extends ApplicationAdapter {
         bgColorArr = new Color[gridWidth][gridHeight];
         colorIndices = DungeonUtility.generatePaletteIndices(decoDungeon);
         bgColorIndices = DungeonUtility.generateBGPaletteIndices(decoDungeon);
+        changeColors();
 
-        for (int i = 0; i < gridWidth; i++) {
-            for (int j = 0; j < gridHeight; j++) {
-                int colorVal = colorIndices[i][j];
-                if (colorVal <= 3) {
-                    fgColor[i][j] = display.getPalette().get(30);
-                } else if (colorVal == 4) {
-                    fgColor[i][j] = display.getPalette().get(29);
-                } else {
-                    fgColor[i][j] = display.getPalette().get(colorVal);
-                }
-
-                bgColorArr[i][j] = display.getPalette().get(bgColorIndices[i][j]);
-            }
-        }
 
         spaces = GwtCompatibility.fill2D(' ', gridWidth, 6);
         languageBG = GwtCompatibility.fill2D(40, gridWidth, 6);
@@ -593,6 +581,33 @@ public class OriginWarAlpha extends ApplicationAdapter {
                     }
                 }));
         return toReturn;
+    }
+
+    private void changeColors(){
+        for (int i = 0; i < gridWidth; i++) {
+            for (int j = 0; j < gridHeight; j++) {
+                int colorVal = colorIndices[i][j];
+                if (colorVal <=2) {
+                    fgColor[i][j] = display.getPalette().get(30);
+                } else if (colorVal == 4) {
+                    fgColor[i][j] = display.getPalette().get(29);
+                } else if(colorVal == 5){
+                    fgColor[i][j] = display.getPalette().get(8);
+                } else if (colorVal == 3){
+                    fgColor[i][j] = display.getPalette().get(8);
+                } else {
+                    fgColor[i][j] = display.getPalette().get(colorVal);
+                }
+                if(bgColorIndices[i][j] == 24){
+                    bgColorArr[i][j] = display.getPalette().get(15);
+                } else if(bgColorIndices[i][j] == 23){
+                    bgColorArr[i][j] = display.getPalette().get(14);
+                } else {
+                    bgColorArr[i][j] = display.getPalette().get(bgColorIndices[i][j]);
+                }
+
+            }
+        }
     }
 
     private HashMap<Character, Double> initializeCostMap(){
