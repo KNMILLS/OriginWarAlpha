@@ -20,6 +20,7 @@ public class SoundSingleton {
     private Sound monsterSound;
     private Sound evilLaugh;
     private Sound cardLockSound;
+    private Sound laboredBreathing;
     private static SoundSingleton instance;
 
     private SoundSingleton(){
@@ -35,6 +36,7 @@ public class SoundSingleton {
         evilLaugh = Gdx.audio.newSound(Gdx.files.internal("evilLaugh.wav"));
         monsterSound = Gdx.audio.newSound(Gdx.files.internal("monster.wav"));
         cardLockSound = Gdx.audio.newSound(Gdx.files.internal("cardlock.wav"));
+        laboredBreathing = Gdx.audio.newSound(Gdx.files.internal("labored.wav"));
         SoundSingleton.instance = this;
     }
 
@@ -155,5 +157,13 @@ public class SoundSingleton {
 
     public void setCardLockSound(Sound cardLockSound) {
         this.cardLockSound = cardLockSound;
+    }
+
+    public Sound getLaboredBreathing() {
+        return laboredBreathing;
+    }
+
+    public void setLaboredBreathing(Sound laboredBreathing) {
+        this.laboredBreathing = laboredBreathing;
     }
 }

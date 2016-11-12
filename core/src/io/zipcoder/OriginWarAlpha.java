@@ -69,9 +69,10 @@ public class OriginWarAlpha extends ApplicationAdapter {
 
     public void init(){
         soundSingleton = SoundSingleton.getSoundSingleton();
-        soundSingleton.getBackgroundMusic().loop(.5f);
-        soundSingleton.getHeartbeatSound().loop(.1f);
-        soundSingleton.getBreathSound().loop(.1f);
+        soundSingleton.getBackgroundMusic().loop(.3f);
+        soundSingleton.getHeartbeatSound().loop(.7f);
+        //soundSingleton.getLaboredBreathing().loop();
+
     }
 
     @Override
@@ -329,12 +330,15 @@ public class OriginWarAlpha extends ApplicationAdapter {
         } else if (player.getHealth() > 50) {
             player.setHpColor(24);
             display.put(player.getPosition().x, player.getPosition().y, '∆', player.getHpColor());
+            //soundSingleton.getBreathSound().loop(.1f);
+            //soundSingleton.getLaboredBreathing().loop();
         } else if (player.getHealth() > 25) {
             player.setHpColor(18);
             display.put(player.getPosition().x, player.getPosition().y, '∆', player.getHpColor());
         } else if (player.getHealth() > 0) {
             player.setHpColor(12);
             display.put(player.getPosition().x, player.getPosition().y, '∆', player.getHpColor());
+
         } else {
             player.setHpColor(2);
             display.put(player.getPosition().x, player.getPosition().y, '±', player.getHpColor());
