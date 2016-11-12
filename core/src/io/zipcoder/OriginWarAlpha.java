@@ -4,19 +4,18 @@ import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.InputAdapter;
 import com.badlogic.gdx.InputMultiplexer;
-import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.utils.viewport.StretchViewport;
 import io.zipcoder.Entities.Player;
-import io.zipcoder.Items.Food;
+import io.zipcoder.Items.Oxygen;
 import io.zipcoder.Util.OriginInput;
+import io.zipcoder.Util.SoundSingleton;
 import io.zipcoder.graphics.TextDisplay;
 import squidpony.GwtCompatibility;
 import squidpony.squidai.DijkstraMap;
-import squidpony.squidgrid.FOV;
 import squidpony.squidgrid.gui.gdx.*;
 import squidpony.squidgrid.mapping.DungeonGenerator;
 import squidpony.squidgrid.mapping.DungeonUtility;
@@ -34,12 +33,11 @@ public class OriginWarAlpha extends ApplicationAdapter {
     private RNG rng;
     private SquidLayers display;
     private DungeonGenerator dungeonGen;
-    private char[][] decoDungeon, bareDungeon, lineDungeon, spaces;
+    private char[][] decoDungeon, bareDungeon, lineDungeon, spaces, stairDungeon;
     private int[][] colorIndices, bgColorIndices, languageBG, languageFG, lights;
     private double[][] costArray;
     private boolean explored[][];
     private Color[][] fgColor, bgColorArr;
-    private FOV fov;
     private int gridWidth;
     private int gridHeight;
     private int cellWidth;
@@ -61,23 +59,20 @@ public class OriginWarAlpha extends ApplicationAdapter {
     private int levelCount = 1;
     private boolean foundSwitch;
     private RoomFinder roomFinder;
-    private ArrayList<Food> foodList;
+    private ArrayList<Oxygen> oxygenList;
     private boolean debugMode;
-    private int foodEaten;
+    private int oxygenUsed;
     private boolean victoryState;
     private AStarSearch validLevelSearch;
-    private Sound backgroundMusic;
-    private Sound stairSound;
-    private Sound foodSound;
-    private Sound keySound;
     private TextDisplay textDisplay;
+    private SoundSingleton soundSingleton;
 
     public void init(){
-        backgroundMusic = Gdx.audio.newSound(Gdx.files.internal("21_Derelict_Freighter.mp3"));
-        stairSound = Gdx.audio.newSound(Gdx.files.internal("door.wav"));
-        foodSound = Gdx.audio.newSound(Gdx.files.internal("cha-ching.wav"));
-        keySound = Gdx.audio.newSound(Gdx.files.internal("ohyeah.wav"));
-        backgroundMusic.loop();
+        soundSingleton = SoundSingleton.getSoundSingleton();
+        soundSingleton.getBackgroundMusic().loop(.3f);
+        soundSingleton.getHeartbeatSound().loop(.7f);
+        //soundSingleton.getLaboredBreathing().loop();
+
     }
 
     @Override
@@ -88,11 +83,7 @@ public class OriginWarAlpha extends ApplicationAdapter {
         textDisplay = new TextDisplay();
         textDisplay.setDefaultText(this);
         player = Player.getPlayer();
-        costMap = new HashMap<>();
-        costMap.put('.', 1.0);
-        costMap.put('~', 3.0);
-        costMap.put('"', 0.1);
-        costMap.put(',', 2.0);
+        costMap = initializeCostMap();
         gridWidth = 80;
         gridHeight = 24;
         cellWidth = 11;
@@ -100,11 +91,13 @@ public class OriginWarAlpha extends ApplicationAdapter {
         rng = new RNG(System.currentTimeMillis() * (long) Math.PI);
         batch = new SpriteBatch();
         stage = new Stage(new StretchViewport(gridWidth * cellWidth, (gridHeight + 8) * cellHeight), batch);
-        display = new SquidLayers(gridWidth, gridHeight + 8, cellWidth, cellHeight, DefaultResources.getStretchableFont());
+        display = new SquidLayers(gridWidth, gridHeight + 8, cellWidth, cellHeight, DefaultResources.getLargeNarrowFont());
         display.setTextSize(cellWidth, cellHeight + 1);
         display.setAnimationDuration(0.03f);
         display.setPosition(0, 0);
+        display.extendPalette(Color.CLEAR);
         dungeonGen = new DungeonGenerator(gridWidth, gridHeight, rng);
+        stairDungeon = dungeonGen.generate(TilesetType.ROOMS_AND_CORRIDORS_B);
         dungeonGen.addDoors(25, true);
         explored = new boolean[gridWidth][gridHeight];
         switch (levelCount) {
@@ -142,11 +135,11 @@ public class OriginWarAlpha extends ApplicationAdapter {
             default:
                 dungeonGen.addGrass(100);
         }
-        decoDungeon = dungeonGen.generate(TilesetType.ROOMS_AND_CORRIDORS_B);
+        decoDungeon = dungeonGen.generate(stairDungeon);
         decoDungeon = DungeonUtility.closeDoors(decoDungeon);
         costArray = DungeonUtility.generateCostMap(decoDungeon, costMap, 1.0);
         bareDungeon = dungeonGen.getBareDungeon();
-        lineDungeon = DungeonUtility.hashesToLines(decoDungeon, false);
+        lineDungeon = DungeonUtility.hashesToLines(decoDungeon);
         short[] placement = CoordPacker.pack(bareDungeon, '.');
         cursor = Coord.get(-1, -1);
         player.setPosition((dungeonGen.utility.randomCell(placement)));
@@ -155,7 +148,6 @@ public class OriginWarAlpha extends ApplicationAdapter {
         }
         stairsDown = null;
         stairSwitch = dungeonGen.stairsUp;
-
         validLevelSearch = new AStarSearch(costArray, AStarSearch.SearchType.EUCLIDEAN);
         Queue<Coord> validPathToExit = null;
         //TODO This isn't working yet
@@ -195,15 +187,303 @@ public class OriginWarAlpha extends ApplicationAdapter {
         }
 
         spaces = GwtCompatibility.fill2D(' ', gridWidth, 6);
-        languageBG = GwtCompatibility.fill2D(1, gridWidth, 6);
-        languageFG = GwtCompatibility.fill2D(0, gridWidth, 6);
+        languageBG = GwtCompatibility.fill2D(40, gridWidth, 6);
+        languageFG = GwtCompatibility.fill2D(40, gridWidth, 6);
         foundSwitch = false;
         roomFinder = new RoomFinder(decoDungeon);
-        foodList = addFood();
-        foodEaten = 0;
+        oxygenList = addOxygen();
+        oxygenUsed = 0;
         player.setAlive(true);
 
-        baseInput = new SquidInput(new SquidInput.KeyHandler() {
+        baseInput = inputConfig();
+        input = new OriginInput(baseInput.getKeyHandler(), baseInput.getMouse());
+        Gdx.input.setInputProcessor(new InputMultiplexer(stage, input));
+        stage.addActor(display);
+
+    }
+
+    private void move(int xmod, int ymod) {
+        int newX = player.getPosition().x + xmod, newY = player.getPosition().y + ymod;
+        textDisplay.setDefaultText(this);
+        textDisplay.setDisplayText(textDisplay.getDefaultText());
+        textDisplay.setAliceDisplayText(textDisplay.updateAliceDisplayByPlayerHealth(player.getHealth()));
+        if (!player.isAlive()) {
+            input.drain();
+            awaitedMoves.clear();
+            return;
+        }
+        else {
+            if (newX >= 0 && newY >= 0 && newX < gridWidth && newY < gridHeight
+                    && bareDungeon[newX][newY] != '#') {
+                player.setPosition(player.getPosition().translate(xmod, ymod));
+                if (lineDungeon[newX][newY] == '+') {
+                    lineDungeon[newX][newY] = '/';
+                    decoDungeon[newX][newY] = '/';
+                    soundSingleton.getDoorSound().play(.2f);
+                    player.getResMap()[newX][newY] = .15;
+                }
+                if (decoDungeon[newX][newY] == '~') {
+                    player.incrementTurn();
+                    player.incrementTurn();
+                    soundSingleton.getWaterStep().play(.15f);
+                }
+                if (decoDungeon[newX][newY] == ',') {
+                    player.incrementTurn();
+                    soundSingleton.getWaterStep().play(.1f);
+                }
+                if (decoDungeon[newX][newY] == '"') {
+                    if (player.getTurns() % 4 == 0) player.setHealth(player.getHealth() + 1);
+                    player.setTurns(player.getTurns() - 1);
+                }
+                else{
+                    soundSingleton.getFootStep().play(.08f);
+                }
+                refillOxygen();
+                player.updateFOVMap();
+
+            }
+        }
+        if (player.getPosition() == stairSwitch) {
+            stairsDown = dungeonGen.stairsDown;
+            if(!foundSwitch){
+                switch(levelCount){
+                    case 1:
+                        soundSingleton.getWhatAreYouDoingHereSound().play(.2f);
+                        break;
+                    case 2:
+                        soundSingleton.getMonsterSound().play(.3f);
+                        break;
+                    default:
+                        soundSingleton.getCardLockSound().play(.2f);
+                }
+            }
+            foundSwitch = true;
+
+        }
+        if (player.getPosition() == stairsDown) {
+            levelCount++;
+            if(player.getHealth()<100){
+                player.setHealth(Math.min(100, player.getHealth() + (10*(10-levelCount))));
+            }
+            create();
+            soundSingleton.getStairSound().play(.5f);
+        }
+
+    }
+
+    private void putMap() {
+        boolean occupied;
+        for (int i = 0; i < gridWidth; i++) {
+            for (int j = 0; j < gridHeight; j++) {
+                occupied = player.getPosition().getX() == i && player.getPosition().getY() == j;
+                if (player.getFovMap()[i][j] > 0.0) {
+                    explored[i][j] = true;
+                    Coord toRemove = Coord.get(i, j);
+                    unexploredSet.remove(toRemove);
+                    if (occupied) {
+                        display.put(i, j, ' ');
+                    } else {
+                        display.put(i, j, lineDungeon[i][j], fgColor[i][j], bgColorArr[i][j],
+                                lights[i][j] + (int) (-200 + 320 * player.getFovMap()[i][j]));
+                    }
+                }
+                else if (explored[i][j]) {
+                    display.put(i, j, lineDungeon[i][j], fgColor[i][j], bgColorArr[i][j], -300);
+                }
+            }
+        }
+
+        for (Coord pt : toCursor) {
+            display.highlight(pt.x, pt.y, lights[pt.x][pt.y] + (int) (170 * player.getFovMap()[pt.x][pt.y]));
+        }
+        if ((stairsDown != null) && levelCount < 10) {
+            display.put(stairsDown.x, stairsDown.y, '*', 12);
+        }
+        if ((explored[stairSwitch.x][stairSwitch.y] && !foundSwitch) && levelCount < 10) {
+            display.put(stairSwitch.x, stairSwitch.y, '?', 12);
+        }
+        for (Oxygen oxygen : oxygenList) {
+            int x = oxygen.getPosition().getX();
+            int y = oxygen.getPosition().getY();
+            if (explored[x][y]) {
+                display.put(x, y, oxygen.getSymbol(), 12);
+            }
+        }
+//        if(decoDungeon[player.getPosition().getX()][player.getPosition().getY()] == '~'){
+//            display.setAnimationDuration(0.9f);
+//        } else if(decoDungeon[player.getPosition().getX()][player.getPosition().getY()] == ','){
+//            display.setAnimationDuration(0.6f);
+//        } else if(decoDungeon[player.getPosition().getX()][player.getPosition().getY()] == '"'){
+//            display.setAnimationDuration(2000.1f);
+//        } else {
+//            display.setAnimationDuration(0.3f);
+//        }
+        if (victoryState) {
+            player.setHealth(0);
+            player.setAlive(false);
+            display.put(player.getPosition().x, player.getPosition().y, '±', Color.GOLD);
+            textDisplay.setDisplayText(textDisplay.getEndGameText());
+            textDisplay.setAliceDisplayText(textDisplay.getAliceVictoryText());
+        } else if (player.getHealth() >= 125) {
+            player.setHpColor(27);
+            display.put(player.getPosition().x, player.getPosition().y, '∆', player.getHpColor());
+        } else if (player.getHealth() > 50) {
+            player.setHpColor(24);
+            display.put(player.getPosition().x, player.getPosition().y, '∆', player.getHpColor());
+            //soundSingleton.getBreathSound().loop(.1f);
+            //soundSingleton.getLaboredBreathing().loop();
+        } else if (player.getHealth() > 25) {
+            player.setHpColor(18);
+            display.put(player.getPosition().x, player.getPosition().y, '∆', player.getHpColor());
+        } else if (player.getHealth() > 0) {
+            player.setHpColor(12);
+            display.put(player.getPosition().x, player.getPosition().y, '∆', player.getHpColor());
+
+        } else {
+            player.setHpColor(2);
+            display.put(player.getPosition().x, player.getPosition().y, '±', player.getHpColor());
+            player.setAlive(false);
+            textDisplay.setDisplayText(textDisplay.getEndGameText());
+            textDisplay.setAliceDisplayText(textDisplay.getAliceDeathText());
+        }
+        display.put(0, gridHeight + 1, spaces, languageFG, languageBG);
+        if (helpOn) textDisplay.setDisplayText(textDisplay.getHelpText());
+        else textDisplay.setDisplayText(textDisplay.getDefaultText());
+        display.putString(1, gridHeight + 1, textDisplay.getDisplayText()[0], player.getHpColor(), 40);
+        display.putString(1, gridHeight + 2, textDisplay.getDisplayText()[1], player.getHpColor(), 40);
+        display.putString(1, gridHeight + 3, textDisplay.getDisplayText()[2], player.getHpColor(), 40);
+        display.putString(1, gridHeight + 4, textDisplay.getAliceDisplayText()[0], player.getHpColor(), 40);
+        display.putString(1, gridHeight + 5, textDisplay.getAliceDisplayText()[1], player.getHpColor(), 40);
+        display.putString(1, gridHeight + 6, textDisplay.getControlsBanner()[0], player.getHpColor(), 40);
+
+    }
+
+    @Override
+    public void render() {
+        Gdx.gl.glClearColor(bgColor.r / 255.0f, bgColor.g / 255.0f, bgColor.b / 255.0f, 1.0f);
+        Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
+        Gdx.gl.glEnable(GL20.GL_BLEND);
+        lightCounter += Gdx.graphics.getDeltaTime() * 15;
+        lights = DungeonUtility.generateLightnessModifiers(decoDungeon, lightCounter);
+        putMap();
+        if (!awaitedMoves.isEmpty()) {
+            if (this.input.hasNext()) {
+                awaitedMoves.clear();
+                playerToCursor.clearGoals();
+            }
+            double moveValue = costMap.get(decoDungeon[player.getPosition().getX()][player.getPosition().getY()]);
+            if(moveValue<1)moveValue=.5;
+            secondsWithoutMoves += Gdx.graphics.getDeltaTime();
+            if (secondsWithoutMoves >= 0.1 * moveValue) {
+                secondsWithoutMoves = 0;
+                Coord m = null;
+                if(!awaitedMoves.isEmpty()){m = awaitedMoves.remove(0);}
+                if(!toCursor.isEmpty())toCursor.remove(0);
+                if(m == null)m = player.getPosition();
+                move(m.x - player.getPosition().x, m.y - player.getPosition().y);
+            }
+        } else if (input.hasNext()) {
+            input.next();
+        }
+        stage.draw();
+        stage.act();
+        if (player.getHealth() <= 0) {
+            // still need to display the map, then write over it with a message.
+            putMap();
+            display.putBoxedString(gridWidth / 2 - 18, gridHeight / 2 - 8, "       THANKS FOR PLAYING!          ");
+            display.putBoxedString(gridWidth / 2 - 18, gridHeight / 2 - 5, "            -DEV TEAM               ");
+            display.putBoxedString(gridWidth / 2 - 18, gridHeight / 2 + 5, "             q to quit.             ");
+
+            // because we return early, we still need to draw.
+            stage.draw();
+            // q still needs to quit.
+            if (input.hasNext())
+                input.next();
+            return;
+        }
+    }
+
+    @Override
+    public void resize(int width, int height) {
+        super.resize(width, height);
+        input.getMouse().reinitialize((float) width / this.gridWidth, (float) height / (this.gridHeight + 8), this.gridWidth, this.gridHeight, 0, 0);
+    }
+
+    private void refillOxygen() {
+        for (Oxygen oxygen : oxygenList) {
+            if (oxygen.getPosition().equals(player.getPosition())) {
+                oxygenList.remove(oxygen);
+                oxygenUsed++;
+                soundSingleton.getOxygenSound().play(.2f);
+                player.setHealth(player.getHealth() + 10);
+                //display.putBoxedString(gridWidth / 2 - 18, gridHeight / 2 + 5, "             YUM!             ");
+                break;
+            }
+        }
+    }
+
+    private ArrayList<Oxygen> addOxygen() {
+        int oxygenToAdd = 8 - levelCount;
+        ArrayList<Oxygen> toReturn = new ArrayList<>();
+        DungeonUtility dungeonUtility = new DungeonUtility(rng);
+        while (oxygenToAdd > 0) {
+            ArrayList<char[][]> rooms = this.roomFinder.findRooms();
+            for(char[][] room : rooms){
+                boolean notDuplicate = true;
+                double chance = rng.nextDouble(1.0);
+                if (chance > 0.66) {
+                    Coord position = dungeonUtility.randomFloor(room);
+                    if(position == null || position == player.getPosition()) continue;
+                    for(Oxygen oxygen : toReturn){
+                        if (oxygen.getPosition().equals(position)){
+                            notDuplicate = false;
+                            break;
+                        }
+                    }
+                    if(notDuplicate){
+                        toReturn.add(new Oxygen(position));
+                        oxygenToAdd--;
+                        continue;
+                    }
+
+                }
+
+            }
+        }
+        return toReturn;
+
+    }
+
+    private void restart() {
+        player.setAlive(true);
+        player.setHealth(101);
+        player.setTurns(-1);
+        levelCount = 1;
+        oxygenUsed = 0;
+        create();
+    }
+    public int getLevelCount() {
+        return levelCount;
+    }
+    public int getOxygenUsed() {
+        return oxygenUsed;
+    }
+    public boolean isFoundSwitch() {
+        return foundSwitch;
+    }
+
+    private void revealMap(){
+        for(int i = 0; i < player.getResMap().length; i++ ){
+            for(int j = 0; j < player.getResMap()[0].length; j++ ){
+                player.getResMap()[i][j] = 0.0;
+                explored[i][j] = true;
+                unexploredSet.clear();
+            }
+        }
+    }
+
+    private SquidInput inputConfig(){
+        SquidInput toReturn = new SquidInput(new SquidInput.KeyHandler() {
             @Override
             public void handle(char key, boolean alt, boolean ctrl, boolean shift) {
                 switch (key) {
@@ -312,234 +592,17 @@ public class OriginWarAlpha extends ApplicationAdapter {
                         return false;
                     }
                 }));
-        input = new OriginInput(baseInput.getKeyHandler(), baseInput.getMouse());
-        Gdx.input.setInputProcessor(new InputMultiplexer(stage, input));
-        stage.addActor(display);
-
-    }
-
-    private void move(int xmod, int ymod) {
-        int newX = player.getPosition().x + xmod, newY = player.getPosition().y + ymod;
-        textDisplay.setDefaultText(this);
-        textDisplay.setDisplayText(textDisplay.getDefaultText());
-        textDisplay.setAliceDisplayText(textDisplay.updateAliceDisplayByPlayerHealth(player.getHealth()));
-        if (!player.isAlive()) {
-            input.drain();
-            awaitedMoves.clear();
-            return;
-        }
-        else {
-            if (newX >= 0 && newY >= 0 && newX < gridWidth && newY < gridHeight
-                    && bareDungeon[newX][newY] != '#') {
-                player.setPosition(player.getPosition().translate(xmod, ymod));
-                if (lineDungeon[newX][newY] == '+') {
-                    lineDungeon[newX][newY] = '/';
-                    decoDungeon[newX][newY] = '/';
-                    player.getResMap()[newX][newY] = .15;
-                }
-                if (decoDungeon[newX][newY] == '~') {
-                    player.incrementTurn();
-                    player.incrementTurn();
-                }
-                if (decoDungeon[newX][newY] == ',') {
-                    player.incrementTurn();
-                }
-                if (decoDungeon[newX][newY] == '"') {
-                    if (player.getTurns() % 4 == 0) player.setHealth(player.getHealth() + 1);
-                    player.setTurns(player.getTurns() - 1);
-                }
-                eatFood();
-                player.updateFOVMap();
-                //fovmap = fov.calculateFOV(resMap, newX, newY, 8, Radius.CIRCLE);
-            }
-        }
-        if (player.getPosition() == stairSwitch) {
-            stairsDown = dungeonGen.stairsDown;
-            foundSwitch = true;
-            keySound.play();
-        }
-        if (player.getPosition() == stairsDown) {
-            levelCount++;
-            if(player.getHealth()<100){
-                player.setHealth(Math.min(100, player.getHealth() + (10*(10-levelCount))));
-            }
-            create();
-            stairSound.play();
-        }
-    }
-
-    public void putMap() {
-        boolean occupied;
-        for (int i = 0; i < gridWidth; i++) {
-            for (int j = 0; j < gridHeight; j++) {
-                occupied = player.getPosition().getX() == i && player.getPosition().getY() == j;
-                if (player.getFovMap()[i][j] > 0.0) {
-                    explored[i][j] = true;
-                    Coord toRemove = Coord.get(i, j);
-                    unexploredSet.remove(toRemove);
-                    if (occupied) {
-                        display.put(i, j, ' ');
-                    } else {
-                        display.put(i, j, lineDungeon[i][j], fgColor[i][j], bgColorArr[i][j],
-                                lights[i][j] + (int) (320 * player.getFovMap()[i][j]));
-                    }
-                } else if (explored[i][j]) {
-                    display.put(i, j, lineDungeon[i][j], fgColor[i][j], bgColorArr[i][j], 40);
-                }
-            }
-        }
-
-        for (Coord pt : toCursor) {
-            display.highlight(pt.x, pt.y, lights[pt.x][pt.y] + (int) (170 * player.getFovMap()[pt.x][pt.y]));
-        }
-        if ((stairsDown != null) && levelCount < 10) {
-            display.put(stairsDown.x, stairsDown.y, '*', 12);
-        }
-        if ((explored[stairSwitch.x][stairSwitch.y] && !foundSwitch) && levelCount < 10) {
-            display.put(stairSwitch.x, stairSwitch.y, '?', 12);
-        }
-        for (Food food : foodList) {
-            int x = food.getPosition().getX();
-            int y = food.getPosition().getY();
-            if (explored[x][y]) {
-                display.put(x, y, food.getSymbol(), 39);
-            }
-        }
-        if (victoryState) {
-            player.setHealth(0);
-            player.setAlive(false);
-            display.put(player.getPosition().x, player.getPosition().y, '±', Color.GOLD);
-            textDisplay.setDisplayText(textDisplay.getEndGameText());
-            textDisplay.setAliceDisplayText(textDisplay.getAliceVictoryText());
-        } else if (player.getHealth() >= 125) {
-            display.put(player.getPosition().x, player.getPosition().y, '∆', 27);
-        } else if (player.getHealth() > 50) {
-            display.put(player.getPosition().x, player.getPosition().y, '∆', 21);
-        } else if (player.getHealth() > 25) {
-            display.put(player.getPosition().x, player.getPosition().y, '∆', 18);
-        } else if (player.getHealth() > 0) {
-            display.put(player.getPosition().x, player.getPosition().y, '∆', 12);
-        } else {
-            display.put(player.getPosition().x, player.getPosition().y, '±', 2);
-            player.setAlive(false);
-            textDisplay.setDisplayText(textDisplay.getEndGameText());
-            textDisplay.setAliceDisplayText(textDisplay.getAliceDeathText());
-        }
-        display.put(0, gridHeight + 1, spaces, languageFG, languageBG);
-        if (helpOn) textDisplay.setDisplayText(textDisplay.getHelpText());
-        else textDisplay.setDisplayText(textDisplay.getDefaultText());
-        display.putString(2, gridHeight + 1, textDisplay.getDisplayText()[0], 0, 1);
-        display.putString(2, gridHeight + 2, textDisplay.getDisplayText()[1], 0, 1);
-        display.putString(2, gridHeight + 3, textDisplay.getDisplayText()[2], 0, 1);
-        display.putString(2, gridHeight + 4, textDisplay.getAliceDisplayText()[0], 0, 1);
-        display.putString(2, gridHeight + 5, textDisplay.getAliceDisplayText()[1], 0, 1);
-        display.putString(2, gridHeight + 6, textDisplay.getControlsBanner()[0], 0, 1);
-    }
-
-    @Override
-    public void render() {
-        Gdx.gl.glClearColor(bgColor.r / 255.0f, bgColor.g / 255.0f, bgColor.b / 255.0f, 1.0f);
-        Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
-        Gdx.gl.glEnable(GL20.GL_BLEND);
-        lightCounter += Gdx.graphics.getDeltaTime() * 15;
-        lights = DungeonUtility.generateLightnessModifiers(decoDungeon, lightCounter);
-        putMap();
-        if (!awaitedMoves.isEmpty()) {
-            if (this.input.hasNext()) {
-                awaitedMoves.clear();
-                playerToCursor.clearGoals();
-            }
-            secondsWithoutMoves += Gdx.graphics.getDeltaTime();
-            if (secondsWithoutMoves >= 0.1) {
-                secondsWithoutMoves = 0;
-                Coord m = null;
-                if(!awaitedMoves.isEmpty()){m = awaitedMoves.remove(0);}
-                if(!toCursor.isEmpty())toCursor.remove(0);
-                if(m == null)m = player.getPosition();
-                move(m.x - player.getPosition().x, m.y - player.getPosition().y);
-            }
-        } else if (input.hasNext()) {
-            input.next();
-        }
-        stage.draw();
-        stage.act();
-    }
-
-    @Override
-    public void resize(int width, int height) {
-        super.resize(width, height);
-        input.getMouse().reinitialize((float) width / this.gridWidth, (float) height / (this.gridHeight + 8), this.gridWidth, this.gridHeight, 0, 0);
-    }
-
-    public void eatFood() {
-        for (Food food : foodList) {
-            if (food.getPosition().equals(player.getPosition())) {
-                foodList.remove(food);
-                foodEaten++;
-                foodSound.play();
-                player.setHealth(player.getHealth() + 10);
-                break;
-            }
-        }
-    }
-
-    public ArrayList<Food> addFood() {
-        int foodToAdd = 6 - levelCount;
-        ArrayList<Food> toReturn = new ArrayList<>();
-        DungeonUtility dungeonUtility = new DungeonUtility(rng);
-        while (foodToAdd > 0) {
-            for(char[][] room : this.roomFinder.findRooms()){
-                boolean notDuplicate = true;
-                double chance = rng.nextDouble(1.0);
-                if (chance > 0.5) {
-                    Coord position = dungeonUtility.randomFloor(room);
-                    if(position == null) continue;
-                    for(Food food : toReturn){
-                        if (food.getPosition().equals(position)){
-                            notDuplicate = false;
-                            break;
-                        }
-                    }
-                    if(notDuplicate){
-                        toReturn.add(new Food(position));
-                        foodToAdd--;
-                        continue;
-                    }
-
-                }
-
-            }
-        }
         return toReturn;
-
     }
 
-    public void restart() {
-        player.setAlive(true);
-        player.setHealth(101);
-        player.setTurns(-1);
-        levelCount = 1;
-        foodEaten = 0;
-        create();
-    }
-    public int getLevelCount() {
-        return levelCount;
-    }
-    public int getFoodEaten() {
-        return foodEaten;
-    }
-    public boolean isFoundSwitch() {
-        return foundSwitch;
-    }
-
-    public void revealMap(){
-
-        for(int i = 0; i < player.getResMap().length; i++ ){
-            for(int j = 0; j < player.getResMap()[0].length; j++ ){
-                player.getResMap()[i][j] = 0.0;
-                explored[i][j] = true;
-                unexploredSet.clear();
-            }
-        }
+    private HashMap<Character, Double> initializeCostMap(){
+        HashMap<Character, Double> toReturn = new HashMap<>();
+        toReturn.put('.', 1.0);
+        toReturn.put('~', 3.0);
+        toReturn.put('"', 0.1);
+        toReturn.put(',', 2.0);
+        toReturn.put('/',1.0);
+        toReturn.put('+', 1.0);
+        return toReturn;
     }
 }
