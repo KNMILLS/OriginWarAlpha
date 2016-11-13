@@ -71,7 +71,7 @@ public class OriginWarAlpha extends ApplicationAdapter {
         soundSingleton = SoundSingleton.getSoundSingleton();
         soundSingleton.getBackgroundMusic().loop(.3f);
         soundSingleton.getHeartbeatSound().loop(.7f);
-        soundSingleton.getLaboredBreathing().loop();
+        soundSingleton.getBreathSound().loop(.6f);
 
     }
 
@@ -213,11 +213,11 @@ public class OriginWarAlpha extends ApplicationAdapter {
                 if (decoDungeon[newX][newY] == '~') {
                     player.incrementTurn();
                     player.incrementTurn();
-                    soundSingleton.getWaterStep().play(.15f);
+                    soundSingleton.getMetalStepSound().play(.15f);
                 }
                 if (decoDungeon[newX][newY] == ',') {
                     player.incrementTurn();
-                    soundSingleton.getWaterStep().play(.1f);
+                    soundSingleton.getMetalStepSound().play(.1f);
                 }
                 if (decoDungeon[newX][newY] == '"') {
                     if (player.getTurns() % 4 == 0) player.setHealth(player.getHealth() + 1);
