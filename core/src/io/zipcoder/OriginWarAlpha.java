@@ -71,7 +71,7 @@ public class OriginWarAlpha extends ApplicationAdapter {
 
     @Override
     public void create() {
-        initSound();
+        if(levelCount==1) initSound();
         textDisplay = new TextDisplay();
         textDisplay.setDefaultText(this);
         player = Player.getPlayer();
@@ -472,6 +472,7 @@ public class OriginWarAlpha extends ApplicationAdapter {
                     case 'Q':
                     case 'q':
                     case SquidInput.ESCAPE: {
+                        soundSingleton.getPlayerDeathSound().play();
                         Gdx.app.exit();
                         break;
                     }

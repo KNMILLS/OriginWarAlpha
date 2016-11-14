@@ -105,7 +105,7 @@ public class TextDisplay {
     public void setAliceVictoryText() {
         this.aliceVictoryText = new String[]{
                 "A.L.I.C.E: I... I can't believe you did it.//",
-                "You actually escaped! 'THANKS FOR PLAYING!!!' -DEV TEAM"
+                "You actually escaped!"
         };
     }
 

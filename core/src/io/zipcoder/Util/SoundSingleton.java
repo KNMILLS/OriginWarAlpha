@@ -216,6 +216,7 @@ public class SoundSingleton {
         allSounds.add(heartbeatSound);
         allSounds.add(rapidHR);
         allSounds.add(laboredBreathing);
+        allSounds.add(schizophrenicVoices);
         return allSounds;
     }
 
