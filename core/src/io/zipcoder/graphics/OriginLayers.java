@@ -18,9 +18,6 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.LinkedHashSet;
 
-/**
- * Created by kenragonese on 11/9/16.
- */
 public class OriginLayers extends SquidLayers {
 
     /**

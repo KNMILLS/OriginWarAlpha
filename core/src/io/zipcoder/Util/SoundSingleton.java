@@ -2,14 +2,9 @@ package io.zipcoder.Util;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.audio.Sound;
-import io.zipcoder.Entities.Player;
-
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by evanhitchings on 11/11/16.
- */
 public class SoundSingleton {
     private Sound backgroundMusic;
     private Sound stairSound;

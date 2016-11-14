@@ -3,9 +3,6 @@ package io.zipcoder.graphics;
 import io.zipcoder.OriginWarAlpha;
 import io.zipcoder.Entities.Player;
 
-/**
- * Created by kenragonese on 11/10/16.
- */
 public class TextDisplay {
 
 
@@ -17,6 +14,7 @@ public class TextDisplay {
     private String[] aliceVictoryText;
     private String[] aliceDeathText;
     private String[] controlsBanner;
+    private String[] statsText;
 
     public TextDisplay() {
         setDefaultText();
@@ -27,6 +25,7 @@ public class TextDisplay {
         setAliceDeathText();
         setAliceVictoryText();
         setControlsBanner();
+
     }
 
     public String[] getHelpText() {
@@ -47,9 +46,10 @@ public class TextDisplay {
 
     public void setDefaultText(OriginWarAlpha game) {
         this.defaultText = new String[]{
-                "Player ID\t" + Player.getPlayer().getId() + "\tCurrent Level:\t" + game.getLevelCount() + "\tTurns:\t" + Player.getPlayer().getTurns(),
-                "Switch Found:\t" + game.isFoundSwitch() + "\tO2 tanks remaining:\t" + Math.max(0, (6 - game.getLevelCount()) - game.getOxygenUsed()),
-                "Oxygen Remaining:\t" + Player.getPlayer().getHealth() + "\tO2 tanks used:\t" + game.getOxygenUsed()
+                "Current Level:\t" + game.getLevelCount(),
+                "",
+                ""
+
         };
     }
 
@@ -58,6 +58,15 @@ public class TextDisplay {
                 "",
                 "",
                 ""
+        };
+    }
+
+    public void setStatsText(OriginWarAlpha game){
+        this.statsText = new String[]{
+                "Switch Found:\t" + game.isFoundSwitch(),
+                "O2 tanks remaining in level:\t" + Math.max(0, (8 - game.getLevelCount()) - game.getOxygenUsed()),
+                "O2 tanks used (this level):\t" + game.getOxygenUsed(),
+                "Turns taken:\t"+Player.getPlayer().getTurns()
         };
     }
 
@@ -161,8 +170,12 @@ public class TextDisplay {
 
     public void setControlsBanner() {
         this.controlsBanner = new String[]{
-                "'H' for help screen\t'Q' to quit\t'T' restart the game"
+                "Oxygen Remaining:\t" + Player.getPlayer().getHealth()
         };
+    }
+
+    public String[] getStatsText() {
+        return statsText;
     }
 
     public void setControlsBanner(String[] controlsBanner) {
