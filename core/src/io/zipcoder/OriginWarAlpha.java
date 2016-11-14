@@ -151,13 +151,8 @@ public class OriginWarAlpha extends ApplicationAdapter {
 
     private void move(int xmod, int ymod) {
         int newX = player.getPosition().x + xmod, newY = player.getPosition().y + ymod;
-        if (!player.isAlive()) {
-//            input.drain();
-//            awaitedMoves.clear();
-//            return;
-        } else {
-            if (newX >= 0 && newY >= 0 && newX < gridWidth && newY < gridHeight
-                    && bareDungeon[newX][newY] != '#') {
+        if (player.isAlive()) {
+            if (newX >= 0 && newY >= 0 && newX < gridWidth && newY < gridHeight && bareDungeon[newX][newY] != '#') {
                 player.setPosition(player.getPosition().translate(xmod, ymod));
                 if (lineDungeon[newX][newY] == '+') {
                     lineDungeon[newX][newY] = '/';
