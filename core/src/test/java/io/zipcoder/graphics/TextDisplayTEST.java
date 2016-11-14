@@ -33,5 +33,25 @@ public class TextDisplayTEST {
         assertEquals("The array should be", actualArray, expectedArray);
     }
 
+    @Test
+    public void aliceDeathTextCharLimitTEST(){
+        TextDisplay testDisplay = new TextDisplay();
+        testDisplay.setAliceVictoryText();
+        int expectedLength = 78;
+        int actualLength = testDisplay.getAliceDeathText().length;
+        assertEquals("The length should be", actualLength, expectedLength);
+    }
 
-}
+    //TODO Ask about textDisplay object!
+//    @Test
+//    public void getDisplayTextTEST(){
+//        TextDisplay testDisplay = new TextDisplay();
+//        testDisplay.setDisplayText(String[]{"Test text a"});
+//        String[] expectedArray = testDisplay.getDefaultText();
+//        String[] actualArray = new String[]
+//
+//        }
+    }
+
+
+
