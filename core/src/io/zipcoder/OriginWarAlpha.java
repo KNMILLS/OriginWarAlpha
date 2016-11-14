@@ -244,9 +244,7 @@ public class OriginWarAlpha extends ApplicationAdapter {
         }
         if (victoryState) {
             display.put(player.getPosition().x, player.getPosition().y, '±');
-            display.putBoxedString(gridWidth / 2 - 18, gridHeight / 2 - 8, "       THANKS FOR PLAYING!          ");
-            display.putBoxedString(gridWidth / 2 - 18, gridHeight / 2 - 5, "            -DEV TEAM               ");
-            display.putBoxedString(gridWidth / 2 - 18, gridHeight / 2 + 5, "             q to quit.             ");
+            endGameTextBox();
             textDisplay.setDisplayText(textDisplay.getEndGameText());
             textDisplay.setAliceDisplayText(textDisplay.getAliceVictoryText());
             player.setAlive(false);
@@ -267,9 +265,7 @@ public class OriginWarAlpha extends ApplicationAdapter {
             display.put(player.getPosition().x, player.getPosition().y, '±', player.getHpColor());
             textDisplay.setDisplayText(textDisplay.getEndGameText());
             textDisplay.setAliceDisplayText(textDisplay.getAliceDeathText());
-            display.putBoxedString(gridWidth / 2 - 18, gridHeight / 2 - 8, "       THANKS FOR PLAYING!          ");
-            display.putBoxedString(gridWidth / 2 - 18, gridHeight / 2 - 5, "            -DEV TEAM               ");
-            display.putBoxedString(gridWidth / 2 - 18, gridHeight / 2 + 5, "             q to quit.             ");
+            endGameTextBox();
             player.setAlive(false);
         }
         display.put(0, gridHeight + 1, spaces, languageFG, languageBG);
@@ -439,8 +435,6 @@ public class OriginWarAlpha extends ApplicationAdapter {
                         }
                         break;
                     }
-                    case 'Q':
-                    case 'q':
                     case SquidInput.ESCAPE: {
                         soundSingleton.getPlayerDeathSound().play();
                         Gdx.app.exit();
@@ -586,8 +580,8 @@ public class OriginWarAlpha extends ApplicationAdapter {
                 break;
         }
     }
-    private void levelDecoSwitch(){
-        switch (levelCount){
+    private void levelDecoSwitch() {
+        switch (levelCount) {
             case 1:
                 dungeonGen.addGrass(25);
                 break;
@@ -626,5 +620,10 @@ public class OriginWarAlpha extends ApplicationAdapter {
                 dungeonGen.addWater(5);
                 break;
         }
+    }
+    private void endGameTextBox(){
+        display.putBoxedString(gridWidth / 2 - 18, gridHeight / 2 - 8, "       THANKS FOR PLAYING!          ");
+        display.putBoxedString(gridWidth / 2 - 18, gridHeight / 2 - 5, "            -DEV TEAM               ");
+        display.putBoxedString(gridWidth / 2 - 18, gridHeight / 2 + 5, "             ESC to quit.             ");
     }
 }
