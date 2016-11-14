@@ -319,8 +319,6 @@ public class OriginWarAlpha extends ApplicationAdapter {
                 oxygenUsed++;
                 soundSingleton.getOxygenSound().play(.2f);
                 player.setHealth(player.getHealth() + 10);
-                // TODO figure out how to make this disappear after we don't need it anymore.
-                //display.putBoxedString(gridWidth / 2 , gridHeight / 2, "             YUM!             ");
                 break;
             }
         }
