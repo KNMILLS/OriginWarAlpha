@@ -60,6 +60,7 @@ public class OriginWarAlpha extends ApplicationAdapter {
     private ArrayList<Coord> awaitedMoves;
     private float secondsWithoutMoves;
     private boolean helpOn;
+    private boolean statsDisplay;
     private int levelCount = 1;
     private boolean foundSwitch;
     private RoomFinder roomFinder;
@@ -273,7 +274,9 @@ public class OriginWarAlpha extends ApplicationAdapter {
         }
         display.put(0, gridHeight + 1, spaces, languageFG, languageBG);
         textDisplay.setDefaultText(this);
+        textDisplay.setStatsText(this);
         if (helpOn) textDisplay.setDisplayText(textDisplay.getHelpText());
+        else if(statsDisplay) textDisplay.setDisplayText(textDisplay.getStatsText());
         else textDisplay.setDisplayText(textDisplay.getDefaultText());
         textDisplay.setAliceDisplayText(textDisplay.updateAliceDisplayByPlayerHealth(player.getHealth()));
         textDisplay.setControlsBanner();
@@ -425,6 +428,11 @@ public class OriginWarAlpha extends ApplicationAdapter {
                     case 'D':
                         move(1, 0);
                         break;
+                    case 'E':
+                    case 'e':
+                        if(!statsDisplay) statsDisplay = true;
+                        else statsDisplay = false;
+                        break;
                     case 'H':
                     case 'h':
                         if (!helpOn) helpOn = true;
@@ -444,8 +452,8 @@ public class OriginWarAlpha extends ApplicationAdapter {
                         move(0, 0);
                         break;
                     case '!':
-                        if (debugMode) debugMode = false;
-                        else debugMode = true;
+                        if (!debugMode) debugMode = true;
+                        else debugMode = false;
                         break;
                     case 'p':
                     case 'P':
