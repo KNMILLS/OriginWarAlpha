@@ -13,9 +13,6 @@ import squidpony.squidgrid.gui.gdx.SquidColorCenter;
 import squidpony.squidgrid.gui.gdx.TextCellFactory;
 import squidpony.squidmath.StatefulRNG;
 
-/**
- * Created by kenragonese on 11/9/16.
- */
 public class OriginResources implements LifecycleListener{
 
     private BitmapFont narrow1 = null, narrow2 = null, narrow3 = null,

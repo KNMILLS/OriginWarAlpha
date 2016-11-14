@@ -6,9 +6,6 @@ import squidpony.squidgrid.Radius;
 import squidpony.squidgrid.mapping.DungeonUtility;
 import squidpony.squidmath.Coord;
 
-/**
- * Created by kenragonese on 11/2/16.
- */
 public abstract class Creature{
     private double id;
     private Coord position;

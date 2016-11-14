@@ -5,9 +5,6 @@ import com.badlogic.gdx.Input;
 import squidpony.squidgrid.gui.gdx.SquidInput;
 import squidpony.squidgrid.gui.gdx.SquidMouse;
 
-/**
- * Created by evanhitchings on 11/2/16.
- */
 public class OriginInput extends SquidInput{
 
     public OriginInput() {

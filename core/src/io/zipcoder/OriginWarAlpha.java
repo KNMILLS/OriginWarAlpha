@@ -264,15 +264,6 @@ public class OriginWarAlpha extends ApplicationAdapter {
                 display.put(x, y, oxygen.getSymbol(), 12);
             }
         }
-//        if(decoDungeon[player.getPosition().getX()][player.getPosition().getY()] == '~'){
-//            display.setAnimationDuration(0.9f);
-//        } else if(decoDungeon[player.getPosition().getX()][player.getPosition().getY()] == ','){
-//            display.setAnimationDuration(0.6f);
-//        } else if(decoDungeon[player.getPosition().getX()][player.getPosition().getY()] == '"'){
-//            display.setAnimationDuration(2000.1f);
-//        } else {
-//            display.setAnimationDuration(0.3f);
-//        }
         if (victoryState) {
             player.setAlive(false);
             display.put(player.getPosition().x, player.getPosition().y, '±');
@@ -313,8 +304,6 @@ public class OriginWarAlpha extends ApplicationAdapter {
         display.putString(1, gridHeight + 4, textDisplay.getAliceDisplayText()[0], player.getHpColor(), 40);
         display.putString(1, gridHeight + 5, textDisplay.getAliceDisplayText()[1], player.getHpColor(), 40);
         display.putString(1, gridHeight + 6, textDisplay.getControlsBanner()[0], player.getHpColor(), 40);
-
-
     }
 
     @Override
@@ -487,7 +476,6 @@ public class OriginWarAlpha extends ApplicationAdapter {
                     case '!':
                         if (debugMode) debugMode = false;
                         else debugMode = true;
-
                         break;
                     case 'p':
                     case 'P':

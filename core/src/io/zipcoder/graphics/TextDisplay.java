@@ -3,9 +3,6 @@ package io.zipcoder.graphics;
 import io.zipcoder.OriginWarAlpha;
 import io.zipcoder.Entities.Player;
 
-/**
- * Created by kenragonese on 11/10/16.
- */
 public class TextDisplay {
 
 
