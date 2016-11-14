@@ -175,7 +175,6 @@ public class OriginWarAlpha extends ApplicationAdapter {
                 } else {
                     soundSingleton.getFootStep().play(.08f);
                 }
-                refillOxygen();
                 player.updateFOVMap();
             }
         }
@@ -324,7 +323,7 @@ public class OriginWarAlpha extends ApplicationAdapter {
                 oxygenList.remove(oxygen);
                 oxygenUsed++;
                 soundSingleton.getOxygenSound().play(.2f);
-                player.setHealth(player.getHealth() + 10);
+                player.pickUpOxygen(oxygen);
                 // TODO figure out how to make this disappear after we don't need it anymore.
                 //display.putBoxedString(gridWidth / 2 , gridHeight / 2, "             YUM!             ");
                 break;
@@ -445,6 +444,14 @@ public class OriginWarAlpha extends ApplicationAdapter {
                     case 'z':
                     case 'Z':
                         move(0, 0);
+                        break;
+                    case 'r':
+                    case 'R':
+                        refillOxygen();
+                        break;
+                    case 'f':
+                    case 'F':
+                        player.useOxygen();
                         break;
                     case '!':
                         if (!debugMode) debugMode = true;
