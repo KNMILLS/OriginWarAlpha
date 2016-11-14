@@ -20,7 +20,7 @@ public class TextDisplay {
         setDefaultText();
         setDisplayText(getDefaultText());
         setHelpText();
-        setVictoryText();
+        setEndGameText();
         setAliceDisplayText();
         setAliceDeathText();
         setAliceVictoryText();
@@ -35,7 +35,7 @@ public class TextDisplay {
     private void setHelpText() {
         this.helpText = new String[]{
                 "You need to find the switch '?' to unlock the hatch '*' to the next level.",
-                "There are O2 tanks '%' scattered about. Make use of them.",
+                "There are Oxygen tanks '%' scattered about. Make use of them.",
                 "Movement is modified by terrain: low grav:2x, no grav:3x, fully functional:free.",
         };
     }
@@ -64,8 +64,8 @@ public class TextDisplay {
     public void setStatsText(OriginWarAlpha game){
         this.statsText = new String[]{
                 "Switch Found:\t" + game.isFoundSwitch(),
-                "O2 tanks remaining in level:\t" + Math.max(0, (8 - game.getLevelCount()) - game.getOxygenUsed()),
-                "O2 tanks used (this level):\t" + game.getOxygenUsed(),
+                "Oxygen tanks remaining in level:\t" + Math.max(0, (8 - game.getLevelCount()) - game.getOxygenUsed()),
+                "Oxygen tanks used (this level):\t" + game.getOxygenUsed(),
                 "Turns taken:\t"+Player.getPlayer().getTurns()
         };
     }
@@ -82,7 +82,7 @@ public class TextDisplay {
         return endGameText;
     }
 
-    public void setVictoryText() {
+    public void setEndGameText() {
         this.endGameText = new String[]{
                 "Submit a screenshot of your score screen to the devs.",
                 "Top scores will be posted to the website.",

@@ -145,132 +145,30 @@ public class OriginWarAlpha extends ApplicationAdapter {
 
     private void move(int xmod, int ymod) {
         int newX = player.getPosition().x + xmod, newY = player.getPosition().y + ymod;
-        if (player.isAlive()) {
-            if (newX >= 0 && newY >= 0 && newX < gridWidth && newY < gridHeight && bareDungeon[newX][newY] != '#') {
-                player.setPosition(player.getPosition().translate(xmod, ymod));
-                if (lineDungeon[newX][newY] == '+') {
-                    lineDungeon[newX][newY] = '/';
-                    decoDungeon[newX][newY] = '/';
-                    soundSingleton.getDoorSound().play(.2f);
-                    player.getResMap()[newX][newY] = .15;
-                }
-                if (decoDungeon[newX][newY] == '~') {
-                    player.incrementTurn();
-                    player.incrementTurn();
-                    soundSingleton.getMetalStepSound().play(.15f);
-                }
-                if (decoDungeon[newX][newY] == ',') {
-                    player.incrementTurn();
-                    soundSingleton.getMetalStepSound().play(.1f);
-                }
-                if (decoDungeon[newX][newY] == '"') {
-                    if (player.getTurns() % 4 == 0) player.setHealth(player.getHealth() + 1);
-                    player.setTurns(player.getTurns() - 1);
-                } else {
-                    soundSingleton.getFootStep().play(.08f);
-                }
-                refillOxygen();
-                player.updateFOVMap();
-            }
+        if (player.isAlive() && newX >= 0 && newY >= 0 && newX < gridWidth && newY < gridHeight && bareDungeon[newX][newY] != '#') {
+            player.setPosition(player.getPosition().translate(xmod, ymod));
+            isPlayerOnDoor(newX, newY);
+            isPlayerOnLowGrav(newX, newY);
+            isPlayerOnNoGrav(newX, newY);
+            isPlayerOnBioTile(newX, newY);
+            isPlayerOnBareFloor(newX, newY);
+            isPlayerOnKey();
+            isPlayerOnExit();
+            isPlayerOnOxygen();
+            player.updateFOVMap();
         }
-        if (player.getPosition() == stairSwitch) {
-            stairsDown = dungeonGen.stairsDown;
-            if (!foundSwitch) {
-                setStairSwitchSound();
-            }
-            foundSwitch = true;
-
-        }
-        if (player.getPosition() == stairsDown) {
-            levelCount++;
-            if (player.getHealth() < 100) {
-                player.setHealth(Math.min(100, player.getHealth() + (10 * (10 - levelCount))));
-            }
-            create();
-            soundSingleton.getStairSound().play(.5f);
-        }
-
     }
 
     private void putMap() {
-        boolean occupied;
-        for (int i = 0; i < gridWidth; i++) {
-            for (int j = 0; j < gridHeight; j++) {
-                occupied = player.getPosition().getX() == i && player.getPosition().getY() == j;
-                if (player.getFovMap()[i][j] > 0.0) {
-                    explored[i][j] = true;
-                    Coord toRemove = Coord.get(i, j);
-                    unexploredSet.remove(toRemove);
-                    if (occupied) {
-                        display.put(i, j, ' ');
-                    } else {
-                        display.put(i, j, lineDungeon[i][j], fgColor[i][j], bgColorArr[i][j],
-                                lights[i][j] + (int) (-200 + 320 * player.getFovMap()[i][j]));
-                    }
-                } else if (explored[i][j]) {
-                    display.put(i, j, lineDungeon[i][j], fgColor[i][j], bgColorArr[i][j], -300);
-                }
-            }
-        }
-
-        for (Coord pt : toCursor) {
-            display.highlight(pt.x, pt.y, lights[pt.x][pt.y] + (int) (170 * player.getFovMap()[pt.x][pt.y]));
-        }
-        if ((stairsDown != null) && levelCount < 10) {
-            display.put(stairsDown.x, stairsDown.y, '*', 12);
-        }
-        if ((explored[stairSwitch.x][stairSwitch.y] && !foundSwitch) && levelCount < 10) {
-            display.put(stairSwitch.x, stairSwitch.y, '?', 12);
-        }
-        for (Oxygen oxygen : oxygenList) {
-            int x = oxygen.getPosition().getX();
-            int y = oxygen.getPosition().getY();
-            if (explored[x][y]) {
-                display.put(x, y, oxygen.getSymbol(), 12);
-            }
-        }
-        if (victoryState) {
-            display.put(player.getPosition().x, player.getPosition().y, '±');
-            endGameTextBox();
-            textDisplay.setDisplayText(textDisplay.getEndGameText());
-            textDisplay.setAliceDisplayText(textDisplay.getAliceVictoryText());
-            player.setHealth(0);
-            player.setAlive(false);
-        } else if (player.getHealth() >= 125) {
-            player.setHpColor(27);
-            display.put(player.getPosition().x, player.getPosition().y, '∆', player.getHpColor());
-        } else if (player.getHealth() > 50) {
-            player.setHpColor(24);
-            display.put(player.getPosition().x, player.getPosition().y, '∆', player.getHpColor());
-        } else if (player.getHealth() > 25) {
-            player.setHpColor(18);
-            display.put(player.getPosition().x, player.getPosition().y, '∆', player.getHpColor());
-        } else if (player.getHealth() > 0) {
-            player.setHpColor(12);
-            display.put(player.getPosition().x, player.getPosition().y, '∆', player.getHpColor());
-        } else {
-            player.setHpColor(2);
-            display.put(player.getPosition().x, player.getPosition().y, '±', player.getHpColor());
-            textDisplay.setDisplayText(textDisplay.getEndGameText());
-            textDisplay.setAliceDisplayText(textDisplay.getAliceDeathText());
-            endGameTextBox();
-            player.setAlive(false);
-        }
-        display.put(0, gridHeight + 1, spaces, languageFG, languageBG);
-        textDisplay.setDefaultText(this);
-        textDisplay.setStatsText(this);
-        if (helpOn) textDisplay.setDisplayText(textDisplay.getHelpText());
-        else if (statsDisplay) textDisplay.setDisplayText(textDisplay.getStatsText());
-        else textDisplay.setDisplayText(textDisplay.getDefaultText());
-        textDisplay.setAliceDisplayText(textDisplay.updateAliceDisplayByPlayerHealth(player.getHealth()));
-        textDisplay.setControlsBanner();
-        //display.putString(1, gridHeight, Long.toString(TimeUtils.nanoTime()), player.getHpColor(), 40);
-        display.putString(1, gridHeight + 1, textDisplay.getDisplayText()[0], player.getHpColor(), 40);
-        display.putString(1, gridHeight + 2, textDisplay.getDisplayText()[1], player.getHpColor(), 40);
-        display.putString(1, gridHeight + 3, textDisplay.getDisplayText()[2], player.getHpColor(), 40);
-        display.putString(1, gridHeight + 4, textDisplay.getAliceDisplayText()[0], player.getHpColor(), 40);
-        display.putString(1, gridHeight + 5, textDisplay.getAliceDisplayText()[1], player.getHpColor(), 40);
-        display.putString(1, gridHeight + 6, textDisplay.getControlsBanner()[0], player.getHpColor(), 40);
+        playerVisionUpdate();
+        displayKey();
+        displayExit();
+        displayOxygenTanks();
+        displayCursorHighlight();
+        playerIconUpdate();
+        initTextDisplay();
+        textConditionals();
+        displayText();
     }
 
     @Override
@@ -310,18 +208,6 @@ public class OriginWarAlpha extends ApplicationAdapter {
     public void resize(int width, int height) {
         super.resize(width, height);
         input.getMouse().reinitialize((float) width / this.gridWidth, (float) height / (this.gridHeight + 8), this.gridWidth, this.gridHeight, 0, 0);
-    }
-
-    private void refillOxygen() {
-        for (Oxygen oxygen : oxygenList) {
-            if (oxygen.getPosition().equals(player.getPosition())) {
-                oxygenList.remove(oxygen);
-                oxygenUsed++;
-                soundSingleton.getOxygenSound().play(.2f);
-                player.setHealth(player.getHealth() + 10);
-                break;
-            }
-        }
     }
 
     private ArrayList<Oxygen> addOxygen() {
@@ -614,5 +500,169 @@ public class OriginWarAlpha extends ApplicationAdapter {
     private void endGameTextBox() {
         display.putBoxedString(gridWidth / 2 - 18, gridHeight / 2, "       THANKS FOR PLAYING!          ");
         display.putBoxedString(gridWidth / 2 - 18, gridHeight / 2 + 2, "            -DEV TEAM               ");
+    }
+    private void playerIconUpdate(){
+        if (victoryState || !player.isAlive()) {
+            player.setHpColor(2);
+            display.put(player.getPosition().x, player.getPosition().y, '±');
+            player.setHealth(0);
+            player.setAlive(false);
+        } else if (player.getHealth() >= 125) {
+            player.setHpColor(27);
+            display.put(player.getPosition().x, player.getPosition().y, '∆', player.getHpColor());
+        } else if (player.getHealth() > 50) {
+            player.setHpColor(24);
+            display.put(player.getPosition().x, player.getPosition().y, '∆', player.getHpColor());
+        } else if (player.getHealth() > 25) {
+            player.setHpColor(18);
+            display.put(player.getPosition().x, player.getPosition().y, '∆', player.getHpColor());
+        } else if (player.getHealth() > 0) {
+            player.setHpColor(12);
+            display.put(player.getPosition().x, player.getPosition().y, '∆', player.getHpColor());
+        }
+    }
+    private void playerVisionUpdate(){
+        boolean occupied;
+        for (int i = 0; i < gridWidth; i++) {
+            for (int j = 0; j < gridHeight; j++) {
+                occupied = player.getPosition().getX() == i && player.getPosition().getY() == j;
+                if (player.getFovMap()[i][j] > 0.0) {
+                    explored[i][j] = true;
+                    Coord toRemove = Coord.get(i, j);
+                    unexploredSet.remove(toRemove);
+                    if (occupied) {
+                        display.put(i, j, ' ');
+                    } else {
+                        display.put(i, j, lineDungeon[i][j], fgColor[i][j], bgColorArr[i][j],
+                                lights[i][j] + (int) (-200 + 320 * player.getFovMap()[i][j]));
+                    }
+                } else if (explored[i][j]) {
+                    display.put(i, j, lineDungeon[i][j], fgColor[i][j], bgColorArr[i][j], -300);
+                }
+            }
+        }
+    }
+    private void displayKey(){
+        if ((explored[stairSwitch.x][stairSwitch.y] && !foundSwitch)) {
+            display.put(stairSwitch.x, stairSwitch.y, '?', 12);
+        }
+    }
+    private void displayExit(){
+        if ((stairsDown != null) && levelCount < 10) {
+            display.put(stairsDown.x, stairsDown.y, '*', 12);
+        }
+    }
+    private void displayOxygenTanks(){
+        for (Oxygen oxygen : oxygenList) {
+            int x = oxygen.getPosition().getX();
+            int y = oxygen.getPosition().getY();
+            if (explored[x][y]) {
+                display.put(x, y, oxygen.getSymbol(), 12);
+            }
+        }
+    }
+    private void displayCursorHighlight(){
+        for (Coord pt : toCursor) {
+            display.highlight(pt.x, pt.y, lights[pt.x][pt.y] + (int) (170 * player.getFovMap()[pt.x][pt.y]));
+        }
+    }
+    private void initTextDisplay(){
+        display.put(0, gridHeight + 1, spaces, languageFG, languageBG);
+        textDisplay.setDefaultText(this);
+        textDisplay.setStatsText(this);
+        textDisplay.setAliceDisplayText(textDisplay.updateAliceDisplayByPlayerHealth(player.getHealth()));
+        textDisplay.setControlsBanner();
+    }
+    private void textConditionals(){
+        if (helpOn) textDisplay.setDisplayText(textDisplay.getHelpText());
+        else if (statsDisplay) textDisplay.setDisplayText(textDisplay.getStatsText());
+        else if (victoryState) textDisplay.setAliceDisplayText(textDisplay.getAliceVictoryText());
+        else if(!player.isAlive()) textDisplay.setAliceDisplayText(textDisplay.getAliceDeathText());
+        else textDisplay.setDisplayText(textDisplay.getDefaultText());
+    }
+    private void displayText(){
+        display.putString(1, gridHeight + 1, textDisplay.getDisplayText()[0], player.getHpColor(), 40);
+        display.putString(1, gridHeight + 2, textDisplay.getDisplayText()[1], player.getHpColor(), 40);
+        display.putString(1, gridHeight + 3, textDisplay.getDisplayText()[2], player.getHpColor(), 40);
+        display.putString(1, gridHeight + 4, textDisplay.getAliceDisplayText()[0], player.getHpColor(), 40);
+        display.putString(1, gridHeight + 5, textDisplay.getAliceDisplayText()[1], player.getHpColor(), 40);
+        display.putString(1, gridHeight + 6, textDisplay.getControlsBanner()[0], player.getHpColor(), 40);
+    }
+    private boolean isPlayerOnDoor(int newX, int newY){
+        if (lineDungeon[newX][newY] == '+') {
+            lineDungeon[newX][newY] = '/';
+            decoDungeon[newX][newY] = '/';
+            soundSingleton.getDoorSound().play(.2f);
+            player.getResMap()[newX][newY] = .15;
+            return true;
+        }
+        return false;
+    }
+    private boolean isPlayerOnNoGrav(int newX, int newY){
+        if (decoDungeon[newX][newY] == '~') {
+            player.incrementTurn();
+            player.incrementTurn();
+            soundSingleton.getMetalStepSound().play(.15f);
+            return true;
+        }
+        return false;
+    }
+    private boolean isPlayerOnLowGrav(int newX, int newY){
+        if (decoDungeon[newX][newY] == ',') {
+            player.incrementTurn();
+            soundSingleton.getMetalStepSound().play(.1f);
+            return true;
+        }
+        return false;
+    }
+    private boolean isPlayerOnBioTile(int newX, int newY) {
+        if (decoDungeon[newX][newY] == '"') {
+            if (player.getTurns() % 4 == 0) player.setHealth(player.getHealth() + 1);
+            player.setTurns(player.getTurns() - 1);
+            return true;
+        }
+        return false;
+    }
+    private boolean isPlayerOnKey(){
+        if (player.getPosition() == stairSwitch) {
+            stairsDown = dungeonGen.stairsDown;
+            if (!foundSwitch) {
+                setStairSwitchSound();
+            }
+            foundSwitch = true;
+            return true;
+        }
+        return false;
+    }
+    private boolean isPlayerOnExit(){
+        if (player.getPosition() == stairsDown) {
+            levelCount++;
+            if (player.getHealth() < 100) {
+                player.setHealth(Math.min(100, player.getHealth() + (10 * (10 - levelCount))));
+            }
+            create();
+            soundSingleton.getStairSound().play(.5f);
+            return true;
+        }
+        return false;
+    }
+    private boolean isPlayerOnOxygen() {
+        for (Oxygen oxygen : oxygenList) {
+            if (oxygen.getPosition().equals(player.getPosition())) {
+                oxygenList.remove(oxygen);
+                oxygenUsed++;
+                soundSingleton.getOxygenSound().play(.2f);
+                player.setHealth(player.getHealth() + 10);
+                return true;
+            }
+        }
+        return false;
+    }
+    private boolean isPlayerOnBareFloor(int newX, int newY){
+        if (decoDungeon[newX][newY] == '.') {
+            soundSingleton.getFootStep().play(.08f);
+            return true;
+        }
+        return false;
     }
 }
