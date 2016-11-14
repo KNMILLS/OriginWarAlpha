@@ -22,6 +22,8 @@ public class SoundSingleton {
     private Sound cardLockSound;
     private Sound laboredBreathing;
     private Sound metalStepSound;
+    private Sound playerDeathSound;
+    private Sound romeroSound;
     private static SoundSingleton instance;
 
     private SoundSingleton(){
@@ -39,6 +41,9 @@ public class SoundSingleton {
         cardLockSound = Gdx.audio.newSound(Gdx.files.internal("cardlock.wav"));
         laboredBreathing = Gdx.audio.newSound(Gdx.files.internal("labored.wav"));
         metalStepSound = Gdx.audio.newSound(Gdx.files.internal("metalStep.wav"));
+        playerDeathSound = Gdx.audio.newSound(Gdx.files.internal("playerdeath.mp3"));
+        romeroSound = Gdx.audio.newSound(Gdx.files.internal("romero.mp3"));
+
         SoundSingleton.instance = this;
     }
 
@@ -175,5 +180,21 @@ public class SoundSingleton {
 
     public void setMetalStepSound(Sound metalStepSound) {
         this.metalStepSound = metalStepSound;
+    }
+
+    public Sound getPlayerDeathSound() {
+        return playerDeathSound;
+    }
+
+    public void setPlayerDeathSound(Sound playerDeathSound) {
+        this.playerDeathSound = playerDeathSound;
+    }
+
+    public Sound getRomeroSound() {
+        return romeroSound;
+    }
+
+    public void setRomeroSound(Sound romeroSound) {
+        this.romeroSound = romeroSound;
     }
 }

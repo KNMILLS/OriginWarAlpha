@@ -129,10 +129,12 @@ public class OriginWarAlpha extends ApplicationAdapter {
                 dungeonGen.addWater(60);
                 break;
             case 9:
+                soundSingleton.getRomeroSound().play();
                 dungeonGen.addWater(75);
                 break;
             case 10:
                 victoryState = true;
+                soundSingleton.getPlayerDeathSound().play();
             default:
                 dungeonGen.addGrass(100);
         }
@@ -196,6 +198,7 @@ public class OriginWarAlpha extends ApplicationAdapter {
         textDisplay.setDisplayText(textDisplay.getDefaultText());
         textDisplay.setAliceDisplayText(textDisplay.updateAliceDisplayByPlayerHealth(player.getHealth()));
         if (!player.isAlive()) {
+            soundSingleton.getPlayerDeathSound().play();
             input.drain();
             awaitedMoves.clear();
             return;
@@ -318,8 +321,6 @@ public class OriginWarAlpha extends ApplicationAdapter {
         } else if (player.getHealth() > 50) {
             player.setHpColor(24);
             display.put(player.getPosition().x, player.getPosition().y, '∆', player.getHpColor());
-            //soundSingleton.getBreathSound().loop(.1f);
-            //soundSingleton.getLaboredBreathing().loop();
         } else if (player.getHealth() > 25) {
             player.setHpColor(18);
             display.put(player.getPosition().x, player.getPosition().y, '∆', player.getHpColor());
@@ -331,6 +332,7 @@ public class OriginWarAlpha extends ApplicationAdapter {
             player.setHpColor(2);
             display.put(player.getPosition().x, player.getPosition().y, '±', player.getHpColor());
             player.setAlive(false);
+            soundSingleton.getPlayerDeathSound().play();
             textDisplay.setDisplayText(textDisplay.getEndGameText());
             textDisplay.setAliceDisplayText(textDisplay.getAliceDeathText());
         }
@@ -448,6 +450,7 @@ public class OriginWarAlpha extends ApplicationAdapter {
         player.setTurns(-1);
         levelCount = 1;
         oxygenUsed = 0;
+        soundSingleton.getPlayerDeathSound().play();
         create();
     }
     public int getLevelCount() {
