@@ -4,6 +4,7 @@ import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.InputAdapter;
 import com.badlogic.gdx.InputMultiplexer;
+import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
@@ -67,19 +68,10 @@ public class OriginWarAlpha extends ApplicationAdapter {
     private TextDisplay textDisplay;
     private SoundSingleton soundSingleton;
 
-    public void init(){
-        soundSingleton = SoundSingleton.getSoundSingleton();
-        soundSingleton.getBackgroundMusic().loop(.3f);
-        soundSingleton.getHeartbeatSound().loop(.7f);
-        soundSingleton.getBreathSound().loop(.6f);
-
-    }
 
     @Override
     public void create() {
-        if(levelCount==1){
-            init();
-        }
+        initSound();
         textDisplay = new TextDisplay();
         textDisplay.setDefaultText(this);
         player = Player.getPlayer();
@@ -100,44 +92,19 @@ public class OriginWarAlpha extends ApplicationAdapter {
         stairDungeon = dungeonGen.generate(TilesetType.ROOMS_AND_CORRIDORS_B);
         dungeonGen.addDoors(25, true);
         explored = new boolean[gridWidth][gridHeight];
-        switch (levelCount) {
-            case 1:
-                dungeonGen.addGrass(35);
+        dungeonGen.addGrass(15-levelCount);
+        dungeonGen.addWater(15+levelCount);
 
-                break;
-            case 2:
-                dungeonGen.addGrass(25);
-                break;
-            case 3:
-                dungeonGen.addGrass(15);
-                break;
-            case 4:
-                dungeonGen.addGrass(10);
-                break;
-            case 5:
-                dungeonGen.addGrass(10);
-                dungeonGen.addWater(10);
-                break;
-            case 6:
-                dungeonGen.addGrass(5);
-                dungeonGen.addWater(35);
-                break;
-            case 7:
-                dungeonGen.addWater(35);
-                break;
-            case 8:
-                dungeonGen.addWater(60);
-                break;
+        switch (levelCount) {
             case 9:
                 soundSingleton.getRomeroSound().play();
-                dungeonGen.addWater(75);
                 break;
             case 10:
                 victoryState = true;
-                soundSingleton.getPlayerDeathSound().play();
-            default:
-                dungeonGen.addGrass(100);
+                stopAllSound();
+                soundSingleton.getCreditsMusic().play();
         }
+
         decoDungeon = dungeonGen.generate(stairDungeon);
         decoDungeon = DungeonUtility.closeDoors(decoDungeon);
         costArray = DungeonUtility.generateCostMap(decoDungeon, costMap, 1.0);
@@ -198,7 +165,6 @@ public class OriginWarAlpha extends ApplicationAdapter {
         textDisplay.setDisplayText(textDisplay.getDefaultText());
         textDisplay.setAliceDisplayText(textDisplay.updateAliceDisplayByPlayerHealth(player.getHealth()));
         if (!player.isAlive()) {
-            soundSingleton.getPlayerDeathSound().play();
             input.drain();
             awaitedMoves.clear();
             return;
@@ -332,7 +298,6 @@ public class OriginWarAlpha extends ApplicationAdapter {
             player.setHpColor(2);
             display.put(player.getPosition().x, player.getPosition().y, '±', player.getHpColor());
             player.setAlive(false);
-            soundSingleton.getPlayerDeathSound().play();
             textDisplay.setDisplayText(textDisplay.getEndGameText());
             textDisplay.setAliceDisplayText(textDisplay.getAliceDeathText());
         }
@@ -378,17 +343,9 @@ public class OriginWarAlpha extends ApplicationAdapter {
         stage.draw();
         stage.act();
         if (player.getHealth() <= 0) {
-            // still need to display the map, then write over it with a message.
-            putMap();
             display.putBoxedString(gridWidth / 2 - 18, gridHeight / 2 - 8, "       THANKS FOR PLAYING!          ");
             display.putBoxedString(gridWidth / 2 - 18, gridHeight / 2 - 5, "            -DEV TEAM               ");
             display.putBoxedString(gridWidth / 2 - 18, gridHeight / 2 + 5, "             q to quit.             ");
-
-            // because we return early, we still need to draw.
-            stage.draw();
-            // q still needs to quit.
-            if (input.hasNext())
-                input.next();
             return;
         }
     }
@@ -406,7 +363,7 @@ public class OriginWarAlpha extends ApplicationAdapter {
                 oxygenUsed++;
                 soundSingleton.getOxygenSound().play(.2f);
                 player.setHealth(player.getHealth() + 10);
-                //display.putBoxedString(gridWidth / 2 - 18, gridHeight / 2 + 5, "             YUM!             ");
+                //display.putBoxedString(gridWidth / 2 , gridHeight / 2, "             YUM!             ");
                 break;
             }
         }
@@ -441,7 +398,6 @@ public class OriginWarAlpha extends ApplicationAdapter {
             }
         }
         return toReturn;
-
     }
 
     private void restart() {
@@ -450,6 +406,7 @@ public class OriginWarAlpha extends ApplicationAdapter {
         player.setTurns(-1);
         levelCount = 1;
         oxygenUsed = 0;
+        stopAllSound();
         soundSingleton.getPlayerDeathSound().play();
         create();
     }
@@ -622,5 +579,16 @@ public class OriginWarAlpha extends ApplicationAdapter {
         toReturn.put('/',1.0);
         toReturn.put('+', 1.0);
         return toReturn;
+    }
+    private void stopAllSound(){
+        for(Sound s : soundSingleton.getAllSounds()){
+            s.stop();
+        }
+    }
+    private void initSound(){
+        soundSingleton = SoundSingleton.getSoundSingleton();
+        soundSingleton.getBreathSound().loop();
+        soundSingleton.getHeartbeatSound().loop();
+        soundSingleton.getBackgroundMusic().loop(.3f);
     }
 }

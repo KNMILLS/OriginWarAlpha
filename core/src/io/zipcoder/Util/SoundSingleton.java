@@ -2,6 +2,10 @@ package io.zipcoder.Util;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.audio.Sound;
+import io.zipcoder.Entities.Player;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by evanhitchings on 11/11/16.
@@ -21,10 +25,14 @@ public class SoundSingleton {
     private Sound evilLaugh;
     private Sound cardLockSound;
     private Sound laboredBreathing;
+    private Sound rapidHR;
     private Sound metalStepSound;
     private Sound playerDeathSound;
     private Sound romeroSound;
+    private Sound schizophrenicVoices;
+    private Sound creditsMusic;
     private static SoundSingleton instance;
+    private List<Sound> allSounds;
 
     private SoundSingleton(){
         backgroundMusic = Gdx.audio.newSound(Gdx.files.internal("21_Derelict_Freighter.mp3"));
@@ -40,10 +48,14 @@ public class SoundSingleton {
         monsterSound = Gdx.audio.newSound(Gdx.files.internal("monster.wav"));
         cardLockSound = Gdx.audio.newSound(Gdx.files.internal("cardlock.wav"));
         laboredBreathing = Gdx.audio.newSound(Gdx.files.internal("labored.wav"));
+        rapidHR = Gdx.audio.newSound(Gdx.files.internal("rapidHR.mp3"));
         metalStepSound = Gdx.audio.newSound(Gdx.files.internal("metalStep.wav"));
         playerDeathSound = Gdx.audio.newSound(Gdx.files.internal("playerdeath.mp3"));
         romeroSound = Gdx.audio.newSound(Gdx.files.internal("romero.mp3"));
-
+        schizophrenicVoices = Gdx.audio.newSound(Gdx.files.internal("schizophrenia.mp3"));
+        creditsMusic = Gdx.audio.newSound(Gdx.files.internal("credits.wav"));
+        allSounds = new ArrayList<>();
+        setAllSounds();
         SoundSingleton.instance = this;
     }
 
@@ -101,14 +113,6 @@ public class SoundSingleton {
     public void setDoorSound(Sound doorSound) {
         this.doorSound = doorSound;
     }
-
-//    public Sound getGreenStep() {
-//        return greenStep;
-//    }
-//
-//    public void setGreenStep(Sound greenStep) {
-//        this.greenStep = greenStep;
-//    }
 
     public Sound getFootStep() {
         return footStep;
@@ -197,4 +201,47 @@ public class SoundSingleton {
     public void setRomeroSound(Sound romeroSound) {
         this.romeroSound = romeroSound;
     }
+
+    public Sound getSchizophrenicVoices() {
+        return schizophrenicVoices;
+    }
+
+    public void setSchizophrenicVoices(Sound schizophrenicVoices) {
+        this.schizophrenicVoices = schizophrenicVoices;
+    }
+
+    public List<Sound> setAllSounds() {
+        allSounds.add(backgroundMusic);
+        allSounds.add(breathSound);
+        allSounds.add(heartbeatSound);
+        allSounds.add(rapidHR);
+        allSounds.add(laboredBreathing);
+        return allSounds;
+    }
+
+    public List<Sound> getAllSounds() {
+        return allSounds;
+    }
+
+    public void setAllSounds(List<Sound> allSounds) {
+        this.allSounds = allSounds;
+    }
+
+    public Sound getCreditsMusic() {
+        return creditsMusic;
+    }
+
+    public void setCreditsMusic(Sound creditsMusic) {
+        this.creditsMusic = creditsMusic;
+    }
+
+    public Sound getRapidHR() {
+        return rapidHR;
+    }
+
+    public void setRapidHR(Sound rapidHR) {
+        this.rapidHR = rapidHR;
+    }
+
+
 }
