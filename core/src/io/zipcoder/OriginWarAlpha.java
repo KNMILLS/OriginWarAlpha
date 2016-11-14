@@ -98,6 +98,7 @@ public class OriginWarAlpha extends ApplicationAdapter {
         switch (levelCount) {
             case 9:
                 soundSingleton.getRomeroSound().play();
+                soundSingleton.getSchizophrenicVoices().play();
                 break;
             case 10:
                 victoryState = true;
