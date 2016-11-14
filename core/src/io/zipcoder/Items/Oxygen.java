@@ -14,6 +14,15 @@ public class Oxygen extends Item implements Comparable{
     public Oxygen(Coord position) {
         super(position);
         this.setSymbol('%');
+        this.remaining = 25;
+    }
+
+    public int getRemaining() {
+        return remaining;
+    }
+
+    public void setRemaining(int remaining) {
+        this.remaining = remaining;
     }
 
     @Override

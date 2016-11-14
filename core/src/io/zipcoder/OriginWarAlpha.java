@@ -157,7 +157,6 @@ public class OriginWarAlpha extends ApplicationAdapter {
             isPlayerOnBareFloor(newX, newY);
             isPlayerOnKey();
             isPlayerOnExit();
-            isPlayerOnOxygen();
             player.updateFOVMap();
         }
     }
@@ -227,23 +226,6 @@ public class OriginWarAlpha extends ApplicationAdapter {
         input.getMouse().reinitialize((float) width / this.gridWidth, (float) height / (this.gridHeight + 8), this.gridWidth, this.gridHeight, 0, 0);
     }
 
-//<<<<<<< HEAD
-//=======
-//    private void refillOxygen() {
-//        for (Oxygen oxygen : oxygenList) {
-//            if (oxygen.getPosition().equals(player.getPosition())) {
-//                oxygenList.remove(oxygen);
-//                oxygenUsed++;
-//                soundSingleton.getOxygenSound().play(.2f);
-//
-//                // TODO figure out how to make this disappear after we don't need it anymore.
-//                //display.putBoxedString(gridWidth / 2 , gridHeight / 2, "             YUM!             ");
-//                break;
-//            }
-//        }
-//    }
-//
-//>>>>>>> b9a548154a92fa2b8b35cbee4314020d3f106bd0
     private ArrayList<Oxygen> addOxygen() {
         int oxygenToAdd = 8 - levelCount;
         ArrayList<Oxygen> toReturn = new ArrayList<>();
@@ -356,11 +338,14 @@ public class OriginWarAlpha extends ApplicationAdapter {
                         break;
                     case 'r':
                     case 'R':
-                        //refillOxygen();
+                        refillOxygen();
                         break;
                     case 'f':
                     case 'F':
-                        player.useOxygen();
+                        if(!player.getOxygenStash().isEmpty()){
+                            player.useOxygen();
+                            soundSingleton.getDispenseOxygenSound();
+                        }
                         break;
                     case '!':
                         if (!debugMode) debugMode = true;
@@ -688,17 +673,15 @@ public class OriginWarAlpha extends ApplicationAdapter {
         }
         return false;
     }
-    private boolean isPlayerOnOxygen() {
+    private void refillOxygen() {
         for (Oxygen oxygen : oxygenList) {
             if (oxygen.getPosition().equals(player.getPosition())) {
                 oxygenList.remove(oxygen);
                 oxygenUsed++;
-                soundSingleton.getOxygenSound().play(.2f);
+                soundSingleton.getPickupOxygenSound().play(.2f);
                 player.pickUpOxygen(oxygen);
-                return true;
             }
         }
-        return false;
     }
     private boolean isPlayerOnBareFloor(int newX, int newY){
         if (decoDungeon[newX][newY] == '.') {

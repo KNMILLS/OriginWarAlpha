@@ -8,7 +8,7 @@ import java.util.List;
 public class SoundSingleton {
     private Sound backgroundMusic;
     private Sound stairSound;
-    private Sound oxygenSound;
+    private Sound dispenseOxygenSound;
     private Sound keySound;
     private Sound waterStep;
     private Sound doorSound;
@@ -26,13 +26,14 @@ public class SoundSingleton {
     private Sound romeroSound;
     private Sound schizophrenicVoices;
     private Sound creditsMusic;
+    private Sound pickupOxygenSound;
     private static SoundSingleton instance;
     private List<Sound> allSounds;
 
     private SoundSingleton(){
         backgroundMusic = Gdx.audio.newSound(Gdx.files.internal("21_Derelict_Freighter.mp3"));
         stairSound = Gdx.audio.newSound(Gdx.files.internal("nextLevel.wav"));
-        oxygenSound = Gdx.audio.newSound(Gdx.files.internal("airtank.wav"));
+        dispenseOxygenSound = Gdx.audio.newSound(Gdx.files.internal("airtank.wav"));
         whatAreYouDoingHereSound = Gdx.audio.newSound(Gdx.files.internal("whatAreYouDoingHere.wav"));
         waterStep = Gdx.audio.newSound(Gdx.files.internal("splash.wav"));
         doorSound = Gdx.audio.newSound(Gdx.files.internal("door.wav"));
@@ -49,6 +50,7 @@ public class SoundSingleton {
         romeroSound = Gdx.audio.newSound(Gdx.files.internal("romero.mp3"));
         schizophrenicVoices = Gdx.audio.newSound(Gdx.files.internal("schizophrenia.mp3"));
         creditsMusic = Gdx.audio.newSound(Gdx.files.internal("credits.wav"));
+        pickupOxygenSound = Gdx.audio.newSound(Gdx.files.internal("pickupOxygenSound.wav"));
         allSounds = new ArrayList<>();
         setAllSounds();
         SoundSingleton.instance = this;
@@ -77,12 +79,12 @@ public class SoundSingleton {
         this.stairSound = stairSound;
     }
 
-    public Sound getOxygenSound() {
-        return oxygenSound;
+    public Sound getDispenseOxygenSound() {
+        return dispenseOxygenSound;
     }
 
-    public void setOxygenSound(Sound oxygenSound) {
-        this.oxygenSound = oxygenSound;
+    public void setDispenseOxygenSound(Sound dispenseOxygenSound) {
+        this.dispenseOxygenSound = dispenseOxygenSound;
     }
 
     public Sound getKeySound() {
@@ -239,5 +241,11 @@ public class SoundSingleton {
         this.rapidHR = rapidHR;
     }
 
+    public Sound getPickupOxygenSound() {
+        return pickupOxygenSound;
+    }
 
+    public void setPickupOxygenSound(Sound pickupOxygenSound) {
+        this.pickupOxygenSound = pickupOxygenSound;
+    }
 }
