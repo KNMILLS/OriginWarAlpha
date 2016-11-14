@@ -9,6 +9,7 @@ import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.scenes.scene2d.Stage;
+import com.badlogic.gdx.utils.TimeUtils;
 import com.badlogic.gdx.utils.viewport.StretchViewport;
 import io.zipcoder.Entities.Player;
 import io.zipcoder.Items.Oxygen;
@@ -26,6 +27,8 @@ import squidpony.squidmath.AStarSearch;
 import squidpony.squidmath.Coord;
 import squidpony.squidmath.CoordPacker;
 import squidpony.squidmath.RNG;
+
+import java.security.Key;
 import java.util.*;
 import java.util.Queue;
 
@@ -150,9 +153,9 @@ public class OriginWarAlpha extends ApplicationAdapter {
     private void move(int xmod, int ymod) {
         int newX = player.getPosition().x + xmod, newY = player.getPosition().y + ymod;
         if (!player.isAlive()) {
-            input.drain();
-            awaitedMoves.clear();
-            return;
+//            input.drain();
+//            awaitedMoves.clear();
+//            return;
         }
         else {
             if (newX >= 0 && newY >= 0 && newX < gridWidth && newY < gridHeight
@@ -182,7 +185,6 @@ public class OriginWarAlpha extends ApplicationAdapter {
                 }
                 refillOxygen();
                 player.updateFOVMap();
-
             }
         }
         if (player.getPosition() == stairSwitch) {
@@ -247,6 +249,7 @@ public class OriginWarAlpha extends ApplicationAdapter {
             endGameTextBox();
             textDisplay.setDisplayText(textDisplay.getEndGameText());
             textDisplay.setAliceDisplayText(textDisplay.getAliceVictoryText());
+            player.setHealth(0);
             player.setAlive(false);
         } else if (player.getHealth() >= 125) {
             player.setHpColor(27);
@@ -269,12 +272,12 @@ public class OriginWarAlpha extends ApplicationAdapter {
             player.setAlive(false);
         }
         display.put(0, gridHeight + 1, spaces, languageFG, languageBG);
+        textDisplay.setDefaultText(this);
         if (helpOn) textDisplay.setDisplayText(textDisplay.getHelpText());
         else textDisplay.setDisplayText(textDisplay.getDefaultText());
-        textDisplay.setDefaultText(this);
-        textDisplay.setDisplayText(textDisplay.getDefaultText());
         textDisplay.setAliceDisplayText(textDisplay.updateAliceDisplayByPlayerHealth(player.getHealth()));
         textDisplay.setControlsBanner();
+        //display.putString(1, gridHeight, Long.toString(TimeUtils.nanoTime()), player.getHpColor(), 40);
         display.putString(1, gridHeight + 1, textDisplay.getDisplayText()[0], player.getHpColor(), 40);
         display.putString(1, gridHeight + 2, textDisplay.getDisplayText()[1], player.getHpColor(), 40);
         display.putString(1, gridHeight + 3, textDisplay.getDisplayText()[2], player.getHpColor(), 40);
@@ -404,52 +407,42 @@ public class OriginWarAlpha extends ApplicationAdapter {
                 switch (key) {
                     case SquidInput.UP_ARROW:
                     case 'w':
-                    case 'W': {
+                    case 'W':
                         move(0, -1);
                         break;
-                    }
                     case SquidInput.DOWN_ARROW:
                     case 's':
-                    case 'S': {
+                    case 'S':
                         move(0, 1);
                         break;
-                    }
                     case SquidInput.LEFT_ARROW:
                     case 'a':
-                    case 'A': {
+                    case 'A':
                         move(-1, 0);
                         break;
-                    }
                     case SquidInput.RIGHT_ARROW:
                     case 'd':
-                    case 'D': {
+                    case 'D':
                         move(1, 0);
                         break;
-                    }
                     case 'H':
-                    case 'h': {
-                        if (!helpOn) {
-                            helpOn = true;
-                        } else {
-                            helpOn = false;
-                        }
+                    case 'h':
+                        if (!helpOn) helpOn = true;
+                        else helpOn = false;
                         break;
-                    }
-                    case SquidInput.ESCAPE: {
+                    case SquidInput.ESCAPE:
                         soundSingleton.getPlayerDeathSound().play();
                         Gdx.app.exit();
                         break;
-                    }
                     case 't':
-                    case 'T': {
+                    case 'T':
                         restart();
-                    }
+                        break;
                     case SquidInput.ENTER:
                     case 'z':
-                    case 'Z': {
+                    case 'Z':
                         move(0, 0);
                         break;
-                    }
                     case '!':
                         if (debugMode) debugMode = false;
                         else debugMode = true;
