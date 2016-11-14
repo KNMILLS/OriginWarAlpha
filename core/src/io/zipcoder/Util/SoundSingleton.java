@@ -50,7 +50,7 @@ public class SoundSingleton {
         romeroSound = Gdx.audio.newSound(Gdx.files.internal("romero.mp3"));
         schizophrenicVoices = Gdx.audio.newSound(Gdx.files.internal("schizophrenia.mp3"));
         creditsMusic = Gdx.audio.newSound(Gdx.files.internal("credits.wav"));
-        pickupOxygenSound = Gdx.audio.newSound(Gdx.files.internal("pickupOxygenSound.wav"));
+        pickupOxygenSound = Gdx.audio.newSound(Gdx.files.internal("pickupOxygen.wav"));
         allSounds = new ArrayList<>();
         setAllSounds();
         SoundSingleton.instance = this;

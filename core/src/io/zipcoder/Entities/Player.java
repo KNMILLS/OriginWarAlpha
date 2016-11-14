@@ -14,6 +14,7 @@ public class Player extends Creature{
     private Boolean alive;
     private int hpColor;
     private ArrayList<Oxygen> oxygenStash;
+    private boolean usingOxygen;
 
 
     private Player(){
@@ -24,6 +25,7 @@ public class Player extends Creature{
         this.alive = true;
         Player.instance = this;
         this.oxygenStash = new ArrayList<>(2);
+        this.usingOxygen = false;
     }
     public static Player getPlayer(){
         if(Player.instance == null){
@@ -48,13 +50,26 @@ public class Player extends Creature{
     }
 
     public void incrementTurn(){
-        this.turns++;
-        int encumberanceMod = 5;
-        if(this.oxygenStash.size() > 2){
-            encumberanceMod = Math.min(1, 4 - (oxygenStash.size() - 2));
+        if(getOxygenStash().size() < 1){
+            usingOxygen = false;
         }
-        if(this.turns % encumberanceMod == 0){
-            this.setHealth(this.getHealth() - 1);
+        this.turns++;
+        int encumbranceMod = 5;
+        if(this.oxygenStash.size() > 2){
+            encumbranceMod = Math.max(4, 4 - (oxygenStash.size() - 2));
+        }
+        if(this.turns % encumbranceMod == 0){
+            if(usingOxygen){
+                Oxygen currentOxygen = this.getOxygenStash().get(0);
+                currentOxygen.setRemaining(currentOxygen.getRemaining() - 1);
+                getPlayer().setHealth(getHealth() + 1);
+                if(currentOxygen.getRemaining() < 1){
+                    getOxygenStash().remove(0);
+                }
+
+            } else {
+                getPlayer().setHealth(getHealth() - 1);
+            }
         }
     }
 
@@ -84,13 +99,19 @@ public class Player extends Creature{
     }
 
     public void useOxygen(){
-        if(oxygenStash.size() > 0){
-            oxygenStash.remove(getOxygenStash().get(0));
-            setHealth(getHealth() + 25);
+        if(!usingOxygen){
+            usingOxygen = true;
+        } else {
+            usingOxygen = false;
         }
     }
 
     public void pickUpOxygen(Oxygen oxygen){
         oxygenStash.add(oxygen);
+    }
+
+    public Oxygen dropOxygen(){
+        Oxygen oxygen = getOxygenStash().remove(0);
+        return oxygen;
     }
 }
