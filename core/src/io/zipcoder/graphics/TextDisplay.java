@@ -45,7 +45,7 @@ public class TextDisplay {
     public void setDefaultText(OriginWarAlpha game) {
         this.defaultText = new String[]{
                 "Player ID\t" + Player.getPlayer().getId() + "\tCurrent Level:\t" + game.getLevelCount() + "\tTurns:\t" + Player.getPlayer().getTurns(),
-                "Switch Found:\t" + game.isFoundSwitch() + "\tO2 tanks remaining:\t" + Math.max(0, (6 - game.getLevelCount()) - game.getOxygenUsed()),
+                "Switch Found:\t" + game.isFoundSwitch() + "\tO2 tanks remaining:\t" + Math.max(0, (8 - game.getLevelCount()) - game.getOxygenUsed()),
                 "Oxygen Remaining:\t" + Player.getPlayer().getHealth() + "\tO2 tanks used:\t" + game.getOxygenUsed()
         };
     }
