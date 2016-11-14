@@ -46,7 +46,9 @@ public class TextDisplay {
 
     public void setDefaultText(OriginWarAlpha game) {
         this.defaultText = new String[]{
-                "Player ID\t" + Player.getPlayer().getId() + "\tCurrent Level:\t" + game.getLevelCount() + "\tTurns:\t" + Player.getPlayer().getTurns(),
+                "Current Level:\t" + game.getLevelCount(),
+                "",
+                ""
 
         };
     }
@@ -170,6 +172,10 @@ public class TextDisplay {
         this.controlsBanner = new String[]{
                 "Oxygen Remaining:\t" + Player.getPlayer().getHealth()
         };
+    }
+
+    public String[] getStatsText() {
+        return statsText;
     }
 
     public void setControlsBanner(String[] controlsBanner) {
