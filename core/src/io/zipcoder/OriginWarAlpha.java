@@ -72,6 +72,7 @@ public class OriginWarAlpha extends ApplicationAdapter {
     @Override
     public void create() {
         if(levelCount==1) initSound();
+        if(levelCount==10) victoryState = true;
         textDisplay = new TextDisplay();
         textDisplay.setDefaultText(this);
         player = Player.getPlayer();
@@ -92,20 +93,8 @@ public class OriginWarAlpha extends ApplicationAdapter {
         stairDungeon = dungeonGen.generate(TilesetType.ROOMS_AND_CORRIDORS_B);
         dungeonGen.addDoors(25, true);
         explored = new boolean[gridWidth][gridHeight];
-        dungeonGen.addGrass(15-levelCount);
-        dungeonGen.addWater(15+levelCount);
-
-        switch (levelCount) {
-            case 9:
-                soundSingleton.getRomeroSound().play();
-                soundSingleton.getSchizophrenicVoices().play();
-                break;
-            case 10:
-                victoryState = true;
-                stopAllSound();
-                soundSingleton.getCreditsMusic().play();
-        }
-
+        levelDecoSwitch();
+        levelSoundSwitch();
         decoDungeon = dungeonGen.generate(stairDungeon);
         decoDungeon = DungeonUtility.closeDoors(decoDungeon);
         costArray = DungeonUtility.generateCostMap(decoDungeon, costMap, 1.0);
@@ -142,8 +131,6 @@ public class OriginWarAlpha extends ApplicationAdapter {
         colorIndices = DungeonUtility.generatePaletteIndices(decoDungeon);
         bgColorIndices = DungeonUtility.generateBGPaletteIndices(decoDungeon);
         changeColors();
-
-
         spaces = GwtCompatibility.fill2D(' ', gridWidth, 6);
         languageBG = GwtCompatibility.fill2D(40, gridWidth, 6);
         languageFG = GwtCompatibility.fill2D(40, gridWidth, 6);
@@ -201,16 +188,7 @@ public class OriginWarAlpha extends ApplicationAdapter {
         if (player.getPosition() == stairSwitch) {
             stairsDown = dungeonGen.stairsDown;
             if(!foundSwitch){
-                switch(levelCount){
-                    case 1:
-                        soundSingleton.getWhatAreYouDoingHereSound().play(.2f);
-                        break;
-                    case 2:
-                        soundSingleton.getMonsterSound().play(.3f);
-                        break;
-                    default:
-                        soundSingleton.getCardLockSound().play(.2f);
-                }
+                setStairSwitchSound();
             }
             foundSwitch = true;
 
@@ -265,10 +243,13 @@ public class OriginWarAlpha extends ApplicationAdapter {
             }
         }
         if (victoryState) {
-            player.setAlive(false);
             display.put(player.getPosition().x, player.getPosition().y, '±');
+            display.putBoxedString(gridWidth / 2 - 18, gridHeight / 2 - 8, "       THANKS FOR PLAYING!          ");
+            display.putBoxedString(gridWidth / 2 - 18, gridHeight / 2 - 5, "            -DEV TEAM               ");
+            display.putBoxedString(gridWidth / 2 - 18, gridHeight / 2 + 5, "             q to quit.             ");
             textDisplay.setDisplayText(textDisplay.getEndGameText());
             textDisplay.setAliceDisplayText(textDisplay.getAliceVictoryText());
+            player.setAlive(false);
         } else if (player.getHealth() >= 125) {
             player.setHpColor(27);
             display.put(player.getPosition().x, player.getPosition().y, '∆', player.getHpColor());
@@ -284,12 +265,12 @@ public class OriginWarAlpha extends ApplicationAdapter {
         } else {
             player.setHpColor(2);
             display.put(player.getPosition().x, player.getPosition().y, '±', player.getHpColor());
-            player.setAlive(false);
             textDisplay.setDisplayText(textDisplay.getEndGameText());
             textDisplay.setAliceDisplayText(textDisplay.getAliceDeathText());
             display.putBoxedString(gridWidth / 2 - 18, gridHeight / 2 - 8, "       THANKS FOR PLAYING!          ");
             display.putBoxedString(gridWidth / 2 - 18, gridHeight / 2 - 5, "            -DEV TEAM               ");
             display.putBoxedString(gridWidth / 2 - 18, gridHeight / 2 + 5, "             q to quit.             ");
+            player.setAlive(false);
         }
         display.put(0, gridHeight + 1, spaces, languageFG, languageBG);
         if (helpOn) textDisplay.setDisplayText(textDisplay.getHelpText());
@@ -389,7 +370,9 @@ public class OriginWarAlpha extends ApplicationAdapter {
     }
 
     private void restart() {
+        display.clear();
         player.setAlive(true);
+        victoryState = false;
         player.setHealth(101);
         player.setTurns(-1);
         levelCount = 1;
@@ -575,8 +558,73 @@ public class OriginWarAlpha extends ApplicationAdapter {
     }
     private void initSound(){
         soundSingleton = SoundSingleton.getSoundSingleton();
-        soundSingleton.getBreathSound().loop();
-        soundSingleton.getHeartbeatSound().loop();
+        soundSingleton.getBreathSound().loop(.6f);
+        soundSingleton.getHeartbeatSound().loop(.7f);
         soundSingleton.getBackgroundMusic().loop(.3f);
+    }
+    private void setStairSwitchSound(){
+        switch(levelCount){
+            case 1:
+                soundSingleton.getWhatAreYouDoingHereSound().play(.2f);
+                break;
+            case 2:
+                soundSingleton.getMonsterSound().play(.3f);
+                break;
+            default:
+                soundSingleton.getCardLockSound().play(.2f);
+        }
+    }
+    private void levelSoundSwitch(){
+        switch (levelCount) {
+            case 9:
+                soundSingleton.getRomeroSound().play();
+                soundSingleton.getSchizophrenicVoices().play();
+                break;
+            case 10:
+                stopAllSound();
+                soundSingleton.getCreditsMusic().play();
+                break;
+        }
+    }
+    private void levelDecoSwitch(){
+        switch (levelCount){
+            case 1:
+                dungeonGen.addGrass(25);
+                break;
+            case 2:
+                dungeonGen.addGrass(25);
+                dungeonGen.addWater(5);
+                break;
+            case 3:
+                dungeonGen.addGrass(20);
+                dungeonGen.addWater(5);
+                break;
+            case 4:
+                dungeonGen.addGrass(15);
+                dungeonGen.addWater(5);
+                break;
+            case 5:
+                dungeonGen.addGrass(10);
+                dungeonGen.addWater(5);
+                break;
+            case 6:
+                dungeonGen.addGrass(5);
+                dungeonGen.addWater(5);
+                break;
+            case 7:
+                dungeonGen.addGrass(5);
+                dungeonGen.addWater(5);
+                break;
+            case 8:
+                dungeonGen.addWater(10);
+                break;
+            case 9:
+                dungeonGen.addWater(15);
+                break;
+            case 10:
+                dungeonGen.addGrass(20);
+                dungeonGen.addWater(5);
+                break;
+        }
     }
 }
