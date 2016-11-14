@@ -4,6 +4,7 @@ import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.InputAdapter;
 import com.badlogic.gdx.InputMultiplexer;
+import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
@@ -67,19 +68,10 @@ public class OriginWarAlpha extends ApplicationAdapter {
     private TextDisplay textDisplay;
     private SoundSingleton soundSingleton;
 
-    public void init(){
-        soundSingleton = SoundSingleton.getSoundSingleton();
-        soundSingleton.getBackgroundMusic().loop(.3f);
-        soundSingleton.getHeartbeatSound().loop(.7f);
-        //soundSingleton.getLaboredBreathing().loop();
-
-    }
 
     @Override
     public void create() {
-        if(levelCount==1){
-            init();
-        }
+        if(levelCount==1) initSound();
         textDisplay = new TextDisplay();
         textDisplay.setDefaultText(this);
         player = Player.getPlayer();
@@ -100,41 +92,20 @@ public class OriginWarAlpha extends ApplicationAdapter {
         stairDungeon = dungeonGen.generate(TilesetType.ROOMS_AND_CORRIDORS_B);
         dungeonGen.addDoors(25, true);
         explored = new boolean[gridWidth][gridHeight];
+        dungeonGen.addGrass(15-levelCount);
+        dungeonGen.addWater(15+levelCount);
+
         switch (levelCount) {
-            case 1:
-                dungeonGen.addGrass(35);
-                break;
-            case 2:
-                dungeonGen.addGrass(25);
-                break;
-            case 3:
-                dungeonGen.addGrass(15);
-                break;
-            case 4:
-                dungeonGen.addGrass(10);
-                break;
-            case 5:
-                dungeonGen.addGrass(10);
-                dungeonGen.addWater(10);
-                break;
-            case 6:
-                dungeonGen.addGrass(5);
-                dungeonGen.addWater(35);
-                break;
-            case 7:
-                dungeonGen.addWater(35);
-                break;
-            case 8:
-                dungeonGen.addWater(60);
-                break;
             case 9:
-                dungeonGen.addWater(75);
+                soundSingleton.getRomeroSound().play();
+                soundSingleton.getSchizophrenicVoices().play();
                 break;
             case 10:
                 victoryState = true;
-            default:
-                dungeonGen.addGrass(100);
+                stopAllSound();
+                soundSingleton.getCreditsMusic().play();
         }
+
         decoDungeon = dungeonGen.generate(stairDungeon);
         decoDungeon = DungeonUtility.closeDoors(decoDungeon);
         costArray = DungeonUtility.generateCostMap(decoDungeon, costMap, 1.0);
@@ -170,21 +141,8 @@ public class OriginWarAlpha extends ApplicationAdapter {
         bgColorArr = new Color[gridWidth][gridHeight];
         colorIndices = DungeonUtility.generatePaletteIndices(decoDungeon);
         bgColorIndices = DungeonUtility.generateBGPaletteIndices(decoDungeon);
+        changeColors();
 
-        for (int i = 0; i < gridWidth; i++) {
-            for (int j = 0; j < gridHeight; j++) {
-                int colorVal = colorIndices[i][j];
-                if (colorVal <= 3) {
-                    fgColor[i][j] = display.getPalette().get(30);
-                } else if (colorVal == 4) {
-                    fgColor[i][j] = display.getPalette().get(29);
-                } else {
-                    fgColor[i][j] = display.getPalette().get(colorVal);
-                }
-
-                bgColorArr[i][j] = display.getPalette().get(bgColorIndices[i][j]);
-            }
-        }
 
         spaces = GwtCompatibility.fill2D(' ', gridWidth, 6);
         languageBG = GwtCompatibility.fill2D(40, gridWidth, 6);
@@ -225,11 +183,11 @@ public class OriginWarAlpha extends ApplicationAdapter {
                 if (decoDungeon[newX][newY] == '~') {
                     player.incrementTurn();
                     player.incrementTurn();
-                    soundSingleton.getWaterStep().play(.15f);
+                    soundSingleton.getMetalStepSound().play(.15f);
                 }
                 if (decoDungeon[newX][newY] == ',') {
                     player.incrementTurn();
-                    soundSingleton.getWaterStep().play(.1f);
+                    soundSingleton.getMetalStepSound().play(.1f);
                 }
                 if (decoDungeon[newX][newY] == '"') {
                     if (player.getTurns() % 4 == 0) player.setHealth(player.getHealth() + 1);
@@ -330,8 +288,6 @@ public class OriginWarAlpha extends ApplicationAdapter {
         } else if (player.getHealth() > 50) {
             player.setHpColor(24);
             display.put(player.getPosition().x, player.getPosition().y, '∆', player.getHpColor());
-            //soundSingleton.getBreathSound().loop(.1f);
-            //soundSingleton.getLaboredBreathing().loop();
         } else if (player.getHealth() > 25) {
             player.setHpColor(18);
             display.put(player.getPosition().x, player.getPosition().y, '∆', player.getHpColor());
@@ -388,17 +344,9 @@ public class OriginWarAlpha extends ApplicationAdapter {
         stage.draw();
         stage.act();
         if (player.getHealth() <= 0) {
-            // still need to display the map, then write over it with a message.
-            putMap();
             display.putBoxedString(gridWidth / 2 - 18, gridHeight / 2 - 8, "       THANKS FOR PLAYING!          ");
             display.putBoxedString(gridWidth / 2 - 18, gridHeight / 2 - 5, "            -DEV TEAM               ");
             display.putBoxedString(gridWidth / 2 - 18, gridHeight / 2 + 5, "             q to quit.             ");
-
-            // because we return early, we still need to draw.
-            stage.draw();
-            // q still needs to quit.
-            if (input.hasNext())
-                input.next();
             return;
         }
     }
@@ -416,7 +364,7 @@ public class OriginWarAlpha extends ApplicationAdapter {
                 oxygenUsed++;
                 soundSingleton.getOxygenSound().play(.2f);
                 player.setHealth(player.getHealth() + 10);
-                //display.putBoxedString(gridWidth / 2 - 18, gridHeight / 2 + 5, "             YUM!             ");
+                //display.putBoxedString(gridWidth / 2 , gridHeight / 2, "             YUM!             ");
                 break;
             }
         }
@@ -451,7 +399,6 @@ public class OriginWarAlpha extends ApplicationAdapter {
             }
         }
         return toReturn;
-
     }
 
     private void restart() {
@@ -460,6 +407,8 @@ public class OriginWarAlpha extends ApplicationAdapter {
         player.setTurns(-1);
         levelCount = 1;
         oxygenUsed = 0;
+        stopAllSound();
+        soundSingleton.getPlayerDeathSound().play();
         create();
     }
     public int getLevelCount() {
@@ -523,6 +472,7 @@ public class OriginWarAlpha extends ApplicationAdapter {
                     case 'Q':
                     case 'q':
                     case SquidInput.ESCAPE: {
+                        soundSingleton.getPlayerDeathSound().play();
                         Gdx.app.exit();
                         break;
                     }
@@ -595,6 +545,33 @@ public class OriginWarAlpha extends ApplicationAdapter {
         return toReturn;
     }
 
+    private void changeColors(){
+        for (int i = 0; i < gridWidth; i++) {
+            for (int j = 0; j < gridHeight; j++) {
+                int colorVal = colorIndices[i][j];
+                if (colorVal <=2) {
+                    fgColor[i][j] = display.getPalette().get(30);
+                } else if (colorVal == 4) {
+                    fgColor[i][j] = display.getPalette().get(29);
+                } else if(colorVal == 5){
+                    fgColor[i][j] = display.getPalette().get(8);
+                } else if (colorVal == 3){
+                    fgColor[i][j] = display.getPalette().get(8);
+                } else {
+                    fgColor[i][j] = display.getPalette().get(colorVal);
+                }
+                if(bgColorIndices[i][j] == 24){
+                    bgColorArr[i][j] = display.getPalette().get(15);
+                } else if(bgColorIndices[i][j] == 23){
+                    bgColorArr[i][j] = display.getPalette().get(14);
+                } else {
+                    bgColorArr[i][j] = display.getPalette().get(bgColorIndices[i][j]);
+                }
+
+            }
+        }
+    }
+
     private HashMap<Character, Double> initializeCostMap(){
         HashMap<Character, Double> toReturn = new HashMap<>();
         toReturn.put('.', 1.0);
@@ -604,5 +581,16 @@ public class OriginWarAlpha extends ApplicationAdapter {
         toReturn.put('/',1.0);
         toReturn.put('+', 1.0);
         return toReturn;
+    }
+    private void stopAllSound(){
+        for(Sound s : soundSingleton.getAllSounds()){
+            s.stop();
+        }
+    }
+    private void initSound(){
+        soundSingleton = SoundSingleton.getSoundSingleton();
+        soundSingleton.getBreathSound().loop();
+        soundSingleton.getHeartbeatSound().loop();
+        soundSingleton.getBackgroundMusic().loop(.3f);
     }
 }
