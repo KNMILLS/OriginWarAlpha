@@ -161,7 +161,7 @@ public class TextDisplay {
 
     public void setControlsBanner() {
         this.controlsBanner = new String[]{
-                "'H' for help screen\t'Q' to quit\t'T' restart the game"
+                "Oxygen Remaining:\t" + Player.getPlayer().getHealth()
         };
     }
 

@@ -162,9 +162,6 @@ public class OriginWarAlpha extends ApplicationAdapter {
 
     private void move(int xmod, int ymod) {
         int newX = player.getPosition().x + xmod, newY = player.getPosition().y + ymod;
-        textDisplay.setDefaultText(this);
-        textDisplay.setDisplayText(textDisplay.getDefaultText());
-        textDisplay.setAliceDisplayText(textDisplay.updateAliceDisplayByPlayerHealth(player.getHealth()));
         if (!player.isAlive()) {
             input.drain();
             awaitedMoves.clear();
@@ -277,9 +274,8 @@ public class OriginWarAlpha extends ApplicationAdapter {
 //            display.setAnimationDuration(0.3f);
 //        }
         if (victoryState) {
-            player.setHealth(0);
             player.setAlive(false);
-            display.put(player.getPosition().x, player.getPosition().y, '±', Color.GOLD);
+            display.put(player.getPosition().x, player.getPosition().y, '±');
             textDisplay.setDisplayText(textDisplay.getEndGameText());
             textDisplay.setAliceDisplayText(textDisplay.getAliceVictoryText());
         } else if (player.getHealth() >= 125) {
@@ -294,23 +290,30 @@ public class OriginWarAlpha extends ApplicationAdapter {
         } else if (player.getHealth() > 0) {
             player.setHpColor(12);
             display.put(player.getPosition().x, player.getPosition().y, '∆', player.getHpColor());
-
         } else {
             player.setHpColor(2);
             display.put(player.getPosition().x, player.getPosition().y, '±', player.getHpColor());
             player.setAlive(false);
             textDisplay.setDisplayText(textDisplay.getEndGameText());
             textDisplay.setAliceDisplayText(textDisplay.getAliceDeathText());
+            display.putBoxedString(gridWidth / 2 - 18, gridHeight / 2 - 8, "       THANKS FOR PLAYING!          ");
+            display.putBoxedString(gridWidth / 2 - 18, gridHeight / 2 - 5, "            -DEV TEAM               ");
+            display.putBoxedString(gridWidth / 2 - 18, gridHeight / 2 + 5, "             q to quit.             ");
         }
         display.put(0, gridHeight + 1, spaces, languageFG, languageBG);
         if (helpOn) textDisplay.setDisplayText(textDisplay.getHelpText());
         else textDisplay.setDisplayText(textDisplay.getDefaultText());
+        textDisplay.setDefaultText(this);
+        textDisplay.setDisplayText(textDisplay.getDefaultText());
+        textDisplay.setAliceDisplayText(textDisplay.updateAliceDisplayByPlayerHealth(player.getHealth()));
+        textDisplay.setControlsBanner();
         display.putString(1, gridHeight + 1, textDisplay.getDisplayText()[0], player.getHpColor(), 40);
         display.putString(1, gridHeight + 2, textDisplay.getDisplayText()[1], player.getHpColor(), 40);
         display.putString(1, gridHeight + 3, textDisplay.getDisplayText()[2], player.getHpColor(), 40);
         display.putString(1, gridHeight + 4, textDisplay.getAliceDisplayText()[0], player.getHpColor(), 40);
         display.putString(1, gridHeight + 5, textDisplay.getAliceDisplayText()[1], player.getHpColor(), 40);
         display.putString(1, gridHeight + 6, textDisplay.getControlsBanner()[0], player.getHpColor(), 40);
+
 
     }
 
@@ -343,12 +346,6 @@ public class OriginWarAlpha extends ApplicationAdapter {
         }
         stage.draw();
         stage.act();
-        if (player.getHealth() <= 0) {
-            display.putBoxedString(gridWidth / 2 - 18, gridHeight / 2 - 8, "       THANKS FOR PLAYING!          ");
-            display.putBoxedString(gridWidth / 2 - 18, gridHeight / 2 - 5, "            -DEV TEAM               ");
-            display.putBoxedString(gridWidth / 2 - 18, gridHeight / 2 + 5, "             q to quit.             ");
-            return;
-        }
     }
 
     @Override
@@ -364,6 +361,7 @@ public class OriginWarAlpha extends ApplicationAdapter {
                 oxygenUsed++;
                 soundSingleton.getOxygenSound().play(.2f);
                 player.setHealth(player.getHealth() + 10);
+                // TODO figure out how to make this disappear after we don't need it anymore.
                 //display.putBoxedString(gridWidth / 2 , gridHeight / 2, "             YUM!             ");
                 break;
             }
