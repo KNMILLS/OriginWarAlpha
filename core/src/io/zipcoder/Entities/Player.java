@@ -1,6 +1,9 @@
 package io.zipcoder.Entities;
 
+import io.zipcoder.Items.Oxygen;
 import squidpony.squidmath.Coord;
+
+import java.util.ArrayList;
 
 public class Player extends Creature{
 
@@ -8,6 +11,7 @@ public class Player extends Creature{
     private int turns;
     private Boolean alive;
     private int hpColor;
+    private ArrayList<Oxygen> oxygenStash;
 
     private Player(){
         super();
@@ -16,6 +20,7 @@ public class Player extends Creature{
         this.setDamage(4);
         this.alive = true;
         Player.instance = this;
+        this.oxygenStash = new ArrayList<>(5);
     }
     public static Player getPlayer(){
         if(Player.instance == null){
@@ -68,5 +73,16 @@ public class Player extends Creature{
 
     public void setHpColor(int hpColor) {
         this.hpColor = hpColor;
+    }
+
+    public ArrayList<Oxygen> getOxygenStash() {
+        return oxygenStash;
+    }
+
+    public void useOxygen(){
+        if(oxygenStash.size() > 0){
+            oxygenStash.remove(oxygenStash.get(1));
+            setHealth(getHealth() + 15);
+        }
     }
 }
