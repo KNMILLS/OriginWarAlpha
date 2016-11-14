@@ -209,10 +209,10 @@ public class OriginWarAlpha extends ApplicationAdapter {
             display.putBoxedString(gridWidth / 2 - 18, gridHeight / 2 - 8, "       THANKS FOR PLAYING!          ");
             display.putBoxedString(gridWidth / 2 - 18, gridHeight / 2 - 5, "            -DEV TEAM               ");
             display.putBoxedString(gridWidth / 2 - 18, gridHeight / 2 + 5, "             q to quit.             ");
-            //            Socket socket = Gdx.net.newClientSocket(TCP,"50.73.209.90", 8080, new SocketHints());
+//            Socket socket = Gdx.net.newClientSocket(TCP,"http://localhost.8080", 8080, new SocketHints());
 //            HttpRequestBuilder requestBuilder = new HttpRequestBuilder();
-//            Net.HttpRequest httpRequest = requestBuilder.newRequest().method(Net.HttpMethods.GET).url("http://www.google.de").content("q=libgdx&example=example").build();
-//            Gdx.net.sendHttpRequest(httpRequest, httpResponseListener);
+//            Net.HttpRequest httpRequest = requestBuilder.newRequest().method(Net.HttpMethods.GET).url("http://localhost.8080").content("q=libgdx&example=example").build();
+//            Gdx.net.sendHttpRequest(httpRequest, new TestListener());
 //
 //            Gdx.net.newServerSocket(TCP, 80, new ServerSocketHints());
 //            Gdx.net.sendHttpRequest(new Net.HttpRequest(PUT), new TestListener());
