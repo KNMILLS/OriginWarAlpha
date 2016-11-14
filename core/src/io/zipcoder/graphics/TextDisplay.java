@@ -172,6 +172,12 @@ public class TextDisplay {
         this.controlsBanner = new String[]{
                 "Oxygen Remaining:\t" + Player.getPlayer().getHealth()
         };
+        if(!Player.getPlayer().getOxygenStash().isEmpty()){
+            int supply = Player.getPlayer().getOxygenStash().get(0).getRemaining();
+            int tanks = Player.getPlayer().getOxygenStash().size();
+            String toAppend = "\tSupply:\t" + supply + "\tTanks:\t" + tanks;
+            this.controlsBanner[0] = this.controlsBanner[0] + toAppend;
+        }
     }
 
     public String[] getStatsText() {
