@@ -9,6 +9,7 @@ import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.scenes.scene2d.Stage;
+import com.badlogic.gdx.utils.TimeUtils;
 import com.badlogic.gdx.utils.viewport.StretchViewport;
 import io.zipcoder.Entities.Player;
 import io.zipcoder.Items.Oxygen;
@@ -26,6 +27,8 @@ import squidpony.squidmath.AStarSearch;
 import squidpony.squidmath.Coord;
 import squidpony.squidmath.CoordPacker;
 import squidpony.squidmath.RNG;
+
+import java.security.Key;
 import java.util.*;
 import java.util.Queue;
 
@@ -72,8 +75,8 @@ public class OriginWarAlpha extends ApplicationAdapter {
 
     @Override
     public void create() {
-        if(levelCount==1) initSound();
-        if(levelCount==10) victoryState = true;
+        if (levelCount == 1) initSound();
+        if (levelCount == 10) victoryState = true;
         textDisplay = new TextDisplay();
         textDisplay.setDefaultText(this);
         player = Player.getPlayer();
@@ -112,7 +115,7 @@ public class OriginWarAlpha extends ApplicationAdapter {
         validLevelSearch = new AStarSearch(costArray, AStarSearch.SearchType.EUCLIDEAN);
         Queue<Coord> validPathToExit = null;
         //TODO This isn't working yet
-        while(validPathToExit == null || validPathToExit.size() == 0){
+        while (validPathToExit == null || validPathToExit.size() == 0) {
             validPathToExit = validLevelSearch.path(player.getPosition(), stairSwitch);
             if (validPathToExit.size() == 0) {
                 player.setPosition(dungeonGen.utility.randomCell(placement));
@@ -140,24 +143,16 @@ public class OriginWarAlpha extends ApplicationAdapter {
         oxygenList = addOxygen();
         oxygenUsed = 0;
         player.setAlive(true);
-
         baseInput = inputConfig();
         input = new OriginInput(baseInput.getKeyHandler(), baseInput.getMouse());
         Gdx.input.setInputProcessor(new InputMultiplexer(stage, input));
         stage.addActor(display);
-
     }
 
     private void move(int xmod, int ymod) {
         int newX = player.getPosition().x + xmod, newY = player.getPosition().y + ymod;
-        if (!player.isAlive()) {
-            input.drain();
-            awaitedMoves.clear();
-            return;
-        }
-        else {
-            if (newX >= 0 && newY >= 0 && newX < gridWidth && newY < gridHeight
-                    && bareDungeon[newX][newY] != '#') {
+        if (player.isAlive()) {
+            if (newX >= 0 && newY >= 0 && newX < gridWidth && newY < gridHeight && bareDungeon[newX][newY] != '#') {
                 player.setPosition(player.getPosition().translate(xmod, ymod));
                 if (lineDungeon[newX][newY] == '+') {
                     lineDungeon[newX][newY] = '/';
@@ -177,18 +172,16 @@ public class OriginWarAlpha extends ApplicationAdapter {
                 if (decoDungeon[newX][newY] == '"') {
                     if (player.getTurns() % 4 == 0) player.setHealth(player.getHealth() + 1);
                     player.setTurns(player.getTurns() - 1);
-                }
-                else{
+                } else {
                     soundSingleton.getFootStep().play(.08f);
                 }
                 refillOxygen();
                 player.updateFOVMap();
-
             }
         }
         if (player.getPosition() == stairSwitch) {
             stairsDown = dungeonGen.stairsDown;
-            if(!foundSwitch){
+            if (!foundSwitch) {
                 setStairSwitchSound();
             }
             foundSwitch = true;
@@ -196,8 +189,8 @@ public class OriginWarAlpha extends ApplicationAdapter {
         }
         if (player.getPosition() == stairsDown) {
             levelCount++;
-            if(player.getHealth()<100){
-                player.setHealth(Math.min(100, player.getHealth() + (10*(10-levelCount))));
+            if (player.getHealth() < 100) {
+                player.setHealth(Math.min(100, player.getHealth() + (10 * (10 - levelCount))));
             }
             create();
             soundSingleton.getStairSound().play(.5f);
@@ -220,8 +213,7 @@ public class OriginWarAlpha extends ApplicationAdapter {
                         display.put(i, j, lineDungeon[i][j], fgColor[i][j], bgColorArr[i][j],
                                 lights[i][j] + (int) (-200 + 320 * player.getFovMap()[i][j]));
                     }
-                }
-                else if (explored[i][j]) {
+                } else if (explored[i][j]) {
                     display.put(i, j, lineDungeon[i][j], fgColor[i][j], bgColorArr[i][j], -300);
                 }
             }
@@ -248,6 +240,7 @@ public class OriginWarAlpha extends ApplicationAdapter {
             endGameTextBox();
             textDisplay.setDisplayText(textDisplay.getEndGameText());
             textDisplay.setAliceDisplayText(textDisplay.getAliceVictoryText());
+            player.setHealth(0);
             player.setAlive(false);
         } else if (player.getHealth() >= 125) {
             player.setHpColor(27);
@@ -270,14 +263,14 @@ public class OriginWarAlpha extends ApplicationAdapter {
             player.setAlive(false);
         }
         display.put(0, gridHeight + 1, spaces, languageFG, languageBG);
-        if (helpOn) textDisplay.setDisplayText(textDisplay.getHelpText());
-        else textDisplay.setDisplayText(textDisplay.getDefaultText());
         textDisplay.setDefaultText(this);
         textDisplay.setStatsText(this);
-        if(statsDisplay && !helpOn) textDisplay.setDisplayText(textDisplay.getStatsText());
+        if (helpOn) textDisplay.setDisplayText(textDisplay.getHelpText());
+        else if (statsDisplay) textDisplay.setDisplayText(textDisplay.getStatsText());
         else textDisplay.setDisplayText(textDisplay.getDefaultText());
         textDisplay.setAliceDisplayText(textDisplay.updateAliceDisplayByPlayerHealth(player.getHealth()));
         textDisplay.setControlsBanner();
+        //display.putString(1, gridHeight, Long.toString(TimeUtils.nanoTime()), player.getHpColor(), 40);
         display.putString(1, gridHeight + 1, textDisplay.getDisplayText()[0], player.getHpColor(), 40);
         display.putString(1, gridHeight + 2, textDisplay.getDisplayText()[1], player.getHpColor(), 40);
         display.putString(1, gridHeight + 3, textDisplay.getDisplayText()[2], player.getHpColor(), 40);
@@ -300,14 +293,16 @@ public class OriginWarAlpha extends ApplicationAdapter {
                 playerToCursor.clearGoals();
             }
             double moveValue = costMap.get(decoDungeon[player.getPosition().getX()][player.getPosition().getY()]);
-            if(moveValue<1)moveValue=.5;
+            if (moveValue < 1) moveValue = .5;
             secondsWithoutMoves += Gdx.graphics.getDeltaTime();
             if (secondsWithoutMoves >= 0.1 * moveValue) {
                 secondsWithoutMoves = 0;
                 Coord m = null;
-                if(!awaitedMoves.isEmpty()){m = awaitedMoves.remove(0);}
-                if(!toCursor.isEmpty())toCursor.remove(0);
-                if(m == null)m = player.getPosition();
+                if (!awaitedMoves.isEmpty()) {
+                    m = awaitedMoves.remove(0);
+                }
+                if (!toCursor.isEmpty()) toCursor.remove(0);
+                if (m == null) m = player.getPosition();
                 move(m.x - player.getPosition().x, m.y - player.getPosition().y);
             }
         } else if (input.hasNext()) {
@@ -343,19 +338,19 @@ public class OriginWarAlpha extends ApplicationAdapter {
         DungeonUtility dungeonUtility = new DungeonUtility(rng);
         while (oxygenToAdd > 0) {
             ArrayList<char[][]> rooms = this.roomFinder.findRooms();
-            for(char[][] room : rooms){
+            for (char[][] room : rooms) {
                 boolean notDuplicate = true;
                 double chance = rng.nextDouble(1.0);
                 if (chance > 0.66) {
                     Coord position = dungeonUtility.randomFloor(room);
-                    if(position == null || position == player.getPosition()) continue;
-                    for(Oxygen oxygen : toReturn){
-                        if (oxygen.getPosition().equals(position)){
+                    if (position == null || position == player.getPosition()) continue;
+                    for (Oxygen oxygen : toReturn) {
+                        if (oxygen.getPosition().equals(position)) {
                             notDuplicate = false;
                             break;
                         }
                     }
-                    if(notDuplicate){
+                    if (notDuplicate) {
                         toReturn.add(new Oxygen(position));
                         oxygenToAdd--;
                         continue;
@@ -380,19 +375,22 @@ public class OriginWarAlpha extends ApplicationAdapter {
         soundSingleton.getPlayerDeathSound().play();
         create();
     }
+
     public int getLevelCount() {
         return levelCount;
     }
+
     public int getOxygenUsed() {
         return oxygenUsed;
     }
+
     public boolean isFoundSwitch() {
         return foundSwitch;
     }
 
-    private void revealMap(){
-        for(int i = 0; i < player.getResMap().length; i++ ){
-            for(int j = 0; j < player.getResMap()[0].length; j++ ){
+    private void revealMap() {
+        for (int i = 0; i < player.getResMap().length; i++) {
+            for (int j = 0; j < player.getResMap()[0].length; j++) {
                 player.getResMap()[i][j] = 0.0;
                 explored[i][j] = true;
                 unexploredSet.clear();
@@ -400,71 +398,57 @@ public class OriginWarAlpha extends ApplicationAdapter {
         }
     }
 
-    private SquidInput inputConfig(){
+    private SquidInput inputConfig() {
         SquidInput toReturn = new SquidInput(new SquidInput.KeyHandler() {
             @Override
             public void handle(char key, boolean alt, boolean ctrl, boolean shift) {
                 switch (key) {
                     case SquidInput.UP_ARROW:
                     case 'w':
-                    case 'W': {
+                    case 'W':
                         move(0, -1);
                         break;
-                    }
                     case SquidInput.DOWN_ARROW:
                     case 's':
-                    case 'S': {
+                    case 'S':
                         move(0, 1);
                         break;
-                    }
                     case SquidInput.LEFT_ARROW:
                     case 'a':
-                    case 'A': {
+                    case 'A':
                         move(-1, 0);
                         break;
-                    }
                     case SquidInput.RIGHT_ARROW:
                     case 'd':
-                    case 'D': {
+                    case 'D':
                         move(1, 0);
                         break;
-                    }
                     case 'E':
-                    case 'e': {
-                        if(statsDisplay){
-                            statsDisplay = false;
-                        } else {
-                            statsDisplay = true;
-                        }
+                    case 'e':
+                        if (!statsDisplay) statsDisplay = true;
+                        else statsDisplay = false;
                         break;
-                    }
                     case 'H':
-                    case 'h': {
-                        if (!helpOn) {
-                            helpOn = true;
-                        } else {
-                            helpOn = false;
-                        }
+                    case 'h':
+                        if (!helpOn) helpOn = true;
+                        else helpOn = false;
                         break;
-                    }
-                    case SquidInput.ESCAPE: {
+                    case SquidInput.ESCAPE:
                         soundSingleton.getPlayerDeathSound().play();
                         Gdx.app.exit();
                         break;
-                    }
                     case 't':
-                    case 'T': {
+                    case 'T':
                         restart();
-                    }
+                        break;
                     case SquidInput.ENTER:
                     case 'z':
-                    case 'Z': {
+                    case 'Z':
                         move(0, 0);
                         break;
-                    }
                     case '!':
-                        if (debugMode) debugMode = false;
-                        else debugMode = true;
+                        if (!debugMode) debugMode = true;
+                        else debugMode = false;
                         break;
                     case 'p':
                     case 'P':
@@ -483,7 +467,7 @@ public class OriginWarAlpha extends ApplicationAdapter {
                         break;
                     case 'u':
                     case 'U':
-                        if(debugMode)revealMap();
+                        if (debugMode) revealMap();
                         break;
                 }
             }
@@ -520,24 +504,24 @@ public class OriginWarAlpha extends ApplicationAdapter {
         return toReturn;
     }
 
-    private void changeColors(){
+    private void changeColors() {
         for (int i = 0; i < gridWidth; i++) {
             for (int j = 0; j < gridHeight; j++) {
                 int colorVal = colorIndices[i][j];
-                if (colorVal <=2) {
+                if (colorVal <= 2) {
                     fgColor[i][j] = display.getPalette().get(30);
                 } else if (colorVal == 4) {
                     fgColor[i][j] = display.getPalette().get(29);
-                } else if(colorVal == 5){
+                } else if (colorVal == 5) {
                     fgColor[i][j] = display.getPalette().get(8);
-                } else if (colorVal == 3){
+                } else if (colorVal == 3) {
                     fgColor[i][j] = display.getPalette().get(8);
                 } else {
                     fgColor[i][j] = display.getPalette().get(colorVal);
                 }
-                if(bgColorIndices[i][j] == 24){
+                if (bgColorIndices[i][j] == 24) {
                     bgColorArr[i][j] = display.getPalette().get(15);
-                } else if(bgColorIndices[i][j] == 23){
+                } else if (bgColorIndices[i][j] == 23) {
                     bgColorArr[i][j] = display.getPalette().get(14);
                 } else {
                     bgColorArr[i][j] = display.getPalette().get(bgColorIndices[i][j]);
@@ -547,29 +531,32 @@ public class OriginWarAlpha extends ApplicationAdapter {
         }
     }
 
-    private HashMap<Character, Double> initializeCostMap(){
+    private HashMap<Character, Double> initializeCostMap() {
         HashMap<Character, Double> toReturn = new HashMap<>();
         toReturn.put('.', 1.0);
         toReturn.put('~', 3.0);
         toReturn.put('"', 0.1);
         toReturn.put(',', 2.0);
-        toReturn.put('/',1.0);
+        toReturn.put('/', 1.0);
         toReturn.put('+', 1.0);
         return toReturn;
     }
-    private void stopAllSound(){
-        for(Sound s : soundSingleton.getAllSounds()){
+
+    private void stopAllSound() {
+        for (Sound s : soundSingleton.getAllSounds()) {
             s.stop();
         }
     }
-    private void initSound(){
+
+    private void initSound() {
         soundSingleton = SoundSingleton.getSoundSingleton();
         soundSingleton.getBreathSound().loop(.6f);
         soundSingleton.getHeartbeatSound().loop(.7f);
         soundSingleton.getBackgroundMusic().loop(.3f);
     }
-    private void setStairSwitchSound(){
-        switch(levelCount){
+
+    private void setStairSwitchSound() {
+        switch (levelCount) {
             case 1:
                 soundSingleton.getWhatAreYouDoingHereSound().play(.2f);
                 break;
@@ -580,7 +567,8 @@ public class OriginWarAlpha extends ApplicationAdapter {
                 soundSingleton.getCardLockSound().play(.2f);
         }
     }
-    private void levelSoundSwitch(){
+
+    private void levelSoundSwitch() {
         switch (levelCount) {
             case 9:
                 soundSingleton.getRomeroSound().play();
@@ -592,6 +580,7 @@ public class OriginWarAlpha extends ApplicationAdapter {
                 break;
         }
     }
+
     private void levelDecoSwitch() {
         switch (levelCount) {
             case 1:
@@ -633,7 +622,8 @@ public class OriginWarAlpha extends ApplicationAdapter {
                 break;
         }
     }
-    private void endGameTextBox(){
+
+    private void endGameTextBox() {
         display.putBoxedString(gridWidth / 2 - 18, gridHeight / 2 - 8, "       THANKS FOR PLAYING!          ");
         display.putBoxedString(gridWidth / 2 - 18, gridHeight / 2 - 5, "            -DEV TEAM               ");
         display.putBoxedString(gridWidth / 2 - 18, gridHeight / 2 + 5, "             ESC to quit.             ");
