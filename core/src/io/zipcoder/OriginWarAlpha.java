@@ -23,8 +23,8 @@ import squidpony.squidmath.AStarSearch;
 import squidpony.squidmath.Coord;
 import squidpony.squidmath.CoordPacker;
 import squidpony.squidmath.RNG;
+
 import java.util.*;
-import java.util.Queue;
 
 public class OriginWarAlpha extends ApplicationAdapter {
     private SpriteBatch batch;
@@ -65,6 +65,9 @@ public class OriginWarAlpha extends ApplicationAdapter {
     private AStarSearch validLevelSearch;
     private TextDisplay textDisplay;
     private SoundSingleton soundSingleton;
+    private Net.HttpRequest httpGet;
+    private String status;
+    private Net.HttpResponseListener httpResponseListener;
 
 
     @Override
@@ -202,6 +205,20 @@ public class OriginWarAlpha extends ApplicationAdapter {
         }
         stage.draw();
         stage.act();
+
+        if (player.getHealth() <= 0) {
+            display.putBoxedString(gridWidth / 2 - 18, gridHeight / 2 - 8, "       THANKS FOR PLAYING!          ");
+            display.putBoxedString(gridWidth / 2 - 18, gridHeight / 2 - 5, "            -DEV TEAM               ");
+            display.putBoxedString(gridWidth / 2 - 18, gridHeight / 2 + 5, "             q to quit.             ");
+            //            Socket socket = Gdx.net.newClientSocket(TCP,"50.73.209.90", 8080, new SocketHints());
+//            HttpRequestBuilder requestBuilder = new HttpRequestBuilder();
+//            Net.HttpRequest httpRequest = requestBuilder.newRequest().method(Net.HttpMethods.GET).url("http://www.google.de").content("q=libgdx&example=example").build();
+//            Gdx.net.sendHttpRequest(httpRequest, httpResponseListener);
+//
+//            Gdx.net.newServerSocket(TCP, 80, new ServerSocketHints());
+//            Gdx.net.sendHttpRequest(new Net.HttpRequest(PUT), new TestListener());
+            return;
+        }
     }
 
     @Override
@@ -210,6 +227,23 @@ public class OriginWarAlpha extends ApplicationAdapter {
         input.getMouse().reinitialize((float) width / this.gridWidth, (float) height / (this.gridHeight + 8), this.gridWidth, this.gridHeight, 0, 0);
     }
 
+//<<<<<<< HEAD
+//=======
+//    private void refillOxygen() {
+//        for (Oxygen oxygen : oxygenList) {
+//            if (oxygen.getPosition().equals(player.getPosition())) {
+//                oxygenList.remove(oxygen);
+//                oxygenUsed++;
+//                soundSingleton.getOxygenSound().play(.2f);
+//
+//                // TODO figure out how to make this disappear after we don't need it anymore.
+//                //display.putBoxedString(gridWidth / 2 , gridHeight / 2, "             YUM!             ");
+//                break;
+//            }
+//        }
+//    }
+//
+//>>>>>>> b9a548154a92fa2b8b35cbee4314020d3f106bd0
     private ArrayList<Oxygen> addOxygen() {
         int oxygenToAdd = 8 - levelCount;
         ArrayList<Oxygen> toReturn = new ArrayList<>();
@@ -319,6 +353,14 @@ public class OriginWarAlpha extends ApplicationAdapter {
                     case 'z':
                     case 'Z':
                         move(0, 0);
+                        break;
+                    case 'r':
+                    case 'R':
+                        //refillOxygen();
+                        break;
+                    case 'f':
+                    case 'F':
+                        player.useOxygen();
                         break;
                     case '!':
                         if (!debugMode) debugMode = true;
@@ -652,7 +694,7 @@ public class OriginWarAlpha extends ApplicationAdapter {
                 oxygenList.remove(oxygen);
                 oxygenUsed++;
                 soundSingleton.getOxygenSound().play(.2f);
-                player.setHealth(player.getHealth() + 10);
+                player.pickUpOxygen(oxygen);
                 return true;
             }
         }

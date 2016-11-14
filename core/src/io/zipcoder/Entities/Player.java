@@ -4,6 +4,8 @@ import io.zipcoder.Items.Oxygen;
 import squidpony.squidmath.Coord;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 public class Player extends Creature{
 
@@ -13,6 +15,7 @@ public class Player extends Creature{
     private int hpColor;
     private ArrayList<Oxygen> oxygenStash;
 
+
     private Player(){
         super();
         this.turns = 0;
@@ -20,7 +23,7 @@ public class Player extends Creature{
         this.setDamage(4);
         this.alive = true;
         Player.instance = this;
-        this.oxygenStash = new ArrayList<>(5);
+        this.oxygenStash = new ArrayList<>(2);
     }
     public static Player getPlayer(){
         if(Player.instance == null){
@@ -45,12 +48,12 @@ public class Player extends Creature{
     }
 
     public void incrementTurn(){
-        if(this.getHealth() >= 125){
-            this.turns++;
-        }
         this.turns++;
-        if(this.turns % 4 == 0){
-            //this.setHealth(this.getHealth() - 20);
+        int encumberanceMod = 5;
+        if(this.oxygenStash.size() > 2){
+            encumberanceMod = Math.min(1, 4 - (oxygenStash.size() - 2));
+        }
+        if(this.turns % encumberanceMod == 0){
             this.setHealth(this.getHealth() - 1);
         }
     }
@@ -76,13 +79,18 @@ public class Player extends Creature{
     }
 
     public ArrayList<Oxygen> getOxygenStash() {
+        Collections.sort(oxygenStash);
         return oxygenStash;
     }
 
     public void useOxygen(){
         if(oxygenStash.size() > 0){
-            oxygenStash.remove(oxygenStash.get(1));
-            setHealth(getHealth() + 15);
+            oxygenStash.remove(getOxygenStash().get(0));
+            setHealth(getHealth() + 25);
         }
+    }
+
+    public void pickUpOxygen(Oxygen oxygen){
+        oxygenStash.add(oxygen);
     }
 }
