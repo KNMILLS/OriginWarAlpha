@@ -1,15 +1,11 @@
 package io.zipcoder;
 
-import com.badlogic.gdx.ApplicationAdapter;
-import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.InputAdapter;
-import com.badlogic.gdx.InputMultiplexer;
+import com.badlogic.gdx.*;
 import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.scenes.scene2d.Stage;
-import com.badlogic.gdx.utils.TimeUtils;
 import com.badlogic.gdx.utils.viewport.StretchViewport;
 import io.zipcoder.Entities.Player;
 import io.zipcoder.Items.Oxygen;
@@ -28,9 +24,7 @@ import squidpony.squidmath.Coord;
 import squidpony.squidmath.CoordPacker;
 import squidpony.squidmath.RNG;
 
-import java.security.Key;
 import java.util.*;
-import java.util.Queue;
 
 public class OriginWarAlpha extends ApplicationAdapter {
     private SpriteBatch batch;
@@ -71,6 +65,9 @@ public class OriginWarAlpha extends ApplicationAdapter {
     private AStarSearch validLevelSearch;
     private TextDisplay textDisplay;
     private SoundSingleton soundSingleton;
+    private Net.HttpRequest httpGet;
+    private String status;
+    private Net.HttpResponseListener httpResponseListener;
 
 
     @Override
@@ -309,6 +306,20 @@ public class OriginWarAlpha extends ApplicationAdapter {
         }
         stage.draw();
         stage.act();
+
+        if (player.getHealth() <= 0) {
+            display.putBoxedString(gridWidth / 2 - 18, gridHeight / 2 - 8, "       THANKS FOR PLAYING!          ");
+            display.putBoxedString(gridWidth / 2 - 18, gridHeight / 2 - 5, "            -DEV TEAM               ");
+            display.putBoxedString(gridWidth / 2 - 18, gridHeight / 2 + 5, "             q to quit.             ");
+            //            Socket socket = Gdx.net.newClientSocket(TCP,"50.73.209.90", 8080, new SocketHints());
+//            HttpRequestBuilder requestBuilder = new HttpRequestBuilder();
+//            Net.HttpRequest httpRequest = requestBuilder.newRequest().method(Net.HttpMethods.GET).url("http://www.google.de").content("q=libgdx&example=example").build();
+//            Gdx.net.sendHttpRequest(httpRequest, httpResponseListener);
+//
+//            Gdx.net.newServerSocket(TCP, 80, new ServerSocketHints());
+//            Gdx.net.sendHttpRequest(new Net.HttpRequest(PUT), new TestListener());
+            return;
+        }
     }
 
     @Override
@@ -431,10 +442,6 @@ public class OriginWarAlpha extends ApplicationAdapter {
                     case 'h':
                         if (!helpOn) helpOn = true;
                         else helpOn = false;
-                        break;
-                    case SquidInput.ESCAPE:
-                        soundSingleton.getPlayerDeathSound().play();
-                        Gdx.app.exit();
                         break;
                     case 't':
                     case 'T':
@@ -631,8 +638,7 @@ public class OriginWarAlpha extends ApplicationAdapter {
     }
 
     private void endGameTextBox() {
-        display.putBoxedString(gridWidth / 2 - 18, gridHeight / 2 - 8, "       THANKS FOR PLAYING!          ");
-        display.putBoxedString(gridWidth / 2 - 18, gridHeight / 2 - 5, "            -DEV TEAM               ");
-        display.putBoxedString(gridWidth / 2 - 18, gridHeight / 2 + 5, "             ESC to quit.             ");
+        display.putBoxedString(gridWidth / 2 - 18, gridHeight / 2, "       THANKS FOR PLAYING!          ");
+        display.putBoxedString(gridWidth / 2 - 18, gridHeight / 2 + 2, "            -DEV TEAM               ");
     }
 }
