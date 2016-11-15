@@ -170,12 +170,13 @@ public class TextDisplay {
 
     public void setControlsBanner() {
         this.controlsBanner = new String[]{
-                "Oxygen Remaining:\t" + Player.getPlayer().getHealth()
+                "Health Remaining:\t" + Player.getPlayer().getHealth()
         };
         if(!Player.getPlayer().getOxygenStash().isEmpty()){
             int supply = Player.getPlayer().getOxygenStash().get(0).getRemaining();
             int tanks = Player.getPlayer().getOxygenStash().size();
-            String toAppend = "\tSupply:\t" + supply + "\tTanks:\t" + tanks;
+
+            String toAppend = "\tOxygen Supply:\t" + supply + "\tTanks:\t" + tanks;
             this.controlsBanner[0] = this.controlsBanner[0] + toAppend;
         }
     }
