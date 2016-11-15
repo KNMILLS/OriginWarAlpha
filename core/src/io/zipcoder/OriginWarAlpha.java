@@ -680,6 +680,7 @@ public class OriginWarAlpha extends ApplicationAdapter {
                 oxygenUsed++;
                 soundSingleton.getPickupOxygenSound().play(.2f);
                 player.pickUpOxygen(oxygen);
+                break;
             }
         }
     }
