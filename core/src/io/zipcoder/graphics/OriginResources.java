@@ -76,8 +76,8 @@ public class OriginResources implements LifecycleListener{
             + "	}\n"
             + "}\n";
     private SquidColorCenter scc = null;
-    private Texture tentacle = null;
-    private TextureRegion tentacleRegion = null;
+    private Texture playertexture = null;
+    private TextureRegion playertextureRegion = null;
     private StatefulRNG guiRandom;
 
     private static OriginResources instance = null;
@@ -425,18 +425,18 @@ public class OriginResources implements LifecycleListener{
      * Created by Henrique Lazarini (7Soul1, http://7soul1.deviantart.com/ )
      * @return a TextureRegion containing an image of a tentacle.
      */
-    public static TextureRegion getTentacle()
+    public static TextureRegion getPlayerTexture()
     {
         initialize();
-        if(instance.tentacle == null || instance.tentacleRegion == null)
+        if(instance.playertexture == null || instance.playertextureRegion == null)
         {
             try {
-                instance.tentacle = new Texture(Gdx.files.internal("Tentacle.png"));
-                instance.tentacleRegion = new TextureRegion(instance.tentacle);
+                instance.playertexture = new Texture(Gdx.files.internal("playertexture.png"));
+                instance.playertextureRegion = new TextureRegion(instance.playertexture);
             } catch (Exception ignored) {
             }
         }
-        return instance.tentacleRegion;
+        return instance.playertextureRegion;
     }
 
 
@@ -590,9 +590,9 @@ public class OriginResources implements LifecycleListener{
             unicode2.dispose();
             unicode2 = null;
         }
-        if(tentacle != null) {
-            tentacle.dispose();
-            tentacle = null;
+        if(playertexture != null) {
+            playertexture.dispose();
+            playertexture = null;
         }
         if(iconAtlas != null) {
             iconAtlas.dispose();

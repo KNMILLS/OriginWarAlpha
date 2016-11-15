@@ -11,6 +11,7 @@ import io.zipcoder.Entities.Player;
 import io.zipcoder.Items.Oxygen;
 import io.zipcoder.Util.OriginInput;
 import io.zipcoder.Util.SoundSingleton;
+import io.zipcoder.graphics.OriginResources;
 import io.zipcoder.graphics.TextDisplay;
 import squidpony.GwtCompatibility;
 import squidpony.squidai.DijkstraMap;
@@ -68,6 +69,7 @@ public class OriginWarAlpha extends ApplicationAdapter {
     private Net.HttpRequest httpGet;
     private String status;
     private Net.HttpResponseListener httpResponseListener;
+    private HashMap<Coord, AnimatedEntity> creatures;
 
 
     @Override
@@ -85,7 +87,7 @@ public class OriginWarAlpha extends ApplicationAdapter {
         rng = new RNG(System.currentTimeMillis() * (long) Math.PI);
         batch = new SpriteBatch();
         stage = new Stage(new StretchViewport(gridWidth * cellWidth, (gridHeight + 8) * cellHeight), batch);
-        display = new SquidLayers(gridWidth, gridHeight + 8, cellWidth, cellHeight, DefaultResources.getLargeNarrowFont());
+        display = new SquidLayers(gridWidth, gridHeight + 8, cellWidth, cellHeight, OriginResources.getLargeNarrowFont());
         display.setTextSize(cellWidth, cellHeight + 1);
         display.setAnimationDuration(0.03f);
         display.setPosition(0, 0);
@@ -118,6 +120,7 @@ public class OriginWarAlpha extends ApplicationAdapter {
                 player.setPosition(dungeonGen.utility.randomCell(placement));
             }
         }
+
         player.initFOV(decoDungeon);
         toCursor = new ArrayList<Coord>(100);
         awaitedMoves = new ArrayList<Coord>(100);
@@ -144,6 +147,7 @@ public class OriginWarAlpha extends ApplicationAdapter {
         input = new OriginInput(baseInput.getKeyHandler(), baseInput.getMouse());
         Gdx.input.setInputProcessor(new InputMultiplexer(stage, input));
         stage.addActor(display);
+
     }
 
     private void move(int xmod, int ymod) {
@@ -181,6 +185,7 @@ public class OriginWarAlpha extends ApplicationAdapter {
         lightCounter += Gdx.graphics.getDeltaTime() * 15;
         lights = DungeonUtility.generateLightnessModifiers(decoDungeon, lightCounter);
         putMap();
+
         if (!awaitedMoves.isEmpty()) {
             if (this.input.hasNext()) {
                 awaitedMoves.clear();
@@ -202,8 +207,16 @@ public class OriginWarAlpha extends ApplicationAdapter {
         } else if (input.hasNext()) {
             input.next();
         }
+        //DRAWS THE PLAYER GRAPHIC OVER TOP OF THE PLAYERS CHAR
         stage.draw();
         stage.act();
+        creatures = new HashMap<>();
+        creatures.put(player.getPosition(), display.animateActor(player.getPosition().getX(), player.getPosition().getY(), OriginResources.getPlayerTexture()));
+        batch.begin();
+        for(AnimatedEntity mon : creatures.values()) {
+            display.drawActor(batch, 1.0f, mon);
+        }
+        batch.end();
 
         if (player.getHealth() <= 0) {
             display.putBoxedString(gridWidth / 2 - 18, gridHeight / 2 - 8, "       THANKS FOR PLAYING!          ");
@@ -531,21 +544,21 @@ public class OriginWarAlpha extends ApplicationAdapter {
     private void playerIconUpdate(){
         if (victoryState || !player.isAlive()) {
             player.setHpColor(2);
-            display.put(player.getPosition().x, player.getPosition().y, '±');
+            display.put(player.getPosition().x, player.getPosition().y, ' '); //±
             player.setHealth(0);
             player.setAlive(false);
         } else if (player.getHealth() >= 125) {
             player.setHpColor(27);
-            display.put(player.getPosition().x, player.getPosition().y, '∆', player.getHpColor());
+            display.put(player.getPosition().x, player.getPosition().y, ' ', player.getHpColor());
         } else if (player.getHealth() > 50) {
             player.setHpColor(24);
-            display.put(player.getPosition().x, player.getPosition().y, '∆', player.getHpColor());
+            display.put(player.getPosition().x, player.getPosition().y, ' ', player.getHpColor());
         } else if (player.getHealth() > 25) {
             player.setHpColor(18);
-            display.put(player.getPosition().x, player.getPosition().y, '∆', player.getHpColor());
+            display.put(player.getPosition().x, player.getPosition().y, ' ', player.getHpColor());
         } else if (player.getHealth() > 0) {
             player.setHpColor(12);
-            display.put(player.getPosition().x, player.getPosition().y, '∆', player.getHpColor());
+            display.put(player.getPosition().x, player.getPosition().y, ' ', player.getHpColor()); //∆
         }
     }
     private void playerVisionUpdate(){
