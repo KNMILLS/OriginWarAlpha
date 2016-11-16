@@ -113,14 +113,19 @@ public class OriginWarAlpha extends ApplicationAdapter {
         stairSwitch = dungeonGen.stairsUp;
         validLevelSearch = new AStarSearch(costArray, AStarSearch.SearchType.EUCLIDEAN);
         Queue<Coord> validPathToExit = null;
-        //TODO This isn't working yet
+        if(placement.length < 30){
+            create();
+            return;
+        }
+
+        //Pretty sure we don't need this anymore
         while (validPathToExit == null || validPathToExit.size() == 0) {
             validPathToExit = validLevelSearch.path(player.getPosition(), stairSwitch);
             if (validPathToExit.size() == 0) {
                 player.setPosition(dungeonGen.utility.randomCell(placement));
             }
         }
-
+        explored[player.getPosition().getX()][player.getPosition().getY()] = true;
         player.initFOV(decoDungeon);
         toCursor = new ArrayList<Coord>(100);
         awaitedMoves = new ArrayList<Coord>(100);
@@ -250,7 +255,7 @@ public class OriginWarAlpha extends ApplicationAdapter {
                 double chance = rng.nextDouble(1.0);
                 if (chance > 0.66) {
                     Coord position = dungeonUtility.randomFloor(room);
-                    if (position == null || position == player.getPosition()) continue;
+                    if (position == null || position == player.getPosition() || position == stairSwitch || position == dungeonGen.stairsDown) continue;
                     for (Oxygen oxygen : toReturn) {
                         if (oxygen.getPosition().equals(position)) {
                             notDuplicate = false;
