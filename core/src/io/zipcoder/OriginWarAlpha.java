@@ -100,6 +100,8 @@ public class OriginWarAlpha extends ApplicationAdapter {
         levelSoundSwitch();
         decoDungeon = dungeonGen.generate(stairDungeon);
         decoDungeon = DungeonUtility.closeDoors(decoDungeon);
+        fixStairs();
+
         costArray = DungeonUtility.generateCostMap(decoDungeon, costMap, 1.0);
         bareDungeon = dungeonGen.getBareDungeon();
         lineDungeon = DungeonUtility.hashesToLines(decoDungeon);
@@ -721,6 +723,20 @@ public class OriginWarAlpha extends ApplicationAdapter {
 
     public ArrayList<Oxygen> getOxygenList() {
         return oxygenList;
+    }
+
+    public void fixStairs(){
+        Coord downCoord = dungeonGen.stairsDown;
+        Coord switchCoord = dungeonGen.stairsUp;
+        if(decoDungeon[downCoord.getX()][downCoord.getY()] == '#'){
+            decoDungeon[downCoord.getX()][downCoord.getY()] = '.';
+            bareDungeon[downCoord.getX()][downCoord.getY()] = '.';
+
+        }
+        if(decoDungeon[switchCoord.getX()][switchCoord.getY()] == '#'){
+            decoDungeon[switchCoord.getX()][switchCoord.getY()] = '.';
+            bareDungeon[switchCoord.getX()][switchCoord.getY()] = '.';
+        }
     }
 
 }
