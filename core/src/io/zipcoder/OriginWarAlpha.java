@@ -272,10 +272,8 @@ public class OriginWarAlpha extends ApplicationAdapter {
 
     private void restart() {
         display.clear();
-        player.setAlive(true);
+        player.resetPlayer();
         victoryState = false;
-        player.setHealth(101);
-        player.setTurns(-1);
         levelCount = 1;
         oxygenUsed = 0;
         stopAllSound();
@@ -358,6 +356,14 @@ public class OriginWarAlpha extends ApplicationAdapter {
                         if(!player.getOxygenStash().isEmpty()){
                             player.useOxygen();
                             soundSingleton.getDispenseOxygenSound();
+                        }
+                        break;
+                    case 'v':
+                    case 'V':
+                        if(!player.getOxygenStash().isEmpty()){
+                            Oxygen oxygenToDrop = player.dropOxygen();
+                            oxygenList.add(oxygenToDrop);
+                            soundSingleton.getPickupOxygenSound();
                         }
                         break;
                     case '!':
@@ -642,6 +648,7 @@ public class OriginWarAlpha extends ApplicationAdapter {
         if (decoDungeon[newX][newY] == '~') {
             player.incrementTurn();
             player.incrementTurn();
+            player.incrementTurn();
             soundSingleton.getMetalStepSound().play(.15f);
             return true;
         }
@@ -650,6 +657,7 @@ public class OriginWarAlpha extends ApplicationAdapter {
     private boolean isPlayerOnLowGrav(int newX, int newY){
         if (decoDungeon[newX][newY] == ',') {
             player.incrementTurn();
+            player.incrementTurn();
             soundSingleton.getMetalStepSound().play(.1f);
             return true;
         }
@@ -657,8 +665,7 @@ public class OriginWarAlpha extends ApplicationAdapter {
     }
     private boolean isPlayerOnBioTile(int newX, int newY) {
         if (decoDungeon[newX][newY] == '"') {
-            if (player.getTurns() % 4 == 0) player.setHealth(player.getHealth() + 1);
-            player.setTurns(player.getTurns() - 1);
+            player.setTurns(player.getTurns() + 1);
             return true;
         }
         return false;
@@ -677,9 +684,10 @@ public class OriginWarAlpha extends ApplicationAdapter {
     private boolean isPlayerOnExit(){
         if (player.getPosition() == stairsDown) {
             levelCount++;
-            if (player.getHealth() < 100) {
-                player.setHealth(Math.min(100, player.getHealth() + (10 * (10 - levelCount))));
-            }
+            //I feel we can do away with health refilling.
+//            if (player.getHealth() < 100) {
+//                player.setHealth(Math.min(100, player.getHealth() + (10 * (10 - levelCount))));
+//            }
             create();
             soundSingleton.getStairSound().play(.5f);
             return true;
@@ -700,8 +708,14 @@ public class OriginWarAlpha extends ApplicationAdapter {
     private boolean isPlayerOnBareFloor(int newX, int newY){
         if (decoDungeon[newX][newY] == '.') {
             soundSingleton.getFootStep().play(.08f);
+            player.incrementTurn();
             return true;
         }
         return false;
     }
+
+    public ArrayList<Oxygen> getOxygenList() {
+        return oxygenList;
+    }
+
 }

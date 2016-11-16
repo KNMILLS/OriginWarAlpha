@@ -63,10 +63,10 @@ public class TextDisplay {
 
     public void setStatsText(OriginWarAlpha game){
         this.statsText = new String[]{
-                "Switch Found:\t" + game.isFoundSwitch(),
-                "Oxygen tanks remaining in level:\t" + Math.max(0, (8 - game.getLevelCount()) - game.getOxygenUsed()),
+                "Switch Found:\t" + game.isFoundSwitch()+"\tTurns taken:\t"+Player.getPlayer().getTurns(),
+                "Oxygen tanks remaining in level:\t" + game.getOxygenList().size(),
                 "Oxygen tanks used (this level):\t" + game.getOxygenUsed(),
-                "Turns taken:\t"+Player.getPlayer().getTurns()
+
         };
     }
 
@@ -175,8 +175,12 @@ public class TextDisplay {
         if(!Player.getPlayer().getOxygenStash().isEmpty()){
             int supply = Player.getPlayer().getOxygenStash().get(0).getRemaining();
             int tanks = Player.getPlayer().getOxygenStash().size();
-
             String toAppend = "\tOxygen Supply:\t" + supply + "\tTanks:\t" + tanks;
+            if(Player.getPlayer().isUsingOxygen()){
+                toAppend += "\tOxygen:\tON";
+            } else {
+                toAppend += "\tOxygen:\tOFF";
+            }
             this.controlsBanner[0] = this.controlsBanner[0] + toAppend;
         }
     }
