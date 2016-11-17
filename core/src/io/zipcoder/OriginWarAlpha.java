@@ -248,7 +248,12 @@ public class OriginWarAlpha extends ApplicationAdapter {
     }
 
     private ArrayList<Oxygen> addOxygen() {
-        int oxygenToAdd = 8 - levelCount;
+        int oxygenToAdd = 2;
+        if(levelCount < 5){
+            oxygenToAdd = 2;
+        } else {
+            oxygenToAdd = 1;
+        }
         ArrayList<Oxygen> toReturn = new ArrayList<>();
         DungeonUtility dungeonUtility = new DungeonUtility(rng);
         while (oxygenToAdd > 0) {

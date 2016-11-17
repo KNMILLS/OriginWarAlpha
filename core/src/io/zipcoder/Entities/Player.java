@@ -88,7 +88,7 @@ public class Player extends Creature{
                 if(currentOxygen.getRemaining() < 1){
                     getOxygenStash().remove(0);
                 }
-                if(this.turns % 4 == 0){
+                if(this.turns % 10 == 0){
                     getPlayer().setHealth(getHealth() + 1);
                 }
 
@@ -126,7 +126,7 @@ public class Player extends Creature{
     }
 
     public void useOxygen(){
-        if(!usingOxygen){
+        if(!usingOxygen && getPlayer().getHealth() > 10){
             usingOxygen = true;
         } else {
             usingOxygen = false;
@@ -134,7 +134,10 @@ public class Player extends Creature{
     }
 
     public void pickUpOxygen(Oxygen oxygen){
-        oxygenStash.add(oxygen);
+        if(oxygenStash.size() <= 5){
+            oxygenStash.add(oxygen);
+        }
+
     }
 
     public Oxygen dropOxygen(){
