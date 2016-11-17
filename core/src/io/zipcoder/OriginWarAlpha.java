@@ -100,11 +100,12 @@ public class OriginWarAlpha extends ApplicationAdapter {
         levelSoundSwitch();
         decoDungeon = dungeonGen.generate(stairDungeon);
         decoDungeon = DungeonUtility.closeDoors(decoDungeon);
-        fixStairs();
+
 
         costArray = DungeonUtility.generateCostMap(decoDungeon, costMap, 1.0);
         bareDungeon = dungeonGen.getBareDungeon();
         lineDungeon = DungeonUtility.hashesToLines(decoDungeon);
+        fixStairs();
         short[] placement = CoordPacker.pack(bareDungeon, '.');
         cursor = Coord.get(-1, -1);
         player.setPosition((dungeonGen.utility.randomCell(placement)));
@@ -728,12 +729,12 @@ public class OriginWarAlpha extends ApplicationAdapter {
     public void fixStairs(){
         Coord downCoord = dungeonGen.stairsDown;
         Coord switchCoord = dungeonGen.stairsUp;
-        if(decoDungeon[downCoord.getX()][downCoord.getY()] == '#'){
+        if(decoDungeon[downCoord.getX()][downCoord.getY()] == '#' || bareDungeon[downCoord.getX()][downCoord.getY()] == '#' ){
             decoDungeon[downCoord.getX()][downCoord.getY()] = '.';
             bareDungeon[downCoord.getX()][downCoord.getY()] = '.';
 
         }
-        if(decoDungeon[switchCoord.getX()][switchCoord.getY()] == '#'){
+        if(decoDungeon[switchCoord.getX()][switchCoord.getY()] == '#' || bareDungeon[switchCoord.getX()][switchCoord.getY()] == '#'){
             decoDungeon[switchCoord.getX()][switchCoord.getY()] = '.';
             bareDungeon[switchCoord.getX()][switchCoord.getY()] = '.';
         }
