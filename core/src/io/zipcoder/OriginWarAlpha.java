@@ -70,7 +70,7 @@ public class OriginWarAlpha extends ApplicationAdapter {
     private String status;
     private Net.HttpResponseListener httpResponseListener;
     private HashMap<Coord, AnimatedEntity> creatures;
-
+    private HashMap<Coord, AnimatedEntity> walls;
 
     @Override
     public void create() {
@@ -92,6 +92,7 @@ public class OriginWarAlpha extends ApplicationAdapter {
         display.setAnimationDuration(0.03f);
         display.setPosition(0, 0);
         display.extendPalette(Color.CLEAR);
+        display.extendPalette(Color.DARK_GRAY);
         dungeonGen = new DungeonGenerator(gridWidth, gridHeight, rng);
         stairDungeon = dungeonGen.generate(TilesetType.ROOMS_AND_CORRIDORS_B);
         dungeonGen.addDoors(25, true);
@@ -104,7 +105,7 @@ public class OriginWarAlpha extends ApplicationAdapter {
 
         costArray = DungeonUtility.generateCostMap(decoDungeon, costMap, 1.0);
         bareDungeon = dungeonGen.getBareDungeon();
-        lineDungeon = DungeonUtility.hashesToLines(decoDungeon);
+        lineDungeon = DungeonUtility.linesToHashes(decoDungeon);
         fixStairs();
         short[] placement = CoordPacker.pack(bareDungeon, '.');
         cursor = Coord.get(-1, -1);
@@ -122,12 +123,12 @@ public class OriginWarAlpha extends ApplicationAdapter {
         }
 
         //Pretty sure we don't need this anymore
-        while (validPathToExit == null || validPathToExit.size() == 0) {
-            validPathToExit = validLevelSearch.path(player.getPosition(), stairSwitch);
-            if (validPathToExit.size() == 0) {
-                player.setPosition(dungeonGen.utility.randomCell(placement));
-            }
-        }
+//        while (validPathToExit == null || validPathToExit.size() == 0) {
+//            validPathToExit = validLevelSearch.path(player.getPosition(), stairSwitch);
+//            if (validPathToExit.size() == 0) {
+//                player.setPosition(dungeonGen.utility.randomCell(placement));
+//            }
+//        }
         explored[player.getPosition().getX()][player.getPosition().getY()] = true;
         player.initFOV(decoDungeon);
         toCursor = new ArrayList<Coord>(100);
@@ -136,13 +137,16 @@ public class OriginWarAlpha extends ApplicationAdapter {
         playerToCursor = playerToCursor.initializeCost(costArray);
         unexploredSet = new LinkedHashSet<>();
         unexploredSet.addAll(Arrays.asList(CoordPacker.allPacked(placement)));
-        bgColor = SColor.DARK_SLATE_GRAY;
+        bgColor = Color.BLACK;
         lights = DungeonUtility.generateLightnessModifiers(decoDungeon, lightCounter);
         fgColor = new Color[gridWidth][gridHeight];
         bgColorArr = new Color[gridWidth][gridHeight];
+//        fgColor = new Color[81][25];
+//        bgColorArr = new Color[81][25];
         colorIndices = DungeonUtility.generatePaletteIndices(decoDungeon);
         bgColorIndices = DungeonUtility.generateBGPaletteIndices(decoDungeon);
         changeColors();
+        changeWallTexture();
         spaces = GwtCompatibility.fill2D(' ', gridWidth, 6);
         languageBG = GwtCompatibility.fill2D(40, gridWidth, 6);
         languageFG = GwtCompatibility.fill2D(40, gridWidth, 6);
@@ -160,7 +164,7 @@ public class OriginWarAlpha extends ApplicationAdapter {
 
     private void move(int xmod, int ymod) {
         int newX = player.getPosition().x + xmod, newY = player.getPosition().y + ymod;
-        if (player.isAlive() && newX >= 0 && newY >= 0 && newX < gridWidth && newY < gridHeight && bareDungeon[newX][newY] != '#') {
+        if (!victoryState && player.isAlive() && newX >= 0 && newY >= 0 && newX < gridWidth && newY < gridHeight && bareDungeon[newX][newY] != '#') {
             player.setPosition(player.getPosition().translate(xmod, ymod));
             isPlayerOnDoor(newX, newY);
             isPlayerOnLowGrav(newX, newY);
@@ -193,7 +197,6 @@ public class OriginWarAlpha extends ApplicationAdapter {
         lightCounter += Gdx.graphics.getDeltaTime() * 15;
         lights = DungeonUtility.generateLightnessModifiers(decoDungeon, lightCounter);
         putMap();
-
         if (!awaitedMoves.isEmpty()) {
             if (this.input.hasNext()) {
                 awaitedMoves.clear();
@@ -219,6 +222,7 @@ public class OriginWarAlpha extends ApplicationAdapter {
         stage.draw();
         stage.act();
         creatures = new HashMap<>();
+        walls = new HashMap<>();
         creatures.put(player.getPosition(), display.animateActor(player.getPosition().getX(), player.getPosition().getY(), OriginResources.getPlayerTexture()));
         batch.begin();
         for(AnimatedEntity mon : creatures.values()) {
@@ -226,7 +230,7 @@ public class OriginWarAlpha extends ApplicationAdapter {
         }
         batch.end();
 
-        if (player.getHealth() <= 0) {
+        if (!player.isAlive()) {
             display.putBoxedString(gridWidth / 2 - 18, gridHeight / 2 - 8, "       THANKS FOR PLAYING!          ");
             display.putBoxedString(gridWidth / 2 - 18, gridHeight / 2 - 5, "            -DEV TEAM               ");
             display.putBoxedString(gridWidth / 2 - 18, gridHeight / 2 + 5, "             q to quit.             ");
@@ -237,7 +241,6 @@ public class OriginWarAlpha extends ApplicationAdapter {
 //
 //            Gdx.net.newServerSocket(TCP, 80, new ServerSocketHints());
 //            Gdx.net.sendHttpRequest(new Net.HttpRequest(PUT), new TestListener());
-            return;
         }
     }
 
@@ -437,29 +440,85 @@ public class OriginWarAlpha extends ApplicationAdapter {
         return toReturn;
     }
 
+//    private void changeColors() {
+//        for (int i = 0; i < gridWidth; i++) {
+//            for (int j = 0; j < gridHeight; j++) {
+//                int colorVal = colorIndices[i][j];
+//                if (colorVal <= 2) {
+//                    fgColor[i][j] = display.getPalette().get(30);
+//                } else if (colorVal == 4) {
+//                    fgColor[i][j] = display.getPalette().get(29);
+//                } else if (colorVal == 5) {
+//                    fgColor[i][j] = display.getPalette().get(8);
+//                } else if (colorVal == 3) {
+//                    fgColor[i][j] = display.getPalette().get(8);
+//                } else {
+//                    fgColor[i][j] = display.getPalette().get(colorVal);
+//                }
+//                if (bgColorIndices[i][j] == 24) {
+//                    bgColorArr[i][j] = display.getPalette().get(15);
+//                } else if (bgColorIndices[i][j] == 23) {
+//                    bgColorArr[i][j] = display.getPalette().get(14);
+//                } else {
+//                    bgColorArr[i][j] = display.getPalette().get(bgColorIndices[i][j]);
+//                }
+//
+//            }
+//        }
+//    }
+
     private void changeColors() {
+        setFgColor();
+        setBgColorArr();
+//        for (int i = 0; i < gridWidth; i++) {
+//            for (int j = 0; j < gridHeight; j++) {
+//                fgColor[i][j] = display.getPalette().get(40);
+//                bgColorArr[i][j] = display.getPalette().get(40);
+//            }
+//            }
+    }
+    private void setFgColor(){
         for (int i = 0; i < gridWidth; i++) {
             for (int j = 0; j < gridHeight; j++) {
                 int colorVal = colorIndices[i][j];
                 if (colorVal <= 2) {
-                    fgColor[i][j] = display.getPalette().get(30);
-                } else if (colorVal == 4) {
-                    fgColor[i][j] = display.getPalette().get(29);
-                } else if (colorVal == 5) {
-                    fgColor[i][j] = display.getPalette().get(8);
+                    fgColor[i][j] = display.getPalette().get(30);//walls
                 } else if (colorVal == 3) {
-                    fgColor[i][j] = display.getPalette().get(8);
-                } else {
+                    fgColor[i][j] = display.getPalette().get(8);//dots on floor
+                } else if (colorVal == 4) {
+                    fgColor[i][j] = display.getPalette().get(30);//doors
+                } else if (colorVal == 5) {
+                    fgColor[i][j] = display.getPalette().get(8);//shallow water
+                } else if(colorVal == 20) {
+                    fgColor[i][j] = display.getPalette().get(20);//grass
+                } else{
                     fgColor[i][j] = display.getPalette().get(colorVal);
                 }
-                if (bgColorIndices[i][j] == 24) {
-                    bgColorArr[i][j] = display.getPalette().get(15);
+            }
+        }
+    }
+    private void setBgColorArr(){
+        for (int i = 0; i < gridWidth; i++) {
+            for (int j = 0; j < gridHeight; j++) {
+                if (bgColorIndices[i][j] == 21) {
+                    bgColorArr[i][j] = display.getPalette().get(21);//grass
                 } else if (bgColorIndices[i][j] == 23) {
-                    bgColorArr[i][j] = display.getPalette().get(14);
+                    bgColorArr[i][j] = display.getPalette().get(14);//medium water
+                } else if (bgColorIndices[i][j] == 24) {
+                    bgColorArr[i][j] = display.getPalette().get(15);//deep water
                 } else {
-                    bgColorArr[i][j] = display.getPalette().get(bgColorIndices[i][j]);
+                    bgColorArr[i][j] = display.getPalette().get(40);
+                    //bgColorArr[i][j] = display.getPalette().get(bgColorIndices[i][j]);
                 }
-
+            }
+        }
+    }
+    private void changeWallTexture() {
+        for (int i = 0; i < gridWidth; i++) {
+            for (int j = 0; j < gridHeight; j++) {
+                if (lineDungeon[i][j] == '#') {
+                    lineDungeon[i][j] = '▓';//▓, █, :
+                }
             }
         }
     }
@@ -570,7 +629,7 @@ public class OriginWarAlpha extends ApplicationAdapter {
             player.setHpColor(27);
             display.put(player.getPosition().x, player.getPosition().y, ' ', player.getHpColor());
         } else if (player.getHealth() > 50) {
-            player.setHpColor(24);
+            player.setHpColor(22);
             display.put(player.getPosition().x, player.getPosition().y, ' ', player.getHpColor());
         } else if (player.getHealth() > 25) {
             player.setHpColor(18);
@@ -697,10 +756,6 @@ public class OriginWarAlpha extends ApplicationAdapter {
     private boolean isPlayerOnExit(){
         if (player.getPosition() == stairsDown) {
             levelCount++;
-            //I feel we can do away with health refilling.
-//            if (player.getHealth() < 100) {
-//                player.setHealth(Math.min(100, player.getHealth() + (10 * (10 - levelCount))));
-//            }
             create();
             soundSingleton.getStairSound().play(.5f);
             return true;
