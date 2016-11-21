@@ -622,11 +622,14 @@ public class OriginWarAlpha extends ApplicationAdapter {
         display.putBoxedString(gridWidth / 2 - 18, gridHeight / 2 + 2, "            -DEV TEAM               ");
     }
     private void playerIconUpdate(){
+        if(player.getHealth() <= 0){
+            player.setHealth(0);
+            player.setAlive(false);
+        }
         if (victoryState || !player.isAlive()) {
             player.setHpColor(2);
             display.put(player.getPosition().x, player.getPosition().y, ' '); //±
-            player.setHealth(0);
-            player.setAlive(false);
+
         } else if (player.getHealth() >= 125) {
             player.setHpColor(27);
             display.put(player.getPosition().x, player.getPosition().y, ' ', player.getHpColor());
