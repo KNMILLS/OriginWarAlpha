@@ -184,6 +184,7 @@ public class OriginWarAlpha extends ApplicationAdapter {
         displayOxygenTanks();
         displayCursorHighlight();
         playerIconUpdate();
+        goAskAlice();
         initTextDisplay();
         textConditionals();
         displayText();
