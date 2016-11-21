@@ -15,6 +15,7 @@ public class TextDisplay {
     private String[] aliceDeathText;
     private String[] controlsBanner;
     private String[] statsText;
+    private String[] aliceAdviceText;
 
     public TextDisplay() {
         setDefaultText();
@@ -25,6 +26,7 @@ public class TextDisplay {
         setAliceDeathText();
         setAliceVictoryText();
         setControlsBanner();
+        setAliceAdviceText(0);
 
     }
 
@@ -93,7 +95,7 @@ public class TextDisplay {
     public String[] updateAliceDisplayByPlayerHealth(int playerhealth) {
         if (playerhealth >= 125) {
             this.aliceDisplayText[0] = "A.L.I.C.E: Asphyxiation is the enemy but no enemy is absolute...";
-            this.aliceDisplayText[1] = "No solution is either. Hyperventilation will slow you. Do keep this in mind.";
+            this.aliceDisplayText[1] = "No solution is either. Hyperventilation isn't encouraged. Do keep this in mind.";
         } else if (playerhealth > 50) {
             this.aliceDisplayText[0] = "A.L.I.C.E: I would not go so far as to call you healthy but//";
             this.aliceDisplayText[1] = "...you aren't dying. Continue that.";
@@ -183,6 +185,35 @@ public class TextDisplay {
             }
             this.controlsBanner[0] = this.controlsBanner[0] + toAppend;
         }
+    }
+
+    public void setAliceAdviceText(int type){
+        //switch to an enum or string?
+        switch(type){
+            case 1:
+                this.aliceAdviceText = new String[] {"You should probably find an oxygen tank.",
+                "It might help with that breathing thing you like to do so much"};
+                break;
+            case 2:
+                this.aliceAdviceText = new String[] {"You should do find the switch for the stairs",
+                "Unless you plan on dying here, of course"};
+                break;
+            case 3:
+                this.aliceAdviceText = new String[] {"Have you considered going to the stairs?",
+                "You know, that * on your map?"};
+                break;
+            default:
+                this.aliceAdviceText = new String[]{"",""};
+                break;
+        }
+    }
+
+    public String[] getAliceAdviceText() {
+        return aliceAdviceText;
+    }
+
+    public void setAliceAdviceText(String[] aliceAdviceText) {
+        this.aliceAdviceText = aliceAdviceText;
     }
 
     public String[] getStatsText() {

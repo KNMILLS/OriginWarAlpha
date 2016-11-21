@@ -55,7 +55,7 @@ public class OriginWarAlpha extends ApplicationAdapter {
     private ArrayList<Coord> awaitedMoves;
     private float secondsWithoutMoves;
     private boolean helpOn;
-    private boolean statsDisplay;
+    private boolean statsDisplay, adviceDisplay;
     private int levelCount = 1;
     private boolean foundSwitch;
     private RoomFinder roomFinder;
@@ -187,6 +187,7 @@ public class OriginWarAlpha extends ApplicationAdapter {
         initTextDisplay();
         textConditionals();
         displayText();
+
     }
 
     @Override
@@ -382,6 +383,14 @@ public class OriginWarAlpha extends ApplicationAdapter {
                             Oxygen oxygenToDrop = player.dropOxygen();
                             oxygenList.add(oxygenToDrop);
                             soundSingleton.getPickupOxygenSound();
+                        }
+                        break;
+                    case 'g':
+                    case 'G':
+                        if(!adviceDisplay){
+                            adviceDisplay = true;
+                        } else {
+                            adviceDisplay = false;
                         }
                         break;
                     case '!':
@@ -699,6 +708,7 @@ public class OriginWarAlpha extends ApplicationAdapter {
     private void textConditionals(){
         if (helpOn) textDisplay.setDisplayText(textDisplay.getHelpText());
         else if (statsDisplay) textDisplay.setDisplayText(textDisplay.getStatsText());
+        else if(adviceDisplay) textDisplay.setAliceDisplayText(textDisplay.getAliceAdviceText());
         else if (victoryState) textDisplay.setAliceDisplayText(textDisplay.getAliceVictoryText());
         else if(!player.isAlive()) textDisplay.setAliceDisplayText(textDisplay.getAliceDeathText());
         else textDisplay.setDisplayText(textDisplay.getDefaultText());
@@ -803,6 +813,17 @@ public class OriginWarAlpha extends ApplicationAdapter {
             decoDungeon[switchCoord.getX()][switchCoord.getY()] = '.';
             bareDungeon[switchCoord.getX()][switchCoord.getY()] = '.';
         }
+    }
+    private void goAskAlice(){
+
+        if(player.getOxygenStash().size() <= 0){
+            textDisplay.setAliceAdviceText(1);
+        } else if (!foundSwitch){
+            textDisplay.setAliceAdviceText(2);
+        } else {
+            textDisplay.setAliceAdviceText(3);
+        }
+
     }
 
 }
