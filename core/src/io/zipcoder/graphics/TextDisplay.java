@@ -195,7 +195,7 @@ public class TextDisplay {
                 "It might help with that breathing thing you like to do so much"};
                 break;
             case 2:
-                this.aliceAdviceText = new String[] {"You should do find the switch for the stairs",
+                this.aliceAdviceText = new String[] {"You should go find the switch for the stairs",
                 "Unless you plan on dying here, of course"};
                 break;
             case 3:
