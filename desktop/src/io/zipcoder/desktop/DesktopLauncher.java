@@ -10,9 +10,9 @@ public class DesktopLauncher {
     	LwjglApplicationConfiguration config = new LwjglApplicationConfiguration();
    		config.width = 80 * 11;
     	config.height = (24 + 8) * 22;
-    	config.addIcon("Tentacle-16.png", Files.FileType.Internal);
+/*    	config.addIcon("Tentacle-16.png", Files.FileType.Internal);
     	config.addIcon("Tentacle-32.png", Files.FileType.Internal);
-    	config.addIcon("Tentacle-128.png", Files.FileType.Internal);
+    	config.addIcon("Tentacle-128.png", Files.FileType.Internal);*/
 		config.title = "Origin War";
     	new LwjglApplication(new OriginWarAlpha(), config);
     }

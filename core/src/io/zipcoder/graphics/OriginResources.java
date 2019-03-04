@@ -22,25 +22,25 @@ public class OriginResources implements LifecycleListener{
     private TextCellFactory distanceNarrow = null, distanceSquare = null, typewriterDistanceNarrow = null,
             distancePrint = null, distanceClean = null;
     private TextureAtlas iconAtlas = null;
-    public static final String squareName = "Zodiac-Square-12x12.fnt",
-            narrowName = "Rogue-Zodiac-6x12.fnt",
-            unicodeName = "Mandrill-6x16.fnt",
-            squareNameLarge = "Zodiac-Square-24x24.fnt",
-            narrowNameLarge = "Rogue-Zodiac-12x24.fnt",
-            unicodeNameLarge = "Mandrill-12x32.fnt",
-            narrowNameExtraLarge = "Rogue-Zodiac-18x36.fnt",
-            smoothName = "Inconsolata-LGC-8x18.fnt",
-            smoothNameLarge = "Inconsolata-LGC-12x24.fnt",
-            distanceFieldSquare = "Inconsolata-LGC-Square-distance.fnt",
-            distanceFieldSquareTexture = "Inconsolata-LGC-Square-distance.png",
-            distanceFieldNarrow = "Inconsolata-LGC-Custom-distance.fnt",
-            distanceFieldNarrowTexture = "Inconsolata-LGC-Custom-distance.png",
-            distanceFieldPrint = "Gentium-distance.fnt",
-            distanceFieldPrintTexture = "Gentium-distance.png",
-            distanceFieldClean = "Noto-Sans-distance.fnt",
-            distanceFieldCleanTexture = "Noto-Sans-distance.png",
-            distanceFieldTypewriterNarrow = "CM-Custom-distance.fnt",
-            distanceFieldTypewriterNarrowTexture = "CM-Custom-distance.png";
+    public static final String squareName = "core/assets/Zodiac-Square-12x12.fnt",
+            narrowName = "core/assets/Rogue-Zodiac-6x12.fnt",
+            unicodeName = "core/assets/Mandrill-6x16.fnt",
+            squareNameLarge = "core/assets/Zodiac-Square-24x24.fnt",
+            narrowNameLarge = "core/assets/Rogue-Zodiac-12x24.fnt",
+            unicodeNameLarge = "core/assets/Mandrill-12x32.fnt",
+            narrowNameExtraLarge = "core/assets/Rogue-Zodiac-18x36.fnt",
+            smoothName = "core/assets/Inconsolata-LGC-8x18.fnt",
+            smoothNameLarge = "core/assets/Inconsolata-LGC-12x24.fnt",
+            distanceFieldSquare = "core/assets/Inconsolata-LGC-Square-distance.fnt",
+            distanceFieldSquareTexture = "core/assets/Inconsolata-LGC-Square-distance.png",
+            distanceFieldNarrow = "core/assets/Inconsolata-LGC-Custom-distance.fnt",
+            distanceFieldNarrowTexture = "core/assets/Inconsolata-LGC-Custom-distance.png",
+            distanceFieldPrint = "core/assets/Gentium-distance.fnt",
+            distanceFieldPrintTexture = "core/assets/Gentium-distance.png",
+            distanceFieldClean = "core/assets/Noto-Sans-distance.fnt",
+            distanceFieldCleanTexture = "core/assets/Noto-Sans-distance.png",
+            distanceFieldTypewriterNarrow = "core/assets/CM-Custom-distance.fnt",
+            distanceFieldTypewriterNarrowTexture = "core/assets/CM-Custom-distance.png";
     public static String vertexShader = "attribute vec4 " + ShaderProgram.POSITION_ATTRIBUTE + ";\n"
             + "attribute vec4 " + ShaderProgram.COLOR_ATTRIBUTE + ";\n"
             + "attribute vec2 " + ShaderProgram.TEXCOORD_ATTRIBUTE + "0;\n"
@@ -105,7 +105,7 @@ public class OriginResources implements LifecycleListener{
         if(instance.square1 == null)
         {
             try {
-                instance.square1 = new BitmapFont(Gdx.files.internal("Zodiac-Square-12x12.fnt"), Gdx.files.internal("Zodiac-Square-12x12.png"), false);
+                instance.square1 = new BitmapFont(Gdx.files.internal("core/assets/Zodiac-Square-12x12.fnt"), Gdx.files.internal("core/assets/Zodiac-Square-12x12.png"), false);
                 //instance.square1.getData().padBottom = instance.square1.getDescent();
             } catch (Exception e) {
             }
@@ -122,7 +122,7 @@ public class OriginResources implements LifecycleListener{
         if(instance.square2 == null)
         {
             try {
-                instance.square2 = new BitmapFont(Gdx.files.internal("Zodiac-Square-24x24.fnt"), Gdx.files.internal("Zodiac-Square-24x24.png"), false);
+                instance.square2 = new BitmapFont(Gdx.files.internal("core/assets/Zodiac-Square-24x24.fnt"), Gdx.files.internal("core/assets/Zodiac-Square-24x24.png"), false);
                 //instance.square2.getData().padBottom = instance.square2.getDescent();
             } catch (Exception e) {
             }
@@ -139,7 +139,7 @@ public class OriginResources implements LifecycleListener{
         if(instance.narrow1 == null)
         {
             try {
-                instance.narrow1 = new BitmapFont(Gdx.files.internal("Rogue-Zodiac-6x12.fnt"), Gdx.files.internal("Rogue-Zodiac-6x12_0.png"), false);
+                instance.narrow1 = new BitmapFont(Gdx.files.internal("core/assets/Rogue-Zodiac-6x12.fnt"), Gdx.files.internal("core/assets/Rogue-Zodiac-6x12_0.png"), false);
                 //instance.narrow1.getData().padBottom = instance.narrow1.getDescent();
             } catch (Exception e) {
             }
@@ -157,7 +157,7 @@ public class OriginResources implements LifecycleListener{
         if(instance.narrow2 == null)
         {
             try {
-                instance.narrow2 = new BitmapFont(Gdx.files.internal("Rogue-Zodiac-12x24.fnt"), Gdx.files.internal("Rogue-Zodiac-12x24_0.png"), false);
+                instance.narrow2 = new BitmapFont(Gdx.files.internal("core/assets/Rogue-Zodiac-12x24.fnt"), Gdx.files.internal("core/assets/Rogue-Zodiac-12x24_0.png"), false);
                 //instance.narrow2.getData().padBottom = instance.narrow2.getDescent();
             } catch (Exception e) {
             }
@@ -174,7 +174,7 @@ public class OriginResources implements LifecycleListener{
         if(instance.narrow3 == null)
         {
             try {
-                instance.narrow3 = new BitmapFont(Gdx.files.internal("Rogue-Zodiac-18x36.fnt"), Gdx.files.internal("Rogue-Zodiac-18x36_0.png"), false);
+                instance.narrow3 = new BitmapFont(Gdx.files.internal("core/assets/Rogue-Zodiac-18x36.fnt"), Gdx.files.internal("core/assets/Rogue-Zodiac-18x36_0.png"), false);
                 //instance.narrow3.getData().padBottom = instance.narrow3.getDescent();
             } catch (Exception e) {
             }
@@ -194,7 +194,7 @@ public class OriginResources implements LifecycleListener{
         if(instance.smooth1 == null)
         {
             try {
-                instance.smooth1 = new BitmapFont(Gdx.files.internal("Inconsolata-LGC-8x18.fnt"), Gdx.files.internal("Inconsolata-LGC-8x18.png"), false);
+                instance.smooth1 = new BitmapFont(Gdx.files.internal("core/assets/Inconsolata-LGC-8x18.fnt"), Gdx.files.internal("core/assets/Inconsolata-LGC-8x18.png"), false);
                 //instance.smooth1.getData().padBottom = instance.smooth1.getDescent();
             } catch (Exception e) {
             }
@@ -213,7 +213,7 @@ public class OriginResources implements LifecycleListener{
         if(instance.smooth2 == null)
         {
             try {
-                instance.smooth2 = new BitmapFont(Gdx.files.internal("Inconsolata-LGC-12x24.fnt"), Gdx.files.internal("Inconsolata-LGC-12x24.png"), false);
+                instance.smooth2 = new BitmapFont(Gdx.files.internal("core/assets/Inconsolata-LGC-12x24.fnt"), Gdx.files.internal("core/assets/Inconsolata-LGC-12x24.png"), false);
                 //instance.smooth2.getData().padBottom = instance.smooth2.getDescent();
             } catch (Exception e) {
             }
@@ -230,7 +230,7 @@ public class OriginResources implements LifecycleListener{
         if(instance.unicode1 == null)
         {
             try {
-                instance.unicode1 = new BitmapFont(Gdx.files.internal("Mandrill-6x16.fnt"), Gdx.files.internal("Mandrill-6x16.png"), false);
+                instance.unicode1 = new BitmapFont(Gdx.files.internal("core/assets/Mandrill-6x16.fnt"), Gdx.files.internal("core/assets/Mandrill-6x16.png"), false);
                 //instance.unicode1.getData().padBottom = instance.unicode1.getDescent();
             } catch (Exception e) {
             }
@@ -248,7 +248,7 @@ public class OriginResources implements LifecycleListener{
         if(instance.unicode2 == null)
         {
             try {
-                instance.unicode2 = new BitmapFont(Gdx.files.internal("Mandrill-12x32.fnt"), Gdx.files.internal("Mandrill-12x32.png"), false);
+                instance.unicode2 = new BitmapFont(Gdx.files.internal("core/assets/Mandrill-12x32.fnt"), Gdx.files.internal("core/assets/Mandrill-12x32.png"), false);
                 //instance.unicode2.getData().padBottom = instance.unicode2.getDescent();
             } catch (Exception e) {
             }
@@ -268,7 +268,7 @@ public class OriginResources implements LifecycleListener{
         if(instance.smoothSquare == null)
         {
             try {
-                instance.smoothSquare = new BitmapFont(Gdx.files.internal("Inconsolata-LGC-Square-25x25.fnt"), Gdx.files.internal("Inconsolata-LGC-Square-25x25.png"), false);
+                instance.smoothSquare = new BitmapFont(Gdx.files.internal("core/assets/Inconsolata-LGC-Square-25x25.fnt"), Gdx.files.internal("core/assets/Inconsolata-LGC-Square-25x25.png"), false);
                 //instance.smoothSquare.getData().padBottom = instance.smoothSquare.getDescent();
             } catch (Exception e) {
             }
@@ -291,7 +291,7 @@ public class OriginResources implements LifecycleListener{
         if(instance.smoothSquareOld == null)
         {
             try {
-                instance.smoothSquareOld = new BitmapFont(Gdx.files.internal("Inconsolata-LGC-Square.fnt"), Gdx.files.internal("Inconsolata-LGC-Square.png"), false);
+                instance.smoothSquareOld = new BitmapFont(Gdx.files.internal("core/assets/Inconsolata-LGC-Square.fnt"), Gdx.files.internal("core/assets/Inconsolata-LGC-Square.png"), false);
                 //instance.smoothSquareOld.getData().padBottom = instance.smoothSquareOld.getDescent();
             } catch (Exception e) {
             }
@@ -431,7 +431,7 @@ public class OriginResources implements LifecycleListener{
         if(instance.playertexture == null || instance.playertextureRegion == null)
         {
             try {
-                instance.playertexture = new Texture(Gdx.files.internal("playertexture.png"));
+                instance.playertexture = new Texture(Gdx.files.internal("core/assets/playertexture.png"));
                 instance.playertextureRegion = new TextureRegion(instance.playertexture);
             } catch (Exception ignored) {
             }
