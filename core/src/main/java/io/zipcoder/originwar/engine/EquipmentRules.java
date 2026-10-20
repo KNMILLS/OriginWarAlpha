@@ -14,8 +14,9 @@ public final class EquipmentRules {
         };
     }
     public static int effectiveDex(GameState s) {
-        return Math.max(1, s.dex + (s.armor.equals("light") ? 1 : s.armor.equals("heavy") ? -2 : 0));
+        return effectiveDex(s.dex,s.armor);
     }
+    public static int effectiveDex(int dex,String armor){return Math.max(1,dex+(armor.equals("light")?1:armor.equals("heavy")?-2:0));}
     public static int protection(String armor) {
         return switch (armor) { case "light" -> 3; case "heavy" -> 5; default -> 1; };
     }

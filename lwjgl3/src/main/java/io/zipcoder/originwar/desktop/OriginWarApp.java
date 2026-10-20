@@ -6,6 +6,7 @@ import com.badlogic.gdx.graphics.g2d.*;
 import com.badlogic.gdx.math.*;
 import com.badlogic.gdx.utils.*;
 import io.zipcoder.originwar.engine.RunEngine;
+import io.zipcoder.originwar.engine.EquipmentRules;
 import io.zipcoder.originwar.campaign.Campaign;
 import io.zipcoder.originwar.perception.PerceptionModel;
 import io.zipcoder.originwar.model.*;
@@ -16,11 +17,13 @@ public final class OriginWarApp extends ApplicationAdapter {
     private enum Screen { TITLE, PLAY, PAUSE, INVENTORY, JOURNAL, STATS, SETTINGS, HELP, CREDITS, DEAD, VICTORY }
     private record Button(Rectangle box,Runnable action){}
     private record Slider(Rectangle box,int channel){}
+    private record Effect(String type,int x,int y,int toX,int toY,float until){}
     private final String[] args;
     private final ArrayList<Button> buttons=new ArrayList<>();
     private final ArrayList<Slider> sliders=new ArrayList<>();
     private final ArrayDeque<PlayerAction> walking=new ArrayDeque<>();
     private final ArrayDeque<String> replay=new ArrayDeque<>();
+    private final ArrayList<Effect> effects=new ArrayList<>();
     private final GlyphLayout layout=new GlyphLayout();
     private SpriteBatch batch;
     private BitmapFont font;
@@ -35,6 +38,7 @@ public final class OriginWarApp extends ApplicationAdapter {
     private int frame,maxFrames,selectedItem,targetX=-1,targetY=-1,dragging=-1;
     private float cameraX,cameraY,moveDelay,clock,noticeTime;
     private float nextBreath,nextPulse,nextPhantom;
+    private float endingStarted=-1;
     private long lastPerceptionCue=Long.MIN_VALUE;
     private PerceptionModel.Frame perception;
     private int journalEntry,journalPage,dialoguePage,lastJournalEntry=-1;
@@ -87,7 +91,7 @@ public final class OriginWarApp extends ApplicationAdapter {
         try{
             long seed=Long.parseLong(seedText);var candidate=new RunEngine(seed);saves.begin(candidate.saveState());
             engine=candidate;state=engine.snapshot().world();
-            cameraX=state.playerX;cameraY=state.playerY;targetX=-1;targetY=-1;selectedItem=0;journalEntry=0;journalPage=0;walking.clear();screen=Screen.PLAY;
+            cameraX=state.playerX;cameraY=state.playerY;targetX=-1;targetY=-1;selectedItem=0;journalEntry=0;journalPage=0;endingStarted=-1;effects.clear();walking.clear();screen=Screen.PLAY;
             notice("Expedition "+seed+". Find the security override and exit hatch.");
         }catch(Exception e){notice("Cannot start expedition: "+e.getMessage());Gdx.app.error("NewGame",e.getMessage(),e);}
     }
@@ -105,8 +109,11 @@ public final class OriginWarApp extends ApplicationAdapter {
             if(action.type()!=PlayerAction.Type.MOVE)notice("Action unavailable. Check range, supplies or equipment.");
             return false;
         }
-        state=engine.snapshot().world();for(var event:result.events())audio.event(event);
-        if(state.deck!=oldDeck){walking.clear();targetX=-1;targetY=-1;cameraX=state.playerX;cameraY=state.playerY;}
+        state=engine.snapshot().world();for(var event:result.events()){
+            audio.event(event);
+            if(Set.of("gun","melee","hit","impact","explosion","death").contains(event.type()))effects.add(new Effect(event.type(),event.x(),event.y(),event.type().equals("gun")&&event.x()==state.playerX&&event.y()==state.playerY?action.x():state.playerX,event.type().equals("gun")&&event.x()==state.playerX&&event.y()==state.playerY?action.y():state.playerY,clock+(event.type().equals("explosion")?.8f:.32f)));
+        }
+        if(state.deck!=oldDeck){walking.clear();effects.clear();targetX=-1;targetY=-1;cameraX=state.playerX;cameraY=state.playerY;}
         try{saves.save(engine.saveState());}catch(Exception e){notice("Save failed: "+e.getMessage());Gdx.app.error("Save",e.getMessage(),e);}
         if(state.dead){walking.clear();screen=Screen.DEAD;}else if(state.victory){walking.clear();screen=Screen.VICTORY;}
         moveDelay=.13f;
@@ -187,6 +194,7 @@ public final class OriginWarApp extends ApplicationAdapter {
     }
     @Override public void render(){
         float dt=Math.min(.05f,Gdx.graphics.getDeltaTime());clock+=dt;moveDelay-=dt;noticeTime-=dt;
+        effects.removeIf(effect->effect.until()<clock);
         if(!replay.isEmpty()&&engine!=null&&--replayDelay<=0){
             String line=replay.removeFirst();String[] parts=line.split("\\t",-1);
             if(parts[0].equals("CAPTURE")){
@@ -203,13 +211,13 @@ public final class OriginWarApp extends ApplicationAdapter {
         if(screen==Screen.PLAY&&state!=null&&!state.activeDialogue.isEmpty())walking.clear();
         if(screen==Screen.PLAY&&focused&&moveDelay<=0&&!walking.isEmpty()){
             if(!act(walking.removeFirst()))walking.clear();
-            for(var a:state.actors)if(!a.dead&&a.kind!=GameState.ActorKind.ALICE&&a.kind!=GameState.ActorKind.WEST&&a.kind!=GameState.ActorKind.SURVIVOR&&state.visible[a.x][a.y])walking.clear();
+            for(var a:state.actors)if(RunEngine.isThreat(state,a)&&state.visible[a.x][a.y])walking.clear();
         }
         audio.select(musicRole());audio.update(dt);perceptionAudio();
         ScreenUtils.clear(.025f,.039f,.052f,1);
         batch.setProjectionMatrix(new Matrix4().setToOrtho2D(0,0,Gdx.graphics.getWidth(),Gdx.graphics.getHeight()));
         buttons.clear();sliders.clear();batch.begin();
-        if(state!=null&&screen!=Screen.TITLE&&screen!=Screen.CREDITS){world(dt);hud();}
+        if(state!=null&&screen!=Screen.TITLE&&screen!=Screen.CREDITS&&screen!=Screen.VICTORY){world(dt);hud();}
         switch(screen){
             case TITLE->title();case PLAY->{if(state!=null&&!state.activeDialogue.isEmpty())dialogue();}case PAUSE->pauseMenu();case INVENTORY->inventory();
             case JOURNAL->journal();case STATS->stats();case SETTINGS->settings();case HELP->help();
@@ -247,23 +255,60 @@ public final class OriginWarApp extends ApplicationAdapter {
             float light=state.visible[x][y]?Math.max(.36f,state.light[x][y]):.16f;
             batch.setColor(light,light,light,1);
             if(art.ready()){
-                art.draw(batch,zone,px,py,tile);int slot=tileSlot(state.tiles[x][y]);
-                if(slot>=0)art.draw(batch,slot,px,py,tile);
+                art.sector(batch,zone,px,py,tile);int slot=tileSlot(state.tiles[x][y]);
+                if(state.tiles[x][y]==Tile.WALL){art.sector(batch,5+zone,px,py,tile);if(Math.floorMod(DeterministicRandom.mix(state.seed+x*191L+y*811L+state.deck),17)==0)art.sector(batch,15+zone,px,py,tile);}
+                else if(slot>=0)art.draw(batch,slot,px,py,tile);
+                if(state.tiles[x][y]==Tile.COVER)art.sector(batch,10+zone,px,py,tile);
+                if(state.tiles[x][y]==Tile.TERMINAL)art.sector(batch,25+zone,px,py,tile);
+                if(state.tiles[x][y]==Tile.FLOOR&&Math.floorMod(DeterministicRandom.mix(state.seed+x*479L+y*151L+state.deck),47)==0)art.sector(batch,20+zone,px,py,tile);
+                if(state.deck==10&&state.tiles[x][y]==Tile.HATCH)art.sector(batch,30,px,py,tile);
             }else{
                 Color c=state.tiles[x][y].blocksMovement?new Color(.19f,.27f,.30f,1):new Color(.09f,.14f,.17f,1);
                 rect(px,py,tile-1,tile-1,c.mul(light));
             }
         }
         for(var i:state.floorItems)if(state.visible[i.x][i.y])drawSprite(itemSlot(i.type),i.x,i.y,Color.CYAN);
-        for(var a:state.actors)if(!a.dead&&state.visible[a.x][a.y]){
+        for(var a:state.actors)if(state.visible[a.x][a.y]){
+            float px=originX+a.x*tile,py=originY-a.y*tile;batch.setColor(Color.WHITE);
+            if(a.dead){if(a.kind==GameState.ActorKind.SIRS)art.pose(batch,47,px,py,tile);else if(a.kind==GameState.ActorKind.ADD)art.pose(batch,51,px,py,tile);else if(a.kind==GameState.ActorKind.ROVER)art.draw(batch,30,px,py,tile);continue;}
+            int family=switch(a.kind){case ALICE->1;case SIRS->2;case ADD->3;case ROVER->4;default->-1;};
+            boolean attacking=effects.stream().anyMatch(effect->effect.type().equals("gun")&&effect.x()==a.x&&effect.y()==a.y);
+            if(family>=0){
+                if(attacking&&a.kind==GameState.ActorKind.SIRS)art.pose(batch,44+(int)(clock*16)%2,px,py,tile);
+                else if(attacking&&a.kind==GameState.ActorKind.ADD)art.pose(batch,48+(int)(clock*16)%2,px,py,tile);
+                else if(a.kind==GameState.ActorKind.ROVER&&a.fuse>=0&&a.fuse<=2)art.pose(batch,52+(int)(clock*8)%2,px,py,tile);
+                else art.actor(batch,family,a.facing,(int)(clock*5)%2,px,py,tile);
+            }else{
+            int machine=switch(a.kind){case CAMERA->56;case TURRET->58;case OPERATOR->60;case CONSTRUCTOR->62;default->-1;};
+            if(machine>=0&&art.completeActors())art.pose(batch,machine+(int)(clock*4)%2,px,py,tile);else{
             int slot=switch(a.kind){
                 case ALICE->36;case SIRS->40;case ADD->44;case ROVER->48;case WEST->52;
                 case CARMACK->53;case OPERATOR,SURVIVOR->54;case CONSTRUCTOR->55;case TURRET->29;case CAMERA->19;
             };
             if(slot>=36&&slot<52)slot+=(int)(clock*5)%4;
             drawSprite(slot,a.x,a.y,a.kind==GameState.ActorKind.ALICE?Color.CYAN:Color.SCARLET);
+            }
+            }
+            if(!a.id.startsWith("story-")){
+                bar(px+8,py+3,tile-16,4,(float)a.hp/a.maxHp,a.redirected?Color.CYAN:Color.SCARLET);
+                if(a.kind==GameState.ActorKind.ROVER&&a.fuse>=0)text(""+a.fuse,px+tile*.38f,py+tile-5,.9f,amber);
+            }
         }
-        drawSprite(32+(moveDelay>0?(int)(clock*20)%4:0),state.playerX,state.playerY,Color.WHITE);
+        batch.setColor(Color.WHITE);
+        boolean striking=effects.stream().anyMatch(effect->effect.type().equals("melee")||(effect.type().equals("gun")&&effect.x()==state.playerX&&effect.y()==state.playerY));
+        if(state.dead)art.pose(batch,43,originX+state.playerX*tile,originY-state.playerY*tile,tile);
+        else if(striking)art.pose(batch,40+(int)(clock*16)%2,originX+state.playerX*tile,originY-state.playerY*tile,tile);
+        else art.actor(batch,0,state.facing,moveDelay>0?(int)(clock*16)%2:0,originX+state.playerX*tile,originY-state.playerY*tile,tile);
+        for(var effect:effects)if(effect.x()>=0&&effect.x()<state.width&&effect.y()>=0&&effect.y()<state.height&&state.visible[effect.x()][effect.y()]){
+            float px=originX+effect.x()*tile,py=originY-effect.y()*tile;
+            if(effect.type().equals("gun")){
+                if(effect.toX()>=0&&effect.toX()<state.width&&effect.toY()>=0&&effect.toY()<state.height&&state.visible[effect.toX()][effect.toY()]){
+                    float endX=originX+(effect.toX()+.5f)*tile,endY=originY+(.5f-effect.toY())*tile,dx=endX-px-tile/2,dy=endY-py-tile/2;
+                    batch.setColor(.5f,.9f,1,.7f);batch.draw(art.whiteRegion(),px+tile/2,py+tile/2,0,0,(float)Math.hypot(dx,dy),2,1,1,MathUtils.atan2Deg(dy,dx));batch.setColor(Color.WHITE);
+                }
+            }else if(effect.type().equals("explosion")){art.pose(batch,54+(effect.until()-clock<.4f?1:0),px-tile*.3f,py-tile*.3f,tile*1.6f);}
+            else if(effect.type().equals("hit")||effect.type().equals("impact"))art.draw(batch,57,px,py,tile);
+        }
         if(perception!=null)for(var impression:perception.impressions()){
             batch.setColor(.65f,.7f,.95f,impression.opacity());
             if(art.ready())art.draw(batch,impression.variant()==0?59:40,originX+impression.x()*tile,originY-impression.y()*tile,tile);
@@ -339,7 +384,7 @@ public final class OriginWarApp extends ApplicationAdapter {
         if(state==null)return "menu";
         if(!state.activeDialogue.isEmpty()&&(state.activeDialogue.startsWith("alice")||state.deck==10||state.activeDialogue.equals("refusal")||state.activeDialogue.equals("sacrifice-plan")))return "alice";
         if(state.oxygenation<70||state.reserve==0)return "danger";
-        if(state.actors.stream().anyMatch(a->!a.dead&&a.alert>0&&state.visible[a.x][a.y]&&!a.id.startsWith("story-")))return "combat";
+        if(state.actors.stream().anyMatch(a->RunEngine.isThreat(state,a)&&a.alert>0&&state.visible[a.x][a.y]))return "combat";
         return "exploration";
     }
     private void perceptionAudio(){
@@ -431,7 +476,7 @@ public final class OriginWarApp extends ApplicationAdapter {
         if(selectedItem<0||selectedItem>=state.inventory.size())return;
         var item=state.inventory.get(selectedItem);float titleHeight=paragraph(item.name,detailX,h-170,w-detailX-70,1.2f,cyan);
         if(lastSelectedItem!=selectedItem){itemPage=0;lastSelectedItem=selectedItem;}
-        float top=h-190-titleHeight;var pages=pages(itemDescription(item),w-detailX-70,Math.max(60,top-280),1.05f);
+        float top=h-190-titleHeight;var pages=pages(itemDescription(item)+equipmentComparison(item),w-detailX-70,Math.max(60,top-280),1.05f);
         itemPage=Math.max(0,Math.min(itemPage,pages.size()-1));paragraph(pages.get(itemPage),detailX,top,w-detailX-70,1.05f,ink);
         if(pages.size()>1){button("<",detailX,235,60,32,()->itemPage=Math.max(0,itemPage-1));button(">",detailX+72,235,60,32,()->itemPage=Math.min(pages.size()-1,itemPage+1));text((itemPage+1)+" / "+pages.size(),detailX+150,257,.8f,ink);}
         if(item.type==GameState.ItemType.OXYGEN||item.type==GameState.ItemType.MEDICINE||item.type==GameState.ItemType.CELL)
@@ -450,6 +495,16 @@ public final class OriginWarApp extends ApplicationAdapter {
             case RIFLE->"Long-range precision weapon. Higher battery demand.";
             case SCATTERGUN->"Close-range energy scattergun. Strong nearby; inefficient at distance.";
         };
+    }
+    private String equipmentComparison(GameState.Item i){
+        String weapon=switch(i.type){case PISTOL->"pistol";case RIFLE->"rifle";case SCATTERGUN->"scattergun";default->"";};
+        if(!weapon.isEmpty()){
+            var next=EquipmentRules.weapon(weapon);var now=EquipmentRules.weapon(state.weapon);
+            return "\n\nCompared with "+state.weapon+":\nDamage "+now.damage()+" -> "+next.damage()+"\nRange "+now.range()+" -> "+next.range()+"\nCells per shot "+now.batteries()+" -> "+next.batteries()+"\nBase accuracy "+now.accuracy()+" -> "+next.accuracy()+"\nDEX, distance, target and cover affect the actual hit chance.";
+        }
+        String armor=switch(i.type){case ARMOR_LIGHT->"light";case ARMOR_HEAVY->"heavy";default->"";};
+        if(!armor.isEmpty())return "\n\nCompared with "+state.armor+":\nProtection "+EquipmentRules.protection(state.armor)+" -> "+EquipmentRules.protection(armor)+"\nEffective DEX "+EquipmentRules.effectiveDex(state)+" -> "+EquipmentRules.effectiveDex(state.dex,armor);
+        return "";
     }
     private void journal(){
         overlay("EXPEDITION JOURNAL");float y=Gdx.graphics.getHeight()-125,w=Gdx.graphics.getWidth();
@@ -492,13 +547,22 @@ public final class OriginWarApp extends ApplicationAdapter {
     private void saveSettings(){try{settings.save();}catch(Exception e){notice("Settings could not be saved: "+e.getMessage());}}
     private void help(){
         overlay("HOW TO PLAY");
-        pagedProse("Explore the station one decision at a time. Time advances only when you commit a world action. Menus, aiming and inspection pause the simulation.\n\nWASD / arrows: move. Bump closed doors to open them; bump hostile robots to melee. Left-click explored terrain to walk; visible threats interrupt the route. Right-click: inspect / select target.\n\nE / Enter: interact. G: pick up underfoot. R: oxygen tank. Space / period: wait. F: fire at selected target. M: adjacent melee. H: hack. B: force a locked door. V: inspect true suit status.\n\nTab / I: inventory. U / Enter: use. Q: equip. X: drop. J: journal. C: character / earned attribute points. Esc: back / pause. F11: fullscreen. Z: world zoom. Dialogue choices: mouse or1/2/3.\n\nFind security overrides and follow the journal's story objectives. Low gravity, hazards and heavy armor can cost extra time. Observe real R.O.V.E.R. countdowns. Guns consume finite battery cells. Medicines are unidentified separately in each run.\n\nWatch reserve and oxygenation: an empty tank causes hypoxia. Visual impressions can be unreliable; suit telemetry and right-click sensor inspection remain true within legitimate vision. Refill and allow real turns for oxygenation to recover. Reduced distortion is available in Settings.\n\nDeath ends the expedition. Save and resume between decisions. Different seeds produce different stations.",90,Gdx.graphics.getHeight()-125,Gdx.graphics.getWidth()-190,130,1.04f);
+        pagedProse("Explore the station one decision at a time. Time advances only when you commit a world action. Menus, aiming and inspection pause the simulation.\n\nWASD / arrows: move. Bump closed doors to open them; bump hostile robots to melee. Left-click explored terrain to walk; visible threats interrupt the route. Right-click: inspect / select target.\n\nE / Enter: interact. G: pick up underfoot. R: oxygen tank. Space / period: wait. F: fire at selected target. M: adjacent melee. H: hack. B: force a locked door. V: inspect true suit status.\n\nTab / I: inventory. U / Enter: use. Q: equip. X: drop. J: journal. C: character / earned attribute points. Esc: back / pause. F11: fullscreen. Z: world zoom. Dialogue choices: mouse or1/2/3.\n\nFind security overrides and follow the journal's story objectives. Low gravity and hazards cost extra time. Heavy armor lowers effective DEX. Observe real R.O.V.E.R. countdowns. Guns consume finite battery cells. Medicines are unidentified separately in each run.\n\nWatch reserve and oxygenation: an empty tank causes hypoxia. Visual impressions can be unreliable; suit telemetry and right-click sensor inspection remain true within legitimate vision. Refill and allow real turns for oxygenation to recover. Reduced distortion is available in Settings.\n\nDeath ends the expedition. Save and resume between decisions. Different seeds produce different stations.",90,Gdx.graphics.getHeight()-125,Gdx.graphics.getWidth()-190,130,1.04f);
     }
     private void credits(){
         overlay("ORIGIN WAR / CREDITS");
         pagedProse("Original 2016 design\nKen Ragonese and Evan Hitchings\n\nRemake direction\nOrigin War Revision 2, 20 October 2026\n\nTechnology\nlibGDX / LWJGL3, SquidSquad and their credited dependencies\n\nArtwork and audio\nOriginal remake production. Included provenance records identify sources, tools and verification status.\n\nUnverified legacy music and artwork are excluded from the modern runtime.",90,Gdx.graphics.getHeight()-130,Gdx.graphics.getWidth()-190,130,1.15f);
     }
     private void ending(boolean won){
+        if(won&&art.finaleReady()){
+            buttons.clear();sliders.clear();float w=Gdx.graphics.getWidth(),h=Gdx.graphics.getHeight();
+            if(endingStarted<0)endingStarted=clock;art.finale(batch,w,h);
+            float elapsed=clock-endingStarted;String caption=elapsed<2?"BROADCAST / UNENCRYPTED":elapsed<4?"EVACUATION POD / SEALED":"TOWARD MARS";
+            rect(0,h-90,w,90,new Color(.008f,.02f,.04f,.72f));text(caption,32,h-34,1.4f,cyan);
+            float panel=settings.uiScale>1.25f?420:340;rect(0,0,w,panel,new Color(.008f,.018f,.027f,.96f));
+            pagedProse(Campaign.epilogue(state),40,panel-26,w-80,94,1.02f);
+            button("New expedition",40,28,280,44,this::newGame);button("Title",340,28,180,44,()->screen=Screen.TITLE);button("Credits",540,28,180,44,()->open(Screen.CREDITS));return;
+        }
         overlay(won?"TOWARD MARS":"EXPEDITION LOST");
         String body=won?Campaign.epilogue(state)
             :"The station keeps its silence.\n\nSeed "+state.seed+"   Deck "+state.deck+"   Turns "+state.tick+"\n\nThis expedition has ended. Equipment and discoveries belonged to this run.";

@@ -52,7 +52,7 @@ final class CombatRules {
                 || !clearLine(s, s.playerX, s.playerY, x, y, true)) return 0;
         var target = at(s, x, y);
         // Never allow attacks on an actual companion or civilian.
-        if (s.actors.stream().anyMatch(a -> alive(a) && !hostile(a) && a.x == x && a.y == y)) return 0;
+        if (target==null&&s.actors.stream().anyMatch(a -> alive(a) && !hostile(a) && a.x == x && a.y == y)) return 0;
         s.batteries -= weapon.batteries();
         s.facing = facing(s.playerX, s.playerY, x, y);
         int random = roll(s, 100); // Empty legal shots still cost a turn, ammo and the same RNG draw.

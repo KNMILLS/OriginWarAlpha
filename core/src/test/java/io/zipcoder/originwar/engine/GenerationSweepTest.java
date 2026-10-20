@@ -2,6 +2,7 @@ package io.zipcoder.originwar.engine;
 
 import com.github.yellowstonegames.grid.Coord;
 import io.zipcoder.originwar.model.*;
+import io.zipcoder.originwar.campaign.Campaign;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
@@ -11,12 +12,13 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class GenerationSweepTest {
     /** Structural/resource evidence only. Combat playthroughs are separate tests, with AI fully enabled. */
-    @Test void twoHundredSeedsKeepAllTenDecksConnectedSuppliedAndSafelyPopulated() {
+    @Test void oneThousandSeedsKeepAllTenDecksConnectedSuppliedAndSafelyPopulated() {
         int decks = 0;
-        for (long seed = 0; seed < 200; seed++) {
+        for (long seed = 0; seed < 1000; seed++) {
             GameState floor = new RunEngine(seed).saveState();
             for (int deck = 1; deck <= RunEngine.LAST_DECK; deck++) {
                 if (deck > 1) { floor.deck = deck; StationGenerator.generate(floor); }
+                Campaign.enterDeck(floor,new ArrayList<>());
                 String context = "seed=" + seed + ", deck=" + deck;
                 assertEquals(Tile.FLOOR, floor.tiles[floor.playerX][floor.playerY], context);
                 var connected = GridRoutes.distances(floor, floor.playerX, floor.playerY, false);
@@ -45,7 +47,7 @@ class GenerationSweepTest {
                 assertFalse(floor.actors.isEmpty(), context);
                 for (var actor : floor.actors) {
                     assertFalse(floor.tiles[actor.x][actor.y].blocksMovement, context);
-                    assertTrue(CombatRules.distance(actor.x, actor.y, floor.playerX, floor.playerY) >= 10, context + " unsafe spawn " + actor.id);
+                    if(CombatRules.hostile(actor))assertTrue(CombatRules.distance(actor.x, actor.y, floor.playerX, floor.playerY) >= 10, context + " unsafe spawn " + actor.id);
                 }
                 if (deck == 8) {
                     var operator = floor.actors.stream().filter(a -> a.kind == GameState.ActorKind.OPERATOR).findFirst().orElseThrow();
@@ -56,6 +58,6 @@ class GenerationSweepTest {
                 decks++;
             }
         }
-        assertEquals(2000, decks);
+        assertEquals(10000, decks);
     }
 }

@@ -19,7 +19,7 @@ class RunEngineTest {
         assertNotEquals(a.combatRng, a.medicineRng);
         assertNotEquals(a.combatRng, a.perceptionRng);
         assertFalse(Arrays.deepEquals(a.tiles, new RunEngine(432).saveState().tiles));
-        assertEquals("", a.activeDialogue);
+        assertEquals("briefing", a.activeDialogue);
     }
 
     @Test void movementIsCardinalAndRejectedActionsChangeNothing() {

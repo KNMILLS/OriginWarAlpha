@@ -56,4 +56,13 @@ class CampaignTest {
                 if(!before.tiles[x][y].blocksMovement)assertFalse(s.tiles[x][y].blocksMovement);
         }
     }
+    @Test void aliceRoutesAroundWallsWithoutScoutingOpeningDoorsOrMutatingResources(){
+        var s=new RunEngine(2016).saveState();s.actors.clear();s.playerX=4;s.playerY=2;
+        for(int x=0;x<s.width;x++)for(int y=0;y<s.height;y++){s.tiles[x][y]=Tile.FLOOR;s.explored[x][y]=true;}
+        s.tiles[3][2]=Tile.WALL;var alice=new GameState.Actor();alice.id="story-alice";alice.kind=GameState.ActorKind.ALICE;alice.x=2;alice.y=2;s.actors.add(alice);
+        long combat=s.combatRng;int reserve=s.reserve;
+        Campaign.afterAction(s,PlayerAction.of(PlayerAction.Type.WAIT),events);assertEquals(2,alice.x);assertEquals(1,alice.y);
+        for(int n=0;n<3;n++)Campaign.afterAction(s,PlayerAction.of(PlayerAction.Type.WAIT),events);
+        assertEquals(1,Math.abs(alice.x-s.playerX)+Math.abs(alice.y-s.playerY));assertEquals(reserve,s.reserve);assertEquals(combat,s.combatRng);assertEquals(Tile.WALL,s.tiles[3][2]);
+    }
 }

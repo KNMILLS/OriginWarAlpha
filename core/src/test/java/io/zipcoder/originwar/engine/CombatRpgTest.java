@@ -9,6 +9,12 @@ import static io.zipcoder.originwar.model.PlayerAction.Type.*;
 import static org.junit.jupiter.api.Assertions.*;
 
 class CombatRpgTest {
+    @Test void visibleHostileSharingFriendlyTileRemainsShootableWithoutFriendlyDamage(){
+        var s=withEnemy(GameState.ActorKind.SIRS,4,2);s.combatRng=stateForRoll(0);
+        var alice=new GameState.Actor();alice.id="story-alice";alice.kind=GameState.ActorKind.ALICE;alice.x=4;alice.y=2;s.actors.add(alice);
+        var run=new RunEngine(s);assertTrue(run.submit(PlayerAction.at(SHOOT,4,2)).accepted());
+        assertEquals(23,run.saveState().batteries);assertEquals(4,run.saveState().actors.getFirst().hp);assertEquals(alice.hp,run.saveState().actors.getLast().hp);
+    }
     @Test void legalEmptyShotCostsAmmoTimeAndCombatRandomnessWithoutCreatingAnActor() {
         var run = new RunEngine(RunEngineTest.room());
         var before = run.saveState();

@@ -2,6 +2,7 @@ package io.zipcoder.originwar.engine;
 
 import com.github.yellowstonegames.grid.Coord;
 import io.zipcoder.originwar.model.*;
+import io.zipcoder.originwar.campaign.Campaign;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,6 +25,9 @@ public final class RunEngine {
         state.inventory.add(StationGenerator.tank(0, -1, -1, 240, "starter"));
         state.log.add("Boarded the station. Find the security switch and exit hatch. Oxygen is finite.");
         StationGenerator.generate(state);
+        Campaign.begin(state);
+        Campaign.enterDeck(state,new ArrayList<>());
+        Visibility.refresh(state);
     }
 
     public RunEngine(GameState restored) {
@@ -34,6 +38,7 @@ public final class RunEngine {
 
     public WorldSnapshot snapshot() { return new WorldSnapshot(state); }
     public GameState saveState() { return state.copy(); }
+    public static boolean isThreat(GameState world,GameState.Actor actor){return CombatRules.alive(actor)&&CombatRules.hostile(actor)&&!EnemyTurns.disabled(world,actor);}
 
     /** Known terrain only. Closed doors emit two moves: open in place, then enter. */
     public List<PlayerAction> pathTo(int x, int y) {
@@ -53,6 +58,14 @@ public final class RunEngine {
         if (action == null || action.type() == null || state.dead || state.victory) return TurnResult.rejected();
         if (action.type() == PlayerAction.Type.CHOOSE) {
             if (state.activeDialogue.isEmpty()) return TurnResult.rejected();
+            if(state.flags.contains("campaign-started")){
+                var events=new ArrayList<GameEvent>();int cost=Campaign.choose(state,action.id(),events);
+                if(cost<0)return TurnResult.rejected();
+                for(int i=0;i<cost&&!state.dead;i++)tick(events);
+                if(cost>0)Campaign.afterAction(state,action,events);
+                return finish(cost,events);
+            }
+            // Pre-campaign development saves/isolated system fixtures retain their close-only dialogue.
             state.activeDialogue = "";
             return new TurnResult(true, 0, List.of(new GameEvent("dialogue", state.playerX, state.playerY, "closed")));
         }
@@ -62,6 +75,11 @@ public final class RunEngine {
         if (!state.activeDialogue.isEmpty()) return TurnResult.rejected();
         if (action.type() == PlayerAction.Type.ALLOCATE) return allocate(action.id());
         if (atFinalHatch(action)) {
+            if(state.flags.contains("campaign-started")&&Campaign.hatchBlock(state).isEmpty()){
+                var events=new ArrayList<GameEvent>();tick(events);
+                if(!state.dead)Campaign.escape(state,events);
+                return finish(1,events);
+            }
             String objective = "Command deck: locate Carmack and A.L.I.C.E.; the escape systems remain locked.";
             if (state.flags.add("command-deck-objective")) {
                 state.journal.add(objective);
@@ -70,7 +88,7 @@ public final class RunEngine {
             return new TurnResult(true, 0, List.of(new GameEvent("hatch", state.playerX, state.playerY, objective)));
         }
         var events = new ArrayList<GameEvent>();
-        boolean transitioning = requestsHatch(action);
+        boolean transitioning = requestsHatch(action) && prepareAdvance()>0;
         int cost = switch (action.type()) {
             case MOVE -> move(action.x(), action.y(), events);
             case WAIT -> 1;
@@ -92,8 +110,14 @@ public final class RunEngine {
         if (transitioning && !state.dead) {
             state.deck++;
             StationGenerator.generate(state);
+            if(state.flags.contains("campaign-started"))Campaign.enterDeck(state,events);
             events.add(new GameEvent("hatch", state.playerX, state.playerY, "Entered deck " + state.deck + "."));
         }
+        if(state.flags.contains("campaign-started"))Campaign.afterAction(state,action,events);
+        return finish(cost,events);
+    }
+
+    private TurnResult finish(int cost,List<GameEvent> events){
         Visibility.refresh(state);
         for (GameEvent event : events) {
             if (!event.type().equals("step") && !event.type().equals("robot_step")
@@ -156,6 +180,7 @@ public final class RunEngine {
     }
 
     private boolean interactable(int x, int y) {
+        if(state.flags.contains("campaign-started")&&state.actors.stream().anyMatch(a->!a.dead&&a.id.startsWith("story-")&&a.x==x&&a.y==y))return true;
         return switch (state.tiles[x][y]) {
             case SWITCH -> !state.switchOn;
             case HATCH, TERMINAL, DOOR_CLOSED -> true;
@@ -164,6 +189,11 @@ public final class RunEngine {
     }
 
     private int interactAt(int x, int y, List<GameEvent> events) {
+        if(state.flags.contains("campaign-started")){
+            // Analysis remains a real medical action before opening an already-readable archive.
+            if(state.tiles[x][y]==Tile.TERMINAL&&MedicineRules.identifyOne(state,events))return 1;
+            int story=Campaign.interact(state,x,y,events);if(story>=0)return story;
+        }
         switch (state.tiles[x][y]) {
             case SWITCH -> {
                 if (state.switchOn) return 0;
@@ -194,6 +224,7 @@ public final class RunEngine {
     private int prepareAdvance() {
         if (!state.switchOn || state.playerX != state.hatchX || state.playerY != state.hatchY || state.deck >= LAST_DECK) return 0;
         if (state.deck == 8 && !state.flags.contains("constructor-defeated")) return 0;
+        if(state.flags.contains("campaign-started")&&!Campaign.hatchBlock(state).isEmpty())return 0;
         return 1;
     }
 

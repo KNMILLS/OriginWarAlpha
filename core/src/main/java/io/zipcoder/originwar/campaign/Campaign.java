@@ -1,7 +1,7 @@
 package io.zipcoder.originwar.campaign;
 
 import io.zipcoder.originwar.model.*;
-import java.util.List;
+import java.util.*;
 
 /** Authored 2016 station story. RunEngine alone invokes these mutations at action boundaries. */
 public final class Campaign {
@@ -47,6 +47,7 @@ public final class Campaign {
     /** -1 means no authored interaction; 1 means an ordinary one-turn console/conversation action. */
     public static int interact(GameState s,int x,int y,List<GameEvent> events) {
         if(Math.abs(x-s.playerX)+Math.abs(y-s.playerY)>1) return -1;
+        if(x<0||y<0||x>=s.width||y>=s.height||s.tiles[x][y]==Tile.HATCH||s.tiles[x][y]==Tile.SWITCH)return -1;
         boolean anchor=x==s.terminalX&&y==s.terminalY;
         var actor=s.actors.stream().filter(a->!a.dead&&a.id.startsWith("story-")&&a.x==x&&a.y==y).findFirst().orElse(null);
         if(!anchor&&actor==null)return -1;
@@ -181,9 +182,20 @@ public final class Campaign {
         if(alice!=null) {
             int distance=Math.abs(alice.x-s.playerX)+Math.abs(alice.y-s.playerY);
             if(distance>1) {
-                int dx=Integer.signum(s.playerX-alice.x),dy=Integer.signum(s.playerY-alice.y);
-                int[][] steps=Math.abs(s.playerX-alice.x)>=Math.abs(s.playerY-alice.y)?new int[][]{{dx,0},{0,dy}}:new int[][]{{0,dy},{dx,0}};
-                for(int[] step:steps) {int x=alice.x+step[0],y=alice.y+step[1];if(x>=0&&x<s.width&&y>=0&&y<s.height&&!s.tiles[x][y].blocksMovement){alice.x=x;alice.y=y;break;}}
+                // One safe NPC step through already-known open terrain; no teleport, scouting or door/INT bypass.
+                int start=alice.x*s.height+alice.y;int[] parent=new int[s.width*s.height];Arrays.fill(parent,-1);parent[start]=start;
+                boolean[] occupied=new boolean[parent.length];for(var other:s.actors)if(other!=alice&&!other.dead)occupied[other.x*s.height+other.y]=true;
+                var queue=new ArrayDeque<Integer>();queue.add(start);int goal=-1;
+                while(!queue.isEmpty()){
+                    int current=queue.removeFirst(),cx=current/s.height,cy=current%s.height;
+                    if(Math.abs(cx-s.playerX)+Math.abs(cy-s.playerY)==1){goal=current;break;}
+                    for(int[] direction:new int[][]{{0,-1},{1,0},{0,1},{-1,0}}){
+                        int x=cx+direction[0],y=cy+direction[1],index=x*s.height+y;
+                        if(x<0||x>=s.width||y<0||y>=s.height||s.tiles[x][y].blocksMovement||!s.explored[x][y]||occupied[index]||parent[index]!=-1||(x==s.playerX&&y==s.playerY))continue;
+                        parent[index]=current;queue.addLast(index);
+                    }
+                }
+                if(goal>=0&&goal!=start){while(parent[goal]!=start)goal=parent[goal];int x=goal/s.height,y=goal%s.height;alice.facing=x>alice.x?1:y>alice.y?2:x<alice.x?3:0;alice.x=x;alice.y=y;}
             }
         }
     }

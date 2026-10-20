@@ -2,6 +2,7 @@ package io.zipcoder.originwar.engine;
 
 import com.github.yellowstonegames.grid.Coord;
 import io.zipcoder.originwar.model.*;
+import io.zipcoder.originwar.campaign.Campaign;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
@@ -42,12 +43,13 @@ class CombatPlaythroughTest {
         final ArrayList<String> trace = new ArrayList<>();
         final StringBuilder replay = new StringBuilder("step\ttype\tx\ty\tid\tcost\tdeck\ttick\tplayerX\tplayerY\thp\treserve\toxygenation\tbatteries\n");
         int actions, preparedDeck, shots, melee, healing, equipped, oxygen, redirects;
+        final java.util.HashSet<Integer> readDecks=new java.util.HashSet<>();
 
         Pilot(long seed, boolean redirect) { run = new RunEngine(seed); this.redirect = redirect; }
 
         void decide() {
             var s = run.saveState();
-            if (!s.activeDialogue.isEmpty()) { act(PlayerAction.of(CHOOSE)); return; }
+            if (!s.activeDialogue.isEmpty()) { act(PlayerAction.item(CHOOSE,Campaign.dialogue(s).choices().stream().filter(c->c.available(s)).findFirst().orElseThrow().id())); return; }
             if (s.attributePoints > 0) {
                 String stat = redirect && s.intel < 6 ? "int" : s.str < 6 ? "str" : "dex";
                 act(PlayerAction.item(ALLOCATE, stat)); return;
@@ -65,12 +67,8 @@ class CombatPlaythroughTest {
             if (s.deck == 8 && preparedDeck == 8 && !redirect && !s.flags.contains("constructor-defeated")) {
                 var operator = s.actors.stream().filter(a -> a.kind == GameState.ActorKind.OPERATOR).findFirst().orElseThrow();
                 int distance = CombatRules.distance(s.playerX, s.playerY, operator.x, operator.y);
-                if (distance == 1) { melee++; act(PlayerAction.at(MELEE, operator.x, operator.y)); return; }
-                if (s.visible[operator.x][operator.y] && distance <= EquipmentRules.weapon(s.weapon).range()
-                        && s.batteries >= EquipmentRules.weapon(s.weapon).batteries()
-                        && CombatRules.clearLine(s, s.playerX, s.playerY, operator.x, operator.y, true)) {
-                    shots++; act(PlayerAction.at(SHOOT, operator.x, operator.y)); return;
-                }
+                if (distance == 1) { act(PlayerAction.at(MELEE, operator.x, operator.y)); return; }
+                // This pilot deliberately proves the earned-STR route by physically closing with the operator.
                 if (moveToward(s, operator.x, operator.y)) return;
             }
 
@@ -87,7 +85,7 @@ class CombatPlaythroughTest {
                     if (s.deck == 8) redirects++;
                     act(PlayerAction.at(HACK, enemy.x, enemy.y)); return;
                 }
-                if (distance == 1) { melee++; act(PlayerAction.at(MELEE, enemy.x, enemy.y)); return; }
+                if (distance == 1) { act(PlayerAction.at(MELEE, enemy.x, enemy.y)); return; }
                 // Use the STR build's renewable melee against close standard soldiers; save cells for ranged threats/operator.
                 if (enemy.kind == GameState.ActorKind.SIRS && distance <= 4 && moveToward(s, enemy.x, enemy.y)) return;
                 if (distance <= EquipmentRules.weapon(s.weapon).range() && s.batteries >= EquipmentRules.weapon(s.weapon).batteries()
@@ -111,6 +109,7 @@ class CombatPlaythroughTest {
                 } else {
                     boolean unknown = s.inventory.stream().anyMatch(i -> i.type == GameState.ItemType.MEDICINE && !s.identifiedMedicine.contains(i.name));
                     if (unknown) { act(PlayerAction.at(INTERACT, s.terminalX, s.terminalY)); return; }
+                    if(readDecks.add(s.deck)){act(PlayerAction.at(INTERACT,s.terminalX,s.terminalY));return;}
                     if (s.intel >= 5 && !s.flags.contains("security-hacked-d" + s.deck)) {
                         act(PlayerAction.at(HACK, s.terminalX, s.terminalY)); return;
                     }
@@ -172,6 +171,7 @@ class CombatPlaythroughTest {
         void act(PlayerAction action) {
             var before = run.saveState();
             TurnResult result = run.submit(action);
+            melee+=(int)result.events().stream().filter(e->e.type().equals("melee")).count();
             GameState after = run.saveState();
             actions++;
             trace.add("d" + before.deck + ":" + before.tick + " " + action.type() + " " + action.x() + "," + action.y()
