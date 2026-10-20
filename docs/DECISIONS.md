@@ -8,3 +8,6 @@
 - D006: JDK 17 exists through an inherited JAVA_HOME despite no Java PATH entry. Modern builds use isolated JDK 21; no global toolchain changes.
 - D007: First source-archive command used an incompatible PowerShell/native argument form and failed before writing an archive. Corrected to a separate output argument; extracted files subsequently match all 582 tracked hashes. Preserve the first failure in private execution history.
 - D008: GL framebuffer rows require explicit PNG Y-flipping. Retained the inverted first capture, fixed export orientation and inspected a fresh actual runtime capture. This does not imply a rendering-layout problem or gameplay acceptance.
+- D009: Native 32px world art defaults to2x physical presentation for readable silhouettes, with Z toggling1x overview. Camera coordinates are pixel-aligned; UI is independent.
+- D010: Share engine state validation with save acceptance so malformed primaries reach backup fallback. A new expedition initializes both save candidates with its own identity; never retain another run's backup. Regressions cover both cases.
+- D011: Overlay entry removes underlying hitboxes and cancels pending walking. World-affecting inventory choices return to gameplay to expose consequences. Enable backend pauseWhenLostFocus explicitly rather than relying on its false default.

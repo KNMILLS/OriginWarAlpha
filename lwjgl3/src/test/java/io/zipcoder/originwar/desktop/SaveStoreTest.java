@@ -29,6 +29,16 @@ class SaveStoreTest {
     @Test void newExpeditionDoesNotInheritPreviousDeath()throws Exception {
         var store=new SaveStore(dir);var s=valid();store.begin(s);s.dead=true;s.hp=0;store.save(s);store.begin(valid());assertFalse(new SaveStore(dir).load().dead);
     }
+    @Test void corruptionBeforeFirstActionCannotResurrectPreviousExpedition()throws Exception {
+        var store=new SaveStore(dir);var first=valid();first.seed=1;store.begin(first);first.tick=1;store.save(first);
+        var second=valid();second.seed=222;store.begin(second);Files.writeString(dir.resolve("active.json"),"broken");
+        assertEquals(222,new SaveStore(dir).load().seed);
+    }
+    @Test void simulationInvalidPrimaryFallsBackBeforeEngineConstruction()throws Exception {
+        var store=new SaveStore(dir);var s=valid();store.begin(s);s.tick=1;store.save(s);
+        Path primary=dir.resolve("active.json");String original=Files.readString(primary),broken=original.replace("\"hatchX\":0","\"hatchX\":999");
+        assertNotEquals(original,broken);Files.writeString(primary,broken);assertEquals(0,new SaveStore(dir).load().tick);
+    }
     @Test void rejectOutOfBoundsAndUnsupportedVersions()throws Exception {
         var s=valid();s.playerX=999;assertThrows(java.io.IOException.class,()->new SaveStore(dir).begin(s));s.playerX=3;s.schemaVersion=99;assertThrows(java.io.IOException.class,()->SaveStore.validate(s));
     }

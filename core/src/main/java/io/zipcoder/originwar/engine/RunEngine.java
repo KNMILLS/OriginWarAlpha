@@ -27,7 +27,7 @@ public final class RunEngine {
     }
 
     public RunEngine(GameState restored) {
-        validate(restored);
+        validateState(restored);
         state = restored.copy();
         Visibility.refresh(state);
     }
@@ -242,7 +242,7 @@ public final class RunEngine {
         }
     }
 
-    private static void validate(GameState s) {
+    public static void validateState(GameState s) {
         Objects.requireNonNull(s, "Saved state");
         if (s.schemaVersion != 1 || s.generationVersion != 1 || s.width < 5 || s.height < 5 || s.width > 256 || s.height > 256
                 || s.deck < 1 || s.deck > LAST_DECK || s.tick < 0 || s.hp < 0 || s.maxHp <= 0 || s.hp > s.maxHp
