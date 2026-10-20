@@ -1,0 +1,429 @@
+{
+  "scope": "headers, full decoding, duration, channel count, sample/true peaks, loop boundary metrics and source/export repeatability; no audible acceptance",
+  "source_sha256": "1fb309b4b8b416cb8730bde5c5914bc0e729141fb45147f5a1e5aa806094a0b2",
+  "repeatability": {
+    "performed": true,
+    "result": "PASS",
+    "music_sources": 6,
+    "ogg_exports": 6,
+    "wav_exports": 28,
+    "comparison": "Independent second synthesis/bitexact encoding in the same pinned environment; every source and final-file SHA256 matched."
+  },
+  "music": {
+    "menu": {
+      "sha256": "b614ee99347bfbb242312e0809417d17630bdabedc023c62336f553e00ad0100",
+      "decoded_seconds": 72.0,
+      "sample_rate": 44100,
+      "channels": 2,
+      "decoded_peak_dbfs": -7.999,
+      "decoded_rms_dbfs": -21.982,
+      "integrated_lufs": -20.09,
+      "true_peak_dbtp": -8.0,
+      "loudness_range_lu": 0.8,
+      "dc_offset_max": 4.816e-05,
+      "loop_metrics": {
+        "first_to_last_sample_delta": 0.00247983,
+        "adjacent_sample_delta_p99": 0.01425876,
+        "boundary_to_p99_step_ratio": 0.174,
+        "first_20ms_rms_dbfs": -21.416,
+        "last_20ms_rms_dbfs": -23.651,
+        "edge_rms_difference_db": 2.235,
+        "flag_for_focused_listening": false,
+        "interpretation": "Diagnostics for listening priority; neither a seamless-loop claim nor an audible pass."
+      }
+    },
+    "exploration": {
+      "sha256": "b232b9d46ec7b98dd43333812068416dfab54cb8376f5eda3ad9655379b1c80e",
+      "decoded_seconds": 96.0,
+      "sample_rate": 44100,
+      "channels": 2,
+      "decoded_peak_dbfs": -7.032,
+      "decoded_rms_dbfs": -20.403,
+      "integrated_lufs": -18.8,
+      "true_peak_dbtp": -7.03,
+      "loudness_range_lu": 2.6,
+      "dc_offset_max": 2.03e-06,
+      "loop_metrics": {
+        "first_to_last_sample_delta": 0.00756458,
+        "adjacent_sample_delta_p99": 0.01366535,
+        "boundary_to_p99_step_ratio": 0.554,
+        "first_20ms_rms_dbfs": -21.838,
+        "last_20ms_rms_dbfs": -24.407,
+        "edge_rms_difference_db": 2.569,
+        "flag_for_focused_listening": false,
+        "interpretation": "Diagnostics for listening priority; neither a seamless-loop claim nor an audible pass."
+      }
+    },
+    "combat": {
+      "sha256": "e403fe03be5124c40e38189de4b307ce6b8468d585d3ef89a167728175658e1a",
+      "decoded_seconds": 96.0,
+      "sample_rate": 44100,
+      "channels": 2,
+      "decoded_peak_dbfs": -6.953,
+      "decoded_rms_dbfs": -20.205,
+      "integrated_lufs": -18.94,
+      "true_peak_dbtp": -6.95,
+      "loudness_range_lu": 4.0,
+      "dc_offset_max": 3.678e-05,
+      "loop_metrics": {
+        "first_to_last_sample_delta": 0.00300942,
+        "adjacent_sample_delta_p99": 0.02102797,
+        "boundary_to_p99_step_ratio": 0.143,
+        "first_20ms_rms_dbfs": -19.22,
+        "last_20ms_rms_dbfs": -25.042,
+        "edge_rms_difference_db": 5.822,
+        "flag_for_focused_listening": false,
+        "interpretation": "Diagnostics for listening priority; neither a seamless-loop claim nor an audible pass."
+      }
+    },
+    "danger": {
+      "sha256": "55924491774fc762199d554ac1657d25463a6824ca5806fa35e96d2bfa8094ef",
+      "decoded_seconds": 72.0,
+      "sample_rate": 44100,
+      "channels": 2,
+      "decoded_peak_dbfs": -9.979,
+      "decoded_rms_dbfs": -24.212,
+      "integrated_lufs": -22.75,
+      "true_peak_dbtp": -9.97,
+      "loudness_range_lu": 1.2,
+      "dc_offset_max": 1.009e-05,
+      "loop_metrics": {
+        "first_to_last_sample_delta": 0.00379393,
+        "adjacent_sample_delta_p99": 0.0084734,
+        "boundary_to_p99_step_ratio": 0.448,
+        "first_20ms_rms_dbfs": -20.001,
+        "last_20ms_rms_dbfs": -25.178,
+        "edge_rms_difference_db": 5.177,
+        "flag_for_focused_listening": false,
+        "interpretation": "Diagnostics for listening priority; neither a seamless-loop claim nor an audible pass."
+      }
+    },
+    "alice": {
+      "sha256": "1ea2ea2a3a42366cea734482af2014e14f685cb761085e9de74abc9b7fbbbbfe",
+      "decoded_seconds": 100.0,
+      "sample_rate": 44100,
+      "channels": 2,
+      "decoded_peak_dbfs": -7.961,
+      "decoded_rms_dbfs": -22.663,
+      "integrated_lufs": -20.52,
+      "true_peak_dbtp": -7.96,
+      "loudness_range_lu": 2.4,
+      "dc_offset_max": 2.931e-05,
+      "loop_metrics": {
+        "first_to_last_sample_delta": 0.00504005,
+        "adjacent_sample_delta_p99": 0.02222692,
+        "boundary_to_p99_step_ratio": 0.227,
+        "first_20ms_rms_dbfs": -25.869,
+        "last_20ms_rms_dbfs": -26.502,
+        "edge_rms_difference_db": 0.633,
+        "flag_for_focused_listening": false,
+        "interpretation": "Diagnostics for listening priority; neither a seamless-loop claim nor an audible pass."
+      }
+    },
+    "ending": {
+      "sha256": "b1658f0a41a301e9f77f4d4c323b1bf3e38f209c7368d03f100ef93ac5758e5e",
+      "decoded_seconds": 80.0,
+      "sample_rate": 44100,
+      "channels": 2,
+      "decoded_peak_dbfs": -7.989,
+      "decoded_rms_dbfs": -21.968,
+      "integrated_lufs": -19.93,
+      "true_peak_dbtp": -7.99,
+      "loudness_range_lu": 1.1,
+      "dc_offset_max": 6.152e-05,
+      "loop_metrics": {
+        "first_to_last_sample_delta": 0.01001202,
+        "adjacent_sample_delta_p99": 0.01644898,
+        "boundary_to_p99_step_ratio": 0.609,
+        "first_20ms_rms_dbfs": -21.829,
+        "last_20ms_rms_dbfs": -23.396,
+        "edge_rms_difference_db": 1.567,
+        "flag_for_focused_listening": false,
+        "interpretation": "Diagnostics for listening priority; neither a seamless-loop claim nor an audible pass."
+      }
+    }
+  },
+  "sfx": {
+    "step": {
+      "sha256": "bd613c49c9ccb0bdffb4464202ed506c3d57302b5d71a8a6926840b142f4757d",
+      "duration_seconds": 0.18,
+      "sample_rate": 44100,
+      "channels": 1,
+      "bits": 16,
+      "peak_dbfs": -16.001,
+      "rms_dbfs": -24.963,
+      "preserved_m1_bytes": true
+    },
+    "step_lowgrav": {
+      "sha256": "260648a2bc080c0aecdac55ac4d75d1d08b4a2054f135c02e533e3f6e2fa3940",
+      "duration_seconds": 0.32,
+      "sample_rate": 44100,
+      "channels": 1,
+      "bits": 16,
+      "peak_dbfs": -16.001,
+      "rms_dbfs": -23.004,
+      "preserved_m1_bytes": true
+    },
+    "door": {
+      "sha256": "1e096ff6a359b1f1ec9aef4d7a83744ed2bac7764aa2d945538814587054952e",
+      "duration_seconds": 0.85,
+      "sample_rate": 44100,
+      "channels": 1,
+      "bits": 16,
+      "peak_dbfs": -16.001,
+      "rms_dbfs": -28.174,
+      "preserved_m1_bytes": true
+    },
+    "lock": {
+      "sha256": "c22f12cc522b586d5c38106f72ebaa1a9e7a539768c3d1118c50ad1e4cb1f8f0",
+      "duration_seconds": 0.28,
+      "sample_rate": 44100,
+      "channels": 1,
+      "bits": 16,
+      "peak_dbfs": -16.001,
+      "rms_dbfs": -27.278,
+      "preserved_m1_bytes": true
+    },
+    "pickup": {
+      "sha256": "385aa0e6f5c33382aec430eb7159b2f4f99eda8ad08eb6c82d3b1f90466e62cf",
+      "duration_seconds": 0.55,
+      "sample_rate": 44100,
+      "channels": 1,
+      "bits": 16,
+      "peak_dbfs": -18.001,
+      "rms_dbfs": -29.679,
+      "preserved_m1_bytes": true
+    },
+    "oxygen_refill": {
+      "sha256": "1d6c315b3f4eafb60adad31e4ab1c237f14db6e36ede799f7711054425bec0cd",
+      "duration_seconds": 1.55,
+      "sample_rate": 44100,
+      "channels": 1,
+      "bits": 16,
+      "peak_dbfs": -16.001,
+      "rms_dbfs": -31.499,
+      "preserved_m1_bytes": true
+    },
+    "switch": {
+      "sha256": "7b8ee059604f722d98bba50e2e84f6a97b2b486cc320a0a86ec0148c4eb76fd1",
+      "duration_seconds": 0.2,
+      "sample_rate": 44100,
+      "channels": 1,
+      "bits": 16,
+      "peak_dbfs": -16.001,
+      "rms_dbfs": -28.443,
+      "preserved_m1_bytes": true
+    },
+    "hatch": {
+      "sha256": "5409b925e3d2dc23c629762773f49b5459b60400a52485d42f636296d6d4ac86",
+      "duration_seconds": 1.0,
+      "sample_rate": 44100,
+      "channels": 1,
+      "bits": 16,
+      "peak_dbfs": -12.001,
+      "rms_dbfs": -22.589,
+      "preserved_m1_bytes": true
+    },
+    "warning": {
+      "sha256": "4de1e63128b3005231681dc1977f7d64e95a47bf428dc70434a09773217831b6",
+      "duration_seconds": 0.8,
+      "sample_rate": 44100,
+      "channels": 1,
+      "bits": 16,
+      "peak_dbfs": -17.001,
+      "rms_dbfs": -24.448,
+      "preserved_m1_bytes": true
+    },
+    "gun": {
+      "sha256": "8dc61228831a79b092bbdb4c2ba4b4d5da62f9c7476df09c20e4d285b309eb54",
+      "duration_seconds": 0.4,
+      "sample_rate": 44100,
+      "channels": 1,
+      "bits": 16,
+      "peak_dbfs": -9.0,
+      "rms_dbfs": -28.056,
+      "preserved_m1_bytes": true
+    },
+    "impact": {
+      "sha256": "da69fe454de2eb9358c693e0461311ca8b76733ecaee8cfb4c712447e1403426",
+      "duration_seconds": 0.35,
+      "sample_rate": 44100,
+      "channels": 1,
+      "bits": 16,
+      "peak_dbfs": -12.001,
+      "rms_dbfs": -33.041,
+      "preserved_m1_bytes": true
+    },
+    "ui": {
+      "sha256": "e89a984107cf3f1b51b860046618e60279c4be1c3442d9e0c86bdf5393b30708",
+      "duration_seconds": 0.14,
+      "sample_rate": 44100,
+      "channels": 1,
+      "bits": 16,
+      "peak_dbfs": -22.003,
+      "rms_dbfs": -31.332,
+      "preserved_m1_bytes": true
+    },
+    "terminal": {
+      "sha256": "afaffe7d3c406afd5b8a0d8cdfd55154e8375abeebcef2cadbafb5136ff58d8d",
+      "duration_seconds": 0.64,
+      "sample_rate": 44100,
+      "channels": 1,
+      "bits": 16,
+      "peak_dbfs": -19.001,
+      "rms_dbfs": -28.165,
+      "preserved_m1_bytes": true
+    },
+    "robot_step": {
+      "sha256": "b30741202e93b06c2d3671e58d468c870a2b5d4e76642eb5d7793716b4dac10e",
+      "duration_seconds": 0.33,
+      "sample_rate": 44100,
+      "channels": 1,
+      "bits": 16,
+      "peak_dbfs": -16.001,
+      "rms_dbfs": -32.557,
+      "preserved_m1_bytes": true
+    },
+    "alarm": {
+      "sha256": "7f2299f15edb931e5509abe281571d5f567e84d7548052e186d5887e95f5ffe3",
+      "duration_seconds": 1.4,
+      "sample_rate": 44100,
+      "channels": 1,
+      "bits": 16,
+      "peak_dbfs": -17.001,
+      "rms_dbfs": -21.102,
+      "preserved_m1_bytes": true
+    },
+    "medicine": {
+      "sha256": "62e277edfe8449d5bb0c4e310910f718ae7c0974e41a07edbe92320178ca7fa2",
+      "duration_seconds": 0.72,
+      "sample_rate": 44100,
+      "channels": 1,
+      "bits": 16,
+      "peak_dbfs": -18.001,
+      "rms_dbfs": -31.914,
+      "preserved_m1_bytes": true
+    },
+    "melee": {
+      "sha256": "6490f035423d975380b3552faf6a5664a06664c061c6c214ad9b127e88201b34",
+      "duration_seconds": 0.48,
+      "sample_rate": 44100,
+      "channels": 1,
+      "bits": 16,
+      "peak_dbfs": -12.001,
+      "rms_dbfs": -27.681,
+      "preserved_m1_bytes": false
+    },
+    "rover": {
+      "sha256": "8ffc14dfaa32cfc248c48a5370ed814c50fc56a028e6d3c36b420931eff9a9cb",
+      "duration_seconds": 2.2,
+      "sample_rate": 44100,
+      "channels": 1,
+      "bits": 16,
+      "peak_dbfs": -14.001,
+      "rms_dbfs": -28.612,
+      "preserved_m1_bytes": false
+    },
+    "explosion": {
+      "sha256": "507022794273e68ee49e83c281f62075747a70ec33474073526c3bafe61b2037",
+      "duration_seconds": 1.8,
+      "sample_rate": 44100,
+      "channels": 1,
+      "bits": 16,
+      "peak_dbfs": -8.001,
+      "rms_dbfs": -27.256,
+      "preserved_m1_bytes": false
+    },
+    "death": {
+      "sha256": "f82d96a079e9f3e7af832c72929e63cc8a539e94424e015fbe979d37175f2989",
+      "duration_seconds": 2.8,
+      "sample_rate": 44100,
+      "channels": 1,
+      "bits": 16,
+      "peak_dbfs": -17.001,
+      "rms_dbfs": -26.057,
+      "preserved_m1_bytes": false
+    },
+    "victory": {
+      "sha256": "523a0b376a0f72276a3f581458575ba4c26fc0179bf2defc2eb7dfabbb8c0890",
+      "duration_seconds": 3.0,
+      "sample_rate": 44100,
+      "channels": 1,
+      "bits": 16,
+      "peak_dbfs": -14.001,
+      "rms_dbfs": -26.874,
+      "preserved_m1_bytes": false
+    },
+    "hack": {
+      "sha256": "feb2f14a313caf26c390b490211ba986e15ecfa072d0769d8a166a215c6ea00e",
+      "duration_seconds": 1.05,
+      "sample_rate": 44100,
+      "channels": 1,
+      "bits": 16,
+      "peak_dbfs": -18.001,
+      "rms_dbfs": -28.018,
+      "preserved_m1_bytes": false
+    },
+    "breath": {
+      "sha256": "9461640c3fdc31dfe89ec2d7872cf6f2539a3c767b1685c09bb308ad6da64ba6",
+      "duration_seconds": 2.4,
+      "sample_rate": 44100,
+      "channels": 1,
+      "bits": 16,
+      "peak_dbfs": -23.003,
+      "rms_dbfs": -38.82,
+      "preserved_m1_bytes": false
+    },
+    "pulse": {
+      "sha256": "0e7bf711f7ed5aabc770c1a655a796d51714db8e64f37ef20709d055566068e3",
+      "duration_seconds": 0.9,
+      "sample_rate": 44100,
+      "channels": 1,
+      "bits": 16,
+      "peak_dbfs": -22.003,
+      "rms_dbfs": -37.987,
+      "preserved_m1_bytes": false
+    },
+    "hallucination": {
+      "sha256": "9391907ffa5fa9836d901378da78936426cc3536322bc19d32710c857c726e63",
+      "duration_seconds": 1.9,
+      "sample_rate": 44100,
+      "channels": 1,
+      "bits": 16,
+      "peak_dbfs": -23.003,
+      "rms_dbfs": -33.72,
+      "preserved_m1_bytes": false
+    },
+    "error": {
+      "sha256": "51db4866d65ebb8e1afde6aa2a5aa392bbce6d400dfed43f74e35a0076e15d1e",
+      "duration_seconds": 0.3,
+      "sample_rate": 44100,
+      "channels": 1,
+      "bits": 16,
+      "peak_dbfs": -20.002,
+      "rms_dbfs": -28.545,
+      "preserved_m1_bytes": false
+    },
+    "confirm": {
+      "sha256": "b60102a7174ea4eca25af15871519e27ac01265e7083d4459d4a94ea479b1b2f",
+      "duration_seconds": 0.42,
+      "sample_rate": 44100,
+      "channels": 1,
+      "bits": 16,
+      "peak_dbfs": -21.001,
+      "rms_dbfs": -31.53,
+      "preserved_m1_bytes": false
+    },
+    "drop": {
+      "sha256": "1815c18421e77359df0feadc2c09e4e6d7dc6ca5f1ea8b107e3d4181c5947620",
+      "duration_seconds": 0.58,
+      "sample_rate": 44100,
+      "channels": 1,
+      "bits": 16,
+      "peak_dbfs": -17.001,
+      "rms_dbfs": -29.512,
+      "preserved_m1_bytes": false
+    }
+  },
+  "result": "PASS export validation; actual listening/runtime acceptance remains open"
+}

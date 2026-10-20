@@ -1,9 +1,14 @@
 {
-  "task": "M1-MEDIA",
-  "status": "authored exports; integration/listening acceptance pending",
+  "task": "M5-AUDIO",
+  "status": "six authored score roles and 28 effects; audible/runtime acceptance open",
   "source": "tools/media/compose_audio.py",
   "seed": 2115,
-  "provenance": "Original waveform/noise synthesis and authored notes/arrangement. No legacy or external audio samples.",
+  "provenance": "Original oscillator/noise synthesis, editable note/beat/harmony/arrangement tables. No legacy/external recordings, samples, soundfonts or generative-audio service.",
+  "format": {
+    "music": "OGG/Vorbis quality5, 44.1kHz stereo",
+    "effects": "PCM16 WAV, 44.1kHz mono"
+  },
+  "identity": "D-A-C-E signal interval family; relative-major epilogue. Each role has its own harmony/form/orchestration and independent source RNG.",
   "music": {
     "exploration": {
       "title": "Signal Through Steel",
@@ -11,18 +16,119 @@
       "bpm": 80,
       "bars": 32,
       "beats_per_bar": 4,
-      "key_center": "D minor / suspended A",
       "channels": 2,
       "sample_rate": 44100,
       "loop": true,
       "loop_start_seconds": 0,
-      "loop_end_seconds": 96,
-      "arrangement": "Four eight-bar orchestrations: sparse beacon, harmonic clock, restrained industrial pulse, lower-register return. Circular reflections retain boundary tails.",
+      "loop_end_seconds": 96.0,
+      "arrangement": "Four eight-bar orchestrations: sparse beacon, harmonic clock, restrained industrial pulse, lower-register return.",
       "duration_seconds": 96.0,
       "peak_dbfs": -7.0,
       "rms_dbfs": -20.39,
       "boundary_sample_delta": 0.0064316,
-      "acceptance": "Export checks only; actual game decoding, looping, mix and artistic listening require integration review."
+      "source_float_sha256": "560655185c01a65cf8f101041f5174e041f33ca9f70c8a4823de9f0cbca44730",
+      "sha256": "b232b9d46ec7b98dd43333812068416dfab54cb8376f5eda3ad9655379b1c80e",
+      "acceptance": "Authored/export-validated only; actual playback/loop/mix and artistic listening remain root acceptance."
+    },
+    "menu": {
+      "title": "The Signal Before Departure",
+      "path": "assets/audio/music/menu.ogg",
+      "bpm": 80,
+      "bars": 24,
+      "beats_per_bar": 4,
+      "channels": 2,
+      "sample_rate": 44100,
+      "loop": true,
+      "loop_start_seconds": 0,
+      "loop_end_seconds": 72.0,
+      "arrangement": "Three eight-bar statements: beacon theme, interlocking signal, lower-register departure. Bell melody, warm strings and sparse clock.",
+      "duration_seconds": 72.0,
+      "peak_dbfs": -8.0,
+      "rms_dbfs": -21.98,
+      "boundary_sample_delta": 0.001504,
+      "source_float_sha256": "0a337108ab222dba57eb1956b15c42afd9250a2432034243558940e35a40e2fc",
+      "sha256": "b614ee99347bfbb242312e0809417d17630bdabedc023c62336f553e00ad0100",
+      "acceptance": "Authored/export-validated only; actual playback/loop/mix and artistic listening remain root acceptance."
+    },
+    "combat": {
+      "title": "Steel Against the Breach",
+      "path": "assets/audio/music/combat.ogg",
+      "bpm": 120,
+      "bars": 48,
+      "beats_per_bar": 4,
+      "channels": 2,
+      "sample_rate": 44100,
+      "loop": true,
+      "loop_start_seconds": 0,
+      "loop_end_seconds": 96.0,
+      "arrangement": "Six eight-bar sections: pulse, theme, pressure, percussion-light bridge, upper theme, return. Syncopated bass, metallic percussion and short brass-like lead.",
+      "duration_seconds": 96.0,
+      "peak_dbfs": -7.0,
+      "rms_dbfs": -20.2,
+      "boundary_sample_delta": 0.0023564,
+      "source_float_sha256": "15200583fa4edd7013d3d12b19d04e7aea04ab9fbe47f6d55c3c5321b3c43c2e",
+      "sha256": "e403fe03be5124c40e38189de4b307ce6b8468d585d3ef89a167728175658e1a",
+      "acceptance": "Authored/export-validated only; actual playback/loop/mix and artistic listening remain root acceptance."
+    },
+    "danger": {
+      "title": "Air Between Heartbeats",
+      "path": "assets/audio/music/danger.ogg",
+      "bpm": 80,
+      "bars": 24,
+      "beats_per_bar": 4,
+      "channels": 2,
+      "sample_rate": 44100,
+      "loop": true,
+      "loop_start_seconds": 0,
+      "loop_end_seconds": 72.0,
+      "arrangement": "Three eight-bar warning bands: exposed paired pulse, narrowing upper response, restrained critical return. Breath-like noise swells and dissonant low strings leave actual alerts distinct.",
+      "duration_seconds": 72.0,
+      "peak_dbfs": -10.0,
+      "rms_dbfs": -24.21,
+      "boundary_sample_delta": 0.0013492,
+      "source_float_sha256": "cc62062824b55164a5be67ef997c9c37b51e18fca59e82b5f1793d421d46e8f4",
+      "sha256": "55924491774fc762199d554ac1657d25463a6824ca5806fa35e96d2bfa8094ef",
+      "acceptance": "Authored/export-validated only; actual playback/loop/mix and artistic listening remain root acceptance."
+    },
+    "alice": {
+      "title": "A Choice Freely Made",
+      "path": "assets/audio/music/alice.ogg",
+      "bpm": 96,
+      "bars": 40,
+      "beats_per_bar": 4,
+      "channels": 2,
+      "sample_rate": 44100,
+      "loop": true,
+      "loop_start_seconds": 0,
+      "loop_end_seconds": 100.0,
+      "arrangement": "Five eight-bar paragraphs: ethical question, gentle answer, lower-register reflection, expanded finale development, quiet chosen return. Expressive synthesized reed/glass over strings; no voice samples.",
+      "duration_seconds": 100.0,
+      "peak_dbfs": -8.0,
+      "rms_dbfs": -22.66,
+      "boundary_sample_delta": 0.0051365,
+      "source_float_sha256": "b77d9801b964a275cbddd103077ee5315724026e68e6e5bb05a0086d9fad3a4c",
+      "sha256": "1ea2ea2a3a42366cea734482af2014e14f685cb761085e9de74abc9b7fbbbbfe",
+      "acceptance": "Authored/export-validated only; actual playback/loop/mix and artistic listening remain root acceptance."
+    },
+    "ending": {
+      "title": "Toward the Red Dawn",
+      "path": "assets/audio/music/ending.ogg",
+      "bpm": 96,
+      "bars": 32,
+      "beats_per_bar": 4,
+      "channels": 2,
+      "sample_rate": 44100,
+      "loop": true,
+      "loop_start_seconds": 0,
+      "loop_end_seconds": 80.0,
+      "arrangement": "Four eight-bar epilogue sections: open relative-major horizon, answering counterline, fuller resolution, quiet credits return. Related interval identity resolves without a generic victory fanfare.",
+      "duration_seconds": 80.0,
+      "peak_dbfs": -8.0,
+      "rms_dbfs": -21.97,
+      "boundary_sample_delta": 0.0074259,
+      "source_float_sha256": "142e4aa5d6f36f310d520f36297e8d7bf55bfe00bad88e0422c4db58e89e0697",
+      "sha256": "b1658f0a41a301e9f77f4d4c323b1bf3e38f209c7368d03f100ef93ac5758e5e",
+      "acceptance": "Authored/export-validated only; actual playback/loop/mix and artistic listening remain root acceptance."
     }
   },
   "sfx": {
@@ -33,7 +139,8 @@
       "channels": 1,
       "sample_rate": 44100,
       "path": "assets/audio/sfx/step.wav",
-      "purpose": "Human boot on metal deck; one per accepted footfall."
+      "purpose": "Human boot on metal deck; one per accepted footfall.",
+      "sha256": "bd613c49c9ccb0bdffb4464202ed506c3d57302b5d71a8a6926840b142f4757d"
     },
     "step_lowgrav": {
       "duration_seconds": 0.32,
@@ -42,7 +149,8 @@
       "channels": 1,
       "sample_rate": 44100,
       "path": "assets/audio/sfx/step_lowgrav.wav",
-      "purpose": "Extended magnetic-boot release in low gravity."
+      "purpose": "Extended magnetic-boot release in low gravity.",
+      "sha256": "260648a2bc080c0aecdac55ac4d75d1d08b4a2054f135c02e533e3f6e2fa3940"
     },
     "door": {
       "duration_seconds": 0.85,
@@ -51,7 +159,8 @@
       "channels": 1,
       "sample_rate": 44100,
       "path": "assets/audio/sfx/door.wav",
-      "purpose": "Bulkhead slide motor; one cue per state transition."
+      "purpose": "Bulkhead slide motor; one cue per state transition.",
+      "sha256": "1e096ff6a359b1f1ec9aef4d7a83744ed2bac7764aa2d945538814587054952e"
     },
     "lock": {
       "duration_seconds": 0.28,
@@ -60,7 +169,8 @@
       "channels": 1,
       "sample_rate": 44100,
       "path": "assets/audio/sfx/lock.wav",
-      "purpose": "Latch refusal, distinct from successful switch."
+      "purpose": "Latch refusal, distinct from successful switch.",
+      "sha256": "c22f12cc522b586d5c38106f72ebaa1a9e7a539768c3d1118c50ad1e4cb1f8f0"
     },
     "pickup": {
       "duration_seconds": 0.55,
@@ -69,7 +179,8 @@
       "channels": 1,
       "sample_rate": 44100,
       "path": "assets/audio/sfx/pickup.wav",
-      "purpose": "Two-note acquisition confirmation."
+      "purpose": "Two-note acquisition confirmation.",
+      "sha256": "385aa0e6f5c33382aec430eb7159b2f4f99eda8ad08eb6c82d3b1f90466e62cf"
     },
     "oxygen_refill": {
       "duration_seconds": 1.55,
@@ -78,7 +189,8 @@
       "channels": 1,
       "sample_rate": 44100,
       "path": "assets/audio/sfx/oxygen_refill.wav",
-      "purpose": "Valve hiss and pressure rise on actual refill."
+      "purpose": "Valve hiss and pressure rise on actual refill.",
+      "sha256": "1d6c315b3f4eafb60adad31e4ab1c237f14db6e36ede799f7711054425bec0cd"
     },
     "switch": {
       "duration_seconds": 0.2,
@@ -87,7 +199,8 @@
       "channels": 1,
       "sample_rate": 44100,
       "path": "assets/audio/sfx/switch.wav",
-      "purpose": "Relay click and successful power-up chirp."
+      "purpose": "Relay click and successful power-up chirp.",
+      "sha256": "7b8ee059604f722d98bba50e2e84f6a97b2b486cc320a0a86ec0148c4eb76fd1"
     },
     "hatch": {
       "duration_seconds": 1.0,
@@ -96,7 +209,8 @@
       "channels": 1,
       "sample_rate": 44100,
       "path": "assets/audio/sfx/hatch.wav",
-      "purpose": "Heavy docking latch and powered hatch movement."
+      "purpose": "Heavy docking latch and powered hatch movement.",
+      "sha256": "5409b925e3d2dc23c629762773f49b5459b60400a52485d42f636296d6d4ac86"
     },
     "warning": {
       "duration_seconds": 0.8,
@@ -105,7 +219,8 @@
       "channels": 1,
       "sample_rate": 44100,
       "path": "assets/audio/sfx/warning.wav",
-      "purpose": "Oxygen warning; rate-limit playback."
+      "purpose": "Oxygen warning; rate-limit playback.",
+      "sha256": "4de1e63128b3005231681dc1977f7d64e95a47bf428dc70434a09773217831b6"
     },
     "gun": {
       "duration_seconds": 0.4,
@@ -114,7 +229,8 @@
       "channels": 1,
       "sample_rate": 44100,
       "path": "assets/audio/sfx/gun.wav",
-      "purpose": "Battery-gun impulse with low recoil body."
+      "purpose": "Battery-gun impulse with low recoil body.",
+      "sha256": "8dc61228831a79b092bbdb4c2ba4b4d5da62f9c7476df09c20e4d285b309eb54"
     },
     "impact": {
       "duration_seconds": 0.35,
@@ -123,7 +239,8 @@
       "channels": 1,
       "sample_rate": 44100,
       "path": "assets/audio/sfx/impact.wav",
-      "purpose": "Metal strike and short ringing tail."
+      "purpose": "Metal strike and short ringing tail.",
+      "sha256": "da69fe454de2eb9358c693e0461311ca8b76733ecaee8cfb4c712447e1403426"
     },
     "ui": {
       "duration_seconds": 0.14,
@@ -132,7 +249,8 @@
       "channels": 1,
       "sample_rate": 44100,
       "path": "assets/audio/sfx/ui.wav",
-      "purpose": "Quiet navigation or confirmation blip."
+      "purpose": "Quiet navigation or confirmation blip.",
+      "sha256": "e89a984107cf3f1b51b860046618e60279c4be1c3442d9e0c86bdf5393b30708"
     },
     "terminal": {
       "duration_seconds": 0.64,
@@ -141,7 +259,8 @@
       "channels": 1,
       "sample_rate": 44100,
       "path": "assets/audio/sfx/terminal.wav",
-      "purpose": "Successful data handshake."
+      "purpose": "Successful data handshake.",
+      "sha256": "afaffe7d3c406afd5b8a0d8cdfd55154e8375abeebcef2cadbafb5136ff58d8d"
     },
     "robot_step": {
       "duration_seconds": 0.33,
@@ -150,7 +269,8 @@
       "channels": 1,
       "sample_rate": 44100,
       "path": "assets/audio/sfx/robot_step.wav",
-      "purpose": "Heavy servomotor footfall distinct from a human."
+      "purpose": "Heavy servomotor footfall distinct from a human.",
+      "sha256": "b30741202e93b06c2d3671e58d468c870a2b5d4e76642eb5d7793716b4dac10e"
     },
     "alarm": {
       "duration_seconds": 1.4,
@@ -159,7 +279,8 @@
       "channels": 1,
       "sample_rate": 44100,
       "path": "assets/audio/sfx/alarm.wav",
-      "purpose": "Bounded security alarm rise/fall."
+      "purpose": "Bounded security alarm rise/fall.",
+      "sha256": "7f2299f15edb931e5509abe281571d5f567e84d7548052e186d5887e95f5ffe3"
     },
     "medicine": {
       "duration_seconds": 0.72,
@@ -168,12 +289,185 @@
       "channels": 1,
       "sample_rate": 44100,
       "path": "assets/audio/sfx/medicine.wav",
-      "purpose": "Medicine identification confirmation."
+      "purpose": "Medicine identification confirmation.",
+      "sha256": "62e277edfe8449d5bb0c4e310910f718ae7c0974e41a07edbe92320178ca7fa2"
+    },
+    "melee": {
+      "duration_seconds": 0.48,
+      "peak_dbfs": -12.0,
+      "rms_dbfs": -27.68,
+      "channels": 1,
+      "sample_rate": 44100,
+      "path": "assets/audio/sfx/melee.wav",
+      "purpose": "Melee swing followed by a short contact body.",
+      "sha256": "6490f035423d975380b3552faf6a5664a06664c061c6c214ad9b127e88201b34"
+    },
+    "rover": {
+      "duration_seconds": 2.2,
+      "peak_dbfs": -14.0,
+      "rms_dbfs": -28.61,
+      "channels": 1,
+      "sample_rate": 44100,
+      "path": "assets/audio/sfx/rover.wav",
+      "purpose": "Real armed ROVER: mechanical movement and accelerating pitched countdown; play on armed threat, not every render or hallucination.",
+      "sha256": "8ffc14dfaa32cfc248c48a5370ed814c50fc56a028e6d3c36b420931eff9a9cb"
+    },
+    "explosion": {
+      "duration_seconds": 1.8,
+      "peak_dbfs": -8.0,
+      "rms_dbfs": -27.25,
+      "channels": 1,
+      "sample_rate": 44100,
+      "path": "assets/audio/sfx/explosion.wav",
+      "purpose": "Broadband robotic explosion with low pressure tail.",
+      "sha256": "507022794273e68ee49e83c281f62075747a70ec33474073526c3bafe61b2037"
+    },
+    "death": {
+      "duration_seconds": 2.8,
+      "peak_dbfs": -17.0,
+      "rms_dbfs": -26.05,
+      "channels": 1,
+      "sample_rate": 44100,
+      "path": "assets/audio/sfx/death.wav",
+      "purpose": "Descending broken signal on actual player death.",
+      "sha256": "f82d96a079e9f3e7af832c72929e63cc8a539e94424e015fbe979d37175f2989"
+    },
+    "victory": {
+      "duration_seconds": 3.0,
+      "peak_dbfs": -14.0,
+      "rms_dbfs": -26.87,
+      "channels": 1,
+      "sample_rate": 44100,
+      "path": "assets/audio/sfx/victory.wav",
+      "purpose": "Authored warm resolution sting for a legitimately completed objective/ending.",
+      "sha256": "523a0b376a0f72276a3f581458575ba4c26fc0179bf2defc2eb7dfabbb8c0890"
+    },
+    "hack": {
+      "duration_seconds": 1.05,
+      "peak_dbfs": -18.0,
+      "rms_dbfs": -28.02,
+      "channels": 1,
+      "sample_rate": 44100,
+      "path": "assets/audio/sfx/hack.wav",
+      "purpose": "Ascending data-lock sequence for an accepted successful hack.",
+      "sha256": "feb2f14a313caf26c390b490211ba986e15ecfa072d0769d8a166a215c6ea00e"
+    },
+    "breath": {
+      "duration_seconds": 2.4,
+      "peak_dbfs": -23.0,
+      "rms_dbfs": -38.81,
+      "channels": 1,
+      "sample_rate": 44100,
+      "path": "assets/audio/sfx/breath.wav",
+      "purpose": "Synthesized inhale/exhale air texture for oxygen strain; no voice samples.",
+      "sha256": "9461640c3fdc31dfe89ec2d7872cf6f2539a3c767b1685c09bb308ad6da64ba6"
+    },
+    "pulse": {
+      "duration_seconds": 0.9,
+      "peak_dbfs": -22.0,
+      "rms_dbfs": -37.98,
+      "channels": 1,
+      "sample_rate": 44100,
+      "path": "assets/audio/sfx/pulse.wav",
+      "purpose": "Paired subdued heartbeat for physiological strain.",
+      "sha256": "0e7bf711f7ed5aabc770c1a655a796d51714db8e64f37ef20709d055566068e3"
+    },
+    "hallucination": {
+      "duration_seconds": 1.9,
+      "peak_dbfs": -23.0,
+      "rms_dbfs": -33.72,
+      "channels": 1,
+      "sample_rate": 44100,
+      "path": "assets/audio/sfx/hallucination.wav",
+      "purpose": "Airy detuned phantom glass wash; deliberately no mechanical countdown or impact ticks.",
+      "sha256": "9391907ffa5fa9836d901378da78936426cc3536322bc19d32710c857c726e63"
+    },
+    "error": {
+      "duration_seconds": 0.3,
+      "peak_dbfs": -20.0,
+      "rms_dbfs": -28.54,
+      "channels": 1,
+      "sample_rate": 44100,
+      "path": "assets/audio/sfx/error.wav",
+      "purpose": "Short descending refusal/error, distinct from successful confirmation.",
+      "sha256": "51db4866d65ebb8e1afde6aa2a5aa392bbce6d400dfed43f74e35a0076e15d1e"
+    },
+    "confirm": {
+      "duration_seconds": 0.42,
+      "peak_dbfs": -21.0,
+      "rms_dbfs": -31.53,
+      "channels": 1,
+      "sample_rate": 44100,
+      "path": "assets/audio/sfx/confirm.wav",
+      "purpose": "Two-note affirmative menu/dialogue action.",
+      "sha256": "b60102a7174ea4eca25af15871519e27ac01265e7083d4459d4a94ea479b1b2f"
+    },
+    "drop": {
+      "duration_seconds": 0.58,
+      "peak_dbfs": -17.0,
+      "rms_dbfs": -29.51,
+      "channels": 1,
+      "sample_rate": 44100,
+      "path": "assets/audio/sfx/drop.wav",
+      "purpose": "Descending two-clink object release.",
+      "sha256": "1815c18421e77359df0feadc2c09e4e6d7dc6ca5f1ea8b107e3d4181c5947620"
     }
   },
+  "preservation": {
+    "exploration_sha256": "b232b9d46ec7b98dd43333812068416dfab54cb8376f5eda3ad9655379b1c80e",
+    "existing_m1_sfx_sha256": {
+      "step": "bd613c49c9ccb0bdffb4464202ed506c3d57302b5d71a8a6926840b142f4757d",
+      "step_lowgrav": "260648a2bc080c0aecdac55ac4d75d1d08b4a2054f135c02e533e3f6e2fa3940",
+      "door": "1e096ff6a359b1f1ec9aef4d7a83744ed2bac7764aa2d945538814587054952e",
+      "lock": "c22f12cc522b586d5c38106f72ebaa1a9e7a539768c3d1118c50ad1e4cb1f8f0",
+      "pickup": "385aa0e6f5c33382aec430eb7159b2f4f99eda8ad08eb6c82d3b1f90466e62cf",
+      "oxygen_refill": "1d6c315b3f4eafb60adad31e4ab1c237f14db6e36ede799f7711054425bec0cd",
+      "switch": "7b8ee059604f722d98bba50e2e84f6a97b2b486cc320a0a86ec0148c4eb76fd1",
+      "hatch": "5409b925e3d2dc23c629762773f49b5459b60400a52485d42f636296d6d4ac86",
+      "warning": "4de1e63128b3005231681dc1977f7d64e95a47bf428dc70434a09773217831b6",
+      "gun": "8dc61228831a79b092bbdb4c2ba4b4d5da62f9c7476df09c20e4d285b309eb54",
+      "impact": "da69fe454de2eb9358c693e0461311ca8b76733ecaee8cfb4c712447e1403426",
+      "ui": "e89a984107cf3f1b51b860046618e60279c4be1c3442d9e0c86bdf5393b30708",
+      "terminal": "afaffe7d3c406afd5b8a0d8cdfd55154e8375abeebcef2cadbafb5136ff58d8d",
+      "robot_step": "b30741202e93b06c2d3671e58d468c870a2b5d4e76642eb5d7793716b4dac10e",
+      "alarm": "7f2299f15edb931e5509abe281571d5f567e84d7548052e186d5887e95f5ffe3",
+      "medicine": "62e277edfe8449d5bb0c4e310910f718ae7c0974e41a07edbe92320178ca7fa2"
+    }
+  },
+  "repeatability": {
+    "performed": true,
+    "result": "PASS",
+    "music_sources": 6,
+    "ogg_exports": 6,
+    "wav_exports": 28,
+    "comparison": "Independent second synthesis/bitexact encoding in the same pinned environment; every source and final-file SHA256 matched."
+  },
+  "recommended_mix": {
+    "units": "proposed linear relative gains within the corresponding user-controlled bus; not applied by this task",
+    "music_role_gains": {
+      "menu": 0.65,
+      "exploration": 0.48,
+      "combat": 0.42,
+      "danger": 0.5,
+      "alice": 0.58,
+      "ending": 0.6
+    },
+    "sfx_groups": {
+      "human_steps": 0.55,
+      "mechanisms": 0.7,
+      "gun_melee_impacts": 0.8,
+      "rover_countdown": 0.8,
+      "oxygen_alerts": 0.72,
+      "ui": 0.55,
+      "breath_pulse_phantom": 0.45
+    },
+    "contrast": "Crossfade music roles rather than stack complete scores. Danger supplies low paired pulse/air tension; true ROVER uses mechanical accelerating ticks, phantom uses airy glass with no countdown. Dialogue/critical cues should remain intelligible.",
+    "mix_acceptance": "Starting proposals only; root must check user sliders, simultaneous cues, backend voices, loop transitions and actual listening."
+  },
   "limitations": [
-    "One exploration cue of the eventual six soundtrack roles.",
-    "16 effects of the eventual 25+ library; no recorded voices.",
-    "No integrated runtime or audible-quality acceptance is claimed."
+    "Six soundtrack roles and 28 purposeful effects are authored exports, not audible or final-game acceptance.",
+    "ROVER and hallucination are deliberately distinguishable source cues; logical event mapping and truth/perception scheduling remain lead-owned.",
+    "A.L.I.C.E. cue includes both character/ethical-question and fuller finale development; scene timing/crossfades require actual campaign integration.",
+    "Directional/attack/death art and sector dressing are outside this audio task."
   ]
 }
