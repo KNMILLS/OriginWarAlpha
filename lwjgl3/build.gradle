@@ -1,0 +1,20 @@
+apply plugin: 'application'
+application { mainClass = 'io.zipcoder.originwar.desktop.DesktopLauncher' }
+dependencies {
+    implementation project(':core')
+    implementation "com.badlogicgames.gdx:gdx:$gdxVersion"
+    implementation "com.badlogicgames.gdx:gdx-backend-lwjgl3:$gdxVersion"
+    runtimeOnly "com.badlogicgames.gdx:gdx-platform:$gdxVersion:natives-desktop"
+}
+sourceSets.main.resources.srcDirs = [rootProject.file('assets')]
+run { workingDir rootProject.projectDir }
+tasks.register('packageWindows', Exec) {
+    dependsOn installDist
+    def imageDir = layout.buildDirectory.dir('windows-image')
+    doFirst { if (imageDir.get().asFile.exists()) throw new GradleException('Package output already exists; select a fresh build directory before repackaging.') }
+    executable = new File(System.getProperty('java.home'), 'bin/jpackage.exe')
+    args '--type','app-image','--name','OriginWar','--app-version',project.version,
+        '--input',layout.buildDirectory.dir('install/lwjgl3/lib').get().asFile,
+        '--main-jar',"lwjgl3-${project.version}.jar",'--main-class',application.mainClass.get(),
+        '--dest',imageDir.get().asFile,'--vendor','Origin War'
+}

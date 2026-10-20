@@ -1,11 +1,5 @@
-apply plugin: "java"
-
-sourceCompatibility = 1.7
-[compileJava, compileTestJava]*.options*.encoding = 'UTF-8'
-
-sourceSets.main.java.srcDirs = [ "src/" ]
-
-
-eclipse.project {
-    name = appName + "-core"
+dependencies {
+    implementation "com.github.yellowstonegames.squidsquad:squidgrid:$squidVersion"
+    implementation "com.github.yellowstonegames.squidsquad:squidplace:$squidVersion"
+    implementation "com.github.yellowstonegames.squidsquad:squidpath:$squidVersion"
 }

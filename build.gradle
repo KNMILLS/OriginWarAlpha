@@ -1,67 +1,16 @@
-buildscript {
-    repositories {
-        mavenCentral()
-        maven { url "https://oss.sonatype.org/content/repositories/snapshots/" }
-    }
-    dependencies {
-    }
-}
-
 allprojects {
-    apply plugin: "eclipse"
-    apply plugin: "idea"
-
-    version = '1.0'
-    ext {
-        appName = "originwaralpha"
-        squidlibVersion = '3.0.0-b6'
-        gdxVersion = '1.9.3'
-        roboVMVersion = '1.12.0'
-        box2DLightsVersion = '1.4'
-        ashleyVersion = '1.7.0'
-        aiVersion = '1.8.0'
-        regexodusVersion = '0.1.5'
-    }
-
-    repositories {
-        mavenCentral()
-        maven { url "https://jitpack.io" }
-        maven { url "https://oss.sonatype.org/content/repositories/snapshots/" }
-        maven { url "https://oss.sonatype.org/content/repositories/releases/" }
-    }
+    group = 'io.zipcoder.originwar'
+    version = '0.1.0'
+    repositories { mavenCentral(); maven { url = uri('https://jitpack.io') } }
 }
-
-project(":desktop") {
-    apply plugin: "java"
-
+subprojects {
+    apply plugin: 'java'
+    java { toolchain { languageVersion = JavaLanguageVersion.of(21) } }
+    tasks.withType(JavaCompile).configureEach { options.encoding = 'UTF-8' }
     dependencies {
-        compile project(":core")
-        compile "com.badlogicgames.gdx:gdx-backend-lwjgl:$gdxVersion"
-        compile "com.badlogicgames.gdx:gdx-platform:$gdxVersion:natives-desktop"
-        compile "com.badlogicgames.gdx:gdx-freetype-platform:$gdxVersion:natives-desktop"
-        compile "com.badlogicgames.gdx:gdx-tools:$gdxVersion"
-        compile "com.badlogicgames.gdx:gdx-box2d-platform:$gdxVersion:natives-desktop"
-        testCompile 'junit:junit:4.12'
+        testImplementation platform('org.junit:junit-bom:5.12.2')
+        testImplementation 'org.junit.jupiter:junit-jupiter'
+        testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
     }
-}
-
-project(":core") {
-    apply plugin: "java"
-
-    dependencies {
-        compile "com.squidpony:squidlib:$squidlibVersion"
-        compile "com.badlogicgames.gdx:gdx:$gdxVersion"
-        compile "com.squidpony:squidlib-util:$squidlibVersion"
-        compile "com.github.tommyettinger:regexodus:$regexodusVersion"
-        compile "com.badlogicgames.gdx:gdx-freetype:$gdxVersion"
-        compile "com.badlogicgames.ashley:ashley:$ashleyVersion"
-        compile "com.badlogicgames.gdx:gdx-ai:$aiVersion"
-        compile "com.badlogicgames.box2dlights:box2dlights:$box2DLightsVersion"
-        compile "com.badlogicgames.gdx:gdx-box2d:$gdxVersion"
-        testCompile 'junit:junit:4.12'
-    }
-}
-
-tasks.eclipse.doLast {
-    delete ".project"
+    test { useJUnitPlatform(); testLogging { events 'failed', 'skipped' } }
 }
