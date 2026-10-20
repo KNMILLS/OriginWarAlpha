@@ -27,7 +27,7 @@ public final class GameState {
     public HashSet<String> flags = new HashSet<>(), identifiedMedicine = new HashSet<>();
     public HashMap<String,String> medicineEffects = new HashMap<>();
 
-    public enum ActorKind { SIRS, ADD, ROVER, TURRET, OPERATOR, CONSTRUCTOR, ALICE, WEST, CARMACK, SURVIVOR }
+    public enum ActorKind { SIRS, ADD, ROVER, CAMERA, TURRET, OPERATOR, CONSTRUCTOR, ALICE, WEST, CARMACK, SURVIVOR }
     public static final class Actor {
         public String id = "";
         public ActorKind kind = ActorKind.SIRS;
