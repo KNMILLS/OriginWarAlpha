@@ -4,8 +4,8 @@ One lead, at most two bounded workers. Status: planned -> ready -> in progress -
 
 | ID | Goal / requirements | Depends | Owner / files / branch | Acceptance | State / evidence |
 | --- | --- | --- | --- | --- | --- |
-| M0 | Preserve original; modern build/launch; OW-10 | none | lead; build/model/docs/runtime bootstrap; integration branch | restored archives, tests, actual desktop capture, push hash | in progress; LEGACY_ARCHIVE.md |
-| M1 | Generated oxygen/switch/hatch loop and AV sample; OW-01/02/10 | M0 | lead; bounded engine/media workers after contracts | production seed tests, real input/gameplay, original art/music/SFX | ready |
+| M0 | Preserve original; modern build/launch; OW-10 | none | lead; build/model/docs/runtime bootstrap; integration branch | restored archives, tests, actual desktop capture, push hash | bootstrap verified at 3717330, CI PASS; archive branch GH007 exception |
+| M1 | Generated oxygen/switch/hatch loop and AV sample; OW-01/02/10 | M0 | lead; M1-ENGINE codex/m1-engine ../worktrees/engine; M1-MEDIA codex/m1-media ../worktrees/media | production seed tests, real input/gameplay, original art/music/SFX | in progress; save/storage boundary verified, engine/media pending |
 | M2 | RPG/combat/items/robots/routes; OW-03/04/05 | M1 | unassigned | deterministic combat, all inputs and distinct tactics | planned |
 | M3 | Actual hypoxia effects/recovery; OW-09 | M1 | unassigned | normal/warning/critical captures, no truth mutation | planned |
 | M4 | Complete campaign and both Constructor routes; OW-06/07/08 | M2/M3 | unassigned | new-game-to-credits runs, both routes, saves | planned |
