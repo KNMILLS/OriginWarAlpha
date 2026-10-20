@@ -1,0 +1,179 @@
+{
+  "task": "M1-MEDIA",
+  "status": "authored exports; integration/listening acceptance pending",
+  "source": "tools/media/compose_audio.py",
+  "seed": 2115,
+  "provenance": "Original waveform/noise synthesis and authored notes/arrangement. No legacy or external audio samples.",
+  "music": {
+    "exploration": {
+      "title": "Signal Through Steel",
+      "path": "assets/audio/music/exploration.ogg",
+      "bpm": 80,
+      "bars": 32,
+      "beats_per_bar": 4,
+      "key_center": "D minor / suspended A",
+      "channels": 2,
+      "sample_rate": 44100,
+      "loop": true,
+      "loop_start_seconds": 0,
+      "loop_end_seconds": 96,
+      "arrangement": "Four eight-bar orchestrations: sparse beacon, harmonic clock, restrained industrial pulse, lower-register return. Circular reflections retain boundary tails.",
+      "duration_seconds": 96.0,
+      "peak_dbfs": -7.0,
+      "rms_dbfs": -20.39,
+      "boundary_sample_delta": 0.0064316,
+      "acceptance": "Export checks only; actual game decoding, looping, mix and artistic listening require integration review."
+    }
+  },
+  "sfx": {
+    "step": {
+      "duration_seconds": 0.18,
+      "peak_dbfs": -16.0,
+      "rms_dbfs": -24.96,
+      "channels": 1,
+      "sample_rate": 44100,
+      "path": "assets/audio/sfx/step.wav",
+      "purpose": "Human boot on metal deck; one per accepted footfall."
+    },
+    "step_lowgrav": {
+      "duration_seconds": 0.32,
+      "peak_dbfs": -16.0,
+      "rms_dbfs": -23.0,
+      "channels": 1,
+      "sample_rate": 44100,
+      "path": "assets/audio/sfx/step_lowgrav.wav",
+      "purpose": "Extended magnetic-boot release in low gravity."
+    },
+    "door": {
+      "duration_seconds": 0.85,
+      "peak_dbfs": -16.0,
+      "rms_dbfs": -28.17,
+      "channels": 1,
+      "sample_rate": 44100,
+      "path": "assets/audio/sfx/door.wav",
+      "purpose": "Bulkhead slide motor; one cue per state transition."
+    },
+    "lock": {
+      "duration_seconds": 0.28,
+      "peak_dbfs": -16.0,
+      "rms_dbfs": -27.28,
+      "channels": 1,
+      "sample_rate": 44100,
+      "path": "assets/audio/sfx/lock.wav",
+      "purpose": "Latch refusal, distinct from successful switch."
+    },
+    "pickup": {
+      "duration_seconds": 0.55,
+      "peak_dbfs": -18.0,
+      "rms_dbfs": -29.68,
+      "channels": 1,
+      "sample_rate": 44100,
+      "path": "assets/audio/sfx/pickup.wav",
+      "purpose": "Two-note acquisition confirmation."
+    },
+    "oxygen_refill": {
+      "duration_seconds": 1.55,
+      "peak_dbfs": -16.0,
+      "rms_dbfs": -31.5,
+      "channels": 1,
+      "sample_rate": 44100,
+      "path": "assets/audio/sfx/oxygen_refill.wav",
+      "purpose": "Valve hiss and pressure rise on actual refill."
+    },
+    "switch": {
+      "duration_seconds": 0.2,
+      "peak_dbfs": -16.0,
+      "rms_dbfs": -28.44,
+      "channels": 1,
+      "sample_rate": 44100,
+      "path": "assets/audio/sfx/switch.wav",
+      "purpose": "Relay click and successful power-up chirp."
+    },
+    "hatch": {
+      "duration_seconds": 1.0,
+      "peak_dbfs": -12.0,
+      "rms_dbfs": -22.59,
+      "channels": 1,
+      "sample_rate": 44100,
+      "path": "assets/audio/sfx/hatch.wav",
+      "purpose": "Heavy docking latch and powered hatch movement."
+    },
+    "warning": {
+      "duration_seconds": 0.8,
+      "peak_dbfs": -17.0,
+      "rms_dbfs": -24.45,
+      "channels": 1,
+      "sample_rate": 44100,
+      "path": "assets/audio/sfx/warning.wav",
+      "purpose": "Oxygen warning; rate-limit playback."
+    },
+    "gun": {
+      "duration_seconds": 0.4,
+      "peak_dbfs": -9.0,
+      "rms_dbfs": -28.05,
+      "channels": 1,
+      "sample_rate": 44100,
+      "path": "assets/audio/sfx/gun.wav",
+      "purpose": "Battery-gun impulse with low recoil body."
+    },
+    "impact": {
+      "duration_seconds": 0.35,
+      "peak_dbfs": -12.0,
+      "rms_dbfs": -33.04,
+      "channels": 1,
+      "sample_rate": 44100,
+      "path": "assets/audio/sfx/impact.wav",
+      "purpose": "Metal strike and short ringing tail."
+    },
+    "ui": {
+      "duration_seconds": 0.14,
+      "peak_dbfs": -22.0,
+      "rms_dbfs": -31.33,
+      "channels": 1,
+      "sample_rate": 44100,
+      "path": "assets/audio/sfx/ui.wav",
+      "purpose": "Quiet navigation or confirmation blip."
+    },
+    "terminal": {
+      "duration_seconds": 0.64,
+      "peak_dbfs": -19.0,
+      "rms_dbfs": -28.16,
+      "channels": 1,
+      "sample_rate": 44100,
+      "path": "assets/audio/sfx/terminal.wav",
+      "purpose": "Successful data handshake."
+    },
+    "robot_step": {
+      "duration_seconds": 0.33,
+      "peak_dbfs": -16.0,
+      "rms_dbfs": -32.55,
+      "channels": 1,
+      "sample_rate": 44100,
+      "path": "assets/audio/sfx/robot_step.wav",
+      "purpose": "Heavy servomotor footfall distinct from a human."
+    },
+    "alarm": {
+      "duration_seconds": 1.4,
+      "peak_dbfs": -17.0,
+      "rms_dbfs": -21.1,
+      "channels": 1,
+      "sample_rate": 44100,
+      "path": "assets/audio/sfx/alarm.wav",
+      "purpose": "Bounded security alarm rise/fall."
+    },
+    "medicine": {
+      "duration_seconds": 0.72,
+      "peak_dbfs": -18.0,
+      "rms_dbfs": -31.91,
+      "channels": 1,
+      "sample_rate": 44100,
+      "path": "assets/audio/sfx/medicine.wav",
+      "purpose": "Medicine identification confirmation."
+    }
+  },
+  "limitations": [
+    "One exploration cue of the eventual six soundtrack roles.",
+    "16 effects of the eventual 25+ library; no recorded voices.",
+    "No integrated runtime or audible-quality acceptance is claimed."
+  ]
+}

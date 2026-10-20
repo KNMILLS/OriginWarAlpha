@@ -1,0 +1,105 @@
+{
+  "scope": "file/header/decoded-level/loop-seam checks; no audible acceptance",
+  "sfx": {
+    "step": {
+      "sha256": "bd613c49c9ccb0bdffb4464202ed506c3d57302b5d71a8a6926840b142f4757d",
+      "samples": 7938,
+      "peak_dbfs": -16.0
+    },
+    "step_lowgrav": {
+      "sha256": "260648a2bc080c0aecdac55ac4d75d1d08b4a2054f135c02e533e3f6e2fa3940",
+      "samples": 14112,
+      "peak_dbfs": -16.0
+    },
+    "door": {
+      "sha256": "1e096ff6a359b1f1ec9aef4d7a83744ed2bac7764aa2d945538814587054952e",
+      "samples": 37485,
+      "peak_dbfs": -16.0
+    },
+    "lock": {
+      "sha256": "c22f12cc522b586d5c38106f72ebaa1a9e7a539768c3d1118c50ad1e4cb1f8f0",
+      "samples": 12348,
+      "peak_dbfs": -16.0
+    },
+    "pickup": {
+      "sha256": "385aa0e6f5c33382aec430eb7159b2f4f99eda8ad08eb6c82d3b1f90466e62cf",
+      "samples": 24255,
+      "peak_dbfs": -18.0
+    },
+    "oxygen_refill": {
+      "sha256": "1d6c315b3f4eafb60adad31e4ab1c237f14db6e36ede799f7711054425bec0cd",
+      "samples": 68355,
+      "peak_dbfs": -16.0
+    },
+    "switch": {
+      "sha256": "7b8ee059604f722d98bba50e2e84f6a97b2b486cc320a0a86ec0148c4eb76fd1",
+      "samples": 8820,
+      "peak_dbfs": -16.0
+    },
+    "hatch": {
+      "sha256": "5409b925e3d2dc23c629762773f49b5459b60400a52485d42f636296d6d4ac86",
+      "samples": 44100,
+      "peak_dbfs": -12.0
+    },
+    "warning": {
+      "sha256": "4de1e63128b3005231681dc1977f7d64e95a47bf428dc70434a09773217831b6",
+      "samples": 35280,
+      "peak_dbfs": -17.0
+    },
+    "gun": {
+      "sha256": "8dc61228831a79b092bbdb4c2ba4b4d5da62f9c7476df09c20e4d285b309eb54",
+      "samples": 17640,
+      "peak_dbfs": -9.0
+    },
+    "impact": {
+      "sha256": "da69fe454de2eb9358c693e0461311ca8b76733ecaee8cfb4c712447e1403426",
+      "samples": 15435,
+      "peak_dbfs": -12.0
+    },
+    "ui": {
+      "sha256": "e89a984107cf3f1b51b860046618e60279c4be1c3442d9e0c86bdf5393b30708",
+      "samples": 6174,
+      "peak_dbfs": -22.0
+    },
+    "terminal": {
+      "sha256": "afaffe7d3c406afd5b8a0d8cdfd55154e8375abeebcef2cadbafb5136ff58d8d",
+      "samples": 28224,
+      "peak_dbfs": -19.0
+    },
+    "robot_step": {
+      "sha256": "b30741202e93b06c2d3671e58d468c870a2b5d4e76642eb5d7793716b4dac10e",
+      "samples": 14553,
+      "peak_dbfs": -16.0
+    },
+    "alarm": {
+      "sha256": "7f2299f15edb931e5509abe281571d5f567e84d7548052e186d5887e95f5ffe3",
+      "samples": 61740,
+      "peak_dbfs": -17.0
+    },
+    "medicine": {
+      "sha256": "62e277edfe8449d5bb0c4e310910f718ae7c0974e41a07edbe92320178ca7fa2",
+      "samples": 31752,
+      "peak_dbfs": -18.0
+    }
+  },
+  "music": {
+    "sha256": "b232b9d46ec7b98dd43333812068416dfab54cb8376f5eda3ad9655379b1c80e",
+    "decoded_seconds": 96.0,
+    "decoded_peak_dbfs": -7.03,
+    "decoded_rms_dbfs": -20.4,
+    "boundary_delta": 0.0075646
+  },
+  "atlas": {
+    "sha256": "4c256eb65f22457d3ffa6591fd124982f76b54b6f5706f3a5d8899b8d5d78794",
+    "size": [
+      1024,
+      1024
+    ],
+    "slots": 64,
+    "occupied_slots": 63,
+    "transparent_blank_slot": true,
+    "isolated_alpha_cutoff": 32,
+    "native_nearest_neighbor_scale": 4,
+    "distinct_walk_frames_per_group": 4
+  }
+}
