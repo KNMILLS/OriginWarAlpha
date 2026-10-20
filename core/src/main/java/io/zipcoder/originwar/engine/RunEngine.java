@@ -60,6 +60,7 @@ public final class RunEngine {
             return new TurnResult(true, 0, List.of(new GameEvent("scan", state.playerX, state.playerY,
                     "Reserve " + state.reserve + "/" + state.maxReserve + "; oxygenation " + state.oxygenation + "; HP " + state.hp)));
         if (!state.activeDialogue.isEmpty()) return TurnResult.rejected();
+        if (action.type() == PlayerAction.Type.ALLOCATE) return allocate(action.id());
         if (atFinalHatch(action)) {
             String objective = "Command deck: locate Carmack and A.L.I.C.E.; the escape systems remain locked.";
             if (state.flags.add("command-deck-objective")) {
@@ -78,10 +79,15 @@ public final class RunEngine {
             case PICKUP -> pickup(action.id(), events);
             case USE -> use(action.id(), events);
             case DROP -> drop(action.id(), events);
+            case EQUIP -> equip(action.id(), events);
+            case SHOOT -> CombatRules.shoot(state, action.x(), action.y(), events);
+            case MELEE -> CombatRules.melee(state, action.x(), action.y(), events);
+            case HACK -> hack(action.x(), action.y(), events);
+            case FORCE -> force(action.x(), action.y(), events);
             default -> 0;
         };
         if (cost == 0) return TurnResult.rejected();
-        for (int i = 0; i < cost && !state.dead; i++) tick(events);
+        for (int i = 0; i < cost && (i == 0 || !state.dead); i++) tick(events);
         // Depart only after surviving the transition tick. Death cannot generate/loot an unseen next deck.
         if (transitioning && !state.dead) {
             state.deck++;
@@ -90,7 +96,8 @@ public final class RunEngine {
         }
         Visibility.refresh(state);
         for (GameEvent event : events) {
-            if (!event.type().equals("step")) state.log.add(event.detail());
+            if (!event.type().equals("step") && !event.type().equals("robot_step")
+                    && !(event.type().equals("rover") && event.detail().endsWith(" moves."))) state.log.add(event.detail());
         }
         while (state.log.size() > 60) state.log.removeFirst();
         return new TurnResult(true, cost, events);
@@ -112,6 +119,8 @@ public final class RunEngine {
         int x = state.playerX + dx, y = state.playerY + dy;
         if (!GridRoutes.inside(state, x, y)) return 0;
         Tile tile = state.tiles[x][y];
+        var target = CombatRules.at(state, x, y);
+        if (target != null && !EnemyTurns.disabled(state, target)) return CombatRules.melee(state, x, y, events);
         if (tile == Tile.DOOR_CLOSED) {
             state.tiles[x][y] = Tile.DOOR_OPEN;
             events.add(new GameEvent("door", x, y, "Opened the bulkhead."));
@@ -121,11 +130,13 @@ public final class RunEngine {
         state.playerX = x; state.playerY = y;
         state.facing = dx > 0 ? 1 : dy > 0 ? 2 : dx < 0 ? 3 : 0;
         events.add(new GameEvent("step", x, y, tile.name()));
+        EnemyTurns.hear(state, x, y, tile.cost > 1 ? 4 : 2);
         return tile.cost;
     }
 
     private boolean occupied(int x, int y) {
-        return state.actors.stream().anyMatch(a -> !a.dead && a.hp > 0 && a.kind != GameState.ActorKind.ALICE && a.x == x && a.y == y);
+        return state.actors.stream().anyMatch(a -> CombatRules.alive(a) && CombatRules.hostile(a)
+                && !EnemyTurns.disabled(state, a) && a.x == x && a.y == y);
     }
 
     private int interact(int x, int y, List<GameEvent> events) {
@@ -167,6 +178,7 @@ public final class RunEngine {
                 return 1;
             }
             case TERMINAL -> {
+                if (MedicineRules.identifyOne(state, events)) return 1;
                 String flag = "terminal-d" + state.deck;
                 if (state.flags.contains(flag)) return 0;
                 state.flags.add(flag);
@@ -181,6 +193,7 @@ public final class RunEngine {
 
     private int prepareAdvance() {
         if (!state.switchOn || state.playerX != state.hatchX || state.playerY != state.hatchY || state.deck >= LAST_DECK) return 0;
+        if (state.deck == 8 && !state.flags.contains("constructor-defeated")) return 0;
         return 1;
     }
 
@@ -197,9 +210,19 @@ public final class RunEngine {
     }
 
     private int use(String id, List<GameEvent> events) {
-        var item = state.inventory.stream().filter(i -> i.type == GameState.ItemType.OXYGEN && i.power > 0 && i.quantity > 0
-                && (id == null || id.isEmpty() || id.equals(i.id))).findFirst().orElse(null);
-        if (item == null || state.reserve >= state.maxReserve) return 0;
+        boolean oxygenShortcut = id == null || id.isEmpty();
+        var item = state.inventory.stream().filter(i -> i.quantity > 0 && (oxygenShortcut
+                ? i.type == GameState.ItemType.OXYGEN && i.power > 0 : id.equals(i.id))).findFirst().orElse(null);
+        if (item == null) return 0;
+        if (item.type == GameState.ItemType.MEDICINE) return MedicineRules.use(state, item, events);
+        if (item.type == GameState.ItemType.CELL) {
+            if (state.batteries >= 10000 || item.power <= 0) return 0;
+            state.batteries = Math.min(10000, state.batteries + item.power);
+            if (--item.quantity == 0) state.inventory.remove(item);
+            events.add(new GameEvent("pickup", state.playerX, state.playerY, "Loaded " + item.power + " battery cells."));
+            return 1;
+        }
+        if (item.type != GameState.ItemType.OXYGEN || item.power <= 0 || state.reserve >= state.maxReserve) return 0;
         int added = (int)Math.min((long)state.maxReserve - state.reserve, item.power);
         state.reserve += added;
         if (--item.quantity == 0) state.inventory.remove(item);
@@ -210,6 +233,8 @@ public final class RunEngine {
     private int drop(String id, List<GameEvent> events) {
         var item = state.inventory.stream().filter(i -> id != null && id.equals(i.id)).findFirst().orElse(null);
         if (item == null) return 0;
+        if (state.flags.remove("equipped-weapon:" + item.id)) state.weapon = "pistol";
+        if (state.flags.remove("equipped-armor:" + item.id)) state.armor = "suit";
         state.inventory.remove(item);
         item.x = state.playerX; item.y = state.playerY;
         state.floorItems.add(item);
@@ -219,6 +244,7 @@ public final class RunEngine {
 
     private void tick(List<GameEvent> events) {
         state.tick++;
+        if (state.dead) return;
         int previousReserve = state.reserve, previousOxygenation = state.oxygenation;
         if (state.reserve > 0) {
             state.reserve--;
@@ -227,7 +253,11 @@ public final class RunEngine {
             state.oxygenation = Math.max(0, state.oxygenation - OXYGENATION_LOSS);
             if (state.oxygenation == 0) state.hp = Math.max(0, state.hp - SUFFOCATION_DAMAGE);
         }
-        if (state.poisonTicks > 0) { state.poisonTicks--; state.hp = Math.max(0, state.hp - 1); }
+        if (state.poisonTicks > 0) {
+            state.poisonTicks--;
+            if (state.hp > 0) state.hp = Math.max(state.flags.contains(MedicineRules.TOXIN_FLAG) ? 1 : 0, state.hp - 1);
+            if (state.poisonTicks == 0) state.flags.remove(MedicineRules.TOXIN_FLAG);
+        }
         if (previousReserve > LOW_RESERVE && state.reserve <= LOW_RESERVE)
             events.add(new GameEvent("warning", state.playerX, state.playerY, "Oxygen reserve low. Use a finite oxygen tank."));
         if (previousReserve > 0 && state.reserve == 0)
@@ -236,17 +266,109 @@ public final class RunEngine {
             events.add(new GameEvent("warning", state.playerX, state.playerY, "Hypoxia warning. Refill oxygen now."));
         if (previousOxygenation > 30 && state.oxygenation <= 30)
             events.add(new GameEvent("warning", state.playerX, state.playerY, "Critical oxygenation."));
-        if (state.hp == 0) {
+        if (state.hp == 0 && !state.dead) {
             state.dead = true;
             events.add(new GameEvent("death", state.playerX, state.playerY, "Life signs lost. The expedition has ended."));
         }
+        if (!state.dead) EnemyTurns.advance(state, events);
+    }
+
+    private TurnResult allocate(String id) {
+        if (state.attributePoints <= 0 || id == null) return TurnResult.rejected();
+        switch (id) {
+            case "str" -> { if (state.str >= 50) return TurnResult.rejected(); state.str++; }
+            case "int" -> { if (state.intel >= 50) return TurnResult.rejected(); state.intel++; }
+            case "dex" -> { if (state.dex >= 50) return TurnResult.rejected(); state.dex++; }
+            default -> { return TurnResult.rejected(); }
+        }
+        state.attributePoints--;
+        return new TurnResult(true, 0, List.of(new GameEvent("level", state.playerX, state.playerY, id.toUpperCase(java.util.Locale.ROOT) + " increased.")));
+    }
+
+    private int equip(String id, List<GameEvent> events) {
+        var item = state.inventory.stream().filter(i -> i.id.equals(id)).findFirst().orElse(null);
+        if (item == null) return 0;
+        String weapon = EquipmentRules.weaponId(item.type), armor = EquipmentRules.armorId(item.type);
+        if (!weapon.isEmpty()) {
+            if (weapon.equals(state.weapon)) return 0;
+            state.weapon = weapon;
+            state.flags.removeIf(f -> f.startsWith("equipped-weapon:")); state.flags.add("equipped-weapon:" + id);
+        } else if (!armor.isEmpty()) {
+            if (armor.equals(state.armor)) return 0;
+            state.armor = armor;
+            state.flags.removeIf(f -> f.startsWith("equipped-armor:")); state.flags.add("equipped-armor:" + id);
+        } else return 0;
+        events.add(new GameEvent("pickup", state.playerX, state.playerY, "Equipped " + item.name + "."));
+        return 1;
+    }
+
+    private int[] interactionTarget(int x, int y, boolean hacking) {
+        if (x != 0 || y != 0) return new int[]{x, y};
+        if (hacking && state.tiles[state.playerX][state.playerY] == Tile.TERMINAL) return new int[]{state.playerX, state.playerY};
+        for (int[] direction : GridRoutes.DIRECTIONS) {
+            int nx = state.playerX + direction[0], ny = state.playerY + direction[1];
+            if (GridRoutes.inside(state, nx, ny) && (state.tiles[nx][ny] == Tile.LOCKED_DOOR
+                    || (hacking && (state.tiles[nx][ny] == Tile.TERMINAL || CombatRules.at(state, nx, ny) != null))))
+                return new int[]{nx, ny};
+        }
+        return new int[]{-1, -1};
+    }
+
+    private int force(int x, int y, List<GameEvent> events) {
+        int[] target = interactionTarget(x, y, false); x = target[0]; y = target[1];
+        if (!GridRoutes.inside(state, x, y) || CombatRules.distance(x, y, state.playerX, state.playerY) != 1
+                || state.tiles[x][y] != Tile.LOCKED_DOOR) return 0;
+        state.tiles[x][y] = Tile.DOOR_OPEN;
+        EnemyTurns.hear(state, x, y, 9);
+        events.add(new GameEvent("door", x, y, "Forced the locked bulkhead. STR reduces the effort and oxygen cost."));
+        return Math.max(1, 7 - state.str);
+    }
+
+    private int hack(int x, int y, List<GameEvent> events) {
+        int[] target = interactionTarget(x, y, true); x = target[0]; y = target[1];
+        if (!GridRoutes.inside(state, x, y)) return 0;
+        int distance = CombatRules.distance(x, y, state.playerX, state.playerY);
+        if (state.tiles[x][y] == Tile.LOCKED_DOOR) {
+            if (distance != 1 || state.intel < 5) return 0;
+            state.tiles[x][y] = Tile.DOOR_OPEN;
+            events.add(new GameEvent("hack", x, y, "INT security override opened the locked bulkhead."));
+            return 1;
+        }
+        if (state.tiles[x][y] == Tile.TERMINAL) {
+            if (distance > 1 || state.intel < 5 || !state.flags.add("security-hacked-d" + state.deck)) return 0;
+            state.switchOn = true;
+            for (var actor : state.actors) if (actor.kind == GameState.ActorKind.CAMERA || actor.kind == GameState.ActorKind.TURRET)
+                state.flags.add("disabled:" + actor.id);
+            MedicineRules.identifyOne(state, events);
+            events.add(new GameEvent("hack", x, y, "Terminal security compromised: hatch override enabled; cameras and turrets disabled."));
+            return 2;
+        }
+        var actor = CombatRules.at(state, x, y);
+        if (actor == null || distance > 5 || !state.visible[x][y]
+                || !CombatRules.clearLine(state, state.playerX, state.playerY, x, y, false) || EnemyTurns.disabled(state, actor)) return 0;
+        if (actor.kind == GameState.ActorKind.ROVER && state.intel >= 6 && !actor.redirected) {
+            if (state.actors.stream().anyMatch(a -> a.kind == GameState.ActorKind.CONSTRUCTOR && CombatRules.alive(a))) {
+                actor.redirected = true; actor.fuse = Math.max(24, actor.fuse);
+                events.add(new GameEvent("hack", x, y, "R.O.V.E.R. redirected to the Constructor. Stay clear of its blast."));
+            } else {
+                state.flags.add("disabled:" + actor.id); actor.fuse = -1;
+                events.add(new GameEvent("hack", x, y, "R.O.V.E.R. motor and detonator disabled."));
+            }
+            return 1;
+        }
+        if ((actor.kind == GameState.ActorKind.CAMERA || actor.kind == GameState.ActorKind.TURRET) && state.intel >= 5) {
+            state.flags.add("disabled:" + actor.id);
+            events.add(new GameEvent("hack", x, y, actor.kind + " disabled."));
+            return 1;
+        }
+        return 0;
     }
 
     public static void validateState(GameState s) {
         Objects.requireNonNull(s, "Saved state");
         if (s.schemaVersion != 1 || s.generationVersion != 1 || s.width < 5 || s.height < 5 || s.width > 256 || s.height > 256
-                || s.deck < 1 || s.deck > LAST_DECK || s.tick < 0 || s.hp < 0 || s.maxHp <= 0 || s.hp > s.maxHp
-                || s.maxReserve <= 0 || s.reserve < 0 || s.reserve > s.maxReserve || s.oxygenation < 0 || s.oxygenation > 100)
+                || s.deck < 1 || s.deck > LAST_DECK || s.tick < 0 || s.hp < 0 || s.maxHp <= 0 || s.maxHp > 1000 || s.hp > s.maxHp
+                || s.maxReserve <= 0 || s.maxReserve > 10000 || s.reserve < 0 || s.reserve > s.maxReserve || s.oxygenation < 0 || s.oxygenation > 100)
             throw new IllegalArgumentException("Invalid saved state bounds or version");
         if (s.tiles == null || s.visible == null || s.explored == null || s.light == null || s.tiles.length != s.width
                 || s.visible.length != s.width || s.explored.length != s.width || s.light.length != s.width)
@@ -265,18 +387,40 @@ public final class RunEngine {
                 || s.flags == null || s.identifiedMedicine == null || s.medicineEffects == null)
             throw new IllegalArgumentException("Invalid saved player, objectives or collections");
         if ((s.hp == 0) != s.dead) throw new IllegalArgumentException("Saved death state disagrees with HP");
-        if (s.inventory.size() > MAX_INVENTORY) throw new IllegalArgumentException("Saved inventory exceeds capacity");
+        if (s.str < 1 || s.str > 50 || s.intel < 1 || s.intel > 50 || s.dex < 1 || s.dex > 50
+                || s.level < 1 || s.level > 20 || s.xp < 0 || s.xp > 1000000 || s.attributePoints < 0 || s.attributePoints > 1000
+                || s.batteries < 0 || s.batteries > 10000 || s.poisonTicks < 0 || s.poisonTicks > 1000
+                || s.weapon == null || s.armor == null || !List.of("pistol", "rifle", "scattergun").contains(s.weapon)
+                || !List.of("suit", "light", "heavy").contains(s.armor)
+                || s.bossPhase == null || s.constructorRoute == null)
+            throw new IllegalArgumentException("Invalid saved RPG resources or equipment");
+        if (s.inventory.size() > MAX_INVENTORY || s.actors.size() > 512 || s.floorItems.size() > 512
+                || s.log.size() > 1000 || s.journal.size() > 1000) throw new IllegalArgumentException("Saved collection exceeds capacity");
+        for (var entry : s.medicineEffects.entrySet()) if (entry.getKey() == null || entry.getKey().isBlank()
+                || entry.getKey().length() > 200 || entry.getValue() == null || !MedicineRules.EFFECTS.contains(entry.getValue()))
+            throw new IllegalArgumentException("Invalid medicine identity mapping");
+        if (!s.medicineEffects.isEmpty() && !s.medicineEffects.containsValue("heal"))
+            throw new IllegalArgumentException("Medicine definitions lack the required medical supply");
+        if (!s.medicineEffects.keySet().containsAll(s.identifiedMedicine)) throw new IllegalArgumentException("Identified medicine has no mapping");
+        for (var flag : s.flags) if (flag == null || flag.length() > 4000) throw new IllegalArgumentException("Invalid saved flag");
         for (var item : s.inventory) validateItem(s, item, false);
         for (var item : s.floorItems) validateItem(s, item, true);
         var ids = new java.util.HashSet<String>();
         for (var item : s.inventory) if (!ids.add(item.id)) throw new IllegalArgumentException("Duplicate saved item identity");
         for (var item : s.floorItems) if (!ids.add(item.id)) throw new IllegalArgumentException("Duplicate saved item identity");
-        for (var actor : s.actors) if (actor == null || actor.kind == null || actor.id == null || !GridRoutes.inside(s, actor.x, actor.y))
+        ids.clear();
+        for (var actor : s.actors) if (actor == null || actor.kind == null || actor.id == null || actor.id.isBlank()
+                || !ids.add(actor.id) || !GridRoutes.inside(s, actor.x, actor.y) || s.tiles[actor.x][actor.y].blocksMovement
+                || actor.maxHp <= 0 || actor.hp < 0 || actor.hp > actor.maxHp || (actor.hp == 0) != actor.dead
+                || actor.fuse < -1 || actor.fuse > 10000)
             throw new IllegalArgumentException("Invalid saved actor");
     }
 
     private static void validateItem(GameState s, GameState.Item item, boolean floor) {
-        if (item == null || item.type == null || item.id == null || item.id.isEmpty() || item.name == null || item.quantity <= 0
+        if (item == null || item.type == null || item.id == null || item.id.isBlank() || item.id.length() > 200
+                || item.name == null || item.name.length() > 200 || item.quantity <= 0 || item.quantity > 10000
+                || ((item.type == GameState.ItemType.OXYGEN || item.type == GameState.ItemType.CELL) && (item.power <= 0 || item.power > 10000))
+                || (item.type == GameState.ItemType.MEDICINE && !s.medicineEffects.containsKey(item.name))
                 || (floor && (!GridRoutes.inside(s, item.x, item.y) || !GridRoutes.passable(s.tiles[item.x][item.y]))))
             throw new IllegalArgumentException("Invalid saved item");
     }

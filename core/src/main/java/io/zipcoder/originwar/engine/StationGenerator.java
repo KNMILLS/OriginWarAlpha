@@ -61,7 +61,10 @@ final class StationGenerator {
                 else if (roll < 5 + zone) s.tiles[x][y] = Tile.HAZARD;
             }
         }
+        RunContent.geometry(s, rng);
         s.tiles[start.x][start.y] = Tile.FLOOR;
+        // Geometry may install cover or a locked shortcut; optional supplies need actual open cells.
+        floors.removeIf(cell -> s.tiles[cell.x][cell.y].blocksMovement);
 
         // Supply the genuine required route, including door-opening and terrain time, not a second test map.
         var required = new ArrayList<Coord>();
@@ -83,6 +86,7 @@ final class StationGenerator {
             s.lootRng = DeterministicRandom.nextState(s.lootRng);
             addTank(s, floors.get(DeterministicRandom.bounded(s.lootRng, floors.size())), 120, supplied);
         }
+        RunContent.populate(s);
         if (!s.flags.contains("entered-deck-" + s.deck)) {
             s.flags.add("entered-deck-" + s.deck);
             s.journal.add("Deck " + s.deck + ": locate the security switch, then reach the exit hatch.");

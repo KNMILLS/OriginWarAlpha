@@ -29,7 +29,7 @@ class RunEngineTest {
         assertFalse(run.submit(PlayerAction.move(Integer.MIN_VALUE, 0)).accepted());
         assertFalse(run.submit(PlayerAction.move(0, 0)).accepted());
         assertFalse(run.submit(PlayerAction.move(-1, 0)).accepted());
-        assertFalse(run.submit(PlayerAction.of(SHOOT)).accepted());
+        assertFalse(run.submit(PlayerAction.at(SHOOT, -1, -1)).accepted());
         assertFalse(run.submit(PlayerAction.item(USE, "missing")).accepted());
         assertFalse(run.submit(PlayerAction.at(INTERACT, 8, 5)).accepted());
         assertFalse(run.submit(null).accepted());
@@ -293,10 +293,12 @@ class RunEngineTest {
         assertTrue(run.submit(PlayerAction.of(WAIT)).accepted());
     }
 
-    @Test void blockingActorsCollideButAliceDoesNot() {
+    @Test void hostileBumpsCommitMeleeButAliceDoesNotBlock() {
         var s = room(); var actor = new GameState.Actor(); actor.id = "robot"; actor.x = 2; actor.y = 2;
         s.actors.add(actor);
-        assertFalse(new RunEngine(s).submit(PlayerAction.move(1, 0)).accepted());
+        var hostile = new RunEngine(s);
+        assertTrue(hostile.submit(PlayerAction.move(1, 0)).accepted());
+        assertEquals(1, hostile.saveState().playerX);
         actor.kind = GameState.ActorKind.ALICE;
         assertTrue(new RunEngine(s).submit(PlayerAction.move(1, 0)).accepted());
     }
