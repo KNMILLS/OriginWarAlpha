@@ -1,0 +1,6 @@
+Use case: stylized-concept
+Asset type: Original Origin War top-down pixel-art escape/observation props, EXACT TWO equal square cells side by side, nominal1024x512 PNG, true transparent background.
+Reference supplies industrial steel/teal/amber art direction only. High top-down game camera, crisp illustrated pixel art intended native32px, complete props inside margins.
+LEFT CELL: a distinctive small human ESCAPE POD, ivory/steel capsule with dark cyan cockpit canopy and small amber thruster fixtures, compact docking cradle outline, readable pod silhouette, no human pilot visible, no floor/background, not a spaceship fighter.
+RIGHT CELL: a reinforced observation viewport/window frame, navy/steel/teal with bolts, clearly showing the warm red-orange PLANET MARS as a curved planetary horizon/disk against dark space INSIDE the glass. Alpha is opaque inside the window view and transparent outside the metal frame. No labels, text, logos or red-cross symbols.
+Both objects match Origin War's controlled industrial station palette, not fantasy or mecha. No gridlines/checkerboard/watermark, no full room/scene, no bleed between cells, no white background or tiny detached speckles.

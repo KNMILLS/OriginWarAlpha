@@ -1,0 +1,42 @@
+{
+  "task": "M5-ART finale addendum",
+  "status": "source/export visually inspected; ending-only epilogue integration acceptance pending",
+  "source": {
+    "path": "assets/art/finale/source/finale-generated.png",
+    "size": [
+      1774,
+      887
+    ],
+    "sha256": "f448a1fef0d12f26b6a6d7b9ead9d5a1129d5a77b26f37b7c9088d6f7e2aba85"
+  },
+  "prompt": "assets/art/finale/source/prompt.txt",
+  "export_source": "tools/media/pack_animation.py",
+  "runtime": {
+    "path": "assets/art/finale/finale.png",
+    "size": [
+      1024,
+      512
+    ],
+    "aspect": "2:1",
+    "mode": "RGB opaque",
+    "native": "assets/art/finale/finale-native.png",
+    "native_size": [
+      512,
+      256
+    ],
+    "nearest_scale": 2
+  },
+  "provenance": "Original OpenAI built-in image_gen illustration, using only original project escape-pod/Mars-window art as visual reference; no external artwork or legacy source media.",
+  "reference_sha256": "fe6ba3db5cc0252c5573b09d1db5326bf3d461b2a64d28fc694ab5c2a75572a6",
+  "content": "Mars horizon, one departing ivory/steel/cyan escape pod, distant orbital science station destructive burst/debris, dark upper-center space; no text/logos or extra story characters.",
+  "manual_review": [
+    "Mars/pod/station destruction read clearly and match the industrial palette.",
+    "No UI frame, atlas labels, people, extra craft, mech or invented colony is present.",
+    "Dark upper-center space remains available for the epilogue overlay; lead selected ending-only use so the title does not spoil the sacrifice."
+  ],
+  "limitations": [
+    "Static illustration, not an animated broadcast/destruction/pod sequence.",
+    "Actual overlay readability, event timing and audio remain root integration gates.",
+    "No runtime screenshot or canonical-ending acceptance is claimed."
+  ]
+}

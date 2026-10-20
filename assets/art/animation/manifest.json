@@ -1,0 +1,1906 @@
+{
+  "task": "M5-ART",
+  "status": "directional/action source and native export inspected; in-game acceptance pending",
+  "atlas": {
+    "path": "assets/art/animation/actors.png",
+    "native": "assets/art/animation/actors-native.png",
+    "columns": 8,
+    "rows": 8,
+    "cell_pixels": 128,
+    "native_cell_pixels": 32,
+    "nearest_scale": 4,
+    "alpha": "RGBA"
+  },
+  "layout": "Rows0-4 player/alice/sirs/add/rover; columns north2,east2,south2,west2. Row5 playerAttack2/playerDeath2/SIRSattack2/SIRSdeath2. Row6 ADDattack2/ADDdeath2/ROVERarmed2/ROVERexplosion2. Row7 camera2/turret2/operator2/Constructor2.",
+  "provenance": "Original OpenAI built-in image_gen production from recorded prompts and existing original project-generated actor references. No external artwork/pack or legacy media.",
+  "source_export": "tools/media/pack_animation.py",
+  "reference_station_sha256": "4c256eb65f22457d3ffa6591fd124982f76b54b6f5706f3a5d8899b8d5d78794",
+  "cleanup": "Normalize source cells; preserve source rasters; fixed per-pair scale/anchor; clear alpha below32 only on non-explosion isolated sprites. Explosion alpha retained.",
+  "first_failures": [
+    "Initial ALICE sheet had front-looking north and mixed side directions. Only its valid south pair is used; north/east/west were newly generated as focused pairs.",
+    "Initial ROVER north faced forward. Only its valid other directions are used; a new rear pair supplies north.",
+    "Initial machine sheet painted gray ground patches. Focused built-in image edit removed them; initial target remains preserved."
+  ],
+  "manual_review": [
+    "Cardinal facings and actual limb-phase differences inspected in source sheets.",
+    "Humans have two legs/arms; ROVER remains four-legged; ALICE has no attack/weapon frames.",
+    "Attack/death pairs show aim/recoil then collapse/prone/wreck; explosion phases differ in extent and debris.",
+    "Camera pan, turret discharge, operator steps and Constructor arms are distinct authored poses."
+  ],
+  "limitations": [
+    "Two-frame cycles/actions are compact and need in-engine cadence/motion review; death pairs are sequential states, not looping walks.",
+    "Attacks/deaths currently face south; four-direction attacks/deaths would require more slots and a separate contract.",
+    "No new West/Carmack directional set was requested; their existing station atlas sprites remain unchanged.",
+    "ROVER north rear service lamp remains amber; verify orientation clarity against the front optic at native scale.",
+    "View uses elevated illustrated top-down/three-quarter depth matching existing art, not a strict orthographic CAD plan.",
+    "No running-game, human acceptance, combat timing or final full-art completion is claimed."
+  ],
+  "slots": [
+    {
+      "id": 0,
+      "name": "player_north_0",
+      "column": 0,
+      "row": 0,
+      "source": "assets/art/animation/source/player.png",
+      "source_cell": 0,
+      "source_grid": [
+        4,
+        2
+      ],
+      "note": "Inspected four cardinal walk pairs.",
+      "source_bbox_on_128px_cell": [
+        36,
+        24,
+        99,
+        120
+      ],
+      "native_size": [
+        18,
+        28
+      ],
+      "anchor": [
+        16,
+        30
+      ],
+      "alpha_cutoff": 32
+    },
+    {
+      "id": 1,
+      "name": "player_north_1",
+      "column": 1,
+      "row": 0,
+      "source": "assets/art/animation/source/player.png",
+      "source_cell": 1,
+      "source_grid": [
+        4,
+        2
+      ],
+      "note": "Inspected four cardinal walk pairs.",
+      "source_bbox_on_128px_cell": [
+        28,
+        24,
+        92,
+        120
+      ],
+      "native_size": [
+        19,
+        28
+      ],
+      "anchor": [
+        16,
+        30
+      ],
+      "alpha_cutoff": 32
+    },
+    {
+      "id": 2,
+      "name": "player_east_0",
+      "column": 2,
+      "row": 0,
+      "source": "assets/art/animation/source/player.png",
+      "source_cell": 2,
+      "source_grid": [
+        4,
+        2
+      ],
+      "note": "Inspected four cardinal walk pairs.",
+      "source_bbox_on_128px_cell": [
+        39,
+        24,
+        91,
+        117
+      ],
+      "native_size": [
+        15,
+        28
+      ],
+      "anchor": [
+        16,
+        30
+      ],
+      "alpha_cutoff": 32
+    },
+    {
+      "id": 3,
+      "name": "player_east_1",
+      "column": 3,
+      "row": 0,
+      "source": "assets/art/animation/source/player.png",
+      "source_cell": 3,
+      "source_grid": [
+        4,
+        2
+      ],
+      "note": "Inspected four cardinal walk pairs.",
+      "source_bbox_on_128px_cell": [
+        35,
+        24,
+        86,
+        118
+      ],
+      "native_size": [
+        15,
+        28
+      ],
+      "anchor": [
+        16,
+        30
+      ],
+      "alpha_cutoff": 32
+    },
+    {
+      "id": 4,
+      "name": "player_south_0",
+      "column": 4,
+      "row": 0,
+      "source": "assets/art/animation/source/player.png",
+      "source_cell": 4,
+      "source_grid": [
+        4,
+        2
+      ],
+      "note": "Inspected four cardinal walk pairs.",
+      "source_bbox_on_128px_cell": [
+        32,
+        14,
+        100,
+        112
+      ],
+      "native_size": [
+        19,
+        28
+      ],
+      "anchor": [
+        16,
+        30
+      ],
+      "alpha_cutoff": 32
+    },
+    {
+      "id": 5,
+      "name": "player_south_1",
+      "column": 5,
+      "row": 0,
+      "source": "assets/art/animation/source/player.png",
+      "source_cell": 5,
+      "source_grid": [
+        4,
+        2
+      ],
+      "note": "Inspected four cardinal walk pairs.",
+      "source_bbox_on_128px_cell": [
+        28,
+        14,
+        97,
+        112
+      ],
+      "native_size": [
+        20,
+        28
+      ],
+      "anchor": [
+        16,
+        30
+      ],
+      "alpha_cutoff": 32
+    },
+    {
+      "id": 6,
+      "name": "player_west_0",
+      "column": 6,
+      "row": 0,
+      "source": "assets/art/animation/source/player.png",
+      "source_cell": 6,
+      "source_grid": [
+        4,
+        2
+      ],
+      "note": "Inspected four cardinal walk pairs.",
+      "source_bbox_on_128px_cell": [
+        39,
+        13,
+        91,
+        108
+      ],
+      "native_size": [
+        15,
+        28
+      ],
+      "anchor": [
+        16,
+        30
+      ],
+      "alpha_cutoff": 32
+    },
+    {
+      "id": 7,
+      "name": "player_west_1",
+      "column": 7,
+      "row": 0,
+      "source": "assets/art/animation/source/player.png",
+      "source_cell": 7,
+      "source_grid": [
+        4,
+        2
+      ],
+      "note": "Inspected four cardinal walk pairs.",
+      "source_bbox_on_128px_cell": [
+        40,
+        13,
+        88,
+        109
+      ],
+      "native_size": [
+        14,
+        28
+      ],
+      "anchor": [
+        16,
+        30
+      ],
+      "alpha_cutoff": 32
+    },
+    {
+      "id": 8,
+      "name": "alice_north_0",
+      "column": 0,
+      "row": 1,
+      "source": "assets/art/animation/source/alice-north.png",
+      "source_cell": 0,
+      "source_grid": [
+        2,
+        1
+      ],
+      "note": "Focused corrected rear view.",
+      "source_bbox_on_128px_cell": [
+        61,
+        23,
+        106,
+        112
+      ],
+      "native_size": [
+        14,
+        28
+      ],
+      "anchor": [
+        16,
+        30
+      ],
+      "alpha_cutoff": 32
+    },
+    {
+      "id": 9,
+      "name": "alice_north_1",
+      "column": 1,
+      "row": 1,
+      "source": "assets/art/animation/source/alice-north.png",
+      "source_cell": 1,
+      "source_grid": [
+        2,
+        1
+      ],
+      "note": "Focused corrected rear view.",
+      "source_bbox_on_128px_cell": [
+        22,
+        23,
+        68,
+        112
+      ],
+      "native_size": [
+        14,
+        28
+      ],
+      "anchor": [
+        16,
+        30
+      ],
+      "alpha_cutoff": 32
+    },
+    {
+      "id": 10,
+      "name": "alice_east_0",
+      "column": 2,
+      "row": 1,
+      "source": "assets/art/animation/source/alice-east.png",
+      "source_cell": 0,
+      "source_grid": [
+        2,
+        1
+      ],
+      "note": "Focused corrected right-facing pair.",
+      "source_bbox_on_128px_cell": [
+        52,
+        25,
+        97,
+        104
+      ],
+      "native_size": [
+        16,
+        28
+      ],
+      "anchor": [
+        16,
+        30
+      ],
+      "alpha_cutoff": 32
+    },
+    {
+      "id": 11,
+      "name": "alice_east_1",
+      "column": 3,
+      "row": 1,
+      "source": "assets/art/animation/source/alice-east.png",
+      "source_cell": 1,
+      "source_grid": [
+        2,
+        1
+      ],
+      "note": "Focused corrected right-facing pair.",
+      "source_bbox_on_128px_cell": [
+        38,
+        25,
+        82,
+        104
+      ],
+      "native_size": [
+        16,
+        28
+      ],
+      "anchor": [
+        16,
+        30
+      ],
+      "alpha_cutoff": 32
+    },
+    {
+      "id": 12,
+      "name": "alice_south_0",
+      "column": 4,
+      "row": 1,
+      "source": "assets/art/animation/source/failures/alice-initial.png",
+      "source_cell": 4,
+      "source_grid": [
+        4,
+        2
+      ],
+      "note": "Only valid south pair from initial mixed-direction source is used.",
+      "source_bbox_on_128px_cell": [
+        37,
+        17,
+        89,
+        115
+      ],
+      "native_size": [
+        15,
+        28
+      ],
+      "anchor": [
+        16,
+        30
+      ],
+      "alpha_cutoff": 32
+    },
+    {
+      "id": 13,
+      "name": "alice_south_1",
+      "column": 5,
+      "row": 1,
+      "source": "assets/art/animation/source/failures/alice-initial.png",
+      "source_cell": 5,
+      "source_grid": [
+        4,
+        2
+      ],
+      "note": "Only valid south pair from initial mixed-direction source is used.",
+      "source_bbox_on_128px_cell": [
+        39,
+        17,
+        90,
+        110
+      ],
+      "native_size": [
+        15,
+        27
+      ],
+      "anchor": [
+        16,
+        30
+      ],
+      "alpha_cutoff": 32
+    },
+    {
+      "id": 14,
+      "name": "alice_west_0",
+      "column": 6,
+      "row": 1,
+      "source": "assets/art/animation/source/alice-west.png",
+      "source_cell": 0,
+      "source_grid": [
+        2,
+        1
+      ],
+      "note": "Focused corrected left-facing pair.",
+      "source_bbox_on_128px_cell": [
+        48,
+        27,
+        96,
+        106
+      ],
+      "native_size": [
+        17,
+        28
+      ],
+      "anchor": [
+        16,
+        30
+      ],
+      "alpha_cutoff": 32
+    },
+    {
+      "id": 15,
+      "name": "alice_west_1",
+      "column": 7,
+      "row": 1,
+      "source": "assets/art/animation/source/alice-west.png",
+      "source_cell": 1,
+      "source_grid": [
+        2,
+        1
+      ],
+      "note": "Focused corrected left-facing pair.",
+      "source_bbox_on_128px_cell": [
+        36,
+        28,
+        86,
+        106
+      ],
+      "native_size": [
+        18,
+        28
+      ],
+      "anchor": [
+        16,
+        30
+      ],
+      "alpha_cutoff": 32
+    },
+    {
+      "id": 16,
+      "name": "sirs_north_0",
+      "column": 0,
+      "row": 2,
+      "source": "assets/art/animation/source/sirs.png",
+      "source_cell": 0,
+      "source_grid": [
+        4,
+        2
+      ],
+      "note": "Inspected four cardinal walk pairs.",
+      "source_bbox_on_128px_cell": [
+        32,
+        21,
+        105,
+        120
+      ],
+      "native_size": [
+        21,
+        28
+      ],
+      "anchor": [
+        16,
+        30
+      ],
+      "alpha_cutoff": 32
+    },
+    {
+      "id": 17,
+      "name": "sirs_north_1",
+      "column": 1,
+      "row": 2,
+      "source": "assets/art/animation/source/sirs.png",
+      "source_cell": 1,
+      "source_grid": [
+        4,
+        2
+      ],
+      "note": "Inspected four cardinal walk pairs.",
+      "source_bbox_on_128px_cell": [
+        27,
+        21,
+        100,
+        120
+      ],
+      "native_size": [
+        21,
+        28
+      ],
+      "anchor": [
+        16,
+        30
+      ],
+      "alpha_cutoff": 32
+    },
+    {
+      "id": 18,
+      "name": "sirs_east_0",
+      "column": 2,
+      "row": 2,
+      "source": "assets/art/animation/source/sirs.png",
+      "source_cell": 2,
+      "source_grid": [
+        4,
+        2
+      ],
+      "note": "Inspected four cardinal walk pairs.",
+      "source_bbox_on_128px_cell": [
+        33,
+        25,
+        90,
+        119
+      ],
+      "native_size": [
+        17,
+        28
+      ],
+      "anchor": [
+        16,
+        30
+      ],
+      "alpha_cutoff": 32
+    },
+    {
+      "id": 19,
+      "name": "sirs_east_1",
+      "column": 3,
+      "row": 2,
+      "source": "assets/art/animation/source/sirs.png",
+      "source_cell": 3,
+      "source_grid": [
+        4,
+        2
+      ],
+      "note": "Inspected four cardinal walk pairs.",
+      "source_bbox_on_128px_cell": [
+        30,
+        24,
+        84,
+        117
+      ],
+      "native_size": [
+        16,
+        28
+      ],
+      "anchor": [
+        16,
+        30
+      ],
+      "alpha_cutoff": 32
+    },
+    {
+      "id": 20,
+      "name": "sirs_south_0",
+      "column": 4,
+      "row": 2,
+      "source": "assets/art/animation/source/sirs.png",
+      "source_cell": 4,
+      "source_grid": [
+        4,
+        2
+      ],
+      "note": "Inspected four cardinal walk pairs.",
+      "source_bbox_on_128px_cell": [
+        32,
+        13,
+        105,
+        111
+      ],
+      "native_size": [
+        21,
+        28
+      ],
+      "anchor": [
+        16,
+        30
+      ],
+      "alpha_cutoff": 32
+    },
+    {
+      "id": 21,
+      "name": "sirs_south_1",
+      "column": 5,
+      "row": 2,
+      "source": "assets/art/animation/source/sirs.png",
+      "source_cell": 5,
+      "source_grid": [
+        4,
+        2
+      ],
+      "note": "Inspected four cardinal walk pairs.",
+      "source_bbox_on_128px_cell": [
+        27,
+        13,
+        100,
+        111
+      ],
+      "native_size": [
+        21,
+        28
+      ],
+      "anchor": [
+        16,
+        30
+      ],
+      "alpha_cutoff": 32
+    },
+    {
+      "id": 22,
+      "name": "sirs_west_0",
+      "column": 6,
+      "row": 2,
+      "source": "assets/art/animation/source/sirs.png",
+      "source_cell": 6,
+      "source_grid": [
+        4,
+        2
+      ],
+      "note": "Inspected four cardinal walk pairs.",
+      "source_bbox_on_128px_cell": [
+        34,
+        14,
+        88,
+        110
+      ],
+      "native_size": [
+        16,
+        28
+      ],
+      "anchor": [
+        16,
+        30
+      ],
+      "alpha_cutoff": 32
+    },
+    {
+      "id": 23,
+      "name": "sirs_west_1",
+      "column": 7,
+      "row": 2,
+      "source": "assets/art/animation/source/sirs.png",
+      "source_cell": 7,
+      "source_grid": [
+        4,
+        2
+      ],
+      "note": "Inspected four cardinal walk pairs.",
+      "source_bbox_on_128px_cell": [
+        32,
+        14,
+        90,
+        110
+      ],
+      "native_size": [
+        17,
+        28
+      ],
+      "anchor": [
+        16,
+        30
+      ],
+      "alpha_cutoff": 32
+    },
+    {
+      "id": 24,
+      "name": "add_north_0",
+      "column": 0,
+      "row": 3,
+      "source": "assets/art/animation/source/add.png",
+      "source_cell": 0,
+      "source_grid": [
+        4,
+        2
+      ],
+      "note": "Inspected four cardinal walk pairs.",
+      "source_bbox_on_128px_cell": [
+        20,
+        31,
+        108,
+        119
+      ],
+      "native_size": [
+        27,
+        27
+      ],
+      "anchor": [
+        16,
+        30
+      ],
+      "alpha_cutoff": 32
+    },
+    {
+      "id": 25,
+      "name": "add_north_1",
+      "column": 1,
+      "row": 3,
+      "source": "assets/art/animation/source/add.png",
+      "source_cell": 1,
+      "source_grid": [
+        4,
+        2
+      ],
+      "note": "Inspected four cardinal walk pairs.",
+      "source_bbox_on_128px_cell": [
+        20,
+        31,
+        109,
+        122
+      ],
+      "native_size": [
+        27,
+        28
+      ],
+      "anchor": [
+        16,
+        30
+      ],
+      "alpha_cutoff": 32
+    },
+    {
+      "id": 26,
+      "name": "add_east_0",
+      "column": 2,
+      "row": 3,
+      "source": "assets/art/animation/source/add.png",
+      "source_cell": 2,
+      "source_grid": [
+        4,
+        2
+      ],
+      "note": "Inspected four cardinal walk pairs.",
+      "source_bbox_on_128px_cell": [
+        18,
+        31,
+        107,
+        119
+      ],
+      "native_size": [
+        28,
+        28
+      ],
+      "anchor": [
+        16,
+        30
+      ],
+      "alpha_cutoff": 32
+    },
+    {
+      "id": 27,
+      "name": "add_east_1",
+      "column": 3,
+      "row": 3,
+      "source": "assets/art/animation/source/add.png",
+      "source_cell": 3,
+      "source_grid": [
+        4,
+        2
+      ],
+      "note": "Inspected four cardinal walk pairs.",
+      "source_bbox_on_128px_cell": [
+        19,
+        31,
+        103,
+        119
+      ],
+      "native_size": [
+        26,
+        28
+      ],
+      "anchor": [
+        16,
+        30
+      ],
+      "alpha_cutoff": 32
+    },
+    {
+      "id": 28,
+      "name": "add_south_0",
+      "column": 4,
+      "row": 3,
+      "source": "assets/art/animation/source/add.png",
+      "source_cell": 4,
+      "source_grid": [
+        4,
+        2
+      ],
+      "note": "Inspected four cardinal walk pairs.",
+      "source_bbox_on_128px_cell": [
+        17,
+        13,
+        111,
+        105
+      ],
+      "native_size": [
+        28,
+        27
+      ],
+      "anchor": [
+        16,
+        30
+      ],
+      "alpha_cutoff": 32
+    },
+    {
+      "id": 29,
+      "name": "add_south_1",
+      "column": 5,
+      "row": 3,
+      "source": "assets/art/animation/source/add.png",
+      "source_cell": 5,
+      "source_grid": [
+        4,
+        2
+      ],
+      "note": "Inspected four cardinal walk pairs.",
+      "source_bbox_on_128px_cell": [
+        15,
+        12,
+        109,
+        105
+      ],
+      "native_size": [
+        28,
+        28
+      ],
+      "anchor": [
+        16,
+        30
+      ],
+      "alpha_cutoff": 32
+    },
+    {
+      "id": 30,
+      "name": "add_west_0",
+      "column": 6,
+      "row": 3,
+      "source": "assets/art/animation/source/add.png",
+      "source_cell": 6,
+      "source_grid": [
+        4,
+        2
+      ],
+      "note": "Inspected four cardinal walk pairs.",
+      "source_bbox_on_128px_cell": [
+        22,
+        17,
+        114,
+        104
+      ],
+      "native_size": [
+        28,
+        26
+      ],
+      "anchor": [
+        16,
+        30
+      ],
+      "alpha_cutoff": 32
+    },
+    {
+      "id": 31,
+      "name": "add_west_1",
+      "column": 7,
+      "row": 3,
+      "source": "assets/art/animation/source/add.png",
+      "source_cell": 7,
+      "source_grid": [
+        4,
+        2
+      ],
+      "note": "Inspected four cardinal walk pairs.",
+      "source_bbox_on_128px_cell": [
+        23,
+        17,
+        107,
+        105
+      ],
+      "native_size": [
+        26,
+        27
+      ],
+      "anchor": [
+        16,
+        30
+      ],
+      "alpha_cutoff": 32
+    },
+    {
+      "id": 32,
+      "name": "rover_north_0",
+      "column": 0,
+      "row": 4,
+      "source": "assets/art/animation/source/rover-north.png",
+      "source_cell": 0,
+      "source_grid": [
+        2,
+        1
+      ],
+      "note": "Focused rear correction: head/neck point up; lower amber element is rear service lamp.",
+      "source_bbox_on_128px_cell": [
+        52,
+        13,
+        97,
+        115
+      ],
+      "native_size": [
+        11,
+        25
+      ],
+      "anchor": [
+        16,
+        30
+      ],
+      "alpha_cutoff": 32
+    },
+    {
+      "id": 33,
+      "name": "rover_north_1",
+      "column": 1,
+      "row": 4,
+      "source": "assets/art/animation/source/rover-north.png",
+      "source_cell": 1,
+      "source_grid": [
+        2,
+        1
+      ],
+      "note": "Focused rear correction: head/neck point up; lower amber element is rear service lamp.",
+      "source_bbox_on_128px_cell": [
+        31,
+        13,
+        76,
+        116
+      ],
+      "native_size": [
+        11,
+        25
+      ],
+      "anchor": [
+        16,
+        30
+      ],
+      "alpha_cutoff": 32
+    },
+    {
+      "id": 34,
+      "name": "rover_east_0",
+      "column": 2,
+      "row": 4,
+      "source": "assets/art/animation/source/failures/rover-initial.png",
+      "source_cell": 2,
+      "source_grid": [
+        4,
+        2
+      ],
+      "note": "Only valid east/south/west pairs are used.",
+      "source_bbox_on_128px_cell": [
+        16,
+        39,
+        113,
+        105
+      ],
+      "native_size": [
+        28,
+        19
+      ],
+      "anchor": [
+        16,
+        30
+      ],
+      "alpha_cutoff": 32
+    },
+    {
+      "id": 35,
+      "name": "rover_east_1",
+      "column": 3,
+      "row": 4,
+      "source": "assets/art/animation/source/failures/rover-initial.png",
+      "source_cell": 3,
+      "source_grid": [
+        4,
+        2
+      ],
+      "note": "Only valid east/south/west pairs are used.",
+      "source_bbox_on_128px_cell": [
+        16,
+        39,
+        113,
+        101
+      ],
+      "native_size": [
+        28,
+        18
+      ],
+      "anchor": [
+        16,
+        30
+      ],
+      "alpha_cutoff": 32
+    },
+    {
+      "id": 36,
+      "name": "rover_south_0",
+      "column": 4,
+      "row": 4,
+      "source": "assets/art/animation/source/failures/rover-initial.png",
+      "source_cell": 4,
+      "source_grid": [
+        4,
+        2
+      ],
+      "note": "Only valid east/south/west pairs are used.",
+      "source_bbox_on_128px_cell": [
+        38,
+        19,
+        92,
+        111
+      ],
+      "native_size": [
+        15,
+        25
+      ],
+      "anchor": [
+        16,
+        30
+      ],
+      "alpha_cutoff": 32
+    },
+    {
+      "id": 37,
+      "name": "rover_south_1",
+      "column": 5,
+      "row": 4,
+      "source": "assets/art/animation/source/failures/rover-initial.png",
+      "source_cell": 5,
+      "source_grid": [
+        4,
+        2
+      ],
+      "note": "Only valid east/south/west pairs are used.",
+      "source_bbox_on_128px_cell": [
+        38,
+        19,
+        94,
+        111
+      ],
+      "native_size": [
+        15,
+        25
+      ],
+      "anchor": [
+        16,
+        30
+      ],
+      "alpha_cutoff": 32
+    },
+    {
+      "id": 38,
+      "name": "rover_west_0",
+      "column": 6,
+      "row": 4,
+      "source": "assets/art/animation/source/failures/rover-initial.png",
+      "source_cell": 6,
+      "source_grid": [
+        4,
+        2
+      ],
+      "note": "Only valid east/south/west pairs are used.",
+      "source_bbox_on_128px_cell": [
+        13,
+        30,
+        110,
+        97
+      ],
+      "native_size": [
+        28,
+        19
+      ],
+      "anchor": [
+        16,
+        30
+      ],
+      "alpha_cutoff": 32
+    },
+    {
+      "id": 39,
+      "name": "rover_west_1",
+      "column": 7,
+      "row": 4,
+      "source": "assets/art/animation/source/failures/rover-initial.png",
+      "source_cell": 7,
+      "source_grid": [
+        4,
+        2
+      ],
+      "note": "Only valid east/south/west pairs are used.",
+      "source_bbox_on_128px_cell": [
+        16,
+        30,
+        108,
+        96
+      ],
+      "native_size": [
+        27,
+        19
+      ],
+      "anchor": [
+        16,
+        30
+      ],
+      "alpha_cutoff": 32
+    },
+    {
+      "id": 40,
+      "name": "player_attack_0",
+      "column": 0,
+      "row": 5,
+      "source": "assets/art/animation/source/actions.png",
+      "source_cell": 0,
+      "source_grid": [
+        4,
+        4
+      ],
+      "note": "Authored attack/collapse/wreck/armed/explosion phases.",
+      "source_bbox_on_128px_cell": [
+        38,
+        32,
+        100,
+        126
+      ],
+      "native_size": [
+        18,
+        27
+      ],
+      "anchor": [
+        16,
+        30
+      ],
+      "alpha_cutoff": 32
+    },
+    {
+      "id": 41,
+      "name": "player_attack_1",
+      "column": 1,
+      "row": 5,
+      "source": "assets/art/animation/source/actions.png",
+      "source_cell": 1,
+      "source_grid": [
+        4,
+        4
+      ],
+      "note": "Authored attack/collapse/wreck/armed/explosion phases.",
+      "source_bbox_on_128px_cell": [
+        35,
+        32,
+        98,
+        128
+      ],
+      "native_size": [
+        18,
+        28
+      ],
+      "anchor": [
+        16,
+        30
+      ],
+      "alpha_cutoff": 32
+    },
+    {
+      "id": 42,
+      "name": "player_death_0",
+      "column": 2,
+      "row": 5,
+      "source": "assets/art/animation/source/actions.png",
+      "source_cell": 2,
+      "source_grid": [
+        4,
+        4
+      ],
+      "note": "Authored attack/collapse/wreck/armed/explosion phases.",
+      "source_bbox_on_128px_cell": [
+        20,
+        47,
+        98,
+        121
+      ],
+      "native_size": [
+        19,
+        18
+      ],
+      "anchor": [
+        16,
+        30
+      ],
+      "alpha_cutoff": 32
+    },
+    {
+      "id": 43,
+      "name": "player_death_1",
+      "column": 3,
+      "row": 5,
+      "source": "assets/art/animation/source/actions.png",
+      "source_cell": 3,
+      "source_grid": [
+        4,
+        4
+      ],
+      "note": "Authored attack/collapse/wreck/armed/explosion phases.",
+      "source_bbox_on_128px_cell": [
+        3,
+        67,
+        116,
+        123
+      ],
+      "native_size": [
+        28,
+        14
+      ],
+      "anchor": [
+        16,
+        30
+      ],
+      "alpha_cutoff": 32
+    },
+    {
+      "id": 44,
+      "name": "sirs_attack_0",
+      "column": 4,
+      "row": 5,
+      "source": "assets/art/animation/source/actions.png",
+      "source_cell": 4,
+      "source_grid": [
+        4,
+        4
+      ],
+      "note": "Authored attack/collapse/wreck/armed/explosion phases.",
+      "source_bbox_on_128px_cell": [
+        29,
+        19,
+        101,
+        115
+      ],
+      "native_size": [
+        17,
+        23
+      ],
+      "anchor": [
+        16,
+        30
+      ],
+      "alpha_cutoff": 32
+    },
+    {
+      "id": 45,
+      "name": "sirs_attack_1",
+      "column": 5,
+      "row": 5,
+      "source": "assets/art/animation/source/actions.png",
+      "source_cell": 5,
+      "source_grid": [
+        4,
+        4
+      ],
+      "note": "Authored attack/collapse/wreck/armed/explosion phases.",
+      "source_bbox_on_128px_cell": [
+        29,
+        0,
+        100,
+        117
+      ],
+      "native_size": [
+        17,
+        28
+      ],
+      "anchor": [
+        16,
+        30
+      ],
+      "alpha_cutoff": 32
+    },
+    {
+      "id": 46,
+      "name": "sirs_death_0",
+      "column": 6,
+      "row": 5,
+      "source": "assets/art/animation/source/actions.png",
+      "source_cell": 6,
+      "source_grid": [
+        4,
+        4
+      ],
+      "note": "Authored attack/collapse/wreck/armed/explosion phases.",
+      "source_bbox_on_128px_cell": [
+        19,
+        32,
+        106,
+        117
+      ],
+      "native_size": [
+        21,
+        20
+      ],
+      "anchor": [
+        16,
+        30
+      ],
+      "alpha_cutoff": 32
+    },
+    {
+      "id": 47,
+      "name": "sirs_death_1",
+      "column": 7,
+      "row": 5,
+      "source": "assets/art/animation/source/actions.png",
+      "source_cell": 7,
+      "source_grid": [
+        4,
+        4
+      ],
+      "note": "Authored attack/collapse/wreck/armed/explosion phases.",
+      "source_bbox_on_128px_cell": [
+        3,
+        55,
+        121,
+        119
+      ],
+      "native_size": [
+        28,
+        15
+      ],
+      "anchor": [
+        16,
+        30
+      ],
+      "alpha_cutoff": 32
+    },
+    {
+      "id": 48,
+      "name": "add_attack_0",
+      "column": 0,
+      "row": 6,
+      "source": "assets/art/animation/source/actions.png",
+      "source_cell": 8,
+      "source_grid": [
+        4,
+        4
+      ],
+      "note": "Authored attack/collapse/wreck/armed/explosion phases.",
+      "source_bbox_on_128px_cell": [
+        16,
+        14,
+        116,
+        111
+      ],
+      "native_size": [
+        26,
+        25
+      ],
+      "anchor": [
+        16,
+        30
+      ],
+      "alpha_cutoff": 32
+    },
+    {
+      "id": 49,
+      "name": "add_attack_1",
+      "column": 1,
+      "row": 6,
+      "source": "assets/art/animation/source/actions.png",
+      "source_cell": 9,
+      "source_grid": [
+        4,
+        4
+      ],
+      "note": "Authored attack/collapse/wreck/armed/explosion phases.",
+      "source_bbox_on_128px_cell": [
+        20,
+        9,
+        116,
+        118
+      ],
+      "native_size": [
+        25,
+        28
+      ],
+      "anchor": [
+        16,
+        30
+      ],
+      "alpha_cutoff": 32
+    },
+    {
+      "id": 50,
+      "name": "add_death_0",
+      "column": 2,
+      "row": 6,
+      "source": "assets/art/animation/source/actions.png",
+      "source_cell": 10,
+      "source_grid": [
+        4,
+        4
+      ],
+      "note": "Authored attack/collapse/wreck/armed/explosion phases.",
+      "source_bbox_on_128px_cell": [
+        13,
+        11,
+        110,
+        114
+      ],
+      "native_size": [
+        22,
+        24
+      ],
+      "anchor": [
+        16,
+        30
+      ],
+      "alpha_cutoff": 32
+    },
+    {
+      "id": 51,
+      "name": "add_death_1",
+      "column": 3,
+      "row": 6,
+      "source": "assets/art/animation/source/actions.png",
+      "source_cell": 11,
+      "source_grid": [
+        4,
+        4
+      ],
+      "note": "Authored attack/collapse/wreck/armed/explosion phases.",
+      "source_bbox_on_128px_cell": [
+        0,
+        12,
+        121,
+        128
+      ],
+      "native_size": [
+        28,
+        27
+      ],
+      "anchor": [
+        16,
+        30
+      ],
+      "alpha_cutoff": 32
+    },
+    {
+      "id": 52,
+      "name": "rover_armed_0",
+      "column": 4,
+      "row": 6,
+      "source": "assets/art/animation/source/actions.png",
+      "source_cell": 12,
+      "source_grid": [
+        4,
+        4
+      ],
+      "note": "Authored attack/collapse/wreck/armed/explosion phases.",
+      "source_bbox_on_128px_cell": [
+        32,
+        20,
+        100,
+        98
+      ],
+      "native_size": [
+        20,
+        23
+      ],
+      "anchor": [
+        16,
+        30
+      ],
+      "alpha_cutoff": 32
+    },
+    {
+      "id": 53,
+      "name": "rover_armed_1",
+      "column": 5,
+      "row": 6,
+      "source": "assets/art/animation/source/actions.png",
+      "source_cell": 13,
+      "source_grid": [
+        4,
+        4
+      ],
+      "note": "Authored attack/collapse/wreck/armed/explosion phases.",
+      "source_bbox_on_128px_cell": [
+        20,
+        13,
+        107,
+        98
+      ],
+      "native_size": [
+        26,
+        25
+      ],
+      "anchor": [
+        16,
+        30
+      ],
+      "alpha_cutoff": 32
+    },
+    {
+      "id": 54,
+      "name": "rover_explosion_0",
+      "column": 6,
+      "row": 6,
+      "source": "assets/art/animation/source/actions.png",
+      "source_cell": 14,
+      "source_grid": [
+        4,
+        4
+      ],
+      "note": "Authored attack/collapse/wreck/armed/explosion phases.",
+      "source_bbox_on_128px_cell": [
+        10,
+        6,
+        128,
+        102
+      ],
+      "native_size": [
+        29,
+        24
+      ],
+      "anchor": [
+        16,
+        16
+      ],
+      "alpha_cutoff": 0
+    },
+    {
+      "id": 55,
+      "name": "rover_explosion_1",
+      "column": 7,
+      "row": 6,
+      "source": "assets/art/animation/source/actions.png",
+      "source_cell": 15,
+      "source_grid": [
+        4,
+        4
+      ],
+      "note": "Authored attack/collapse/wreck/armed/explosion phases.",
+      "source_bbox_on_128px_cell": [
+        0,
+        0,
+        122,
+        114
+      ],
+      "native_size": [
+        30,
+        28
+      ],
+      "anchor": [
+        16,
+        16
+      ],
+      "alpha_cutoff": 0
+    },
+    {
+      "id": 56,
+      "name": "camera_0",
+      "column": 0,
+      "row": 7,
+      "source": "assets/art/animation/source/machines.png",
+      "source_cell": 0,
+      "source_grid": [
+        4,
+        2
+      ],
+      "note": "Selected source after image_gen removed painted ground patches.",
+      "source_bbox_on_128px_cell": [
+        34,
+        32,
+        100,
+        100
+      ],
+      "native_size": [
+        21,
+        22
+      ],
+      "anchor": [
+        16,
+        30
+      ],
+      "alpha_cutoff": 32
+    },
+    {
+      "id": 57,
+      "name": "camera_1",
+      "column": 1,
+      "row": 7,
+      "source": "assets/art/animation/source/machines.png",
+      "source_cell": 1,
+      "source_grid": [
+        4,
+        2
+      ],
+      "note": "Selected source after image_gen removed painted ground patches.",
+      "source_bbox_on_128px_cell": [
+        26,
+        32,
+        112,
+        86
+      ],
+      "native_size": [
+        28,
+        18
+      ],
+      "anchor": [
+        16,
+        30
+      ],
+      "alpha_cutoff": 32
+    },
+    {
+      "id": 58,
+      "name": "turret_0",
+      "column": 2,
+      "row": 7,
+      "source": "assets/art/animation/source/machines.png",
+      "source_cell": 2,
+      "source_grid": [
+        4,
+        2
+      ],
+      "note": "Selected source after image_gen removed painted ground patches.",
+      "source_bbox_on_128px_cell": [
+        27,
+        24,
+        100,
+        107
+      ],
+      "native_size": [
+        22,
+        24
+      ],
+      "anchor": [
+        16,
+        30
+      ],
+      "alpha_cutoff": 32
+    },
+    {
+      "id": 59,
+      "name": "turret_1",
+      "column": 3,
+      "row": 7,
+      "source": "assets/art/animation/source/machines.png",
+      "source_cell": 3,
+      "source_grid": [
+        4,
+        2
+      ],
+      "note": "Selected source after image_gen removed painted ground patches.",
+      "source_bbox_on_128px_cell": [
+        28,
+        24,
+        100,
+        119
+      ],
+      "native_size": [
+        21,
+        28
+      ],
+      "anchor": [
+        16,
+        30
+      ],
+      "alpha_cutoff": 32
+    },
+    {
+      "id": 60,
+      "name": "operator_0",
+      "column": 4,
+      "row": 7,
+      "source": "assets/art/animation/source/machines.png",
+      "source_cell": 4,
+      "source_grid": [
+        4,
+        2
+      ],
+      "note": "Selected source after image_gen removed painted ground patches.",
+      "source_bbox_on_128px_cell": [
+        39,
+        16,
+        100,
+        108
+      ],
+      "native_size": [
+        19,
+        28
+      ],
+      "anchor": [
+        16,
+        30
+      ],
+      "alpha_cutoff": 32
+    },
+    {
+      "id": 61,
+      "name": "operator_1",
+      "column": 5,
+      "row": 7,
+      "source": "assets/art/animation/source/machines.png",
+      "source_cell": 5,
+      "source_grid": [
+        4,
+        2
+      ],
+      "note": "Selected source after image_gen removed painted ground patches.",
+      "source_bbox_on_128px_cell": [
+        29,
+        16,
+        90,
+        108
+      ],
+      "native_size": [
+        19,
+        28
+      ],
+      "anchor": [
+        16,
+        30
+      ],
+      "alpha_cutoff": 32
+    },
+    {
+      "id": 62,
+      "name": "constructor_0",
+      "column": 6,
+      "row": 7,
+      "source": "assets/art/animation/source/machines.png",
+      "source_cell": 6,
+      "source_grid": [
+        4,
+        2
+      ],
+      "note": "Selected source after image_gen removed painted ground patches.",
+      "source_bbox_on_128px_cell": [
+        11,
+        16,
+        115,
+        105
+      ],
+      "native_size": [
+        24,
+        21
+      ],
+      "anchor": [
+        16,
+        30
+      ],
+      "alpha_cutoff": 32
+    },
+    {
+      "id": 63,
+      "name": "constructor_1",
+      "column": 7,
+      "row": 7,
+      "source": "assets/art/animation/source/machines.png",
+      "source_cell": 7,
+      "source_grid": [
+        4,
+        2
+      ],
+      "note": "Selected source after image_gen removed painted ground patches.",
+      "source_bbox_on_128px_cell": [
+        4,
+        5,
+        124,
+        105
+      ],
+      "native_size": [
+        28,
+        23
+      ],
+      "anchor": [
+        16,
+        30
+      ],
+      "alpha_cutoff": 32
+    }
+  ],
+  "source_rasters": [
+    {
+      "path": "assets/art/animation/source/actions.png",
+      "sha256": "a8a83a49fa815c2eec03b5f6c76df70b68773e81dcdce4b91efa5fc7a511fc63"
+    },
+    {
+      "path": "assets/art/animation/source/add.png",
+      "sha256": "eb24d1910c5116276618ff8e31a08dabfa0537fda731d6621b0f89e01bc5f004"
+    },
+    {
+      "path": "assets/art/animation/source/alice-east.png",
+      "sha256": "056f34f19183e7c2e1ec757d793b2e3a638a578c294fd8c886023d81b54b72dc"
+    },
+    {
+      "path": "assets/art/animation/source/alice-north.png",
+      "sha256": "224e4ab7e3467e07a5e64c2d8ffb84825070e58628136b541fbae98dd5effc0e"
+    },
+    {
+      "path": "assets/art/animation/source/alice-west.png",
+      "sha256": "92237eedd32348d238a11c06b0dd2d0a9713cdc9d09647186c6f39d121e1e737"
+    },
+    {
+      "path": "assets/art/animation/source/failures/alice-initial.png",
+      "sha256": "f72ca1ce2e70297edf6e0d44abe4275cf14b148631bf4aa6293a6b79adef3a37"
+    },
+    {
+      "path": "assets/art/animation/source/failures/machines-initial.png",
+      "sha256": "ad395102aa3682cb70de21cb7e80ee874d7e5ad795cdc75c3fa74b8e0f9ee760"
+    },
+    {
+      "path": "assets/art/animation/source/failures/rover-initial.png",
+      "sha256": "573b812731497bd4efe7a94c79367dcaa0fa82141f1be1024047c513ce5c2841"
+    },
+    {
+      "path": "assets/art/animation/source/machines.png",
+      "sha256": "e6ad9fb9c545b25c37c035924e738bb08e75621eb61f4439985b82afc2c76033"
+    },
+    {
+      "path": "assets/art/animation/source/player.png",
+      "sha256": "c81c4d89b0edb624c5225596ae1a3a35cc1c6a97da47850ac6a331af2730b8d0"
+    },
+    {
+      "path": "assets/art/animation/source/references/add.png",
+      "sha256": "a78b78ea246acb7c06e18104315db1e0666b1b284c61d5cbf8d7b74d8fa7c84c"
+    },
+    {
+      "path": "assets/art/animation/source/references/alice.png",
+      "sha256": "3db3c893cf92fd86f6288f9f13090d7a250d46730985801adfab56162459abc9"
+    },
+    {
+      "path": "assets/art/animation/source/references/operator-constructor.png",
+      "sha256": "4cf47d4301d21fb4967c8ea1096d762df1cf3b121f4e855a698cdaf05bf658c5"
+    },
+    {
+      "path": "assets/art/animation/source/references/player.png",
+      "sha256": "f7405688f96f57dad25ad77875e3eeac0b18d095af7273f043c271db376dffdc"
+    },
+    {
+      "path": "assets/art/animation/source/references/rover.png",
+      "sha256": "b20f456c2dd61f00919efee8d8ab31180a6529ea83e9451a0bf00bf8d1891d3b"
+    },
+    {
+      "path": "assets/art/animation/source/references/sirs.png",
+      "sha256": "6f4d1681ea5864a9715042c08e1903f40b385acc28ddb1be8139edd6efddb265"
+    },
+    {
+      "path": "assets/art/animation/source/rover-north.png",
+      "sha256": "0a31d51b99a8603b52cfb7baf610dc439806668188994eb7ecc69bf803270e34"
+    },
+    {
+      "path": "assets/art/animation/source/sirs.png",
+      "sha256": "c9db22469dab3f09ee4867b9cdc37cd5ea21c61de076309a52c8a89b8f48f948"
+    }
+  ]
+}

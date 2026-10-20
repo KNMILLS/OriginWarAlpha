@@ -1,0 +1,12 @@
+{
+  "size": [
+    1024,
+    512
+  ],
+  "aspect": "2:1",
+  "opaque": true,
+  "nearest_scale": 2,
+  "atlas_sha256": "7ee807f12d49e09597c684dc7caa1488864c3160b8cf9315eb4a47fba07e0737",
+  "packing_repeatability": "PASS",
+  "scope": "Static source/export only; no in-game finale acceptance."
+}

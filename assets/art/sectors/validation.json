@@ -1,0 +1,45 @@
+{
+  "native_sha256": "53925da2630f2948852ddb6cb3cee267ebc695555c58d39c650784a64c082637",
+  "atlas_sha256": "f4f5195ece8c3856a04333d92e0ec9f62d7028dd0f6924a08bbd0322d46e6ad1",
+  "columns": 8,
+  "rows": 4,
+  "native_cell_pixels": 32,
+  "nearest_scale": 4,
+  "occupied_slots": 32,
+  "floor_edge_metrics": [
+    {
+      "slot": 0,
+      "left_right_rgb_mean_absolute_difference": 5.625,
+      "top_bottom_rgb_mean_absolute_difference": 2.844,
+      "interpretation": "Texture-repetition diagnostic, not an in-game seam acceptance."
+    },
+    {
+      "slot": 1,
+      "left_right_rgb_mean_absolute_difference": 45.292,
+      "top_bottom_rgb_mean_absolute_difference": 3.323,
+      "interpretation": "Texture-repetition diagnostic, not an in-game seam acceptance."
+    },
+    {
+      "slot": 2,
+      "left_right_rgb_mean_absolute_difference": 5.562,
+      "top_bottom_rgb_mean_absolute_difference": 3.906,
+      "interpretation": "Texture-repetition diagnostic, not an in-game seam acceptance."
+    },
+    {
+      "slot": 3,
+      "left_right_rgb_mean_absolute_difference": 6.427,
+      "top_bottom_rgb_mean_absolute_difference": 2.833,
+      "interpretation": "Texture-repetition diagnostic, not an in-game seam acceptance."
+    },
+    {
+      "slot": 4,
+      "left_right_rgb_mean_absolute_difference": 6.74,
+      "top_bottom_rgb_mean_absolute_difference": 9.99,
+      "interpretation": "Texture-repetition diagnostic, not an in-game seam acceptance."
+    }
+  ],
+  "source_hashes_verified": true,
+  "reference_station_unchanged": true,
+  "packing_repeatability": "PASS",
+  "scope": "Static source/export/cell/alpha/frame-difference verification only; not anatomy proof, actual animation timing or gameplay acceptance."
+}

@@ -1,0 +1,15 @@
+Use case: identity-preserve
+Asset type: Original production pixel-art directional walk-cycle source for Origin War.
+Reference image: identity/palette/silhouette reference only, depicting existing south-facing walk frames. Expand this same actor to four directions; do not redesign.
+Subject: ONE compact angular S.I.R.S. biped security robot, dark blue-steel armor, small RED forward-facing optical sensor, squared shoulders and distinct articulated legs. Preserve the reference silhouette and sensor color.
+Create EXACTLY FOUR columns by TWO rows, EIGHT equal square cells, nominal1024x512 PNG. Each cell contains a single complete actor on genuine transparent alpha, same scale/foot anchor within its view pair. Crisp native32x32-style pixel anatomy and highlights, intended for nearest-neighbor enlargement. No text, labels, grid/separator lines, frames, checkerboard, opaque background, stray colored speckles, detached pixels, watermark or shadow rectangle. Keep generous transparent margins and all limbs inside each cell.
+EXACT LAYOUT:
+Top row col0: NORTH walk frameA, facing UP; SHOW THE BACK/rear of the head and torso, NO face or forward sensor visible.
+Top row col1: NORTH walk frameB, same rear actor, opposite leg/arm phase.
+Top row col2: EAST walk frameA, facing RIGHT; same high TOP-DOWN camera, right-facing head/torso/feet.
+Top row col3: EAST walk frameB, opposite leg/arm phase.
+Bottom row col0: SOUTH walk frameA, facing DOWN toward bottom of sheet; front/face/sensor like the reference.
+Bottom row col1: SOUTH walk frameB, opposite leg/arm phase.
+Bottom row col2: WEST walk frameA, facing LEFT from the same high top-down camera.
+Bottom row col3: WEST walk frameB, opposite leg/arm phase.
+Walking pairs must have genuinely different illustrated limb positions, keeping torso/head scale and anatomy constant. This is not eight copies or a line of different characters. North must visibly show BACK rather than another front view. East and west must visibly face opposite horizontal directions, not stand front-on. Top-down industrial sci-fi, controlled teal/steel/amber, readable at32px. No side-on platformer view, isometric scene, fantasy, giant mech, extra limbs, missing legs, swapped identity or cinematic background.

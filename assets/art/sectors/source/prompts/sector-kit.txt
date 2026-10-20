@@ -1,0 +1,17 @@
+Use case: stylized-concept
+Asset type: Original production top-down sci-fi SECTOR DRESSING source sheet for Origin War.
+Reference image supplies established industrial teal/steel/amber palette/material style only. Make EXACTLY FIVE COLUMNS by SIX ROWS =30 equal square cells, nominal1024x1229 PNG, no gutters/gridlines/text/labels. High top-down game camera, illustrated crisp pixel art readable at32px. Each column is one internally coherent but visually distinct sector. NO entire-room miniatures. One tile or one isolated prop in each cell.
+COLUMNS consistently from left to right:
+0 DOCKING/SECURITY: dark blue steel, amber safety stripes, bolted cargo/security hardware.
+1 HABITATION/MAINTENANCE: warmer tan/cream/rust panels, lived-in domestic/workshop objects, warm dim lighting.
+2 MEDICAL/RESEARCH: pale blue-gray, clean cyan instruments, diagnostic equipment, no red-cross logos, no alien biotech.
+3 DEFENSE/INDUSTRY: blackened heavy steel/grates, yellow/amber hazard rails, powered machinery and heavy cables.
+4 COMMAND/EVACUATION: deep navy/teal, orderly panels and cyan screens, restrained red evacuation light.
+ROWS consistently from top to bottom:
+row0 = five SEAMLESS WALKABLE FLOOR TEXTURES, one per sector. Every floor cell is OPAQUE corner-to-corner; flat surface, no furniture/props, no raised border or drop shadow. Make patterns and panel structure different, not only recolors.
+row1 = five matching BULKHEAD WALL TILES: docking riveted armor; habitation cream vented wall; medical clean pale panel/cyan strip; industrial heavy grille/yellow rail; command navy instrument-panel wall. Each wall tile spans cell width and reads as a matching built wall surface.
+row2 = five ISOLATED FURNITURE props: cargo locker/crate; compact bunk cot; medical diagnostic bed/cradle; heavy compressor/power machine; command chair/work desk. TRANSPARENT around each prop, no floor square or room background.
+row3 = five ISOLATED CONSOLE/LIGHT props: docking security scanner; warm maintenance breaker box/lamp; cyan research monitor cart; industrial control station/amber lamp; evacuation broadcast console/red status lamp. TRANSPARENT around the individual objects.
+row4 = five ISOLATED CLUTTER clusters: cargo straps/helmet; personal bag/tools; medicine trays/sample containers; cables/metal offcuts; datapads/evacuation supplies. TRANSPARENT around them; use real illustrated recognizable objects, no symbols or labels.
+row5 = five ISOLATED STORY-ANCHOR DRESSING objects: arrival security barrier/manifest crate; abandoned colonist luggage beside a folded blanket; android research/diagnostic cradle; Constructor control pedestal with two heavy cables; broadcast/destruct interlock control with red safety covers. TRANSPARENT around each object. No invented lore text, no people, no aliens.
+Keep all props complete inside their own cell with safe margins. Floors/walls must match the project without losing sector identity. Decorative rows2–5 must have genuine clean alpha outside objects; NO black/gray painted background, checkerboard or unrelated floor. No fantasy, mechs, branded logos, readable writing, letters, watermarks, grid separator lines or photographic rendering.
