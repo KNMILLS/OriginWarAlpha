@@ -1,5 +1,9 @@
 # Audio provenance
 
+Current VOICE3 replaces only the nine spoken performances with instruction-conditioned Qwen VoiceDesign and adds one independent speech-free radio texture. Exact words remain unchanged. Clean voice exports carry only the requested slight pitch/brightness lift; static and distortion are not baked in. Native masters, actual inputs/prompts/model/tool/permission pins and ASR screens are in audio/voice/source/expressive. The Apache2.0 model/tool evidence is registered alongside retained historical Piper notices. See docs/design/sound/ALICE_PERFORMANCE.md for current controls, reproduction, evidence and limits.
+
+## Earlier ATM-SOUND and VOICE2 provenance (retained history)
+
 ATM-SOUND replaces the prior library in response to the owner's explicit occupied-space-suit direction: close breathing and heartbeat, little outside sound, muffled structure-borne contacts, restrained original organ music, and dry synthetic female A.L.I.C.E. with quiet radio static. Prior exports and their source remain recoverable at commit374e27c764d55adaae7a9a3b4003a5ff883de157. The owner's original art/sound authorship and intended unease/tension are respected; no legacy recording is reused here.
 
 Six distinct original arranged loopable scores run72/96/96/72/100/80seconds. Thirty-four original effects and six12-second body loops use authored additive oscillators and deterministic filtered noise/contact synthesis, without external recordings, soundfonts or copied musical material. Editable source is tools/media/compose_audio.py -> compose_helmet_audio.py; assets/audio/manifest.json records durations, source/output hashes and levels. There is no claim to reproduce another film's melody or score.

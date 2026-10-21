@@ -150,5 +150,13 @@
   "alice/LJ_SPEECH_DATASET_LICENSE.txt": {
     "sha256": "7cb6e2aff5440d50054be7c455a7c10cf51679e90ec58d6d1eaf5fca52b8ed3d",
     "source": "https://keithito.com/LJ-Speech-Dataset/"
+  },
+  "alice/QWEN_APACHE_LICENSE.txt": {
+    "sha256": "a44a6081c73ad75f0255bb2bb5cab74ef1829565a895a24e53a4f11290ab7655",
+    "source": "https://github.com/QwenLM/Qwen3-TTS/blob/022e286b98fbec7e1e916cb940cdf532cd9f488e/LICENSE"
+  },
+  "alice/QWEN_VOICE_DESIGN_MODEL_CARD.md": {
+    "sha256": "acfaf6c0d433866cb5e2bb73e7915ea3767f5a2e3abca413b485635a2c72b5e6",
+    "source": "https://huggingface.co/Qwen/Qwen3-TTS-12Hz-1.7B-VoiceDesign/blob/5ecdb67327fd37bb2e042aab12ff7391903235d3/README.md"
   }
 }

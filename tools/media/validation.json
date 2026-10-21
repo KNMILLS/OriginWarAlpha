@@ -1,6 +1,6 @@
 {
   "scope": "Current atmosphere contracts: complete audio decoding/bindings/rights/mix diagnostics plus exact art source/export/packing checks; no audible or owner acceptance.",
   "result": "PASS",
-  "audio_validation_sha256": "b0866764a62d029eac214cb4ed5754810a6422704c8b58084cd57b0eebc64201",
+  "audio_validation_sha256": "87229be912efc68a718e04de5056009893d7cff7922441e1527f669e4421526b",
   "art_validation_sha256": "390ab090a43ebba515461eb92f5ccf0057ff63f6e2233be5ee1b76f011a0b6d9"
 }

@@ -713,30 +713,30 @@ public final class OriginWarApp extends ApplicationAdapter {
     }
     private void settings(){
         overlay("SETTINGS / ACCESSIBILITY");float y=Gdx.graphics.getHeight()-150;
-        String[] names={"Master volume","Music volume","Effects volume","UI scale"};
-        float[] values={settings.master,settings.music,settings.sfx,settings.uiScale-1};
-        for(int n=0;n<4;n++){
-            fittedText(names[n],100,y-n*65,270,1.15f,ink);Rectangle box=new Rectangle(400,y-n*65-18,420,22);
+        String[] names={"Master volume","Music volume","Effects volume","ALICE voice","Radio static","UI scale"};
+        float[] values={settings.master,settings.music,settings.sfx,settings.voice,settings.radio,settings.uiScale-1};
+        for(int n=0;n<names.length;n++){
+            fittedText(names[n],100,y-n*55,270,1.15f,ink);Rectangle box=new Rectangle(400,y-n*55-18,420,22);
             rect(box.x,box.y,box.width,box.height,new Color(.1f,.19f,.23f,1));rect(box.x,box.y,box.width*values[n],box.height,cyan);
-            sliders.add(new Slider(box,n));text(n==3?Math.round(settings.uiScale*100)+"%":Math.round(values[n]*100)+"%",850,y-n*65,1,ink);
+            sliders.add(new Slider(box,n));text(n==5?Math.round(settings.uiScale*100)+"%":Math.round(values[n]*100)+"%",850,y-n*55,1,ink);
         }
-        button("Reduced distortion: "+(settings.reducedDistortion?"ON":"OFF"),100,y-310,420,42,()->{settings.reducedDistortion=!settings.reducedDistortion;saveSettings();});
-        button("Toggle fullscreen [F11]",100,y-365,420,42,this::fullscreen);
-        button("Mute / restore master",570,y-310,300,42,()->{settings.master=settings.master>0?0:.8f;applyVolumes();saveSettings();});
-        button("Helmet light [L]: "+(settings.helmetLight?"ON":"OFF"),100,y-420,420,42,()->{settings.helmetLight=!settings.helmetLight;saveSettings();});
+        button("Reduced distortion: "+(settings.reducedDistortion?"ON":"OFF"),100,y-370,420,42,()->{settings.reducedDistortion=!settings.reducedDistortion;saveSettings();});
+        button("Toggle fullscreen [F11]",100,y-425,420,42,this::fullscreen);
+        button("Mute / restore master",570,y-370,300,42,()->{settings.master=settings.master>0?0:.8f;applyVolumes();saveSettings();});
+        button("Helmet light [L]: "+(settings.helmetLight?"ON":"OFF"),570,y-425,300,42,()->{settings.helmetLight=!settings.helmetLight;saveSettings();});
     }
     private void setSlider(int channel,float x){
         for(var slider:sliders)if(slider.channel==channel){
             float value=MathUtils.clamp((x-slider.box.x)/slider.box.width,0,1);
-            switch(channel){case 0->settings.master=value;case 1->settings.music=value;case 2->settings.sfx=value;case 3->settings.uiScale=1+value;}
+            switch(channel){case 0->settings.master=value;case 1->settings.music=value;case 2->settings.sfx=value;case 3->settings.voice=value;case 4->settings.radio=value;case 5->settings.uiScale=1+value;}
             applyVolumes();
         }
     }
-    private void applyVolumes(){audio.volumes(settings.master,settings.music,settings.sfx);}
+    private void applyVolumes(){audio.volumes(settings.master,settings.music,settings.sfx,settings.voice,settings.radio);}
     private void saveSettings(){try{settings.save();}catch(Exception e){notice("Settings could not be saved: "+e.getMessage());}}
     private void help(){
         overlay("HOW TO PLAY");
-        pagedProse("Explore the station one decision at a time. Time advances only when you commit a world action. Menus, aiming and inspection pause the simulation.\n\nWASD / arrows: move. Bump closed doors to open them; bump hostile robots to melee. Left-click explored terrain to walk; visible threats interrupt the route. Right-click: inspect / select target. Move the mouse to aim your helmet beam without spending a turn. L: helmet light on/off.\n\nE / Enter: interact. G: pick up underfoot. R: oxygen tank. Space / period: wait. F: fire at selected target. M: adjacent melee. H: hack. B: force a locked door. V: inspect true suit status.\n\nTab / I: inventory. U / Enter: use. Q: equip. X: drop. J: journal. K: explored station map. C: character / earned attribute points. Esc: back / suit menu. F11: fullscreen. Z: world zoom. Dialogue choices: mouse or1/2/3.\n\nFind security overrides and follow the journal's story objectives. Low gravity and hazards cost extra time. Heavy armor lowers effective DEX. Observe real R.O.V.E.R. countdowns. Guns consume finite battery cells. Medicines are unidentified separately in each run.\n\nWatch reserve and oxygenation: an empty tank causes hypoxia. Visual impressions can be unreliable; suit telemetry and right-click sensor inspection remain true within legitimate vision. Refill and allow real turns for oxygenation to recover. Reduced distortion is available in Settings and disables fixture flicker.\n\nThe Effects slider controls breathing, heartbeat and radio voice. Music has its own slider. Pausing also pauses audio; choices and subtitles remain immediately available.\n\nDeath ends the expedition. Save and resume between decisions. Different seeds produce different stations.",90,Gdx.graphics.getHeight()-125,Gdx.graphics.getWidth()-190,130,1.04f);
+        pagedProse("Explore the station one decision at a time. Time advances only when you commit a world action. Menus, aiming and inspection pause the simulation.\n\nWASD / arrows: move. Bump closed doors to open them; bump hostile robots to melee. Left-click explored terrain to walk; visible threats interrupt the route. Right-click: inspect / select target. Move the mouse to aim your helmet beam without spending a turn. L: helmet light on/off.\n\nE / Enter: interact. G: pick up underfoot. R: oxygen tank. Space / period: wait. F: fire at selected target. M: adjacent melee. H: hack. B: force a locked door. V: inspect true suit status.\n\nTab / I: inventory. U / Enter: use. Q: equip. X: drop. J: journal. K: explored station map. C: character / earned attribute points. Esc: back / suit menu. F11: fullscreen. Z: world zoom. Dialogue choices: mouse or1/2/3.\n\nFind security overrides and follow the journal's story objectives. Low gravity and hazards cost extra time. Heavy armor lowers effective DEX. Observe real R.O.V.E.R. countdowns. Guns consume finite battery cells. Medicines are unidentified separately in each run.\n\nWatch reserve and oxygenation: an empty tank causes hypoxia. Visual impressions can be unreliable; suit telemetry and right-click sensor inspection remain true within legitimate vision. Refill and allow real turns for oxygenation to recover. Reduced distortion is available in Settings and disables fixture flicker.\n\nALICE voice and Radio static have separate sliders. Set Radio static to zero for clean speech. Effects controls breathing, heartbeat and world cues; Music has its own slider. Pausing also pauses audio; choices and subtitles remain immediately available.\n\nDeath ends the expedition. Save and resume between decisions. Different seeds produce different stations.",90,Gdx.graphics.getHeight()-125,Gdx.graphics.getWidth()-190,130,1.04f);
     }
     private void credits(){
         overlay("ORIGIN WAR / CREDITS");

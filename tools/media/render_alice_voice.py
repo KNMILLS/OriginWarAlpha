@@ -108,6 +108,8 @@ def radio(raw,rate,fear,seed):
     return np.concatenate([np.zeros(round(.09*SR),np.float32),x,np.zeros(round(.15*SR),np.float32)])
 
 def main():
+    if (SOURCE/'expressive/manifest.json').exists():
+        raise SystemExit('The active ALICE set uses expressive masters. Use export_expressive_alice.py with a fresh output directory; historical Piper sources remain preserved.')
     parser=argparse.ArgumentParser();parser.add_argument('--repeatability',action='store_true')
     parser.add_argument('--reprocess-only',action='store_true');parser.add_argument('--only')
     args=parser.parse_args()

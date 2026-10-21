@@ -1,5 +1,11 @@
 # Verification evidence
 
+## Expressive ALICE and separate radio layer
+
+VOICE3 implements the owner's actual fear-masked sarcastic vocal direction, with a small higher/brighter adjustment, exact existing words, clean voice assets and a separate speech-free static loop/volume. Current56audio/source/input-binding/license/reprocessing/headroom checks PASS; static is independently constructed and repeatable. Three desktop production files change (AudioDirector, SettingsStore, OriginWarApp); core/story/save/economy/art/other47audio files remain exact. Earlier inventory tests/campaigns retain their scopes; current lifecycle/settings regressions, actual held speech/settings/mute/pause and clean package/CI/ZIP use exact final identities in the companion receipt. ALICE_PERFORMANCE.md records actual ASR ambiguities and subjective limits.
+
+Current120 tests PASS (84core/36desktop), zero failures/errors/skips. Actual1024x720 settings pixels at100%/200% and independent mouse changes/save of Radio0 and Voice50% passed. The companion receipt distinguishes mock lifecycle tests from real packaged playback; no owner acting acceptance is inferred.
+
 ## Inventory stacking follow-up
 
 INV1 adds a shared pure stack definition,24 logical pack slots, one-unit drop, stable stack selection and quantity rows. Save schema and original IDs remain intact; different strengths/medicine compounds remain separate. The new production file-backed SaveStore regression caught a duplicate obsolete24-record check, now corrected to the core's bounded512-record limit after logical validation. The first failure is preserved outside Git. All112 tests (84core/28desktop), zero failures/errors/skips, and full asset validation PASS. See INVENTORY_STACKS.md for semantics and intentionally changed old multi-quantity DROP behavior. The fresh companion inventory delivery receipt supplies exact source, native controls/save, unchanged-media checks, complete campaign reruns, CI and package identities; earlier evidence below retains its historical scope.
