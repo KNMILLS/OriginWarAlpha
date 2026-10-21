@@ -283,8 +283,10 @@ public final class OriginWarApp extends ApplicationAdapter {
             float px=originX+a.x*tile,py=originY-a.y*tile;batch.setColor(Color.WHITE);
             if(a.dead){if(a.kind==GameState.ActorKind.SIRS)art.pose(batch,47,px,py,tile);else if(a.kind==GameState.ActorKind.ADD)art.pose(batch,51,px,py,tile);else if(a.kind==GameState.ActorKind.ROVER)art.draw(batch,30,px,py,tile);continue;}
             int family=switch(a.kind){case ALICE->1;case SIRS->2;case ADD->3;case ROVER->4;default->-1;};
+            int human=switch(a.kind){case WEST->0;case CARMACK->1;case SURVIVOR->2;case OPERATOR->3;default->-1;};
             boolean attacking=effects.stream().anyMatch(effect->effect.type().equals("gun")&&effect.x()==a.x&&effect.y()==a.y);
-            if(family>=0){
+            if(human>=0&&art.completeHumans())art.human(batch,human,(int)(clock*.8f+Math.floorMod(a.id.hashCode(),5))%2,px,py,tile);
+            else if(family>=0){
                 if(attacking&&a.kind==GameState.ActorKind.SIRS)art.attack(batch,1,a.facing,(int)(clock*16)%2,px,py,tile);
                 else if(attacking&&a.kind==GameState.ActorKind.ADD)art.attack(batch,2,a.facing,(int)(clock*16)%2,px,py,tile);
                 else if(a.kind==GameState.ActorKind.ROVER&&a.fuse>=0&&a.fuse<=2)art.pose(batch,52+(int)(clock*8)%2,px,py,tile);
@@ -411,7 +413,13 @@ public final class OriginWarApp extends ApplicationAdapter {
         if(!lastDialogue.equals(state.activeDialogue)){dialoguePage=0;lastDialogue=state.activeDialogue;}
         float w=Gdx.graphics.getWidth(),h=Gdx.graphics.getHeight();
         rect(36,52,w-72,h-104,new Color(.018f,.04f,.055f,.99f));
-        text(node.speaker(),66,h-87,1.15f,amber);text(node.title(),66,h-124,1.7f,cyan);
+        int speaker=node.speaker().contains("WEST")?0:node.speaker().equals("DR. JAMES CARMACK")?1:node.speaker().startsWith("STATION MEDIC")?2:-1;
+        boolean aliceSpeaker=node.speaker().equals("A.L.I.C.E.");
+        boolean portrait=speaker>=0&&art.completeHumans()||aliceSpeaker&&art.completeActors();
+        text(node.speaker(),66,h-87,1.15f,amber);
+        font.getData().setScale(1.7f*settings.uiScale);layout.setText(font,node.title());
+        text(node.title(),66,h-124,1.7f*Math.min(1,(w-132-(portrait?128:0))/Math.max(1,layout.width)),cyan);
+        if(portrait){float ax=w-148,ay=h-156;rect(ax-4,ay-4,72,72,new Color(.035f,.075f,.09f,1));if(speaker>=0)art.human(batch,speaker,(int)(clock*.8f)%2,ax,ay,64);else art.actor(batch,1,2,(int)(clock*.8f)%2,ax,ay,64);}
         float choicesHeight=0;
         var choiceLabels=new ArrayList<String>();var choiceHeights=new ArrayList<Float>();int ordinal=0;
         for(var choice:node.choices()){

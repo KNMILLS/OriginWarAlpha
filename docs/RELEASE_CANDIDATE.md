@@ -10,7 +10,7 @@ This implements the complete ten-deck orbital campaign, including West's briefin
 | Complete campaigns | Both normal-action, finite-resource routes win alive in the bundled Windows executable; automated planners know geometry, so this is not a human difficulty claim |
 | Persistence | Six real file-backed campaign checkpoints, complete state/event determinism, corrupt-primary fallback, permadeath isolation, actual Windows sharing-lock regression and fresh-process final-dialogue resume |
 | Current hypoxia | Actual AI-enabled campaign, oxygenation100 ->60 ->20 ->76 after a finite tank; HP96; world-only impressions disappear on recovery; true HUD remains readable |
-| Presentation | Five sector families; directional walking/attacks and effects; actual enlarged dialogue, epilogue, map, record, inventory and character captures; independent scoped pixel/source reviews |
+| Presentation | Five sector families; directional walking/attacks, human idle pairs and effects; actual West/Carmack phase changes, enlarged dialogue, epilogue, map, record, inventory and character captures; independent scoped pixel/source reviews |
 | Audio backend | Six original scores and28 original effects load/decode; both full packaged routes and current hypoxia replay have0 failed voices; actual96-second stream loop completed twice |
 | Package/source rights | Independent actual JAR/source/runtime/notice audits; exact patched OpenAL/JLayer/JOrbis/Temurin source correspondence;33 upstream notice hashes; no legacy media/private saves/caches in runtime |
 | Performance | Current hypoxia run4,279foreground samples: mean16.74ms,p9517.57ms,max84.67ms,heap76MiB; autosaves/captures included, not a GPU/universal benchmark |

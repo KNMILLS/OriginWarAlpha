@@ -21,7 +21,8 @@ tasks.register('verifyAssets') {
     doLast {
         def sizes=['art/station.png':[1024,1024],'art/animation/actors.png':[1024,1024],
             'art/sectors/sectors.png':[1024,512],'art/finale/finale.png':[1024,512],
-            'art/animation/directional-actions/attack.png':[1024,384]]
+            'art/animation/directional-actions/attack.png':[1024,384],
+            'art/animation/humans/humans.png':[1024,128]]
         sizes.each { path,size ->
             def image=javax.imageio.ImageIO.read(file('assets/'+path))
             if(image==null||image.width!=size[0]||image.height!=size[1])throw new GradleException('Invalid runtime art: '+path)

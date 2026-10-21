@@ -8,7 +8,7 @@ dependencies {
 }
 sourceSets.main.resources.srcDirs = [rootProject.file('assets')]
 sourceSets.main.resources {
-    include 'art/station.png','art/animation/actors.png','art/sectors/sectors.png','art/finale/finale.png',
+    include 'art/station.png','art/animation/actors.png','art/animation/humans/humans.png','art/sectors/sectors.png','art/finale/finale.png',
         'art/animation/directional-actions/attack.png','audio/music/*.ogg','audio/sfx/*.wav'
 }
 run { workingDir rootProject.projectDir }
