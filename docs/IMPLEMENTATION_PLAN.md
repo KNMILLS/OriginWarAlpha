@@ -8,12 +8,12 @@ Authority: [SURVIVAL_HORROR_20261021](directives/SURVIVAL_HORROR_20261021.md). E
 | --- | --- | --- | --- | --- |
 | SH-BASE | Preserve release; current authority; fresh profile/save safety | lead; docs/build/save/model/contracts | bundle verified; safe lifecycle/fault tests | verified lifecycle/fault/independent-process lease |
 | SH-CORE | Statless physical survival, senses, infrastructure, finite generation | lead; core/** | deterministic scenarios, conservation,10k seeds | verified 10,000 seeds; 280-tick maximum public gap |
-| SH-STORY | Station ALICE, historical people, physical ending, dynamic exchanges | lead; campaign + shared speech definitions | no NPC/stat/prose gate; both Constructor approaches/resumes | verified observed pilot ten wins; both full file campaigns |
+| SH-STORY | Station ALICE, historical people, physical ending, dynamic exchanges | lead; campaign + shared speech definitions | no NPC/stat/prose gate; both Constructor approaches/resumes | ten observed victories; both file-backed and packaged native routes; all essential speech receipts |
 | SH-ART | Illustrated source kit and art production brief | art specialist; isolated worktree, new survival source/export paths only | source/provenance + integrated scene review | integrated294cc92; technical PASS, owner bar OPEN |
 | SH-SOUND | Complete exchange performances and survival sound candidate | sound specialist; isolated worktree, new survival source/export paths only | exact bindings, decode, runtime and human listening distinguished | integrated5e6fdde; technical PASS, listening OPEN |
-| SH-ANIM | Painted cardinal gait/actions and motion brief | animation specialist after suit master; isolated worktree | actual60Hz motion/anchors/markers/pause | integrated676674a; technical PASS, artistic coverage OPEN |
+| SH-ANIM | Painted cardinal gait/actions and motion brief | animation specialist after suit master; isolated worktree | actual60Hz motion/anchors/markers/pause | integrated676674a; equipment5f922c8/210cbff; source/markers PASS; equipment locomotion, machine facing and artistic coverage OPEN |
 | SH-DESKTOP | Rendering/event/UI integration and controls | desktop specialist then lead; client only | native slice, keyboard/pointer, scale, no hidden data leaks | integrated7f9e816; native technical checks pass; artistic bar OPEN |
-| SH-RELEASE | Independent checks, full packaged runs, crash investigation | lead + read-only reviewers | measured runtime/seed/save/AV/package evidence; human gaps explicit | in progress; all worker leases released; package/native qualification next |
+| SH-RELEASE | Independent checks, full packaged runs, crash investigation | lead + read-only reviewers | measured runtime/seed/save/AV/package evidence; human gaps explicit | both native campaigns/independent package audit PASS; final archive identities in delivery receipt; artistic/human acceptance and crash root cause OPEN |
 
 
 One lead, at most two bounded workers. Status: planned -> ready -> in progress -> review -> integrated -> verified; blocked/reopened remain explicit. Integration, runtime and remote evidence are separate.

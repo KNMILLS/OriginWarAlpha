@@ -1,0 +1,2 @@
+# The empty fourth action field is deliberate; preserve the ordinary replay bytes.
+*.tsv -text whitespace=-blank-at-eol
