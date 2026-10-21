@@ -1,0 +1,29 @@
+# SH-ANIM original illustrated motion
+
+Authority: owner-approved `docs/directives/SURVIVAL_HORROR_20261021.md`. Worker branch/worktree: `codex/survival-animation` / `C:/OriginWarReboot/worktrees/survival-animation`, base`5e6fdde`. Exclusive scope is the new motion/source/export subtree, its isolated extraction/validation tools and this document. No model, Java, shared registry, historical art, build or audio changes. Lead owns integration and native verification.
+
+## Delivered production candidates
+
+Four original painted cardinal officer sheets provide48 walking drawings, preserving the mature white pressure suit, sealed helmet, black joints/harness and a small right-hand pistol. Three original machine sheets provide24 locomotion drawings: heavy biped S.I.R.S., quadruped A.D.D. and smaller tank-backed R.O.V.E.R. Three additional officer sheets provide12 authored pistol raise/aim/recoil/recovery drawings for east, south and west. Static aim shares its actual aim drawing; it is not counted as a new original frame.
+
+Thirteen metadata clips bind84 distinct PNGs. Officer12-at24fps and machine8-at16fps loops last .5seconds and are intended to cover two .25-second cells. Gait contact markers are0/6 and0/4 respectively. Pistol fire release isframe2/.14seconds and recovery3/.21seconds. These are presentation markers, never authoritative simulation effects. The lead must use actual accepted action events and legitimate perception; no renderer or clip may mutate tactics, expose a hidden path or advance time while the player thinks.
+
+Drawings are actual independent painted silhouettes. Deterministic extraction preserves source antialias pixels, applies one scale calibration per selected master and gives all frames in a clip identical canvases/pivots. Ground pivots follow a common solid-sole reference, not per-frame height stretching. Original sources, exact prompts/output identities/hashes, rejected alternatives and an editable OpenRaster pose catalog are retained. No puppet warp, static-image bob, code-painted limb or interpolated substitute is presented as painted animation.
+
+## Art direction and integration
+
+Use economical adult weight, quiet deliberate movement and stable helmet/equipment. Preserve the drawn, worn enamel/rubber/steel finish and neutral diffuse lighting so authoritative station illumination remains coherent. Leg mechanics should convey load transfer, not jaunty bounce. Weapons remain attached to hands; recoil belongs in the authored upper-body pose. Machine weight comes from foot/piston changes rather than stretching chassis geometry. R.O.V.E.R.'s movement art contains no fake arming indication.
+
+Render using the supplied named paths and normalized bottom-left foot pivots at the256px reference scale. Alpha padding is deliberate, so canvas height is greater than the opaque reference silhouette. Carry phase across a two-cell cycle and synchronize contacts from the same timeline; resetting twelve poses on every single cell is incorrect. Keep release, target contact and recovery ordered, without adding a second recoil. Stop gait on actual arrival and freeze all relevant clocks coherently during pause/focus loss. Idle machinery must not appear to move or scan tactically while world ticks wait.
+
+The tools README describes reproduction, preview and metadata fields. `review/officer-walk-contact.jpg`, `machines-walk-contact.jpg` and `officer-fire-contact.jpg` were viewed after extraction. Browser preview loaded all48 cardinal walk PNGs and advanced fromphase2 to5 over150ms; pause heldphase7 across150ms; another500ms cycle was sampled with zero image failures. Actual preview screenshots were viewed. These are technical presentation observations, not native gameplay captures or human acceptance.
+
+## Rejections and remaining quality gates
+
+Initial front/rear sheet generation repeats extended-stride silhouettes instead of reliably giving a complete twelve-phase single cycle. A twelve-pose count therefore does **not** pass the requested commercial motion bar. Fewer dedicated passing poses were generated; splicing them caused upper-body/helmet proportion pops and an overly high knee, so the actual mixed preview and metadata are preserved as rejected. A targeted rear-sheet leg edit did not solve the choreography and remains unselected. Current coherent per-direction masters are integration candidates for real evaluation, not accepted commercial gait.
+
+The south retry has real alpha; its painted RGB under alpha zero initially looked opaque in the raw viewer. Alpha inspection corrected that interpretation. No background-removal workaround or hidden painted replacement was used.
+
+The north pistol-action request was rejected by the image service's violence moderation, request`41ee064e-68d0-45d1-9e48-2eef1417f20f`. Its exact prompt is retained and no corresponding north action asset/clip is invented. Equipment-dependent unarmed/rifle/scattergun silhouettes, machine cardinal facings, hits, interactions, death and door mechanics remain beyond this candidate delivery. An integrator must not silently choose a pistol clip for a different equipped item or a wrong-facing action. Current single-angle machine art cannot establish mechanically truthful sensor facing in every direction.
+
+Before artistic acceptance: independently review normal-speed native footage at720p/1080p/owner display; correct front/rear choreography; verify one-cell stopping and consecutive-cell foot plants; inspect pivots, direction changes, weapon anatomy and relative posture; verify release/contact sounds on the actual60Hz timeline; check actual machine facing/visibility and all equipment states; test pause/focus/reduced-motion transitions. The15–20-minute integrated slice, human reaction and owner approval remain the commercial gate. Automated hashes, frame counts and baseline measurements cannot grant it.

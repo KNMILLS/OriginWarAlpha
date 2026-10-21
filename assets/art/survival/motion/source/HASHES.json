@@ -1,0 +1,124 @@
+{
+  "files": [
+    {
+      "path": "add-walk-prompt.txt",
+      "sha256": "837019dfc92f6cf40ee9c17f2449e2adb323877bb80fe47aec14169e6643ad3f"
+    },
+    {
+      "path": "add-walk-v1.png",
+      "sha256": "cf1c1326ec6faf0a8e2d17582982a373334bbd153f54da16a4f3a95c749bddb8"
+    },
+    {
+      "path": "GENERATION.json",
+      "sha256": "bdda2dbcf24b6ac6c3be4e69fc34a4c6883c5f02577799df8003d95ce4841d7d"
+    },
+    {
+      "path": "north-passing-prompt.txt",
+      "sha256": "8661a41dbd3a3a3285552b52ddf73f243567d2d0413f677eb31662a2e8e8cd22"
+    },
+    {
+      "path": "north-passing-v1.png",
+      "sha256": "3b006fa56f2feb6184b631a2fce545982f912a9798ff6f88a05fa806f0941966"
+    },
+    {
+      "path": "officer-fire-east-prompt.txt",
+      "sha256": "9a29476e55ffd5d7841347d063d839a2e86862e5c1a49f56391d07e8afce4f86"
+    },
+    {
+      "path": "officer-fire-east-v1.png",
+      "sha256": "4adcf20af2c01d60947e9949f9c0c5bb65a1f77d2ea97f1d85f19d5d65aba189"
+    },
+    {
+      "path": "officer-fire-north-prompt.txt",
+      "sha256": "64898b40770b0195dcc26b86890c4422704d6de03eeb33e842f91dd8e55262a9"
+    },
+    {
+      "path": "officer-fire-south-prompt.txt",
+      "sha256": "0912b73c98184eb36d324d805a9e16fc10fb398ea5dad380bcff68ffed07b24f"
+    },
+    {
+      "path": "officer-fire-south-v1.png",
+      "sha256": "bd64c7b38776ce16da867c37ed5ee1ca95bcf9919b6a3ac22f44066347345f09"
+    },
+    {
+      "path": "officer-fire-west-prompt.txt",
+      "sha256": "33e178155cec34288e1f43918c72b7bf122d10c76de77c60e96884d1163a39cc"
+    },
+    {
+      "path": "officer-fire-west-v1.png",
+      "sha256": "7c72af975a3fe5daf2569a0e74977e71c0d9d23194cf71e1f2e4176fd2f35c0e"
+    },
+    {
+      "path": "officer-walk-east-prompt.txt",
+      "sha256": "ccec4edc1a5433f0f67069e9eddacc59b64b899a3135099dbc150cb38638437e"
+    },
+    {
+      "path": "officer-walk-east-v1.png",
+      "sha256": "db723678bbce641b11a5606486f1fbe6f46eaa4c5e0d1bb5360285055a38120c"
+    },
+    {
+      "path": "officer-walk-north-prompt.txt",
+      "sha256": "76f70cd427c6eea906a38b61a7e7e8a6973dea1de41cdee6efc0baa2637dec5c"
+    },
+    {
+      "path": "officer-walk-north-v1.png",
+      "sha256": "ec0bf49e5da4db4fc60820bb0ee4f658dbbbb218a3ee02c24dd1889d3fa609f8"
+    },
+    {
+      "path": "officer-walk-north-v2-prompt.txt",
+      "sha256": "90e0bb3d1ea0f397d358f8179da1ce96c081d9f6d46c7dde9788b31f1d425d17"
+    },
+    {
+      "path": "officer-walk-north-v2.png",
+      "sha256": "2f6b51944e4e916f3ff46d53585ee3a3490404275d38b686b189c70dee16b08e"
+    },
+    {
+      "path": "officer-walk-south-prompt.txt",
+      "sha256": "e2905c7644df000a201f63b6b04152a6e3108d7094fc4530b73df69334e2559e"
+    },
+    {
+      "path": "officer-walk-south-v1.png",
+      "sha256": "3260b610097aacae9023521810ea10ab2a4e516ad9a38014aada6fab5350568e"
+    },
+    {
+      "path": "officer-walk-south-v2-prompt.txt",
+      "sha256": "22218e6c1b142fd29aa13f0b23b84d744e2edd3fcd5ce1ed86b604c57af70db6"
+    },
+    {
+      "path": "officer-walk-south-v2.png",
+      "sha256": "0a7e4f8a8a4cc85ce737e01b69ae7e49e4102c9e40623d63790370aae1ab1f98"
+    },
+    {
+      "path": "officer-walk-west-prompt.txt",
+      "sha256": "a0d3e34be4ca9804ef9b2f2f0b85a10e68c7b8a0435894a79f7ce55d6d9dde5a"
+    },
+    {
+      "path": "officer-walk-west-v1.png",
+      "sha256": "36d6b789a6f41f053f0634dfd31362d41d8eb2254f7a1d811015e0f030475b4c"
+    },
+    {
+      "path": "rover-walk-prompt.txt",
+      "sha256": "eb6acaa18d73ed46ae3ee346d2ae013dd571f08091189f1b3565daa43c2db37e"
+    },
+    {
+      "path": "rover-walk-v1.png",
+      "sha256": "2b23c0e9d88ffdcbba4892e5df3c3232aedc90870f50ed2ae29ebbc453fe8709"
+    },
+    {
+      "path": "sirs-walk-prompt.txt",
+      "sha256": "a8c2ec74bbcea8e8ad3aaa36f600bde91fad85013dc65a197ca2ae89f60a5201"
+    },
+    {
+      "path": "sirs-walk-v1.png",
+      "sha256": "a0f3de29f6e3ad1c19ee210ba47a1dc8ce1d36185dc52f11e584b8a5eb546418"
+    },
+    {
+      "path": "south-passing-prompt.txt",
+      "sha256": "f8c27899d50268bc060f585733e4fa12e36b8d6407d78f3b3919a9ce852e2265"
+    },
+    {
+      "path": "south-passing-v1.png",
+      "sha256": "6447cff9d9cfba383bfd853103576864584b3b884b51d14f8288937165d88c1e"
+    }
+  ]
+}

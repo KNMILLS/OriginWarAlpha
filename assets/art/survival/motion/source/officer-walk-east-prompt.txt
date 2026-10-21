@@ -1,0 +1,19 @@
+Use case: identity-preserve. Original illustrated game character WALK ANIMATION SHEET; match the referenced mature adult white pressure-suited officer, helmet, belt, backpack, black joint fabric and pistol. Entire sheet EAST facing right, side/three-quarter profile, orthographic camera elevated 25 degrees. NOT a turnaround.
+Exactly 12 distinct consecutive poses, 4 columns by 3 rows, equal cells with gaps. Transparent alpha. Full body all frames fixed scale, central hips at the same X in each cell, planted sole baseline identical; no clipping or shadows. Keep torso and head calm, pistol safely DOWN in right hand throughout. Hand-painted production game illustration, restrained neutral light. No text.
+Critical animation instructions: a SINGLE two-foot walking cycle across all 12 cells. Each pose changes leg silhouette. Alternating long extension to legs together in passing to opposite extension. Not twelve variations of extended stride. No running, no duplicated contacts.
+ROW ONE, left to right:
+1. LEFT leg extended FORWARD to the RIGHT, heel contacting; right leg extended BACK to LEFT.
+2. LEFT knee bends absorbing weight; RIGHT heel lifts behind.
+3. LEFT leg supports torso vertical, RIGHT leg bent and lifting from behind.
+4. PASSING pose: legs CLOSE TOGETHER under torso; LEFT foot planted, RIGHT bent knee passing forward.
+ROW TWO:
+5. RIGHT bent knee swings well FORWARD, LEFT straight stance foot slightly behind.
+6. RIGHT shin extends forward for contact, LEFT heel lifts rear.
+7. RIGHT leg extended FORWARD to RIGHT heel contacting; LEFT extended BACK to LEFT.
+8. RIGHT knee bends absorbing; LEFT heel lifts behind.
+ROW THREE:
+9. RIGHT leg supports vertical; LEFT knee bent lifting behind.
+10. PASSING: legs CLOSE TOGETHER under torso; RIGHT foot planted, LEFT bent knee passing forward.
+11. LEFT knee swings forward, RIGHT straight stance foot behind.
+12. LEFT shin extends forward to contact, RIGHT heel lifts rear.
+Mirror the leg choreography, not the character; the backpack and pistol must not swap. Two actual steps at 24fps. Keep white rigid suit panels aligned on each limb, real fold changes at joints. No puppet warping or repeated static sprite. Do not change costume, adult proportions, weapon identity or camera.

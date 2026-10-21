@@ -1,0 +1,10 @@
+Use case: identity-preserve.
+Asset type: ORIGINAL GAME ANIMATION SPRITE SHEET, transparent background.
+Input reference: the officer turnaround fixes the character identity, white suit design, human adult proportions, helmet, black joints, black belt/backpack and SMALL BLACK SIDEARM HELD DOWN IN HIS RIGHT HAND.
+Make one SOUTH-FACING walk cycle: the character faces the viewer, viewed from an elevated orthographic three-quarter game camera. Match reference painting. All 12 FULL-BODY frames show the SAME direction/camera/size/equipment, not a turnaround.
+Layout STRICT 4 COLUMNS x 3 ROWS equal cells, read row-major, no labels/grid/text. Each pose centrally positioned in its cell, full silhouette never clips; feet on consistent baseline. Generous transparent gap between poses.
+12 distinct sequential painted walk poses at 24fps covering TWO STEPS / one .5-second cycle:
+1 left heel contact forward right foot trailing; 2 left foot accepting weight; 3 right heel lifting; 4 right swing passing stance leg; 5 right knee forward; 6 right foot extends to land;
+7 right heel contact forward left trailing; 8 right foot accepting weight; 9 left heel lifting; 10 left swing passes; 11 left knee forward; 12 left foot extends to land. Frame 12 leads naturally into frame 1.
+Weight cautious adult gait with subtle authentic pelvis/shoulder counterbalance, grounded boots, restrained short stride, quiet economical arms. Right hand never releases or changes the same pistol, muzzle down. Actual anatomy changes frame by frame, no copied or warped poses.
+Medium: polished hand-painted illustrated 2D production sprite, realistic mature proportions, clean contour, detailed worn off-white enamel pressure suit, dark rubber and hardware. Consistent neutral diffuse light, no ground/cast shadow, no baked colored light, no emissive highlights. Preserve exact officer costume across all frames. Avoid chibi, toy proportions, fantasy, photoreal 3D render, giant gun, muzzle flashes, extra fingers, cut off feet, background, text. Actual alpha transparency.

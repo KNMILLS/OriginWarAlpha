@@ -1,0 +1,9 @@
+Use case: identity-preserve. Original hand-painted game animation sprites, transparent alpha. Match reference officer: mature adult human in worn white pressure suit, black joint sections, black belt/harness, compact tank backpack, sealed white helmet. SMALL BLACK PISTOL DOWN IN ANATOMICALLY RIGHT HAND.
+Make NORTH-facing walk cycle seen FROM BEHIND with elevated orthographic game camera. Every frame faces AWAY/up-screen, only BACK of helmet visible, NEVER face. Backpack identical across every pose.
+Exactly12 sequential full body poses, STRICT4 columns3 rows, equal cells, row-major, generous gap, no labels/grid. Fixedscale/camera/light/hip center/foot baseline. Entire silhouette ineachcell.
+ONE two-step cycle, not multiple repeated steps. Carefully different leg silhouettes:
+row1: 1left heel contact away forward; 2left weight down right heel rising; 3right bent leg lifting behind; 4RIGHT PASSING, legs CLOSE together, right bent knee passes left support leg.
+row2: 5right knee forward left foot behind; 6right shin reaches forward; 7right heel contact opposite left leg back; 8right weight down left heel rising.
+row3: 9left bentleglifting behind; 10LEFT PASSING legs CLOSE together left bent knee passes right support; 11left knee forward right support behind; 12leftshinreachesforwardtocontact. Smooth sequential12to1.
+Because seen behind, foreshortened shins/boots change depth and occlude eachother during passing. Include real overlapping leg silhouettes. Weight-cautious quiet walk, short stride, planted boots, restrained authentic shoulders and pelvis. No running, no bobbing head.
+Maintain anatomy and exact backpack two tank cylinders and hoses/harness; pistol stays muzzle down in right hand same side. Polished hand-painted 2D illustration matching existing game officer, neutral diffuse lighting, no cast shadow/floor/glow. No repeated static sprites, no warps, no fantasy/chibi/3D, no text or extra characters.
