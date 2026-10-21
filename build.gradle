@@ -32,6 +32,17 @@ tasks.register('verifyAssets') {
             def raster=javax.imageio.ImageIO.read(file('assets/'+item.path))
             if(raster==null||raster.width!=item.pixelWidth||raster.height!=item.pixelHeight||item.widthCells<=0||item.heightCells<=0)throw new GradleException('Invalid illustrated bounds: '+item.name)
         }
+        def equipment=new groovy.json.JsonSlurper().parse(file('assets/art/survival/equipment-motion/regions.json'))
+        def expectedEquipment=['unarmed','rifle','scattergun'].collectMany { weapon -> ['north','east','south','west'].collect { face -> 'officer.'+weapon+'.'+face } }.toSet()
+        if(equipment.version!=1||equipment.regions.size()!=12||equipment.regions.collect{it.name}.toSet()!=expectedEquipment)throw new GradleException('Incomplete equipment silhouettes')
+        equipment.regions.each { item ->
+            check(item.path,item.sha256)
+            def raster=javax.imageio.ImageIO.read(file('assets/'+item.path))
+            if(raster==null||raster.width!=item.pixelWidth||raster.height!=item.pixelHeight||item.widthCells<=0||item.heightCells<=0||item.pivotX<0||item.pivotX>1||item.pivotY<0||item.pivotY>1)throw new GradleException('Invalid equipment bounds: '+item.name)
+        }
+        def equipmentMotion=new groovy.json.JsonSlurper().parse(file('assets/art/survival/equipment-motion/clips.json'))
+        if(equipmentMotion.clips.collect{it.id}.toSet()!=['officer.fire.north','officer.aim.north'].toSet())throw new GradleException('Incomplete north pistol action')
+        equipmentMotion.clips.each { clip -> clip.frames.each { frame -> check(frame.path,frame.sha256) } }
         def speech=new groovy.json.JsonSlurper().parse(file('assets/audio/survival/exchanges.json'))
         if(speech.exchanges.size()!=16||speech.exchanges.sum{it.lines.size()}!=28)throw new GradleException('Incomplete survival performance catalog')
         speech.exchanges.each { exchange -> exchange.lines.each { line ->
@@ -58,6 +69,6 @@ tasks.register('verifyAssets') {
         uiFont.outputs.each { path,hash -> check('ui/'+path,hash) }
         def notices=new groovy.json.JsonSlurper().parse(file('licenses/MANIFEST.json'))
         notices.each { path,entry -> if(!file('licenses/'+path).isFile()||digest(file('licenses/'+path))!=entry.sha256)throw new GradleException('Notice mismatch: '+path) }
-        logger.lifecycle('Validated '+art.regions.size()+' illustrated regions, 28 exact normal/clear performances, 16 effects, 3 station beds and dependency notices.')
+        logger.lifecycle('Validated '+art.regions.size()+' illustrated regions, 12 equipment silhouettes, north pistol action, 28 exact normal/clear performances, 16 effects, 3 station beds and dependency notices.')
     }
 }

@@ -14,6 +14,7 @@ sourceSets.main.resources {
         'audio/music/*.ogg','audio/sfx/*.wav','audio/ambience/*.ogg','audio/voice/*.ogg','audio/voice/index.json','audio/runtime.json','ui/ui.fnt','ui/ui.png'
     include 'art/survival/regions.json','art/survival/regions/*.png','art/survival/motion/clips.json','art/survival/motion/regions/*.png',
         'audio/survival/exchanges.json','audio/survival/voice/*.ogg','audio/survival/voice/clear/*.ogg','audio/survival/sfx/*.wav','audio/survival/ambience/*.ogg'
+    include 'art/survival/equipment-motion/regions.json','art/survival/equipment-motion/clips.json','art/survival/equipment-motion/regions/*.png'
 }
 run { workingDir rootProject.projectDir }
 tasks.named('installDist') { dependsOn rootProject.tasks.named('verifyAssets') }

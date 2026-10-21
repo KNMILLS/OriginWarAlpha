@@ -16,15 +16,17 @@ public final class IllustratedArt implements AutoCloseable {
         var p=new Pixmap(1,1,Pixmap.Format.RGBA8888);p.setColor(Color.WHITE);p.fill();white=new Texture(p);p.dispose();
         var file=Gdx.files.internal("art/survival/regions.json");
         if(!file.exists())throw new GdxRuntimeException("Missing illustrated region manifest");
-        var root=new JsonReader().parse(file);
-        for(var v:root.get("regions")){
-            var texture=textures.computeIfAbsent(v.getString("path"),path->{var t=new Texture(Gdx.files.internal(path));t.setFilter(Texture.TextureFilter.Linear,Texture.TextureFilter.Linear);return t;});
-            regions.put(v.getString("name"),new Region(new TextureRegion(texture),v.getFloat("widthCells"),v.getFloat("heightCells"),v.getFloat("pivotX"),v.getFloat("pivotY"),v.getString("layer","world")));
-        }
+        loadRegions(new JsonReader().parse(file));
+        loadRegions(new JsonReader().parse(Gdx.files.internal("art/survival/equipment-motion/regions.json")));
         // Optional motion manifest has the same region contract plus named clips.
         var motion=Gdx.files.internal("art/survival/motion/clips.json");
         if(motion.exists())loadMotion(new JsonReader().parse(motion));
+        loadMotion(new JsonReader().parse(Gdx.files.internal("art/survival/equipment-motion/clips.json")));
     }
+    private void loadRegions(JsonValue root){for(var v:root.get("regions")){
+        var texture=textures.computeIfAbsent(v.getString("path"),path->{var t=new Texture(Gdx.files.internal(path));t.setFilter(Texture.TextureFilter.Linear,Texture.TextureFilter.Linear);return t;});
+        regions.put(v.getString("name"),new Region(new TextureRegion(texture),v.getFloat("widthCells"),v.getFloat("heightCells"),v.getFloat("pivotX"),v.getFloat("pivotY"),v.getString("layer","world")));
+    }}
     private final Map<String,List<String>> clips=new HashMap<>();
     private final Map<String,Float> clipSeconds=new HashMap<>();
     private final Map<String,Map<String,Float>> markers=new HashMap<>();

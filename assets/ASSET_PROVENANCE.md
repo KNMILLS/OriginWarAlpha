@@ -1,6 +1,8 @@
 # Current illustrated survival assets
 
-The0.2 candidate uses42 original named illustrated regions with retained source masters, prompts, reference attribution, an editable OpenRaster kit and deterministic exports under art/survival. Painted motion sources and per-frame metadata are isolated under art/survival/motion. See docs/design/art/SURVIVAL_PRODUCTION.md and SURVIVAL_ANIMATION.md for ownership, references, rejection criteria and explicit unaccepted coverage. Existing original art/font notices remain preserved. Historical pixel-atlas evidence below does not certify this illustrated candidate.
+The 0.2 candidate uses 42 original named station/actor regions, 84 painted motion drawings and 16 additional equipment/action drawings under art/survival. Retained masters, exact prompts, reference attribution, editable OpenRaster documents and deterministic exporters accompany them. The equipment-motion subtree supplies twelve static unarmed/rifle/scattergun facings and four north-facing pistol drawings; its aim clip reuses the actual second drawing. Static equipment variants do not claim locomotion or weapon-action coverage. All four pistol fire directions now resolve to matching authored drawings. The earlier rejected north request remains preserved as history; the selected new source is a separate successful generation.
+
+See docs/design/art/SURVIVAL_PRODUCTION.md, SURVIVAL_ANIMATION.md and tools/media/survival_equipment_motion/HANDOFF.md for ownership, sources, rejection criteria and explicit unaccepted coverage. Existing original art/font notices remain preserved. Historical pixel-atlas evidence below does not certify this illustrated candidate.
 
 ---
 
