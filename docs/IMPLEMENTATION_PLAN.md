@@ -6,7 +6,7 @@ Baseline `604c910`. Owner requests implementation of the art production plan, be
 
 | ID | Exclusive owner / paths | Acceptance | State |
 | --- | --- | --- | --- |
-| AP-LEAD | lead; desktop presentation/contracts/build/registries, art bible, integration, runtime, publication | native A/B, real frame pacing, honest coverage, no tactical mutation | integrated;111 tests/native equivalence PASS; package/publication in progress; owner selection OPEN |
+| AP-LEAD | lead; desktop presentation/contracts/build/registries, art bible, integration, runtime, publication | native A/B, real frame pacing, honest coverage, no tactical mutation | verified first comparison;111 tests/native equivalence/package/ZIP/two exact-source CI runs PASS; see ART_PROOF_DELIVERY.md; owner selection OPEN |
 | AP-PAINTED | art specialist; `codex/art-proof-painted`, `worktrees/art-proof-painted`; new `assets/art/proof/painted/**`, `assets/art/proof/environment/**`, `tools/media/art_proof_painted/**`, `PAINTED_PROOF.md` | authored drawings, usable room modules, exact sources/provenance, viewed exports | integrated;98ce1e0/08eb2e6/a11772c/1b9d1a9; lease released; technical PASS/artistic OPEN |
 | AP-RENDERED | animation specialist; `codex/art-proof-rendered`, `worktrees/art-proof-rendered`; new `assets/art/proof/rendered/**`, `tools/media/art_proof_rendered/**`, `RENDERED_PROOF.md`; portable Blender setup | editable rig, actual RGBA exports, equipment continuity, viewed exports | integrated;ecd6eb0/da4aeda; lease released; technical PASS/artistic OPEN |
 
