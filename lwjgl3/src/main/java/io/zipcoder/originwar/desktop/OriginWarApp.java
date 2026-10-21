@@ -36,9 +36,12 @@ public final class OriginWarApp extends ApplicationAdapter {
     private Screen screen=Screen.TITLE,returnScreen=Screen.TITLE;
     private String seedText="2016",notice="",capture="";
     private int frame,maxFrames,selectedItem,targetX=-1,targetY=-1,dragging=-1;
+    private int captureFrame=90;
+    private final ArrayDeque<Float> frameIntervals=new ArrayDeque<>();
     private float cameraX,cameraY,moveDelay,clock,noticeTime;
     private float nextBreath,nextPulse,nextPhantom;
     private float endingStarted=-1;
+    private boolean endingPanel=true;
     private long lastPerceptionCue=Long.MIN_VALUE;
     private PerceptionModel.Frame perception;
     private int journalEntry,journalPage,dialoguePage,lastJournalEntry=-1;
@@ -61,6 +64,7 @@ public final class OriginWarApp extends ApplicationAdapter {
             if(arg.startsWith("--user-data="))data=Path.of(arg.substring(12));
             if(arg.startsWith("--seed="))seedText=arg.substring(7);
             if(arg.startsWith("--capture="))capture=arg.substring(10);
+            if(arg.startsWith("--capture-frame="))captureFrame=Integer.parseInt(arg.substring(16));
             if(arg.startsWith("--frames="))maxFrames=Integer.parseInt(arg.substring(9));
             if(arg.startsWith("--replay="))for(String line:Gdx.files.absolute(arg.substring(9)).readString("UTF-8").split("\\R"))if(!line.isBlank()&&!line.startsWith("#"))replay.add(line);
         }
@@ -98,7 +102,7 @@ public final class OriginWarApp extends ApplicationAdapter {
     private void resumeGame(){
         try{
             engine=new RunEngine(saves.load());state=engine.snapshot().world();cameraX=state.playerX;cameraY=state.playerY;
-            walking.clear();targetX=-1;targetY=-1;selectedItem=0;journalEntry=Math.max(0,state.journal.size()-1);screen=state.dead?Screen.DEAD:state.victory?Screen.VICTORY:Screen.PLAY;
+            walking.clear();targetX=-1;targetY=-1;selectedItem=0;journalEntry=Math.max(0,state.journal.size()-1);endingStarted=-1;endingPanel=true;screen=state.dead?Screen.DEAD:state.victory?Screen.VICTORY:Screen.PLAY;
             notice(saves.usedBackup()?"Recovered the last good backup.":"Expedition resumed.");
         }catch(Exception e){notice(e.getMessage());}
     }
@@ -111,7 +115,8 @@ public final class OriginWarApp extends ApplicationAdapter {
         }
         state=engine.snapshot().world();for(var event:result.events()){
             audio.event(event);
-            if(Set.of("gun","melee","hit","impact","explosion","death").contains(event.type()))effects.add(new Effect(event.type(),event.x(),event.y(),event.type().equals("gun")&&event.x()==state.playerX&&event.y()==state.playerY?action.x():state.playerX,event.type().equals("gun")&&event.x()==state.playerX&&event.y()==state.playerY?action.y():state.playerY,clock+(event.type().equals("explosion")?.8f:.32f)));
+            float duration=event.type().equals("explosion")?.8f:Set.of("hit","impact").contains(event.type())?.16f:.32f;
+            if(Set.of("gun","melee","hit","impact","explosion","death").contains(event.type()))effects.add(new Effect(event.type(),event.x(),event.y(),event.type().equals("gun")&&event.x()==state.playerX&&event.y()==state.playerY?action.x():state.playerX,event.type().equals("gun")&&event.x()==state.playerX&&event.y()==state.playerY?action.y():state.playerY,clock+duration));
         }
         if(state.deck!=oldDeck){walking.clear();effects.clear();targetX=-1;targetY=-1;cameraX=state.playerX;cameraY=state.playerY;}
         try{saves.save(engine.saveState());}catch(Exception e){notice("Save failed: "+e.getMessage());Gdx.app.error("Save",e.getMessage(),e);}
@@ -193,9 +198,10 @@ public final class OriginWarApp extends ApplicationAdapter {
         return state.tiles[x][y].name().replace('_',' ');
     }
     @Override public void render(){
+        if(frame>120&&focused&&screen==Screen.PLAY){if(frameIntervals.size()==8192)frameIntervals.removeFirst();frameIntervals.addLast(Gdx.graphics.getDeltaTime()*1000);}
         float dt=Math.min(.05f,Gdx.graphics.getDeltaTime());clock+=dt;moveDelay-=dt;noticeTime-=dt;
         effects.removeIf(effect->effect.until()<clock);
-        if(!replay.isEmpty()&&engine!=null&&--replayDelay<=0){
+        if(!replay.isEmpty()&&engine!=null&&focused&&(screen==Screen.PLAY||replay.peekFirst().startsWith("CAPTURE\t"))&&--replayDelay<=0){
             String line=replay.removeFirst();String[] parts=line.split("\\t",-1);
             if(parts[0].equals("CAPTURE")){
                 var file=Gdx.files.absolute(screenshotDirectory.resolve(parts[1]+".png").toString());file.parent().mkdirs();
@@ -203,7 +209,7 @@ public final class OriginWarApp extends ApplicationAdapter {
                 Gdx.app.log("Replay","Captured "+parts[1]+" at tick="+state.tick+", reserve="+state.reserve+", oxygenation="+state.oxygenation);
             }else{
                 var action=new PlayerAction(PlayerAction.Type.valueOf(parts[0]),parts.length>1&&!parts[1].isEmpty()?Integer.parseInt(parts[1]):0,parts.length>2&&!parts[2].isEmpty()?Integer.parseInt(parts[2]):0,parts.length>3?parts[3]:"");
-                if(!act(action)){Gdx.app.error("Replay","Rejected "+line+" at tick "+state.tick);replay.clear();}
+                if(!act(action))throw new IllegalStateException("Replay rejected "+line+" at tick "+state.tick);
             }
             replayDelay=3;
         }
@@ -233,7 +239,7 @@ public final class OriginWarApp extends ApplicationAdapter {
             file.parent().mkdirs();var pixels=Pixmap.createFromFrameBuffer(0,0,Gdx.graphics.getWidth(),Gdx.graphics.getHeight());
             PixmapIO.writePNG(file,pixels,6,true);pixels.dispose();captureRequested=false;
         }
-        if(!capture.isEmpty()&&frame==90){
+        if(!capture.isEmpty()&&frame==captureFrame){
             Gdx.files.absolute(capture).parent().mkdirs();
             var pixels=Pixmap.createFromFrameBuffer(0,0,Gdx.graphics.getWidth(),Gdx.graphics.getHeight());
             PixmapIO.writePNG(Gdx.files.absolute(capture),pixels,6,true);pixels.dispose();
@@ -274,8 +280,8 @@ public final class OriginWarApp extends ApplicationAdapter {
             int family=switch(a.kind){case ALICE->1;case SIRS->2;case ADD->3;case ROVER->4;default->-1;};
             boolean attacking=effects.stream().anyMatch(effect->effect.type().equals("gun")&&effect.x()==a.x&&effect.y()==a.y);
             if(family>=0){
-                if(attacking&&a.kind==GameState.ActorKind.SIRS)art.pose(batch,44+(int)(clock*16)%2,px,py,tile);
-                else if(attacking&&a.kind==GameState.ActorKind.ADD)art.pose(batch,48+(int)(clock*16)%2,px,py,tile);
+                if(attacking&&a.kind==GameState.ActorKind.SIRS)art.attack(batch,1,a.facing,(int)(clock*16)%2,px,py,tile);
+                else if(attacking&&a.kind==GameState.ActorKind.ADD)art.attack(batch,2,a.facing,(int)(clock*16)%2,px,py,tile);
                 else if(a.kind==GameState.ActorKind.ROVER&&a.fuse>=0&&a.fuse<=2)art.pose(batch,52+(int)(clock*8)%2,px,py,tile);
                 else art.actor(batch,family,a.facing,(int)(clock*5)%2,px,py,tile);
             }else{
@@ -297,7 +303,7 @@ public final class OriginWarApp extends ApplicationAdapter {
         batch.setColor(Color.WHITE);
         boolean striking=effects.stream().anyMatch(effect->effect.type().equals("melee")||(effect.type().equals("gun")&&effect.x()==state.playerX&&effect.y()==state.playerY));
         if(state.dead)art.pose(batch,43,originX+state.playerX*tile,originY-state.playerY*tile,tile);
-        else if(striking)art.pose(batch,40+(int)(clock*16)%2,originX+state.playerX*tile,originY-state.playerY*tile,tile);
+        else if(striking)art.attack(batch,0,state.facing,(int)(clock*16)%2,originX+state.playerX*tile,originY-state.playerY*tile,tile);
         else art.actor(batch,0,state.facing,moveDelay>0?(int)(clock*16)%2:0,originX+state.playerX*tile,originY-state.playerY*tile,tile);
         for(var effect:effects)if(effect.x()>=0&&effect.x()<state.width&&effect.y()>=0&&effect.y()<state.height&&state.visible[effect.x()][effect.y()]){
             float px=originX+effect.x()*tile,py=originY-effect.y()*tile;
@@ -307,7 +313,7 @@ public final class OriginWarApp extends ApplicationAdapter {
                     batch.setColor(.5f,.9f,1,.7f);batch.draw(art.whiteRegion(),px+tile/2,py+tile/2,0,0,(float)Math.hypot(dx,dy),2,1,1,MathUtils.atan2Deg(dy,dx));batch.setColor(Color.WHITE);
                 }
             }else if(effect.type().equals("explosion")){art.pose(batch,54+(effect.until()-clock<.4f?1:0),px-tile*.3f,py-tile*.3f,tile*1.6f);}
-            else if(effect.type().equals("hit")||effect.type().equals("impact"))art.draw(batch,57,px,py,tile);
+            else if(effect.type().equals("hit")||effect.type().equals("impact"))art.draw(batch,57,px+tile*.2f,py+tile*.2f,tile*.6f);
         }
         if(perception!=null)for(var impression:perception.impressions()){
             batch.setColor(.65f,.7f,.95f,impression.opacity());
@@ -556,12 +562,14 @@ public final class OriginWarApp extends ApplicationAdapter {
     private void ending(boolean won){
         if(won&&art.finaleReady()){
             buttons.clear();sliders.clear();float w=Gdx.graphics.getWidth(),h=Gdx.graphics.getHeight();
-            if(endingStarted<0)endingStarted=clock;art.finale(batch,w,h);
+            if(endingStarted<0){endingStarted=clock;endingPanel=true;}art.finale(batch,w,h);
             float elapsed=clock-endingStarted;String caption=elapsed<2?"BROADCAST / UNENCRYPTED":elapsed<4?"EVACUATION POD / SEALED":"TOWARD MARS";
             rect(0,h-90,w,90,new Color(.008f,.02f,.04f,.72f));text(caption,32,h-34,1.4f,cyan);
+            if(elapsed<4)return;
+            if(!endingPanel){button("Read epilogue",40,28,280,44,()->endingPanel=true);return;}
             float panel=settings.uiScale>1.25f?420:340;rect(0,0,w,panel,new Color(.008f,.018f,.027f,.96f));
             pagedProse(Campaign.epilogue(state),40,panel-26,w-80,94,1.02f);
-            button("New expedition",40,28,280,44,this::newGame);button("Title",340,28,180,44,()->screen=Screen.TITLE);button("Credits",540,28,180,44,()->open(Screen.CREDITS));return;
+            button("New expedition",40,28,280,44,this::newGame);button("Title",340,28,180,44,()->screen=Screen.TITLE);button("Credits",540,28,180,44,()->open(Screen.CREDITS));button("View scene",w-290,28,250,44,()->endingPanel=false);return;
         }
         overlay(won?"TOWARD MARS":"EXPEDITION LOST");
         String body=won?Campaign.epilogue(state)
@@ -603,5 +611,8 @@ public final class OriginWarApp extends ApplicationAdapter {
     }
     @Override public void pause(){focused=false;if(audio!=null)audio.pause(true);walking.clear();}
     @Override public void resume(){focused=true;if(audio!=null)audio.pause(screen==Screen.PAUSE);}
-    @Override public void dispose(){if(audio!=null)audio.close();if(art!=null)art.close();if(batch!=null)batch.dispose();if(font!=null)font.dispose();}
+    @Override public void dispose(){
+        if(!frameIntervals.isEmpty()){var samples=new ArrayList<>(frameIntervals);samples.sort(Float::compare);double average=samples.stream().mapToDouble(Float::doubleValue).average().orElse(0);Gdx.app.log("Performance",String.format(Locale.ROOT,"Active foreground frame intervals: n=%d mean=%.2fms p95=%.2fms max=%.2fms heap=%.1fMiB",samples.size(),average,samples.get((int)((samples.size()-1)*.95)),samples.getLast(),(Runtime.getRuntime().totalMemory()-Runtime.getRuntime().freeMemory())/1048576.0));}
+        if(audio!=null)audio.close();if(art!=null)art.close();if(batch!=null)batch.dispose();if(font!=null)font.dispose();
+    }
 }

@@ -84,8 +84,19 @@ public final class SaveStore {
         Path temporary=path.resolveSibling(path.getFileName()+".tmp");Files.writeString(temporary,text,StandardCharsets.UTF_8);moveAtomic(temporary,path);
     }
     private void moveAtomic(Path source,Path target)throws IOException {
-        try {Files.move(source,target,StandardCopyOption.ATOMIC_MOVE,StandardCopyOption.REPLACE_EXISTING);}
-        catch(AtomicMoveNotSupportedException e){Files.move(source,target,StandardCopyOption.REPLACE_EXISTING);}
+        // Windows scanners can briefly hold the previous file without delete sharing.
+        // Keep the old primary/backup intact and bound the wait; persistent faults still surface.
+        for(int attempt=0;;attempt++){
+            try {
+                try {Files.move(source,target,StandardCopyOption.ATOMIC_MOVE,StandardCopyOption.REPLACE_EXISTING);}
+                catch(AtomicMoveNotSupportedException e){Files.move(source,target,StandardCopyOption.REPLACE_EXISTING);}
+                return;
+            }catch(AccessDeniedException locked){
+                if(attempt==4)throw locked;
+                try {Thread.sleep(25L<<attempt);}
+                catch(InterruptedException interrupted){Thread.currentThread().interrupt();throw new IOException("Save replacement interrupted",interrupted);}
+            }
+        }
     }
     public static void validate(GameState s)throws IOException {
         try{RunEngine.validateState(s);}catch(RuntimeException error){throw new IOException("Invalid simulation state: "+error.getMessage(),error);}

@@ -2,6 +2,10 @@ package io.zipcoder.originwar.desktop;
 import io.zipcoder.originwar.model.*;
 import org.junit.jupiter.api.*;
 import org.junit.jupiter.api.io.TempDir;
+import org.junit.jupiter.api.condition.EnabledOnOs;
+import org.junit.jupiter.api.condition.OS;
+import java.nio.channels.FileChannel;
+import java.util.concurrent.*;
 import java.nio.file.*;
 import static org.junit.jupiter.api.Assertions.*;
 class SaveStoreTest {
@@ -41,5 +45,15 @@ class SaveStoreTest {
     }
     @Test void rejectOutOfBoundsAndUnsupportedVersions()throws Exception {
         var s=valid();s.playerX=999;assertThrows(java.io.IOException.class,()->new SaveStore(dir).begin(s));s.playerX=3;s.schemaVersion=99;assertThrows(java.io.IOException.class,()->SaveStore.validate(s));
+    }
+    @Test @EnabledOnOs(OS.WINDOWS) void briefWindowsDeleteSharingLockDoesNotLoseTheSave()throws Exception {
+        var store=new SaveStore(dir);var s=valid();store.begin(s);s.tick=7;
+        var lock=FileChannel.open(dir.resolve("active.json"),StandardOpenOption.READ,com.sun.nio.file.ExtendedOpenOption.NOSHARE_DELETE);
+        try(var release=Executors.newSingleThreadScheduledExecutor()){
+            release.schedule(()->{try{lock.close();}catch(java.io.IOException error){throw new java.io.UncheckedIOException(error);}},90,TimeUnit.MILLISECONDS);
+            try{store.save(s);}finally{lock.close();}
+        }
+        assertEquals(7,new SaveStore(dir).load().tick);
+        Files.writeString(dir.resolve("active.json"),"broken");assertEquals(0,new SaveStore(dir).load().tick);
     }
 }

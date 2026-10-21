@@ -7,15 +7,49 @@ dependencies {
     runtimeOnly "com.badlogicgames.gdx:gdx-platform:$gdxVersion:natives-desktop"
 }
 sourceSets.main.resources.srcDirs = [rootProject.file('assets')]
+sourceSets.main.resources {
+    include 'art/station.png','art/animation/actors.png','art/sectors/sectors.png','art/finale/finale.png',
+        'art/animation/directional-actions/attack.png','audio/music/*.ogg','audio/sfx/*.wav'
+}
 run { workingDir rootProject.projectDir }
+tasks.named('installDist') { dependsOn rootProject.tasks.named('verifyAssets') }
 tasks.register('packageWindows', Exec) {
     dependsOn installDist
     def imageDir = providers.gradleProperty('windowsImageDir').map { file(it) }
         .getOrElse(layout.buildDirectory.dir('windows-image').get().asFile)
-    doFirst { if (imageDir.exists()) throw new GradleException('Package output already exists; choose a fresh -PwindowsImageDir=<path>.') }
+    def sourceDir=providers.gradleProperty('dependencySourcesDir').map{file(it)}.getOrElse(rootProject.layout.buildDirectory.dir('dependency-sources').get().asFile)
+    def sourceFiles=[]
+    doFirst {
+        if (imageDir.exists()) throw new GradleException('Package output already exists; choose a fresh -PwindowsImageDir=<path>.')
+        def status=providers.exec { workingDir rootProject.projectDir;commandLine 'git','status','--porcelain' }.standardOutput.asText.get()
+        if(!status.isBlank())throw new GradleException('Package from a clean committed checkout so the included game source matches the binary.')
+        def runtimeIdentity=new File(System.getProperty('java.home'),'release')
+        if(!runtimeIdentity.isFile()||!java.util.Arrays.equals(runtimeIdentity.bytes,rootProject.file('licenses/temurin/RELEASE_IDENTITY.txt').bytes))throw new GradleException('Package with the pinned Temurin21.0.12.1+1 runtime matching the bundled dependency sources/notices.')
+        if(!new File(sourceDir,'SOURCE_MANIFEST.json').isFile())throw new GradleException('Fetch dependency sources first: python tools/distribution/fetch_sources.py; or supply -PdependencySourcesDir=<verified-directory>.')
+        new groovy.json.JsonSlurper().parse(new File(sourceDir,'SOURCE_MANIFEST.json')).each { entry ->
+            def payload=new File(sourceDir,entry.file)
+            if(!payload.canonicalPath.startsWith(sourceDir.canonicalPath+File.separator)||!payload.isFile()||java.security.MessageDigest.getInstance('SHA-256').digest(payload.bytes).encodeHex().toString()!=entry.sha256)throw new GradleException('Dependency source hash/path mismatch: '+entry.file)
+            sourceFiles.add(entry.file)
+        }
+        if(sourceFiles.size()<6)throw new GradleException('Incomplete dependency source materials')
+        sourceFiles.add('SOURCE_MANIFEST.json')
+    }
     executable = new File(System.getProperty('java.home'), 'bin/jpackage.exe')
     args '--type','app-image','--name','OriginWar','--app-version',project.version,
         '--input',layout.buildDirectory.dir('install/lwjgl3/lib').get().asFile,
         '--main-jar',"lwjgl3-${project.version}.jar",'--main-class',application.mainClass.get(),
         '--dest',imageDir,'--vendor','Origin War'
+    doLast {
+        def destination=new File(imageDir,'OriginWar')
+        copy { from rootProject.files('MANUAL.md','README.md'); into destination }
+        copy { from rootProject.file('licenses'); into new File(destination,'licenses') }
+        copy { from sourceDir; include(sourceFiles as String[]); into new File(destination,'DependencySources') }
+        copy { from rootProject.files('assets/ASSET_PROVENANCE.md','assets/AUDIO_PROVENANCE.md','docs/VERIFICATION.md'); into new File(destination,'Evidence') }
+        copy { from rootProject.file('docs/screenshots'); into new File(destination,'Evidence/Screenshots') }
+        def gameSource=rootProject.layout.buildDirectory.file('OriginWarSource.zip').get().asFile
+        project.exec { workingDir rootProject.projectDir;commandLine 'git','archive','--format=zip','--output',gameSource,'HEAD','--','.',':(exclude)legacy/**' }
+        copy { from gameSource;into new File(destination,'Source') }
+        def revision=providers.exec { workingDir rootProject.projectDir;commandLine 'git','rev-parse','HEAD' }.standardOutput.asText.get().trim()
+        new File(destination,'BUILD_ID.txt').text='Origin War '+project.version+'\nSource commit: '+revision+'\nRuntime: Temurin21.0.12.1+1 Windows x64\nSee Evidence/VERIFICATION.md for exact acceptance scopes.\n'
+    }
 }
