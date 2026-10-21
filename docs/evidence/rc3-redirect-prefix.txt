@@ -1,0 +1,5 @@
+Origin War runtime diagnostics
+frames=3400 replayRemaining=0 saveFailures=0
+seed=1 deck=10 tick=1060 hp=96 reserve=260 oxygenation=100 dialogue=sacrifice-plan victory=false dead=false
+Active foreground frame intervals: n=3279 mean=16.75ms p95=17.78ms max=64.88ms heap=57.9MiB
+Playback summary: sounds=915, failed=0, musicLoops=0

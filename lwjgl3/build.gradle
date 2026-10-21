@@ -42,6 +42,7 @@ tasks.register('packageWindows', Exec) {
     doLast {
         def destination=new File(imageDir,'OriginWar')
         copy { from rootProject.files('MANUAL.md','README.md'); into destination }
+        copy { from rootProject.file('docs'); into new File(destination,'docs') }
         copy { from rootProject.file('licenses'); into new File(destination,'licenses') }
         copy { from sourceDir; include(sourceFiles as String[]); into new File(destination,'DependencySources') }
         copy { from rootProject.files('assets/ASSET_PROVENANCE.md','assets/AUDIO_PROVENANCE.md','docs/VERIFICATION.md'); into new File(destination,'Evidence') }

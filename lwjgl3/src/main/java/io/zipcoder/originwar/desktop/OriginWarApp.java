@@ -91,7 +91,7 @@ public final class OriginWarApp extends ApplicationAdapter {
         });
         for(String arg:args)if(arg.equals("--play"))newGame();
         for(String arg:args)if(arg.equals("--resume"))resumeGame();
-        if(state!=null)for(String arg:args){if(arg.equals("--view=map"))open(Screen.MAP);else if(arg.equals("--view=record"))open(Screen.RECORD);}
+        if(state!=null)for(String arg:args){if(arg.equals("--view=map"))open(Screen.MAP);else if(arg.equals("--view=record"))open(Screen.RECORD);else if(arg.equals("--view=inventory"))open(Screen.INVENTORY);else if(arg.equals("--view=stats"))open(Screen.STATS);}
         Gdx.app.log("OriginWar","Assets: atlas="+art.ready()+", music="+audio.loadedMusic()+", SFX="+audio.loadedSounds());
         if(!replay.isEmpty())Gdx.app.log("Replay","Ordinary action replay; no state injection. Commands="+replay.size());
     }
@@ -463,7 +463,9 @@ public final class OriginWarApp extends ApplicationAdapter {
     private void overlay(String title){
         buttons.clear();sliders.clear();
         float w=Gdx.graphics.getWidth(),h=Gdx.graphics.getHeight();
-        rect(0,0,w,h,new Color(.008f,.018f,.027f,.96f));text(title,80,h-70,2,cyan);
+        rect(0,0,w,h,new Color(.008f,.018f,.027f,.96f));
+        font.getData().setScale(2*settings.uiScale);layout.setText(font,title);
+        text(title,80,h-70,2*Math.min(1,(w-160)/Math.max(1,layout.width)),cyan);
         float backWidth=settings.uiScale>1.25f?250:160;button("Back [Esc]",w-80-backWidth,44,backWidth,36,this::back);
     }
     private void pauseMenu(){
@@ -505,13 +507,21 @@ public final class OriginWarApp extends ApplicationAdapter {
         overlay("INVENTORY / EQUIPMENT");float h=Gdx.graphics.getHeight(),w=Gdx.graphics.getWidth(),detailX=w*.53f,listWidth=detailX-120;
         selectedItem=Math.max(0,Math.min(selectedItem,state.inventory.size()-1));
         text("Weapon "+state.weapon+" / Armor "+state.armor+" / Cells "+state.batteries,90,h-115,.85f,ink);
-        float row=settings.uiScale>1.25f?58:40;int count=Math.max(1,(int)((h-300)/row));
-        int first=Math.max(0,selectedItem-count+1),last=Math.min(state.inventory.size(),first+count);
-        for(int n=first;n<last;n++){
-            final int index=n;var item=state.inventory.get(n);
-            wrappedButton((n==selectedItem?"> ":"  ")+item.name+" x"+item.quantity,90,h-144-row-(n-first)*row,listWidth,row-6,()->selectedItem=index);
-        }
         if(state.inventory.isEmpty()){text("Your pack is empty.",90,h-170,1,ink);return;}
+        var labels=new ArrayList<String>();var heights=new ArrayList<Float>();
+        for(int n=0;n<state.inventory.size();n++){
+            var item=state.inventory.get(n);String label=(n==selectedItem?"> ":"  ")+item.name+" x"+item.quantity;
+            font.getData().setScale(.95f*settings.uiScale);layout.setText(font,label,ink,listWidth-24,Align.left,true);
+            labels.add(label);heights.add(Math.max(40,layout.height+20));
+        }
+        float available=h-290,used=heights.get(selectedItem);int first=selectedItem;
+        while(first>0&&used+heights.get(first-1)+6<=available){first--;used+=heights.get(first)+6;}
+        float rowTop=h-150;
+        for(int n=first;n<state.inventory.size();n++){
+            float height=heights.get(n);if(rowTop-height<140)break;rowTop-=height;
+            final int index=n;
+            wrappedButton(labels.get(n),90,rowTop,listWidth,height,()->selectedItem=index);rowTop-=6;
+        }
         if(selectedItem<0||selectedItem>=state.inventory.size())return;
         var item=state.inventory.get(selectedItem);float titleHeight=paragraph(item.name,detailX,h-170,w-detailX-70,1.2f,cyan);
         if(lastSelectedItem!=selectedItem){itemPage=0;lastSelectedItem=selectedItem;}
@@ -617,7 +627,7 @@ public final class OriginWarApp extends ApplicationAdapter {
         walking.clear();
         if(screen==Screen.SETTINGS||screen==Screen.HELP||screen==Screen.CREDITS||screen==Screen.MAP||screen==Screen.RECORD)screen=returnScreen;
         else if(screen==Screen.DEAD||screen==Screen.VICTORY)screen=Screen.TITLE;
-        else screen=state==null?Screen.TITLE:Screen.PLAY;
+        else screen=state==null?Screen.TITLE:state.dead?Screen.DEAD:state.victory?Screen.VICTORY:Screen.PLAY;
         audio.pause(screen==Screen.PAUSE);
     }
     private void fullscreen(){if(Gdx.graphics.isFullscreen())Gdx.graphics.setWindowedMode(1280,720);else Gdx.graphics.setFullscreenMode(Gdx.graphics.getDisplayMode());}
