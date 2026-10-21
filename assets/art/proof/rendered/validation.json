@@ -1,8 +1,8 @@
 {
   "technicalOnly": true,
   "artisticAcceptance": "OPEN",
-  "clips": 40,
-  "frames": 196,
+  "clips": 52,
+  "frames": 252,
   "checks": [
     {
       "id": "officer.pistol.suit.walk.south",
@@ -1453,6 +1453,426 @@
       "bounds": [
         [
           137,
+          71,
+          260,
+          408
+        ]
+      ],
+      "alphaGeometryDistinct": 1
+    },
+    {
+      "id": "officer.rifle.heavy.walk.south",
+      "frames": 12,
+      "bounds": [
+        [
+          106,
+          75,
+          278,
+          437
+        ],
+        [
+          107,
+          74,
+          279,
+          428
+        ],
+        [
+          108,
+          73,
+          280,
+          420
+        ],
+        [
+          109,
+          72,
+          280,
+          411
+        ],
+        [
+          108,
+          73,
+          280,
+          403
+        ],
+        [
+          107,
+          74,
+          279,
+          419
+        ],
+        [
+          106,
+          75,
+          278,
+          437
+        ],
+        [
+          105,
+          74,
+          277,
+          428
+        ],
+        [
+          104,
+          73,
+          276,
+          420
+        ],
+        [
+          104,
+          72,
+          275,
+          411
+        ],
+        [
+          104,
+          73,
+          276,
+          403
+        ],
+        [
+          105,
+          74,
+          277,
+          419
+        ]
+      ],
+      "alphaGeometryDistinct": 12
+    },
+    {
+      "id": "officer.rifle.heavy.idle.south",
+      "frames": 1,
+      "bounds": [
+        [
+          106,
+          75,
+          278,
+          411
+        ]
+      ],
+      "alphaGeometryDistinct": 1
+    },
+    {
+      "id": "officer.rifle.heavy.aim.south",
+      "frames": 1,
+      "bounds": [
+        [
+          106,
+          75,
+          278,
+          411
+        ]
+      ],
+      "alphaGeometryDistinct": 1
+    },
+    {
+      "id": "officer.rifle.heavy.walk.east",
+      "frames": 12,
+      "bounds": [
+        [
+          124,
+          67,
+          297,
+          408
+        ],
+        [
+          118,
+          66,
+          297,
+          408
+        ],
+        [
+          124,
+          64,
+          297,
+          408
+        ],
+        [
+          124,
+          63,
+          297,
+          408
+        ],
+        [
+          124,
+          64,
+          297,
+          408
+        ],
+        [
+          124,
+          66,
+          297,
+          408
+        ],
+        [
+          124,
+          67,
+          297,
+          408
+        ],
+        [
+          118,
+          67,
+          297,
+          408
+        ],
+        [
+          124,
+          66,
+          297,
+          404
+        ],
+        [
+          124,
+          65,
+          297,
+          400
+        ],
+        [
+          124,
+          66,
+          297,
+          399
+        ],
+        [
+          124,
+          67,
+          297,
+          403
+        ]
+      ],
+      "alphaGeometryDistinct": 12
+    },
+    {
+      "id": "officer.rifle.heavy.idle.east",
+      "frames": 1,
+      "bounds": [
+        [
+          124,
+          67,
+          297,
+          408
+        ]
+      ],
+      "alphaGeometryDistinct": 1
+    },
+    {
+      "id": "officer.rifle.heavy.aim.east",
+      "frames": 1,
+      "bounds": [
+        [
+          124,
+          67,
+          310,
+          408
+        ]
+      ],
+      "alphaGeometryDistinct": 1
+    },
+    {
+      "id": "officer.rifle.heavy.walk.north",
+      "frames": 12,
+      "bounds": [
+        [
+          106,
+          70,
+          278,
+          415
+        ],
+        [
+          105,
+          70,
+          277,
+          424
+        ],
+        [
+          104,
+          68,
+          276,
+          410
+        ],
+        [
+          104,
+          68,
+          275,
+          393
+        ],
+        [
+          104,
+          68,
+          276,
+          398
+        ],
+        [
+          105,
+          70,
+          277,
+          407
+        ],
+        [
+          106,
+          70,
+          278,
+          415
+        ],
+        [
+          107,
+          70,
+          279,
+          424
+        ],
+        [
+          108,
+          68,
+          280,
+          410
+        ],
+        [
+          109,
+          68,
+          280,
+          393
+        ],
+        [
+          108,
+          68,
+          280,
+          398
+        ],
+        [
+          107,
+          70,
+          279,
+          407
+        ]
+      ],
+      "alphaGeometryDistinct": 12
+    },
+    {
+      "id": "officer.rifle.heavy.idle.north",
+      "frames": 1,
+      "bounds": [
+        [
+          106,
+          70,
+          278,
+          399
+        ]
+      ],
+      "alphaGeometryDistinct": 1
+    },
+    {
+      "id": "officer.rifle.heavy.aim.north",
+      "frames": 1,
+      "bounds": [
+        [
+          106,
+          70,
+          278,
+          399
+        ]
+      ],
+      "alphaGeometryDistinct": 1
+    },
+    {
+      "id": "officer.rifle.heavy.walk.west",
+      "frames": 12,
+      "bounds": [
+        [
+          87,
+          71,
+          260,
+          408
+        ],
+        [
+          87,
+          71,
+          266,
+          408
+        ],
+        [
+          87,
+          70,
+          260,
+          404
+        ],
+        [
+          87,
+          70,
+          260,
+          400
+        ],
+        [
+          87,
+          70,
+          260,
+          399
+        ],
+        [
+          87,
+          71,
+          260,
+          403
+        ],
+        [
+          87,
+          71,
+          260,
+          408
+        ],
+        [
+          87,
+          70,
+          266,
+          408
+        ],
+        [
+          87,
+          68,
+          260,
+          408
+        ],
+        [
+          87,
+          67,
+          260,
+          408
+        ],
+        [
+          87,
+          68,
+          260,
+          408
+        ],
+        [
+          87,
+          70,
+          260,
+          408
+        ]
+      ],
+      "alphaGeometryDistinct": 12
+    },
+    {
+      "id": "officer.rifle.heavy.idle.west",
+      "frames": 1,
+      "bounds": [
+        [
+          87,
+          71,
+          260,
+          408
+        ]
+      ],
+      "alphaGeometryDistinct": 1
+    },
+    {
+      "id": "officer.rifle.heavy.aim.west",
+      "frames": 1,
+      "bounds": [
+        [
+          74,
           71,
           260,
           408

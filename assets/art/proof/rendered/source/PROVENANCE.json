@@ -24,12 +24,20 @@
     }
   ],
   "sources": {
-    "tools/media/art_proof_rendered/build.py": "a92e5a1f10cdcacc76956d4c8367f28abba6e502336ee2e38136a1243ca8d9ec",
+    "tools/media/art_proof_rendered/build.py": "5ec1d373dcc242b3ce3db72f6df1cea119bd433e0de23721471b03e8bf4c39c7",
     "tools/media/art_proof_rendered/review.py": "3b05a6105854e4f0d598546951f8f5bcb74910cd36497c8db5a2fafa8a4587b1",
     "assets/art/proof/rendered/source/origin-war-officer.blend": "ec1942068558b4b056d5d6228e830f83b11ebac952b3b1504919e351c70bf1fa"
   },
   "commercialArtAcceptance": "OPEN",
   "nativeRuntimeAcceptance": "Lead-owned; not established by source export checks",
   "purchaseSpend": 0,
-  "sourceHashPolicy": "Binary masters hash exact bytes; Python source text is canonical LF. Normalize CRLF to LF before comparing script hashes."
+  "sourceHashPolicy": "Binary masters hash exact bytes; Python source text is canonical LF. Normalize CRLF to LF before comparing script hashes.",
+  "heavyRifleExtension": {
+    "newClips": 12,
+    "newFrames": 56,
+    "previousFrameCount": 196,
+    "previousFrameHashesPreserved": true,
+    "previousCommit": "ecd6eb0896340108839c5445a678ce05dc646cc3",
+    "editableModelResaved": false
+  }
 }

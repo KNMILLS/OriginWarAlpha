@@ -14,6 +14,7 @@ SRC = OUT / 'source'
 FRAMES = OUT / 'regions'
 for p in [OUT, SRC, FRAMES]: p.mkdir(parents=True, exist_ok=True)
 FULL = '--full' in sys.argv
+ADD_HEAVY_RIFLE = '--add-heavy-rifle' in sys.argv
 PILOT = not FULL
 random.seed(517)
 bpy.ops.object.select_all(action='SELECT'); bpy.ops.object.delete(use_global=False)
@@ -377,7 +378,11 @@ def frame_pose(phase=0,action='walk',weapon='pistol',armor='suit',action_t=0):
     flash.hide_render=not(action=='fire' and .60<=action_t<=.74 and weapon=='pistol')
 
 dirs={'south':0,'east':math.pi/2,'north':math.pi,'west':-math.pi/2}
-clips=[]; bindings=[]
+if ADD_HEAVY_RIFLE:
+    existing=json.loads((OUT/'clips.json').read_text())
+    clips=[c for c in existing['clips'] if not c['id'].startswith('officer.rifle.heavy.')]
+    bindings=[b for b in existing['bindings'] if not b['clip'].startswith('officer.rifle.heavy.')]
+else: clips=[]; bindings=[]
 def clip_export(weapon,armor,action,direction,n=12):
     clipid=f'officer.{weapon}.{armor}.{action}.{direction}'
     rig.rotation_euler.z=dirs[direction]
@@ -401,10 +406,16 @@ for frame in range(1,14):
         bone.rotation_mode='QUATERNION'; bone.keyframe_insert('location',frame=frame); bone.keyframe_insert('rotation_quaternion',frame=frame)
 scene.frame_start=1; scene.frame_end=12
 scene.frame_set(1); frame_pose(0,'idle'); rig.rotation_euler.z=0
-bpy.ops.wm.save_as_mainfile(filepath=str(SRC/'origin-war-officer.blend'))
+if not ADD_HEAVY_RIFLE:
+    bpy.ops.wm.save_as_mainfile(filepath=str(SRC/'origin-war-officer.blend'))
 # Render explicitly authored pose samples, rather than reevaluating the saved walk action.
 rig.animation_data.action=None
-if PILOT:
+if ADD_HEAVY_RIFLE:
+    for d in dirs:
+        clip_export('rifle','heavy','walk',d,12)
+        clip_export('rifle','heavy','idle',d,1)
+        clip_export('rifle','heavy','aim',d,1)
+elif PILOT:
     for d in dirs: clip_export('pistol','suit','idle',d,1)
     clip_export('pistol','suit','walk','south',12)
 else:
@@ -419,4 +430,7 @@ else:
         clip_export('rifle','suit','aim',d,1)
         clip_export('pistol','heavy','walk',d,12)
         clip_export('pistol','heavy','idle',d,1)
+        clip_export('rifle','heavy','walk',d,12)
+        clip_export('rifle','heavy','idle',d,1)
+        clip_export('rifle','heavy','aim',d,1)
 print('AP_RENDERED_COMPLETE',len(clips),'clips',sum(len(c['frames']) for c in clips),'frames')
