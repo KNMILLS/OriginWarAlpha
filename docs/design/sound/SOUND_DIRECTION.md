@@ -1,6 +1,6 @@
 # Sound direction: a station that makes you listen
 
-Status: independent design proposal, 20 October 2026. Audited baseline `18938ec`; branch `codex/feedback-sound-direction`. This is direction for a bounded production pass, not new audio, integration, or audible acceptance. The owner's stated priority is **“player feel unsettled, feel tension.”**
+Status: preserved independent design proposal, 20 October 2026. Audited baseline `18938ec`; branch `codex/feedback-sound-direction`. This historical proposal is not audible acceptance. The owner's later occupied-suit/organ/ALICE direction now has actual replacement content and presentation code; see [ATM-SOUND handoff](ATM_SOUND_HANDOFF.md) for exact sources, integration and open listening/runtime gates. The owner's stated priority is **“player feel unsettled, feel tension.”**
 
 The player should hear an occupied suit inside a damaged, working station. Ordinary machinery should leave room to wonder what made the next sound. Music should give that uncertainty a shape, then leave space for listening. Combat remains deliberate and turn based; the soundtrack must not imply that thinking costs oxygen or that a two-turn fuse expires after two seconds.
 

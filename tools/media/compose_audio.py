@@ -436,4 +436,8 @@ def main():
     (OUT/"manifest.json").write_text(json.dumps(manifest,indent=2)+"\n",encoding="utf-8")
     print(json.dumps({"music_seconds":{n:e["duration_seconds"] for n,e in music_manifest.items()},
                       "sfx_count":len(fx),"repeatability":repeat},indent=2))
-if __name__=="__main__":main()
+if __name__=="__main__":
+    # Historical M1/M5 authoring functions above remain editable for comparison.
+    # ATM-SOUND is the current production render; prior exports remain in Git.
+    from compose_helmet_audio import main as helmet_main
+    helmet_main()

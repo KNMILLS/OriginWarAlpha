@@ -85,4 +85,6 @@ def main():
         for name,e in report["music"].items()},"sfx_count":len(report["sfx"]),
         "preserved_m1_effects":sum(e["preserved_m1_bytes"] for e in report["sfx"].values()),
         "exploration_hash_preserved":True,"repeatability":report["repeatability"],"result":report["result"]},indent=2))
-if __name__=="__main__":main()
+if __name__=="__main__":
+    from validate_helmet_audio import main as helmet_validation
+    helmet_validation()

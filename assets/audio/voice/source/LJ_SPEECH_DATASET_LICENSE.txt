@@ -1,0 +1,3 @@
+Primary source: https://keithito.com/LJ-Speech-Dataset/
+Verified 2026-10-21 UTC.
+Short license excerpt: All text, audio, and annotations are in the public domain.
