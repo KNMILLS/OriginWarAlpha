@@ -47,6 +47,7 @@ tasks.register('packageWindows', Exec) {
         copy { from rootProject.files('assets/ASSET_PROVENANCE.md','assets/AUDIO_PROVENANCE.md','docs/VERIFICATION.md'); into new File(destination,'Evidence') }
         copy { from rootProject.file('docs/screenshots'); into new File(destination,'Evidence/Screenshots') }
         def gameSource=rootProject.layout.buildDirectory.file('OriginWarSource.zip').get().asFile
+        gameSource.parentFile.mkdirs()
         project.exec { workingDir rootProject.projectDir;commandLine 'git','archive','--format=zip','--output',gameSource,'HEAD','--','.',':(exclude)legacy/**' }
         copy { from gameSource;into new File(destination,'Source') }
         def revision=providers.exec { workingDir rootProject.projectDir;commandLine 'git','rev-parse','HEAD' }.standardOutput.asText.get().trim()
