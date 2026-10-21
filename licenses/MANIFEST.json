@@ -130,5 +130,25 @@
   "temurin/RELEASE_IDENTITY.txt": {
     "source": "Temurin21.0.12.1+1 original release metadata",
     "sha256": "07117c72ce033949c14878e07fbf2fe23f59a1f8c90a6d1351b5c89099847ce7"
+  },
+  "alice/MODEL_CARD.md": {
+    "sha256": "289f7421072d689a3d91f6c632f486af46f9b8b04417536104a4ea667b8a394b",
+    "source": "https://huggingface.co/rhasspy/piper-voices/resolve/5041a7a49ae5b3a0f30e6837769eb03fdbb231bd/en/en_US/ljspeech/high/MODEL_CARD"
+  },
+  "alice/VOICE_REPOSITORY_README.md": {
+    "sha256": "33e93643fce5180886300f9f0070eeeab8af148efb8e84361f8904def80fd9fb",
+    "source": "https://huggingface.co/rhasspy/piper-voices/resolve/5041a7a49ae5b3a0f30e6837769eb03fdbb231bd/README.md"
+  },
+  "alice/PIPER_MIT_LICENSE.txt": {
+    "sha256": "4cd71dece7037f1d6d93cce7570c57ab75ea9ac566fd4990be2f3ab08d15b47f",
+    "source": "https://raw.githubusercontent.com/rhasspy/piper/2023.11.14-2/LICENSE.md"
+  },
+  "alice/AUTHOR_MODEL_LICENSE.txt": {
+    "sha256": "dc65a260afc4056261774f5612eadd50fbd1e251cf0f30d8620faddbce325dd1",
+    "source": "https://brycebeattie.com/files/tts/"
+  },
+  "alice/LJ_SPEECH_DATASET_LICENSE.txt": {
+    "sha256": "7cb6e2aff5440d50054be7c455a7c10cf51679e90ec58d6d1eaf5fca52b8ed3d",
+    "source": "https://keithito.com/LJ-Speech-Dataset/"
   }
 }

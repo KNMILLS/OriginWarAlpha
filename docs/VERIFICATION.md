@@ -1,5 +1,15 @@
 # Verification evidence
 
+## Low-power station atmosphere implementation
+
+Current integrated suite:101 tests (74core/27desktop), zero failures/errors/skips;10,000 authored structures, both finite complete campaign planners, exact immutable full-state replays and file-backed save/fallback isolation PASS. Ten presentation tests cover RGB wall occlusion/open-door rebuilding, directional beam falloff/strict current-vision masks, no truth/RNG writes, smooth retargets/cardinal corner paths, legitimate actor visibility and cross-deck audio lineage. Five sound tests cover body thresholds, exact real-dialogue bindings, bounded event scheduling, pause/mute/interruption/completion and hidden-event silence. Core production source/save schema/economy/story is unchanged from the larger-oxygen feedback delivery.
+
+Full media validation PASS:14 selected source rasters,24 source/export hashes, complete five-sector wall/floor replacement and16 distinct gait poses with exact2x native export;55 decoded audio exports (6 scores,34 effects,6 body loops,9 speech clips), source/permission hashes and deterministic speech re-render/processing. Published general LJSpeech/Piper permissions are retained in38 hashed notice materials; no model/tool binary is in the runtime. Conservative full-slider summed peak bound0.989956438 and loop diagnostics pass. These are technical scopes, not headphone/speaker/acting/seam acceptance.
+
+Actual integrated production renderer at1280x720 and1024x720/UI200%: station, enlarged HUD, four ordinary gait moves and held A.L.I.C.E. encounter independently inspected without new pixel blocker. Continuous gait video derives from120 real framebuffer captures; PNG-write overhead means it is presentation proof, not performance measurement. The held A.L.I.C.E. run completed2100 frames, replayRemaining0/saveFailures0, seed1/deck2/tick197/reserve703/HP100/oxygenation100, ALICEclips1/completedSpeech1, two actual breath and heart loops, failed audio0.1979 active samples mean16.87ms/p9518.77/max274.04; no human listening/owner approval inferred.
+
+Native unique-window keyboard/mouse check of the presentation checkpoint before final asset integration passed L off/on, one real D movement turn (900->899), clicked Pack/Escape, suit menu, save/title/resume and graceful exit. Source review corrected possible corner cutting, departing-floor spatial sound reuse and an inaccurate normal/finale channel label. Complete final packaged campaigns/hypoxia, fresh EXE input, source/ZIP audit and observed CI use their exact final identities in the companion delivery receipt. Older evidence below retains its original historical scope.
+
 Environment: Windows x64, Git 2.49.0, portable Temurin 21.0.12.1+1 and Gradle 8.14.3 (download SHA-256 verified). Date: 20 October 2026.
 
 Archive checks: stable private source/backup manifests, independent raw restore fsck, self-contained bundle verify, bundle restore fsck, historical commit existence, all 582 extracted source/binary hashes PASS. No submodules/LFS pointers found in acquired history. See LEGACY_ARCHIVE.md for exact archive hashes.

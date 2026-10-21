@@ -7,6 +7,20 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 class PresentationTest {
+    @Test void departingDeckCannotMasqueradeAsVisibleNewDeckCombat(){
+        var old=room();var next=room();next.deck++;
+        assertFalse(PresentationEvents.audible(new GameEvent("gun",5,5,"SIRS"),old,next));
+        assertFalse(PresentationEvents.audible(new GameEvent("robot_step",next.playerX,next.playerY,"ADD moves"),old,next));
+        assertTrue(PresentationEvents.audible(new GameEvent("hatch",next.playerX,next.playerY,"Entered deck"),old,next));
+        assertTrue(PresentationEvents.audible(new GameEvent("warning",next.playerX,next.playerY,"Reserve low"),old,next));
+    }
+    @Test void soundEligibilityUsesTrueCurrentVisionAndLocalFactsOnly(){
+        var s=room();s.visible[7][5]=false;
+        assertFalse(PresentationEvents.audible(new GameEvent("gun",7,5,"SIRS"),s,s));
+        assertTrue(PresentationEvents.audible(new GameEvent("gun",5,5,"SIRS"),s,s));
+        assertTrue(PresentationEvents.audible(new GameEvent("step",s.playerX,s.playerY,"FLOOR"),s,s));
+        assertFalse(PresentationEvents.audible(new GameEvent("gun",-1,50,"ADD"),s,s));
+    }
     private static GameState room(){
         var s=new GameState();s.width=13;s.height=11;s.playerX=4;s.playerY=5;s.activeDialogue="";
         s.tiles=new Tile[s.width][s.height];s.visible=new boolean[s.width][s.height];s.explored=new boolean[s.width][s.height];s.light=new float[s.width][s.height];
@@ -52,6 +66,26 @@ class PresentationTest {
         var next=before.copy();next.actors.getFirst().x=6;
         var motion=new PresentationMotion();motion.reset(before);motion.accept(before,next);
         assertEquals(6,motion.x(a.id,-1),.001f);assertFalse(motion.moving(a.id));
+    }
+    @Test void multiTickEnemyEndpointDoesNotInventAPathThroughACorner(){
+        var before=room();before.tiles[4][4]=Tile.WALL;
+        var a=new GameState.Actor();a.id="corner-sirs";a.x=5;a.y=4;before.actors.add(a);
+        var after=before.copy();after.actors.getFirst().x=4;after.actors.getFirst().y=5;
+        var motion=new PresentationMotion();motion.reset(before);motion.accept(before,after);
+        assertFalse(motion.moving(a.id),"Unknown multi-tick routes snap to their true endpoint");
+        assertEquals(4,motion.x(a.id,-1));assertEquals(5,motion.y(a.id,-1));
+    }
+    @Test void aRapidPlayerTurnFinishesTheVisibleCornerWaypoint(){
+        var first=room();first.playerX=4;first.playerY=4;first.tiles[4][5]=Tile.WALL;
+        var east=first.copy();east.playerX=5;var south=east.copy();south.playerY=5;
+        var motion=new PresentationMotion();motion.reset(first);motion.accept(first,east);motion.advance(.10f);
+        float x=motion.x(PresentationMotion.PLAYER,-1);motion.accept(east,south);
+        assertEquals(x,motion.x(PresentationMotion.PLAYER,-1),.001f);
+        for(int n=0;n<40;n++){
+            motion.advance(.01f);
+            assertTrue(motion.x(PresentationMotion.PLAYER,-1)>4.99f||motion.y(PresentationMotion.PLAYER,-1)<4.01f,"Follow the real L-shaped route, not the blocked diagonal");
+        }
+        assertEquals(5,motion.x(PresentationMotion.PLAYER,-1),.001f);assertEquals(5,motion.y(PresentationMotion.PLAYER,-1),.001f);
     }
     @Test void presentationAcrossActualWorldTurnsPreservesCompleteEngineAndRng(){
         var run=new RunEngine(2115);var motion=new PresentationMotion();var lighting=new StationLighting();

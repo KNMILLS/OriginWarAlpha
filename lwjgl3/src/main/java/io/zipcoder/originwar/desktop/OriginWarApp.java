@@ -49,7 +49,8 @@ public final class OriginWarApp extends ApplicationAdapter {
     private int captureFrame=90;
     private final ArrayDeque<Float> frameIntervals=new ArrayDeque<>();
     private float cameraX,cameraY,moveDelay,clock,noticeTime;
-    private float nextBreath,nextPulse,nextPhantom;
+    private float nextPhantom;
+    private final Map<Integer,Float> openingDoors=new HashMap<>();
     private float endingStarted=-1;
     private boolean endingPanel=true;
     private long lastPerceptionCue=Long.MIN_VALUE;
@@ -118,14 +119,14 @@ public final class OriginWarApp extends ApplicationAdapter {
         try{
             long seed=Long.parseLong(seedText);var candidate=new RunEngine(seed);saves.begin(candidate.saveState());
             engine=candidate;state=engine.snapshot().world();
-            cameraX=state.playerX;cameraY=state.playerY;targetX=-1;targetY=-1;selectedItem=0;journalEntry=0;journalPage=0;endingStarted=-1;effects.clear();walking.clear();queuedMove=null;motion.reset(state);mouseAim=false;screen=Screen.PLAY;
+            cameraX=state.playerX;cameraY=state.playerY;targetX=-1;targetY=-1;selectedItem=0;journalEntry=0;journalPage=0;endingStarted=-1;effects.clear();openingDoors.clear();walking.clear();queuedMove=null;motion.reset(state);mouseAim=false;screen=Screen.PLAY;
             hint("Expedition "+seed+". Find the security override and exit hatch.");
         }catch(Exception e){notice("Cannot start expedition: "+e.getMessage());Gdx.app.error("NewGame",e.getMessage(),e);}
     }
     private void resumeGame(){
         try{
             engine=new RunEngine(saves.load());state=engine.snapshot().world();cameraX=state.playerX;cameraY=state.playerY;
-            walking.clear();queuedMove=null;motion.reset(state);mouseAim=false;targetX=-1;targetY=-1;selectedItem=0;journalEntry=Math.max(0,state.journal.size()-1);endingStarted=-1;endingPanel=true;screen=state.dead?Screen.DEAD:state.victory?Screen.VICTORY:Screen.PLAY;
+            walking.clear();openingDoors.clear();queuedMove=null;motion.reset(state);mouseAim=false;targetX=-1;targetY=-1;selectedItem=0;journalEntry=Math.max(0,state.journal.size()-1);endingStarted=-1;endingPanel=true;screen=state.dead?Screen.DEAD:state.victory?Screen.VICTORY:Screen.PLAY;
             hint(saves.usedBackup()?"Recovered the last good backup.":"Expedition resumed.");
         }catch(Exception e){notice(e.getMessage());}
     }
@@ -137,14 +138,17 @@ public final class OriginWarApp extends ApplicationAdapter {
             return false;
         }
         state=engine.snapshot().world();motion.accept(before,state);
+        audioContext();
+        if(before.deck==state.deck)for(int x=0;x<state.width;x++)for(int y=0;y<state.height;y++)
+            if(state.tiles[x][y]==Tile.DOOR_OPEN&&before.tiles[x][y]!=Tile.DOOR_OPEN&&state.visible[x][y])openingDoors.put(y*state.width+x,clock+.28f);
         if(!state.log.isEmpty()&&(before.log.isEmpty()||!state.log.getLast().equals(before.log.getLast())))logUntil=clock+6;
         for(var event:result.events()){
-            audio.event(event);
+            audio.event(event,PresentationEvents.audible(event,before,state));
             float duration=event.type().equals("explosion")?.8f:Set.of("hit","impact").contains(event.type())?.16f:.32f;
             if(Set.of("gun","melee","hit","impact","explosion","death").contains(event.type()))effects.add(new Effect(event.type(),event.x(),event.y(),event.type().equals("gun")&&event.x()==state.playerX&&event.y()==state.playerY?action.x():state.playerX,event.type().equals("gun")&&event.x()==state.playerX&&event.y()==state.playerY?action.y():state.playerY,clock+duration));
         }
         if(oldDialogue.equals("west-truth")&&state.activeDialogue.isEmpty())hint("G: collect supplies. R: refill oxygen.");
-        if(state.deck!=oldDeck){walking.clear();effects.clear();targetX=-1;targetY=-1;cameraX=state.playerX;cameraY=state.playerY;}
+        if(state.deck!=oldDeck){walking.clear();effects.clear();openingDoors.clear();targetX=-1;targetY=-1;cameraX=state.playerX;cameraY=state.playerY;}
         try{saves.save(engine.saveState());}catch(Exception e){saveFailures++;notice("Save failed: "+e.getMessage());Gdx.app.error("Save",e.getMessage(),e);}
         if(state.dead){walking.clear();screen=Screen.DEAD;}else if(state.victory){walking.clear();screen=Screen.VICTORY;}
         moveDelay=PresentationMotion.STEP_SECONDS;
@@ -231,6 +235,7 @@ public final class OriginWarApp extends ApplicationAdapter {
         float dt=Math.min(.05f,Gdx.graphics.getDeltaTime());renderDelta=dt;clock+=dt;moveDelay-=dt;noticeTime-=dt;
         if(focused&&screen!=Screen.PAUSE)motion.advance(dt);
         effects.removeIf(effect->effect.until()<clock);
+        openingDoors.entrySet().removeIf(entry->entry.getValue()<=clock);
         if(!replay.isEmpty()&&engine!=null&&focused&&(screen==Screen.PLAY||replay.peekFirst().startsWith("CAPTURE\t"))&&--replayDelay<=0){
             String line=replay.removeFirst();String[] parts=line.split("\\t",-1);
             if(parts[0].equals("CAPTURE")){
@@ -251,7 +256,7 @@ public final class OriginWarApp extends ApplicationAdapter {
             if(!act(walking.removeFirst()))walking.clear();
             for(var a:state.actors)if(RunEngine.isThreat(state,a)&&state.visible[a.x][a.y])walking.clear();
         }
-        audio.select(musicRole());audio.update(dt);perceptionAudio();
+        audioContext();audio.select(musicRole());audio.update(dt);perceptionAudio();
         ScreenUtils.clear(.025f,.039f,.052f,1);
         batch.setProjectionMatrix(new Matrix4().setToOrtho2D(0,0,Gdx.graphics.getWidth(),Gdx.graphics.getHeight()));
         buttons.clear();sliders.clear();batch.begin();
@@ -314,8 +319,11 @@ public final class OriginWarApp extends ApplicationAdapter {
             batch.setColor(Color.WHITE);
             if(art.ready()){
                 art.sector(batch,zone,px,py,tile);int slot=tileSlot(state.tiles[x][y]);
-                if(state.tiles[x][y]==Tile.WALL){art.sector(batch,5+zone,px,py,tile);if(Math.floorMod(DeterministicRandom.mix(state.seed+x*191L+y*811L+state.deck),17)==0)art.sector(batch,15+zone,px,py,tile);}
-                else if(slot>=0)art.draw(batch,slot,px,py,tile);
+                if(state.tiles[x][y]==Tile.WALL){art.sector(batch,5+zone,px,py,tile);if(helmetLighting.field().wallMount(x,y))art.sector(batch,15+zone,px,py,tile);}
+                else if(state.tiles[x][y]==Tile.DOOR_OPEN||state.tiles[x][y]==Tile.DOOR_CLOSED||state.tiles[x][y]==Tile.LOCKED_DOOR){
+                    float fraction=state.tiles[x][y]==Tile.DOOR_OPEN?MathUtils.clamp(1-(openingDoors.getOrDefault(y*state.width+x,clock)-clock)/.28f,0,1):0;
+                    art.door(batch,state.tiles[x][y]==Tile.LOCKED_DOOR,fraction,px,py,tile);
+                }else if(slot>=0&&state.tiles[x][y]!=Tile.COVER&&state.tiles[x][y]!=Tile.TERMINAL)art.draw(batch,slot,px,py,tile);
                 if(state.tiles[x][y]==Tile.COVER)art.sector(batch,10+zone,px,py,tile);
                 if(state.tiles[x][y]==Tile.TERMINAL)art.sector(batch,25+zone,px,py,tile);
                 if(state.tiles[x][y]==Tile.FLOOR&&Math.floorMod(DeterministicRandom.mix(state.seed+x*479L+y*151L+state.deck),47)==0)art.sector(batch,zone==3?23:24,px,py,tile);
@@ -363,7 +371,8 @@ public final class OriginWarApp extends ApplicationAdapter {
         if(striking){float amount=(float)Math.sin(MathUtils.clamp(1-moveDelay/.32f,0,1)*MathUtils.PI)*tile*.045f;playerPx-=MathUtils.sin(state.facing*MathUtils.PI/2)*amount;playerPy-=MathUtils.cos(state.facing*MathUtils.PI/2)*amount;}
         if(state.dead)art.pose(batch,43,playerPx,playerPy,tile);
         else if(striking)art.attack(batch,0,state.facing,moveDelay>.10f?0:1,playerPx,playerPy,tile);
-        else art.actor(batch,0,state.facing,motion.moving(PresentationMotion.PLAYER)&&motion.phase(PresentationMotion.PLAYER)<.5f?1:0,playerPx,playerPy,tile);
+        else if(motion.moving(PresentationMotion.PLAYER))art.playerWalking(batch,state.facing,motion.phase(PresentationMotion.PLAYER),playerPx,playerPy,tile);
+        else art.actor(batch,0,state.facing,0,playerPx,playerPy,tile);
         for(var effect:effects)if(effect.x()>=0&&effect.x()<state.width&&effect.y()>=0&&effect.y()<state.height&&state.visible[effect.x()][effect.y()]){
             float px=originX+effect.x()*tile,py=originY-effect.y()*tile;
             if(effect.type().equals("gun")){
@@ -389,12 +398,13 @@ public final class OriginWarApp extends ApplicationAdapter {
             batch.setColor(Color.WHITE);
         }
         helmetLighting.end(batch);
-        for(var fixture:helmetLighting.field().fixtures())if(state.visible[fixture.x()][fixture.y()]){
-            float px=originX+fixture.x()*tile,py=originY-fixture.y()*tile;
-            float level=settings.reducedDistortion?.8f:.65f+.25f*MathUtils.sin(clock*.9f+fixture.phase()*MathUtils.PI2);
-            Color core=fixture.kind()==5?new Color(.8f,.30f,.13f,1):fixture.kind()==2&&!state.switchOn?amber:new Color(.64f,.82f,.84f,1);
-            rect(px+tile*.44f,py+tile*.82f,tile*.12f,tile*.018f,new Color(core.r*level,core.g*level,core.b*level,1));
-            if(fixture.kind()==1){rect(px+tile*.35f,py+tile*.55f,tile*.018f,tile*.035f,new Color(.42f,.69f,.71f,level));rect(px+tile*.41f,py+tile*.55f,tile*.018f,tile*.035f,new Color(.8f,.50f,.18f,MathUtils.sin(clock*1.1f+fixture.phase()*6)>.4f?.85f:.2f));}
+        for(var fixture:helmetLighting.field().fixtures()){
+            int fy=fixture.kind()>=4?fixture.y()-1:fixture.y();
+            if(fy<0||!state.visible[fixture.x()][fy])continue;
+            float px=originX+fixture.x()*tile,py=originY-fy*tile;
+            float phase=settings.reducedDistortion?.25f:(clock*.13f+fixture.phase())%1;
+            int kind=switch(fixture.kind()){case 1->0;case 2->1;case 3->2;default->3;};
+            art.emissive(batch,kind,phase,px,py,tile);
         }
         if(targetX>=0&&targetX<state.width&&targetY>=0&&targetY<state.height&&state.visible[targetX][targetY]){
             float x=originX+targetX*tile,y=originY-targetY*tile;
@@ -493,10 +503,18 @@ public final class OriginWarApp extends ApplicationAdapter {
         if(state.actors.stream().anyMatch(a->RunEngine.isThreat(state,a)&&a.alert>0&&state.visible[a.x][a.y]))return "combat";
         return "exploration";
     }
+    private void audioContext(){
+        boolean suit=state!=null&&focused&&!state.dead&&!state.victory&&screen!=Screen.TITLE&&screen!=Screen.CREDITS;
+        audio.context(state==null?100:state.oxygenation,suit,state==null?0:state.playerX,state==null?0:state.playerY);
+        // Hold the same voice binding through explicit pause and focus loss so it resumes in place.
+        if(state!=null&&!state.activeDialogue.isEmpty()&&screen!=Screen.TITLE&&screen!=Screen.CREDITS&&screen!=Screen.DEAD&&screen!=Screen.VICTORY){
+            var node=Campaign.dialogue(state);
+            if(node.speaker().equals("A.L.I.C.E.")){audio.dialogue(state.activeDialogue,node.text());return;}
+        }
+        audio.dialogue("","");
+    }
     private void perceptionAudio(){
         if(screen!=Screen.PLAY||!focused||state==null||!state.activeDialogue.isEmpty()||perception==null||perception.intensity()==0)return;
-        if(clock>=nextBreath){audio.play("breath");nextBreath=clock+4.2f-perception.intensity();}
-        if(clock>=nextPulse){audio.play("pulse");nextPulse=clock+2.3f-perception.intensity();}
         if(clock>=nextPhantom&&lastPerceptionCue!=perception.cueKey()&&!perception.impressions().isEmpty()){
             audio.play("hallucination");nextPhantom=clock+9;lastPerceptionCue=perception.cueKey();
         }
@@ -506,7 +524,8 @@ public final class OriginWarApp extends ApplicationAdapter {
         if(!lastDialogue.equals(state.activeDialogue)){dialoguePage=0;lastDialogue=state.activeDialogue;}
         float w=Gdx.graphics.getWidth(),h=Gdx.graphics.getHeight();
         rect(0,0,w,h,new Color(.003f,.007f,.011f,.55f));visorPanel(36,52,w-72,h-104);
-        text(node.speaker().equals("A.L.I.C.E.")?"RADIO / A.L.I.C.E. / ENCRYPTED LINK":"COMMUNICATIONS / STATION LINK",66,h-60,.75f,cyan);
+        String channel=state.flags.contains("broadcast")||state.activeDialogue.equals("refusal")?"OPEN BROADCAST":"SUIT CHANNEL";
+        text(node.speaker().equals("A.L.I.C.E.")?"RADIO / A.L.I.C.E. / "+channel:"COMMUNICATIONS / STATION LINK",66,h-60,.75f,cyan);
         int speaker=node.speaker().contains("WEST")?0:node.speaker().equals("DR. JAMES CARMACK")?1:node.speaker().startsWith("STATION MEDIC")?2:-1;
         boolean aliceSpeaker=node.speaker().equals("A.L.I.C.E.");
         boolean portrait=speaker>=0&&art.completeHumans()||aliceSpeaker&&art.completeActors();
@@ -708,11 +727,11 @@ public final class OriginWarApp extends ApplicationAdapter {
     private void saveSettings(){try{settings.save();}catch(Exception e){notice("Settings could not be saved: "+e.getMessage());}}
     private void help(){
         overlay("HOW TO PLAY");
-        pagedProse("Explore the station one decision at a time. Time advances only when you commit a world action. Menus, aiming and inspection pause the simulation.\n\nWASD / arrows: move. Bump closed doors to open them; bump hostile robots to melee. Left-click explored terrain to walk; visible threats interrupt the route. Right-click: inspect / select target.\n\nE / Enter: interact. G: pick up underfoot. R: oxygen tank. Space / period: wait. F: fire at selected target. M: adjacent melee. H: hack. B: force a locked door. V: inspect true suit status.\n\nTab / I: inventory. U / Enter: use. Q: equip. X: drop. J: journal. K: explored station map. C: character / earned attribute points. Esc: back / pause. F11: fullscreen. Z: world zoom. Dialogue choices: mouse or1/2/3.\n\nFind security overrides and follow the journal's story objectives. Low gravity and hazards cost extra time. Heavy armor lowers effective DEX. Observe real R.O.V.E.R. countdowns. Guns consume finite battery cells. Medicines are unidentified separately in each run.\n\nWatch reserve and oxygenation: an empty tank causes hypoxia. Visual impressions can be unreliable; suit telemetry and right-click sensor inspection remain true within legitimate vision. Refill and allow real turns for oxygenation to recover. Reduced distortion is available in Settings.\n\nDeath ends the expedition. Save and resume between decisions. Different seeds produce different stations.",90,Gdx.graphics.getHeight()-125,Gdx.graphics.getWidth()-190,130,1.04f);
+        pagedProse("Explore the station one decision at a time. Time advances only when you commit a world action. Menus, aiming and inspection pause the simulation.\n\nWASD / arrows: move. Bump closed doors to open them; bump hostile robots to melee. Left-click explored terrain to walk; visible threats interrupt the route. Right-click: inspect / select target. Move the mouse to aim your helmet beam without spending a turn. L: helmet light on/off.\n\nE / Enter: interact. G: pick up underfoot. R: oxygen tank. Space / period: wait. F: fire at selected target. M: adjacent melee. H: hack. B: force a locked door. V: inspect true suit status.\n\nTab / I: inventory. U / Enter: use. Q: equip. X: drop. J: journal. K: explored station map. C: character / earned attribute points. Esc: back / suit menu. F11: fullscreen. Z: world zoom. Dialogue choices: mouse or1/2/3.\n\nFind security overrides and follow the journal's story objectives. Low gravity and hazards cost extra time. Heavy armor lowers effective DEX. Observe real R.O.V.E.R. countdowns. Guns consume finite battery cells. Medicines are unidentified separately in each run.\n\nWatch reserve and oxygenation: an empty tank causes hypoxia. Visual impressions can be unreliable; suit telemetry and right-click sensor inspection remain true within legitimate vision. Refill and allow real turns for oxygenation to recover. Reduced distortion is available in Settings and disables fixture flicker.\n\nThe Effects slider controls breathing, heartbeat and radio voice. Music has its own slider. Pausing also pauses audio; choices and subtitles remain immediately available.\n\nDeath ends the expedition. Save and resume between decisions. Different seeds produce different stations.",90,Gdx.graphics.getHeight()-125,Gdx.graphics.getWidth()-190,130,1.04f);
     }
     private void credits(){
         overlay("ORIGIN WAR / CREDITS");
-        pagedProse("Original 2016 design\nKen Ragonese and Evan Hitchings\n\nRemake direction\nOrigin War Revision 2, 20 October 2026\n\nTechnology\nlibGDX / LWJGL3, SquidSquad and their credited dependencies\n\nArtwork and audio\nOriginal remake production. Included provenance records identify sources, tools and verification status.\n\nUnverified legacy music and artwork are excluded from the modern runtime.",90,Gdx.graphics.getHeight()-130,Gdx.graphics.getWidth()-190,130,1.15f);
+        pagedProse("Original 2016 design\nKen Ragonese and Evan Hitchings\n\nRemake direction\nOrigin War Revision 2 and owner atmosphere brief, 20 October 2026\n\nTechnology\nlibGDX / LWJGL3, SquidSquad and their credited dependencies\n\nArt, score and effects\nOriginal remake production, with the original helmeted character as a visual reference. Included provenance records identify sources, tools and verification status.\n\nA.L.I.C.E. speech\nProcessed LJSpeech general synthetic voice: Linda Johnson / Keith Ito data; Bryce Beattie published model; Michael Hansen's Piper. Full permissions and notices accompany the game.",90,Gdx.graphics.getHeight()-130,Gdx.graphics.getWidth()-190,130,1.15f);
     }
     private void ending(boolean won){
         if(won&&art.finaleReady()){

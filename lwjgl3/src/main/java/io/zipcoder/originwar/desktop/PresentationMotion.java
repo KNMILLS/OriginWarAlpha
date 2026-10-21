@@ -15,12 +15,32 @@ final class PresentationMotion {
         VectorGlider glide;
         float age=STEP_SECONDS;
         int x,y;
+        final java.util.ArrayDeque<Vector2> waypoints=new java.util.ArrayDeque<>();
         Track(int x,int y){this.x=x;this.y=y;glide=new VectorGlider(new Vector2(x,y),new Vector2(x,y));glide.setChange(1);}
         void move(int nx,int ny,boolean animate){
             if(nx==x&&ny==y)return;
-            var start=animate?new Vector2(glide.getX(),glide.getY()):new Vector2(nx,ny);
-            glide=new VectorGlider(start,new Vector2(nx,ny),Interpolations.smooth,null);
-            x=nx;y=ny;age=animate?0:STEP_SECONDS;glide.setChange(age/STEP_SECONDS);
+            if(!animate||Math.abs(nx-x)+Math.abs(ny-y)>1){snap(nx,ny);return;}
+            float dx=glide.getEnd().x-glide.getStart().x,dy=glide.getEnd().y-glide.getStart().y;
+            int stepX=nx-x,stepY=ny-y;x=nx;y=ny;
+            boolean bend=Math.abs(dx*stepY-dy*stepX)>.001f||dx*stepX+dy*stepY<0;
+            if(age<STEP_SECONDS&&(bend||!waypoints.isEmpty())){
+                waypoints.addLast(new Vector2(nx,ny));
+                if(waypoints.size()>2)snap(nx,ny);
+            }else if(Math.hypot(nx-glide.getX(),ny-glide.getY())>2.1f)snap(nx,ny);
+            else begin(new Vector2(nx,ny));
+        }
+        private void snap(int nx,int ny){
+            x=nx;y=ny;waypoints.clear();age=STEP_SECONDS;
+            glide=new VectorGlider(new Vector2(nx,ny),new Vector2(nx,ny));glide.setChange(1);
+        }
+        private void begin(Vector2 destination){
+            glide=new VectorGlider(new Vector2(glide.getX(),glide.getY()),destination,Interpolations.smooth,null);age=0;
+        }
+        void advance(float dt){
+            while(dt>0){
+                float used=Math.min(dt,STEP_SECONDS-age);age=Math.min(STEP_SECONDS,age+used);glide.setChange(age/STEP_SECONDS);dt-=used;
+                if(age>=STEP_SECONDS&&!waypoints.isEmpty())begin(waypoints.removeFirst());else break;
+            }
         }
     }
     private final Map<String,Track> tracks=new HashMap<>();
@@ -36,7 +56,7 @@ final class PresentationMotion {
         for(var a:after.actors){
             live.add(a.id);var old=existing.get(a.id);
             // Never animate from a hidden old position: entering vision discloses only the current cell.
-            boolean safe=old!=null&&before.visible[old.x][old.y]&&after.visible[a.x][a.y];
+            boolean safe=old!=null&&before.visible[old.x][old.y]&&after.visible[old.x][old.y]&&after.visible[a.x][a.y];
             var t=tracks.computeIfAbsent(a.id,k->new Track(a.x,a.y));
             if(!safe){t=new Track(a.x,a.y);tracks.put(a.id,t);}
             else t.move(a.x,a.y,true);
@@ -45,7 +65,7 @@ final class PresentationMotion {
     }
     void advance(float dt){
         if(!Float.isFinite(dt)||dt<=0)return;
-        for(var t:tracks.values()){t.age=Math.min(STEP_SECONDS,t.age+dt);t.glide.setChange(t.age/STEP_SECONDS);}
+        for(var t:tracks.values())t.advance(dt);
     }
     float x(String id,int fallback){var t=tracks.get(id);return t==null?fallback:t.glide.getX();}
     float y(String id,int fallback){var t=tracks.get(id);return t==null?fallback:t.glide.getY();}

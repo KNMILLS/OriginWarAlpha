@@ -31,6 +31,8 @@ public final class AudioDirector implements AutoCloseable {
     private boolean present,closed,speechFinished;
     private int listenerX,listenerY,bodyLevel=-1,spokenClips,discardedCues;
     private float presence,bodyFade=1,duck,duckGain=1;
+    private float lastBreathPosition,lastHeartPosition;
+    private int breathLoops,heartLoops,speechCompletions;
     private HelmetAudioPolicy.Body body=HelmetAudioPolicy.body(100);
     public AudioDirector() {
         this(new Resources() {
@@ -73,6 +75,7 @@ public final class AudioDirector implements AutoCloseable {
             bodyLevel=body.level();bodyFade=0;
             String level=List.of("healthy","warning","critical").get(bodyLevel);
             breath=loop("audio/ambience/breath_"+level+".ogg");heart=loop("audio/ambience/heartbeat_"+level+".ogg");
+            lastBreathPosition=lastHeartPosition=0;
         } else if(returning&&!paused&&master*sfx>0) {
             toggle(breath,true);toggle(heart,true);
         }
@@ -91,7 +94,7 @@ public final class AudioDirector implements AutoCloseable {
         var clip=catalog.find(id,fullText==null?"":fullText);
         if(clip==null||!resources.exists(clip.path()))return;
         speech=resources.music(clip.path());speechFinished=false;speech.setLooping(false);speech.setVolume(outputMaster()*sfx*.86f);
-        speech.setOnCompletionListener(m->speechFinished=true);
+        speech.setOnCompletionListener(m->{speechFinished=true;speechCompletions++;});
         if(!paused&&master*sfx>0)speech.play();spokenClips++;
     }
     public void update(float delta) {
@@ -114,6 +117,8 @@ public final class AudioDirector implements AutoCloseable {
         float bodyGain=outputMaster()*sfx*presence*(speech!=null&&speech.isPlaying()?.60f:1);
         gain(breath,bodyGain*body.breath()*bodyFade);gain(heart,bodyGain*body.heart()*bodyFade);
         gain(oldBreath,bodyGain*body.breath()*(1-bodyFade));gain(oldHeart,bodyGain*body.heart()*(1-bodyFade));
+        if(breath!=null){float position=breath.getPosition();if(breath.isPlaying()&&position+.2f<lastBreathPosition)breathLoops++;lastBreathPosition=position;}
+        if(heart!=null){float position=heart.getPosition();if(heart.isPlaying()&&position+.2f<lastHeartPosition)heartLoops++;lastHeartPosition=position;}
         if(bodyFade==1){dispose(oldBreath);dispose(oldHeart);oldBreath=oldHeart=null;}
         if(!present&&presence==0){stop(breath);stop(heart);}
     }
@@ -166,6 +171,6 @@ public final class AudioDirector implements AutoCloseable {
     private static void stop(Music m){if(m!=null)m.stop();}
     private static void dispose(Music m){if(m!=null){m.stop();m.dispose();}}
     public int loadedMusic(){return tracks.size();}public int loadedSounds(){return sounds.size();}
-    public String summary(){return "Playback summary: sounds="+playedSounds+", failed="+failedSounds+", musicLoops="+musicLoops+", ALICEclips="+spokenClips+", boundedDrops="+discardedCues+", activeSFX="+voices.size();}
+    public String summary(){return "Playback summary: sounds="+playedSounds+", failed="+failedSounds+", musicLoops="+musicLoops+", ALICEclips="+spokenClips+", completedSpeech="+speechCompletions+", breathLoops="+breathLoops+", heartLoops="+heartLoops+", boundedDrops="+discardedCues+", activeSFX="+voices.size();}
     @Override public void close(){if(closed)return;closed=true;resources.log(summary());for(var m:tracks.values())dispose(m);for(var s:sounds.values())s.dispose();for(Music m:new Music[]{speech,breath,heart,oldBreath,oldHeart})dispose(m);voices.clear();}
 }

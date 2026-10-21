@@ -14,6 +14,7 @@ final class StationLighting {
     private int viewX=-1,viewY=-1;
     private final List<Fixture> fixtures=new ArrayList<>();
     private final List<Float> flickers=new ArrayList<>();
+    private final java.util.HashSet<Integer> wallMounts=new java.util.HashSet<>();
     void update(GameState s,boolean reduced){
         long key=s.seed*31+s.deck+(s.switchOn?191:0);
         for(int x=0;x<s.width;x++)for(int y=0;y<s.height;y++)key=key*31+s.tiles[x][y].ordinal();
@@ -23,7 +24,7 @@ final class StationLighting {
         manager.update();
     }
     private void rebuild(GameState s){
-        var resistances=new float[s.width][s.height];fixtures.clear();flickers.clear();
+        var resistances=new float[s.width][s.height];fixtures.clear();flickers.clear();wallMounts.clear();
         for(int x=0;x<s.width;x++)for(int y=0;y<s.height;y++)resistances[x][y]=s.tiles[x][y].blocksVision?1:0;
         manager=new LightingManagerRgb(resistances,0x070b10ff,Radius.CIRCLE,10);
         for(int x=1;x<s.width-1;x++)for(int y=1;y<s.height-1;y++){
@@ -42,9 +43,11 @@ final class StationLighting {
             float flicker=kind==5?.16f:.055f;
             var radiance=new Radiance(radius,color,flicker,0,phase,0,(int)(s.seed+x*31L+y*97L));
             manager.addLight(x,y,radiance);fixtures.add(new Fixture(x,y,kind,phase));flickers.add(flicker);
+            if(kind>=4)wallMounts.add((y-1)*s.width+x);
         }
     }
     List<Fixture> fixtures(){return fixtures;}
+    boolean wallMount(int x,int y){return manager!=null&&wallMounts.contains(y*manager.width+x);}
     void pulse(GameState s,Pulse pulse){
         if(pulse.x()<0||pulse.y()<0||pulse.x()>=s.width||pulse.y()>=s.height||!s.visible[pulse.x()][pulse.y()])return;
         manager.updateUI(pulse.x(),pulse.y(),new Radiance(pulse.range(),pulse.color(),0,0,0,0,0));

@@ -8,6 +8,14 @@ ROOT=Path(__file__).resolve().parents[2]
 def sha(p): return hashlib.sha256(p.read_bytes()).hexdigest()
 def main():
     a=ROOT/"assets"/"audio";m=json.loads((a/"manifest.json").read_text())
+    if m.get('task')=='ATM-SOUND':
+        import sys
+        subprocess.run([sys.executable,str(ROOT/'tools/media/validate_audio.py')],check=True)
+        subprocess.run([sys.executable,str(ROOT/'tools/media/validate_art.py'),'--verify-repeatability'],check=True)
+        report={'scope':'Current atmosphere contracts: complete audio decoding/bindings/rights/mix diagnostics plus exact art source/export/packing checks; no audible or owner acceptance.',
+            'result':'PASS','audio_validation_sha256':sha(a/'validation.json'),'art_validation_sha256':sha(ROOT/'assets/art/atmosphere/validation.json')}
+        (Path(__file__).parent/'validation.json').write_text(json.dumps(report,indent=2)+'\n',encoding='utf-8',newline='\n')
+        print(json.dumps(report,indent=2));return
     report={"scope":"file/header/decoded-level/loop-seam checks; no audible acceptance","sfx":{}}
     for event,entry in m["sfx"].items():
         p=ROOT/entry["path"]

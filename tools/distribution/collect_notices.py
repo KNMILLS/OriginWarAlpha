@@ -57,5 +57,12 @@ for name in ('LICENSE','AUTHORS'):remote('gdx-jnigen/'+name,raw+'libgdx/gdx-jnig
 remote('LGPL-2.1.txt','https://www.gnu.org/licenses/old-licenses/lgpl-2.1.txt')
 write('temurin/NOTICE',(jdk/'NOTICE').read_bytes(),'Temurin21.0.12.1+1 original distribution NOTICE')
 write('temurin/RELEASE_IDENTITY.txt',(jdk/'release').read_bytes(),'Temurin21.0.12.1+1 original release metadata')
+voice=Path('assets/audio/voice/source')
+if (voice/'toolchain.json').exists():
+    locked=json.loads((voice/'toolchain.json').read_text(encoding='utf-8'))
+    for name,entry in locked['evidence'].items():
+        payload=(voice/name).read_bytes()
+        if hashlib.sha256(payload).hexdigest()!=entry['sha256']:raise RuntimeError('Voice evidence hash mismatch: '+name)
+        write('alice/'+name,payload,entry['url'])
 (out/'MANIFEST.json').write_text(json.dumps(records,indent=2)+'\n',encoding='utf-8')
 print(f'Collected {len(records)} original notice payloads; archive source materials remain separate.')

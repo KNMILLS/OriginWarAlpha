@@ -1,5 +1,7 @@
 # Owner playtest update:20 October2026
 
+The later owner brief explicitly authorizes actual atmosphere implementation, including a complete wall/floor texture overhaul. That subsequent work is now integrated and documented in [the atmosphere pass](ATMOSPHERE_PASS.md); the research-only descriptions below retain the scope of the earlier feedback delivery.
+
 The owner reports difficulty reading all text and insufficient first-deck oxygen, and clarifies their original art/sound intent: the player should feel unsettled and tense. They explicitly requested separate dedicated art and sound research/design agents.
 
 ## Readability and oxygen update

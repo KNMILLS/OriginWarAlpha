@@ -10,7 +10,8 @@ dependencies {
 sourceSets.main.resources.srcDirs = [rootProject.file('assets')]
 sourceSets.main.resources {
     include 'art/station.png','art/animation/actors.png','art/animation/humans/humans.png','art/sectors/sectors.png','art/finale/finale.png',
-        'art/animation/directional-actions/attack.png','audio/music/*.ogg','audio/sfx/*.wav','ui/ui.fnt','ui/ui.png'
+        'art/animation/directional-actions/attack.png','art/atmosphere/player-walk.png',
+        'audio/music/*.ogg','audio/sfx/*.wav','audio/ambience/*.ogg','audio/voice/*.ogg','audio/voice/index.json','audio/runtime.json','ui/ui.fnt','ui/ui.png'
 }
 run { workingDir rootProject.projectDir }
 tasks.named('installDist') { dependsOn rootProject.tasks.named('verifyAssets') }
