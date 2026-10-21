@@ -18,9 +18,18 @@
       "tool": "built-in image_gen",
       "selected": true,
       "limitations": "Generated diffuse paintings; runtime lighting, native integration and owner acceptance remain open."
+    },
+    {
+      "source": "workplace-props-master.png",
+      "sha256": "646aa7f3382f9cdb66a31c1aec5725d1264259708304ab1d3c370876c606cd6d",
+      "prompt": "workplace-props-prompt.txt",
+      "promptSha256NormalizedLF": "5095082aa501e1d594413a5d700d1219cbf5375d6225f37c7ada70db4a9e7b2e",
+      "tool": "built-in image_gen",
+      "selected": true,
+      "limitations": "Generated diffuse paintings; runtime lighting, native integration and owner acceptance remain open."
     }
   ],
   "medium": "original generated raster painting",
-  "rights": "No third-party reference images used; original imagegen output; preserve generation provenance.",
+  "rights": "No third-party reference images used; workplace-props master references own environment-master for material/camera only; original imagegen output; preserve generation provenance.",
   "editableCatalog": "Region layers only; original brushstroke layers do not exist."
 }

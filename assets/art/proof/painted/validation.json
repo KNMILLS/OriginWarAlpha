@@ -2,7 +2,7 @@
   "status": "PASS",
   "scope": "exports and provenance only",
   "regionBindings": {
-    "environment": 11,
+    "environment": 15,
     "painted": 72
   },
   "clips": 24,

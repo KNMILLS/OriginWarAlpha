@@ -18,8 +18,15 @@ def dump(path, data):
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(json.dumps(data, indent=2) + '\n', encoding='utf-8')
 
-def save_cutout(source, crop, name, width, target, height=None):
+def save_cutout(source, crop, name, width, target, height=None, isolate=False):
     im = Image.open(source).convert('RGBA').crop(crop)
+    if isolate:
+        import numpy as np
+        from scipy import ndimage
+        pixels=np.asarray(im).copy();labels,count=ndimage.label(pixels[:,:,3]>100)
+        areas=np.bincount(labels.ravel());areas[0]=0
+        keep=ndimage.binary_dilation(labels==int(areas.argmax()),iterations=4)
+        pixels[:,:,3]*=keep.astype(np.uint8);im=Image.fromarray(pixels,'RGBA')
     box = im.getchannel('A').point(lambda v: 255 if v > 12 else 0).getbbox()
     assert box, name
     im = im.crop(box)
@@ -74,6 +81,14 @@ def environment():
            ('door.open',(1048,15,1520,478),1.15),('prop.workbench',(20,492,625,962),1.7),
            ('control.switch',(642,492,968,966),0.72),('hatch.closed',(990,505,1520,980),1.4)]
     regions=[save_cutout(source,crop,name,width,ENV) for name,crop,width in specs]
+    workplace=ENV/'source/workplace-props-master.png'
+    # Actual connected cover-object paintings; masks only exclude neighboring sprites.
+    for name,crop,width,height in [
+        ('prop.locker',(90,0,555,620),1.0,1.6),
+        ('prop.service-cart',(625,150,1245,632),1.5,None),
+        ('prop.life-support',(25,620,625,1220),1.5,None),
+        ('prop.equipment-rack',(640,625,1230,1230),1.45,None)]:
+        regions.append(save_cutout(workplace,crop,name,width,ENV,height=height,isolate=True))
     # A second name aliases actual workstation painting; it is not a second artwork.
     alias=dict(next(r for r in regions if r['name']=='prop.workbench'))
     alias.update(name='terminal.console',aliasOf='prop.workbench')
@@ -91,9 +106,9 @@ def environment():
     contact(regions,ENV/'review/environment-contact.jpg')
     catalog(ENV,regions)
     sources=[]
-    for src,prompt in [('environment-master.png','environment-prompt.txt'),('floor-master.png','floor-prompt.txt')]:
+    for src,prompt in [('environment-master.png','environment-prompt.txt'),('floor-master.png','floor-prompt.txt'),('workplace-props-master.png','workplace-props-prompt.txt')]:
         sources.append(dict(source=src,sha256=sha(ENV/'source'/src),prompt=prompt,promptSha256NormalizedLF=text_sha(ENV/'source'/prompt),tool='built-in image_gen',selected=True,limitations='Generated diffuse paintings; runtime lighting, native integration and owner acceptance remain open.'))
-    dump(ENV/'source/GENERATION.json',dict(task='AP-PAINTED shared environment',sources=sources,medium='original generated raster painting',rights='No third-party reference images used; original imagegen output; preserve generation provenance.',editableCatalog='Region layers only; original brushstroke layers do not exist.'))
+    dump(ENV/'source/GENERATION.json',dict(task='AP-PAINTED shared environment',sources=sources,medium='original generated raster painting',rights='No third-party reference images used; workplace-props master references own environment-master for material/camera only; original imagegen output; preserve generation provenance.',editableCatalog='Region layers only; original brushstroke layers do not exist.'))
     print('environment',len(regions),'regions exported')
 
 if __name__=='__main__':
