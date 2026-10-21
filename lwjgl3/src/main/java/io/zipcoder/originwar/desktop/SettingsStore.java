@@ -4,7 +4,7 @@ import java.nio.file.*;
 import java.util.Properties;
 public final class SettingsStore {
     public float master=.8f,music=.55f,sfx=.7f,uiScale=1;
-    public boolean reducedDistortion;
+    public boolean reducedDistortion,helmetLight=true;
     private final Path path;
     public SettingsStore(Path directory){
         path=directory.resolve("settings.properties");
@@ -14,6 +14,7 @@ public final class SettingsStore {
                 master=value(p,"master",master,0,1);music=value(p,"music",music,0,1);
                 sfx=value(p,"sfx",sfx,0,1);uiScale=value(p,"uiScale",1,1,2);
                 reducedDistortion=Boolean.parseBoolean(p.getProperty("reducedDistortion","false"));
+                helmetLight=Boolean.parseBoolean(p.getProperty("helmetLight","true"));
             }
         }catch(IOException ignored){}
     }
@@ -25,6 +26,7 @@ public final class SettingsStore {
         Files.createDirectories(path.getParent());var p=new Properties();
         p.setProperty("master",""+master);p.setProperty("music",""+music);p.setProperty("sfx",""+sfx);
         p.setProperty("uiScale",""+uiScale);p.setProperty("reducedDistortion",""+reducedDistortion);
+        p.setProperty("helmetLight",""+helmetLight);
         try(var out=Files.newOutputStream(path)){p.store(out,"Origin War audio and accessibility");}
     }
 }

@@ -1,0 +1,2855 @@
+[
+  {
+    "name": "2dfft",
+    "description": "WebGL2.0 2D FFT Spectrum Visualizer",
+    "html_url": "https://github.com/tommyettinger/2dfft",
+    "language": "HTML",
+    "archived": false,
+    "default_branch": "master",
+    "license": "MIT"
+  },
+  {
+    "name": "AgateDemo",
+    "description": "Testing grounds for a sprite-based roguelike-like",
+    "html_url": "https://github.com/tommyettinger/AgateDemo",
+    "language": "C#",
+    "archived": false,
+    "default_branch": "master",
+    "license": "NOASSERTION"
+  },
+  {
+    "name": "android_pinball_with_pics_as_prize",
+    "description": "Simple pinball for android that rewards users with pictures after a win.",
+    "html_url": "https://github.com/tommyettinger/android_pinball_with_pics_as_prize",
+    "language": "Java",
+    "archived": false,
+    "default_branch": "main",
+    "license": "GPL-3.0"
+  },
+  {
+    "name": "AngleMipmapTest",
+    "description": "Test for libGDX ANGLE_GLES20 support for mipmaps.",
+    "html_url": "https://github.com/tommyettinger/AngleMipmapTest",
+    "language": "Java",
+    "archived": false,
+    "default_branch": "main",
+    "license": "Apache-2.0"
+  },
+  {
+    "name": "anim8-gdx",
+    "description": "Adds support for writing animated GIF, PNG8, and animated PNG (including full-color) from libGDX",
+    "html_url": "https://github.com/tommyettinger/anim8-gdx",
+    "language": "Java",
+    "archived": false,
+    "default_branch": "master",
+    "license": "Apache-2.0"
+  },
+  {
+    "name": "arcubit-demo",
+    "description": "A working voxel engine in libGDX (compatibility update).",
+    "html_url": "https://github.com/tommyettinger/arcubit-demo",
+    "language": "Java",
+    "archived": false,
+    "default_branch": "master",
+    "license": "MIT"
+  },
+  {
+    "name": "Arise_Deeper",
+    "description": "Top-down 2D roguelike game, developed using the LibGDX framework.",
+    "html_url": "https://github.com/tommyettinger/Arise_Deeper",
+    "language": "Java",
+    "archived": false,
+    "default_branch": "master",
+    "license": null
+  },
+  {
+    "name": "artsi",
+    "description": "Another R-Tree Spatial Index",
+    "html_url": "https://github.com/tommyettinger/artsi",
+    "language": "Java",
+    "archived": false,
+    "default_branch": "main",
+    "license": "Apache-2.0"
+  },
+  {
+    "name": "assorted-benchmarks",
+    "description": "JMH benchmarks for various Java collections",
+    "html_url": "https://github.com/tommyettinger/assorted-benchmarks",
+    "language": "Java",
+    "archived": false,
+    "default_branch": "master",
+    "license": "Apache-2.0"
+  },
+  {
+    "name": "assorted-bumble-benchmarks",
+    "description": "BumbleBench microbenchmarks for small bits of code",
+    "html_url": "https://github.com/tommyettinger/assorted-bumble-benchmarks",
+    "language": "Java",
+    "archived": false,
+    "default_branch": "main",
+    "license": "Apache-2.0"
+  },
+  {
+    "name": "Astrid.Framework",
+    "description": "A multi-platform game framework in C# using Portable Class Libraries",
+    "html_url": "https://github.com/tommyettinger/Astrid.Framework",
+    "language": "C#",
+    "archived": false,
+    "default_branch": "master",
+    "license": "NOASSERTION"
+  },
+  {
+    "name": "AstridSamples",
+    "description": "Sample projects using the Astrid.Framework. Get started here.",
+    "html_url": "https://github.com/tommyettinger/AstridSamples",
+    "language": "C#",
+    "archived": false,
+    "default_branch": "master",
+    "license": "MIT"
+  },
+  {
+    "name": "atlantis",
+    "description": "Ordered JDK Map and Set classes that allow lookup at an index",
+    "html_url": "https://github.com/tommyettinger/atlantis",
+    "language": "Java",
+    "archived": false,
+    "default_branch": "master",
+    "license": "Apache-2.0"
+  },
+  {
+    "name": "atlatl",
+    "description": "An alternate atlas format for libGDX.",
+    "html_url": "https://github.com/tommyettinger/atlatl",
+    "language": "Java",
+    "archived": false,
+    "default_branch": "main",
+    "license": "Apache-2.0"
+  },
+  {
+    "name": "awesome-libgdx",
+    "description": "🎮 📝 A curated list of libGDX resources to help developers make awesome games.",
+    "html_url": "https://github.com/tommyettinger/awesome-libgdx",
+    "language": null,
+    "archived": false,
+    "default_branch": "master",
+    "license": "CC0-1.0"
+  },
+  {
+    "name": "axhash",
+    "description": "Chop down tall trees? Chop down big keys.",
+    "html_url": "https://github.com/tommyettinger/axhash",
+    "language": "C",
+    "archived": false,
+    "default_branch": "main",
+    "license": "CC0-1.0"
+  },
+  {
+    "name": "BearLibTerminal",
+    "description": "A library that creates a terminal-like window with feature-packed drawing of text and easy input handling. MIRROR.",
+    "html_url": "https://github.com/tommyettinger/BearLibTerminal",
+    "language": "C",
+    "archived": false,
+    "default_branch": "master",
+    "license": "NOASSERTION"
+  },
+  {
+    "name": "BeneathContempt",
+    "description": "It's not looking good for our heroes. Then again, it never does...",
+    "html_url": "https://github.com/tommyettinger/BeneathContempt",
+    "language": "Java",
+    "archived": false,
+    "default_branch": "main",
+    "license": "Apache-2.0"
+  },
+  {
+    "name": "BitmapFontBridge",
+    "description": "Allows FontWriter-made Structured JSON fonts to be read as libGDX BitmapFonts.",
+    "html_url": "https://github.com/tommyettinger/BitmapFontBridge",
+    "language": "Java",
+    "archived": false,
+    "default_branch": "main",
+    "license": "Apache-2.0"
+  },
+  {
+    "name": "BitNucleus",
+    "description": "Pack various small data into one primitive int or long; \"Structs for Java\"",
+    "html_url": "https://github.com/tommyettinger/BitNucleus",
+    "language": "Java",
+    "archived": false,
+    "default_branch": "master",
+    "license": "Apache-2.0"
+  },
+  {
+    "name": "BlazingChain",
+    "description": "LZ-String encoding for Java (cross-platform, including GWT)",
+    "html_url": "https://github.com/tommyettinger/BlazingChain",
+    "language": "Java",
+    "archived": false,
+    "default_branch": "master",
+    "license": "MIT"
+  },
+  {
+    "name": "bluegrass",
+    "description": "Blue noise \"textures,\" both original and pseudo-randomly editable, in pure Java",
+    "html_url": "https://github.com/tommyettinger/bluegrass",
+    "language": "Java",
+    "archived": false,
+    "default_branch": "master",
+    "license": "Apache-2.0"
+  },
+  {
+    "name": "BoneGen",
+    "description": "Herringbone Wang Tile dungeon generators",
+    "html_url": "https://github.com/tommyettinger/BoneGen",
+    "language": "Lua",
+    "archived": false,
+    "default_branch": "master",
+    "license": "Unlicense"
+  },
+  {
+    "name": "Bridgeit",
+    "description": "A libGDX jam game by myke and an LLM, using artemis-odb and other libraries.",
+    "html_url": "https://github.com/tommyettinger/Bridgeit",
+    "language": "Java",
+    "archived": false,
+    "default_branch": "main",
+    "license": "MIT"
+  },
+  {
+    "name": "BunnyMarkGDX",
+    "description": "Update for the classic bouncing bunny benchmark.",
+    "html_url": "https://github.com/tommyettinger/BunnyMarkGDX",
+    "language": "Java",
+    "archived": false,
+    "default_branch": "main",
+    "license": null
+  },
+  {
+    "name": "C5",
+    "description": "C5 generic collection library for C#/.NET",
+    "html_url": "https://github.com/tommyettinger/C5",
+    "language": "C#",
+    "archived": false,
+    "default_branch": "master",
+    "license": "NOASSERTION"
+  },
+  {
+    "name": "CanvasTactics",
+    "description": "A tactical RPG using HTML5 Canvas",
+    "html_url": "https://github.com/tommyettinger/CanvasTactics",
+    "language": null,
+    "archived": false,
+    "default_branch": "master",
+    "license": null
+  },
+  {
+    "name": "cassandra",
+    "description": "Mirror of Apache Cassandra (incubating)",
+    "html_url": "https://github.com/tommyettinger/cassandra",
+    "language": "Java",
+    "archived": false,
+    "default_branch": "trunk",
+    "license": "Apache-2.0"
+  },
+  {
+    "name": "CaveCops",
+    "description": "\"Book em, Meepo.\" Fantasy RPG with roguelike elements; Java/libGDX/SquidLib/DawnLike.",
+    "html_url": "https://github.com/tommyettinger/CaveCops",
+    "language": "Java",
+    "archived": false,
+    "default_branch": "master",
+    "license": "Apache-2.0"
+  },
+  {
+    "name": "celadon",
+    "description": "Java-interpreted Lisp-like data-code mini-language.",
+    "html_url": "https://github.com/tommyettinger/celadon",
+    "language": "Java",
+    "archived": false,
+    "default_branch": "master",
+    "license": "Apache-2.0"
+  },
+  {
+    "name": "chortle",
+    "description": "RTL support for libGDX (Arabic and Hebrew scripts)",
+    "html_url": "https://github.com/tommyettinger/chortle",
+    "language": "Java",
+    "archived": false,
+    "default_branch": "main",
+    "license": "Apache-2.0"
+  },
+  {
+    "name": "clojuredocs",
+    "description": "Docs for Clojure 1.5.1",
+    "html_url": "https://github.com/tommyettinger/clojuredocs",
+    "language": "Clojure",
+    "archived": false,
+    "default_branch": "master",
+    "license": null
+  },
+  {
+    "name": "clucy",
+    "description": "Clojure interface to Lucene",
+    "html_url": "https://github.com/tommyettinger/clucy",
+    "language": "Clojure",
+    "archived": false,
+    "default_branch": "master",
+    "license": "EPL-1.0"
+  },
+  {
+    "name": "CollectionsBenchmarks",
+    "description": "Update to Leo Lewis' Java collection benchmarks with graphs",
+    "html_url": "https://github.com/tommyettinger/CollectionsBenchmarks",
+    "language": "Java",
+    "archived": false,
+    "default_branch": "master",
+    "license": "GPL-3.0"
+  },
+  {
+    "name": "colorful-gdx",
+    "description": "A libGDX mechanism to manipulate colors in powerful ways",
+    "html_url": "https://github.com/tommyettinger/colorful-gdx",
+    "language": "Java",
+    "archived": false,
+    "default_branch": "master",
+    "license": "Apache-2.0"
+  },
+  {
+    "name": "ColorGuard",
+    "description": "Turn-based strategy game with procedural world wars; Java using libGDX and SquidLib",
+    "html_url": "https://github.com/tommyettinger/ColorGuard",
+    "language": "Java",
+    "archived": false,
+    "default_branch": "master",
+    "license": "Apache-2.0"
+  },
+  {
+    "name": "ColorWeaver",
+    "description": "Utilities for dealing with colors in libGDX, especially palettes",
+    "html_url": "https://github.com/tommyettinger/ColorWeaver",
+    "language": "Java",
+    "archived": false,
+    "default_branch": "master",
+    "license": "Apache-2.0"
+  },
+  {
+    "name": "CommandersUnite",
+    "description": "Simple military strategy game with procedural maps and unique pixel art.",
+    "html_url": "https://github.com/tommyettinger/CommandersUnite",
+    "language": "Scala",
+    "archived": false,
+    "default_branch": "master",
+    "license": "MIT"
+  },
+  {
+    "name": "CommandersUniteAssets",
+    "description": "A more specialized isometric (and other) renderer of MagicaVoxel .vox files to pixel art for a game.",
+    "html_url": "https://github.com/tommyettinger/CommandersUniteAssets",
+    "language": "C#",
+    "archived": false,
+    "default_branch": "master",
+    "license": "MIT"
+  },
+  {
+    "name": "conjugoid",
+    "description": "Conjugate words appropriately for their sentences!",
+    "html_url": "https://github.com/tommyettinger/conjugoid",
+    "language": "Java",
+    "archived": false,
+    "default_branch": "main",
+    "license": "Apache-2.0"
+  },
+  {
+    "name": "crawltactics_i18n",
+    "description": "A repository for I18N of Crawl Tactics. ",
+    "html_url": "https://github.com/tommyettinger/crawltactics_i18n",
+    "language": null,
+    "archived": false,
+    "default_branch": "master",
+    "license": null
+  },
+  {
+    "name": "cringe",
+    "description": "Random number generators that depend only on libGDX",
+    "html_url": "https://github.com/tommyettinger/cringe",
+    "language": "Java",
+    "archived": false,
+    "default_branch": "main",
+    "license": "Apache-2.0"
+  },
+  {
+    "name": "crux",
+    "description": "Shared interfaces for point types.",
+    "html_url": "https://github.com/tommyettinger/crux",
+    "language": "Java",
+    "archived": false,
+    "default_branch": "main",
+    "license": "CC0-1.0"
+  },
+  {
+    "name": "csds",
+    "description": "Some less-common C# data structures",
+    "html_url": "https://github.com/tommyettinger/csds",
+    "language": "C#",
+    "archived": false,
+    "default_branch": "master",
+    "license": "Apache-2.0"
+  },
+  {
+    "name": "cuttlebone",
+    "description": "A library to help with game logic and map generation, for use with Java roguelike-style games.",
+    "html_url": "https://github.com/tommyettinger/cuttlebone",
+    "language": "JavaScript",
+    "archived": false,
+    "default_branch": "master",
+    "license": "Apache-2.0"
+  },
+  {
+    "name": "DastardlyData",
+    "description": ".NET generic data structures given some kind of super serum.",
+    "html_url": "https://github.com/tommyettinger/DastardlyData",
+    "language": "C#",
+    "archived": false,
+    "default_branch": "main",
+    "license": "MIT"
+  },
+  {
+    "name": "DastardlyLands",
+    "description": "A roguelike/RPG with a ton of character options and \"text-based but fancy\" display",
+    "html_url": "https://github.com/tommyettinger/DastardlyLands",
+    "language": "Java",
+    "archived": false,
+    "default_branch": "master",
+    "license": "Apache-2.0"
+  },
+  {
+    "name": "DawnLikeAtlas",
+    "description": "DragonDePlatino and DawnBringer's DawnLike assets, split up and named for use in texture atlases",
+    "html_url": "https://github.com/tommyettinger/DawnLikeAtlas",
+    "language": "Java",
+    "archived": false,
+    "default_branch": "master",
+    "license": "NOASSERTION"
+  },
+  {
+    "name": "DelaunayBugRepro",
+    "description": "bug in libgdx delaunay triangulator",
+    "html_url": "https://github.com/tommyettinger/DelaunayBugRepro",
+    "language": "Java",
+    "archived": false,
+    "default_branch": "main",
+    "license": "Unlicense"
+  },
+  {
+    "name": "delongator",
+    "description": "Is your math using too much long all the time? Is your GWT always plodding around, driving you crazy?!",
+    "html_url": "https://github.com/tommyettinger/delongator",
+    "language": "Java",
+    "archived": false,
+    "default_branch": "main",
+    "license": "Apache-2.0"
+  },
+  {
+    "name": "determon",
+    "description": "Deterministic math functions in C# using decimals. Gotta match em all.",
+    "html_url": "https://github.com/tommyettinger/determon",
+    "language": "C#",
+    "archived": false,
+    "default_branch": "main",
+    "license": "MIT"
+  },
+  {
+    "name": "dfalex",
+    "description": "Scanning / Lexical Analysis in Java made pleasant; just tweaking https://github.com/mtimmerm/dfalex",
+    "html_url": "https://github.com/tommyettinger/dfalex",
+    "language": "Java",
+    "archived": false,
+    "default_branch": "master",
+    "license": "Apache-2.0"
+  },
+  {
+    "name": "dieharder",
+    "description": "Robert G. Brown's expansion on George Marsaglia's random number tests",
+    "html_url": "https://github.com/tommyettinger/dieharder",
+    "language": "C",
+    "archived": false,
+    "default_branch": "main",
+    "license": "GPL-3.0"
+  },
+  {
+    "name": "digital",
+    "description": "Utilities for handling math and showing numbers in Java.",
+    "html_url": "https://github.com/tommyettinger/digital",
+    "language": "Java",
+    "archived": false,
+    "default_branch": "main",
+    "license": "Apache-2.0"
+  },
+  {
+    "name": "Distress",
+    "description": null,
+    "html_url": "https://github.com/tommyettinger/Distress",
+    "language": "Java",
+    "archived": false,
+    "default_branch": "main",
+    "license": null
+  },
+  {
+    "name": "ditherator",
+    "description": "One image enters. Dithered images leave.",
+    "html_url": "https://github.com/tommyettinger/ditherator",
+    "language": "Java",
+    "archived": false,
+    "default_branch": "main",
+    "license": "Apache-2.0"
+  },
+  {
+    "name": "dogeweather",
+    "description": "Such Weather",
+    "html_url": "https://github.com/tommyettinger/dogeweather",
+    "language": "JavaScript",
+    "archived": false,
+    "default_branch": "master",
+    "license": null
+  },
+  {
+    "name": "dominion-ecs-java",
+    "description": "Insanely fast ECS (Entity Component System) for Java",
+    "html_url": "https://github.com/tommyettinger/dominion-ecs-java",
+    "language": "Java",
+    "archived": false,
+    "default_branch": "main",
+    "license": "MIT"
+  },
+  {
+    "name": "DorpBorx",
+    "description": "Replacing Public folder HTML hosting with GitHub Pages",
+    "html_url": "https://github.com/tommyettinger/DorpBorx",
+    "language": "JavaScript",
+    "archived": false,
+    "default_branch": "master",
+    "license": null
+  },
+  {
+    "name": "Dotnet-Library-Template",
+    "description": "A template for C# libraries with seperate benchmarking and unit testing projects out of the box. Has extensive git configuration for game projects.",
+    "html_url": "https://github.com/tommyettinger/Dotnet-Library-Template",
+    "language": null,
+    "archived": false,
+    "default_branch": "main",
+    "license": "CC0-1.0"
+  },
+  {
+    "name": "doughyo",
+    "description": "Compact representations of layered spatial data; sculpt data like dough",
+    "html_url": "https://github.com/tommyettinger/doughyo",
+    "language": "Java",
+    "archived": false,
+    "default_branch": "master",
+    "license": "Apache-2.0"
+  },
+  {
+    "name": "Dungeon-Biologist",
+    "description": "a dungeon ecology simulator",
+    "html_url": "https://github.com/tommyettinger/Dungeon-Biologist",
+    "language": "C++",
+    "archived": false,
+    "default_branch": "master",
+    "license": null
+  },
+  {
+    "name": "dungeon-kingpin",
+    "description": "A tactical RPG in Clojure, with procedural dungeons and a scripted story",
+    "html_url": "https://github.com/tommyettinger/dungeon-kingpin",
+    "language": "Clojure",
+    "archived": false,
+    "default_branch": "master",
+    "license": "GPL-2.0"
+  },
+  {
+    "name": "DungeonRising",
+    "description": "RPG/Roguelike with many classes; claim territory in a dungeon",
+    "html_url": "https://github.com/tommyettinger/DungeonRising",
+    "language": "JavaScript",
+    "archived": true,
+    "default_branch": "master",
+    "license": "Apache-2.0"
+  },
+  {
+    "name": "DungeonsOfElentria",
+    "description": null,
+    "html_url": "https://github.com/tommyettinger/DungeonsOfElentria",
+    "language": "Java",
+    "archived": false,
+    "default_branch": "master",
+    "license": null
+  },
+  {
+    "name": "fastutil",
+    "description": "fastutil extends the Java™ Collections Framework by providing type-specific maps, sets, lists and queues.",
+    "html_url": "https://github.com/tommyettinger/fastutil",
+    "language": "Java",
+    "archived": false,
+    "default_branch": "master",
+    "license": "Apache-2.0"
+  },
+  {
+    "name": "fastutil-gwt",
+    "description": "Primitive-keyed collections for Java that work on GWT, based on fastutil and fastutil-lite",
+    "html_url": "https://github.com/tommyettinger/fastutil-gwt",
+    "language": "Java",
+    "archived": false,
+    "default_branch": "master",
+    "license": "Apache-2.0"
+  },
+  {
+    "name": "fastutil-tinkering",
+    "description": "Experiments on Sebastiano Vigna's fastutil project for data structures.",
+    "html_url": "https://github.com/tommyettinger/fastutil-tinkering",
+    "language": "Java",
+    "archived": false,
+    "default_branch": "master",
+    "license": "Apache-2.0"
+  },
+  {
+    "name": "FeatherSystem",
+    "description": "Utilities for the Feather System, a tabletop RPG.",
+    "html_url": "https://github.com/tommyettinger/FeatherSystem",
+    "language": null,
+    "archived": false,
+    "default_branch": "master",
+    "license": null
+  },
+  {
+    "name": "Finnegan",
+    "description": "Java word/text generator lib with mixable language themes",
+    "html_url": "https://github.com/tommyettinger/Finnegan",
+    "language": "Java",
+    "archived": false,
+    "default_branch": "master",
+    "license": "CC0-1.0"
+  },
+  {
+    "name": "Fleks",
+    "description": "Fast, lightweight, entity component system in Kotlin",
+    "html_url": "https://github.com/tommyettinger/Fleks",
+    "language": "Kotlin",
+    "archived": false,
+    "default_branch": "master",
+    "license": "MIT"
+  },
+  {
+    "name": "Floe",
+    "description": "A modern IRC client for modern times.",
+    "html_url": "https://github.com/tommyettinger/Floe",
+    "language": "C#",
+    "archived": false,
+    "default_branch": "master",
+    "license": null
+  },
+  {
+    "name": "flopon",
+    "description": "Floating-Point Optimized Notation",
+    "html_url": "https://github.com/tommyettinger/flopon",
+    "language": "Java",
+    "archived": false,
+    "default_branch": "main",
+    "license": "Apache-2.0"
+  },
+  {
+    "name": "fnt-processor",
+    "description": "Does things TextraTypist likes .fnt files to have done.",
+    "html_url": "https://github.com/tommyettinger/fnt-processor",
+    "language": "Java",
+    "archived": false,
+    "default_branch": "main",
+    "license": "Apache-2.0"
+  },
+  {
+    "name": "font-character-lister",
+    "description": "Quick and dirty way to get all chars from a TTF or OTF.",
+    "html_url": "https://github.com/tommyettinger/font-character-lister",
+    "language": "Java",
+    "archived": false,
+    "default_branch": "main",
+    "license": "CC0-1.0"
+  },
+  {
+    "name": "fonts",
+    "description": "Storage for AngelCode BMFont (.fnt ) files. Works with libGDX.",
+    "html_url": "https://github.com/tommyettinger/fonts",
+    "language": null,
+    "archived": false,
+    "default_branch": "main",
+    "license": "NOASSERTION"
+  },
+  {
+    "name": "fontwriter",
+    "description": "Generates/optimizes JSON fonts for TextraTypist.",
+    "html_url": "https://github.com/tommyettinger/fontwriter",
+    "language": "Java",
+    "archived": false,
+    "default_branch": "main",
+    "license": "Apache-2.0"
+  },
+  {
+    "name": "ForaysIntoSaltarelle",
+    "description": "Port of Forays into Norrendrin, a C# roguelike, to JS",
+    "html_url": "https://github.com/tommyettinger/ForaysIntoSaltarelle",
+    "language": "JavaScript",
+    "archived": false,
+    "default_branch": "master",
+    "license": null
+  },
+  {
+    "name": "formic",
+    "description": "Allows using String.format() on GWT, with high compatibility",
+    "html_url": "https://github.com/tommyettinger/formic",
+    "language": "Java",
+    "archived": false,
+    "default_branch": "master",
+    "license": "MIT"
+  },
+  {
+    "name": "freetypist",
+    "description": "TextraTypist + FreeType + scene2d.ui + libGDX",
+    "html_url": "https://github.com/tommyettinger/freetypist",
+    "language": "Java",
+    "archived": false,
+    "default_branch": "main",
+    "license": "Apache-2.0"
+  },
+  {
+    "name": "funderby",
+    "description": "Java 8+ functional interfaces for primitive types",
+    "html_url": "https://github.com/tommyettinger/funderby",
+    "language": "Java",
+    "archived": false,
+    "default_branch": "main",
+    "license": "Apache-2.0"
+  },
+  {
+    "name": "Gabber",
+    "description": "Fictional language toolbox in Java. Generate random languages, mix them together, generate text in them, reversibly translate English text to a fictional language, etc.",
+    "html_url": "https://github.com/tommyettinger/Gabber",
+    "language": "Java",
+    "archived": false,
+    "default_branch": "master",
+    "license": "Apache-2.0"
+  },
+  {
+    "name": "game-icons-net-atlas",
+    "description": "Texture atlases for the game-icons.net images; libGDX-compatible.",
+    "html_url": "https://github.com/tommyettinger/game-icons-net-atlas",
+    "language": "Java",
+    "archived": false,
+    "default_branch": "main",
+    "license": null
+  },
+  {
+    "name": "gand",
+    "description": "Pathfinding and other graph algorithms. Based on simple-graphs.",
+    "html_url": "https://github.com/tommyettinger/gand",
+    "language": "Java",
+    "archived": false,
+    "default_branch": "main",
+    "license": "Apache-2.0"
+  },
+  {
+    "name": "gdcrux",
+    "description": "Extends libGDX point types so they implement crux interfaces.",
+    "html_url": "https://github.com/tommyettinger/gdcrux",
+    "language": "Java",
+    "archived": false,
+    "default_branch": "main",
+    "license": "Apache-2.0"
+  },
+  {
+    "name": "gdx-backend-bytecoder",
+    "description": "Libgdx Kotlin app with Bytecoder",
+    "html_url": "https://github.com/tommyettinger/gdx-backend-bytecoder",
+    "language": "Kotlin",
+    "archived": false,
+    "default_branch": "master",
+    "license": "Apache-2.0"
+  },
+  {
+    "name": "gdx-backends",
+    "description": "GWT 2.11.0 adjustments to MrStahlfelge/gdx-backends",
+    "html_url": "https://github.com/tommyettinger/gdx-backends",
+    "language": "Java",
+    "archived": false,
+    "default_branch": "master",
+    "license": "Apache-2.0"
+  },
+  {
+    "name": "gdx-dialogs",
+    "description": "Updated libGDX extension providing cross-platform support for native dialogs",
+    "html_url": "https://github.com/tommyettinger/gdx-dialogs",
+    "language": "Java",
+    "archived": false,
+    "default_branch": "main",
+    "license": "Apache-2.0"
+  },
+  {
+    "name": "gdx-Dyn4j",
+    "description": "Java Collision Detection and Physics Engine",
+    "html_url": "https://github.com/tommyettinger/gdx-Dyn4j",
+    "language": "Java",
+    "archived": false,
+    "default_branch": "master",
+    "license": "BSD-3-Clause"
+  },
+  {
+    "name": "gdx-freetype-gwt",
+    "description": "Freetype for gwt",
+    "html_url": "https://github.com/tommyettinger/gdx-freetype-gwt",
+    "language": "Java",
+    "archived": false,
+    "default_branch": "master",
+    "license": "Apache-2.0"
+  },
+  {
+    "name": "gdx-graalhelper",
+    "description": "Experimental helper for libGDX to build GraalVM native-image.",
+    "html_url": "https://github.com/tommyettinger/gdx-graalhelper",
+    "language": null,
+    "archived": false,
+    "default_branch": "master",
+    "license": "Apache-2.0"
+  },
+  {
+    "name": "gdx-graalhelper-shim",
+    "description": "A shim to provide gdx-graalhelper's annotations when it isn't available.",
+    "html_url": "https://github.com/tommyettinger/gdx-graalhelper-shim",
+    "language": "Java",
+    "archived": false,
+    "default_branch": "main",
+    "license": "Apache-2.0"
+  },
+  {
+    "name": "gdx-jam-template",
+    "description": "A skeleton lies before you, its bones bleached and pale. What sort of creature might it have been... A JAM.",
+    "html_url": "https://github.com/tommyettinger/gdx-jam-template",
+    "language": "Java",
+    "archived": false,
+    "default_branch": "main",
+    "license": "CC0-1.0"
+  },
+  {
+    "name": "gdx-liftoff-ui-redesign",
+    "description": "Temporary working copy of gdx-liftoff to handle the UI redesign/rewrite.",
+    "html_url": "https://github.com/tommyettinger/gdx-liftoff-ui-redesign",
+    "language": "Kotlin",
+    "archived": false,
+    "default_branch": "main",
+    "license": "Apache-2.0"
+  },
+  {
+    "name": "gdx-lml",
+    "description": ":octocat: LibGDX utility libraries.",
+    "html_url": "https://github.com/tommyettinger/gdx-lml",
+    "language": "Java",
+    "archived": false,
+    "default_branch": "master",
+    "license": "Apache-2.0"
+  },
+  {
+    "name": "gdx-texture-packer-gui",
+    "description": "A simple way to pack and manage texture atlases for LibGDX game framework.",
+    "html_url": "https://github.com/tommyettinger/gdx-texture-packer-gui",
+    "language": "Java",
+    "archived": false,
+    "default_branch": "master",
+    "license": "Apache-2.0"
+  },
+  {
+    "name": "gdx-TinyVG",
+    "description": "TinyVG parser and renderer for libGDX",
+    "html_url": "https://github.com/tommyettinger/gdx-TinyVG",
+    "language": "Java",
+    "archived": false,
+    "default_branch": "main",
+    "license": "Apache-2.0"
+  },
+  {
+    "name": "gdx-utils",
+    "description": "An updated fork of dermetfan's famed library for libGDX convenience.",
+    "html_url": "https://github.com/tommyettinger/gdx-utils",
+    "language": "Java",
+    "archived": false,
+    "default_branch": "master",
+    "license": "Apache-2.0"
+  },
+  {
+    "name": "GDXTexturePacker",
+    "description": "Standalone version of libGDX's TexturePacker with a GUI",
+    "html_url": "https://github.com/tommyettinger/GDXTexturePacker",
+    "language": "Java",
+    "archived": false,
+    "default_branch": "master",
+    "license": "Apache-2.0"
+  },
+  {
+    "name": "gdxWalkable",
+    "description": "A libGDX-friendly edit of implicit-invocation's jWalkable, which is based on hxDaedalus",
+    "html_url": "https://github.com/tommyettinger/gdxWalkable",
+    "language": "Java",
+    "archived": true,
+    "default_branch": "main",
+    "license": "NOASSERTION"
+  },
+  {
+    "name": "geoserver",
+    "description": "Official GeoServer repository",
+    "html_url": "https://github.com/tommyettinger/geoserver",
+    "language": "Java",
+    "archived": false,
+    "default_branch": "master",
+    "license": null
+  },
+  {
+    "name": "git-auto-sync",
+    "description": "Instant automatic git-based efficient network file synchronizer",
+    "html_url": "https://github.com/tommyettinger/git-auto-sync",
+    "language": null,
+    "archived": false,
+    "default_branch": "master",
+    "license": null
+  },
+  {
+    "name": "Glamer",
+    "description": "Bitmap font generator producing distance-field fonts (intended for use with LibGDX)",
+    "html_url": "https://github.com/tommyettinger/Glamer",
+    "language": "Java",
+    "archived": false,
+    "default_branch": "master",
+    "license": "Apache-2.0"
+  },
+  {
+    "name": "GlobeCore",
+    "description": "Utilities for a browser-based RPG",
+    "html_url": "https://github.com/tommyettinger/GlobeCore",
+    "language": "CoffeeScript",
+    "archived": false,
+    "default_branch": "master",
+    "license": null
+  },
+  {
+    "name": "glsl-es-reference",
+    "description": "Backup of Shaderific's vital reference for GLSL ES",
+    "html_url": "https://github.com/tommyettinger/glsl-es-reference",
+    "language": "CSS",
+    "archived": false,
+    "default_branch": "master",
+    "license": "MIT"
+  },
+  {
+    "name": "gltut",
+    "description": "The GL tutorial from Arcsynthesis.",
+    "html_url": "https://github.com/tommyettinger/gltut",
+    "language": null,
+    "archived": false,
+    "default_branch": "master",
+    "license": "MIT"
+  },
+  {
+    "name": "Godot-Dodge-The-Creeps-2D",
+    "description": "Just following the 2D Godot tutorial.",
+    "html_url": "https://github.com/tommyettinger/Godot-Dodge-The-Creeps-2D",
+    "language": "C#",
+    "archived": false,
+    "default_branch": "main",
+    "license": "MIT"
+  },
+  {
+    "name": "graal-core",
+    "description": "Graal Compiler & Truffle Partial evaluator.",
+    "html_url": "https://github.com/tommyettinger/graal-core",
+    "language": "Java",
+    "archived": false,
+    "default_branch": "master",
+    "license": "GPL-2.0"
+  },
+  {
+    "name": "gretty",
+    "description": "Advanced gradle plugin for running web-apps on jetty and tomcat.",
+    "html_url": "https://github.com/tommyettinger/gretty",
+    "language": null,
+    "archived": false,
+    "default_branch": "master",
+    "license": "MIT"
+  },
+  {
+    "name": "gwt-automaton",
+    "description": "Regular expression (DFA/NFA) lib; GWT-compatible, based on dk.brics.automaton",
+    "html_url": "https://github.com/tommyettinger/gwt-automaton",
+    "language": "Java",
+    "archived": false,
+    "default_branch": "master",
+    "license": "NOASSERTION"
+  },
+  {
+    "name": "hash-prospector",
+    "description": "Automated integer hash function discovery",
+    "html_url": "https://github.com/tommyettinger/hash-prospector",
+    "language": null,
+    "archived": false,
+    "default_branch": "master",
+    "license": "Unlicense"
+  },
+  {
+    "name": "heh",
+    "description": "Various random number generators in Rust, with optional SIMD support",
+    "html_url": "https://github.com/tommyettinger/heh",
+    "language": "Rust",
+    "archived": false,
+    "default_branch": "master",
+    "license": "Apache-2.0"
+  },
+  {
+    "name": "Hemlock",
+    "description": "A status/attribute rule manager lib for C# games",
+    "html_url": "https://github.com/tommyettinger/Hemlock",
+    "language": "C#",
+    "archived": false,
+    "default_branch": "master",
+    "license": "MIT"
+  },
+  {
+    "name": "hiphip-aot",
+    "description": "hiphip (array)! simple, performant array manipulation in Clojure - AOT compiled fork",
+    "html_url": "https://github.com/tommyettinger/hiphip-aot",
+    "language": "Clojure",
+    "archived": false,
+    "default_branch": "master",
+    "license": null
+  },
+  {
+    "name": "home",
+    "description": "Home is where the files get dropped.",
+    "html_url": "https://github.com/tommyettinger/home",
+    "language": "HTML",
+    "archived": false,
+    "default_branch": "master",
+    "license": null
+  },
+  {
+    "name": "hxHello",
+    "description": "Just a \"Hello World\" in haXe",
+    "html_url": "https://github.com/tommyettinger/hxHello",
+    "language": "HaXe",
+    "archived": false,
+    "default_branch": "master",
+    "license": null
+  },
+  {
+    "name": "hyperlap2d-runtime-libgdx",
+    "description": "HyperLap2D runtime for libGDX framework.",
+    "html_url": "https://github.com/tommyettinger/hyperlap2d-runtime-libgdx",
+    "language": "Java",
+    "archived": false,
+    "default_branch": "master",
+    "license": null
+  },
+  {
+    "name": "iconizer-gdx",
+    "description": "Generates randomized icons using libGDX and OpenMoji.",
+    "html_url": "https://github.com/tommyettinger/iconizer-gdx",
+    "language": "Java",
+    "archived": false,
+    "default_branch": "main",
+    "license": "Apache-2.0"
+  },
+  {
+    "name": "ikvm-compat",
+    "description": "JVM on .NET/Mono, forked for better Linux (and Mac?) compatibility",
+    "html_url": "https://github.com/tommyettinger/ikvm-compat",
+    "language": "C#",
+    "archived": false,
+    "default_branch": "master",
+    "license": "NOASSERTION"
+  },
+  {
+    "name": "incubator-fury",
+    "description": "A blazingly fast multi-language serialization framework powered by JIT and zero-copy.",
+    "html_url": "https://github.com/tommyettinger/incubator-fury",
+    "language": "Java",
+    "archived": false,
+    "default_branch": "main",
+    "license": "Apache-2.0"
+  },
+  {
+    "name": "industrial-game",
+    "description": null,
+    "html_url": "https://github.com/tommyettinger/industrial-game",
+    "language": "Java",
+    "archived": false,
+    "default_branch": "master",
+    "license": null
+  },
+  {
+    "name": "infinite-raid",
+    "description": "Party-based roguelike and/or SRPG. Keep on raiding.",
+    "html_url": "https://github.com/tommyettinger/infinite-raid",
+    "language": "Clojure",
+    "archived": false,
+    "default_branch": "master",
+    "license": "EPL-1.0"
+  },
+  {
+    "name": "inseqt",
+    "description": "Manipulate nested seqs in Clojure. Inspired by APL.",
+    "html_url": "https://github.com/tommyettinger/inseqt",
+    "language": "Clojure",
+    "archived": false,
+    "default_branch": "master",
+    "license": "EPL-1.0"
+  },
+  {
+    "name": "into-the-wip",
+    "description": null,
+    "html_url": "https://github.com/tommyettinger/into-the-wip",
+    "language": "Java",
+    "archived": false,
+    "default_branch": "main",
+    "license": null
+  },
+  {
+    "name": "IsometricVoxelDemo",
+    "description": "A sample libGDX project with procedural voxels shown as isometric pixel art.",
+    "html_url": "https://github.com/tommyettinger/IsometricVoxelDemo",
+    "language": "Java",
+    "archived": false,
+    "default_branch": "main",
+    "license": "NOASSERTION"
+  },
+  {
+    "name": "isonomicon",
+    "description": "A collection of isometric pixel art, and the software that generates it.",
+    "html_url": "https://github.com/tommyettinger/isonomicon",
+    "language": "Java",
+    "archived": false,
+    "default_branch": "master",
+    "license": "Apache-2.0"
+  },
+  {
+    "name": "IsoVoxel",
+    "description": "Generates isometric pixel art from MagicaVoxel .vox files",
+    "html_url": "https://github.com/tommyettinger/IsoVoxel",
+    "language": "C#",
+    "archived": false,
+    "default_branch": "master",
+    "license": "MIT"
+  },
+  {
+    "name": "Issue7712Test",
+    "description": "Testing libGDX Issue 7712 (OGG memory leak)",
+    "html_url": "https://github.com/tommyettinger/Issue7712Test",
+    "language": "Java",
+    "archived": false,
+    "default_branch": "main",
+    "license": "Apache-2.0"
+  },
+  {
+    "name": "jagd",
+    "description": "(Java) Augmentations to libGDX",
+    "html_url": "https://github.com/tommyettinger/jagd",
+    "language": "Java",
+    "archived": false,
+    "default_branch": "master",
+    "license": "Apache-2.0"
+  },
+  {
+    "name": "jaunt",
+    "description": "Reduced-dependency version of Javolution",
+    "html_url": "https://github.com/tommyettinger/jaunt",
+    "language": "Java",
+    "archived": false,
+    "default_branch": "master",
+    "license": "NOASSERTION"
+  },
+  {
+    "name": "java-json-benchmark",
+    "description": "Performance testing of serialization and deserialization of Java JSON libraries",
+    "html_url": "https://github.com/tommyettinger/java-json-benchmark",
+    "language": null,
+    "archived": false,
+    "default_branch": "master",
+    "license": "MIT"
+  },
+  {
+    "name": "JavaAutoTile",
+    "description": "This is a java Bit Masking auto-tile implementation in pure java. It can be used in both a 2D and 3D context in your game engine of choice.",
+    "html_url": "https://github.com/tommyettinger/JavaAutoTile",
+    "language": "Java",
+    "archived": false,
+    "default_branch": "master",
+    "license": "Apache-2.0"
+  },
+  {
+    "name": "jbump",
+    "description": "Java port for bump.lua",
+    "html_url": "https://github.com/tommyettinger/jbump",
+    "language": "Java",
+    "archived": false,
+    "default_branch": "master",
+    "license": "Apache-2.0"
+  },
+  {
+    "name": "jdkgdxds",
+    "description": "Java data structures for primitive and/or Object items",
+    "html_url": "https://github.com/tommyettinger/jdkgdxds",
+    "language": "Java",
+    "archived": false,
+    "default_branch": "master",
+    "license": "Apache-2.0"
+  },
+  {
+    "name": "jdkgdxds_interop",
+    "description": "Inter-operate between libGDX and jdkgdxds, e.g. with Json",
+    "html_url": "https://github.com/tommyettinger/jdkgdxds_interop",
+    "language": "Java",
+    "archived": false,
+    "default_branch": "main",
+    "license": "Apache-2.0"
+  },
+  {
+    "name": "jmelange",
+    "description": null,
+    "html_url": "https://github.com/tommyettinger/jmelange",
+    "language": "Java",
+    "archived": false,
+    "default_branch": "master",
+    "license": null
+  },
+  {
+    "name": "jsonbiter",
+    "description": "jsonbiter bites old-JDK-only modes out of json-iterator/java.",
+    "html_url": "https://github.com/tommyettinger/jsonbiter",
+    "language": "Java",
+    "archived": false,
+    "default_branch": "main",
+    "license": "MIT"
+  },
+  {
+    "name": "julepp",
+    "description": "Preprocessor for Java using XText for IDE support",
+    "html_url": "https://github.com/tommyettinger/julepp",
+    "language": null,
+    "archived": false,
+    "default_branch": "master",
+    "license": "EPL-1.0"
+  },
+  {
+    "name": "JumperCable",
+    "description": "Launcher program for JVM applications with a bundled JRE from OpenJDK",
+    "html_url": "https://github.com/tommyettinger/JumperCable",
+    "language": "C",
+    "archived": false,
+    "default_branch": "master",
+    "license": "GPL-2.0"
+  },
+  {
+    "name": "juniper",
+    "description": "Java pseudo-random number generation code with minimal dependencies.",
+    "html_url": "https://github.com/tommyettinger/juniper",
+    "language": "Java",
+    "archived": false,
+    "default_branch": "main",
+    "license": "Apache-2.0"
+  },
+  {
+    "name": "jvm-serializer-bench",
+    "description": "Serialization Benchmarks for JVM libraries",
+    "html_url": "https://github.com/tommyettinger/jvm-serializer-bench",
+    "language": "Java",
+    "archived": false,
+    "default_branch": "main",
+    "license": null
+  },
+  {
+    "name": "jzlib",
+    "description": "GWT compatibility fork of the jzlib pure-Java zlib library",
+    "html_url": "https://github.com/tommyettinger/jzlib",
+    "language": "Java",
+    "archived": false,
+    "default_branch": "master",
+    "license": "NOASSERTION"
+  },
+  {
+    "name": "kobold",
+    "description": "Small-ish JVM language+library meant for cross-platform apps. Uses XText for IDE support.",
+    "html_url": "https://github.com/tommyettinger/kobold",
+    "language": "Java",
+    "archived": false,
+    "default_branch": "master",
+    "license": "Apache-2.0"
+  },
+  {
+    "name": "kolonize",
+    "description": "Clojure dungeon colonization SRPG/Roguelike with many jobs.",
+    "html_url": "https://github.com/tommyettinger/kolonize",
+    "language": "Clojure",
+    "archived": false,
+    "default_branch": "master",
+    "license": "Apache-2.0"
+  },
+  {
+    "name": "kora",
+    "description": "Library of integer dictionary data structures in C#",
+    "html_url": "https://github.com/tommyettinger/kora",
+    "language": "C#",
+    "archived": false,
+    "default_branch": "master",
+    "license": null
+  },
+  {
+    "name": "Krait",
+    "description": "Lib for tight compression of spatial data",
+    "html_url": "https://github.com/tommyettinger/Krait",
+    "language": "Java",
+    "archived": false,
+    "default_branch": "master",
+    "license": "Apache-2.0"
+  },
+  {
+    "name": "kryo-cringe",
+    "description": "Kryo 5.x support for classes from cringe.",
+    "html_url": "https://github.com/tommyettinger/kryo-cringe",
+    "language": "Java",
+    "archived": false,
+    "default_branch": "main",
+    "license": "Apache-2.0"
+  },
+  {
+    "name": "kryo-digital",
+    "description": "Kryo 5.x support for classes from digital.",
+    "html_url": "https://github.com/tommyettinger/kryo-digital",
+    "language": "Java",
+    "archived": false,
+    "default_branch": "main",
+    "license": "Apache-2.0"
+  },
+  {
+    "name": "kryo-gand",
+    "description": "Kryo 5.x support for classes from gand.",
+    "html_url": "https://github.com/tommyettinger/kryo-gand",
+    "language": "Java",
+    "archived": false,
+    "default_branch": "main",
+    "license": "Apache-2.0"
+  },
+  {
+    "name": "kryo-gdcrux",
+    "description": "Kryo 5.x support for classes from gdcrux.",
+    "html_url": "https://github.com/tommyettinger/kryo-gdcrux",
+    "language": "Java",
+    "archived": false,
+    "default_branch": "main",
+    "license": "Apache-2.0"
+  },
+  {
+    "name": "kryo-jdkgdxds",
+    "description": "Kryo 5.x support for classes from jdkgdxds.",
+    "html_url": "https://github.com/tommyettinger/kryo-jdkgdxds",
+    "language": "Java",
+    "archived": false,
+    "default_branch": "main",
+    "license": "Apache-2.0"
+  },
+  {
+    "name": "kryo-juniper",
+    "description": "Kryo 5.x support for classes from juniper.",
+    "html_url": "https://github.com/tommyettinger/kryo-juniper",
+    "language": "Java",
+    "archived": false,
+    "default_branch": "main",
+    "license": "Apache-2.0"
+  },
+  {
+    "name": "kryo-libgdx",
+    "description": "Kryo 5.x support for libGDX classes.",
+    "html_url": "https://github.com/tommyettinger/kryo-libgdx",
+    "language": "Java",
+    "archived": false,
+    "default_branch": "main",
+    "license": "Apache-2.0"
+  },
+  {
+    "name": "kryo-more",
+    "description": "Kryo 5.x serializers for various \"tommyettinger libraries\"",
+    "html_url": "https://github.com/tommyettinger/kryo-more",
+    "language": "Java",
+    "archived": false,
+    "default_branch": "main",
+    "license": "Apache-2.0"
+  },
+  {
+    "name": "kryo-regexodus",
+    "description": "Kryo 5.x support for classes from RegExodus.",
+    "html_url": "https://github.com/tommyettinger/kryo-regexodus",
+    "language": "Java",
+    "archived": false,
+    "default_branch": "main",
+    "license": "Apache-2.0"
+  },
+  {
+    "name": "l2l",
+    "description": "A lisp that compiles to and runs as fast as lua. Equipped with macroes and compile-time compiler manipulation. Comes with all built-in lua functions. ",
+    "html_url": "https://github.com/tommyettinger/l2l",
+    "language": "Lua",
+    "archived": false,
+    "default_branch": "master",
+    "license": "BSD-2-Clause"
+  },
+  {
+    "name": "lazybot",
+    "description": "An IRC bot written in Clojure.",
+    "html_url": "https://github.com/tommyettinger/lazybot",
+    "language": "Clojure",
+    "archived": false,
+    "default_branch": "master",
+    "license": null
+  },
+  {
+    "name": "lein-packr",
+    "description": "Lein plugin to bundle an uberjar with a JRE using Packr.",
+    "html_url": "https://github.com/tommyettinger/lein-packr",
+    "language": "Clojure",
+    "archived": false,
+    "default_branch": "master",
+    "license": "EPL-1.0"
+  },
+  {
+    "name": "leiningen",
+    "description": "Automate Clojure projects without setting your hair on fire.",
+    "html_url": "https://github.com/tommyettinger/leiningen",
+    "language": "Clojure",
+    "archived": false,
+    "default_branch": "master",
+    "license": "NOASSERTION"
+  },
+  {
+    "name": "Leng",
+    "description": "Lua library for meddling with indexing",
+    "html_url": "https://github.com/tommyettinger/Leng",
+    "language": "Lua",
+    "archived": false,
+    "default_branch": "master",
+    "license": "MIT"
+  },
+  {
+    "name": "lesscolors",
+    "description": "A CLI tool and library to reduce the colors of an image based on a color palette.",
+    "html_url": "https://github.com/tommyettinger/lesscolors",
+    "language": "Java",
+    "archived": false,
+    "default_branch": "master",
+    "license": "MIT"
+  },
+  {
+    "name": "libdsg",
+    "description": "A library version of https://github.com/Raxorg/DualSpatialGrid",
+    "html_url": "https://github.com/tommyettinger/libdsg",
+    "language": "Java",
+    "archived": false,
+    "default_branch": "main",
+    "license": "Apache-2.0"
+  },
+  {
+    "name": "libgdx",
+    "description": "Desktop/Android/HTML5/iOS Java game development framework",
+    "html_url": "https://github.com/tommyettinger/libgdx",
+    "language": "Java",
+    "archived": false,
+    "default_branch": "master",
+    "license": "Apache-2.0"
+  },
+  {
+    "name": "libgdx-ai-artemis-gwt-example",
+    "description": "A sample libGDX project using Artemis-ODB and gdx-ai, targeting GWT.",
+    "html_url": "https://github.com/tommyettinger/libgdx-ai-artemis-gwt-example",
+    "language": "Java",
+    "archived": false,
+    "default_branch": "main",
+    "license": "CC0-1.0"
+  },
+  {
+    "name": "libgdx-demo-pax-britannica",
+    "description": "libGDX Demo: Pax Britannica",
+    "html_url": "https://github.com/tommyettinger/libgdx-demo-pax-britannica",
+    "language": null,
+    "archived": false,
+    "default_branch": "master",
+    "license": "NOASSERTION"
+  },
+  {
+    "name": "libgdx-distancefieldgen",
+    "description": "A standalone version of gdx-tools' DistanceFieldGenerator.",
+    "html_url": "https://github.com/tommyettinger/libgdx-distancefieldgen",
+    "language": "Java",
+    "archived": false,
+    "default_branch": "main",
+    "license": "Apache-2.0"
+  },
+  {
+    "name": "libgdx-etc1compressor",
+    "description": "A standalone version of gdx-tools' ETC1Compressor",
+    "html_url": "https://github.com/tommyettinger/libgdx-etc1compressor",
+    "language": "Java",
+    "archived": false,
+    "default_branch": "main",
+    "license": "Apache-2.0"
+  },
+  {
+    "name": "libgdx-flame",
+    "description": "Standalone version of gdx-tools' particleeditor.",
+    "html_url": "https://github.com/tommyettinger/libgdx-flame",
+    "language": "Java",
+    "archived": false,
+    "default_branch": "main",
+    "license": "Apache-2.0"
+  },
+  {
+    "name": "libGDX-FrameBuffer-Check",
+    "description": "Checking to see if box2d-lights interferes with 1.9.15 fixes to LWJGL2 and FrameBuffer",
+    "html_url": "https://github.com/tommyettinger/libGDX-FrameBuffer-Check",
+    "language": "Java",
+    "archived": false,
+    "default_branch": "main",
+    "license": "Apache-2.0"
+  },
+  {
+    "name": "libGDX-GWT-checks",
+    "description": "Additional tentative tests and checks for libGDX's GWT behavior.",
+    "html_url": "https://github.com/tommyettinger/libGDX-GWT-checks",
+    "language": "Java",
+    "archived": false,
+    "default_branch": "main",
+    "license": "Apache-2.0"
+  },
+  {
+    "name": "LibGDX-Jam-31",
+    "description": "My libGDX jam #31 🚀🚧🌻🌺",
+    "html_url": "https://github.com/tommyettinger/LibGDX-Jam-31",
+    "language": "Java",
+    "archived": false,
+    "default_branch": "main",
+    "license": null
+  },
+  {
+    "name": "libgdx-jam-june-2020",
+    "description": "A game from the libGDX Jam of June 2020",
+    "html_url": "https://github.com/tommyettinger/libgdx-jam-june-2020",
+    "language": "Java",
+    "archived": false,
+    "default_branch": "master",
+    "license": "MIT"
+  },
+  {
+    "name": "libGDX-Jam-March-2023",
+    "description": "A game for the libGDX Jam March 2023",
+    "html_url": "https://github.com/tommyettinger/libGDX-Jam-March-2023",
+    "language": "Java",
+    "archived": false,
+    "default_branch": "master",
+    "license": "MIT"
+  },
+  {
+    "name": "libGDX-Jam-September-2021",
+    "description": "A game for the libGDX Jam of September 2021",
+    "html_url": "https://github.com/tommyettinger/libGDX-Jam-September-2021",
+    "language": "Java",
+    "archived": false,
+    "default_branch": "main",
+    "license": "MIT"
+  },
+  {
+    "name": "libGDX-Jam-September-2023",
+    "description": "A game for the libGDX Jam of September 2023",
+    "html_url": "https://github.com/tommyettinger/libGDX-Jam-September-2023",
+    "language": "Java",
+    "archived": false,
+    "default_branch": "master",
+    "license": "MIT"
+  },
+  {
+    "name": "libgdx-ktxprocessor",
+    "description": "A standalone version of gdx-tools' KtxProcessor.",
+    "html_url": "https://github.com/tommyettinger/libgdx-ktxprocessor",
+    "language": "Java",
+    "archived": false,
+    "default_branch": "main",
+    "license": "Apache-2.0"
+  },
+  {
+    "name": "libgdx-library-template",
+    "description": "A template for libraries that work with libGDX and Gradle 9.x (or 8.x/7.x)",
+    "html_url": "https://github.com/tommyettinger/libgdx-library-template",
+    "language": null,
+    "archived": false,
+    "default_branch": "main",
+    "license": "CC0-1.0"
+  },
+  {
+    "name": "libgdx-lwjgl3-android-template",
+    "description": "A libGDX Android/LWJGL3 skeleton project template.",
+    "html_url": "https://github.com/tommyettinger/libgdx-lwjgl3-android-template",
+    "language": "Java",
+    "archived": false,
+    "default_branch": "main",
+    "license": "CC0-1.0"
+  },
+  {
+    "name": "libgdx-lwjgl3-html-template",
+    "description": "A template for a libGDX project that targets LWJGL3 and HTML",
+    "html_url": "https://github.com/tommyettinger/libgdx-lwjgl3-html-template",
+    "language": "Java",
+    "archived": false,
+    "default_branch": "master",
+    "license": null
+  },
+  {
+    "name": "libgdx-oboe",
+    "description": "🎶 libGDX audio replacement for Android (API 16+) built on top of Oboe. ",
+    "html_url": "https://github.com/tommyettinger/libgdx-oboe",
+    "language": "C++",
+    "archived": false,
+    "default_branch": "master",
+    "license": "MIT"
+  },
+  {
+    "name": "libgdx-test",
+    "description": null,
+    "html_url": "https://github.com/tommyettinger/libgdx-test",
+    "language": "Java",
+    "archived": false,
+    "default_branch": "master",
+    "license": null
+  },
+  {
+    "name": "libgdx-texturepacker",
+    "description": "Standalone version of gdx-tools' texturepacker.",
+    "html_url": "https://github.com/tommyettinger/libgdx-texturepacker",
+    "language": "Java",
+    "archived": false,
+    "default_branch": "main",
+    "license": "Apache-2.0"
+  },
+  {
+    "name": "libgdx-tiledmappacker",
+    "description": "Standalone version of gdx-tools' TiledMapPacker.",
+    "html_url": "https://github.com/tommyettinger/libgdx-tiledmappacker",
+    "language": "Java",
+    "archived": false,
+    "default_branch": "main",
+    "license": "Apache-2.0"
+  },
+  {
+    "name": "libgdx.github.io",
+    "description": "Github hosted site for libGDX",
+    "html_url": "https://github.com/tommyettinger/libgdx.github.io",
+    "language": "HTML",
+    "archived": false,
+    "default_branch": "master",
+    "license": null
+  },
+  {
+    "name": "LIBGDXJam-Dec2025",
+    "description": null,
+    "html_url": "https://github.com/tommyettinger/LIBGDXJam-Dec2025",
+    "language": "Java",
+    "archived": false,
+    "default_branch": "master",
+    "license": null
+  },
+  {
+    "name": "libtsmi",
+    "description": "Realtime roguelike engine, written in C99. It depends on libtcod and GLib.",
+    "html_url": "https://github.com/tommyettinger/libtsmi",
+    "language": "C",
+    "archived": false,
+    "default_branch": "master",
+    "license": "NOASSERTION"
+  },
+  {
+    "name": "lilikoi",
+    "description": "A little Lisp-y language with array programming elements",
+    "html_url": "https://github.com/tommyettinger/lilikoi",
+    "language": "C",
+    "archived": false,
+    "default_branch": "master",
+    "license": "NOASSERTION"
+  },
+  {
+    "name": "liveson",
+    "description": "Coffee Script Object Notation - JSON for humans",
+    "html_url": "https://github.com/tommyettinger/liveson",
+    "language": "CoffeeScript",
+    "archived": false,
+    "default_branch": "master",
+    "license": "WTFPL"
+  },
+  {
+    "name": "liveson-pause",
+    "description": "CoffeeScript-Object-Notation Parser. Same as JSON but for CoffeeScript objects.",
+    "html_url": "https://github.com/tommyettinger/liveson-pause",
+    "language": "CoffeeScript",
+    "archived": false,
+    "default_branch": "master",
+    "license": "MIT"
+  },
+  {
+    "name": "lobster",
+    "description": "The Lobster Programming Language",
+    "html_url": "https://github.com/tommyettinger/lobster",
+    "language": "C",
+    "archived": false,
+    "default_branch": "master",
+    "license": null
+  },
+  {
+    "name": "luajit-rocks",
+    "description": "LuaJIT and luarocks in one location",
+    "html_url": "https://github.com/tommyettinger/luajit-rocks",
+    "language": "C",
+    "archived": false,
+    "default_branch": "master",
+    "license": null
+  },
+  {
+    "name": "LudumDare59",
+    "description": "FORK of bploeckelman's Ludum Dare 59 Game Jam Entry",
+    "html_url": "https://github.com/tommyettinger/LudumDare59",
+    "language": null,
+    "archived": false,
+    "default_branch": "main",
+    "license": null
+  },
+  {
+    "name": "lwjgl",
+    "description": "LWJGL 2.X - The Lightweight Java Game Library.",
+    "html_url": "https://github.com/tommyettinger/lwjgl",
+    "language": null,
+    "archived": false,
+    "default_branch": "master",
+    "license": null
+  },
+  {
+    "name": "make-some-noise",
+    "description": "Edit of FastNoise_Java by Auburns, meant to have optimal behavior on GWT and to add features",
+    "html_url": "https://github.com/tommyettinger/make-some-noise",
+    "language": "Java",
+    "archived": false,
+    "default_branch": "master",
+    "license": "MIT"
+  },
+  {
+    "name": "MapperBot",
+    "description": "Simple IRC Bot in Clojure",
+    "html_url": "https://github.com/tommyettinger/MapperBot",
+    "language": "Clojure",
+    "archived": false,
+    "default_branch": "master",
+    "license": null
+  },
+  {
+    "name": "memory-measurer",
+    "description": "Tool for measuring how much memory a data structure uses. Fork of https://github.com/pluess/memory-measurer",
+    "html_url": "https://github.com/tommyettinger/memory-measurer",
+    "language": "Java",
+    "archived": false,
+    "default_branch": "main",
+    "license": "Apache-2.0"
+  },
+  {
+    "name": "merry-ds",
+    "description": "Alternative data structures to libGDX's ObjectMap, ObjectSet, and relatives",
+    "html_url": "https://github.com/tommyettinger/merry-ds",
+    "language": "Java",
+    "archived": false,
+    "default_branch": "master",
+    "license": "Apache-2.0"
+  },
+  {
+    "name": "mini2Dx",
+    "description": "A high-level cross-platform 2D game development API",
+    "html_url": "https://github.com/tommyettinger/mini2Dx",
+    "language": null,
+    "archived": false,
+    "default_branch": "master",
+    "license": "Apache-2.0"
+  },
+  {
+    "name": "mire",
+    "description": "Mire is a simple MUD written in Clojure",
+    "html_url": "https://github.com/tommyettinger/mire",
+    "language": "Clojure",
+    "archived": false,
+    "default_branch": "master",
+    "license": null
+  },
+  {
+    "name": "ModelCacheTest",
+    "description": "A test repo to test the performance of ModelCache on various backends.",
+    "html_url": "https://github.com/tommyettinger/ModelCacheTest",
+    "language": "Java",
+    "archived": false,
+    "default_branch": "master",
+    "license": null
+  },
+  {
+    "name": "msdf-atlas-gen",
+    "description": "MSDF font atlas generator",
+    "html_url": "https://github.com/tommyettinger/msdf-atlas-gen",
+    "language": "C++",
+    "archived": false,
+    "default_branch": "master",
+    "license": "MIT"
+  },
+  {
+    "name": "msdf-gdx-gen",
+    "description": "Utility for generating BMFont files for msdf-gdx",
+    "html_url": "https://github.com/tommyettinger/msdf-gdx-gen",
+    "language": "Kotlin",
+    "archived": false,
+    "default_branch": "master",
+    "license": "Apache-2.0"
+  },
+  {
+    "name": "MultiTileBlueNoise",
+    "description": "Storage for blue noise textures, including mixed-tiling textures, in results/",
+    "html_url": "https://github.com/tommyettinger/MultiTileBlueNoise",
+    "language": "C",
+    "archived": false,
+    "default_branch": "master",
+    "license": "MIT"
+  },
+  {
+    "name": "mvnrepository-client",
+    "description": "📦Client for querying artifacts from http://mvnrepository.com/ ; tries to fix CVE-2018-1000850",
+    "html_url": "https://github.com/tommyettinger/mvnrepository-client",
+    "language": "HTML",
+    "archived": false,
+    "default_branch": "develop",
+    "license": "Apache-2.0"
+  },
+  {
+    "name": "Nebula-Generator",
+    "description": "A nebula generator writted with libgdx",
+    "html_url": "https://github.com/tommyettinger/Nebula-Generator",
+    "language": "Java",
+    "archived": false,
+    "default_branch": "master",
+    "license": "Apache-2.0"
+  },
+  {
+    "name": "NoiseDemos",
+    "description": "Demo projects/hosting for noise-related code.",
+    "html_url": "https://github.com/tommyettinger/NoiseDemos",
+    "language": "Java",
+    "archived": false,
+    "default_branch": "main",
+    "license": "Apache-2.0"
+  },
+  {
+    "name": "noisefarm",
+    "description": "Artisanal, locally-sourced, organic continuous noise textures",
+    "html_url": "https://github.com/tommyettinger/noisefarm",
+    "language": "Java",
+    "archived": false,
+    "default_branch": "main",
+    "license": "CC0-1.0"
+  },
+  {
+    "name": "noisegen",
+    "description": "A command-line tool to generate different types of noise as images.",
+    "html_url": "https://github.com/tommyettinger/noisegen",
+    "language": "Java",
+    "archived": false,
+    "default_branch": "main",
+    "license": "Apache-2.0"
+  },
+  {
+    "name": "noto-emoji-atlas",
+    "description": "The full-color Noto Emoji set by Google, made into a libGDX atlas",
+    "html_url": "https://github.com/tommyettinger/noto-emoji-atlas",
+    "language": "Java",
+    "archived": false,
+    "default_branch": "main",
+    "license": "NOASSERTION"
+  },
+  {
+    "name": "nutrition-searcher",
+    "description": "Which foods are suitable for a restricted diet?",
+    "html_url": "https://github.com/tommyettinger/nutrition-searcher",
+    "language": "Clojure",
+    "archived": false,
+    "default_branch": "master",
+    "license": "EPL-1.0"
+  },
+  {
+    "name": "OpenJ9Benchmark",
+    "description": "Small Gradle+libGDX project to show a performance regression between OpenJ9 versions",
+    "html_url": "https://github.com/tommyettinger/OpenJ9Benchmark",
+    "language": "Java",
+    "archived": false,
+    "default_branch": "master",
+    "license": "Apache-2.0"
+  },
+  {
+    "name": "openjdk9-builds",
+    "description": "There should be OpenJDK 9 binaries. How about these?",
+    "html_url": "https://github.com/tommyettinger/openjdk9-builds",
+    "language": "HTML",
+    "archived": false,
+    "default_branch": "master",
+    "license": "GPL-2.0"
+  },
+  {
+    "name": "openmoji-atlas",
+    "description": "Texture atlases for the OpenMoji emoji set; libGDX-compatible.",
+    "html_url": "https://github.com/tommyettinger/openmoji-atlas",
+    "language": null,
+    "archived": false,
+    "default_branch": "main",
+    "license": "CC-BY-SA-4.0"
+  },
+  {
+    "name": "orc",
+    "description": "Pointless IRC-based roguelike",
+    "html_url": "https://github.com/tommyettinger/orc",
+    "language": "Clojure",
+    "archived": false,
+    "default_branch": "master",
+    "license": "GPL-3.0"
+  },
+  {
+    "name": "packr",
+    "description": "Packages your JAR, assets and a JVM for distribution on Windows, Linux and Mac OS X",
+    "html_url": "https://github.com/tommyettinger/packr",
+    "language": "Java",
+    "archived": false,
+    "default_branch": "master",
+    "license": "Apache-2.0"
+  },
+  {
+    "name": "padre",
+    "description": "PArtial Derivative Regular Expressions, in Java",
+    "html_url": "https://github.com/tommyettinger/padre",
+    "language": "Java",
+    "archived": false,
+    "default_branch": "master",
+    "license": "Apache-2.0"
+  },
+  {
+    "name": "persy",
+    "description": "personal synchronization application - based on git",
+    "html_url": "https://github.com/tommyettinger/persy",
+    "language": null,
+    "archived": false,
+    "default_branch": "master",
+    "license": null
+  },
+  {
+    "name": "phrasing",
+    "description": "Sentence string formatting lib in Java",
+    "html_url": "https://github.com/tommyettinger/phrasing",
+    "language": "Java",
+    "archived": false,
+    "default_branch": "master",
+    "license": "Apache-2.0"
+  },
+  {
+    "name": "PixelUIEngine",
+    "description": "Pixel Art UI System",
+    "html_url": "https://github.com/tommyettinger/PixelUIEngine",
+    "language": "Java",
+    "archived": false,
+    "default_branch": "main",
+    "license": null
+  },
+  {
+    "name": "PixelZoo",
+    "description": "Just helping out; not the official repo",
+    "html_url": "https://github.com/tommyettinger/PixelZoo",
+    "language": null,
+    "archived": false,
+    "default_branch": "master",
+    "license": null
+  },
+  {
+    "name": "pixscape-studio-free",
+    "description": "Open-source 2D game studio for LibGDX — visual editing, tiled/iso maps, prefabs, physics, shaders, lights, and Pixscape Runtime export.",
+    "html_url": "https://github.com/tommyettinger/pixscape-studio-free",
+    "language": "JavaScript",
+    "archived": false,
+    "default_branch": "main",
+    "license": "Apache-2.0"
+  },
+  {
+    "name": "PixVoxelAssets",
+    "description": "Free art for games generated from 3D voxel models.",
+    "html_url": "https://github.com/tommyettinger/PixVoxelAssets",
+    "language": "C#",
+    "archived": false,
+    "default_branch": "master",
+    "license": "CC0-1.0"
+  },
+  {
+    "name": "PixVoxelExperiments",
+    "description": "Alternate ways of rendering the voxel models from PixVoxelAssets.",
+    "html_url": "https://github.com/tommyettinger/PixVoxelExperiments",
+    "language": "Java",
+    "archived": false,
+    "default_branch": "master",
+    "license": "CC0-1.0"
+  },
+  {
+    "name": "playground",
+    "description": null,
+    "html_url": "https://github.com/tommyettinger/playground",
+    "language": "Java",
+    "archived": false,
+    "default_branch": "master",
+    "license": null
+  },
+  {
+    "name": "Plum",
+    "description": "History-tracking mutable collections with immutable collections inside",
+    "html_url": "https://github.com/tommyettinger/Plum",
+    "language": "C#",
+    "archived": false,
+    "default_branch": "master",
+    "license": "Apache-2.0"
+  },
+  {
+    "name": "pngcs",
+    "description": "Read/write (big) PNG files with C#",
+    "html_url": "https://github.com/tommyettinger/pngcs",
+    "language": "C#",
+    "archived": false,
+    "default_branch": "master",
+    "license": "NOASSERTION"
+  },
+  {
+    "name": "PractRand-With-Junk",
+    "description": "PractRand 0.94 along with my messy experiments making PRNGs",
+    "html_url": "https://github.com/tommyettinger/PractRand-With-Junk",
+    "language": "C++",
+    "archived": false,
+    "default_branch": "master",
+    "license": "Unlicense"
+  },
+  {
+    "name": "previews",
+    "description": "HTML previews of various rendered images.",
+    "html_url": "https://github.com/tommyettinger/previews",
+    "language": "Java",
+    "archived": false,
+    "default_branch": "main",
+    "license": "CC0-1.0"
+  },
+  {
+    "name": "ProjectiveSet",
+    "description": "Web version of an obscure card game whose origin nobody seems to be able to trace.",
+    "html_url": "https://github.com/tommyettinger/ProjectiveSet",
+    "language": "JavaScript",
+    "archived": false,
+    "default_branch": "master",
+    "license": null
+  },
+  {
+    "name": "Ravager",
+    "description": "Tactical RPG/Roguelike in Clojure",
+    "html_url": "https://github.com/tommyettinger/Ravager",
+    "language": "Clojure",
+    "archived": false,
+    "default_branch": "master",
+    "license": "GPL-2.0"
+  },
+  {
+    "name": "Reaction-Diffusion",
+    "description": "Simulation for Reaction Diffusion using the Gray-Scott model.",
+    "html_url": "https://github.com/tommyettinger/Reaction-Diffusion",
+    "language": "Java",
+    "archived": false,
+    "default_branch": "master",
+    "license": "NOASSERTION"
+  },
+  {
+    "name": "ReactionDiffusionContinued",
+    "description": "More reaction-diffusion experiments based on BigBass and negativeview's work",
+    "html_url": "https://github.com/tommyettinger/ReactionDiffusionContinued",
+    "language": "Java",
+    "archived": false,
+    "default_branch": "master",
+    "license": "NOASSERTION"
+  },
+  {
+    "name": "rebel-saga",
+    "description": "C# game about wars in space.  Text-based Roguelike/SRPG using libtcod.",
+    "html_url": "https://github.com/tommyettinger/rebel-saga",
+    "language": null,
+    "archived": false,
+    "default_branch": "master",
+    "license": null
+  },
+  {
+    "name": "RegExodus",
+    "description": "Regular expression lib; portable across Java variants (including GWT)",
+    "html_url": "https://github.com/tommyettinger/RegExodus",
+    "language": "Java",
+    "archived": false,
+    "default_branch": "master",
+    "license": "BSD-3-Clause"
+  },
+  {
+    "name": "ReplicantBatch",
+    "description": "You see libGDX 1.13.0 flipped over on its back. It can't right itself...",
+    "html_url": "https://github.com/tommyettinger/ReplicantBatch",
+    "language": "Java",
+    "archived": false,
+    "default_branch": "main",
+    "license": "Apache-2.0"
+  },
+  {
+    "name": "Retro-Towerdefence",
+    "description": "Libgdx june 2020 game jam project",
+    "html_url": "https://github.com/tommyettinger/Retro-Towerdefence",
+    "language": null,
+    "archived": false,
+    "default_branch": "master",
+    "license": "Apache-2.0"
+  },
+  {
+    "name": "rng_tests",
+    "description": "C++ RNG tests, meant to evaluate Godot's RNG code.",
+    "html_url": "https://github.com/tommyettinger/rng_tests",
+    "language": "C++",
+    "archived": false,
+    "default_branch": "main",
+    "license": "MIT"
+  },
+  {
+    "name": "Ruins-in-Roswell",
+    "description": "Text-based Clojure Dungeon Exploration Roguelike/RPG",
+    "html_url": "https://github.com/tommyettinger/Ruins-in-Roswell",
+    "language": "Clojure",
+    "archived": false,
+    "default_branch": "master",
+    "license": "NOASSERTION"
+  },
+  {
+    "name": "runtime-deep-dive",
+    "description": "Taking a closer look at .NET's performance.",
+    "html_url": "https://github.com/tommyettinger/runtime-deep-dive",
+    "language": null,
+    "archived": false,
+    "default_branch": "main",
+    "license": "MIT"
+  },
+  {
+    "name": "salp",
+    "description": "Java data structures that can be indexed flexibly",
+    "html_url": "https://github.com/tommyettinger/salp",
+    "language": "Java",
+    "archived": false,
+    "default_branch": "master",
+    "license": "Apache-2.0"
+  },
+  {
+    "name": "SaltarelleRotJS",
+    "description": "Metadata to use the rot.js Roguelike Toolkit from Saltarelle",
+    "html_url": "https://github.com/tommyettinger/SaltarelleRotJS",
+    "language": "JavaScript",
+    "archived": false,
+    "default_branch": "master",
+    "license": "NOASSERTION"
+  },
+  {
+    "name": "Samsara",
+    "description": "A tactical RPG in a futuristic fantasy setting.",
+    "html_url": "https://github.com/tommyettinger/Samsara",
+    "language": null,
+    "archived": false,
+    "default_branch": "master",
+    "license": "CC0-1.0"
+  },
+  {
+    "name": "sarong",
+    "description": "Stand-Alone RandOm Number Generators (various Java RNGs)",
+    "html_url": "https://github.com/tommyettinger/sarong",
+    "language": "Java",
+    "archived": false,
+    "default_branch": "master",
+    "license": "Apache-2.0"
+  },
+  {
+    "name": "satchmo-template",
+    "description": "Template for simplified forks of gdx-core",
+    "html_url": "https://github.com/tommyettinger/satchmo-template",
+    "language": "Java",
+    "archived": false,
+    "default_branch": "main",
+    "license": "Apache-2.0"
+  },
+  {
+    "name": "scallop",
+    "description": "Command-line image scaler, currently using scale2x",
+    "html_url": "https://github.com/tommyettinger/scallop",
+    "language": "Java",
+    "archived": false,
+    "default_branch": "master",
+    "license": "Apache-2.0"
+  },
+  {
+    "name": "Scroll-o-Sprites",
+    "description": "An atlas version of Quale's Scroll o' Sprites; editable",
+    "html_url": "https://github.com/tommyettinger/Scroll-o-Sprites",
+    "language": null,
+    "archived": false,
+    "default_branch": "master",
+    "license": "MIT"
+  },
+  {
+    "name": "setMaximizedIssue",
+    "description": "Minimal project need to see setMaximized issue on Libgdx.",
+    "html_url": "https://github.com/tommyettinger/setMaximizedIssue",
+    "language": "Java",
+    "archived": false,
+    "default_branch": "master",
+    "license": null
+  },
+  {
+    "name": "ShaiRandom",
+    "description": "Random number generators for modern .NET.",
+    "html_url": "https://github.com/tommyettinger/ShaiRandom",
+    "language": "C#",
+    "archived": false,
+    "default_branch": "main",
+    "license": "MIT"
+  },
+  {
+    "name": "shapedrawer",
+    "description": "A library for libGDX that draws simple shapes using a batch.",
+    "html_url": "https://github.com/tommyettinger/shapedrawer",
+    "language": "Java",
+    "archived": false,
+    "default_branch": "master",
+    "license": "MIT"
+  },
+  {
+    "name": "sharpDox",
+    "description": "A c# documentation tool - ",
+    "html_url": "https://github.com/tommyettinger/sharpDox",
+    "language": "C#",
+    "archived": false,
+    "default_branch": "master",
+    "license": "MIT"
+  },
+  {
+    "name": "simple-graphs",
+    "description": "A simple graph library for java",
+    "html_url": "https://github.com/tommyettinger/simple-graphs",
+    "language": "Java",
+    "archived": false,
+    "default_branch": "master",
+    "license": "MIT"
+  },
+  {
+    "name": "sjInGameConsole",
+    "description": "An updated version of StrongJoshua's in-game console.",
+    "html_url": "https://github.com/tommyettinger/sjInGameConsole",
+    "language": "Java",
+    "archived": false,
+    "default_branch": "main",
+    "license": "Apache-2.0"
+  },
+  {
+    "name": "skin-composer",
+    "description": "Create skins for LibGDX scene2d.ui with a graphical interface.",
+    "html_url": "https://github.com/tommyettinger/skin-composer",
+    "language": "Java",
+    "archived": false,
+    "default_branch": "master",
+    "license": "MIT"
+  },
+  {
+    "name": "Skin-Composer-Spineless",
+    "description": "Skin Composer without any Spine dependency, for FLOSS fans.",
+    "html_url": "https://github.com/tommyettinger/Skin-Composer-Spineless",
+    "language": "Java",
+    "archived": false,
+    "default_branch": "main",
+    "license": "MIT"
+  },
+  {
+    "name": "smhasher-with-junk",
+    "description": "Modified copy of rurban/smhasher to test SquidLib hashes",
+    "html_url": "https://github.com/tommyettinger/smhasher-with-junk",
+    "language": "C++",
+    "archived": false,
+    "default_branch": "master",
+    "license": null
+  },
+  {
+    "name": "Sonorant",
+    "description": "Using noise for pretty loops and CA experiments.",
+    "html_url": "https://github.com/tommyettinger/Sonorant",
+    "language": "Java",
+    "archived": false,
+    "default_branch": "main",
+    "license": "Apache-2.0"
+  },
+  {
+    "name": "SorryIBrokeYourKryo",
+    "description": "Sorry! Kryo serialization of libGDX Array changed after 1.12.1. This shows how to hack it back into compatibility.",
+    "html_url": "https://github.com/tommyettinger/SorryIBrokeYourKryo",
+    "language": "Java",
+    "archived": false,
+    "default_branch": "main",
+    "license": "Apache-2.0"
+  },
+  {
+    "name": "SpaceProject",
+    "description": "A 2D arcadey physics-based procedurally generated asteroid miner sandbox game using libGDX.",
+    "html_url": "https://github.com/tommyettinger/SpaceProject",
+    "language": null,
+    "archived": false,
+    "default_branch": "master",
+    "license": "Apache-2.0"
+  },
+  {
+    "name": "SpookyDrawer",
+    "description": "A fork of ShapeDrawer that updates Gradle config to be current for Spooky Season 2026.",
+    "html_url": "https://github.com/tommyettinger/SpookyDrawer",
+    "language": "Java",
+    "archived": false,
+    "default_branch": "main",
+    "license": "MIT"
+  },
+  {
+    "name": "spotvox",
+    "description": "Renders MagicaVoxel .vox files to pixel art. Successor to IsoVoxel.",
+    "html_url": "https://github.com/tommyettinger/spotvox",
+    "language": "Java",
+    "archived": false,
+    "default_branch": "main",
+    "license": "Apache-2.0"
+  },
+  {
+    "name": "spritz",
+    "description": "A spry and nimble fix for SpriteBatch in libGDX.",
+    "html_url": "https://github.com/tommyettinger/spritz",
+    "language": "Java",
+    "archived": false,
+    "default_branch": "main",
+    "license": "Apache-2.0"
+  },
+  {
+    "name": "SquidDungeonsOfElentria",
+    "description": null,
+    "html_url": "https://github.com/tommyettinger/SquidDungeonsOfElentria",
+    "language": "Java",
+    "archived": false,
+    "default_branch": "master",
+    "license": null
+  },
+  {
+    "name": "SquidGrid",
+    "description": "Java library for creating visual grids with arbitrary contents and size",
+    "html_url": "https://github.com/tommyettinger/SquidGrid",
+    "language": "Java",
+    "archived": false,
+    "default_branch": "master",
+    "license": "Unlicense"
+  },
+  {
+    "name": "SquidLib",
+    "description": "Useful tools for working with Grid World in Java Swing panels. Comments and suggestions are very welcome!",
+    "html_url": "https://github.com/tommyettinger/SquidLib",
+    "language": "Java",
+    "archived": false,
+    "default_branch": "master",
+    "license": "Apache-2.0"
+  },
+  {
+    "name": "squidlib-clj",
+    "description": "Clojure wrapper for SquidLib, a toolkit for grid-based games",
+    "html_url": "https://github.com/tommyettinger/squidlib-clj",
+    "language": "Clojure",
+    "archived": false,
+    "default_branch": "master",
+    "license": "Apache-2.0"
+  },
+  {
+    "name": "SquidSetup",
+    "description": "A fork of libGDX's setup tool, preconfigured for SquidLib",
+    "html_url": "https://github.com/tommyettinger/SquidSetup",
+    "language": "Java",
+    "archived": false,
+    "default_branch": "master",
+    "license": "Apache-2.0"
+  },
+  {
+    "name": "StartingWithAstrid",
+    "description": "Experiments with the Astrid C# game library",
+    "html_url": "https://github.com/tommyettinger/StartingWithAstrid",
+    "language": "C#",
+    "archived": false,
+    "default_branch": "master",
+    "license": "CC0-1.0"
+  },
+  {
+    "name": "StrangersAmongUs",
+    "description": "A science-fantasy SRPG in F#",
+    "html_url": "https://github.com/tommyettinger/StrangersAmongUs",
+    "language": "F#",
+    "archived": false,
+    "default_branch": "master",
+    "license": "CC0-1.0"
+  },
+  {
+    "name": "stripe",
+    "description": "A collection of Scene2D widgets and utilities for libGDX.",
+    "html_url": "https://github.com/tommyettinger/stripe",
+    "language": "Java",
+    "archived": false,
+    "default_branch": "master",
+    "license": "MIT"
+  },
+  {
+    "name": "Sway-System",
+    "description": "A Tabletop RPG system as a GitHub repository.",
+    "html_url": "https://github.com/tommyettinger/Sway-System",
+    "language": null,
+    "archived": false,
+    "default_branch": "main",
+    "license": "CC0-1.0"
+  },
+  {
+    "name": "TabLab",
+    "description": "Generate simple Java source code from tab-separated value files",
+    "html_url": "https://github.com/tommyettinger/TabLab",
+    "language": "Java",
+    "archived": false,
+    "default_branch": "master",
+    "license": "Apache-2.0"
+  },
+  {
+    "name": "taboratory",
+    "description": "Generate classes from TSV tables; reload on demand!",
+    "html_url": "https://github.com/tommyettinger/taboratory",
+    "language": "Java",
+    "archived": false,
+    "default_branch": "main",
+    "license": "Apache-2.0"
+  },
+  {
+    "name": "TacticalCommand",
+    "description": "This globe goes from Joshua Day to Joshua Night",
+    "html_url": "https://github.com/tommyettinger/TacticalCommand",
+    "language": "Lua",
+    "archived": false,
+    "default_branch": "master",
+    "license": "Apache-2.0"
+  },
+  {
+    "name": "tantrum",
+    "description": "Apache Fory ser/deser for \"tommyettinger libraries.\"",
+    "html_url": "https://github.com/tommyettinger/tantrum",
+    "language": "Java",
+    "archived": false,
+    "default_branch": "main",
+    "license": "Apache-2.0"
+  },
+  {
+    "name": "Taut",
+    "description": "Java library for creating visual grids with arbitrary content",
+    "html_url": "https://github.com/tommyettinger/Taut",
+    "language": "Java",
+    "archived": false,
+    "default_branch": "master",
+    "license": "Unlicense"
+  },
+  {
+    "name": "te-lib-demos",
+    "description": "Demos for various tommyettinger library repos.",
+    "html_url": "https://github.com/tommyettinger/te-lib-demos",
+    "language": "Java",
+    "archived": false,
+    "default_branch": "main",
+    "license": "CC0-1.0"
+  },
+  {
+    "name": "teavm",
+    "description": "Compiler of Java bytecode to JavaScript",
+    "html_url": "https://github.com/tommyettinger/teavm",
+    "language": null,
+    "archived": false,
+    "default_branch": "master",
+    "license": "Apache-2.0"
+  },
+  {
+    "name": "teavm-asset-js-bug",
+    "description": "Fork of Hyperion2400's bug repro case.",
+    "html_url": "https://github.com/tommyettinger/teavm-asset-js-bug",
+    "language": "Java",
+    "archived": false,
+    "default_branch": "main",
+    "license": null
+  },
+  {
+    "name": "terra",
+    "description": "A low-level counterpart to Lua",
+    "html_url": "https://github.com/tommyettinger/terra",
+    "language": "C++",
+    "archived": false,
+    "default_branch": "master",
+    "license": "NOASSERTION"
+  },
+  {
+    "name": "test8",
+    "description": "LibGDX game - test8",
+    "html_url": "https://github.com/tommyettinger/test8",
+    "language": "Java",
+    "archived": false,
+    "default_branch": "main",
+    "license": null
+  },
+  {
+    "name": "textramode",
+    "description": "Extra features for fonts in libGDX. (ARCHIVED)",
+    "html_url": "https://github.com/tommyettinger/textramode",
+    "language": "Java",
+    "archived": true,
+    "default_branch": "main",
+    "license": "Apache-2.0"
+  },
+  {
+    "name": "textratrader",
+    "description": "TextraTypist effects for Godot RichTextLabels",
+    "html_url": "https://github.com/tommyettinger/textratrader",
+    "language": "GDScript",
+    "archived": false,
+    "default_branch": "main",
+    "license": "MIT"
+  },
+  {
+    "name": "textratypist",
+    "description": "Augmented text display system for libGDX, based on typing-label",
+    "html_url": "https://github.com/tommyettinger/textratypist",
+    "language": "Java",
+    "archived": false,
+    "default_branch": "main",
+    "license": "Apache-2.0"
+  },
+  {
+    "name": "TGMT",
+    "description": "A game library to create simple text adventure games.",
+    "html_url": "https://github.com/tommyettinger/TGMT",
+    "language": "Java",
+    "archived": false,
+    "default_branch": "main",
+    "license": "MIT"
+  },
+  {
+    "name": "TheSadRogue.Primitives",
+    "description": "A collection of primitive data structures for working with a 2-dimensional grid.",
+    "html_url": "https://github.com/tommyettinger/TheSadRogue.Primitives",
+    "language": "C#",
+    "archived": false,
+    "default_branch": "master",
+    "license": "MIT"
+  },
+  {
+    "name": "TinyCurses",
+    "description": "Full-color Unicode-enabled multi-layered terminal emulator using SDL",
+    "html_url": "https://github.com/tommyettinger/TinyCurses",
+    "language": "C",
+    "archived": false,
+    "default_branch": "master",
+    "license": null
+  },
+  {
+    "name": "tommyettinger",
+    "description": null,
+    "html_url": "https://github.com/tommyettinger/tommyettinger",
+    "language": null,
+    "archived": false,
+    "default_branch": "main",
+    "license": null
+  },
+  {
+    "name": "tommyettinger.github.io",
+    "description": "Committed to Git.",
+    "html_url": "https://github.com/tommyettinger/tommyettinger.github.io",
+    "language": "SCSS",
+    "archived": false,
+    "default_branch": "main",
+    "license": "NOASSERTION"
+  },
+  {
+    "name": "TransparencyProcessor",
+    "description": "The Alpha and Omega of rudimentary alpha optimization.",
+    "html_url": "https://github.com/tommyettinger/TransparencyProcessor",
+    "language": "Java",
+    "archived": false,
+    "default_branch": "main",
+    "license": "Apache-2.0"
+  },
+  {
+    "name": "TrashPanda",
+    "description": "Rummage through text files to produce treasure from trash (Format-Preserving Encoding in Java)",
+    "html_url": "https://github.com/tommyettinger/TrashPanda",
+    "language": "Java",
+    "archived": false,
+    "default_branch": "master",
+    "license": "Apache-2.0"
+  },
+  {
+    "name": "TrundleBundle",
+    "description": "Bundle up a jar in a single executable, one per platform",
+    "html_url": "https://github.com/tommyettinger/TrundleBundle",
+    "language": null,
+    "archived": false,
+    "default_branch": "master",
+    "license": "Apache-2.0"
+  },
+  {
+    "name": "tweenmachine",
+    "description": "Updated Universal Tween Engine, originally by aurelienribon",
+    "html_url": "https://github.com/tommyettinger/tweenmachine",
+    "language": "Java",
+    "archived": false,
+    "default_branch": "main",
+    "license": "Apache-2.0"
+  },
+  {
+    "name": "twemoji-atlas",
+    "description": "The Twemoji icons in a libGDX atlas",
+    "html_url": "https://github.com/tommyettinger/twemoji-atlas",
+    "language": "Java",
+    "archived": false,
+    "default_branch": "main",
+    "license": "MIT"
+  },
+  {
+    "name": "typing-label",
+    "description": "A libGDX Label that appears as if it was being typed in real time.",
+    "html_url": "https://github.com/tommyettinger/typing-label",
+    "language": "Java",
+    "archived": false,
+    "default_branch": "master",
+    "license": "MIT"
+  },
+  {
+    "name": "uncommons-maths",
+    "description": "Random number generators, probability distributions, combinatorics and statistics for Java.",
+    "html_url": "https://github.com/tommyettinger/uncommons-maths",
+    "language": "Java",
+    "archived": false,
+    "default_branch": "master",
+    "license": "Apache-2.0"
+  },
+  {
+    "name": "UnityCubeTest",
+    "description": "This is a stupidly simple Unity demo I am making so that I can learn Unity and Git.",
+    "html_url": "https://github.com/tommyettinger/UnityCubeTest",
+    "language": "C#",
+    "archived": false,
+    "default_branch": "master",
+    "license": null
+  },
+  {
+    "name": "VariousCSBenchmarks",
+    "description": "A grab-bag of C# benchmarks using BenchmarkDotNet",
+    "html_url": "https://github.com/tommyettinger/VariousCSBenchmarks",
+    "language": "C#",
+    "archived": false,
+    "default_branch": "main",
+    "license": "MIT"
+  },
+  {
+    "name": "viciouscycle",
+    "description": "The dungeon delve that keeps happening.",
+    "html_url": "https://github.com/tommyettinger/viciouscycle",
+    "language": "Lua",
+    "archived": false,
+    "default_branch": "master",
+    "license": null
+  },
+  {
+    "name": "ViciousDemo",
+    "description": "Testing ground for an isometric RPG-ish thing.",
+    "html_url": "https://github.com/tommyettinger/ViciousDemo",
+    "language": "C#",
+    "archived": false,
+    "default_branch": "master",
+    "license": null
+  },
+  {
+    "name": "vis-ui",
+    "description": "libGDX UI toolkit (FORK)",
+    "html_url": "https://github.com/tommyettinger/vis-ui",
+    "language": "Java",
+    "archived": false,
+    "default_branch": "master",
+    "license": "Apache-2.0"
+  },
+  {
+    "name": "vox-parser",
+    "description": "A Java parser for the MagicaVoxel .vox format using libGDX",
+    "html_url": "https://github.com/tommyettinger/vox-parser",
+    "language": "Java",
+    "archived": false,
+    "default_branch": "main",
+    "license": "Apache-2.0"
+  },
+  {
+    "name": "vox-swirl",
+    "description": "An alternative approach to rendering MagicaVoxel .vox files to pixel art",
+    "html_url": "https://github.com/tommyettinger/vox-swirl",
+    "language": "Java",
+    "archived": false,
+    "default_branch": "master",
+    "license": "Apache-2.0"
+  },
+  {
+    "name": "Voxel2Pixel",
+    "description": "Voxels! To! Pixels!",
+    "html_url": "https://github.com/tommyettinger/Voxel2Pixel",
+    "language": null,
+    "archived": false,
+    "default_branch": "master",
+    "license": null
+  },
+  {
+    "name": "wardgdx",
+    "description": "libGDX fork changing package-private to protected.",
+    "html_url": "https://github.com/tommyettinger/wardgdx",
+    "language": "Java",
+    "archived": false,
+    "default_branch": "main",
+    "license": "Apache-2.0"
+  },
+  {
+    "name": "Warlock",
+    "description": "Fools! You dare afflict THE WARLOCK with some puny status condition? Laughable!",
+    "html_url": "https://github.com/tommyettinger/Warlock",
+    "language": null,
+    "archived": false,
+    "default_branch": "master",
+    "license": "MIT"
+  },
+  {
+    "name": "WarpWriter",
+    "description": "Procedural voxel model builder with pixel-art-like display in 2D",
+    "html_url": "https://github.com/tommyettinger/WarpWriter",
+    "language": "Java",
+    "archived": false,
+    "default_branch": "master",
+    "license": "Apache-2.0"
+  },
+  {
+    "name": "waterhash",
+    "description": "Variant on Wang Yi's wyhash with 32-bit output, using at most 64-bit math",
+    "html_url": "https://github.com/tommyettinger/waterhash",
+    "language": "C++",
+    "archived": false,
+    "default_branch": "master",
+    "license": "Unlicense"
+  },
+  {
+    "name": "way",
+    "description": "Just the pathfinding code from gdx-ai. This is the way.",
+    "html_url": "https://github.com/tommyettinger/way",
+    "language": "Java",
+    "archived": false,
+    "default_branch": "master",
+    "license": "Apache-2.0"
+  },
+  {
+    "name": "Wilderness",
+    "description": "Text-based Tactical RPG (with roguelike elements) centered around animals.",
+    "html_url": "https://github.com/tommyettinger/Wilderness",
+    "language": "C#",
+    "archived": false,
+    "default_branch": "master",
+    "license": null
+  },
+  {
+    "name": "WOLF3D-Godot",
+    "description": "Wolfenstein 3-D recreated in Godot Mono for the Oculus Quest",
+    "html_url": "https://github.com/tommyettinger/WOLF3D-Godot",
+    "language": "C#",
+    "archived": false,
+    "default_branch": "master",
+    "license": null
+  },
+  {
+    "name": "wolfs-den-kotlin",
+    "description": "A roguelike game, written in Kotlin using SquidLib and gdx-ai.",
+    "html_url": "https://github.com/tommyettinger/wolfs-den-kotlin",
+    "language": "Kotlin",
+    "archived": false,
+    "default_branch": "master",
+    "license": null
+  },
+  {
+    "name": "worldly",
+    "description": "World map and planet view generator using libGDX",
+    "html_url": "https://github.com/tommyettinger/worldly",
+    "language": "Java",
+    "archived": false,
+    "default_branch": "master",
+    "license": "Apache-2.0"
+  },
+  {
+    "name": "wyhash",
+    "description": "The dream fast hash function and PRNG that passed SMHasher, BigCrush and practrand.",
+    "html_url": "https://github.com/tommyettinger/wyhash",
+    "language": "C++",
+    "archived": false,
+    "default_branch": "master",
+    "license": "Unlicense"
+  },
+  {
+    "name": "xcross",
+    "description": "Automatically exported from code.google.com/p/xcross",
+    "html_url": "https://github.com/tommyettinger/xcross",
+    "language": "C",
+    "archived": false,
+    "default_branch": "master",
+    "license": null
+  },
+  {
+    "name": "xoppa-gdx-3d-lwjgl3",
+    "description": "An update of the libGDX 3D blog series by Xoppa, now using LWJGL3.",
+    "html_url": "https://github.com/tommyettinger/xoppa-gdx-3d-lwjgl3",
+    "language": "Java",
+    "archived": false,
+    "default_branch": "main",
+    "license": "Apache-2.0"
+  },
+  {
+    "name": "zetavm",
+    "description": "Multi-Language Platform for Dynamic Programming Languages",
+    "html_url": "https://github.com/tommyettinger/zetavm",
+    "language": "C++",
+    "archived": false,
+    "default_branch": "master",
+    "license": "BSD-3-Clause"
+  },
+  {
+    "name": "ziltoid",
+    "description": "Assuage my confusion about phonetic encoding!",
+    "html_url": "https://github.com/tommyettinger/ziltoid",
+    "language": "Java",
+    "archived": false,
+    "default_branch": "master",
+    "license": "Apache-2.0"
+  }
+]
