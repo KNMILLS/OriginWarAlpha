@@ -35,6 +35,8 @@ public final class OriginWarApp extends ApplicationAdapter {
     private GameState state;
     private Screen screen=Screen.TITLE,returnScreen=Screen.TITLE;
     private String seedText="2016",notice="",capture="";
+    private String diagnostics="";
+    private int saveFailures;
     private int frame,maxFrames,selectedItem,targetX=-1,targetY=-1,dragging=-1;
     private int captureFrame=90;
     private final ArrayDeque<Float> frameIntervals=new ArrayDeque<>();
@@ -64,6 +66,7 @@ public final class OriginWarApp extends ApplicationAdapter {
             if(arg.startsWith("--user-data="))data=Path.of(arg.substring(12));
             if(arg.startsWith("--seed="))seedText=arg.substring(7);
             if(arg.startsWith("--capture="))capture=arg.substring(10);
+            if(arg.startsWith("--diagnostics="))diagnostics=arg.substring(14);
             if(arg.startsWith("--capture-frame="))captureFrame=Integer.parseInt(arg.substring(16));
             if(arg.startsWith("--frames="))maxFrames=Integer.parseInt(arg.substring(9));
             if(arg.startsWith("--replay="))for(String line:Gdx.files.absolute(arg.substring(9)).readString("UTF-8").split("\\R"))if(!line.isBlank()&&!line.startsWith("#"))replay.add(line);
@@ -119,7 +122,7 @@ public final class OriginWarApp extends ApplicationAdapter {
             if(Set.of("gun","melee","hit","impact","explosion","death").contains(event.type()))effects.add(new Effect(event.type(),event.x(),event.y(),event.type().equals("gun")&&event.x()==state.playerX&&event.y()==state.playerY?action.x():state.playerX,event.type().equals("gun")&&event.x()==state.playerX&&event.y()==state.playerY?action.y():state.playerY,clock+duration));
         }
         if(state.deck!=oldDeck){walking.clear();effects.clear();targetX=-1;targetY=-1;cameraX=state.playerX;cameraY=state.playerY;}
-        try{saves.save(engine.saveState());}catch(Exception e){notice("Save failed: "+e.getMessage());Gdx.app.error("Save",e.getMessage(),e);}
+        try{saves.save(engine.saveState());}catch(Exception e){saveFailures++;notice("Save failed: "+e.getMessage());Gdx.app.error("Save",e.getMessage(),e);}
         if(state.dead){walking.clear();screen=Screen.DEAD;}else if(state.victory){walking.clear();screen=Screen.VICTORY;}
         moveDelay=.13f;
         return true;
@@ -612,7 +615,11 @@ public final class OriginWarApp extends ApplicationAdapter {
     @Override public void pause(){focused=false;if(audio!=null)audio.pause(true);walking.clear();}
     @Override public void resume(){focused=true;if(audio!=null)audio.pause(screen==Screen.PAUSE);}
     @Override public void dispose(){
-        if(!frameIntervals.isEmpty()){var samples=new ArrayList<>(frameIntervals);samples.sort(Float::compare);double average=samples.stream().mapToDouble(Float::doubleValue).average().orElse(0);Gdx.app.log("Performance",String.format(Locale.ROOT,"Active foreground frame intervals: n=%d mean=%.2fms p95=%.2fms max=%.2fms heap=%.1fMiB",samples.size(),average,samples.get((int)((samples.size()-1)*.95)),samples.getLast(),(Runtime.getRuntime().totalMemory()-Runtime.getRuntime().freeMemory())/1048576.0));}
+        var report=new StringBuilder("Origin War runtime diagnostics\nframes="+frame+" replayRemaining="+replay.size()+" saveFailures="+saveFailures+"\n");
+        if(state!=null)report.append("seed=").append(state.seed).append(" deck=").append(state.deck).append(" tick=").append(state.tick).append(" hp=").append(state.hp).append(" reserve=").append(state.reserve).append(" oxygenation=").append(state.oxygenation).append(" dialogue=").append(state.activeDialogue).append(" victory=").append(state.victory).append(" dead=").append(state.dead).append('\n');
+        if(!frameIntervals.isEmpty()){var samples=new ArrayList<>(frameIntervals);samples.sort(Float::compare);double average=samples.stream().mapToDouble(Float::doubleValue).average().orElse(0);String performance=String.format(Locale.ROOT,"Active foreground frame intervals: n=%d mean=%.2fms p95=%.2fms max=%.2fms heap=%.1fMiB",samples.size(),average,samples.get((int)((samples.size()-1)*.95)),samples.getLast(),(Runtime.getRuntime().totalMemory()-Runtime.getRuntime().freeMemory())/1048576.0);Gdx.app.log("Performance",performance);report.append(performance).append('\n');}
+        if(audio!=null)report.append(audio.summary()).append('\n');
+        if(!diagnostics.isEmpty())try{var file=Gdx.files.absolute(diagnostics);file.parent().mkdirs();file.writeString(report.toString(),false,"UTF-8");}catch(GdxRuntimeException error){Gdx.app.error("Diagnostics","Could not write optional report",error);}
         if(audio!=null)audio.close();if(art!=null)art.close();if(batch!=null)batch.dispose();if(font!=null)font.dispose();
     }
 }

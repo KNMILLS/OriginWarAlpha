@@ -58,5 +58,6 @@ public final class AudioDirector implements AutoCloseable {
     public void volumes(float master,float music,float sfx){this.master=Math.max(0,Math.min(1,master));this.music=Math.max(0,Math.min(1,music));this.sfx=Math.max(0,Math.min(1,sfx));}
     public void pause(boolean value){paused=value;if(value){if(current!=null)current.pause();if(previous!=null)previous.pause();for(var sound:sounds.values())sound.stop();}else{if(current!=null)current.play();if(previous!=null)previous.play();}}
     public int loadedMusic(){return tracks.size();}public int loadedSounds(){return sounds.size();}
-    @Override public void close(){Gdx.app.log("Audio","Playback summary: sounds="+playedSounds+", failed="+failedSounds+", musicLoops="+musicLoops);for(var m:tracks.values())m.dispose();for(var s:sounds.values())s.dispose();}
+    public String summary(){return "Playback summary: sounds="+playedSounds+", failed="+failedSounds+", musicLoops="+musicLoops;}
+    @Override public void close(){Gdx.app.log("Audio",summary());for(var m:tracks.values())m.dispose();for(var s:sounds.values())s.dispose();}
 }
