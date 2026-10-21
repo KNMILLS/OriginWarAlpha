@@ -1,5 +1,7 @@
 # A.L.I.C.E.: performance and separate radio layer
 
+This records VOICE3. The current VOICE4 transmission refinement and preserved clean sources are described in ALICE_RADIO_RECEPTION.md. Radio0 now removes hiss/dropouts while the narrow radio tone remains.
+
 The owner clarified that sarcasm must be in the actual voice, with fear underneath: she uses sarcasm to mask being scared. The following refinements requested a slightly higher, brighter voice and separation of the voice from the static/distortion effect. The dialogue itself remains unchanged.
 
 All nine speech performances are now genuinely instruction-conditioned Qwen VoiceDesign synthesis, rather than neutral Piper recordings with timing edits. Each input preserves the exact current Campaign quoted words. A fixed adult feminine persona and concise acting direction ask for defensive, brittle sarcasm and strained composure; personal questions and the sacrifice retain sincerity. Native24kHz/PCM24 masters, actual normalized synthesis strings/hashes, prompts, seeds and generation parameters are retained under assets/audio/voice/source/expressive. Performance and character consistency remain listening judgments.

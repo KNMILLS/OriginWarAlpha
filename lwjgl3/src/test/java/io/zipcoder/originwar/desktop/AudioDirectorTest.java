@@ -12,20 +12,20 @@ class AudioDirectorTest {
     private static final String STATIC="audio/voice/radio-static.ogg";
     private static final String FIRST="audio/voice/first.ogg",SECOND="audio/voice/second.ogg";
     private static final class Stream {
-        boolean playing,looping,disposed;
+        boolean playing,looping,disposed,volumeConfigured;
         int starts,stops,disposals;
         float volume,position;
         Music.OnCompletionListener completion;
         final Music music=(Music)Proxy.newProxyInstance(Music.class.getClassLoader(),new Class[]{Music.class},(p,m,a)->{
             switch(m.getName()) {
-                case "play"->{assertFalse(disposed);starts++;playing=true;}
+                case "play"->{assertFalse(disposed);assertTrue(volumeConfigured,"Configure gain before starting any stream");starts++;playing=true;}
                 case "pause"->playing=false;
                 case "stop"->{stops++;playing=false;position=0;}
                 case "dispose"->{disposals++;disposed=true;playing=false;}
                 case "isPlaying"->{return playing;}
                 case "setLooping"->looping=(boolean)a[0];
                 case "isLooping"->{return looping;}
-                case "setVolume"->volume=(float)a[0];
+                case "setVolume"->{volume=(float)a[0];volumeConfigured=true;}
                 case "getVolume"->{return volume;}
                 case "getPosition"->{return position;}
                 case "setPosition"->position=(float)a[0];
@@ -77,14 +77,14 @@ class AudioDirectorTest {
     @Test void pauseAndMutesResumePositionsAndRetainIndependentGains() {
         var b=new Backend();try(var d=new AudioDirector(b)) {
             d.volumes(.9f,.3f,.1f,.8f,.4f);d.dialogue("first","First line.");d.update(.1f);
-            var speech=b.latest(FIRST);var radio=b.latest(STATIC);speech.position=4.2f;radio.position=3.8f;
+            var speech=b.latest(FIRST);var radio=b.latest(STATIC);speech.position=2.0f;radio.position=3.8f; // Steady section; gap-resume is tested separately.
             d.pause(true);assertFalse(speech.playing);assertFalse(radio.playing);
             d.update(10);d.pause(false);assertTrue(speech.playing);assertTrue(radio.playing);
-            assertEquals(4.2f,speech.position);assertEquals(3.8f,radio.position);
+            assertEquals(2.0f,speech.position);assertEquals(3.8f,radio.position);
             assertEquals(.9f*.7f*.8f*.86f,speech.volume,.00001f);
             d.update(.05f);assertEquals(.9f*.7f*.4f*.65f,radio.volume,.00001f);
             d.volumes(.9f,.3f,.1f,0,.4f);assertFalse(speech.playing);assertFalse(radio.playing);
-            d.volumes(.9f,.3f,.1f,.8f,.4f);assertEquals(4.2f,speech.position);assertTrue(radio.playing);
+            d.volumes(.9f,.3f,.1f,.8f,.4f);assertEquals(2.0f,speech.position);assertTrue(radio.playing);
             d.volumes(0,.3f,.1f,.8f,.4f);assertFalse(speech.playing);assertFalse(radio.playing);
             d.pause(true);d.volumes(.9f,.3f,.1f,.8f,.4f);assertFalse(speech.playing);assertFalse(radio.playing);
             d.pause(false);assertTrue(speech.playing);assertTrue(radio.playing);assertEquals(0,speech.stops);
@@ -128,6 +128,49 @@ class AudioDirectorTest {
             d.volumes(1,.5f,0);assertFalse(speech.playing);
             d.volumes(1,.5f,.4f);assertTrue(speech.playing);assertEquals(.7f*.4f*.86f,speech.volume,.00001f);
             d.volumes(1,.5f,0,.6f,.2f);assertTrue(speech.playing);assertEquals(.7f*.6f*.86f,speech.volume,.00001f);
+        }
+    }
+    @Test void receptionIsSparseSmoothBoundedAndRadioZeroIsExactlyClean() {
+        String key="first:"+AliceVoiceCatalog.hash("First line.");
+        float minimum=1,last=1;int affected=0;
+        for(int n=0;n<20000;n++) {
+            float t=n/1000f;
+            var clean=AudioDirector.radioMix(key,t,20,0);
+            assertEquals(1,clean.voice());assertEquals(1,clean.staticGain());
+            var mix=AudioDirector.radioMix(key,t,20,.35f);
+            assertTrue(mix.voice()>=.47f&&mix.voice()<=1);
+            assertTrue(mix.staticGain()>=1&&mix.staticGain()<=1.4f);
+            assertTrue(Math.abs(mix.voice()-last)<.03f,"Faded reception must not have hard sample jumps");
+            if(t<.42f||t>=19.7f)assertEquals(1,mix.voice(),"Protect the beginning/end");
+            if(mix.voice()<.8f)affected++;
+            minimum=Math.min(minimum,mix.voice());last=mix.voice();
+            var strong=AudioDirector.radioMix(key,t,20,1);
+            assertTrue(strong.voice()>=.2999f&&strong.voice()<=mix.voice());
+            assertTrue(strong.staticGain()>=mix.staticGain()&&strong.staticGain()<=1.75f);
+        }
+        assertTrue(minimum<.6f,"Reception needs perceptible brief dips");
+        assertTrue(affected>200&&affected<1400,"Breaks occupy1–7 percent of speech at default Radio");
+        assertEquals(1,AudioDirector.radioMix(key,Float.NaN,20,.35f).voice());
+        assertEquals(1,AudioDirector.radioMix(key,1,20,Float.NaN).voice());
+    }
+    @Test void realDirectorCouplesGapsToStaticWithoutSeekingRestartingOrLosingCleanControl() {
+        var b=new Backend();try(var d=new AudioDirector(b)) {
+            d.volumes(1,0,0,.7f,.35f);d.dialogue("first","First line.");d.update(.05f);
+            var speech=b.latest(FIRST);var radio=b.latest(STATIC);
+            float dry=speech.volume,bed=radio.volume;
+            String key="first:"+AliceVoiceCatalog.hash("First line.");
+            for(int n=0;n<2000;n++){float t=n/100f;if(AudioDirector.radioMix(key,t,20,.35f).voice()<.6f){speech.position=t;break;}}
+            float position=speech.position;assertTrue(position>.42f);
+            d.update(.017f);assertTrue(speech.volume<dry*.6f);assertTrue(radio.volume>bed);
+            assertEquals(1,speech.starts);assertEquals(position,speech.position);
+            assertTrue(d.summary().contains("radioBreakFrames=1"));
+            d.pause(true);d.update(10);d.pause(false);
+            assertEquals(position,speech.position);assertTrue(speech.volume<dry*.6f);
+            int resumed=speech.starts;
+            d.volumes(1,0,0,.7f,0);assertEquals(dry,speech.volume);assertFalse(radio.playing);
+            assertEquals(position,speech.position);assertEquals(resumed,speech.starts);
+            d.volumes(1,0,0,.7f,.35f);d.update(.05f);assertTrue(radio.volume>bed);
+            speech.finish();assertFalse(radio.playing);assertEquals(0,radio.volume);
         }
     }
 }

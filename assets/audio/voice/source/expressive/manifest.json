@@ -15,7 +15,7 @@
   },
   "delivery_plan_sha256": "2a7dc62fac5c48e6659ae692800c101b4cbdd26529c560f21090e6d9cecbb65e",
   "toolchain_sha256": "d499d622f4ca5011307f59503530c7a7b92d11a17b14ea0c9574337aa616620a",
-  "word_screen_sha256": "f7362b63a883269f8e22be6c3c774f3eb54405112498993d1fa937aac78a9584",
+  "word_screen_sha256": "b8956373a32a54948a2d51d185270712727cde856c5acbb1890092f063cd46b3",
   "protected_nonvoice": {
     "assets/audio/music/menu.ogg": "32374b9b9beb3c5a01d5b6a798f9475e22bacacc84a28adb710b0a7b1d039a58",
     "assets/audio/music/exploration.ogg": "c8dd064ae2552d119b889421f2950f7a5fdb46ab350a0f7b0997591712ed2dfe",
@@ -461,12 +461,72 @@
       "full_text": "\"I will help you find the route. Your orders remain yours to examine.\"\n\nShe checks your suit display without touching it. \"And your oxygen remains yours to conserve.\""
     }
   ],
-  "scope": "Actual instruction-conditioned fearful defensive sarcasm, native masters, exact input binding, independent full-audio ASR screening, clean brighter/higher speech and a separate speech-free radio layer. Human acting/identity/word acceptance is distinct.",
+  "scope": "Same instruction-conditioned performances and exact inputs, preserved native/clean sources, filtered transmitted runtime derivatives and independent static. Historical clean-ASR and actual current transmission-ASR are distinct; human listening acceptance remains separate.",
   "radio_static": {
     "path": "audio/voice/radio-static.ogg",
-    "sha256": "03d15dc649c3e46dbf1d3f5746b313d05d87035cb6e847f11b2467fd9b706d33",
+    "sha256": "259eae3a1a9fcfa99b4e0ccaecb60cc21c477cf07002dd6fc518b0654fb8c96c",
     "duration_seconds": 12,
-    "speech_free_by_construction": true
+    "speech_free_by_construction": true,
+    "source_peak_ceiling": 0.06
   },
-  "layering": "Voice is clean with pitch/brightness only. Static/carrier texture is a separate speech-free loop; there is no radio filter, saturation, tremor or static baked into speech."
+  "layering": "Processed transmission voice and original speech-free static are independent files; position-based reception fades couple their gains during playback. No reference recording audio is sampled.",
+  "transmission": {
+    "highpass_hz": 240.0,
+    "lowpass_hz": 1950.0,
+    "drive": 1.35,
+    "consonant_detail_mix": 0.12,
+    "peak_ceiling_dbfs": -11.0,
+    "layer": "narrow analogue radio voice; static remains independent",
+    "reference": "https://www.youtube.com/watch?v=4tQzY-bGJek",
+    "reference_use": "Sound-direction reference only; no recording samples or voice cloning."
+  },
+  "clean_exports": [
+    {
+      "key": "alice-meet",
+      "path": "clean/alice-meet.ogg",
+      "sha256": "74d4ddefa9015bf013ec90e8723bd1f5ccecfb57445581cfa1380209bb13f177"
+    },
+    {
+      "key": "alice-record",
+      "path": "clean/alice-record.ogg",
+      "sha256": "424b744fdae58d02e44183a19ad0bd0b724b97270dc5d29560c9ca9505331b67"
+    },
+    {
+      "key": "alice-agency",
+      "path": "clean/alice-agency.ogg",
+      "sha256": "92008a0f60c53476dd7910f6145bf17ace37b975ab215b66b2c7ca3aa157ceaa"
+    },
+    {
+      "key": "refusal",
+      "path": "clean/refusal.ogg",
+      "sha256": "733e7ffcd478c40237415b6b9ba04c649b1bb817960e7487a9ecdaf36e75e091"
+    },
+    {
+      "key": "sacrifice-plan",
+      "path": "clean/sacrifice-plan.ogg",
+      "sha256": "15a2f2dfaa5c218300b33f634fa7ae84d6cb2cb9431825af95d3161d9cc660d1"
+    },
+    {
+      "key": "pod-ready",
+      "path": "clean/pod-ready.ogg",
+      "sha256": "553f7099f80cba3d4324f21b8d15e9f3387d0bfcb3d146ba36ff50de89de8f58"
+    },
+    {
+      "key": "alice-talk-0",
+      "path": "clean/alice-talk-0.ogg",
+      "sha256": "ec5b9c4339382fb151fcafbe008922e8eed8f97ddd28e3a16c9e83ae692e7017"
+    },
+    {
+      "key": "alice-talk-1",
+      "path": "clean/alice-talk-1.ogg",
+      "sha256": "ecd258ddb41d12323e924dfe6d755113420d3af11e6cbc2d009be140db6d9c47"
+    },
+    {
+      "key": "alice-talk-2",
+      "path": "clean/alice-talk-2.ogg",
+      "sha256": "478411d27758cbc74057651a0086621cc68185e50843bafb96dbbbab2df6432e"
+    }
+  ],
+  "runtime_layer": "Narrow, grainy transmitted speech. Radio0 removes added static/dropouts while the radio EQ remains. Retained clean exports and native masters are unchanged.",
+  "transmission_word_screen_sha256": "70364d4891466700e8e05e4d0e74f03bf21c60a12eb66cf93821e60ed0939e43"
 }

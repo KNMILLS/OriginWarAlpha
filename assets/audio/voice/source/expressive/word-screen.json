@@ -1,5 +1,5 @@
 {
-  "scope": "Unprompted independent ASR screening of complete audio. Recognition is fallible; this is not proof of vocal sarcasm, identity or exact audible words.",
+  "scope": "Historical VOICE3 full-audio ASR screening of the nine retained clean exports only, not the current transmitted runtime files. Recognition is fallible.",
   "model": "Systran/faster-whisper-small.en",
   "revision": "d1d751a5f8271d482d14ca55d9e2deeebbae577f",
   "records": [
@@ -1333,13 +1333,6 @@
           ]
         }
       ]
-    },
-    {
-      "file": "radio-static.ogg",
-      "sha256": "03d15dc649c3e46dbf1d3f5746b313d05d87035cb6e847f11b2467fd9b706d33",
-      "text": "",
-      "duration": 12.0,
-      "segments": []
     },
     {
       "file": "refusal.ogg",

@@ -100,10 +100,10 @@ def main():
     peak=lambda entries:max(e['peak_linear'] for e in entries.values())
     breath=max(e['peak_linear'] for k,e in report['ambience'].items() if k.startswith('breath'))
     heart=max(e['peak_linear'] for k,e in report['ambience'].items() if k.startswith('heartbeat'))
-    bound=.70*(peak(report['music'])*.68+breath*.90+heart*.61+peak(report['voice'])*.86+peak(report['sfx'])*.82*.65*math.sqrt(6)+report.get('radio_static',{}).get('peak_linear',0)*.65)
+    bound=.70*(peak(report['music'])*.68+breath*.90+heart*.61+peak(report['voice'])*.86+peak(report['sfx'])*.82*.65*math.sqrt(6)+report.get('radio_static',{}).get('peak_linear',0)*.65*1.75)
     assert bound<1,('Full-slider conservative peak bound',bound)
     report['mix_headroom']={'full_slider_conservative_peak_bound':bound,'dbfs_upper_bound':db(bound),
-      'assumptions':'Current director .70 global reserve, .68 score, .86 voice, .65 independent radio texture, .90/.61 maximum body gains, .65/sqrt(N) six-effect bus and .82 maximum effect gain. Crossfade weights sum to one. No audible matching implied.'}
+      'assumptions':'Current director .70 global reserve, .68 score, .86 voice ceiling (reception only attenuates), .65 independent radio texture with conservative1.75 swell ceiling, .90/.61 maximum body gains, .65/sqrt(N) six-effect bus and .82 maximum effect gain. Crossfade weights sum to one. No audible matching implied.'}
     all_hashes=[e['sha256'] for group in ('music','sfx','ambience','voice') for e in report[group].values()]
     assert len(set(all_hashes))==len(all_hashes)
     report['source_hashes_format']='UTF-8 canonical LF, matching Git source archives across platform checkouts'

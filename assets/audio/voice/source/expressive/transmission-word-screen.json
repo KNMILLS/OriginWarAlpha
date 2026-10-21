@@ -1,0 +1,1814 @@
+{
+  "scope": "Current final transmission exports with12percent consonant detail, plus independent static. Unprompted full-audio recognition differences retained; not heard-word/acting acceptance.",
+  "model": "Systran/faster-whisper-small.en",
+  "revision": "d1d751a5f8271d482d14ca55d9e2deeebbae577f",
+  "records": [
+    {
+      "file": "alice-agency.ogg",
+      "sha256": "ea70075eddd6b6162f8c2827f13e945d01f6fa49b11153e87c31b706eca549a1",
+      "text": "When Dr. Carmack saved my life, did he acquire it? I know how property is defined. I am asking what you think a person is allowed to decide.",
+      "duration": 11.38,
+      "segments": [
+        {
+          "start": 0.0,
+          "end": 3.88,
+          "text": " When Dr. Carmack saved my life, did he acquire it?",
+          "avg_logprob": -0.198179447498077,
+          "no_speech_prob": 0.007615916430950165,
+          "words": [
+            {
+              "word": " When",
+              "start": 0.0,
+              "end": 0.26,
+              "probability": 0.8947833180427551
+            },
+            {
+              "word": " Dr.",
+              "start": 0.26,
+              "end": 0.62,
+              "probability": 0.8004371523857117
+            },
+            {
+              "word": " Carmack",
+              "start": 1.0,
+              "end": 1.22,
+              "probability": 0.9071432054042816
+            },
+            {
+              "word": " saved",
+              "start": 1.22,
+              "end": 1.54,
+              "probability": 0.9973142743110657
+            },
+            {
+              "word": " my",
+              "start": 1.54,
+              "end": 1.8,
+              "probability": 0.99886155128479
+            },
+            {
+              "word": " life,",
+              "start": 1.8,
+              "end": 2.3,
+              "probability": 0.9995044469833374
+            },
+            {
+              "word": " did",
+              "start": 2.64,
+              "end": 3.02,
+              "probability": 0.9795696139335632
+            },
+            {
+              "word": " he",
+              "start": 3.02,
+              "end": 3.18,
+              "probability": 0.9959593415260315
+            },
+            {
+              "word": " acquire",
+              "start": 3.18,
+              "end": 3.54,
+              "probability": 0.9957705140113831
+            },
+            {
+              "word": " it?",
+              "start": 3.54,
+              "end": 3.88,
+              "probability": 0.9990888833999634
+            }
+          ]
+        },
+        {
+          "start": 5.08,
+          "end": 10.84,
+          "text": " I know how property is defined. I am asking what you think a person is allowed to decide.",
+          "avg_logprob": -0.198179447498077,
+          "no_speech_prob": 0.007615916430950165,
+          "words": [
+            {
+              "word": " I",
+              "start": 5.08,
+              "end": 5.48,
+              "probability": 0.9899098873138428
+            },
+            {
+              "word": " know",
+              "start": 5.48,
+              "end": 5.64,
+              "probability": 0.9988180994987488
+            },
+            {
+              "word": " how",
+              "start": 5.64,
+              "end": 5.88,
+              "probability": 0.9989743232727051
+            },
+            {
+              "word": " property",
+              "start": 5.88,
+              "end": 6.3,
+              "probability": 0.9836253523826599
+            },
+            {
+              "word": " is",
+              "start": 6.3,
+              "end": 6.6,
+              "probability": 0.9991050362586975
+            },
+            {
+              "word": " defined.",
+              "start": 6.6,
+              "end": 7.1,
+              "probability": 0.9967532753944397
+            },
+            {
+              "word": " I",
+              "start": 8.02,
+              "end": 8.22,
+              "probability": 0.9979315996170044
+            },
+            {
+              "word": " am",
+              "start": 8.22,
+              "end": 8.3,
+              "probability": 0.8503319621086121
+            },
+            {
+              "word": " asking",
+              "start": 8.3,
+              "end": 8.6,
+              "probability": 0.9994282126426697
+            },
+            {
+              "word": " what",
+              "start": 8.6,
+              "end": 8.82,
+              "probability": 0.9932538866996765
+            },
+            {
+              "word": " you",
+              "start": 8.82,
+              "end": 9.0,
+              "probability": 0.9993353486061096
+            },
+            {
+              "word": " think",
+              "start": 9.0,
+              "end": 9.22,
+              "probability": 0.9983195662498474
+            },
+            {
+              "word": " a",
+              "start": 9.22,
+              "end": 9.42,
+              "probability": 0.995261549949646
+            },
+            {
+              "word": " person",
+              "start": 9.42,
+              "end": 9.62,
+              "probability": 0.9989690780639648
+            },
+            {
+              "word": " is",
+              "start": 9.62,
+              "end": 9.88,
+              "probability": 0.9984455704689026
+            },
+            {
+              "word": " allowed",
+              "start": 9.88,
+              "end": 10.18,
+              "probability": 0.9990405440330505
+            },
+            {
+              "word": " to",
+              "start": 10.18,
+              "end": 10.4,
+              "probability": 0.999402642250061
+            },
+            {
+              "word": " decide.",
+              "start": 10.4,
+              "end": 10.84,
+              "probability": 0.9983282685279846
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "file": "alice-meet.ogg",
+      "sha256": "8e9753403042a6469bef4d4016750d0b60de42e0d3e134341ddfb31aec0ccdf6",
+      "text": "You have been issued a weapon, an oxygen ration, an incomplete information, an ambitious introduction to public service. I will help you reach command. I will not kill for you. If that is inconvenient, I suggest we be inconvenienced together.",
+      "duration": 16.58,
+      "segments": [
+        {
+          "start": 0.0,
+          "end": 4.48,
+          "text": " You have been issued a weapon, an oxygen ration, an incomplete information,",
+          "avg_logprob": -0.197254621556827,
+          "no_speech_prob": 0.32200348377227783,
+          "words": [
+            {
+              "word": " You",
+              "start": 0.0,
+              "end": 0.32,
+              "probability": 0.6223450303077698
+            },
+            {
+              "word": " have",
+              "start": 0.32,
+              "end": 0.48,
+              "probability": 0.9863744974136353
+            },
+            {
+              "word": " been",
+              "start": 0.48,
+              "end": 0.66,
+              "probability": 0.9818770885467529
+            },
+            {
+              "word": " issued",
+              "start": 0.66,
+              "end": 0.98,
+              "probability": 0.9937806725502014
+            },
+            {
+              "word": " a",
+              "start": 0.98,
+              "end": 1.18,
+              "probability": 0.9950101375579834
+            },
+            {
+              "word": " weapon,",
+              "start": 1.18,
+              "end": 1.5,
+              "probability": 0.9893468022346497
+            },
+            {
+              "word": " an",
+              "start": 1.86,
+              "end": 1.96,
+              "probability": 0.9809371829032898
+            },
+            {
+              "word": " oxygen",
+              "start": 1.96,
+              "end": 2.42,
+              "probability": 0.9805466532707214
+            },
+            {
+              "word": " ration,",
+              "start": 2.42,
+              "end": 2.86,
+              "probability": 0.9860207438468933
+            },
+            {
+              "word": " an",
+              "start": 3.1,
+              "end": 3.22,
+              "probability": 0.7809160947799683
+            },
+            {
+              "word": " incomplete",
+              "start": 3.22,
+              "end": 3.84,
+              "probability": 0.9883225560188293
+            },
+            {
+              "word": " information,",
+              "start": 3.84,
+              "end": 4.48,
+              "probability": 0.998044490814209
+            }
+          ]
+        },
+        {
+          "start": 5.0,
+          "end": 9.24,
+          "text": " an ambitious introduction to public service. I will help you reach command.",
+          "avg_logprob": -0.197254621556827,
+          "no_speech_prob": 0.32200348377227783,
+          "words": [
+            {
+              "word": " an",
+              "start": 5.0,
+              "end": 5.12,
+              "probability": 0.8391319513320923
+            },
+            {
+              "word": " ambitious",
+              "start": 5.12,
+              "end": 5.54,
+              "probability": 0.994743824005127
+            },
+            {
+              "word": " introduction",
+              "start": 5.54,
+              "end": 6.1,
+              "probability": 0.9974561333656311
+            },
+            {
+              "word": " to",
+              "start": 6.1,
+              "end": 6.48,
+              "probability": 0.9982851147651672
+            },
+            {
+              "word": " public",
+              "start": 6.48,
+              "end": 6.74,
+              "probability": 0.990300178527832
+            },
+            {
+              "word": " service.",
+              "start": 6.74,
+              "end": 7.22,
+              "probability": 0.9979378581047058
+            },
+            {
+              "word": " I",
+              "start": 7.8,
+              "end": 8.02,
+              "probability": 0.9962537288665771
+            },
+            {
+              "word": " will",
+              "start": 8.02,
+              "end": 8.18,
+              "probability": 0.9980992674827576
+            },
+            {
+              "word": " help",
+              "start": 8.18,
+              "end": 8.38,
+              "probability": 0.998838484287262
+            },
+            {
+              "word": " you",
+              "start": 8.38,
+              "end": 8.58,
+              "probability": 0.9988903403282166
+            },
+            {
+              "word": " reach",
+              "start": 8.58,
+              "end": 8.82,
+              "probability": 0.9978488683700562
+            },
+            {
+              "word": " command.",
+              "start": 8.82,
+              "end": 9.24,
+              "probability": 0.8436118364334106
+            }
+          ]
+        },
+        {
+          "start": 9.98,
+          "end": 16.12,
+          "text": " I will not kill for you. If that is inconvenient, I suggest we be inconvenienced together.",
+          "avg_logprob": -0.197254621556827,
+          "no_speech_prob": 0.32200348377227783,
+          "words": [
+            {
+              "word": " I",
+              "start": 9.98,
+              "end": 10.26,
+              "probability": 0.9917047023773193
+            },
+            {
+              "word": " will",
+              "start": 10.26,
+              "end": 10.38,
+              "probability": 0.9978011250495911
+            },
+            {
+              "word": " not",
+              "start": 10.38,
+              "end": 10.64,
+              "probability": 0.9973729848861694
+            },
+            {
+              "word": " kill",
+              "start": 10.64,
+              "end": 10.96,
+              "probability": 0.9854452013969421
+            },
+            {
+              "word": " for",
+              "start": 10.96,
+              "end": 11.26,
+              "probability": 0.9961189031600952
+            },
+            {
+              "word": " you.",
+              "start": 11.26,
+              "end": 11.54,
+              "probability": 0.9995518326759338
+            },
+            {
+              "word": " If",
+              "start": 12.14,
+              "end": 12.36,
+              "probability": 0.993740439414978
+            },
+            {
+              "word": " that",
+              "start": 12.36,
+              "end": 12.54,
+              "probability": 0.9979503750801086
+            },
+            {
+              "word": " is",
+              "start": 12.54,
+              "end": 12.68,
+              "probability": 0.9930168390274048
+            },
+            {
+              "word": " inconvenient,",
+              "start": 12.68,
+              "end": 13.18,
+              "probability": 0.9972923398017883
+            },
+            {
+              "word": " I",
+              "start": 13.7,
+              "end": 14.0,
+              "probability": 0.9951711297035217
+            },
+            {
+              "word": " suggest",
+              "start": 14.0,
+              "end": 14.4,
+              "probability": 0.9976785778999329
+            },
+            {
+              "word": " we",
+              "start": 14.4,
+              "end": 14.7,
+              "probability": 0.9934073686599731
+            },
+            {
+              "word": " be",
+              "start": 14.7,
+              "end": 14.86,
+              "probability": 0.9969164133071899
+            },
+            {
+              "word": " inconvenienced",
+              "start": 14.86,
+              "end": 15.72,
+              "probability": 0.9397919476032257
+            },
+            {
+              "word": " together.",
+              "start": 15.72,
+              "end": 16.12,
+              "probability": 0.9829574227333069
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "file": "alice-record.ogg",
+      "sha256": "2fd7a0a77a2a22e6e8d0385d98a9a59078a3488c7b958e24c30d0e0a542a2859",
+      "text": "Artificial lifeform intended for control and enforcement. Yes. The acronym came first. It worked. That was the difficulty.",
+      "duration": 10.9,
+      "segments": [
+        {
+          "start": 0.0,
+          "end": 3.24,
+          "text": " Artificial lifeform intended for control and enforcement.",
+          "avg_logprob": -0.3554727928979056,
+          "no_speech_prob": 0.025121670216321945,
+          "words": [
+            {
+              "word": " Artificial",
+              "start": 0.0,
+              "end": 0.52,
+              "probability": 0.784153401851654
+            },
+            {
+              "word": " lifeform",
+              "start": 0.52,
+              "end": 1.2,
+              "probability": 0.8085295855998993
+            },
+            {
+              "word": " intended",
+              "start": 1.2,
+              "end": 1.6,
+              "probability": 0.9929012656211853
+            },
+            {
+              "word": " for",
+              "start": 1.6,
+              "end": 1.96,
+              "probability": 0.9988372921943665
+            },
+            {
+              "word": " control",
+              "start": 1.96,
+              "end": 2.38,
+              "probability": 0.9918618202209473
+            },
+            {
+              "word": " and",
+              "start": 2.38,
+              "end": 2.66,
+              "probability": 0.9936519861221313
+            },
+            {
+              "word": " enforcement.",
+              "start": 2.66,
+              "end": 3.24,
+              "probability": 0.9742109179496765
+            }
+          ]
+        },
+        {
+          "start": 4.14,
+          "end": 4.54,
+          "text": " Yes.",
+          "avg_logprob": -0.3554727928979056,
+          "no_speech_prob": 0.025121670216321945,
+          "words": [
+            {
+              "word": " Yes.",
+              "start": 4.14,
+              "end": 4.54,
+              "probability": 0.9706737399101257
+            }
+          ]
+        },
+        {
+          "start": 5.4,
+          "end": 6.86,
+          "text": " The acronym came first.",
+          "avg_logprob": -0.3554727928979056,
+          "no_speech_prob": 0.025121670216321945,
+          "words": [
+            {
+              "word": " The",
+              "start": 5.4,
+              "end": 5.64,
+              "probability": 0.9839262366294861
+            },
+            {
+              "word": " acronym",
+              "start": 5.64,
+              "end": 6.02,
+              "probability": 0.9779222011566162
+            },
+            {
+              "word": " came",
+              "start": 6.02,
+              "end": 6.42,
+              "probability": 0.9963842630386353
+            },
+            {
+              "word": " first.",
+              "start": 6.42,
+              "end": 6.86,
+              "probability": 0.9958541393280029
+            }
+          ]
+        },
+        {
+          "start": 7.74,
+          "end": 8.26,
+          "text": " It worked.",
+          "avg_logprob": -0.3554727928979056,
+          "no_speech_prob": 0.025121670216321945,
+          "words": [
+            {
+              "word": " It",
+              "start": 7.74,
+              "end": 7.94,
+              "probability": 0.9930055737495422
+            },
+            {
+              "word": " worked.",
+              "start": 7.94,
+              "end": 8.26,
+              "probability": 0.9994099140167236
+            }
+          ]
+        },
+        {
+          "start": 9.3,
+          "end": 10.28,
+          "text": " That was the difficulty.",
+          "avg_logprob": -0.3554727928979056,
+          "no_speech_prob": 0.025121670216321945,
+          "words": [
+            {
+              "word": " That",
+              "start": 9.3,
+              "end": 9.5,
+              "probability": 0.9935477375984192
+            },
+            {
+              "word": " was",
+              "start": 9.5,
+              "end": 9.74,
+              "probability": 0.9986259937286377
+            },
+            {
+              "word": " the",
+              "start": 9.74,
+              "end": 9.94,
+              "probability": 0.9982889294624329
+            },
+            {
+              "word": " difficulty.",
+              "start": 9.94,
+              "end": 10.28,
+              "probability": 0.9939119815826416
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "file": "alice-talk-0.ogg",
+      "sha256": "6a9a374111e2198e3fc2480adef88e3266c8e3e56548059deb13993b23a50606",
+      "text": "Your sutilemetry is reliable. What you see at the edge of the light may not be. Refill your reserve, then allow your oxygenation to recover. I would prefer to continue this conversation with all of your brain, participating.",
+      "duration": 15.22,
+      "segments": [
+        {
+          "start": 0.0,
+          "end": 5.52,
+          "text": " Your sutilemetry is reliable. What you see at the edge of the light may not be.",
+          "avg_logprob": -0.22912849938230856,
+          "no_speech_prob": 0.007384934928268194,
+          "words": [
+            {
+              "word": " Your",
+              "start": 0.0,
+              "end": 0.4,
+              "probability": 0.7951332926750183
+            },
+            {
+              "word": " sutilemetry",
+              "start": 0.4,
+              "end": 1.34,
+              "probability": 0.42554884403944016
+            },
+            {
+              "word": " is",
+              "start": 1.34,
+              "end": 1.62,
+              "probability": 0.997130811214447
+            },
+            {
+              "word": " reliable.",
+              "start": 1.62,
+              "end": 2.32,
+              "probability": 0.9952712655067444
+            },
+            {
+              "word": " What",
+              "start": 3.2,
+              "end": 3.32,
+              "probability": 0.9910010695457458
+            },
+            {
+              "word": " you",
+              "start": 3.32,
+              "end": 3.48,
+              "probability": 0.9990463852882385
+            },
+            {
+              "word": " see",
+              "start": 3.48,
+              "end": 3.7,
+              "probability": 0.9985645413398743
+            },
+            {
+              "word": " at",
+              "start": 3.7,
+              "end": 3.84,
+              "probability": 0.9934560656547546
+            },
+            {
+              "word": " the",
+              "start": 3.84,
+              "end": 3.94,
+              "probability": 0.9988657236099243
+            },
+            {
+              "word": " edge",
+              "start": 3.94,
+              "end": 4.14,
+              "probability": 0.9981240630149841
+            },
+            {
+              "word": " of",
+              "start": 4.14,
+              "end": 4.28,
+              "probability": 0.9973324537277222
+            },
+            {
+              "word": " the",
+              "start": 4.28,
+              "end": 4.4,
+              "probability": 0.9896184802055359
+            },
+            {
+              "word": " light",
+              "start": 4.4,
+              "end": 4.62,
+              "probability": 0.9973583817481995
+            },
+            {
+              "word": " may",
+              "start": 4.62,
+              "end": 4.8,
+              "probability": 0.989150881767273
+            },
+            {
+              "word": " not",
+              "start": 4.8,
+              "end": 5.04,
+              "probability": 0.9980863332748413
+            },
+            {
+              "word": " be.",
+              "start": 5.04,
+              "end": 5.52,
+              "probability": 0.9993298053741455
+            }
+          ]
+        },
+        {
+          "start": 6.1,
+          "end": 9.82,
+          "text": " Refill your reserve, then allow your oxygenation to recover.",
+          "avg_logprob": -0.22912849938230856,
+          "no_speech_prob": 0.007384934928268194,
+          "words": [
+            {
+              "word": " Refill",
+              "start": 6.1,
+              "end": 6.6,
+              "probability": 0.9335914850234985
+            },
+            {
+              "word": " your",
+              "start": 6.6,
+              "end": 7.0,
+              "probability": 0.9957243204116821
+            },
+            {
+              "word": " reserve,",
+              "start": 7.0,
+              "end": 7.62,
+              "probability": 0.9853780269622803
+            },
+            {
+              "word": " then",
+              "start": 7.84,
+              "end": 8.08,
+              "probability": 0.9938153028488159
+            },
+            {
+              "word": " allow",
+              "start": 8.08,
+              "end": 8.36,
+              "probability": 0.9961549639701843
+            },
+            {
+              "word": " your",
+              "start": 8.36,
+              "end": 8.56,
+              "probability": 0.9962737560272217
+            },
+            {
+              "word": " oxygenation",
+              "start": 8.56,
+              "end": 9.22,
+              "probability": 0.9973069429397583
+            },
+            {
+              "word": " to",
+              "start": 9.22,
+              "end": 9.44,
+              "probability": 0.9982861876487732
+            },
+            {
+              "word": " recover.",
+              "start": 9.44,
+              "end": 9.82,
+              "probability": 0.9993520379066467
+            }
+          ]
+        },
+        {
+          "start": 10.48,
+          "end": 14.62,
+          "text": " I would prefer to continue this conversation with all of your brain, participating.",
+          "avg_logprob": -0.22912849938230856,
+          "no_speech_prob": 0.007384934928268194,
+          "words": [
+            {
+              "word": " I",
+              "start": 10.48,
+              "end": 10.66,
+              "probability": 0.9969069361686707
+            },
+            {
+              "word": " would",
+              "start": 10.66,
+              "end": 10.8,
+              "probability": 0.9961422085762024
+            },
+            {
+              "word": " prefer",
+              "start": 10.8,
+              "end": 11.1,
+              "probability": 0.9977413415908813
+            },
+            {
+              "word": " to",
+              "start": 11.1,
+              "end": 11.3,
+              "probability": 0.9984253644943237
+            },
+            {
+              "word": " continue",
+              "start": 11.3,
+              "end": 11.62,
+              "probability": 0.9994338154792786
+            },
+            {
+              "word": " this",
+              "start": 11.62,
+              "end": 11.9,
+              "probability": 0.9935517311096191
+            },
+            {
+              "word": " conversation",
+              "start": 11.9,
+              "end": 12.42,
+              "probability": 0.9986458420753479
+            },
+            {
+              "word": " with",
+              "start": 12.42,
+              "end": 12.74,
+              "probability": 0.9960190653800964
+            },
+            {
+              "word": " all",
+              "start": 12.74,
+              "end": 12.98,
+              "probability": 0.9987925291061401
+            },
+            {
+              "word": " of",
+              "start": 12.98,
+              "end": 13.12,
+              "probability": 0.992552638053894
+            },
+            {
+              "word": " your",
+              "start": 13.12,
+              "end": 13.26,
+              "probability": 0.9966578483581543
+            },
+            {
+              "word": " brain,",
+              "start": 13.26,
+              "end": 13.68,
+              "probability": 0.9959782361984253
+            },
+            {
+              "word": " participating.",
+              "start": 14.1,
+              "end": 14.62,
+              "probability": 0.997685432434082
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "file": "alice-talk-1.ogg",
+      "sha256": "fc4e0daea9eaffc395d3b4e4d8a52f6e286e34a6ed4d09d70867923ae43bf013",
+      "text": "You listen before deciding. That is rarer than my manufacturers anticipated. Also, if the door says push, that remains a useful first hypothesis.",
+      "duration": 12.8994375,
+      "segments": [
+        {
+          "start": 0.0,
+          "end": 5.6,
+          "text": " You listen before deciding. That is rarer than my manufacturers anticipated.",
+          "avg_logprob": -0.2673604093930301,
+          "no_speech_prob": 0.042044010013341904,
+          "words": [
+            {
+              "word": " You",
+              "start": 0.0,
+              "end": 0.46,
+              "probability": 0.7593955397605896
+            },
+            {
+              "word": " listen",
+              "start": 0.46,
+              "end": 0.96,
+              "probability": 0.9088528156280518
+            },
+            {
+              "word": " before",
+              "start": 0.96,
+              "end": 1.5,
+              "probability": 0.9568292498588562
+            },
+            {
+              "word": " deciding.",
+              "start": 1.5,
+              "end": 2.04,
+              "probability": 0.9971169233322144
+            },
+            {
+              "word": " That",
+              "start": 2.9,
+              "end": 3.04,
+              "probability": 0.9833652377128601
+            },
+            {
+              "word": " is",
+              "start": 3.04,
+              "end": 3.18,
+              "probability": 0.9776602983474731
+            },
+            {
+              "word": " rarer",
+              "start": 3.18,
+              "end": 3.72,
+              "probability": 0.9823618233203888
+            },
+            {
+              "word": " than",
+              "start": 3.72,
+              "end": 3.8,
+              "probability": 0.9860627055168152
+            },
+            {
+              "word": " my",
+              "start": 3.8,
+              "end": 3.96,
+              "probability": 0.9891347885131836
+            },
+            {
+              "word": " manufacturers",
+              "start": 3.96,
+              "end": 4.68,
+              "probability": 0.8508227467536926
+            },
+            {
+              "word": " anticipated.",
+              "start": 4.68,
+              "end": 5.6,
+              "probability": 0.9917854070663452
+            }
+          ]
+        },
+        {
+          "start": 6.52,
+          "end": 12.28,
+          "text": " Also, if the door says push, that remains a useful first hypothesis.",
+          "avg_logprob": -0.2673604093930301,
+          "no_speech_prob": 0.042044010013341904,
+          "words": [
+            {
+              "word": " Also,",
+              "start": 6.52,
+              "end": 6.76,
+              "probability": 0.9903542995452881
+            },
+            {
+              "word": " if",
+              "start": 7.46,
+              "end": 7.76,
+              "probability": 0.9615045785903931
+            },
+            {
+              "word": " the",
+              "start": 7.76,
+              "end": 7.9,
+              "probability": 0.9953979849815369
+            },
+            {
+              "word": " door",
+              "start": 7.9,
+              "end": 8.12,
+              "probability": 0.9655670523643494
+            },
+            {
+              "word": " says",
+              "start": 8.12,
+              "end": 8.58,
+              "probability": 0.9948192238807678
+            },
+            {
+              "word": " push,",
+              "start": 8.58,
+              "end": 9.1,
+              "probability": 0.2050025463104248
+            },
+            {
+              "word": " that",
+              "start": 9.9,
+              "end": 10.22,
+              "probability": 0.9846901893615723
+            },
+            {
+              "word": " remains",
+              "start": 10.22,
+              "end": 10.52,
+              "probability": 0.9943986535072327
+            },
+            {
+              "word": " a",
+              "start": 10.52,
+              "end": 10.74,
+              "probability": 0.9964873790740967
+            },
+            {
+              "word": " useful",
+              "start": 10.74,
+              "end": 11.1,
+              "probability": 0.9963108897209167
+            },
+            {
+              "word": " first",
+              "start": 11.1,
+              "end": 11.58,
+              "probability": 0.9432389736175537
+            },
+            {
+              "word": " hypothesis.",
+              "start": 11.58,
+              "end": 12.28,
+              "probability": 0.9935903549194336
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "file": "alice-talk-2.ogg",
+      "sha256": "35007b318ac6bb567845753bd022fa8577022b7c250569649aa6a8df844e546d",
+      "text": "I will help you find the root, your orders remain yours to examine, and your oxygen remains yours to conserve.",
+      "duration": 9.3,
+      "segments": [
+        {
+          "start": 0.0,
+          "end": 8.68,
+          "text": " I will help you find the root, your orders remain yours to examine, and your oxygen remains yours to conserve.",
+          "avg_logprob": -0.32107838644431186,
+          "no_speech_prob": 0.06795889139175415,
+          "words": [
+            {
+              "word": " I",
+              "start": 0.0,
+              "end": 0.2,
+              "probability": 0.8832523822784424
+            },
+            {
+              "word": " will",
+              "start": 0.2,
+              "end": 0.38,
+              "probability": 0.9896619319915771
+            },
+            {
+              "word": " help",
+              "start": 0.38,
+              "end": 0.64,
+              "probability": 0.9984325766563416
+            },
+            {
+              "word": " you",
+              "start": 0.64,
+              "end": 0.86,
+              "probability": 0.9981295466423035
+            },
+            {
+              "word": " find",
+              "start": 0.86,
+              "end": 1.14,
+              "probability": 0.9943405389785767
+            },
+            {
+              "word": " the",
+              "start": 1.14,
+              "end": 1.34,
+              "probability": 0.9916656613349915
+            },
+            {
+              "word": " root,",
+              "start": 1.34,
+              "end": 1.62,
+              "probability": 0.528671145439148
+            },
+            {
+              "word": " your",
+              "start": 2.4,
+              "end": 2.76,
+              "probability": 0.903094470500946
+            },
+            {
+              "word": " orders",
+              "start": 2.76,
+              "end": 3.22,
+              "probability": 0.989978551864624
+            },
+            {
+              "word": " remain",
+              "start": 3.22,
+              "end": 3.64,
+              "probability": 0.9911516308784485
+            },
+            {
+              "word": " yours",
+              "start": 3.64,
+              "end": 4.0,
+              "probability": 0.9866694211959839
+            },
+            {
+              "word": " to",
+              "start": 4.0,
+              "end": 4.3,
+              "probability": 0.9972534775733948
+            },
+            {
+              "word": " examine,",
+              "start": 4.3,
+              "end": 4.78,
+              "probability": 0.9929989576339722
+            },
+            {
+              "word": " and",
+              "start": 5.64,
+              "end": 5.88,
+              "probability": 0.9778364896774292
+            },
+            {
+              "word": " your",
+              "start": 5.88,
+              "end": 6.2,
+              "probability": 0.9933664202690125
+            },
+            {
+              "word": " oxygen",
+              "start": 6.2,
+              "end": 6.78,
+              "probability": 0.9820882678031921
+            },
+            {
+              "word": " remains",
+              "start": 6.78,
+              "end": 7.44,
+              "probability": 0.9775213003158569
+            },
+            {
+              "word": " yours",
+              "start": 7.44,
+              "end": 7.84,
+              "probability": 0.9815701246261597
+            },
+            {
+              "word": " to",
+              "start": 7.84,
+              "end": 8.24,
+              "probability": 0.9968156218528748
+            },
+            {
+              "word": " conserve.",
+              "start": 8.24,
+              "end": 8.68,
+              "probability": 0.9860231876373291
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "file": "pod-ready.ogg",
+      "sha256": "475f8bdaff63ebf89c5f39070dda46bd4bc219b562469557c02171b007044b9f",
+      "text": "The broadcast is away. The pod is fueled. You do not need my permission to survive.",
+      "duration": 6.5,
+      "segments": [
+        {
+          "start": 0.0,
+          "end": 5.98,
+          "text": " The broadcast is away. The pod is fueled. You do not need my permission to survive.",
+          "avg_logprob": -0.22211899134245786,
+          "no_speech_prob": 0.0355529822409153,
+          "words": [
+            {
+              "word": " The",
+              "start": 0.0,
+              "end": 0.2,
+              "probability": 0.9210125207901001
+            },
+            {
+              "word": " broadcast",
+              "start": 0.2,
+              "end": 0.62,
+              "probability": 0.9355252385139465
+            },
+            {
+              "word": " is",
+              "start": 0.62,
+              "end": 0.94,
+              "probability": 0.9980233907699585
+            },
+            {
+              "word": " away.",
+              "start": 0.94,
+              "end": 1.22,
+              "probability": 0.981884777545929
+            },
+            {
+              "word": " The",
+              "start": 1.86,
+              "end": 2.02,
+              "probability": 0.9880213737487793
+            },
+            {
+              "word": " pod",
+              "start": 2.02,
+              "end": 2.36,
+              "probability": 0.8410276174545288
+            },
+            {
+              "word": " is",
+              "start": 2.36,
+              "end": 2.64,
+              "probability": 0.9979752898216248
+            },
+            {
+              "word": " fueled.",
+              "start": 2.64,
+              "end": 3.02,
+              "probability": 0.9542027115821838
+            },
+            {
+              "word": " You",
+              "start": 3.92,
+              "end": 4.1,
+              "probability": 0.9959357976913452
+            },
+            {
+              "word": " do",
+              "start": 4.1,
+              "end": 4.26,
+              "probability": 0.9945932030677795
+            },
+            {
+              "word": " not",
+              "start": 4.26,
+              "end": 4.48,
+              "probability": 0.9971030354499817
+            },
+            {
+              "word": " need",
+              "start": 4.48,
+              "end": 4.76,
+              "probability": 0.9993463158607483
+            },
+            {
+              "word": " my",
+              "start": 4.76,
+              "end": 5.0,
+              "probability": 0.9979409575462341
+            },
+            {
+              "word": " permission",
+              "start": 5.0,
+              "end": 5.32,
+              "probability": 0.9996127486228943
+            },
+            {
+              "word": " to",
+              "start": 5.32,
+              "end": 5.68,
+              "probability": 0.9993365406990051
+            },
+            {
+              "word": " survive.",
+              "start": 5.68,
+              "end": 5.98,
+              "probability": 0.9989780187606812
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "file": "radio-static.ogg",
+      "sha256": "259eae3a1a9fcfa99b4e0ccaecb60cc21c477cf07002dd6fc518b0654fb8c96c",
+      "text": "",
+      "duration": 12.0,
+      "segments": []
+    },
+    {
+      "file": "refusal.ogg",
+      "sha256": "0e1956e468f5d5d39d0e0cc696f14772d615d7a983972a267d0f08714d25a7d3",
+      "text": "I cannot keep him out indefinitely. I can choose what happens before he gets in. There. Now they can argue with the facts in public. A considerable inconvenience.",
+      "duration": 12.02,
+      "segments": [
+        {
+          "start": 0.0,
+          "end": 4.76,
+          "text": " I cannot keep him out indefinitely. I can choose what happens before he gets in.",
+          "avg_logprob": -0.25073778001885666,
+          "no_speech_prob": 0.18460577726364136,
+          "words": [
+            {
+              "word": " I",
+              "start": 0.0,
+              "end": 0.22,
+              "probability": 0.8570024967193604
+            },
+            {
+              "word": " cannot",
+              "start": 0.22,
+              "end": 0.52,
+              "probability": 0.8689208626747131
+            },
+            {
+              "word": " keep",
+              "start": 0.52,
+              "end": 0.84,
+              "probability": 0.9974282383918762
+            },
+            {
+              "word": " him",
+              "start": 0.84,
+              "end": 0.98,
+              "probability": 0.9870593547821045
+            },
+            {
+              "word": " out",
+              "start": 0.98,
+              "end": 1.16,
+              "probability": 0.997658371925354
+            },
+            {
+              "word": " indefinitely.",
+              "start": 1.16,
+              "end": 1.64,
+              "probability": 0.9972796440124512
+            },
+            {
+              "word": " I",
+              "start": 2.68,
+              "end": 2.76,
+              "probability": 0.9938443899154663
+            },
+            {
+              "word": " can",
+              "start": 2.76,
+              "end": 2.94,
+              "probability": 0.9984183311462402
+            },
+            {
+              "word": " choose",
+              "start": 2.94,
+              "end": 3.16,
+              "probability": 0.9880293011665344
+            },
+            {
+              "word": " what",
+              "start": 3.16,
+              "end": 3.4,
+              "probability": 0.9973121881484985
+            },
+            {
+              "word": " happens",
+              "start": 3.4,
+              "end": 3.74,
+              "probability": 0.9968878626823425
+            },
+            {
+              "word": " before",
+              "start": 3.74,
+              "end": 4.1,
+              "probability": 0.9949616193771362
+            },
+            {
+              "word": " he",
+              "start": 4.1,
+              "end": 4.26,
+              "probability": 0.9981023669242859
+            },
+            {
+              "word": " gets",
+              "start": 4.26,
+              "end": 4.42,
+              "probability": 0.9902341365814209
+            },
+            {
+              "word": " in.",
+              "start": 4.42,
+              "end": 4.76,
+              "probability": 0.9988104104995728
+            }
+          ]
+        },
+        {
+          "start": 5.58,
+          "end": 11.38,
+          "text": " There. Now they can argue with the facts in public. A considerable inconvenience.",
+          "avg_logprob": -0.25073778001885666,
+          "no_speech_prob": 0.18460577726364136,
+          "words": [
+            {
+              "word": " There.",
+              "start": 5.58,
+              "end": 6.18,
+              "probability": 0.9722299575805664
+            },
+            {
+              "word": " Now",
+              "start": 6.98,
+              "end": 7.28,
+              "probability": 0.9940692186355591
+            },
+            {
+              "word": " they",
+              "start": 7.28,
+              "end": 7.48,
+              "probability": 0.941170334815979
+            },
+            {
+              "word": " can",
+              "start": 7.48,
+              "end": 7.62,
+              "probability": 0.9974867105484009
+            },
+            {
+              "word": " argue",
+              "start": 7.62,
+              "end": 8.02,
+              "probability": 0.9938115477561951
+            },
+            {
+              "word": " with",
+              "start": 8.02,
+              "end": 8.24,
+              "probability": 0.9964279532432556
+            },
+            {
+              "word": " the",
+              "start": 8.24,
+              "end": 8.4,
+              "probability": 0.9976735711097717
+            },
+            {
+              "word": " facts",
+              "start": 8.4,
+              "end": 8.68,
+              "probability": 0.9635800719261169
+            },
+            {
+              "word": " in",
+              "start": 8.68,
+              "end": 8.92,
+              "probability": 0.9778793454170227
+            },
+            {
+              "word": " public.",
+              "start": 8.92,
+              "end": 9.26,
+              "probability": 0.995879054069519
+            },
+            {
+              "word": " A",
+              "start": 10.02,
+              "end": 10.14,
+              "probability": 0.9932239055633545
+            },
+            {
+              "word": " considerable",
+              "start": 10.14,
+              "end": 10.62,
+              "probability": 0.9982169270515442
+            },
+            {
+              "word": " inconvenience.",
+              "start": 10.62,
+              "end": 11.38,
+              "probability": 0.9960498213768005
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "file": "sacrifice-plan.ogg",
+      "sha256": "ec27ccb35fc449b45d5d78bb4d2273414e5c3180fb7f5146bfce7387dfa5e143",
+      "text": "My detonation will take the station with me. It is the one command he cannot revoke quickly enough. If there were, I would be taking it. Your life is not the price of mine. Please, reach the pod. I will keep the lock open.",
+      "duration": 14.66,
+      "segments": [
+        {
+          "start": 0.0,
+          "end": 5.56,
+          "text": " My detonation will take the station with me. It is the one command he cannot revoke quickly enough.",
+          "avg_logprob": -0.13335135653615,
+          "no_speech_prob": 0.4938064515590668,
+          "words": [
+            {
+              "word": " My",
+              "start": 0.0,
+              "end": 0.3,
+              "probability": 0.718787670135498
+            },
+            {
+              "word": " detonation",
+              "start": 0.3,
+              "end": 0.9,
+              "probability": 0.9896581768989563
+            },
+            {
+              "word": " will",
+              "start": 0.9,
+              "end": 1.14,
+              "probability": 0.9943292737007141
+            },
+            {
+              "word": " take",
+              "start": 1.14,
+              "end": 1.38,
+              "probability": 0.9982520937919617
+            },
+            {
+              "word": " the",
+              "start": 1.38,
+              "end": 1.58,
+              "probability": 0.9848076105117798
+            },
+            {
+              "word": " station",
+              "start": 1.58,
+              "end": 1.9,
+              "probability": 0.9635788202285767
+            },
+            {
+              "word": " with",
+              "start": 1.9,
+              "end": 2.2,
+              "probability": 0.99813312292099
+            },
+            {
+              "word": " me.",
+              "start": 2.2,
+              "end": 2.5,
+              "probability": 0.9993701577186584
+            },
+            {
+              "word": " It",
+              "start": 2.94,
+              "end": 3.02,
+              "probability": 0.9882827401161194
+            },
+            {
+              "word": " is",
+              "start": 3.02,
+              "end": 3.1,
+              "probability": 0.9958284497261047
+            },
+            {
+              "word": " the",
+              "start": 3.1,
+              "end": 3.26,
+              "probability": 0.9930381178855896
+            },
+            {
+              "word": " one",
+              "start": 3.26,
+              "end": 3.48,
+              "probability": 0.9572710394859314
+            },
+            {
+              "word": " command",
+              "start": 3.48,
+              "end": 3.88,
+              "probability": 0.988913357257843
+            },
+            {
+              "word": " he",
+              "start": 3.88,
+              "end": 4.08,
+              "probability": 0.9755073189735413
+            },
+            {
+              "word": " cannot",
+              "start": 4.08,
+              "end": 4.36,
+              "probability": 0.9704538583755493
+            },
+            {
+              "word": " revoke",
+              "start": 4.36,
+              "end": 4.76,
+              "probability": 0.9343221783638
+            },
+            {
+              "word": " quickly",
+              "start": 4.76,
+              "end": 5.14,
+              "probability": 0.9917669892311096
+            },
+            {
+              "word": " enough.",
+              "start": 5.14,
+              "end": 5.56,
+              "probability": 0.9996600151062012
+            }
+          ]
+        },
+        {
+          "start": 6.06,
+          "end": 10.34,
+          "text": " If there were, I would be taking it. Your life is not the price of mine.",
+          "avg_logprob": -0.13335135653615,
+          "no_speech_prob": 0.4938064515590668,
+          "words": [
+            {
+              "word": " If",
+              "start": 6.06,
+              "end": 6.22,
+              "probability": 0.9916461110115051
+            },
+            {
+              "word": " there",
+              "start": 6.22,
+              "end": 6.4,
+              "probability": 0.9967269897460938
+            },
+            {
+              "word": " were,",
+              "start": 6.4,
+              "end": 6.64,
+              "probability": 0.9962867498397827
+            },
+            {
+              "word": " I",
+              "start": 7.1,
+              "end": 7.26,
+              "probability": 0.9860488176345825
+            },
+            {
+              "word": " would",
+              "start": 7.26,
+              "end": 7.42,
+              "probability": 0.9931453466415405
+            },
+            {
+              "word": " be",
+              "start": 7.42,
+              "end": 7.58,
+              "probability": 0.9989314675331116
+            },
+            {
+              "word": " taking",
+              "start": 7.58,
+              "end": 7.8,
+              "probability": 0.9969056248664856
+            },
+            {
+              "word": " it.",
+              "start": 7.8,
+              "end": 8.16,
+              "probability": 0.9990963935852051
+            },
+            {
+              "word": " Your",
+              "start": 8.64,
+              "end": 8.78,
+              "probability": 0.9944196343421936
+            },
+            {
+              "word": " life",
+              "start": 8.78,
+              "end": 9.02,
+              "probability": 0.9990149736404419
+            },
+            {
+              "word": " is",
+              "start": 9.02,
+              "end": 9.22,
+              "probability": 0.9983490705490112
+            },
+            {
+              "word": " not",
+              "start": 9.22,
+              "end": 9.42,
+              "probability": 0.9983392953872681
+            },
+            {
+              "word": " the",
+              "start": 9.42,
+              "end": 9.6,
+              "probability": 0.997036337852478
+            },
+            {
+              "word": " price",
+              "start": 9.6,
+              "end": 9.82,
+              "probability": 0.9994603991508484
+            },
+            {
+              "word": " of",
+              "start": 9.82,
+              "end": 10.04,
+              "probability": 0.9990816116333008
+            },
+            {
+              "word": " mine.",
+              "start": 10.04,
+              "end": 10.34,
+              "probability": 0.987820565700531
+            }
+          ]
+        },
+        {
+          "start": 10.94,
+          "end": 14.26,
+          "text": " Please, reach the pod. I will keep the lock open.",
+          "avg_logprob": -0.13335135653615,
+          "no_speech_prob": 0.4938064515590668,
+          "words": [
+            {
+              "word": " Please,",
+              "start": 10.94,
+              "end": 11.22,
+              "probability": 0.9979592561721802
+            },
+            {
+              "word": " reach",
+              "start": 11.54,
+              "end": 11.8,
+              "probability": 0.9971323013305664
+            },
+            {
+              "word": " the",
+              "start": 11.8,
+              "end": 12.1,
+              "probability": 0.9964540004730225
+            },
+            {
+              "word": " pod.",
+              "start": 12.1,
+              "end": 12.3,
+              "probability": 0.8859840035438538
+            },
+            {
+              "word": " I",
+              "start": 12.96,
+              "end": 13.2,
+              "probability": 0.9972496628761292
+            },
+            {
+              "word": " will",
+              "start": 13.2,
+              "end": 13.34,
+              "probability": 0.9970568418502808
+            },
+            {
+              "word": " keep",
+              "start": 13.34,
+              "end": 13.52,
+              "probability": 0.9988986253738403
+            },
+            {
+              "word": " the",
+              "start": 13.52,
+              "end": 13.72,
+              "probability": 0.9973658919334412
+            },
+            {
+              "word": " lock",
+              "start": 13.72,
+              "end": 13.88,
+              "probability": 0.9893263578414917
+            },
+            {
+              "word": " open.",
+              "start": 13.88,
+              "end": 14.26,
+              "probability": 0.9978455305099487
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -30,9 +30,9 @@ public final class AudioDirector implements AutoCloseable {
     private String dialogueKey="";
     private boolean present,closed,speechFinished;
     private int listenerX,listenerY,bodyLevel=-1,spokenClips,discardedCues;
-    private float presence,bodyFade=1,duck,duckGain=1,radioFade;
+    private float presence,bodyFade=1,duck,duckGain=1,radioFade,speechSeconds;
     private float lastBreathPosition,lastHeartPosition;
-    private int breathLoops,heartLoops,speechCompletions,radioStarts;
+    private int breathLoops,heartLoops,speechCompletions,radioStarts,radioBreakFrames;
     private HelmetAudioPolicy.Body body=HelmetAudioPolicy.body(100);
     public AudioDirector() {
         this(new Resources() {
@@ -94,7 +94,7 @@ public final class AudioDirector implements AutoCloseable {
         if(key.isEmpty()||catalog==null)return;
         var clip=catalog.find(id,fullText==null?"":fullText);
         if(clip==null||!resources.exists(clip.path()))return;
-        speech=resources.music(clip.path());speechFinished=false;speech.setLooping(false);
+        speech=resources.music(clip.path());speechSeconds=clip.seconds();speechFinished=false;speech.setLooping(false);
         speech.setOnCompletionListener(m->{
             if(closed||m!=speech||speechFinished)return;
             speechFinished=true;speechCompletions++;radioFade=0;gain(radioStatic,0);stop(radioStatic);
@@ -113,7 +113,7 @@ public final class AudioDirector implements AutoCloseable {
         float targetDuck=duck>0?.40f:1;
         duckGain+=Math.signum(targetDuck-duckGain)*Math.min(Math.abs(targetDuck-duckGain),delta/(duck>0?.12f:1.2f));
         float scoreGain=outputMaster()*music*.68f*duckGain;
-        gain(speech,outputMaster()*voice*.86f);syncRadio(delta);
+        syncRadio(delta);
         if(current!=null){
             current.setVolume(scoreGain*fade);float position=current.getPosition();
             if(fade==1&&current.isPlaying()&&position+.2f<lastPosition){musicLoops++;resources.log("Stream loop completed: "+selected);}
@@ -161,7 +161,7 @@ public final class AudioDirector implements AutoCloseable {
     private void expire(){boolean changed=false;for(var iterator=voices.iterator();iterator.hasNext();){var v=iterator.next();if(elapsed>=v.until()){v.sound().stop(v.handle());iterator.remove();changed=true;}}if(changed)refreshOneShots();}
     /** Legacy callers retain the former effects-controlled speech gain. */
     public void volumes(float master,float music,float sfx) { volumes(master,music,sfx,sfx,.35f); }
-    /** Speech and its optional radio texture are independent of effects and one another. */
+    /** Independent voice/effects levels; Radio adds reception loss and its separate texture. */
     public void volumes(float master,float music,float sfx,float voice,float radio) {
         if(closed)return;
         this.master=HelmetAudioPolicy.unit(master);this.music=HelmetAudioPolicy.unit(music);this.sfx=HelmetAudioPolicy.unit(sfx);
@@ -171,16 +171,43 @@ public final class AudioDirector implements AutoCloseable {
         if(!paused){toggle(current,this.master*this.music>0);toggle(previous,this.master*this.music>0);toggle(breath,present&&this.master*this.sfx>0);toggle(heart,present&&this.master*this.sfx>0);toggle(oldBreath,present&&this.master*this.sfx>0);toggle(oldHeart,present&&this.master*this.sfx>0);update(0);}
     }
     private void syncSpeech() {
-        gain(speech,outputMaster()*voice*.86f);
+        gain(speech,outputMaster()*voice*.86f*reception().voice());
         toggle(speech,!paused&&!speechFinished&&master*voice>0);syncRadio(0);
     }
+    record RadioMix(float voice,float staticGain) {}
+    /** Position-based reception loss: brief faded gaps, never seek/skip/restart speech or use world RNG. */
+    static RadioMix radioMix(String key,float seconds,float duration,float amount) {
+        if(!Float.isFinite(seconds)||seconds<0||!Float.isFinite(amount)||amount<=0)return new RadioMix(1,1);
+        float strength=Math.min(1,amount/.60f),loss=0;
+        int slot=(int)(seconds/2.7f),seed=key.hashCode();
+        for(int n=Math.max(0,slot-1);n<=slot;n++) {
+            int bits=radioHash(seed+n*0x9E3779B9);
+            float a=(bits&65535)/65535f,b=((bits>>>16)&65535)/65535f;
+            float start=n*2.7f+.42f+a*.90f,width=.09f+b*.05f,flutter=.055f+a*.025f;
+            if(start+width+.06f+flutter>duration-.3f)continue;
+            loss=Math.max(loss,radioGap(seconds,start,width)*(.72f+.17f*a));
+            loss=Math.max(loss,radioGap(seconds,start+width+.06f,flutter)*(.35f+.20f*b));
+        }
+        loss=Math.min(.70f,loss*strength);
+        return new RadioMix(1-loss,1+.75f*loss);
+    }
+    private static int radioHash(int x){x^=x>>>16;x*=0x7FEB352D;x^=x>>>15;x*=0x846CA68B;return x^(x>>>16);}
+    private static float radioGap(float time,float start,float width){
+        float phase=(time-start)/width;
+        if(phase<=0||phase>=1)return 0;
+        float s=(float)Math.sin(Math.PI*phase);return s*s;
+    }
+    private RadioMix reception(){return radioMix(dialogueKey,speech==null?0:speech.getPosition(),speechSeconds,radioStatic==null?0:radio);}
     private void syncRadio(float delta) {
+        var reception=reception();
+        gain(speech,outputMaster()*voice*.86f*reception.voice());
         if(radioStatic==null)return;
         boolean playing=!paused&&!speechFinished&&speech!=null&&speech.isPlaying()&&master*voice*radio>0;
         if(!playing){radioStatic.pause();radioFade=0;radioStatic.setVolume(0);return;}
         if(!radioStatic.isPlaying()){radioFade=0;radioStatic.setVolume(0);radioStatic.play();radioStarts++;}
         radioFade=Math.min(1,radioFade+delta/.05f);
-        radioStatic.setVolume(outputMaster()*radio*.65f*radioFade);
+        radioStatic.setVolume(outputMaster()*radio*.65f*radioFade*reception.staticGain());
+        if(delta>0&&reception.voice()<.8f)radioBreakFrames++;
     }
     public void pause(boolean value) {
         if(closed||paused==value)return;paused=value;
@@ -194,6 +221,6 @@ public final class AudioDirector implements AutoCloseable {
     private static void stop(Music m){if(m!=null)m.stop();}
     private static void dispose(Music m){if(m!=null){m.stop();m.dispose();}}
     public int loadedMusic(){return tracks.size();}public int loadedSounds(){return sounds.size();}
-    public String summary(){return "Playback summary: sounds="+playedSounds+", failed="+failedSounds+", musicLoops="+musicLoops+", ALICEclips="+spokenClips+", completedSpeech="+speechCompletions+", radioStarts="+radioStarts+", currentRadioActive="+(radioStatic!=null&&radioStatic.isPlaying())+", breathLoops="+breathLoops+", heartLoops="+heartLoops+", boundedDrops="+discardedCues+", activeSFX="+voices.size();}
+    public String summary(){return "Playback summary: sounds="+playedSounds+", failed="+failedSounds+", musicLoops="+musicLoops+", ALICEclips="+spokenClips+", completedSpeech="+speechCompletions+", radioStarts="+radioStarts+", currentRadioActive="+(radioStatic!=null&&radioStatic.isPlaying())+", radioBreakFrames="+radioBreakFrames+", breathLoops="+breathLoops+", heartLoops="+heartLoops+", boundedDrops="+discardedCues+", activeSFX="+voices.size();}
     @Override public void close(){if(closed)return;closed=true;resources.log(summary());for(var m:tracks.values())dispose(m);for(var s:sounds.values())s.dispose();for(Music m:new Music[]{speech,radioStatic,breath,heart,oldBreath,oldHeart})dispose(m);voices.clear();}
 }

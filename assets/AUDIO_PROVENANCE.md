@@ -1,6 +1,8 @@
 # Audio provenance
 
-Current VOICE3 replaces only the nine spoken performances with instruction-conditioned Qwen VoiceDesign and adds one independent speech-free radio texture. Exact words remain unchanged. Clean voice exports carry only the requested slight pitch/brightness lift; static and distortion are not baked in. Native masters, actual inputs/prompts/model/tool/permission pins and ASR screens are in audio/voice/source/expressive. The Apache2.0 model/tool evidence is registered alongside retained historical Piper notices. See docs/design/sound/ALICE_PERFORMANCE.md for current controls, reproduction, evidence and limits.
+Current VOICE4 retains the nine VOICE3 performances, native masters and exact clean exports, and creates narrow/grainy runtime transmission derivatives. Original speech-free static is stronger and more uneven; AudioDirector swells it into brief reception dips without seeking or replaying speech. Radio0 removes noise/dropouts while the transmission EQ remains. The supplied YouTube video is a direction reference only: no recording samples or cloned voice are used. New actual-file transmission ASR evidence is separate from historical clean-file screens. See docs/design/sound/ALICE_RADIO_RECEPTION.md for recipe, preservation and acceptance limits.
+
+Earlier VOICE3 replaced only the nine spoken performances with instruction-conditioned Qwen VoiceDesign and added one independent speech-free radio texture. Exact words remain unchanged. Clean voice exports carry only the requested slight pitch/brightness lift; static and distortion are not baked in. Native masters, actual inputs/prompts/model/tool/permission pins and ASR screens are in audio/voice/source/expressive. The Apache2.0 model/tool evidence is registered alongside retained historical Piper notices. See docs/design/sound/ALICE_PERFORMANCE.md for controls, reproduction, evidence and limits.
 
 ## Earlier ATM-SOUND and VOICE2 provenance (retained history)
 
