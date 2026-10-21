@@ -11,6 +11,7 @@ import java.util.Objects;
 /** The sole gameplay writer. Each accepted action applies its effect, then its integer world ticks. */
 public final class RunEngine {
     public static final int LAST_DECK = 10, LOW_RESERVE = 90, MAX_INVENTORY = 24;
+    public static final int MAX_INVENTORY_RECORDS = 512, MAX_FLOOR_ITEMS = 512;
     public static final int OXYGENATION_LOSS = 5, OXYGENATION_RECOVERY = 4, SUFFOCATION_DAMAGE = 4;
     public static final int STARTING_RESERVE = 900, STARTER_TANK = 360;
     private final GameState state;
@@ -234,9 +235,12 @@ public final class RunEngine {
     }
 
     private int pickup(String id, List<GameEvent> events) {
-        if (state.inventory.size() >= MAX_INVENTORY) return 0;
+        if (state.inventory.size() >= MAX_INVENTORY_RECORDS) return 0;
+        var keys=new java.util.HashSet<InventoryStacks.Key>();for(var carried:state.inventory)keys.add(InventoryStacks.key(carried));
+        boolean freeSlot=keys.size()<MAX_INVENTORY;
         var item = state.floorItems.stream().filter(i -> i.x == state.playerX && i.y == state.playerY
-                && (id == null || id.isEmpty() || id.equals(i.id))).findFirst().orElse(null);
+                && (id == null || id.isEmpty() || id.equals(i.id)))
+                .filter(i->freeSlot||keys.contains(InventoryStacks.key(i))).findFirst().orElse(null);
         if (item == null) return 0;
         state.floorItems.remove(item);
         item.x = -1; item.y = -1;
@@ -268,14 +272,27 @@ public final class RunEngine {
 
     private int drop(String id, List<GameEvent> events) {
         var item = state.inventory.stream().filter(i -> id != null && id.equals(i.id)).findFirst().orElse(null);
-        if (item == null) return 0;
-        if (state.flags.remove("equipped-weapon:" + item.id)) state.weapon = "pistol";
-        if (state.flags.remove("equipped-armor:" + item.id)) state.armor = "suit";
-        state.inventory.remove(item);
-        item.x = state.playerX; item.y = state.playerY;
-        state.floorItems.add(item);
+        if (item == null || state.floorItems.size() >= MAX_FLOOR_ITEMS) return 0;
+        var dropped=item;
+        if(item.quantity>1){
+            dropped=item.copy();dropped.quantity=1;dropped.id=droppedUnitId();item.quantity--;
+        }else{
+            if (state.flags.remove("equipped-weapon:" + item.id)) state.weapon = "pistol";
+            if (state.flags.remove("equipped-armor:" + item.id)) state.armor = "suit";
+            state.inventory.remove(item);
+        }
+        dropped.x = state.playerX; dropped.y = state.playerY;
+        state.floorItems.add(dropped);
         events.add(new GameEvent("drop", state.playerX, state.playerY, "Dropped " + item.name + "."));
         return 1;
+    }
+
+    private String droppedUnitId(){
+        var ids=new java.util.HashSet<String>();
+        for(var item:state.inventory)ids.add(item.id);for(var item:state.floorItems)ids.add(item.id);
+        String prefix="drop-d"+state.deck+"-t"+state.tick+"-";int suffix=0;
+        while(ids.contains(prefix+suffix))suffix++;
+        return prefix+suffix;
     }
 
     private void tick(List<GameEvent> events) {
@@ -431,7 +448,7 @@ public final class RunEngine {
                 || !List.of("suit", "light", "heavy").contains(s.armor)
                 || s.bossPhase == null || s.constructorRoute == null)
             throw new IllegalArgumentException("Invalid saved RPG resources or equipment");
-        if (s.inventory.size() > MAX_INVENTORY || s.actors.size() > 512 || s.floorItems.size() > 512
+        if (s.inventory.size() > MAX_INVENTORY_RECORDS || s.actors.size() > 512 || s.floorItems.size() > MAX_FLOOR_ITEMS
                 || s.log.size() > 1000 || s.journal.size() > 1000) throw new IllegalArgumentException("Saved collection exceeds capacity");
         for (var entry : s.medicineEffects.entrySet()) if (entry.getKey() == null || entry.getKey().isBlank()
                 || entry.getKey().length() > 200 || entry.getValue() == null || !MedicineRules.EFFECTS.contains(entry.getValue()))
@@ -444,6 +461,7 @@ public final class RunEngine {
         for (var item : s.floorItems) validateItem(s, item, true);
         var ids = new java.util.HashSet<String>();
         for (var item : s.inventory) if (!ids.add(item.id)) throw new IllegalArgumentException("Duplicate saved item identity");
+        if (InventoryStacks.count(s.inventory) > MAX_INVENTORY) throw new IllegalArgumentException("Saved pack exceeds stack capacity");
         for (var item : s.floorItems) if (!ids.add(item.id)) throw new IllegalArgumentException("Duplicate saved item identity");
         ids.clear();
         for (var actor : s.actors) if (actor == null || actor.kind == null || actor.id == null || actor.id.isBlank()

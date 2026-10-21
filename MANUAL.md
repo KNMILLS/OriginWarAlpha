@@ -20,7 +20,7 @@ Time advances when a world action succeeds. Opening a menu, inspecting, aiming, 
 | H | Hack selected or adjacent equipment |
 | B | Force a locked door using STR |
 | V | Check reliable suit readings |
-| Tab / I | Inventory; U uses, Q equips, X drops the selected item |
+| Tab / I | Inventory; U uses one, Q equips, X drops one from the selected stack |
 | J / C | Journal / character and earned attribute points |
 | K | Full explored station map; unknown areas and unseen threats stay hidden |
 | 1 / 2 / 3 | Choose a displayed dialogue option |
@@ -32,6 +32,8 @@ HP, oxygen reserve and body oxygenation are separate. A refill restores reserve 
 New expeditions start with900 suit reserve, two carried360-unit tanks and a360-unit tank underfoot. Press G to collect supplies; R uses a carried tank. The HUD shows the carried tank count and warns at one-quarter reserve. Tanks remain finite and excess refill beyond suit capacity is lost, so refill when there is room. Existing expeditions preserve their saved suit capacity and supplies; start a new expedition to receive the more generous opening allocation. Text uses a larger smooth UI font, with further enlargement available in Settings.
 
 STR increases melee damage and reduces the effort of forcing doors. INT enables security hacks and persuasion; A.L.I.C.E. does not bypass these checks for you. DEX affects accuracy and evasion. Light armor improves effective DEX; heavy armor trades DEX for protection. Guns use finite battery cells. Compare equipment in the inventory. Medicines receive shuffled identities per expedition: using a dose or analyzing it at a medical terminal teaches its effect for that run. Unknown medicine is a risk.
+
+Matching items share one inventory row with a quantity and occupy one of24 stack slots. Oxygen tanks and battery packs with different strengths stay separate; medicines stack by compound. Use and drop act on one tank, pack, dose or piece of gear. Dropping a gear stack uses spare gear first; the final equipped item is labeled Drop equipped. Existing saves keep their item identities and quantities, and their matching items appear together on resume. An old saved multi-item quantity now drops one unit per action.
 
 Watch robot behavior. S.I.R.S. pursue and search after losing contact. A.D.D.s favor ranged firing positions. Cameras alert nearby security. R.O.V.E.R.s close in and telegraph their charges; move out of the one-tile blast radius before detonation. Cover interferes with shots, and glass blocks projectiles even when you can see through it. Hacking and forcing offer alternatives to locked shortcuts; public routes remain accessible.
 

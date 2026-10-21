@@ -1,5 +1,9 @@
 # Verification evidence
 
+## Inventory stacking follow-up
+
+INV1 adds a shared pure stack definition,24 logical pack slots, one-unit drop, stable stack selection and quantity rows. Save schema and original IDs remain intact; different strengths/medicine compounds remain separate. The new production file-backed SaveStore regression caught a duplicate obsolete24-record check, now corrected to the core's bounded512-record limit after logical validation. The first failure is preserved outside Git. All112 tests (84core/28desktop), zero failures/errors/skips, and full asset validation PASS. See INVENTORY_STACKS.md for semantics and intentionally changed old multi-quantity DROP behavior. The fresh companion inventory delivery receipt supplies exact source, native controls/save, unchanged-media checks, complete campaign reruns, CI and package identities; earlier evidence below retains its historical scope.
+
 ## Wall/floor and A.L.I.C.E. owner refinement
 
 21 October2026: MAT2 replaces exactly11station/10sector material cells across all five families and fallback/special paths. Independent native-cell checks preserve75other cells and72original unrelated PNGs; fixture15–19 silhouettes/transparent corners and all indicator coordinates remain exact. Current full art validation and layered byte-repeatability PASS. All source/composite comparisons are explicitly distinguished from game frames in MATERIAL_SEPARATION.md.

@@ -110,7 +110,7 @@ public final class SaveStore {
         if(!inside(s,s.playerX,s.playerY)||s.tiles[s.playerX][s.playerY].blocksMovement)throw new IOException("Invalid player placement");
         if(s.maxHp<1||s.maxHp>1000||s.hp<0||s.hp>s.maxHp||(!s.dead&&s.hp==0)||s.str<1||s.str>50||s.intel<1||s.intel>50||s.dex<1||s.dex>50)throw new IOException("Invalid character stats");
         if(s.maxReserve<1||s.maxReserve>10000||s.reserve<0||s.reserve>s.maxReserve||s.oxygenation<0||s.oxygenation>100||s.batteries<0||s.batteries>10000||s.poisonTicks<0)throw new IOException("Invalid resources");
-        if(s.actors==null||s.floorItems==null||s.inventory==null||s.flags==null||s.log==null||s.journal==null||s.medicineEffects==null||s.identifiedMedicine==null||s.inventory.size()>24||s.actors.size()>512||s.floorItems.size()>512||s.log.size()>1000||s.journal.size()>1000)throw new IOException("Invalid collections");
+        if(s.actors==null||s.floorItems==null||s.inventory==null||s.flags==null||s.log==null||s.journal==null||s.medicineEffects==null||s.identifiedMedicine==null||s.inventory.size()>RunEngine.MAX_INVENTORY_RECORDS||s.actors.size()>512||s.floorItems.size()>RunEngine.MAX_FLOOR_ITEMS||s.log.size()>1000||s.journal.size()>1000)throw new IOException("Invalid collections");
         var ids=new HashSet<String>();
         for(var actor:s.actors)if(actor==null||actor.kind==null||actor.id==null||actor.id.isBlank()||!ids.add(actor.id)||!inside(s,actor.x,actor.y)||actor.hp<0||actor.maxHp<1||actor.hp>actor.maxHp)throw new IOException("Invalid actor");
         ids.clear();for(var item:s.inventory)validateItem(item,ids);for(var item:s.floorItems){validateItem(item,ids);if(!inside(s,item.x,item.y))throw new IOException("Invalid pickup position");}

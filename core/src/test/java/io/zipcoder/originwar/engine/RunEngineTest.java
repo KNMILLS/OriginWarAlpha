@@ -245,8 +245,10 @@ class RunEngineTest {
 
     @Test void fullInventoryRejectsPickupBeforeRemovingAnItemOrSpendingTimeOrRng() {
         var s = room();
-        for (int i = 0; i < RunEngine.MAX_INVENTORY; i++)
-            s.inventory.add(StationGenerator.tank(1, -1, -1, 120, "pack-" + i));
+        // Capacity counts distinct logical stacks; matching tanks deliberately share a slot.
+        for (int i = 0; i < RunEngine.MAX_INVENTORY; i++) {
+            var item=StationGenerator.tank(1, -1, -1, 120, "pack-" + i);item.name="Distinct tank "+i;s.inventory.add(item);
+        }
         s.floorItems.add(StationGenerator.tank(1, s.playerX, s.playerY, 120, "on-floor"));
         var run = new RunEngine(s);
         var before = run.saveState();
@@ -315,8 +317,9 @@ class RunEngineTest {
         var badDeath = room(); badDeath.hp = 0;
         assertThrows(IllegalArgumentException.class, () -> new RunEngine(badDeath));
         var oversizedPack = room();
-        for (int i = 0; i <= RunEngine.MAX_INVENTORY; i++)
-            oversizedPack.inventory.add(StationGenerator.tank(1, -1, -1, 120, "oversized-" + i));
+        for (int i = 0; i <= RunEngine.MAX_INVENTORY; i++) {
+            var item=StationGenerator.tank(1, -1, -1, 120, "oversized-" + i);item.name="Distinct tank "+i;oversizedPack.inventory.add(item);
+        }
         assertThrows(IllegalArgumentException.class, () -> new RunEngine(oversizedPack));
     }
 

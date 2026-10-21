@@ -1,4 +1,6 @@
 package io.zipcoder.originwar.desktop;
+import io.zipcoder.originwar.engine.InventoryStacks;
+import io.zipcoder.originwar.engine.RunEngine;
 import io.zipcoder.originwar.model.*;
 import org.junit.jupiter.api.*;
 import org.junit.jupiter.api.io.TempDir;
@@ -21,6 +23,24 @@ class SaveStoreTest {
         var s=valid();var store=new SaveStore(dir);store.begin(s);var loaded=new SaveStore(dir).load();
         assertEquals(420,loaded.seed);assertEquals(17,loaded.combatRng);assertEquals(22,loaded.perceptionRng);assertEquals(19,loaded.phantomUntil);
         assertEquals(GameState.ActorKind.ALICE,loaded.actors.getFirst().kind);assertEquals("dose-1",loaded.inventory.getFirst().id);assertTrue(loaded.flags.contains("met-alice"));assertEquals("heal",loaded.medicineEffects.get("Velorin"));assertTrue(loaded.identifiedMedicine.contains("Velorin"));
+    }
+    @Test void stackedInventoryRoundTripsOriginalIdsAndOneUnitDropsWithoutChangingSchema()throws Exception {
+        var s=valid();s.inventory.clear();s.actors.clear();s.reserve=1;
+        for(int n=0;n<30;n++){
+            var i=new GameState.Item();i.id="legacy-tank-"+n;i.type=GameState.ItemType.OXYGEN;i.name="Tank";i.power=120;i.quantity=n==0?3:1;i.x=i.y=-1;s.inventory.add(i);
+        }
+        var ids=s.inventory.stream().map(i->i.id).toList();var store=new SaveStore(dir);store.begin(s);var loaded=new SaveStore(dir).load();
+        assertEquals(1,loaded.schemaVersion);assertEquals(ids,loaded.inventory.stream().map(i->i.id).toList());
+        assertEquals(32,InventoryStacks.group(loaded.inventory).getFirst().quantity());assertEquals(1,loaded.reserve);
+        var run=new RunEngine(loaded);assertTrue(run.submit(PlayerAction.item(PlayerAction.Type.DROP,ids.getFirst())).accepted());
+        store.save(run.saveState());loaded=new SaveStore(dir).load();
+        assertEquals(ids,loaded.inventory.stream().map(i->i.id).toList());assertEquals(2,loaded.inventory.getFirst().quantity);
+        assertEquals(31,InventoryStacks.group(loaded.inventory).getFirst().quantity());assertEquals(1,loaded.floorItems.getLast().quantity);
+        String droppedId=loaded.floorItems.getLast().id;assertNotEquals(ids.getFirst(),droppedId);
+        run=new RunEngine(loaded);assertTrue(run.submit(PlayerAction.item(PlayerAction.Type.USE,ids.getFirst())).accepted());
+        store.save(run.saveState());loaded=new SaveStore(dir).load();
+        assertEquals(30,InventoryStacks.group(loaded.inventory).getFirst().quantity());assertEquals(1,loaded.inventory.getFirst().quantity);
+        assertEquals(droppedId,loaded.floorItems.getLast().id);assertEquals(1,loaded.floorItems.getLast().quantity);assertEquals(1,loaded.schemaVersion);
     }
     @Test void malformedPrimaryFallsBackToLastGoodSave()throws Exception {
         var store=new SaveStore(dir);var s=valid();store.begin(s);s.tick=1;store.save(s);Files.writeString(dir.resolve("active.json"),"{broken");

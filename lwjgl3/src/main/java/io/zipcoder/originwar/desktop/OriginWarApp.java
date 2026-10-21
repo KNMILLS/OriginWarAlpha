@@ -7,6 +7,7 @@ import com.badlogic.gdx.math.*;
 import com.badlogic.gdx.utils.*;
 import io.zipcoder.originwar.engine.RunEngine;
 import io.zipcoder.originwar.engine.EquipmentRules;
+import io.zipcoder.originwar.engine.InventoryStacks;
 import io.zipcoder.originwar.campaign.Campaign;
 import io.zipcoder.originwar.perception.PerceptionModel;
 import io.zipcoder.originwar.model.*;
@@ -56,7 +57,8 @@ public final class OriginWarApp extends ApplicationAdapter {
     private long lastPerceptionCue=Long.MIN_VALUE;
     private PerceptionModel.Frame perception;
     private int journalEntry,journalPage,dialoguePage,lastJournalEntry=-1;
-    private int prosePage,itemPage,lastSelectedItem=-1;
+    private int prosePage,itemPage;
+    private InventoryStacks.Key inventoryPageKey;
     private Screen proseScreen;
     private String lastDialogue="";
     private float mapX,mapY,mapW,mapH,originX,originY,tile=64,worldZoom=64;
@@ -100,7 +102,7 @@ public final class OriginWarApp extends ApplicationAdapter {
             @Override public boolean touchDragged(int x,int y,int pointer){if(dragging<0)return false;setSlider(dragging,x);return true;}
             @Override public boolean touchUp(int x,int y,int pointer,int button){if(dragging<0)return false;dragging=-1;saveSettings();return true;}
             @Override public boolean scrolled(float x,float y){
-                if(screen==Screen.INVENTORY&&state!=null)selectedItem=Math.max(0,Math.min(state.inventory.size()-1,selectedItem+(int)y));
+                if(screen==Screen.INVENTORY&&state!=null)selectedItem=Math.max(0,Math.min(InventoryStacks.count(state.inventory)-1,selectedItem+(int)y));
                 if(screen==Screen.JOURNAL&&state!=null)journalEntry=Math.max(0,Math.min(state.journal.size()-1,journalEntry+(int)y));return true;
             }
             @Override public boolean mouseMoved(int x,int y){if(screen==Screen.PLAY&&state!=null&&state.activeDialogue.isEmpty())mouseAim=true;return false;}
@@ -119,14 +121,14 @@ public final class OriginWarApp extends ApplicationAdapter {
         try{
             long seed=Long.parseLong(seedText);var candidate=new RunEngine(seed);saves.begin(candidate.saveState());
             engine=candidate;state=engine.snapshot().world();
-            cameraX=state.playerX;cameraY=state.playerY;targetX=-1;targetY=-1;selectedItem=0;journalEntry=0;journalPage=0;endingStarted=-1;effects.clear();openingDoors.clear();walking.clear();queuedMove=null;motion.reset(state);mouseAim=false;screen=Screen.PLAY;
+            cameraX=state.playerX;cameraY=state.playerY;targetX=-1;targetY=-1;selectedItem=0;inventoryPageKey=null;journalEntry=0;journalPage=0;endingStarted=-1;effects.clear();openingDoors.clear();walking.clear();queuedMove=null;motion.reset(state);mouseAim=false;screen=Screen.PLAY;
             hint("Expedition "+seed+". Find the security override and exit hatch.");
         }catch(Exception e){notice("Cannot start expedition: "+e.getMessage());Gdx.app.error("NewGame",e.getMessage(),e);}
     }
     private void resumeGame(){
         try{
             engine=new RunEngine(saves.load());state=engine.snapshot().world();cameraX=state.playerX;cameraY=state.playerY;
-            walking.clear();openingDoors.clear();queuedMove=null;motion.reset(state);mouseAim=false;targetX=-1;targetY=-1;selectedItem=0;journalEntry=Math.max(0,state.journal.size()-1);endingStarted=-1;endingPanel=true;screen=state.dead?Screen.DEAD:state.victory?Screen.VICTORY:Screen.PLAY;
+            walking.clear();openingDoors.clear();queuedMove=null;motion.reset(state);mouseAim=false;targetX=-1;targetY=-1;selectedItem=0;inventoryPageKey=null;journalEntry=Math.max(0,state.journal.size()-1);endingStarted=-1;endingPanel=true;screen=state.dead?Screen.DEAD:state.victory?Screen.VICTORY:Screen.PLAY;
             hint(saves.usedBackup()?"Recovered the last good backup.":"Expedition resumed.");
         }catch(Exception e){notice(e.getMessage());}
     }
@@ -172,7 +174,7 @@ public final class OriginWarApp extends ApplicationAdapter {
         }
         if(screen==Screen.INVENTORY){
             if(key==Input.Keys.UP)selectedItem=Math.max(0,selectedItem-1);
-            else if(key==Input.Keys.DOWN)selectedItem=Math.min(state.inventory.size()-1,selectedItem+1);
+            else if(key==Input.Keys.DOWN)selectedItem=Math.max(0,Math.min(InventoryStacks.count(state.inventory)-1,selectedItem+1));
             else if(key==Input.Keys.U||key==Input.Keys.ENTER)inventoryAction(PlayerAction.Type.USE);
             else if(key==Input.Keys.X)inventoryAction(PlayerAction.Type.DROP);
             else if(key==Input.Keys.Q)inventoryAction(PlayerAction.Type.EQUIP);
@@ -218,9 +220,14 @@ public final class OriginWarApp extends ApplicationAdapter {
         }return true;
     }
     private void inventoryAction(PlayerAction.Type type){
-        if(selectedItem<0||selectedItem>=state.inventory.size())return;
-        boolean committed=act(PlayerAction.item(type,state.inventory.get(selectedItem).id));
-        selectedItem=Math.min(selectedItem,state.inventory.size()-1);
+        if(screen!=Screen.INVENTORY||state==null)return;
+        var stacks=InventoryStacks.group(state.inventory);
+        if(selectedItem<0||selectedItem>=stacks.size())return;
+        var stack=stacks.get(selectedItem);
+        if(!stack.key().equals(inventoryPageKey))itemPage=0;
+        inventoryPageKey=stack.key();
+        boolean committed=act(PlayerAction.item(type,stack.actionId(type,state.flags)));
+        selectedItem=InventoryStacks.selectionAfter(InventoryStacks.group(state.inventory),stack.key(),selectedItem);
         if(committed&&!state.dead&&!state.victory){walking.clear();screen=Screen.PLAY;}
     }
     private String describe(int x,int y){
@@ -632,41 +639,43 @@ public final class OriginWarApp extends ApplicationAdapter {
     }
     private void inventory(){
         overlay("INVENTORY / EQUIPMENT");float h=Gdx.graphics.getHeight(),w=Gdx.graphics.getWidth(),detailX=w*.53f,listWidth=detailX-120;
-        selectedItem=Math.max(0,Math.min(selectedItem,state.inventory.size()-1));
+        var stacks=InventoryStacks.group(state.inventory);
+        selectedItem=Math.max(0,Math.min(selectedItem,stacks.size()-1));
         text("Weapon "+state.weapon+" / Armor "+state.armor+" / Cells "+state.batteries,90,h-115,.95f,ink);
         if(state.inventory.isEmpty()){text("Your pack is empty.",90,h-170,1,ink);return;}
         var labels=new ArrayList<String>();var heights=new ArrayList<Float>();
-        for(int n=0;n<state.inventory.size();n++){
-            var item=state.inventory.get(n);String label=(n==selectedItem?"> ":"  ")+item.name+" x"+item.quantity;
+        for(int n=0;n<stacks.size();n++){
+            var stack=stacks.get(n);String label=(n==selectedItem?"> ":"  ")+stack.key().name()+" x"+stack.quantity()+(stack.equipped(state.flags)?" [equipped]":"");
             fontScale(.95f);layout.setText(font,label,ink,listWidth-24,Align.left,true);
             labels.add(label);heights.add(Math.max(40,layout.height+20));
         }
         float available=h-290,used=heights.get(selectedItem);int first=selectedItem;
         while(first>0&&used+heights.get(first-1)+6<=available){first--;used+=heights.get(first)+6;}
         float rowTop=h-150;
-        for(int n=first;n<state.inventory.size();n++){
+        for(int n=first;n<stacks.size();n++){
             float height=heights.get(n);if(rowTop-height<140)break;rowTop-=height;
             final int index=n;
             wrappedButton(labels.get(n),90,rowTop,listWidth,height,()->selectedItem=index);rowTop-=6;
         }
         button("Up",90,88,80,36,()->selectedItem=Math.max(0,selectedItem-1));
-        button("Down",182,88,100,36,()->selectedItem=Math.min(state.inventory.size()-1,selectedItem+1));
-        fittedText("Item "+(selectedItem+1)+"/"+state.inventory.size(),294,113,listWidth-204,.95f,ink);
-        if(selectedItem<0||selectedItem>=state.inventory.size())return;
-        var item=state.inventory.get(selectedItem);float titleHeight=paragraph(item.name,detailX,h-170,w-detailX-70,1.2f,cyan);
-        if(lastSelectedItem!=selectedItem){itemPage=0;lastSelectedItem=selectedItem;}
-        float top=h-190-titleHeight;var pages=pages(itemDescription(item)+equipmentComparison(item),w-detailX-70,Math.max(60,top-280),1.05f);
+        button("Down",182,88,100,36,()->selectedItem=Math.min(stacks.size()-1,selectedItem+1));
+        fittedText("Stacks "+stacks.size()+"/"+RunEngine.MAX_INVENTORY,294,113,listWidth-204,.95f,ink);
+        var stack=stacks.get(selectedItem);var item=stack.representative();
+        float titleHeight=paragraph(item.name,detailX,h-170,w-detailX-70,1.2f,cyan);
+        if(!stack.key().equals(inventoryPageKey)){itemPage=0;inventoryPageKey=stack.key();}
+        String quantity="Quantity: "+stack.quantity()+(stack.equipped(state.flags)?" / one equipped":"")+"\n\n";
+        float top=h-190-titleHeight;var pages=pages(quantity+itemDescription(item)+equipmentComparison(item),w-detailX-70,Math.max(60,top-280),1.05f);
         itemPage=Math.max(0,Math.min(itemPage,pages.size()-1));paragraph(pages.get(itemPage),detailX,top,w-detailX-70,1.05f,ink);
         if(pages.size()>1){button("<",detailX,235,60,32,()->itemPage=Math.max(0,itemPage-1));button(">",detailX+72,235,60,32,()->itemPage=Math.min(pages.size()-1,itemPage+1));text((itemPage+1)+" / "+pages.size(),detailX+150,257,.95f,ink);}
         if(item.type==GameState.ItemType.OXYGEN||item.type==GameState.ItemType.MEDICINE||item.type==GameState.ItemType.CELL)
-            button("Use [U]",detailX,175,180,40,()->inventoryAction(PlayerAction.Type.USE));
-        else button("Equip [Q]",detailX,175,180,40,()->inventoryAction(PlayerAction.Type.EQUIP));
-        button("Drop [X]",detailX,123,180,40,()->inventoryAction(PlayerAction.Type.DROP));
+            button("Use one [U]",detailX,175,Math.min(260,w-detailX-70),40,()->inventoryAction(PlayerAction.Type.USE));
+        else if(!stack.equipped(state.flags))button("Equip [Q]",detailX,175,Math.min(260,w-detailX-70),40,()->inventoryAction(PlayerAction.Type.EQUIP));
+        button(stack.dropsEquipped(state.flags)?"Drop equipped [X]":"Drop one [X]",detailX,123,Math.min(260,w-detailX-70),40,()->inventoryAction(PlayerAction.Type.DROP));
     }
     private String itemDescription(GameState.Item i){
         return switch(i.type){
             case OXYGEN->"Finite oxygen tank. Restores "+i.power+" reserve, up to suit capacity. One turn to use; refill happens before breathing.";
-            case CELL->"Battery cells power ranged weapons and station equipment.";
+            case CELL->"One battery pack loads "+i.power+" cells. One turn to use; quantity counts packs.";
             case MEDICINE->state.identifiedMedicine.contains(i.name)?"Identified: "+state.medicineEffects.getOrDefault(i.name,"recorded compound"):"Unidentified pharmaceutical. Using or identifying this compound reveals its effect for this expedition.";
             case ARMOR_LIGHT->"Light protection: modest mitigation and good mobility.";
             case ARMOR_HEAVY->"Heavy protection trades mobility for damage mitigation.";
@@ -753,7 +762,7 @@ public final class OriginWarApp extends ApplicationAdapter {
         button("New expedition",100,130,280,44,this::newGame);button("Title",410,130,180,44,()->screen=Screen.TITLE);
         button("Run record",620,130,280,44,()->open(Screen.RECORD));
     }
-    private void open(Screen next){returnScreen=screen;screen=next;walking.clear();queuedMove=null;if(next==Screen.INVENTORY&&state!=null)selectedItem=Math.max(0,Math.min(selectedItem,state.inventory.size()-1));audio.pause(next==Screen.PAUSE);}
+    private void open(Screen next){returnScreen=screen;screen=next;walking.clear();queuedMove=null;if(next==Screen.INVENTORY&&state!=null)selectedItem=InventoryStacks.selectionAfter(InventoryStacks.group(state.inventory),inventoryPageKey,selectedItem);audio.pause(next==Screen.PAUSE);}
     private void back(){
         walking.clear();queuedMove=null;
         if(screen==Screen.SETTINGS||screen==Screen.HELP||screen==Screen.CREDITS||screen==Screen.MAP||screen==Screen.RECORD)screen=returnScreen;
