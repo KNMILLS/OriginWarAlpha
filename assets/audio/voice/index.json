@@ -5,64 +5,64 @@
       "dialogue_id": "alice-meet",
       "text_sha256": "da1a54d558ac37cc5bf65e2d9c87aca0293f15174e9d046dd45425fc44c8591e",
       "path": "audio/voice/alice-meet.ogg",
-      "sha256": "9e26330ae80e23d1205986c19c2db11fca3bdba9de67167d8c5d589f2a45e96f",
-      "duration_seconds": 17.815329
+      "sha256": "3ed715fa1168018586ca8283938f295eefa3583fd4254565c09fa1b182130e33",
+      "duration_seconds": 17.335918
     },
     {
       "dialogue_id": "alice-record",
       "text_sha256": "af370c5a26dc2d3b1db8f42a4d9770f2fa730be8aa7ab6033bbc6f92d0c476d5",
       "path": "audio/voice/alice-record.ogg",
-      "sha256": "57892c1f12d9e00826820aab8ddd7d578639421250a646e6e220ae43ca74d3cd",
-      "duration_seconds": 9.414785
+      "sha256": "1e66c62914b858ef31b99d02f996b0e857df28921e0d4347817586765c333ce6",
+      "duration_seconds": 9.223401
     },
     {
       "dialogue_id": "alice-agency",
       "text_sha256": "6a47292421c1147d203359981130639e17a43f248ede23827407fe90e187e395",
       "path": "audio/voice/alice-agency.ogg",
-      "sha256": "39f4810ff448b1496e2563c50696bd79c4155e5a0ac35e6a4cba1b392a9590aa",
-      "duration_seconds": 10.517732
+      "sha256": "f0fb79ddf932f7236d367491062805fd8fc935d9c615fdd248e2f7b7dd9ada1e",
+      "duration_seconds": 10.658685
     },
     {
       "dialogue_id": "refusal",
       "text_sha256": "1e5ad44ec2d8e27514f10b5a75951795d29d061e26aa4fba0b46967b2907f263",
       "path": "audio/voice/refusal.ogg",
-      "sha256": "1cab8a857d4a4b2e0fbb608ba6e9427532396237e320db1d3b082442023f338d",
-      "duration_seconds": 11.441451
+      "sha256": "65d232f0ff41dab59a5dc9a3ab2f9005a9349548d51ef884c2df893c59d7559c",
+      "duration_seconds": 11.00644
     },
     {
       "dialogue_id": "sacrifice-plan",
       "text_sha256": "6c0013c70f6bf47be8c69946461b9f64f64bda17cab9ae12b63551d4661ff451",
       "path": "audio/voice/sacrifice-plan.ogg",
-      "sha256": "8a6e2f5dacd698c54aadb62ec3895f8296bf7af4bb1381afbae9f8753ef1ca31",
-      "duration_seconds": 14.756825
+      "sha256": "efd2c0188b5bc4292cea0a4f5bc059160ffee7c9fb5e7288763a95f4327f8d8b",
+      "duration_seconds": 14.718231
     },
     {
       "dialogue_id": "pod-ready",
       "text_sha256": "d95033fd1e54800857b4b56157444cc490ffed967fc72bd9a9dbc3e79c98ab5f",
       "path": "audio/voice/pod-ready.ogg",
-      "sha256": "d1c6a2c5518abaafc7a53fb8ad38f4c6e04cb71467a01d26af8fae41bdfd2000",
-      "duration_seconds": 6.22712
+      "sha256": "e93dc708c0b30636b1856f70f44206a209900edd8724f832f3368fed443433f7",
+      "duration_seconds": 6.113469
     },
     {
       "dialogue_id": "alice-talk",
       "text_sha256": "e58784c4265e1ad1306dfee14202fedfc7b29055ee5164ebe257c32092646f1e",
       "path": "audio/voice/alice-talk-0.ogg",
-      "sha256": "eeb5d9046d2cd9c2c52161d62008d9f26f7c1970b55c0a9562fa3aca08216f34",
-      "duration_seconds": 14.012336
+      "sha256": "61433d89392050c1348d486c150ef1015fe6253b1bd03eb71cfda3c79d716aff",
+      "duration_seconds": 15.086485
     },
     {
       "dialogue_id": "alice-talk",
       "text_sha256": "398160c25f4ad5d360bd83765c1ab5e2bc3ddd4644033bf64e90183cbe5ce09e",
       "path": "audio/voice/alice-talk-1.ogg",
-      "sha256": "466d5525e765801c982179bb3dc3e2a792d5d465164ddefc213e3b691fd09c5c",
-      "duration_seconds": 10.905941
+      "sha256": "eb96833ee77c9548f006b2eafb9413a94b4174b99e008eb811797640e148cb06",
+      "duration_seconds": 10.749705
     },
     {
       "dialogue_id": "alice-talk",
       "text_sha256": "9126be8ecda981d77f90fd6813da72fce487c0d9fd61788bfc007a9b1293f73b",
       "path": "audio/voice/alice-talk-2.ogg",
-      "sha256": "bda727d227c4a6019bb46cb18e470a79c3d5405f272b34a92bb3ce9f1910dfbc",
-      "duration_seconds": 8.038277
+      "sha256": "32521a2c17cccccaf7c94af293c004a9ae8e835aeb792cef9fc9e84afcde653e",
+      "duration_seconds": 7.681633
     }
   ]
 }

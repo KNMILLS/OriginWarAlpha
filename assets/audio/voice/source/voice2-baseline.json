@@ -1,0 +1,127 @@
+{
+  "base_commit": "039bebc8e0d36ab2497bd648c46da6de67d0fe2b",
+  "voice_index": {
+    "version": 1,
+    "clips": [
+      {
+        "dialogue_id": "alice-meet",
+        "text_sha256": "da1a54d558ac37cc5bf65e2d9c87aca0293f15174e9d046dd45425fc44c8591e",
+        "path": "audio/voice/alice-meet.ogg",
+        "sha256": "9e26330ae80e23d1205986c19c2db11fca3bdba9de67167d8c5d589f2a45e96f",
+        "duration_seconds": 17.815329
+      },
+      {
+        "dialogue_id": "alice-record",
+        "text_sha256": "af370c5a26dc2d3b1db8f42a4d9770f2fa730be8aa7ab6033bbc6f92d0c476d5",
+        "path": "audio/voice/alice-record.ogg",
+        "sha256": "57892c1f12d9e00826820aab8ddd7d578639421250a646e6e220ae43ca74d3cd",
+        "duration_seconds": 9.414785
+      },
+      {
+        "dialogue_id": "alice-agency",
+        "text_sha256": "6a47292421c1147d203359981130639e17a43f248ede23827407fe90e187e395",
+        "path": "audio/voice/alice-agency.ogg",
+        "sha256": "39f4810ff448b1496e2563c50696bd79c4155e5a0ac35e6a4cba1b392a9590aa",
+        "duration_seconds": 10.517732
+      },
+      {
+        "dialogue_id": "refusal",
+        "text_sha256": "1e5ad44ec2d8e27514f10b5a75951795d29d061e26aa4fba0b46967b2907f263",
+        "path": "audio/voice/refusal.ogg",
+        "sha256": "1cab8a857d4a4b2e0fbb608ba6e9427532396237e320db1d3b082442023f338d",
+        "duration_seconds": 11.441451
+      },
+      {
+        "dialogue_id": "sacrifice-plan",
+        "text_sha256": "6c0013c70f6bf47be8c69946461b9f64f64bda17cab9ae12b63551d4661ff451",
+        "path": "audio/voice/sacrifice-plan.ogg",
+        "sha256": "8a6e2f5dacd698c54aadb62ec3895f8296bf7af4bb1381afbae9f8753ef1ca31",
+        "duration_seconds": 14.756825
+      },
+      {
+        "dialogue_id": "pod-ready",
+        "text_sha256": "d95033fd1e54800857b4b56157444cc490ffed967fc72bd9a9dbc3e79c98ab5f",
+        "path": "audio/voice/pod-ready.ogg",
+        "sha256": "d1c6a2c5518abaafc7a53fb8ad38f4c6e04cb71467a01d26af8fae41bdfd2000",
+        "duration_seconds": 6.22712
+      },
+      {
+        "dialogue_id": "alice-talk",
+        "text_sha256": "e58784c4265e1ad1306dfee14202fedfc7b29055ee5164ebe257c32092646f1e",
+        "path": "audio/voice/alice-talk-0.ogg",
+        "sha256": "eeb5d9046d2cd9c2c52161d62008d9f26f7c1970b55c0a9562fa3aca08216f34",
+        "duration_seconds": 14.012336
+      },
+      {
+        "dialogue_id": "alice-talk",
+        "text_sha256": "398160c25f4ad5d360bd83765c1ab5e2bc3ddd4644033bf64e90183cbe5ce09e",
+        "path": "audio/voice/alice-talk-1.ogg",
+        "sha256": "466d5525e765801c982179bb3dc3e2a792d5d465164ddefc213e3b691fd09c5c",
+        "duration_seconds": 10.905941
+      },
+      {
+        "dialogue_id": "alice-talk",
+        "text_sha256": "9126be8ecda981d77f90fd6813da72fce487c0d9fd61788bfc007a9b1293f73b",
+        "path": "audio/voice/alice-talk-2.ogg",
+        "sha256": "bda727d227c4a6019bb46cb18e470a79c3d5405f272b34a92bb3ce9f1910dfbc",
+        "duration_seconds": 8.038277
+      }
+    ]
+  },
+  "voice_source_metadata_sha256": "24d0ecd7dac7381d71d4496ac649be85e08ab8514da4dde38a908686e7073142",
+  "unchanged_nonvoice": {
+    "assets/audio/music/menu.ogg": "32374b9b9beb3c5a01d5b6a798f9475e22bacacc84a28adb710b0a7b1d039a58",
+    "assets/audio/music/exploration.ogg": "c8dd064ae2552d119b889421f2950f7a5fdb46ab350a0f7b0997591712ed2dfe",
+    "assets/audio/music/combat.ogg": "ef8653e4a0147fb56f95a113a5633c9c2e595eb6a6bf1c20bf7ef2ef8b0fb0c2",
+    "assets/audio/music/danger.ogg": "0a5fefb2b4a961ae011ee0b3184c31d9afad8de5b8d57ccca6db50d8206b6cfa",
+    "assets/audio/music/alice.ogg": "be7fc671202f6c0c9b74be4e03e0c6df6813058a08b40cdcc83629bac61fdac0",
+    "assets/audio/music/ending.ogg": "7923b0c7ec15785ec35993c3a893643eecc00ff18e5812bb37d2ef4b651bbefb",
+    "assets/audio/sfx/step.wav": "c2e09d9e54c9de3280b44f6140953d4c9190cd90dee5af4c23bea0040c2e49c9",
+    "assets/audio/sfx/step_lowgrav.wav": "ce523936b25730c5640efcf242bb5ae4482ea03f235d4a3a174ef3fea5da2b74",
+    "assets/audio/sfx/door.wav": "ef08895b29ceedbb9798dff6f3b2d326e5ccbc3976062bda1fb5ea01338187eb",
+    "assets/audio/sfx/hatch.wav": "515bc24c02168a317f492d7895b95b3072bb1ef8c7d43c7e290579530768c0ac",
+    "assets/audio/sfx/lock.wav": "31d15116a5f16305a54092eab69d658d31f2f6a818d06dbb16dc3a5d591fa63d",
+    "assets/audio/sfx/pickup.wav": "75c2abc85f3a68d043962e2c815b9f427a1ee77f87e7c1064e61fe7eff1bc032",
+    "assets/audio/sfx/oxygen_refill.wav": "0dd56c550708de1dd5d362ef4e78b50641ee37d0f2eadeaed18d457f1b353b69",
+    "assets/audio/sfx/switch.wav": "a1a75090761455d50de07535d08d4b152469f118c6f338c43af765b769b40b16",
+    "assets/audio/sfx/warning.wav": "3a672bc663e305b84489ca280a5d849b5dbd87ec863c4d822db8991684f0c01b",
+    "assets/audio/sfx/alarm.wav": "566fec0e38592c7b3b46ec3995c8cd5313c0a50fa033a93ab3abbcd5bece674f",
+    "assets/audio/sfx/error.wav": "187aa66cec1d291719a50303807ea57bdbcefe061d9a2d9a34b7bc20d8a10848",
+    "assets/audio/sfx/confirm.wav": "9549585e299eebeabea96910698caf240543d1912d6d97b3e5a110eecbb4d624",
+    "assets/audio/sfx/ui.wav": "f30327208376cd9d61de7e9443f05a88765cc8de00503d84015ec822b704de2d",
+    "assets/audio/sfx/gun.wav": "bcaf0641d1784b6446615a1d81e6254a47fd182c7a60da8145f32bd801b29b75",
+    "assets/audio/sfx/impact.wav": "d61485344bf2bc3ddc7c6427e98319112e0653213332a77c019af991027e7fc9",
+    "assets/audio/sfx/melee.wav": "160994dd404943c96bf71eb0c11656ebd9ab08cd9aeba9689e3af19ebf157afc",
+    "assets/audio/sfx/drop.wav": "1cd1b06f709f0c5ee4a9977241e6ed2dac584622b3159844572aa89568ac8ea9",
+    "assets/audio/sfx/terminal.wav": "cba5bc29f300e15ab91e8f63f5cf843c24ea34cfe1bc79964a5c5e0f6a65e23e",
+    "assets/audio/sfx/robot_step.wav": "d0c895a4a6797d12d65dc2387fdbc5fa72b3a5d524478444cfeeb6d9354cbfab",
+    "assets/audio/sfx/sirs_step.wav": "efb5ecda0f81ebc43490ab3ff16ff80820bdedf486af4c894aacae963f8fbe24",
+    "assets/audio/sfx/add_step.wav": "aecd87c1aa1e324a67c377129299c85fbd7af78df24abe116b638b520b14ed57",
+    "assets/audio/sfx/rover_step.wav": "3236e4e170b758382dcf9f15c4385a03c5111ffd4e1057516e7c73c46fff0c24",
+    "assets/audio/sfx/sirs_gun.wav": "68c0c8fceb29db30a1760e182895ab899c8972b2defe55ff47515e778f276793",
+    "assets/audio/sfx/add_gun.wav": "c3ec068ec58156a52419297939009bdcd5d96683bd7168dc528c225929aa26df",
+    "assets/audio/sfx/rover.wav": "c2fb03c0dbe69d199615ee86e8d3228d8bbba46869da40fac2fbd92ba42abed9",
+    "assets/audio/sfx/rover_tick.wav": "f14041ce38882ad527e15dc2e68aa24eceb281a61848b91e771366834acf1003",
+    "assets/audio/sfx/explosion.wav": "61084af81bb92b994cab9e53141dbe938ac43d590b991550f9f59b38acb2f9fa",
+    "assets/audio/sfx/medicine.wav": "e568e85c22d56847734b8dd372267c6cbb28e43c64e9dc616678bbb6d227dcad",
+    "assets/audio/sfx/hack.wav": "0ebc1fa4b44159ba7c29b9f804768b55df48d1900e4f39e31f6bbfde6b8c0bbb",
+    "assets/audio/sfx/death.wav": "96adb72ab949a1c1d0221dfa5188b1d9b24a8b06d01bba3e7762f29fe1dde2eb",
+    "assets/audio/sfx/victory.wav": "ed58b20930d4a30c4b8b1ff9f1d53aaf6706c29794a1402d9d3bef574d10cf5e",
+    "assets/audio/sfx/breath.wav": "19cd6fa561b96a99567326200db64ff4cd9a03fa7f4bb15255c3c2ee10bdefcd",
+    "assets/audio/sfx/pulse.wav": "2319c76cac2a2f95bba9286673abc4c845b734974a05890b0dbb8e088993f896",
+    "assets/audio/sfx/hallucination.wav": "f7381a2bb4ab860f39c2bf947b0acd066c784a4b6ee2480d0581f7179b053449",
+    "assets/audio/ambience/breath_healthy.ogg": "ba548c86423ca89fa9e08e39aeace6f7e59086d4ea7c8464e9e836082f56fc20",
+    "assets/audio/ambience/breath_warning.ogg": "5fad748b5a6940cf04204bdb57ff1d225cee364c32f6ebc951cb4b54bf0f6fb6",
+    "assets/audio/ambience/breath_critical.ogg": "88922241b334fcb918facad569b955f3ca767caf990e8891efe790948c101490",
+    "assets/audio/ambience/heartbeat_healthy.ogg": "d0ca977db7205f440de25b96717a61e287135e272d3237eed716fd004e191176",
+    "assets/audio/ambience/heartbeat_warning.ogg": "e5c97148acdc3646f82a63b6ae383f023b5b869df72b6987632914738414ebe4",
+    "assets/audio/ambience/heartbeat_critical.ogg": "9721242e6326485105d2c50bd842173b037a38d05aa7b7e678f6faf5a60aae04",
+    "assets/audio/runtime.json": "9e00cc8e5a00b9e88aa1f01ae089ad5fc76c5183377ad3e73f7e94658e130ae1"
+  },
+  "comparison": {
+    "before": "assets/audio/voice/source/comparison/alice-record-before.ogg",
+    "before_sha256": "57892c1f12d9e00826820aab8ddd7d578639421250a646e6e220ae43ca74d3cd",
+    "after": "assets/audio/voice/source/comparison/alice-record-after.ogg",
+    "caption": "Same authoritative words: before, then after. Synthetic performance; owner listening remains open."
+  }
+}
