@@ -8,5 +8,6 @@ These are the opt-in local reports written by the actual Windows executable on n
 - rc4-map and rc4-record: actual enlarged screens; their primary save bytes were also compared unchanged before/after.
 - final-human-west and final-human-carmack: actual new human portrait/world idle integration with unchanged world ticks/resources, independently reviewed two-phase captures.
 - final-human-hypoxia: complete current-renderer normal-action hypoxia/recovery replay,1,359 ordinary commands,0saveerrors and0failed voices.
+- feedback-ui-opening/death: current smooth-font text, generous new-game opening, and actual normal-action old-suit death for enlarged footer/layout review; see PLAYTEST_FEEDBACK.md and the delivered companion verification for current full-package results.
 
 Build/source associations and exact scope are in ../VERIFICATION.md. Audio counters prove backend calls; no report proves human listening. Geometry-aware automated replay is not human difficulty acceptance. Source references and normal command fixtures allow reproduction without distributing the isolated user-save directories.

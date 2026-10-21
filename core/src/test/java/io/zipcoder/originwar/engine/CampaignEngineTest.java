@@ -15,7 +15,7 @@ class CampaignEngineTest {
         assertEquals("west-truth",run.saveState().activeDialogue);
         assertEquals(0,run.submit(PlayerAction.item(CHOOSE,"west-question")).cost());
         assertTrue(run.saveState().activeDialogue.isEmpty());assertEquals(before.combatRng,run.saveState().combatRng);
-        assertEquals(0,run.saveState().tick);assertEquals(360,run.saveState().reserve);
+        assertEquals(0,run.saveState().tick);assertEquals(RunEngine.STARTING_RESERVE,run.saveState().reserve);
         assertTrue(run.submit(PlayerAction.of(WAIT)).accepted());assertEquals(1,run.saveState().tick);
     }
     @Test void crewOxygenTransferUsesOneRealWorldTickAndPersistsItsDecision() {

@@ -45,7 +45,8 @@ class HypoxiaCampaignTest {
             trace.capture("hypoxia-clear");
 
             PerceptionModel.Frame warning=null;int waits=0;
-            while(trace.state().oxygenation>20 && waits<500) {
+            // Capacity increased after owner exploration feedback; drain the actual finite suit.
+            while(trace.state().oxygenation>20 && waits<before.maxReserve+100) {
                 trace.act(PlayerAction.of(WAIT));waits++;
                 GameState s=trace.state();
                 if(warning==null && s.oxygenation<=60 && s.oxygenation>30) {

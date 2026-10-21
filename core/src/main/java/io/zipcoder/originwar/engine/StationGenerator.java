@@ -72,7 +72,7 @@ final class StationGenerator {
         required.addAll(GridRoutes.route(s, start.x, start.y, activation.x, activation.y, false));
         required.addAll(GridRoutes.route(s, activation.x, activation.y, hatch.x, hatch.y, false));
         var supplied = new HashSet<Coord>();
-        addTank(s, start, 180, supplied);
+        addTank(s, start, s.deck == 1 ? 360 : 180, supplied);
         int costSinceSupply = 0;
         for (Coord cell : required) {
             costSinceSupply += GridRoutes.entryCost(s.tiles[cell.x][cell.y]);

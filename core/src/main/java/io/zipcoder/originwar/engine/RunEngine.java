@@ -12,17 +12,20 @@ import java.util.Objects;
 public final class RunEngine {
     public static final int LAST_DECK = 10, LOW_RESERVE = 90, MAX_INVENTORY = 24;
     public static final int OXYGENATION_LOSS = 5, OXYGENATION_RECOVERY = 4, SUFFOCATION_DAMAGE = 4;
+    public static final int STARTING_RESERVE = 900, STARTER_TANK = 360;
     private final GameState state;
 
     public RunEngine(long seed) {
         state = new GameState();
+        state.reserve = state.maxReserve = STARTING_RESERVE;
         state.seed = seed;
         state.combatRng = DeterministicRandom.mix(seed ^ 0x14A76CB1L);
         state.lootRng = DeterministicRandom.mix(seed ^ 0x3B719A62L);
         state.medicineRng = DeterministicRandom.mix(seed ^ 0x5CB41F83L);
         state.perceptionRng = DeterministicRandom.mix(seed ^ 0x7DA65294L);
         state.activeDialogue = "";
-        state.inventory.add(StationGenerator.tank(0, -1, -1, 240, "starter"));
+        state.inventory.add(StationGenerator.tank(0, -1, -1, STARTER_TANK, "starter"));
+        state.inventory.add(StationGenerator.tank(0, -1, -1, STARTER_TANK, "spare"));
         state.log.add("Boarded the station. Find the security switch and exit hatch. Oxygen is finite.");
         StationGenerator.generate(state);
         Campaign.begin(state);
@@ -38,6 +41,8 @@ public final class RunEngine {
 
     public WorldSnapshot snapshot() { return new WorldSnapshot(state); }
     public GameState saveState() { return state.copy(); }
+    /** Warn with a quarter of this suit's finite reserve left, including older360-unit suits. */
+    public static int lowReserveThreshold(GameState world) { return Math.max(LOW_RESERVE,world.maxReserve/4); }
     public static boolean isThreat(GameState world,GameState.Actor actor){return CombatRules.alive(actor)&&CombatRules.hostile(actor)&&!EnemyTurns.disabled(world,actor);}
 
     /** Known terrain only. Closed doors emit two moves: open in place, then enter. */
@@ -289,8 +294,9 @@ public final class RunEngine {
             if (state.hp > 0) state.hp = Math.max(state.flags.contains(MedicineRules.TOXIN_FLAG) ? 1 : 0, state.hp - 1);
             if (state.poisonTicks == 0) state.flags.remove(MedicineRules.TOXIN_FLAG);
         }
-        if (previousReserve > LOW_RESERVE && state.reserve <= LOW_RESERVE)
-            events.add(new GameEvent("warning", state.playerX, state.playerY, "Oxygen reserve low. Use a finite oxygen tank."));
+        int lowReserve = lowReserveThreshold(state);
+        if (previousReserve > lowReserve && state.reserve <= lowReserve)
+            events.add(new GameEvent("warning", state.playerX, state.playerY, "Oxygen reserve low. Press R to use a carried tank; G collects supplies underfoot."));
         if (previousReserve > 0 && state.reserve == 0)
             events.add(new GameEvent("warning", state.playerX, state.playerY, "Reserve empty. Oxygenation is falling."));
         if (previousOxygenation > 70 && state.oxygenation <= 70)

@@ -22,12 +22,15 @@ tasks.register('verifyAssets') {
         def sizes=['art/station.png':[1024,1024],'art/animation/actors.png':[1024,1024],
             'art/sectors/sectors.png':[1024,512],'art/finale/finale.png':[1024,512],
             'art/animation/directional-actions/attack.png':[1024,384],
-            'art/animation/humans/humans.png':[1024,128]]
+            'art/animation/humans/humans.png':[1024,128],'ui/ui.png':[1024,1024]]
         sizes.each { path,size ->
             def image=javax.imageio.ImageIO.read(file('assets/'+path))
             if(image==null||image.width!=size[0]||image.height!=size[1])throw new GradleException('Invalid runtime art: '+path)
         }
         def digest={f -> java.security.MessageDigest.getInstance('SHA-256').digest(f.bytes).encodeHex().toString()}
+        def uiFont=new groovy.json.JsonSlurper().parse(file('assets/ui/manifest.json'))
+        if(digest(file('assets/ui/source/LiberationSans-Regular.ttf'))!=uiFont.source_sha256)throw new GradleException('UI font source mismatch')
+        uiFont.outputs.each { path,hash -> if(!file('assets/ui/'+path).isFile()||digest(file('assets/ui/'+path))!=hash)throw new GradleException('UI font mismatch: '+path) }
         def audio=new groovy.json.JsonSlurper().parse(file('assets/audio/manifest.json'))
         if(audio.music.size()!=6||audio.sfx.size()<25)throw new GradleException('Incomplete soundtrack/effects')
         (audio.music.values()+audio.sfx.values()).each { item ->

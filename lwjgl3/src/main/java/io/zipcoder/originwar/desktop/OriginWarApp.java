@@ -51,15 +51,15 @@ public final class OriginWarApp extends ApplicationAdapter {
     private Screen proseScreen;
     private String lastDialogue="";
     private float mapX,mapY,mapW,mapH,originX,originY,tile=64,worldZoom=64;
-    private boolean focused=true,seedEditing,captureRequested;
+    private boolean focused=true,seedEditing,captureRequested,noticeInDialogue=true;
     private int replayDelay=6;
     private Path screenshotDirectory;
-    private final Color ink=new Color(.72f,.81f,.84f,1),cyan=new Color(.34f,.83f,.83f,1),amber=new Color(.96f,.68f,.3f,1);
+    private final Color ink=new Color(.90f,.94f,.95f,1),cyan=new Color(.34f,.83f,.83f,1),amber=new Color(.96f,.68f,.3f,1);
 
     public OriginWarApp(String[] args){this.args=args;}
     @Override public void create(){
-        batch=new SpriteBatch();font=new BitmapFont();art=new GameArt();
-        font.getRegion().getTexture().setFilter(Texture.TextureFilter.Nearest,Texture.TextureFilter.Nearest);
+        batch=new SpriteBatch();font=new BitmapFont(Gdx.files.internal("ui/ui.fnt"));art=new GameArt();
+        font.getRegion().getTexture().setFilter(Texture.TextureFilter.Linear,Texture.TextureFilter.Linear);
         String local=System.getenv("LOCALAPPDATA");
         Path data=Path.of(local==null?System.getProperty("user.home"):local,"OriginWar");
         for(String arg:args){
@@ -91,7 +91,11 @@ public final class OriginWarApp extends ApplicationAdapter {
         });
         for(String arg:args)if(arg.equals("--play"))newGame();
         for(String arg:args)if(arg.equals("--resume"))resumeGame();
-        if(state!=null)for(String arg:args){if(arg.equals("--view=map"))open(Screen.MAP);else if(arg.equals("--view=record"))open(Screen.RECORD);else if(arg.equals("--view=inventory"))open(Screen.INVENTORY);else if(arg.equals("--view=stats"))open(Screen.STATS);}
+        if(state!=null)for(String arg:args){if(arg.startsWith("--view="))try{
+            Screen view=Screen.valueOf(arg.substring(7).toUpperCase(Locale.ROOT));
+            if(!EnumSet.of(Screen.MAP,Screen.RECORD,Screen.INVENTORY,Screen.STATS,Screen.JOURNAL,Screen.SETTINGS,Screen.HELP,Screen.PAUSE,Screen.CREDITS).contains(view))throw new IllegalArgumentException("Not a reading screen");
+            open(view);
+        }catch(IllegalArgumentException error){throw new IllegalArgumentException("Unknown reading view: "+arg,error);}}
         Gdx.app.log("OriginWar","Assets: atlas="+art.ready()+", music="+audio.loadedMusic()+", SFX="+audio.loadedSounds());
         if(!replay.isEmpty())Gdx.app.log("Replay","Ordinary action replay; no state injection. Commands="+replay.size());
     }
@@ -100,19 +104,19 @@ public final class OriginWarApp extends ApplicationAdapter {
             long seed=Long.parseLong(seedText);var candidate=new RunEngine(seed);saves.begin(candidate.saveState());
             engine=candidate;state=engine.snapshot().world();
             cameraX=state.playerX;cameraY=state.playerY;targetX=-1;targetY=-1;selectedItem=0;journalEntry=0;journalPage=0;endingStarted=-1;effects.clear();walking.clear();screen=Screen.PLAY;
-            notice("Expedition "+seed+". Find the security override and exit hatch.");
+            hint("Expedition "+seed+". Find the security override and exit hatch.");
         }catch(Exception e){notice("Cannot start expedition: "+e.getMessage());Gdx.app.error("NewGame",e.getMessage(),e);}
     }
     private void resumeGame(){
         try{
             engine=new RunEngine(saves.load());state=engine.snapshot().world();cameraX=state.playerX;cameraY=state.playerY;
             walking.clear();targetX=-1;targetY=-1;selectedItem=0;journalEntry=Math.max(0,state.journal.size()-1);endingStarted=-1;endingPanel=true;screen=state.dead?Screen.DEAD:state.victory?Screen.VICTORY:Screen.PLAY;
-            notice(saves.usedBackup()?"Recovered the last good backup.":"Expedition resumed.");
+            hint(saves.usedBackup()?"Recovered the last good backup.":"Expedition resumed.");
         }catch(Exception e){notice(e.getMessage());}
     }
     private boolean act(PlayerAction action){
         if(engine==null||state==null||state.dead||state.victory||!focused)return false;
-        int oldDeck=state.deck;var result=engine.submit(action);
+        int oldDeck=state.deck;String oldDialogue=state.activeDialogue;var result=engine.submit(action);
         if(!result.accepted()){
             if(action.type()!=PlayerAction.Type.MOVE)notice("Action unavailable. Check range, supplies or equipment.");
             return false;
@@ -122,6 +126,7 @@ public final class OriginWarApp extends ApplicationAdapter {
             float duration=event.type().equals("explosion")?.8f:Set.of("hit","impact").contains(event.type())?.16f:.32f;
             if(Set.of("gun","melee","hit","impact","explosion","death").contains(event.type()))effects.add(new Effect(event.type(),event.x(),event.y(),event.type().equals("gun")&&event.x()==state.playerX&&event.y()==state.playerY?action.x():state.playerX,event.type().equals("gun")&&event.x()==state.playerX&&event.y()==state.playerY?action.y():state.playerY,clock+duration));
         }
+        if(oldDialogue.equals("west-truth")&&state.activeDialogue.isEmpty())hint("G: collect supplies. R: refill oxygen.");
         if(state.deck!=oldDeck){walking.clear();effects.clear();targetX=-1;targetY=-1;cameraX=state.playerX;cameraY=state.playerY;}
         try{saves.save(engine.saveState());}catch(Exception e){saveFailures++;notice("Save failed: "+e.getMessage());Gdx.app.error("Save",e.getMessage(),e);}
         if(state.dead){walking.clear();screen=Screen.DEAD;}else if(state.victory){walking.clear();screen=Screen.VICTORY;}
@@ -228,15 +233,18 @@ public final class OriginWarApp extends ApplicationAdapter {
         ScreenUtils.clear(.025f,.039f,.052f,1);
         batch.setProjectionMatrix(new Matrix4().setToOrtho2D(0,0,Gdx.graphics.getWidth(),Gdx.graphics.getHeight()));
         buttons.clear();sliders.clear();batch.begin();
-        if(state!=null&&screen!=Screen.TITLE&&screen!=Screen.CREDITS&&screen!=Screen.VICTORY){world(dt);hud();}
+        if(state!=null&&screen!=Screen.TITLE&&screen!=Screen.CREDITS&&screen!=Screen.VICTORY){world(dt);if(screen==Screen.PLAY&&state.activeDialogue.isEmpty())hud();}
         switch(screen){
             case TITLE->title();case PLAY->{if(state!=null&&!state.activeDialogue.isEmpty())dialogue();}case PAUSE->pauseMenu();case INVENTORY->inventory();
             case JOURNAL->journal();case STATS->stats();case MAP->stationMap();case RECORD->runRecord();case SETTINGS->settings();case HELP->help();
             case CREDITS->credits();case DEAD->ending(false);case VICTORY->ending(true);
         }
-        if(noticeTime>0&&!notice.isEmpty()){
-            rect(24,14,Gdx.graphics.getWidth()-48,34,new Color(.05f,.09f,.12f,.98f));
-            text(notice,36,39,1,amber);
+        if(noticeTime>0&&!notice.isEmpty()&&(state==null||state.activeDialogue.isEmpty()||noticeInDialogue)){
+            float width=Gdx.graphics.getWidth()-72;String label=notice;
+            fontScale(1);layout.setText(font,label);
+            while(layout.width>width&&label.length()>4){label=label.substring(0,label.length()-4)+"...";layout.setText(font,label);}
+            rect(24,0,Gdx.graphics.getWidth()-48,Math.min(40,layout.height+12),new Color(.05f,.09f,.12f,1));
+            text(label,36,6+layout.height,1,amber);
         }
         batch.end();frame++;
         if(captureRequested){
@@ -356,37 +364,51 @@ public final class OriginWarApp extends ApplicationAdapter {
     private void hud(){
         if(settings.uiScale>1.25f){largeHud();return;}
         float w=Gdx.graphics.getWidth(),h=Gdx.graphics.getHeight(),x=w-310;
-        text("ORIGIN WAR",24,h-30,1.8f,cyan);text(zoneName()+" / DECK "+state.deck,250,h-32,1,ink);
+        text("ORIGIN WAR",24,h-30,1.4f,cyan);text(zoneName()+" / DECK "+state.deck,24,h-70,.95f,ink);
         text("SEED "+state.seed+"   TICK "+state.tick,w-310,h-32,.9f,ink);
         rect(x,mapY,286,mapH,new Color(.035f,.065f,.083f,1));text("SUIT TELEMETRY",x+16,h-126,1.1f,cyan);
         bar(x+16,h-162,254,14,(float)state.hp/state.maxHp,new Color(.8f,.29f,.32f,1));
         text("HP "+state.hp+" / "+state.maxHp,x+16,h-179,1,ink);
-        bar(x+16,h-216,254,14,(float)state.reserve/state.maxReserve,state.reserve<72?amber:cyan);
+        bar(x+16,h-216,254,14,(float)state.reserve/state.maxReserve,state.reserve<=RunEngine.lowReserveThreshold(state)?amber:cyan);
         text("OXYGEN "+state.reserve+" / "+state.maxReserve,x+16,h-233,1,ink);
         text("Oxygenation "+state.oxygenation+"%",x+16,h-260,1,state.oxygenation<65?amber:ink);
         text("STR "+state.str+"    INT "+state.intel+"    DEX "+state.dex,x+16,h-303,1,ink);
         text("Lv "+state.level+"   Battery cells "+state.batteries,x+16,h-329,1,ink);
-        text("Weapon: "+state.weapon,x+16,h-367,1,ink);text("Armor: "+state.armor,x+16,h-393,1,ink);
-        paragraph(Campaign.objective(state),x+16,h-420,250,.95f,amber);
-        if(perception!=null&&perception.intensity()>0)text(perception.status(),24,h-78,.95f,amber);
+        text(state.weapon+" / "+state.armor+" / Tanks "+carriedTanks(),x+16,h-358,.95f,ink);
+        hudObjective(x+16,h-390,250);
+        perceptionBanner();
         button("Inventory [Tab]",x+16,mapY+77,254,30,()->open(Screen.INVENTORY));
         button("Journal [J]",x+16,mapY+41,254,30,()->open(Screen.JOURNAL));
         button("Pause [Esc]",x+16,mapY+5,254,30,()->open(Screen.PAUSE));
-        text("WASD/arrows move  E interact  G pick up  R refill  Space wait  RMB inspect  Z zoom",24,132,.95f,ink);
+        text("WASD move  E interact  G pick up  R refill  Tab inventory  K map",24,132,.95f,ink);
         int start=Math.max(0,state.log.size()-3);
-        for(int n=start;n<state.log.size();n++)text(state.log.get(n),24,103-(n-start)*21,.95f,n==state.log.size()-1?cyan:ink);
+        float logY=103,logBottom=noticeTime>0&&!notice.isEmpty()?64:24;for(int n=state.log.size()-1;n>=start;n--){
+            var message=state.log.get(n);var lines=pages(message,w-48,Math.max(20,logY-logBottom),.95f);
+            fontScale(.95f);layout.setText(font,lines.getFirst(),ink,w-48,Align.left,true);if(logY-layout.height<logBottom)break;
+            float used=paragraph(lines.getFirst(),24,logY,w-48,.95f,n==state.log.size()-1?cyan:ink);logY-=used+9;
+        }
     }
     private void largeHud(){
         float w=Gdx.graphics.getWidth(),h=Gdx.graphics.getHeight(),x=w-380;
-        text("ORIGIN WAR",24,h-32,1.3f,cyan);text("DECK "+state.deck+" / "+zoneName(),24,h-72,.72f,ink);
+        text("ORIGIN WAR",24,h-32,1.05f,cyan);paragraph("DECK "+state.deck+" / "+zoneName(),24,h-72,w-48,.95f,ink);
         rect(x,mapY,356,mapH,new Color(.035f,.065f,.083f,1));
-        bar(x+14,h-136,328,14,(float)state.hp/state.maxHp,new Color(.8f,.29f,.32f,1));text("HP "+state.hp+" / "+state.maxHp,x+14,h-151,.85f,ink);
-        bar(x+14,h-210,328,14,(float)state.reserve/state.maxReserve,state.reserve<72?amber:cyan);text("O2 "+state.reserve+" / "+state.maxReserve,x+14,h-226,.85f,ink);
+        bar(x+14,h-136,328,14,(float)state.hp/state.maxHp,new Color(.8f,.29f,.32f,1));text("HP "+state.hp+" / "+state.maxHp,x+14,h-151,.95f,ink);
+        bar(x+14,h-210,328,14,(float)state.reserve/state.maxReserve,state.reserve<=RunEngine.lowReserveThreshold(state)?amber:cyan);fittedText("O2 "+state.reserve+" / "+state.maxReserve+" | Tanks "+carriedTanks(),x+14,h-226,328,.95f,ink);
         text("Oxygenation "+state.oxygenation+"%",x+14,h-276,.85f,state.oxygenation<70?amber:ink);
-        paragraph(Campaign.objective(state),x+14,h-322,328,.76f,amber);
+        hudObjective(x+14,h-322,328);
         button("Inventory [Tab]",x+14,mapY+77,328,30,()->open(Screen.INVENTORY));button("Journal [J]",x+14,mapY+41,328,30,()->open(Screen.JOURNAL));button("Pause [Esc]",x+14,mapY+5,328,30,()->open(Screen.PAUSE));
-        if(!state.log.isEmpty())paragraph(state.log.getLast(),24,128,w-48,.8f,ink);
-        if(perception!=null&&perception.intensity()>0)text("HYPOXIA / suit sensors remain reliable",24,h-104,.75f,amber);
+        if(!state.log.isEmpty())paragraph(state.log.getLast(),24,128,w-48,.95f,ink);
+        perceptionBanner();
+    }
+    private int carriedTanks(){return state.inventory.stream().filter(i->i.type==GameState.ItemType.OXYGEN&&i.power>0).mapToInt(i->i.quantity).sum();}
+    private void perceptionBanner(){
+        if(perception==null||perception.intensity()==0)return;
+        rect(mapX,mapY+mapH-44,mapW,44,new Color(.025f,.02f,.03f,1));
+        text(state.oxygenation<=30?"CRITICAL HYPOXIA":"LOW OXYGENATION",mapX+10,mapY+mapH-10,.95f,amber);
+    }
+    private void hudObjective(float x,float top,float width){
+        var objective=pages(Campaign.objective(state),width,Math.max(30,top-(mapY+120)),.95f);
+        paragraph(objective.getFirst(),x,top,width,.95f,amber);
     }
     private String zoneName(){
         return new String[]{"DOCKING / SECURITY","HABITATION / MAINTENANCE","MEDICAL / RESEARCH","AUTOMATED DEFENSE","COMMAND / EVACUATION"}[Math.min(4,(state.deck-1)/2)];
@@ -412,22 +434,23 @@ public final class OriginWarApp extends ApplicationAdapter {
         var node=Campaign.dialogue(state);buttons.clear();sliders.clear();
         if(!lastDialogue.equals(state.activeDialogue)){dialoguePage=0;lastDialogue=state.activeDialogue;}
         float w=Gdx.graphics.getWidth(),h=Gdx.graphics.getHeight();
-        rect(36,52,w-72,h-104,new Color(.018f,.04f,.055f,.99f));
+        rect(0,0,w,h,new Color(.008f,.018f,.027f,1));rect(36,52,w-72,h-104,new Color(.018f,.04f,.055f,1));
         int speaker=node.speaker().contains("WEST")?0:node.speaker().equals("DR. JAMES CARMACK")?1:node.speaker().startsWith("STATION MEDIC")?2:-1;
         boolean aliceSpeaker=node.speaker().equals("A.L.I.C.E.");
         boolean portrait=speaker>=0&&art.completeHumans()||aliceSpeaker&&art.completeActors();
         text(node.speaker(),66,h-87,1.15f,amber);
-        font.getData().setScale(1.7f*settings.uiScale);layout.setText(font,node.title());
-        text(node.title(),66,h-124,1.7f*Math.min(1,(w-132-(portrait?128:0))/Math.max(1,layout.width)),cyan);
+        fontScale(1.7f);layout.setText(font,node.title());
+        float titleScale=1.7f*Math.min(1,(w-132-(portrait?128:0))/Math.max(1,layout.width));
+        text(node.title(),66,h-124,titleScale,cyan);fontScale(titleScale);layout.setText(font,node.title());float titleHeight=layout.height;
         if(portrait){float ax=w-148,ay=h-156;rect(ax-4,ay-4,72,72,new Color(.035f,.075f,.09f,1));if(speaker>=0)art.human(batch,speaker,(int)(clock*.8f)%2,ax,ay,64);else art.actor(batch,1,2,(int)(clock*.8f)%2,ax,ay,64);}
         float choicesHeight=0;
         var choiceLabels=new ArrayList<String>();var choiceHeights=new ArrayList<Float>();int ordinal=0;
         for(var choice:node.choices()){
             String label=(++ordinal)+". "+choice.label()+(choice.available(state)?"":" [unavailable]");
-            font.getData().setScale(.95f*settings.uiScale);layout.setText(font,label,ink,w-156,Align.left,true);
+            fontScale(.95f);layout.setText(font,label,ink,w-156,Align.left,true);
             float height=Math.max(36,layout.height+20);choiceLabels.add(label);choiceHeights.add(height);choicesHeight+=height+8;
         }
-        float top=h-166,bottom=82+choicesHeight+40;
+        float top=Math.min(h-180,h-124-titleHeight-26),bottom=82+choicesHeight+40;
         // Paragraph paging keeps all authored prose and choices reachable at enlarged text sizes.
         var pages=pages(node.text(),w-132,Math.max(60,top-bottom),1.05f);
         dialoguePage=Math.max(0,Math.min(dialoguePage,pages.size()-1));
@@ -448,16 +471,17 @@ public final class OriginWarApp extends ApplicationAdapter {
     private List<String> pages(String value,float width,float height,float scale){
         var result=new ArrayList<String>();String current="";
         for(String word:value.split("(?<=\\s)")){
-            font.getData().setScale(scale*settings.uiScale);layout.setText(font,current+word,ink,width,Align.left,true);
+            fontScale(scale);layout.setText(font,current+word,ink,width,Align.left,true);
             if(layout.height>height&&!current.isEmpty()){result.add(current.strip());current=word.stripLeading();}else current+=word;
         }
         if(!current.isEmpty())result.add(current.strip());if(result.isEmpty())result.add("");return result;
     }
     private void title(){
         float w=Gdx.graphics.getWidth(),h=Gdx.graphics.getHeight(),x=w*.62f,y=h-160;
-        font.getData().setScale(4);font.setColor(cyan);font.draw(batch,"ORIGIN",w*.11f,h-140);font.setColor(ink);font.draw(batch,"WAR",w*.11f,h-220);
-        text("2115 / THE ORBITAL STATION",w*.11f,h-255,1.1f,amber);
-        paragraph("The briefing said communications failure.\nCaptain West has another explanation.",w*.11f,h-306,500,1.1f,ink);
+        fontScale(3/settings.uiScale);font.setColor(cyan);font.draw(batch,"ORIGIN",w*.11f,h-90);font.setColor(ink);font.draw(batch,"WAR",w*.11f,h-165);
+        float leftWidth=x-w*.11f-40;
+        paragraph("2115 / THE ORBITAL STATION",w*.11f,h-240,leftWidth,1.05f,amber);
+        paragraph("Your orders promise a routine assignment. The station tells another story.",w*.11f,h-330,leftWidth,1.05f,ink);
         button("New expedition [Enter]",x,y,330,48,this::newGame);
         button("Resume expedition",x,y-60,330,48,this::resumeGame);
         button("How to play",x,y-120,330,48,()->open(Screen.HELP));
@@ -466,14 +490,14 @@ public final class OriginWarApp extends ApplicationAdapter {
         button("Quit",x,y-300,330,48,()->Gdx.app.exit());
         button("Seed: "+seedText+(seedEditing?"_":""),w*.11f,160,380,38,()->seedEditing=true);
         button("Randomize",w*.11f,110,180,36,()->seedText=""+System.currentTimeMillis());
-        paragraph("Death ends an expedition. Suspend and resume between decisions.",w*.11f,64,w*.78f,.85f,ink);
+        if(noticeTime<=0||notice.isEmpty())paragraph("Death ends an expedition. Suspend and resume between decisions.",w*.11f,80,w*.78f,.95f,ink);
     }
     private void overlay(String title){
         buttons.clear();sliders.clear();
         float w=Gdx.graphics.getWidth(),h=Gdx.graphics.getHeight();
-        rect(0,0,w,h,new Color(.008f,.018f,.027f,.96f));
-        font.getData().setScale(2*settings.uiScale);layout.setText(font,title);
-        text(title,80,h-70,2*Math.min(1,(w-160)/Math.max(1,layout.width)),cyan);
+        rect(0,0,w,h,new Color(.008f,.018f,.027f,1));
+        fontScale(2);layout.setText(font,title);
+        text(title,80,h-70,2*Math.min(1,Math.min((w-160)/Math.max(1,layout.width),40/Math.max(1,layout.height))),cyan);
         float backWidth=settings.uiScale>1.25f?250:160;button("Back [Esc]",w-80-backWidth,44,backWidth,36,this::back);
     }
     private void pauseMenu(){
@@ -488,8 +512,8 @@ public final class OriginWarApp extends ApplicationAdapter {
     }
     private void stationMap(){
         overlay("STATION MAP / DECK "+state.deck);float w=Gdx.graphics.getWidth(),h=Gdx.graphics.getHeight();
-        paragraph("Explored terrain. Cyan: you. Amber: objectives. Red: visible threat.",80,h-120,w-160,.8f,ink);
-        float size=Math.min((w-160)/state.width,(h-290)/state.height),left=(w-size*state.width)/2,top=h-190;
+        float legendHeight=paragraph("Explored terrain. Cyan: you. Amber: objectives. Red: visible threat.",80,h-120,w-160,.95f,ink);
+        float top=h-120-legendHeight-26,size=Math.min((w-160)/state.width,(top-130)/state.height),left=(w-size*state.width)/2;
         for(int x=0;x<state.width;x++)for(int y=0;y<state.height;y++)if(state.explored[x][y]){
             Tile t=state.tiles[x][y];Color color=t.blocksMovement?new Color(.19f,.25f,.28f,1):state.visible[x][y]?new Color(.42f,.56f,.59f,1):new Color(.16f,.25f,.28f,1);
             if(t==Tile.HATCH||t==Tile.SWITCH||t==Tile.TERMINAL)color=amber;
@@ -514,12 +538,12 @@ public final class OriginWarApp extends ApplicationAdapter {
     private void inventory(){
         overlay("INVENTORY / EQUIPMENT");float h=Gdx.graphics.getHeight(),w=Gdx.graphics.getWidth(),detailX=w*.53f,listWidth=detailX-120;
         selectedItem=Math.max(0,Math.min(selectedItem,state.inventory.size()-1));
-        text("Weapon "+state.weapon+" / Armor "+state.armor+" / Cells "+state.batteries,90,h-115,.85f,ink);
+        text("Weapon "+state.weapon+" / Armor "+state.armor+" / Cells "+state.batteries,90,h-115,.95f,ink);
         if(state.inventory.isEmpty()){text("Your pack is empty.",90,h-170,1,ink);return;}
         var labels=new ArrayList<String>();var heights=new ArrayList<Float>();
         for(int n=0;n<state.inventory.size();n++){
             var item=state.inventory.get(n);String label=(n==selectedItem?"> ":"  ")+item.name+" x"+item.quantity;
-            font.getData().setScale(.95f*settings.uiScale);layout.setText(font,label,ink,listWidth-24,Align.left,true);
+            fontScale(.95f);layout.setText(font,label,ink,listWidth-24,Align.left,true);
             labels.add(label);heights.add(Math.max(40,layout.height+20));
         }
         float available=h-290,used=heights.get(selectedItem);int first=selectedItem;
@@ -530,12 +554,15 @@ public final class OriginWarApp extends ApplicationAdapter {
             final int index=n;
             wrappedButton(labels.get(n),90,rowTop,listWidth,height,()->selectedItem=index);rowTop-=6;
         }
+        button("Up",90,88,80,36,()->selectedItem=Math.max(0,selectedItem-1));
+        button("Down",182,88,100,36,()->selectedItem=Math.min(state.inventory.size()-1,selectedItem+1));
+        fittedText("Item "+(selectedItem+1)+"/"+state.inventory.size(),294,113,listWidth-204,.95f,ink);
         if(selectedItem<0||selectedItem>=state.inventory.size())return;
         var item=state.inventory.get(selectedItem);float titleHeight=paragraph(item.name,detailX,h-170,w-detailX-70,1.2f,cyan);
         if(lastSelectedItem!=selectedItem){itemPage=0;lastSelectedItem=selectedItem;}
         float top=h-190-titleHeight;var pages=pages(itemDescription(item)+equipmentComparison(item),w-detailX-70,Math.max(60,top-280),1.05f);
         itemPage=Math.max(0,Math.min(itemPage,pages.size()-1));paragraph(pages.get(itemPage),detailX,top,w-detailX-70,1.05f,ink);
-        if(pages.size()>1){button("<",detailX,235,60,32,()->itemPage=Math.max(0,itemPage-1));button(">",detailX+72,235,60,32,()->itemPage=Math.min(pages.size()-1,itemPage+1));text((itemPage+1)+" / "+pages.size(),detailX+150,257,.8f,ink);}
+        if(pages.size()>1){button("<",detailX,235,60,32,()->itemPage=Math.max(0,itemPage-1));button(">",detailX+72,235,60,32,()->itemPage=Math.min(pages.size()-1,itemPage+1));text((itemPage+1)+" / "+pages.size(),detailX+150,257,.95f,ink);}
         if(item.type==GameState.ItemType.OXYGEN||item.type==GameState.ItemType.MEDICINE||item.type==GameState.ItemType.CELL)
             button("Use [U]",detailX,175,180,40,()->inventoryAction(PlayerAction.Type.USE));
         else button("Equip [Q]",detailX,175,180,40,()->inventoryAction(PlayerAction.Type.EQUIP));
@@ -572,7 +599,7 @@ public final class OriginWarApp extends ApplicationAdapter {
         journalPage=Math.max(0,Math.min(journalPage,pages.size()-1));paragraph(pages.get(journalPage),90,y,w-190,1,ink);
         button("Previous entry",90,96,220,36,()->journalEntry=Math.max(0,journalEntry-1));button("Next entry",326,96,220,36,()->journalEntry=Math.min(state.journal.size()-1,journalEntry+1));
         button("Page <",90,145,150,34,()->journalPage=Math.max(0,journalPage-1));button("Page >",254,145,150,34,()->journalPage=Math.min(pages.size()-1,journalPage+1));
-        text((journalEntry+1)+" / "+state.journal.size()+"    Page "+(journalPage+1)+" / "+pages.size(),430,170,.8f,ink);
+        fittedText("Entry "+(journalEntry+1)+"/"+state.journal.size()+" / Page "+(journalPage+1)+"/"+pages.size(),430,170,w-520,.95f,ink);
     }
     private void stats(){
         overlay("CHARACTER / ADVANCEMENT");float y=Gdx.graphics.getHeight()-150;
@@ -585,7 +612,7 @@ public final class OriginWarApp extends ApplicationAdapter {
         String[] names={"Master volume","Music volume","Effects volume","UI scale"};
         float[] values={settings.master,settings.music,settings.sfx,settings.uiScale-1};
         for(int n=0;n<4;n++){
-            text(names[n],100,y-n*65,1.15f,ink);Rectangle box=new Rectangle(400,y-n*65-18,420,22);
+            fittedText(names[n],100,y-n*65,270,1.15f,ink);Rectangle box=new Rectangle(400,y-n*65-18,420,22);
             rect(box.x,box.y,box.width,box.height,new Color(.1f,.19f,.23f,1));rect(box.x,box.y,box.width*values[n],box.height,cyan);
             sliders.add(new Slider(box,n));text(n==3?Math.round(settings.uiScale*100)+"%":Math.round(values[n]*100)+"%",850,y-n*65,1,ink);
         }
@@ -618,10 +645,10 @@ public final class OriginWarApp extends ApplicationAdapter {
             rect(0,h-90,w,90,new Color(.008f,.02f,.04f,.72f));text(caption,32,h-34,1.4f,cyan);
             if(elapsed<4)return;
             button("Run record",w-290,h-75,250,40,()->open(Screen.RECORD));
-            if(!endingPanel){button("Read epilogue",40,28,280,44,()->endingPanel=true);return;}
-            float panel=settings.uiScale>1.25f?420:340;rect(0,0,w,panel,new Color(.008f,.018f,.027f,.96f));
+            if(!endingPanel){button("Read epilogue",40,48,280,44,()->endingPanel=true);return;}
+            float panel=settings.uiScale>1.25f?420:340;rect(0,0,w,panel,new Color(.008f,.018f,.027f,1));
             pagedProse(Campaign.epilogue(state),40,panel-26,w-80,94,1.02f);
-            button("New expedition",40,28,280,44,this::newGame);button("Title",340,28,180,44,()->screen=Screen.TITLE);button("Credits",540,28,180,44,()->open(Screen.CREDITS));button("View scene",w-290,28,250,44,()->endingPanel=false);return;
+            button("New expedition",40,48,280,44,this::newGame);button("Title",340,48,180,44,()->screen=Screen.TITLE);button("Credits",540,48,180,44,()->open(Screen.CREDITS));button("View scene",w-290,48,250,44,()->endingPanel=false);return;
         }
         overlay(won?"TOWARD MARS":"EXPEDITION LOST");
         String body=won?Campaign.epilogue(state)
@@ -639,15 +666,19 @@ public final class OriginWarApp extends ApplicationAdapter {
         audio.pause(screen==Screen.PAUSE);
     }
     private void fullscreen(){if(Gdx.graphics.isFullscreen())Gdx.graphics.setWindowedMode(1280,720);else Gdx.graphics.setFullscreenMode(Gdx.graphics.getDisplayMode());}
-    private void notice(String message){notice=message==null?"Unknown error":message;noticeTime=7;}
+    private void notice(String message){notice=message==null?"Unknown error":message;noticeTime=7;noticeInDialogue=true;}
+    private void hint(String message){notice(message);noticeInDialogue=false;}
     private void rect(float x,float y,float w,float h,Color color){batch.setColor(color);batch.draw(art.white(),x,y,w,h);batch.setColor(Color.WHITE);}
-    private void text(String value,float x,float y,float scale,Color color){font.getData().setScale(scale*settings.uiScale);font.setColor(color);font.draw(batch,value,x,y);}
+    private void fontScale(float scale){font.getData().setScale(scale*settings.uiScale/3f);}
+    private void text(String value,float x,float y,float scale,Color color){fontScale(scale);font.setColor(color);font.draw(batch,value,x,y);}
+    private void fittedText(String value,float x,float y,float width,float scale,Color color){fontScale(scale);layout.setText(font,value);text(value,x,y,scale*Math.min(1,width/Math.max(1,layout.width)),color);}
     private float paragraph(String value,float x,float y,float width,float scale,Color color){
-        font.getData().setScale(scale*settings.uiScale);layout.setText(font,value,color,width,Align.left,true);font.draw(batch,layout,x,y);return layout.height;
+        fontScale(scale);layout.setText(font,value,color,width,Align.left,true);font.draw(batch,layout,x,y);return layout.height;
     }
     private void button(String label,float x,float y,float w,float h,Runnable action){
         rect(x,y,w,h,new Color(.075f,.14f,.17f,1));rect(x,y,w,2,new Color(.2f,.43f,.47f,1));
-        text(label,x+12,y+h*.68f,.95f,ink);buttons.add(new Button(new Rectangle(x,y,w,h),action));
+        fontScale(.95f);layout.setText(font,label);float fit=Math.min(1,Math.min((w-24)/Math.max(1,layout.width),(h-10)/Math.max(1,layout.height)));
+        fontScale(.95f*fit);layout.setText(font,label);font.setColor(ink);font.draw(batch,label,Math.round(x+12),Math.round(y+(h+layout.height)/2));buttons.add(new Button(new Rectangle(x,y,w,h),action));
     }
     private void wrappedButton(String label,float x,float y,float w,float h,Runnable action){
         rect(x,y,w,h,new Color(.075f,.14f,.17f,1));rect(x,y,w,2,new Color(.2f,.43f,.47f,1));
@@ -657,7 +688,7 @@ public final class OriginWarApp extends ApplicationAdapter {
         if(proseScreen!=screen){prosePage=0;proseScreen=screen;}
         var pages=pages(value,width,top-controlsY-65,scale);prosePage=Math.max(0,Math.min(prosePage,pages.size()-1));
         paragraph(pages.get(prosePage),x,top,width,scale,ink);
-        if(pages.size()>1){button("Page <",x,controlsY,150,36,()->prosePage=Math.max(0,prosePage-1));button("Page >",x+164,controlsY,150,36,()->prosePage=Math.min(pages.size()-1,prosePage+1));text((prosePage+1)+" / "+pages.size(),x+340,controlsY+26,.85f,ink);}
+        if(pages.size()>1){button("Page <",x,controlsY,150,36,()->prosePage=Math.max(0,prosePage-1));button("Page >",x+164,controlsY,150,36,()->prosePage=Math.min(pages.size()-1,prosePage+1));text((prosePage+1)+" / "+pages.size(),x+340,controlsY+26,.95f,ink);}
     }
     private void bar(float x,float y,float w,float h,float fraction,Color color){
         rect(x,y,w,h,new Color(.12f,.16f,.18f,1));rect(x,y,w*MathUtils.clamp(fraction,0,1),h,color);

@@ -1,3 +1,4 @@
 # Preserve exact upstream notice/release bytes and their recorded SHA256 on every platform.
 licenses/** -text
 /gradlew text eol=lf
+/assets/ui/** -text

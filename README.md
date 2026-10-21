@@ -6,4 +6,6 @@ Playable ten-deck station campaign: turn-based RPG combat, oxygen hallucinations
 
 Build with JDK21: `gradlew.bat test`. Launch: `gradlew.bat :lwjgl3:run`. For the Windows app image with runtime, source, licenses and dependency materials, follow [distribution instructions](tools/distribution/README.md).
 
+The [owner playtest update](docs/PLAYTEST_FEEDBACK.md) improves all UI text and new-run oxygen:900 suit reserve, two360-unit carried tanks and360 opening pickup. Existing saves retain their resources. Dedicated [art](docs/design/art/FB1_VISUAL_DIRECTION.md) and [sound](docs/design/sound/SOUND_DIRECTION.md) briefs ground the next creative comparison in the original goal of unease and tension; current media is unchanged.
+
 The original code/assets/build are preserved under `legacy/` and excluded from modern builds. See [legacy recovery](docs/LEGACY_ARCHIVE.md). Original media rights are unverified; it is not included in the modern runtime.
