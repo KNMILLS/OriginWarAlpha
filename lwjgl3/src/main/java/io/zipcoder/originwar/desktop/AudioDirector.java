@@ -15,7 +15,7 @@ public final class AudioDirector implements AutoCloseable {
     private final Map<String,Music> tracks=new HashMap<>();
     private final Map<String,Sound> sounds=new HashMap<>();
     private Music current,previous;
-    private float fade=1,master=.8f,music=.55f,sfx=.7f;
+    private float fade=1,master=.8f,music=.55f,sfx=.7f,voice=.7f,radio=.35f;
     private boolean paused;
     private String selected="";
     private int playedSounds,failedSounds,musicLoops;
@@ -26,13 +26,13 @@ public final class AudioDirector implements AutoCloseable {
     private final Map<String,Float> durations=new HashMap<>();
     private record Playing(Sound sound,long handle,float until,float gain,float pan,int priority) {}
     private AliceVoiceCatalog catalog;
-    private Music speech,breath,heart,oldBreath,oldHeart;
+    private Music speech,radioStatic,breath,heart,oldBreath,oldHeart;
     private String dialogueKey="";
     private boolean present,closed,speechFinished;
     private int listenerX,listenerY,bodyLevel=-1,spokenClips,discardedCues;
-    private float presence,bodyFade=1,duck,duckGain=1;
+    private float presence,bodyFade=1,duck,duckGain=1,radioFade;
     private float lastBreathPosition,lastHeartPosition;
-    private int breathLoops,heartLoops,speechCompletions;
+    private int breathLoops,heartLoops,speechCompletions,radioStarts;
     private HelmetAudioPolicy.Body body=HelmetAudioPolicy.body(100);
     public AudioDirector() {
         this(new Resources() {
@@ -89,13 +89,19 @@ public final class AudioDirector implements AutoCloseable {
     public void dialogue(String id,String fullText) {
         if(closed)return;
         String key=id==null||id.isEmpty()?"":id+":"+AliceVoiceCatalog.hash(fullText==null?"":fullText);
-        if(dialogueKey.equals(key))return;dialogueKey=key;dispose(speech);speech=null;
+        if(dialogueKey.equals(key))return;dialogueKey=key;
+        dispose(speech);dispose(radioStatic);speech=radioStatic=null;radioFade=0;speechFinished=true;
         if(key.isEmpty()||catalog==null)return;
         var clip=catalog.find(id,fullText==null?"":fullText);
         if(clip==null||!resources.exists(clip.path()))return;
-        speech=resources.music(clip.path());speechFinished=false;speech.setLooping(false);speech.setVolume(outputMaster()*sfx*.86f);
-        speech.setOnCompletionListener(m->{speechFinished=true;speechCompletions++;});
-        if(!paused&&master*sfx>0)speech.play();spokenClips++;
+        speech=resources.music(clip.path());speechFinished=false;speech.setLooping(false);
+        speech.setOnCompletionListener(m->{
+            if(closed||m!=speech||speechFinished)return;
+            speechFinished=true;speechCompletions++;radioFade=0;gain(radioStatic,0);stop(radioStatic);
+        });
+        String staticPath="audio/voice/radio-static.ogg";
+        if(resources.exists(staticPath)){radioStatic=resources.music(staticPath);radioStatic.setLooping(true);radioStatic.setVolume(0);}
+        syncSpeech();spokenClips++;
     }
     public void update(float delta) {
         if(paused||closed)return;
@@ -107,7 +113,7 @@ public final class AudioDirector implements AutoCloseable {
         float targetDuck=duck>0?.40f:1;
         duckGain+=Math.signum(targetDuck-duckGain)*Math.min(Math.abs(targetDuck-duckGain),delta/(duck>0?.12f:1.2f));
         float scoreGain=outputMaster()*music*.68f*duckGain;
-        gain(speech,outputMaster()*sfx*.86f);
+        gain(speech,outputMaster()*voice*.86f);syncRadio(delta);
         if(current!=null){
             current.setVolume(scoreGain*fade);float position=current.getPosition();
             if(fade==1&&current.isPlaying()&&position+.2f<lastPosition){musicLoops++;resources.log("Stream loop completed: "+selected);}
@@ -153,24 +159,41 @@ public final class AudioDirector implements AutoCloseable {
     private float outputMaster(){return master*.70f;}
     private void refreshOneShots(){float group=outputMaster()*sfx*.65f/(float)Math.sqrt(Math.max(1,voices.size()));for(var v:voices)v.sound().setPan(v.handle(),v.pan(),group*v.gain());}
     private void expire(){boolean changed=false;for(var iterator=voices.iterator();iterator.hasNext();){var v=iterator.next();if(elapsed>=v.until()){v.sound().stop(v.handle());iterator.remove();changed=true;}}if(changed)refreshOneShots();}
-    public void volumes(float master,float music,float sfx) {
+    /** Legacy callers retain the former effects-controlled speech gain. */
+    public void volumes(float master,float music,float sfx) { volumes(master,music,sfx,sfx,.35f); }
+    /** Speech and its optional radio texture are independent of effects and one another. */
+    public void volumes(float master,float music,float sfx,float voice,float radio) {
         if(closed)return;
         this.master=HelmetAudioPolicy.unit(master);this.music=HelmetAudioPolicy.unit(music);this.sfx=HelmetAudioPolicy.unit(sfx);
+        this.voice=HelmetAudioPolicy.unit(voice);this.radio=HelmetAudioPolicy.unit(radio);
         refreshOneShots();
-        if(!paused){toggle(current,this.master*this.music>0);toggle(previous,this.master*this.music>0);toggle(speech,!speechFinished&&this.master*this.sfx>0);toggle(breath,present&&this.master*this.sfx>0);toggle(heart,present&&this.master*this.sfx>0);toggle(oldBreath,present&&this.master*this.sfx>0);toggle(oldHeart,present&&this.master*this.sfx>0);update(0);}
+        syncSpeech();
+        if(!paused){toggle(current,this.master*this.music>0);toggle(previous,this.master*this.music>0);toggle(breath,present&&this.master*this.sfx>0);toggle(heart,present&&this.master*this.sfx>0);toggle(oldBreath,present&&this.master*this.sfx>0);toggle(oldHeart,present&&this.master*this.sfx>0);update(0);}
+    }
+    private void syncSpeech() {
+        gain(speech,outputMaster()*voice*.86f);
+        toggle(speech,!paused&&!speechFinished&&master*voice>0);syncRadio(0);
+    }
+    private void syncRadio(float delta) {
+        if(radioStatic==null)return;
+        boolean playing=!paused&&!speechFinished&&speech!=null&&speech.isPlaying()&&master*voice*radio>0;
+        if(!playing){radioStatic.pause();radioFade=0;radioStatic.setVolume(0);return;}
+        if(!radioStatic.isPlaying()){radioFade=0;radioStatic.setVolume(0);radioStatic.play();radioStarts++;}
+        radioFade=Math.min(1,radioFade+delta/.05f);
+        radioStatic.setVolume(outputMaster()*radio*.65f*radioFade);
     }
     public void pause(boolean value) {
         if(closed||paused==value)return;paused=value;
         for(Music m:streams())if(value)m.pause();
         if(value){for(var s:sounds.values())s.stop();voices.clear();}
-        else volumes(master,music,sfx);
+        else volumes(master,music,sfx,voice,radio);
     }
-    private List<Music> streams(){var all=new ArrayList<Music>();for(Music m:new Music[]{current,previous,speech,breath,heart,oldBreath,oldHeart})if(m!=null)all.add(m);return all;}
-    private static void toggle(Music m,boolean play){if(m!=null){if(play)m.play();else m.pause();}}
+    private List<Music> streams(){var all=new ArrayList<Music>();for(Music m:new Music[]{current,previous,speech,radioStatic,breath,heart,oldBreath,oldHeart})if(m!=null)all.add(m);return all;}
+    private static void toggle(Music m,boolean play){if(m!=null){if(play){if(!m.isPlaying())m.play();}else m.pause();}}
     private static void gain(Music m,float gain){if(m!=null)m.setVolume(gain);}
     private static void stop(Music m){if(m!=null)m.stop();}
     private static void dispose(Music m){if(m!=null){m.stop();m.dispose();}}
     public int loadedMusic(){return tracks.size();}public int loadedSounds(){return sounds.size();}
-    public String summary(){return "Playback summary: sounds="+playedSounds+", failed="+failedSounds+", musicLoops="+musicLoops+", ALICEclips="+spokenClips+", completedSpeech="+speechCompletions+", breathLoops="+breathLoops+", heartLoops="+heartLoops+", boundedDrops="+discardedCues+", activeSFX="+voices.size();}
-    @Override public void close(){if(closed)return;closed=true;resources.log(summary());for(var m:tracks.values())dispose(m);for(var s:sounds.values())s.dispose();for(Music m:new Music[]{speech,breath,heart,oldBreath,oldHeart})dispose(m);voices.clear();}
+    public String summary(){return "Playback summary: sounds="+playedSounds+", failed="+failedSounds+", musicLoops="+musicLoops+", ALICEclips="+spokenClips+", completedSpeech="+speechCompletions+", radioStarts="+radioStarts+", currentRadioActive="+(radioStatic!=null&&radioStatic.isPlaying())+", breathLoops="+breathLoops+", heartLoops="+heartLoops+", boundedDrops="+discardedCues+", activeSFX="+voices.size();}
+    @Override public void close(){if(closed)return;closed=true;resources.log(summary());for(var m:tracks.values())dispose(m);for(var s:sounds.values())s.dispose();for(Music m:new Music[]{speech,radioStatic,breath,heart,oldBreath,oldHeart})dispose(m);voices.clear();}
 }
