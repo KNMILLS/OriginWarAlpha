@@ -1,0 +1,20 @@
+Use case: stylized-concept.
+Asset type: ORIGINAL PRODUCTION INVENTORY/WORLD PICKUP SPRITE SHEET for mature illustrated 2D space survival horror.
+Twelve isolated complete objects in a 4columns by3rows grid on true transparent alpha background. Generous empty gutters and margins, no overlapping objects, no labels, no text.
+Fixed orthographic three-quarter slightly overhead camera and neutral upper-left diffuse light. Hand-painted detailed 2D commercial game illustration with muted worn institutional materials, fine edgework, broad quiet colors. Coherent hand-sized utilitarian equipment manufactured for the same orbital station; believable rather than fantasy.
+ROW1 left to right:
+1 OXYGEN CANISTER: squat steel gray cylinder with worn pale white shell, dark straps, brass valve and gauge, small muted green band, no lettering; clearly oxygen not grenade.
+2 BATTERY PACK: rectangular charcoal and gray industrial battery cartridge, two recessed brass contacts and one dim amber indicator, sturdy carry lip.
+3 MEDICINE: compact clean pale gray first-aid injection ampoule with a capped dark nozzle, small desaturated blue label WITHOUT writing; not a magic potion.
+4 PISTOL: compact practical dark gray electrical sidearm, short rectangular barrel, pale grip panel, clearly shorter than rifle.
+ROW2:
+1 RIFLE: long narrow practical electrical rifle, worn steel/graphite, shoulder stock, long barrel, no giant scope.
+2 SCATTERGUN: short broad-barreled electrical emergency gun, distinct bulky front cylinder and dark stock, clearly different from rifle.
+3 LIGHT ARMOR: separated white-gray torso pressure-suit overplate with harness straps; practical low profile, no helmet/person.
+4 HEAVY ARMOR: chunky reinforced gray industrial torso protector, visible dense plate construction and harness, no helmet/person.
+ROW3:
+1 SERVICE PROBE: compact handheld wired maintenance probe, dark handle, tiny screen and brass contact tip, coiled short cable.
+2 DOOR BRACE: strong compact telescoping steel door-jamming bar with orange rubber end pads and a knurled clamp.
+3 TOOL ROLL: partly open worn canvas pouch holding two service tools, spanner and insulated screwdriver.
+4 PAPER/RECORD PACKET: flat small stack of worn technical sheets bound by a gray clip, only abstract illegible diagram strokes, no actual writing.
+Keep each whole object within its cell, consistent game art, subtle material wear not excessive grime. No background, no floor planes/shadows, no UI frames, no borders, no glow outlines, no pixel art, no 3D rendering.
