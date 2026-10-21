@@ -40,7 +40,7 @@ class SurvivalObservedPilotTest {
         var actors=s.actors.stream().filter(a->!a.dead&&s.visible[a.x][a.y]).map(a->new Contact(a.id,a.kind,new Cell(a.x,a.y),a.hp,a.fuse,a.aiming,
                 (a.kind!=GameState.ActorKind.CAMERA&&a.kind!=GameState.ActorKind.TURRET&&a.kind!=GameState.ActorKind.CONSTRUCTOR&&a.kind!=GameState.ActorKind.CONTROLLER)||StationSystems.powered(s,a.x,a.y),a.redirected)).toList();
         var controls=new ArrayList<Control>();for(int x=0;x<s.width;x++)for(int y=0;y<s.height;y++)if(s.visible[x][y]&&s.tiles[x][y]==Tile.TERMINAL)controls.add(new Control(new Cell(x,y),StationSystems.powered(s,x,y)));
-        for(var f:s.fixtures)if(f.kind.equals("breaker")&&s.visible[f.x][f.y])controls.add(new Control(new Cell(f.x,f.y),StationSystems.powered(s,f.x,f.y)));
+        for(var f:s.fixtures)if((f.kind.equals("breaker")||f.kind.equals("controller"))&&s.visible[f.x][f.y])controls.add(new Control(new Cell(f.x,f.y),StationSystems.powered(s,f.x,f.y)));
         var identified=new TreeMap<String,String>();for(String name:s.identifiedMedicine)identified.put(name,s.medicineEffects.get(name));
         return new Observation(s.deck,s.tick,s.actionSerial,new Cell(s.playerX,s.playerY),s.hp,s.reserve,s.oxygenation,s.batteries,EquipmentRules.bulk(s),s.weapon,s.armor,s.lampOn,s.switchOn,
                 s.flags.contains("constructor-defeated"),s.flags.contains("pod-ready"),s.dead,s.victory,known,visible,pack,floor,actors,List.copyOf(controls),Set.copyOf(s.knowledge),Map.copyOf(identified),List.copyOf(messages));
@@ -91,6 +91,8 @@ class SurvivalObservedPilotTest {
             if(o.lamp&&!searchController)return of(LAMP,"reduce optical exposure");
             if(o.deck==8&&!o.constructorStopped&&controller!=null&&o.position.distance(controller)<=1){
                 if(approach==Approach.CONTROLLER)return at(INTERACT,controller,"physical supervisory shutdown");
+                var power=o.controls.stream().filter(c->c.cell.equals(controller)).findFirst().orElse(null);
+                if(power!=null&&!power.powered)return at(CIRCUIT,controller,"manually restore observed supervisory circuit before service access");
                 if(o.cells>=2&&hacks<7&&(hacks<2||o.tick-lastHackTick>=12)){hacks++;lastHackTick=o.tick;return at(HACK,controller,"paid supervisory unit-redirection request");}
                 if(redirectWait++<60)return of(WAIT,"wait for redirected unit using real ticks");
                 throw new IllegalStateException("Redirection did not stop fabrication within bounded wait; hacks="+hacks);
