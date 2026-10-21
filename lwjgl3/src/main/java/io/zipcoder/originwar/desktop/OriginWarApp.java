@@ -407,8 +407,17 @@ public final class OriginWarApp extends ApplicationAdapter {
         text(state.oxygenation<=30?"CRITICAL HYPOXIA":"LOW OXYGENATION",mapX+10,mapY+mapH-10,.95f,amber);
     }
     private void hudObjective(float x,float top,float width){
-        var objective=pages(Campaign.objective(state),width,Math.max(30,top-(mapY+120)),.95f);
-        paragraph(objective.getFirst(),x,top,width,.95f,amber);
+        float height=Math.max(30,top-(mapY+120));var objective=pages(Campaign.objective(state),width,height,.95f);
+        String label=objective.getFirst();
+        if(objective.size()>1){
+            while(!label.isEmpty()){
+                fontScale(.95f);layout.setText(font,label+"... [J]",amber,width,Align.left,true);
+                if(layout.height<=height)break;
+                int split=label.lastIndexOf(' ');label=split<0?"":label.substring(0,split).stripTrailing();
+            }
+            label+="... [J]";
+        }
+        paragraph(label,x,top,width,.95f,amber);
     }
     private String zoneName(){
         return new String[]{"DOCKING / SECURITY","HABITATION / MAINTENANCE","MEDICAL / RESEARCH","AUTOMATED DEFENSE","COMMAND / EVACUATION"}[Math.min(4,(state.deck-1)/2)];

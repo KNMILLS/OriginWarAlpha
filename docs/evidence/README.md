@@ -9,5 +9,6 @@ These are the opt-in local reports written by the actual Windows executable on n
 - final-human-west and final-human-carmack: actual new human portrait/world idle integration with unchanged world ticks/resources, independently reviewed two-phase captures.
 - final-human-hypoxia: complete current-renderer normal-action hypoxia/recovery replay,1,359 ordinary commands,0saveerrors and0failed voices.
 - feedback-ui-opening/death: current smooth-font text, generous new-game opening, and actual normal-action old-suit death for enlarged footer/layout review; see PLAYTEST_FEEDBACK.md and the delivered companion verification for current full-package results.
+- feedback-rc2-operator/redirect/hypoxia: actual8bf5f9d clean-checkout bundled EXE complete campaigns and larger-suit oxygen depletion/recovery,0saveerrors/failed voices. The final tiny objective-continuation correction preserves the core; exact final verification is in the companion receipt.
 
 Build/source associations and exact scope are in ../VERIFICATION.md. Audio counters prove backend calls; no report proves human listening. Geometry-aware automated replay is not human difficulty acceptance. Source references and normal command fixtures allow reproduction without distributing the isolated user-save directories.
