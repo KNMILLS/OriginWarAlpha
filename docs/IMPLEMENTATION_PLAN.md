@@ -1,5 +1,21 @@
 # Implementation task ledger
 
+## Survival horror replacement (owner approved 21 October 2026)
+
+Authority: [SURVIVAL_HORROR_20261021](directives/SURVIVAL_HORROR_20261021.md). Earlier rows below are historical evidence for the preserved RPG release, not acceptance of the redesign.
+
+| ID | Goal | Owner / exclusive scope | Acceptance | State |
+| --- | --- | --- | --- | --- |
+| SH-BASE | Preserve release; current authority; fresh profile/save safety | lead; docs/build/save/model/contracts | bundle verified; safe lifecycle/fault tests | in progress, base e6f2ec2 |
+| SH-CORE | Statless physical survival, senses, infrastructure, finite generation | lead; core/** | deterministic scenarios, conservation,10k seeds | in progress |
+| SH-STORY | Station ALICE, historical people, physical ending, dynamic exchanges | lead; campaign + shared speech definitions | no NPC/stat/prose gate; both endings routes/resumes | ready |
+| SH-ART | Illustrated source kit and art production brief | art specialist; isolated worktree, new survival source/export paths only | source/provenance + integrated scene review | ready |
+| SH-SOUND | Complete exchange performances and survival sound candidate | sound specialist; isolated worktree, new survival source/export paths only | exact bindings, decode, runtime and human listening distinguished | ready |
+| SH-ANIM | Painted cardinal gait/actions and motion brief | animation specialist after suit master; isolated worktree | actual60Hz motion/anchors/markers/pause | planned |
+| SH-DESKTOP | Rendering/event/UI integration and controls | lead; lwjgl3/**, registries | native slice, keyboard/pointer, scale, no hidden data leaks | ready |
+| SH-RELEASE | Independent checks, full packaged runs, crash investigation | lead + read-only reviewers | measured runtime/seed/save/AV/package evidence; human gaps explicit | planned |
+
+
 One lead, at most two bounded workers. Status: planned -> ready -> in progress -> review -> integrated -> verified; blocked/reopened remain explicit. Integration, runtime and remote evidence are separate.
 
 | ID | Goal / requirements | Depends | Owner / files / branch | Acceptance | State / evidence |

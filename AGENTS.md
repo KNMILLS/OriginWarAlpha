@@ -1,6 +1,6 @@
 # Origin War
 
-Read docs/PROGRESS.md and the relevant ledger task before edits. The full authority is docs/directives/IMPLEMENTATION_DIRECTIVE_REV2.md and unchanged docs/reference/Origin War.docx.
+Read docs/PROGRESS.md and the relevant ledger task before edits. The latest owner-approved authority is docs/directives/SURVIVAL_HORROR_20261021.md. It supersedes conflicting RPG, living-NPC and pixel-art requirements in IMPLEMENTATION_DIRECTIVE_REV2.md; the original reference remains unchanged.
 
 - Integration branch: codex/origin-war-squidsquad. Never merge to master without owner approval.
 - Preserve legacy/; it is excluded from active builds. Its asset rights are unverified.
