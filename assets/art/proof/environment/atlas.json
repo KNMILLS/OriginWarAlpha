@@ -1,0 +1,503 @@
+{
+  "version": 1,
+  "referenceCellPixels": 256,
+  "pivotOrigin": "bottom-left",
+  "pathRoot": "assets",
+  "regions": [
+    {
+      "name": "wall.bulkhead",
+      "path": "art/proof/environment/atlases/page-00.png",
+      "widthCells": 1.1015625,
+      "heightCells": 0.92578125,
+      "pivotX": 0.5,
+      "pivotY": 0,
+      "layer": "world",
+      "pixelWidth": 282,
+      "pixelHeight": 237,
+      "source": "environment-master.png",
+      "sourceCrop": [
+        15,
+        15,
+        552,
+        478
+      ],
+      "alphaTrim": [
+        10,
+        13,
+        532,
+        453
+      ],
+      "sha256": "4f3d6a4d3666881aad9334693dc0a3eeea07f4717b0f7a5500ef4e834d3475ac",
+      "sourcePath": "art/proof/environment/regions/wall.bulkhead.png",
+      "sourceSha256": "12cbbe6b05913541b7f0f50f785fe2bd4299dce0809cea69417967be1e0ed419",
+      "x": 634,
+      "y": 715
+    },
+    {
+      "name": "door.closed",
+      "path": "art/proof/environment/atlases/page-00.png",
+      "widthCells": 1.1484375,
+      "heightCells": 1.1328125,
+      "pivotX": 0.5,
+      "pivotY": 0,
+      "layer": "world",
+      "pixelWidth": 294,
+      "pixelHeight": 290,
+      "source": "environment-master.png",
+      "sourceCrop": [
+        568,
+        15,
+        1030,
+        478
+      ],
+      "alphaTrim": [
+        7,
+        11,
+        456,
+        454
+      ],
+      "sha256": "4f3d6a4d3666881aad9334693dc0a3eeea07f4717b0f7a5500ef4e834d3475ac",
+      "sourcePath": "art/proof/environment/regions/door.closed.png",
+      "sourceSha256": "8d8dc73dc2e44f04cb870875ca53da6f4f4916b3e286d238e162302552f2c47f",
+      "x": 193,
+      "y": 3
+    },
+    {
+      "name": "door.open",
+      "path": "art/proof/environment/atlases/page-00.png",
+      "widthCells": 1.1484375,
+      "heightCells": 1.12890625,
+      "pivotX": 0.5,
+      "pivotY": 0,
+      "layer": "world",
+      "pixelWidth": 294,
+      "pixelHeight": 289,
+      "source": "environment-master.png",
+      "sourceCrop": [
+        1048,
+        15,
+        1520,
+        478
+      ],
+      "alphaTrim": [
+        6,
+        12,
+        457,
+        454
+      ],
+      "sha256": "4f3d6a4d3666881aad9334693dc0a3eeea07f4717b0f7a5500ef4e834d3475ac",
+      "sourcePath": "art/proof/environment/regions/door.open.png",
+      "sourceSha256": "1ebb3119cb1f4a43bc2460ae8fc0b9d3120f17f0414a17ced3d09adb7167c586",
+      "x": 493,
+      "y": 3
+    },
+    {
+      "name": "prop.workbench",
+      "path": "art/proof/environment/atlases/page-00.png",
+      "widthCells": 1.69921875,
+      "heightCells": 1.24609375,
+      "pivotX": 0.5,
+      "pivotY": 0,
+      "layer": "world",
+      "pixelWidth": 435,
+      "pixelHeight": 319,
+      "source": "environment-master.png",
+      "sourceCrop": [
+        20,
+        492,
+        625,
+        962
+      ],
+      "alphaTrim": [
+        16,
+        17,
+        588,
+        436
+      ],
+      "sha256": "4f3d6a4d3666881aad9334693dc0a3eeea07f4717b0f7a5500ef4e834d3475ac",
+      "sourcePath": "art/proof/environment/regions/prop.workbench.png",
+      "sourceSha256": "d85a9f1c8b87e8295be27fc8e6e001fbddbbcc50b5ebf35eef1fdccc02306da0",
+      "x": 3,
+      "y": 715
+    },
+    {
+      "name": "control.switch",
+      "path": "art/proof/environment/atlases/page-00.png",
+      "widthCells": 0.71875,
+      "heightCells": 1.0859375,
+      "pivotX": 0.5,
+      "pivotY": 0,
+      "layer": "world",
+      "pixelWidth": 184,
+      "pixelHeight": 278,
+      "source": "environment-master.png",
+      "sourceCrop": [
+        642,
+        492,
+        968,
+        966
+      ],
+      "alphaTrim": [
+        12,
+        7,
+        314,
+        463
+      ],
+      "sha256": "4f3d6a4d3666881aad9334693dc0a3eeea07f4717b0f7a5500ef4e834d3475ac",
+      "sourcePath": "art/proof/environment/regions/control.switch.png",
+      "sourceSha256": "88d7b788b4f5044adfc1770cd113569c526239cbc400ee08a650eea7044ee0a6",
+      "x": 3,
+      "y": 3
+    },
+    {
+      "name": "hatch.closed",
+      "path": "art/proof/environment/atlases/page-00.png",
+      "widthCells": 1.3984375,
+      "heightCells": 1.1796875,
+      "pivotX": 0.5,
+      "pivotY": 0,
+      "layer": "world",
+      "pixelWidth": 358,
+      "pixelHeight": 302,
+      "source": "environment-master.png",
+      "sourceCrop": [
+        990,
+        505,
+        1520,
+        980
+      ],
+      "alphaTrim": [
+        10,
+        28,
+        521,
+        459
+      ],
+      "sha256": "4f3d6a4d3666881aad9334693dc0a3eeea07f4717b0f7a5500ef4e834d3475ac",
+      "sourcePath": "art/proof/environment/regions/hatch.closed.png",
+      "sourceSha256": "f797dd919fa17e9d15fedc3aaae4feb23eb0a7f27f990f99d5e13aa1d66d7501",
+      "x": 3,
+      "y": 299
+    },
+    {
+      "name": "prop.locker",
+      "path": "art/proof/environment/atlases/page-00.png",
+      "widthCells": 1.0546875,
+      "heightCells": 1.6015625,
+      "pivotX": 0.5,
+      "pivotY": 0,
+      "layer": "world",
+      "pixelWidth": 270,
+      "pixelHeight": 410,
+      "source": "workplace-props-master.png",
+      "sourceCrop": [
+        90,
+        0,
+        555,
+        620
+      ],
+      "alphaTrim": [
+        39,
+        11,
+        427,
+        600
+      ],
+      "sha256": "4f3d6a4d3666881aad9334693dc0a3eeea07f4717b0f7a5500ef4e834d3475ac",
+      "sourcePath": "art/proof/environment/regions/prop.locker.png",
+      "sourceSha256": "35325a76bed9bad66f7bc8d6237b635c3a5e7bd94a2d3df3aeae9d6e9bc946e4",
+      "x": 1134,
+      "y": 299
+    },
+    {
+      "name": "prop.service-cart",
+      "path": "art/proof/environment/atlases/page-00.png",
+      "widthCells": 1.5,
+      "heightCells": 1.140625,
+      "pivotX": 0.5,
+      "pivotY": 0,
+      "layer": "world",
+      "pixelWidth": 384,
+      "pixelHeight": 292,
+      "source": "workplace-props-master.png",
+      "sourceCrop": [
+        625,
+        150,
+        1245,
+        632
+      ],
+      "alphaTrim": [
+        14,
+        42,
+        593,
+        482
+      ],
+      "sha256": "4f3d6a4d3666881aad9334693dc0a3eeea07f4717b0f7a5500ef4e834d3475ac",
+      "sourcePath": "art/proof/environment/regions/prop.service-cart.png",
+      "sourceSha256": "e420768a914ee93dad61d4fb7f3fb882bb9cabc7e2643229482b921d43915ac4",
+      "x": 1410,
+      "y": 299
+    },
+    {
+      "name": "prop.life-support",
+      "path": "art/proof/environment/atlases/page-00.png",
+      "widthCells": 1.5,
+      "heightCells": 1.5703125,
+      "pivotX": 0.5,
+      "pivotY": 0,
+      "layer": "world",
+      "pixelWidth": 384,
+      "pixelHeight": 402,
+      "source": "workplace-props-master.png",
+      "sourceCrop": [
+        25,
+        620,
+        625,
+        1220
+      ],
+      "alphaTrim": [
+        31,
+        6,
+        578,
+        578
+      ],
+      "sha256": "4f3d6a4d3666881aad9334693dc0a3eeea07f4717b0f7a5500ef4e834d3475ac",
+      "sourcePath": "art/proof/environment/regions/prop.life-support.png",
+      "sourceSha256": "48c51da965d97fb3bedccca63d58d2137c5168421ec8d2fcef1be516e3a91c8e",
+      "x": 744,
+      "y": 299
+    },
+    {
+      "name": "prop.equipment-rack",
+      "path": "art/proof/environment/atlases/page-00.png",
+      "widthCells": 1.44921875,
+      "heightCells": 1.49609375,
+      "pivotX": 0.5,
+      "pivotY": 0,
+      "layer": "world",
+      "pixelWidth": 371,
+      "pixelHeight": 383,
+      "source": "workplace-props-master.png",
+      "sourceCrop": [
+        640,
+        625,
+        1230,
+        1230
+      ],
+      "alphaTrim": [
+        9,
+        6,
+        571,
+        586
+      ],
+      "sha256": "4f3d6a4d3666881aad9334693dc0a3eeea07f4717b0f7a5500ef4e834d3475ac",
+      "sourcePath": "art/proof/environment/regions/prop.equipment-rack.png",
+      "sourceSha256": "5f04f96a1eaa6ce9ea23496bd858dfd9a76522779059d79f7eaaedd6a1c4588b",
+      "x": 367,
+      "y": 299
+    },
+    {
+      "name": "wall.side-left",
+      "path": "art/proof/environment/atlases/page-00.png",
+      "widthCells": 0.3984375,
+      "heightCells": 1.1015625,
+      "pivotX": 0.5,
+      "pivotY": 0,
+      "layer": "world",
+      "pixelWidth": 102,
+      "pixelHeight": 282,
+      "source": "side-console-master.png",
+      "sourceCrop": [
+        140,
+        20,
+        470,
+        980
+      ],
+      "alphaTrim": [
+        51,
+        20,
+        289,
+        938
+      ],
+      "sha256": "4f3d6a4d3666881aad9334693dc0a3eeea07f4717b0f7a5500ef4e834d3475ac",
+      "sourceDrawPadding": [
+        14,
+        15
+      ],
+      "innerFace": "right",
+      "sourcePath": "art/proof/environment/regions/wall.side-left.png",
+      "sourceSha256": "7cb3fa9b724d8b0c5746c32190d6e7cf64e0af10699b22b6145ed5127eeca143",
+      "x": 922,
+      "y": 715
+    },
+    {
+      "name": "wall.side-right",
+      "path": "art/proof/environment/atlases/page-00.png",
+      "widthCells": 0.3984375,
+      "heightCells": 1.1015625,
+      "pivotX": 0.5,
+      "pivotY": 0,
+      "layer": "world",
+      "pixelWidth": 102,
+      "pixelHeight": 282,
+      "source": "side-console-master.png",
+      "sourceCrop": [
+        620,
+        20,
+        930,
+        980
+      ],
+      "alphaTrim": [
+        39,
+        20,
+        275,
+        939
+      ],
+      "sha256": "4f3d6a4d3666881aad9334693dc0a3eeea07f4717b0f7a5500ef4e834d3475ac",
+      "sourceDrawPadding": [
+        15,
+        15
+      ],
+      "innerFace": "left",
+      "sourcePath": "art/proof/environment/regions/wall.side-right.png",
+      "sourceSha256": "66dde309323b4da0e2663a0d2dc184740c54e4b07eb784f5741d8cd2a02e5cdc",
+      "x": 1030,
+      "y": 715
+    },
+    {
+      "name": "terminal.console",
+      "path": "art/proof/environment/atlases/page-00.png",
+      "widthCells": 0.71875,
+      "heightCells": 1.0,
+      "pivotX": 0.5,
+      "pivotY": 0,
+      "layer": "world",
+      "pixelWidth": 184,
+      "pixelHeight": 256,
+      "source": "side-console-master.png",
+      "sourceCrop": [
+        960,
+        150,
+        1480,
+        960
+      ],
+      "alphaTrim": [
+        37,
+        46,
+        490,
+        777
+      ],
+      "sha256": "4f3d6a4d3666881aad9334693dc0a3eeea07f4717b0f7a5500ef4e834d3475ac",
+      "sourceDrawPadding": [
+        12,
+        13
+      ],
+      "sourcePath": "art/proof/environment/regions/terminal.console.png",
+      "sourceSha256": "cdb0ca1ac8726b5d9ab047fa995bce57734402f7324195133035acda8c5c504d",
+      "x": 444,
+      "y": 715
+    },
+    {
+      "name": "floor.security",
+      "path": "art/proof/environment/atlases/page-00.png",
+      "widthCells": 1,
+      "heightCells": 1,
+      "pivotX": 0,
+      "pivotY": 0,
+      "layer": "ground",
+      "source": "floor-master.png",
+      "sourceCrop": [
+        324,
+        324,
+        616,
+        616
+      ],
+      "sha256": "4f3d6a4d3666881aad9334693dc0a3eeea07f4717b0f7a5500ef4e834d3475ac",
+      "sourcePath": "art/proof/environment/regions/floor.security.png",
+      "sourceSha256": "80acde4f6f81560096279e36518b36b929f552989df2b98744b163fd4c6c9109",
+      "x": 793,
+      "y": 3,
+      "pixelWidth": 256,
+      "pixelHeight": 256
+    },
+    {
+      "name": "floor.security.variant1",
+      "path": "art/proof/environment/atlases/page-00.png",
+      "widthCells": 1,
+      "heightCells": 1,
+      "pivotX": 0,
+      "pivotY": 0,
+      "layer": "ground",
+      "source": "floor-master.png",
+      "sourceCrop": [
+        638,
+        324,
+        930,
+        616
+      ],
+      "sha256": "4f3d6a4d3666881aad9334693dc0a3eeea07f4717b0f7a5500ef4e834d3475ac",
+      "sourcePath": "art/proof/environment/regions/floor.security.variant1.png",
+      "sourceSha256": "8be28fc32fa2acb1e489b5e9815de9edcb0131d6a9ed24c5f06804d4f930f4ee",
+      "x": 1055,
+      "y": 3,
+      "pixelWidth": 256,
+      "pixelHeight": 256
+    },
+    {
+      "name": "floor.security.variant2",
+      "path": "art/proof/environment/atlases/page-00.png",
+      "widthCells": 1,
+      "heightCells": 1,
+      "pivotX": 0,
+      "pivotY": 0,
+      "layer": "ground",
+      "source": "floor-master.png",
+      "sourceCrop": [
+        324,
+        638,
+        616,
+        930
+      ],
+      "sha256": "4f3d6a4d3666881aad9334693dc0a3eeea07f4717b0f7a5500ef4e834d3475ac",
+      "sourcePath": "art/proof/environment/regions/floor.security.variant2.png",
+      "sourceSha256": "5a963a3f5cee3810049699e9500d565f2213e9f8963262bc0bfc5754c5c726d8",
+      "x": 1317,
+      "y": 3,
+      "pixelWidth": 256,
+      "pixelHeight": 256
+    },
+    {
+      "name": "floor.security.variant3",
+      "path": "art/proof/environment/atlases/page-00.png",
+      "widthCells": 1,
+      "heightCells": 1,
+      "pivotX": 0,
+      "pivotY": 0,
+      "layer": "ground",
+      "source": "floor-master.png",
+      "sourceCrop": [
+        638,
+        638,
+        930,
+        930
+      ],
+      "sha256": "4f3d6a4d3666881aad9334693dc0a3eeea07f4717b0f7a5500ef4e834d3475ac",
+      "sourcePath": "art/proof/environment/regions/floor.security.variant3.png",
+      "sourceSha256": "868afe58057f43f072918410f8db9d6a7c081eb77b7529ceef5e25404bc3b496",
+      "x": 1579,
+      "y": 3,
+      "pixelWidth": 256,
+      "pixelHeight": 256
+    }
+  ],
+  "atlasPages": [
+    {
+      "path": "art/proof/environment/atlases/page-00.png",
+      "sha256": "4f3d6a4d3666881aad9334693dc0a3eeea07f4717b0f7a5500ef4e834d3475ac",
+      "width": 2048,
+      "height": 2048
+    }
+  ],
+  "sourceManifest": {
+    "path": "art/proof/environment/regions.json",
+    "sha256": "6cea629d65207a18d085c50a75202cc08ba5972f9e13a18288391227f827196e"
+  }
+}

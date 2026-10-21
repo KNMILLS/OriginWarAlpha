@@ -14,26 +14,29 @@ public final class SurvivalTimeline {
     private final ArrayList<GameEvent> effects=new ArrayList<>();
     private float elapsed,duration,gaitStart;private int plantedSteps;
     private boolean officerFiring;private float releaseSeconds=.08f,fireSeconds=.25f;
+    private float stepSeconds=.25f,cycleCells=2;private List<Float> contactPhases=List.of();
     private final Map<String,Integer> machineSteps=new HashMap<>();private final Map<String,Float> machineGaits=new HashMap<>();
     public void reset(){tracks.clear();cues.clear();effects.clear();machineSteps.clear();machineGaits.clear();elapsed=duration=gaitStart=0;plantedSteps=0;officerFiring=false;}
     public void officerFireTiming(float release,float span){releaseSeconds=release;fireSeconds=span;}
+    public void locomotionTiming(float seconds,float cells){if(!Float.isFinite(seconds)||seconds<=0||!Float.isFinite(cells)||cells<=0)throw new IllegalArgumentException("Invalid presentation stride");stepSeconds=seconds;cycleCells=cells;}
+    public void locomotionContacts(List<Float> phases){if(phases.stream().anyMatch(p->!Float.isFinite(p)||p<0||p>1))throw new IllegalArgumentException("Invalid contact phase");contactPhases=List.copyOf(phases);}
     public void accept(GameState before,GameState after,TurnResult result){
-        tracks.clear();cues.clear();effects.clear();elapsed=0;duration=result.cost()*.25f;gaitStart=(plantedSteps%2)*.5f;
+        tracks.clear();cues.clear();effects.clear();elapsed=0;duration=result.cost()*stepSeconds;gaitStart=(plantedSteps/cycleCells)%1;
         officerFiring=result.events().stream().anyMatch(e->e.type().equals("gun")&&e.sourceId().equals("officer"));if(officerFiring)duration=Math.max(duration,fireSeconds);
         if(before.deck==after.deck){
-            if(before.playerX!=after.playerX||before.playerY!=after.playerY){gaitStart=(plantedSteps++%2)*.5f;tracks.put("officer",List.of(new Track(before.playerX,before.playerY,after.playerX,after.playerY,Math.max(0,duration-.25f),.25f)));}
+            if(before.playerX!=after.playerX||before.playerY!=after.playerY){gaitStart=(plantedSteps++/cycleCells)%1;tracks.put("officer",List.of(new Track(before.playerX,before.playerY,after.playerX,after.playerY,Math.max(0,duration-stepSeconds),stepSeconds)));}
             for(var a:after.actors)if(!a.dead&&after.visible[a.x][a.y]){
                 var old=before.actors.stream().filter(o->o.id.equals(a.id)&&!o.dead&&before.visible[o.x][o.y]).findFirst().orElse(null);
                 if(old!=null&&Math.abs(a.x-old.x)+Math.abs(a.y-old.y)<=result.cost()&&old.x==a.x&&old.y==a.y)continue;
-                if(old!=null&&Math.abs(a.x-old.x)+Math.abs(a.y-old.y)<=1)tracks.put(a.id,List.of(new Track(old.x,old.y,a.x,a.y,Math.max(0,duration-.25f),.25f)));
+                if(old!=null&&Math.abs(a.x-old.x)+Math.abs(a.y-old.y)<=1)tracks.put(a.id,List.of(new Track(old.x,old.y,a.x,a.y,Math.max(0,duration-stepSeconds),stepSeconds)));
             }
-            for(var a:after.actors)if(!a.dead&&after.visible[a.x][a.y]){var segments=new ArrayList<Track>();for(var e:result.events())if(e.type().equals("robot_step")&&e.visible()&&e.sourceId().equals(a.id)&&e.fromX()>=0&&e.fromY()>=0&&before.visible[e.fromX()][e.fromY()]&&after.visible[e.fromX()][e.fromY()]&&after.visible[e.x()][e.y()])segments.add(new Track(e.fromX(),e.fromY(),e.x(),e.y(),Math.max(0,Math.min(duration-.25f,(e.tick()-before.tick-1)*.25f)),.25f));if(!segments.isEmpty())tracks.put(a.id,List.copyOf(segments));}
+            for(var a:after.actors)if(!a.dead&&after.visible[a.x][a.y]){var segments=new ArrayList<Track>();for(var e:result.events())if(e.type().equals("robot_step")&&e.visible()&&e.sourceId().equals(a.id)&&e.fromX()>=0&&e.fromY()>=0&&before.visible[e.fromX()][e.fromY()]&&after.visible[e.fromX()][e.fromY()]&&after.visible[e.x()][e.y()])segments.add(new Track(e.fromX(),e.fromY(),e.x(),e.y(),Math.max(0,Math.min(duration-stepSeconds,(e.tick()-before.tick-1)*stepSeconds)),stepSeconds));if(!segments.isEmpty())tracks.put(a.id,List.copyOf(segments));}
         }
         for(var e:result.events()){
-            float slot=Math.max(0,Math.min(duration-.25f,(e.tick()-before.tick-1)*.25f));
+            float slot=Math.max(0,Math.min(duration-stepSeconds,(e.tick()-before.tick-1)*stepSeconds));
             float at=duration==0?0:slot+.12f;
-            if(e.type().equals("step"))at=duration;
-            if(e.type().equals("robot_step"))at=slot+.25f;
+            if(e.type().equals("step")){at=duration;if(tracks.containsKey("officer"))for(float phase:contactPhases)for(int loop=0;loop<3;loop++){float contact=phase+loop,travel=1/cycleCells;if(contact>gaitStart+.001f&&contact<gaitStart+travel-.001f)cues.add(new Cue(duration-stepSeconds+(contact-gaitStart)/travel*stepSeconds,e));}}
+            if(e.type().equals("robot_step"))at=slot+stepSeconds;
             if(e.marker().equals("release"))at=slot+(e.sourceId().equals("officer")?releaseSeconds:.08f);
             if(officerFiring&&!e.sourceId().equals("officer")&&!e.type().equals("step"))at=Math.max(at,releaseSeconds+.015f);
             if(e.type().equals("speech"))at=duration;
@@ -48,7 +51,7 @@ public final class SurvivalTimeline {
     }
     public Position position(String id,int x,int y){var list=tracks.get(id);if(list==null)return new Position(x,y);Position p=new Position(x,y);for(var t:list){if(elapsed<t.start)return new Position(t.fromX,t.fromY);float f=Math.min(1,(elapsed-t.start)/t.span);p=new Position(t.fromX+(t.toX-t.fromX)*f,t.fromY+(t.toY-t.fromY)*f);if(f<1)return p;}return p;}
     public boolean moving(String id){var list=tracks.get(id);return list!=null&&list.stream().anyMatch(t->elapsed>=t.start&&elapsed<t.start+t.span);}
-    public float gaitPhase(){var list=tracks.get("officer");if(list==null)return gaitStart;var t=list.getFirst();float f=Math.max(0,Math.min(1,(elapsed-t.start)/t.span));return (gaitStart+f*.5f)%1;}
+    public float gaitPhase(){var list=tracks.get("officer");if(list==null)return gaitStart;var t=list.getFirst();float f=Math.max(0,Math.min(1,(elapsed-t.start)/t.span));return (gaitStart+f/cycleCells)%1;}
     public float progress(){return duration==0?1:Math.min(1,elapsed/duration);}
     public float elapsed(){return elapsed;}
     public boolean officerFiring(){return officerFiring&&elapsed<duration;}

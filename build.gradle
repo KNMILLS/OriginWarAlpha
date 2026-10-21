@@ -67,6 +67,23 @@ tasks.register('verifyAssets') {
         (retainedAudio.music.values()+retainedAudio.sfx.values()+retainedAudio.ambience.values()).each { item -> check(item.path.replaceFirst('^assets/',''),item.sha256) }
         def uiFont=new groovy.json.JsonSlurper().parse(file('assets/ui/manifest.json'))
         uiFont.outputs.each { path,hash -> check('ui/'+path,hash) }
+        def proofCatalog=file('assets/art/proof/catalog.json')
+        if(proofCatalog.isFile()){
+            def proof=new groovy.json.JsonSlurper().parse(proofCatalog)
+            if(proof.packs.collect{it.name}.toSet()!=['environment','painted','rendered'].toSet())throw new GradleException('Incomplete A/B comparison packs')
+            proof.packs.each { pack ->
+                check(pack.manifest,pack.sha256)
+                def catalog=new groovy.json.JsonSlurper().parse(file('assets/'+pack.manifest))
+                check(catalog.sourceManifest.path,catalog.sourceManifest.sha256)
+                catalog.atlasPages.each { page -> check(page.path,page.sha256) }
+                def ids=[] as Set
+                (catalog.clips?:[]).each { clip ->
+                    if(!ids.add(clip.id)||clip.frames.isEmpty())throw new GradleException('Duplicate/empty proof clip: '+clip.id)
+                    clip.frames.each { frame -> if(frame.path!=null){check(frame.sourcePath,frame.sourceSha256);if(frame.widthCells<=0||frame.heightCells<=0)throw new GradleException('Invalid proof bounds')} }
+                }
+                (catalog.bindings?:[]).each { binding -> if(!ids.contains(binding.clip))throw new GradleException('Missing proof binding: '+binding.clip) }
+            }
+        }
         def notices=new groovy.json.JsonSlurper().parse(file('licenses/MANIFEST.json'))
         notices.each { path,entry -> if(!file('licenses/'+path).isFile()||digest(file('licenses/'+path))!=entry.sha256)throw new GradleException('Notice mismatch: '+path) }
         logger.lifecycle('Validated '+art.regions.size()+' illustrated regions, 12 equipment silhouettes, north pistol action, 28 exact normal/clear performances, 16 effects, 3 station beds and dependency notices.')

@@ -1,5 +1,17 @@
 # Implementation task ledger
 
+## Art production proof (owner approved 21 October 2026)
+
+Baseline `604c910`. Owner requests implementation of the art production plan, beginning with a $0 native comparison of painted frames and Blender-rendered sprites in the same room. Owner selection gates campaign-wide expansion; existing releases and production art remain preserved.
+
+| ID | Exclusive owner / paths | Acceptance | State |
+| --- | --- | --- | --- |
+| AP-LEAD | lead; desktop presentation/contracts/build/registries, art bible, integration, runtime, publication | native A/B, real frame pacing, honest coverage, no tactical mutation | integrated;111 tests/native equivalence PASS; package/publication in progress; owner selection OPEN |
+| AP-PAINTED | art specialist; `codex/art-proof-painted`, `worktrees/art-proof-painted`; new `assets/art/proof/painted/**`, `assets/art/proof/environment/**`, `tools/media/art_proof_painted/**`, `PAINTED_PROOF.md` | authored drawings, usable room modules, exact sources/provenance, viewed exports | integrated;98ce1e0/08eb2e6/a11772c/1b9d1a9; lease released; technical PASS/artistic OPEN |
+| AP-RENDERED | animation specialist; `codex/art-proof-rendered`, `worktrees/art-proof-rendered`; new `assets/art/proof/rendered/**`, `tools/media/art_proof_rendered/**`, `RENDERED_PROOF.md`; portable Blender setup | editable rig, actual RGBA exports, equipment continuity, viewed exports | integrated;ecd6eb0/da4aeda; lease released; technical PASS/artistic OPEN |
+
+Two writing workers maximum; no redelegation. Workers commit only owned paths; lead owns shared interfaces, integration, publication and native controls. No purchases authorized by this task. Specialist research/review is read-only.
+
 ## Survival horror replacement (owner approved 21 October 2026)
 
 Authority: [SURVIVAL_HORROR_20261021](directives/SURVIVAL_HORROR_20261021.md). Earlier rows below are historical evidence for the preserved RPG release, not acceptance of the redesign.

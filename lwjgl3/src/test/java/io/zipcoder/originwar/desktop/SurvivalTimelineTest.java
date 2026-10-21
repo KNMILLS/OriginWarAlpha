@@ -7,6 +7,7 @@ import java.util.*;
 import static org.junit.jupiter.api.Assertions.*;
 
 final class SurvivalTimelineTest {
+    @Test void proofStrideUsesRealAuthoredContactsWithoutChangingWorldTicks(){var before=new RunEngine(2115).saveState();var after=before.copy();after.playerX++;after.tick++;var event=new GameEvent("step",after.playerX,after.playerY,"FLOOR","officer",before.playerX,before.playerY,1,1,1,true,true,"contact");var t=new SurvivalTimeline();t.locomotionTiming(.5f,1);t.locomotionContacts(List.of(0f,.5f));t.accept(before,after,new TurnResult(true,1,List.of(event),"",1,true));var heard=new ArrayList<GameEvent>();t.advance(.25f,heard::add);assertEquals(before.playerX+.5f,t.position("officer",after.playerX,after.playerY).x(),.001);assertEquals(1,heard.size());t.advance(.25f,heard::add);assertEquals(2,heard.size());assertEquals(0,before.tick);assertEquals(1,after.tick);assertFalse(t.busy());}
     @Test void carefulCrossingHoldsAtSourceUntilItsFinalTickThenPlantsAtContact(){
         var before=new RunEngine(2016).saveState();var after=before.copy();after.playerX++;after.tick+=2;
         var step=new GameEvent("step",after.playerX,after.playerY,"FLOOR","officer",before.playerX,before.playerY,1,after.tick,1,true,true,"contact");

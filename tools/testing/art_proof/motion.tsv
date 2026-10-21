@@ -1,0 +1,17 @@
+# Staged room only; real paid actions through RunEngine. Returns to7,9.
+MOVE	1	0
+MOVE	1	0
+MOVE	0	-1
+MOVE	0	-1
+MOVE	-1	0
+MOVE	-1	0
+MOVE	0	1
+MOVE	0	1
+TURN	0
+SHOOT	7	6
+TURN	1
+SHOOT	10	9
+TURN	2
+SHOOT	7	11
+TURN	3
+SHOOT	4	9

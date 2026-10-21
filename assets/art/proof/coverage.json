@@ -1,0 +1,6917 @@
+{
+  "status": "coverage-only-not-artistic-acceptance",
+  "bindings": [
+    {
+      "style": "painted",
+      "weapon": "unarmed",
+      "armor": "suit",
+      "action": "idle",
+      "facing": "north",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "unarmed",
+      "armor": "suit",
+      "action": "idle",
+      "facing": "east",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "unarmed",
+      "armor": "suit",
+      "action": "idle",
+      "facing": "south",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "unarmed",
+      "armor": "suit",
+      "action": "idle",
+      "facing": "west",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "unarmed",
+      "armor": "suit",
+      "action": "walk",
+      "facing": "north",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "unarmed",
+      "armor": "suit",
+      "action": "walk",
+      "facing": "east",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "unarmed",
+      "armor": "suit",
+      "action": "walk",
+      "facing": "south",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "unarmed",
+      "armor": "suit",
+      "action": "walk",
+      "facing": "west",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "unarmed",
+      "armor": "suit",
+      "action": "ready",
+      "facing": "north",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "unarmed",
+      "armor": "suit",
+      "action": "ready",
+      "facing": "east",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "unarmed",
+      "armor": "suit",
+      "action": "ready",
+      "facing": "south",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "unarmed",
+      "armor": "suit",
+      "action": "ready",
+      "facing": "west",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "unarmed",
+      "armor": "suit",
+      "action": "aim",
+      "facing": "north",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "unarmed",
+      "armor": "suit",
+      "action": "aim",
+      "facing": "east",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "unarmed",
+      "armor": "suit",
+      "action": "aim",
+      "facing": "south",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "unarmed",
+      "armor": "suit",
+      "action": "aim",
+      "facing": "west",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "unarmed",
+      "armor": "suit",
+      "action": "fire",
+      "facing": "north",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "unarmed",
+      "armor": "suit",
+      "action": "fire",
+      "facing": "east",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "unarmed",
+      "armor": "suit",
+      "action": "fire",
+      "facing": "south",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "unarmed",
+      "armor": "suit",
+      "action": "fire",
+      "facing": "west",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "unarmed",
+      "armor": "suit",
+      "action": "hit",
+      "facing": "north",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "unarmed",
+      "armor": "suit",
+      "action": "hit",
+      "facing": "east",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "unarmed",
+      "armor": "suit",
+      "action": "hit",
+      "facing": "south",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "unarmed",
+      "armor": "suit",
+      "action": "hit",
+      "facing": "west",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "unarmed",
+      "armor": "suit",
+      "action": "work",
+      "facing": "north",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "unarmed",
+      "armor": "suit",
+      "action": "work",
+      "facing": "east",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "unarmed",
+      "armor": "suit",
+      "action": "work",
+      "facing": "south",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "unarmed",
+      "armor": "suit",
+      "action": "work",
+      "facing": "west",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "unarmed",
+      "armor": "suit",
+      "action": "death",
+      "facing": "north",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "unarmed",
+      "armor": "suit",
+      "action": "death",
+      "facing": "east",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "unarmed",
+      "armor": "suit",
+      "action": "death",
+      "facing": "south",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "unarmed",
+      "armor": "suit",
+      "action": "death",
+      "facing": "west",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "unarmed",
+      "armor": "light",
+      "action": "idle",
+      "facing": "north",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "unarmed",
+      "armor": "light",
+      "action": "idle",
+      "facing": "east",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "unarmed",
+      "armor": "light",
+      "action": "idle",
+      "facing": "south",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "unarmed",
+      "armor": "light",
+      "action": "idle",
+      "facing": "west",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "unarmed",
+      "armor": "light",
+      "action": "walk",
+      "facing": "north",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "unarmed",
+      "armor": "light",
+      "action": "walk",
+      "facing": "east",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "unarmed",
+      "armor": "light",
+      "action": "walk",
+      "facing": "south",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "unarmed",
+      "armor": "light",
+      "action": "walk",
+      "facing": "west",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "unarmed",
+      "armor": "light",
+      "action": "ready",
+      "facing": "north",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "unarmed",
+      "armor": "light",
+      "action": "ready",
+      "facing": "east",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "unarmed",
+      "armor": "light",
+      "action": "ready",
+      "facing": "south",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "unarmed",
+      "armor": "light",
+      "action": "ready",
+      "facing": "west",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "unarmed",
+      "armor": "light",
+      "action": "aim",
+      "facing": "north",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "unarmed",
+      "armor": "light",
+      "action": "aim",
+      "facing": "east",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "unarmed",
+      "armor": "light",
+      "action": "aim",
+      "facing": "south",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "unarmed",
+      "armor": "light",
+      "action": "aim",
+      "facing": "west",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "unarmed",
+      "armor": "light",
+      "action": "fire",
+      "facing": "north",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "unarmed",
+      "armor": "light",
+      "action": "fire",
+      "facing": "east",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "unarmed",
+      "armor": "light",
+      "action": "fire",
+      "facing": "south",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "unarmed",
+      "armor": "light",
+      "action": "fire",
+      "facing": "west",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "unarmed",
+      "armor": "light",
+      "action": "hit",
+      "facing": "north",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "unarmed",
+      "armor": "light",
+      "action": "hit",
+      "facing": "east",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "unarmed",
+      "armor": "light",
+      "action": "hit",
+      "facing": "south",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "unarmed",
+      "armor": "light",
+      "action": "hit",
+      "facing": "west",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "unarmed",
+      "armor": "light",
+      "action": "work",
+      "facing": "north",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "unarmed",
+      "armor": "light",
+      "action": "work",
+      "facing": "east",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "unarmed",
+      "armor": "light",
+      "action": "work",
+      "facing": "south",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "unarmed",
+      "armor": "light",
+      "action": "work",
+      "facing": "west",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "unarmed",
+      "armor": "light",
+      "action": "death",
+      "facing": "north",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "unarmed",
+      "armor": "light",
+      "action": "death",
+      "facing": "east",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "unarmed",
+      "armor": "light",
+      "action": "death",
+      "facing": "south",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "unarmed",
+      "armor": "light",
+      "action": "death",
+      "facing": "west",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "unarmed",
+      "armor": "heavy",
+      "action": "idle",
+      "facing": "north",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "unarmed",
+      "armor": "heavy",
+      "action": "idle",
+      "facing": "east",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "unarmed",
+      "armor": "heavy",
+      "action": "idle",
+      "facing": "south",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "unarmed",
+      "armor": "heavy",
+      "action": "idle",
+      "facing": "west",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "unarmed",
+      "armor": "heavy",
+      "action": "walk",
+      "facing": "north",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "unarmed",
+      "armor": "heavy",
+      "action": "walk",
+      "facing": "east",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "unarmed",
+      "armor": "heavy",
+      "action": "walk",
+      "facing": "south",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "unarmed",
+      "armor": "heavy",
+      "action": "walk",
+      "facing": "west",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "unarmed",
+      "armor": "heavy",
+      "action": "ready",
+      "facing": "north",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "unarmed",
+      "armor": "heavy",
+      "action": "ready",
+      "facing": "east",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "unarmed",
+      "armor": "heavy",
+      "action": "ready",
+      "facing": "south",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "unarmed",
+      "armor": "heavy",
+      "action": "ready",
+      "facing": "west",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "unarmed",
+      "armor": "heavy",
+      "action": "aim",
+      "facing": "north",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "unarmed",
+      "armor": "heavy",
+      "action": "aim",
+      "facing": "east",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "unarmed",
+      "armor": "heavy",
+      "action": "aim",
+      "facing": "south",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "unarmed",
+      "armor": "heavy",
+      "action": "aim",
+      "facing": "west",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "unarmed",
+      "armor": "heavy",
+      "action": "fire",
+      "facing": "north",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "unarmed",
+      "armor": "heavy",
+      "action": "fire",
+      "facing": "east",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "unarmed",
+      "armor": "heavy",
+      "action": "fire",
+      "facing": "south",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "unarmed",
+      "armor": "heavy",
+      "action": "fire",
+      "facing": "west",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "unarmed",
+      "armor": "heavy",
+      "action": "hit",
+      "facing": "north",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "unarmed",
+      "armor": "heavy",
+      "action": "hit",
+      "facing": "east",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "unarmed",
+      "armor": "heavy",
+      "action": "hit",
+      "facing": "south",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "unarmed",
+      "armor": "heavy",
+      "action": "hit",
+      "facing": "west",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "unarmed",
+      "armor": "heavy",
+      "action": "work",
+      "facing": "north",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "unarmed",
+      "armor": "heavy",
+      "action": "work",
+      "facing": "east",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "unarmed",
+      "armor": "heavy",
+      "action": "work",
+      "facing": "south",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "unarmed",
+      "armor": "heavy",
+      "action": "work",
+      "facing": "west",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "unarmed",
+      "armor": "heavy",
+      "action": "death",
+      "facing": "north",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "unarmed",
+      "armor": "heavy",
+      "action": "death",
+      "facing": "east",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "unarmed",
+      "armor": "heavy",
+      "action": "death",
+      "facing": "south",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "unarmed",
+      "armor": "heavy",
+      "action": "death",
+      "facing": "west",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "pistol",
+      "armor": "suit",
+      "action": "idle",
+      "facing": "north",
+      "status": "candidate",
+      "clip": "officer.pistol.suit.idle.north"
+    },
+    {
+      "style": "painted",
+      "weapon": "pistol",
+      "armor": "suit",
+      "action": "idle",
+      "facing": "east",
+      "status": "candidate",
+      "clip": "officer.pistol.suit.idle.east"
+    },
+    {
+      "style": "painted",
+      "weapon": "pistol",
+      "armor": "suit",
+      "action": "idle",
+      "facing": "south",
+      "status": "candidate",
+      "clip": "officer.pistol.suit.idle.south"
+    },
+    {
+      "style": "painted",
+      "weapon": "pistol",
+      "armor": "suit",
+      "action": "idle",
+      "facing": "west",
+      "status": "candidate",
+      "clip": "officer.pistol.suit.idle.west"
+    },
+    {
+      "style": "painted",
+      "weapon": "pistol",
+      "armor": "suit",
+      "action": "walk",
+      "facing": "north",
+      "status": "candidate",
+      "clip": "officer.pistol.suit.walk.north"
+    },
+    {
+      "style": "painted",
+      "weapon": "pistol",
+      "armor": "suit",
+      "action": "walk",
+      "facing": "east",
+      "status": "candidate",
+      "clip": "officer.pistol.suit.walk.east"
+    },
+    {
+      "style": "painted",
+      "weapon": "pistol",
+      "armor": "suit",
+      "action": "walk",
+      "facing": "south",
+      "status": "candidate",
+      "clip": "officer.pistol.suit.walk.south"
+    },
+    {
+      "style": "painted",
+      "weapon": "pistol",
+      "armor": "suit",
+      "action": "walk",
+      "facing": "west",
+      "status": "candidate",
+      "clip": "officer.pistol.suit.walk.west"
+    },
+    {
+      "style": "painted",
+      "weapon": "pistol",
+      "armor": "suit",
+      "action": "ready",
+      "facing": "north",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "pistol",
+      "armor": "suit",
+      "action": "ready",
+      "facing": "east",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "pistol",
+      "armor": "suit",
+      "action": "ready",
+      "facing": "south",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "pistol",
+      "armor": "suit",
+      "action": "ready",
+      "facing": "west",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "pistol",
+      "armor": "suit",
+      "action": "aim",
+      "facing": "north",
+      "status": "candidate",
+      "clip": "officer.pistol.suit.aim.north"
+    },
+    {
+      "style": "painted",
+      "weapon": "pistol",
+      "armor": "suit",
+      "action": "aim",
+      "facing": "east",
+      "status": "candidate",
+      "clip": "officer.pistol.suit.aim.east"
+    },
+    {
+      "style": "painted",
+      "weapon": "pistol",
+      "armor": "suit",
+      "action": "aim",
+      "facing": "south",
+      "status": "candidate",
+      "clip": "officer.pistol.suit.aim.south"
+    },
+    {
+      "style": "painted",
+      "weapon": "pistol",
+      "armor": "suit",
+      "action": "aim",
+      "facing": "west",
+      "status": "candidate",
+      "clip": "officer.pistol.suit.aim.west"
+    },
+    {
+      "style": "painted",
+      "weapon": "pistol",
+      "armor": "suit",
+      "action": "fire",
+      "facing": "north",
+      "status": "candidate",
+      "clip": "officer.pistol.suit.fire.north"
+    },
+    {
+      "style": "painted",
+      "weapon": "pistol",
+      "armor": "suit",
+      "action": "fire",
+      "facing": "east",
+      "status": "candidate",
+      "clip": "officer.pistol.suit.fire.east"
+    },
+    {
+      "style": "painted",
+      "weapon": "pistol",
+      "armor": "suit",
+      "action": "fire",
+      "facing": "south",
+      "status": "candidate",
+      "clip": "officer.pistol.suit.fire.south"
+    },
+    {
+      "style": "painted",
+      "weapon": "pistol",
+      "armor": "suit",
+      "action": "fire",
+      "facing": "west",
+      "status": "candidate",
+      "clip": "officer.pistol.suit.fire.west"
+    },
+    {
+      "style": "painted",
+      "weapon": "pistol",
+      "armor": "suit",
+      "action": "hit",
+      "facing": "north",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "pistol",
+      "armor": "suit",
+      "action": "hit",
+      "facing": "east",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "pistol",
+      "armor": "suit",
+      "action": "hit",
+      "facing": "south",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "pistol",
+      "armor": "suit",
+      "action": "hit",
+      "facing": "west",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "pistol",
+      "armor": "suit",
+      "action": "work",
+      "facing": "north",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "pistol",
+      "armor": "suit",
+      "action": "work",
+      "facing": "east",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "pistol",
+      "armor": "suit",
+      "action": "work",
+      "facing": "south",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "pistol",
+      "armor": "suit",
+      "action": "work",
+      "facing": "west",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "pistol",
+      "armor": "suit",
+      "action": "death",
+      "facing": "north",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "pistol",
+      "armor": "suit",
+      "action": "death",
+      "facing": "east",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "pistol",
+      "armor": "suit",
+      "action": "death",
+      "facing": "south",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "pistol",
+      "armor": "suit",
+      "action": "death",
+      "facing": "west",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "pistol",
+      "armor": "light",
+      "action": "idle",
+      "facing": "north",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "pistol",
+      "armor": "light",
+      "action": "idle",
+      "facing": "east",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "pistol",
+      "armor": "light",
+      "action": "idle",
+      "facing": "south",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "pistol",
+      "armor": "light",
+      "action": "idle",
+      "facing": "west",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "pistol",
+      "armor": "light",
+      "action": "walk",
+      "facing": "north",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "pistol",
+      "armor": "light",
+      "action": "walk",
+      "facing": "east",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "pistol",
+      "armor": "light",
+      "action": "walk",
+      "facing": "south",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "pistol",
+      "armor": "light",
+      "action": "walk",
+      "facing": "west",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "pistol",
+      "armor": "light",
+      "action": "ready",
+      "facing": "north",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "pistol",
+      "armor": "light",
+      "action": "ready",
+      "facing": "east",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "pistol",
+      "armor": "light",
+      "action": "ready",
+      "facing": "south",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "pistol",
+      "armor": "light",
+      "action": "ready",
+      "facing": "west",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "pistol",
+      "armor": "light",
+      "action": "aim",
+      "facing": "north",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "pistol",
+      "armor": "light",
+      "action": "aim",
+      "facing": "east",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "pistol",
+      "armor": "light",
+      "action": "aim",
+      "facing": "south",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "pistol",
+      "armor": "light",
+      "action": "aim",
+      "facing": "west",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "pistol",
+      "armor": "light",
+      "action": "fire",
+      "facing": "north",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "pistol",
+      "armor": "light",
+      "action": "fire",
+      "facing": "east",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "pistol",
+      "armor": "light",
+      "action": "fire",
+      "facing": "south",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "pistol",
+      "armor": "light",
+      "action": "fire",
+      "facing": "west",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "pistol",
+      "armor": "light",
+      "action": "hit",
+      "facing": "north",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "pistol",
+      "armor": "light",
+      "action": "hit",
+      "facing": "east",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "pistol",
+      "armor": "light",
+      "action": "hit",
+      "facing": "south",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "pistol",
+      "armor": "light",
+      "action": "hit",
+      "facing": "west",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "pistol",
+      "armor": "light",
+      "action": "work",
+      "facing": "north",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "pistol",
+      "armor": "light",
+      "action": "work",
+      "facing": "east",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "pistol",
+      "armor": "light",
+      "action": "work",
+      "facing": "south",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "pistol",
+      "armor": "light",
+      "action": "work",
+      "facing": "west",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "pistol",
+      "armor": "light",
+      "action": "death",
+      "facing": "north",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "pistol",
+      "armor": "light",
+      "action": "death",
+      "facing": "east",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "pistol",
+      "armor": "light",
+      "action": "death",
+      "facing": "south",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "pistol",
+      "armor": "light",
+      "action": "death",
+      "facing": "west",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "pistol",
+      "armor": "heavy",
+      "action": "idle",
+      "facing": "north",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "pistol",
+      "armor": "heavy",
+      "action": "idle",
+      "facing": "east",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "pistol",
+      "armor": "heavy",
+      "action": "idle",
+      "facing": "south",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "pistol",
+      "armor": "heavy",
+      "action": "idle",
+      "facing": "west",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "pistol",
+      "armor": "heavy",
+      "action": "walk",
+      "facing": "north",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "pistol",
+      "armor": "heavy",
+      "action": "walk",
+      "facing": "east",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "pistol",
+      "armor": "heavy",
+      "action": "walk",
+      "facing": "south",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "pistol",
+      "armor": "heavy",
+      "action": "walk",
+      "facing": "west",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "pistol",
+      "armor": "heavy",
+      "action": "ready",
+      "facing": "north",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "pistol",
+      "armor": "heavy",
+      "action": "ready",
+      "facing": "east",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "pistol",
+      "armor": "heavy",
+      "action": "ready",
+      "facing": "south",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "pistol",
+      "armor": "heavy",
+      "action": "ready",
+      "facing": "west",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "pistol",
+      "armor": "heavy",
+      "action": "aim",
+      "facing": "north",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "pistol",
+      "armor": "heavy",
+      "action": "aim",
+      "facing": "east",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "pistol",
+      "armor": "heavy",
+      "action": "aim",
+      "facing": "south",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "pistol",
+      "armor": "heavy",
+      "action": "aim",
+      "facing": "west",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "pistol",
+      "armor": "heavy",
+      "action": "fire",
+      "facing": "north",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "pistol",
+      "armor": "heavy",
+      "action": "fire",
+      "facing": "east",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "pistol",
+      "armor": "heavy",
+      "action": "fire",
+      "facing": "south",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "pistol",
+      "armor": "heavy",
+      "action": "fire",
+      "facing": "west",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "pistol",
+      "armor": "heavy",
+      "action": "hit",
+      "facing": "north",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "pistol",
+      "armor": "heavy",
+      "action": "hit",
+      "facing": "east",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "pistol",
+      "armor": "heavy",
+      "action": "hit",
+      "facing": "south",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "pistol",
+      "armor": "heavy",
+      "action": "hit",
+      "facing": "west",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "pistol",
+      "armor": "heavy",
+      "action": "work",
+      "facing": "north",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "pistol",
+      "armor": "heavy",
+      "action": "work",
+      "facing": "east",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "pistol",
+      "armor": "heavy",
+      "action": "work",
+      "facing": "south",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "pistol",
+      "armor": "heavy",
+      "action": "work",
+      "facing": "west",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "pistol",
+      "armor": "heavy",
+      "action": "death",
+      "facing": "north",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "pistol",
+      "armor": "heavy",
+      "action": "death",
+      "facing": "east",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "pistol",
+      "armor": "heavy",
+      "action": "death",
+      "facing": "south",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "pistol",
+      "armor": "heavy",
+      "action": "death",
+      "facing": "west",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "rifle",
+      "armor": "suit",
+      "action": "idle",
+      "facing": "north",
+      "status": "candidate",
+      "clip": "officer.rifle.suit.idle.north"
+    },
+    {
+      "style": "painted",
+      "weapon": "rifle",
+      "armor": "suit",
+      "action": "idle",
+      "facing": "east",
+      "status": "candidate",
+      "clip": "officer.rifle.suit.idle.east"
+    },
+    {
+      "style": "painted",
+      "weapon": "rifle",
+      "armor": "suit",
+      "action": "idle",
+      "facing": "south",
+      "status": "candidate",
+      "clip": "officer.rifle.suit.idle.south"
+    },
+    {
+      "style": "painted",
+      "weapon": "rifle",
+      "armor": "suit",
+      "action": "idle",
+      "facing": "west",
+      "status": "candidate",
+      "clip": "officer.rifle.suit.idle.west"
+    },
+    {
+      "style": "painted",
+      "weapon": "rifle",
+      "armor": "suit",
+      "action": "walk",
+      "facing": "north",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "rifle",
+      "armor": "suit",
+      "action": "walk",
+      "facing": "east",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "rifle",
+      "armor": "suit",
+      "action": "walk",
+      "facing": "south",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "rifle",
+      "armor": "suit",
+      "action": "walk",
+      "facing": "west",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "rifle",
+      "armor": "suit",
+      "action": "ready",
+      "facing": "north",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "rifle",
+      "armor": "suit",
+      "action": "ready",
+      "facing": "east",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "rifle",
+      "armor": "suit",
+      "action": "ready",
+      "facing": "south",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "rifle",
+      "armor": "suit",
+      "action": "ready",
+      "facing": "west",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "rifle",
+      "armor": "suit",
+      "action": "aim",
+      "facing": "north",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "rifle",
+      "armor": "suit",
+      "action": "aim",
+      "facing": "east",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "rifle",
+      "armor": "suit",
+      "action": "aim",
+      "facing": "south",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "rifle",
+      "armor": "suit",
+      "action": "aim",
+      "facing": "west",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "rifle",
+      "armor": "suit",
+      "action": "fire",
+      "facing": "north",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "rifle",
+      "armor": "suit",
+      "action": "fire",
+      "facing": "east",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "rifle",
+      "armor": "suit",
+      "action": "fire",
+      "facing": "south",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "rifle",
+      "armor": "suit",
+      "action": "fire",
+      "facing": "west",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "rifle",
+      "armor": "suit",
+      "action": "hit",
+      "facing": "north",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "rifle",
+      "armor": "suit",
+      "action": "hit",
+      "facing": "east",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "rifle",
+      "armor": "suit",
+      "action": "hit",
+      "facing": "south",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "rifle",
+      "armor": "suit",
+      "action": "hit",
+      "facing": "west",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "rifle",
+      "armor": "suit",
+      "action": "work",
+      "facing": "north",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "rifle",
+      "armor": "suit",
+      "action": "work",
+      "facing": "east",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "rifle",
+      "armor": "suit",
+      "action": "work",
+      "facing": "south",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "rifle",
+      "armor": "suit",
+      "action": "work",
+      "facing": "west",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "rifle",
+      "armor": "suit",
+      "action": "death",
+      "facing": "north",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "rifle",
+      "armor": "suit",
+      "action": "death",
+      "facing": "east",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "rifle",
+      "armor": "suit",
+      "action": "death",
+      "facing": "south",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "rifle",
+      "armor": "suit",
+      "action": "death",
+      "facing": "west",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "rifle",
+      "armor": "light",
+      "action": "idle",
+      "facing": "north",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "rifle",
+      "armor": "light",
+      "action": "idle",
+      "facing": "east",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "rifle",
+      "armor": "light",
+      "action": "idle",
+      "facing": "south",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "rifle",
+      "armor": "light",
+      "action": "idle",
+      "facing": "west",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "rifle",
+      "armor": "light",
+      "action": "walk",
+      "facing": "north",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "rifle",
+      "armor": "light",
+      "action": "walk",
+      "facing": "east",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "rifle",
+      "armor": "light",
+      "action": "walk",
+      "facing": "south",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "rifle",
+      "armor": "light",
+      "action": "walk",
+      "facing": "west",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "rifle",
+      "armor": "light",
+      "action": "ready",
+      "facing": "north",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "rifle",
+      "armor": "light",
+      "action": "ready",
+      "facing": "east",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "rifle",
+      "armor": "light",
+      "action": "ready",
+      "facing": "south",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "rifle",
+      "armor": "light",
+      "action": "ready",
+      "facing": "west",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "rifle",
+      "armor": "light",
+      "action": "aim",
+      "facing": "north",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "rifle",
+      "armor": "light",
+      "action": "aim",
+      "facing": "east",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "rifle",
+      "armor": "light",
+      "action": "aim",
+      "facing": "south",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "rifle",
+      "armor": "light",
+      "action": "aim",
+      "facing": "west",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "rifle",
+      "armor": "light",
+      "action": "fire",
+      "facing": "north",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "rifle",
+      "armor": "light",
+      "action": "fire",
+      "facing": "east",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "rifle",
+      "armor": "light",
+      "action": "fire",
+      "facing": "south",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "rifle",
+      "armor": "light",
+      "action": "fire",
+      "facing": "west",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "rifle",
+      "armor": "light",
+      "action": "hit",
+      "facing": "north",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "rifle",
+      "armor": "light",
+      "action": "hit",
+      "facing": "east",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "rifle",
+      "armor": "light",
+      "action": "hit",
+      "facing": "south",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "rifle",
+      "armor": "light",
+      "action": "hit",
+      "facing": "west",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "rifle",
+      "armor": "light",
+      "action": "work",
+      "facing": "north",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "rifle",
+      "armor": "light",
+      "action": "work",
+      "facing": "east",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "rifle",
+      "armor": "light",
+      "action": "work",
+      "facing": "south",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "rifle",
+      "armor": "light",
+      "action": "work",
+      "facing": "west",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "rifle",
+      "armor": "light",
+      "action": "death",
+      "facing": "north",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "rifle",
+      "armor": "light",
+      "action": "death",
+      "facing": "east",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "rifle",
+      "armor": "light",
+      "action": "death",
+      "facing": "south",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "rifle",
+      "armor": "light",
+      "action": "death",
+      "facing": "west",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "rifle",
+      "armor": "heavy",
+      "action": "idle",
+      "facing": "north",
+      "status": "candidate",
+      "clip": "officer.rifle.heavy.idle.north"
+    },
+    {
+      "style": "painted",
+      "weapon": "rifle",
+      "armor": "heavy",
+      "action": "idle",
+      "facing": "east",
+      "status": "candidate",
+      "clip": "officer.rifle.heavy.idle.east"
+    },
+    {
+      "style": "painted",
+      "weapon": "rifle",
+      "armor": "heavy",
+      "action": "idle",
+      "facing": "south",
+      "status": "candidate",
+      "clip": "officer.rifle.heavy.idle.south"
+    },
+    {
+      "style": "painted",
+      "weapon": "rifle",
+      "armor": "heavy",
+      "action": "idle",
+      "facing": "west",
+      "status": "candidate",
+      "clip": "officer.rifle.heavy.idle.west"
+    },
+    {
+      "style": "painted",
+      "weapon": "rifle",
+      "armor": "heavy",
+      "action": "walk",
+      "facing": "north",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "rifle",
+      "armor": "heavy",
+      "action": "walk",
+      "facing": "east",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "rifle",
+      "armor": "heavy",
+      "action": "walk",
+      "facing": "south",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "rifle",
+      "armor": "heavy",
+      "action": "walk",
+      "facing": "west",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "rifle",
+      "armor": "heavy",
+      "action": "ready",
+      "facing": "north",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "rifle",
+      "armor": "heavy",
+      "action": "ready",
+      "facing": "east",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "rifle",
+      "armor": "heavy",
+      "action": "ready",
+      "facing": "south",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "rifle",
+      "armor": "heavy",
+      "action": "ready",
+      "facing": "west",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "rifle",
+      "armor": "heavy",
+      "action": "aim",
+      "facing": "north",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "rifle",
+      "armor": "heavy",
+      "action": "aim",
+      "facing": "east",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "rifle",
+      "armor": "heavy",
+      "action": "aim",
+      "facing": "south",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "rifle",
+      "armor": "heavy",
+      "action": "aim",
+      "facing": "west",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "rifle",
+      "armor": "heavy",
+      "action": "fire",
+      "facing": "north",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "rifle",
+      "armor": "heavy",
+      "action": "fire",
+      "facing": "east",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "rifle",
+      "armor": "heavy",
+      "action": "fire",
+      "facing": "south",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "rifle",
+      "armor": "heavy",
+      "action": "fire",
+      "facing": "west",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "rifle",
+      "armor": "heavy",
+      "action": "hit",
+      "facing": "north",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "rifle",
+      "armor": "heavy",
+      "action": "hit",
+      "facing": "east",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "rifle",
+      "armor": "heavy",
+      "action": "hit",
+      "facing": "south",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "rifle",
+      "armor": "heavy",
+      "action": "hit",
+      "facing": "west",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "rifle",
+      "armor": "heavy",
+      "action": "work",
+      "facing": "north",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "rifle",
+      "armor": "heavy",
+      "action": "work",
+      "facing": "east",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "rifle",
+      "armor": "heavy",
+      "action": "work",
+      "facing": "south",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "rifle",
+      "armor": "heavy",
+      "action": "work",
+      "facing": "west",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "rifle",
+      "armor": "heavy",
+      "action": "death",
+      "facing": "north",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "rifle",
+      "armor": "heavy",
+      "action": "death",
+      "facing": "east",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "rifle",
+      "armor": "heavy",
+      "action": "death",
+      "facing": "south",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "rifle",
+      "armor": "heavy",
+      "action": "death",
+      "facing": "west",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "scattergun",
+      "armor": "suit",
+      "action": "idle",
+      "facing": "north",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "scattergun",
+      "armor": "suit",
+      "action": "idle",
+      "facing": "east",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "scattergun",
+      "armor": "suit",
+      "action": "idle",
+      "facing": "south",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "scattergun",
+      "armor": "suit",
+      "action": "idle",
+      "facing": "west",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "scattergun",
+      "armor": "suit",
+      "action": "walk",
+      "facing": "north",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "scattergun",
+      "armor": "suit",
+      "action": "walk",
+      "facing": "east",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "scattergun",
+      "armor": "suit",
+      "action": "walk",
+      "facing": "south",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "scattergun",
+      "armor": "suit",
+      "action": "walk",
+      "facing": "west",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "scattergun",
+      "armor": "suit",
+      "action": "ready",
+      "facing": "north",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "scattergun",
+      "armor": "suit",
+      "action": "ready",
+      "facing": "east",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "scattergun",
+      "armor": "suit",
+      "action": "ready",
+      "facing": "south",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "scattergun",
+      "armor": "suit",
+      "action": "ready",
+      "facing": "west",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "scattergun",
+      "armor": "suit",
+      "action": "aim",
+      "facing": "north",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "scattergun",
+      "armor": "suit",
+      "action": "aim",
+      "facing": "east",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "scattergun",
+      "armor": "suit",
+      "action": "aim",
+      "facing": "south",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "scattergun",
+      "armor": "suit",
+      "action": "aim",
+      "facing": "west",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "scattergun",
+      "armor": "suit",
+      "action": "fire",
+      "facing": "north",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "scattergun",
+      "armor": "suit",
+      "action": "fire",
+      "facing": "east",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "scattergun",
+      "armor": "suit",
+      "action": "fire",
+      "facing": "south",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "scattergun",
+      "armor": "suit",
+      "action": "fire",
+      "facing": "west",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "scattergun",
+      "armor": "suit",
+      "action": "hit",
+      "facing": "north",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "scattergun",
+      "armor": "suit",
+      "action": "hit",
+      "facing": "east",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "scattergun",
+      "armor": "suit",
+      "action": "hit",
+      "facing": "south",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "scattergun",
+      "armor": "suit",
+      "action": "hit",
+      "facing": "west",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "scattergun",
+      "armor": "suit",
+      "action": "work",
+      "facing": "north",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "scattergun",
+      "armor": "suit",
+      "action": "work",
+      "facing": "east",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "scattergun",
+      "armor": "suit",
+      "action": "work",
+      "facing": "south",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "scattergun",
+      "armor": "suit",
+      "action": "work",
+      "facing": "west",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "scattergun",
+      "armor": "suit",
+      "action": "death",
+      "facing": "north",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "scattergun",
+      "armor": "suit",
+      "action": "death",
+      "facing": "east",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "scattergun",
+      "armor": "suit",
+      "action": "death",
+      "facing": "south",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "scattergun",
+      "armor": "suit",
+      "action": "death",
+      "facing": "west",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "scattergun",
+      "armor": "light",
+      "action": "idle",
+      "facing": "north",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "scattergun",
+      "armor": "light",
+      "action": "idle",
+      "facing": "east",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "scattergun",
+      "armor": "light",
+      "action": "idle",
+      "facing": "south",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "scattergun",
+      "armor": "light",
+      "action": "idle",
+      "facing": "west",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "scattergun",
+      "armor": "light",
+      "action": "walk",
+      "facing": "north",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "scattergun",
+      "armor": "light",
+      "action": "walk",
+      "facing": "east",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "scattergun",
+      "armor": "light",
+      "action": "walk",
+      "facing": "south",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "scattergun",
+      "armor": "light",
+      "action": "walk",
+      "facing": "west",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "scattergun",
+      "armor": "light",
+      "action": "ready",
+      "facing": "north",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "scattergun",
+      "armor": "light",
+      "action": "ready",
+      "facing": "east",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "scattergun",
+      "armor": "light",
+      "action": "ready",
+      "facing": "south",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "scattergun",
+      "armor": "light",
+      "action": "ready",
+      "facing": "west",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "scattergun",
+      "armor": "light",
+      "action": "aim",
+      "facing": "north",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "scattergun",
+      "armor": "light",
+      "action": "aim",
+      "facing": "east",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "scattergun",
+      "armor": "light",
+      "action": "aim",
+      "facing": "south",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "scattergun",
+      "armor": "light",
+      "action": "aim",
+      "facing": "west",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "scattergun",
+      "armor": "light",
+      "action": "fire",
+      "facing": "north",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "scattergun",
+      "armor": "light",
+      "action": "fire",
+      "facing": "east",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "scattergun",
+      "armor": "light",
+      "action": "fire",
+      "facing": "south",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "scattergun",
+      "armor": "light",
+      "action": "fire",
+      "facing": "west",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "scattergun",
+      "armor": "light",
+      "action": "hit",
+      "facing": "north",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "scattergun",
+      "armor": "light",
+      "action": "hit",
+      "facing": "east",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "scattergun",
+      "armor": "light",
+      "action": "hit",
+      "facing": "south",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "scattergun",
+      "armor": "light",
+      "action": "hit",
+      "facing": "west",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "scattergun",
+      "armor": "light",
+      "action": "work",
+      "facing": "north",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "scattergun",
+      "armor": "light",
+      "action": "work",
+      "facing": "east",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "scattergun",
+      "armor": "light",
+      "action": "work",
+      "facing": "south",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "scattergun",
+      "armor": "light",
+      "action": "work",
+      "facing": "west",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "scattergun",
+      "armor": "light",
+      "action": "death",
+      "facing": "north",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "scattergun",
+      "armor": "light",
+      "action": "death",
+      "facing": "east",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "scattergun",
+      "armor": "light",
+      "action": "death",
+      "facing": "south",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "scattergun",
+      "armor": "light",
+      "action": "death",
+      "facing": "west",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "scattergun",
+      "armor": "heavy",
+      "action": "idle",
+      "facing": "north",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "scattergun",
+      "armor": "heavy",
+      "action": "idle",
+      "facing": "east",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "scattergun",
+      "armor": "heavy",
+      "action": "idle",
+      "facing": "south",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "scattergun",
+      "armor": "heavy",
+      "action": "idle",
+      "facing": "west",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "scattergun",
+      "armor": "heavy",
+      "action": "walk",
+      "facing": "north",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "scattergun",
+      "armor": "heavy",
+      "action": "walk",
+      "facing": "east",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "scattergun",
+      "armor": "heavy",
+      "action": "walk",
+      "facing": "south",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "scattergun",
+      "armor": "heavy",
+      "action": "walk",
+      "facing": "west",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "scattergun",
+      "armor": "heavy",
+      "action": "ready",
+      "facing": "north",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "scattergun",
+      "armor": "heavy",
+      "action": "ready",
+      "facing": "east",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "scattergun",
+      "armor": "heavy",
+      "action": "ready",
+      "facing": "south",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "scattergun",
+      "armor": "heavy",
+      "action": "ready",
+      "facing": "west",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "scattergun",
+      "armor": "heavy",
+      "action": "aim",
+      "facing": "north",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "scattergun",
+      "armor": "heavy",
+      "action": "aim",
+      "facing": "east",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "scattergun",
+      "armor": "heavy",
+      "action": "aim",
+      "facing": "south",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "scattergun",
+      "armor": "heavy",
+      "action": "aim",
+      "facing": "west",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "scattergun",
+      "armor": "heavy",
+      "action": "fire",
+      "facing": "north",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "scattergun",
+      "armor": "heavy",
+      "action": "fire",
+      "facing": "east",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "scattergun",
+      "armor": "heavy",
+      "action": "fire",
+      "facing": "south",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "scattergun",
+      "armor": "heavy",
+      "action": "fire",
+      "facing": "west",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "scattergun",
+      "armor": "heavy",
+      "action": "hit",
+      "facing": "north",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "scattergun",
+      "armor": "heavy",
+      "action": "hit",
+      "facing": "east",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "scattergun",
+      "armor": "heavy",
+      "action": "hit",
+      "facing": "south",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "scattergun",
+      "armor": "heavy",
+      "action": "hit",
+      "facing": "west",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "scattergun",
+      "armor": "heavy",
+      "action": "work",
+      "facing": "north",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "scattergun",
+      "armor": "heavy",
+      "action": "work",
+      "facing": "east",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "scattergun",
+      "armor": "heavy",
+      "action": "work",
+      "facing": "south",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "scattergun",
+      "armor": "heavy",
+      "action": "work",
+      "facing": "west",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "scattergun",
+      "armor": "heavy",
+      "action": "death",
+      "facing": "north",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "scattergun",
+      "armor": "heavy",
+      "action": "death",
+      "facing": "east",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "scattergun",
+      "armor": "heavy",
+      "action": "death",
+      "facing": "south",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "painted",
+      "weapon": "scattergun",
+      "armor": "heavy",
+      "action": "death",
+      "facing": "west",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "unarmed",
+      "armor": "suit",
+      "action": "idle",
+      "facing": "north",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "unarmed",
+      "armor": "suit",
+      "action": "idle",
+      "facing": "east",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "unarmed",
+      "armor": "suit",
+      "action": "idle",
+      "facing": "south",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "unarmed",
+      "armor": "suit",
+      "action": "idle",
+      "facing": "west",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "unarmed",
+      "armor": "suit",
+      "action": "walk",
+      "facing": "north",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "unarmed",
+      "armor": "suit",
+      "action": "walk",
+      "facing": "east",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "unarmed",
+      "armor": "suit",
+      "action": "walk",
+      "facing": "south",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "unarmed",
+      "armor": "suit",
+      "action": "walk",
+      "facing": "west",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "unarmed",
+      "armor": "suit",
+      "action": "ready",
+      "facing": "north",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "unarmed",
+      "armor": "suit",
+      "action": "ready",
+      "facing": "east",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "unarmed",
+      "armor": "suit",
+      "action": "ready",
+      "facing": "south",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "unarmed",
+      "armor": "suit",
+      "action": "ready",
+      "facing": "west",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "unarmed",
+      "armor": "suit",
+      "action": "aim",
+      "facing": "north",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "unarmed",
+      "armor": "suit",
+      "action": "aim",
+      "facing": "east",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "unarmed",
+      "armor": "suit",
+      "action": "aim",
+      "facing": "south",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "unarmed",
+      "armor": "suit",
+      "action": "aim",
+      "facing": "west",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "unarmed",
+      "armor": "suit",
+      "action": "fire",
+      "facing": "north",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "unarmed",
+      "armor": "suit",
+      "action": "fire",
+      "facing": "east",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "unarmed",
+      "armor": "suit",
+      "action": "fire",
+      "facing": "south",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "unarmed",
+      "armor": "suit",
+      "action": "fire",
+      "facing": "west",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "unarmed",
+      "armor": "suit",
+      "action": "hit",
+      "facing": "north",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "unarmed",
+      "armor": "suit",
+      "action": "hit",
+      "facing": "east",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "unarmed",
+      "armor": "suit",
+      "action": "hit",
+      "facing": "south",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "unarmed",
+      "armor": "suit",
+      "action": "hit",
+      "facing": "west",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "unarmed",
+      "armor": "suit",
+      "action": "work",
+      "facing": "north",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "unarmed",
+      "armor": "suit",
+      "action": "work",
+      "facing": "east",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "unarmed",
+      "armor": "suit",
+      "action": "work",
+      "facing": "south",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "unarmed",
+      "armor": "suit",
+      "action": "work",
+      "facing": "west",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "unarmed",
+      "armor": "suit",
+      "action": "death",
+      "facing": "north",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "unarmed",
+      "armor": "suit",
+      "action": "death",
+      "facing": "east",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "unarmed",
+      "armor": "suit",
+      "action": "death",
+      "facing": "south",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "unarmed",
+      "armor": "suit",
+      "action": "death",
+      "facing": "west",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "unarmed",
+      "armor": "light",
+      "action": "idle",
+      "facing": "north",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "unarmed",
+      "armor": "light",
+      "action": "idle",
+      "facing": "east",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "unarmed",
+      "armor": "light",
+      "action": "idle",
+      "facing": "south",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "unarmed",
+      "armor": "light",
+      "action": "idle",
+      "facing": "west",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "unarmed",
+      "armor": "light",
+      "action": "walk",
+      "facing": "north",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "unarmed",
+      "armor": "light",
+      "action": "walk",
+      "facing": "east",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "unarmed",
+      "armor": "light",
+      "action": "walk",
+      "facing": "south",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "unarmed",
+      "armor": "light",
+      "action": "walk",
+      "facing": "west",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "unarmed",
+      "armor": "light",
+      "action": "ready",
+      "facing": "north",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "unarmed",
+      "armor": "light",
+      "action": "ready",
+      "facing": "east",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "unarmed",
+      "armor": "light",
+      "action": "ready",
+      "facing": "south",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "unarmed",
+      "armor": "light",
+      "action": "ready",
+      "facing": "west",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "unarmed",
+      "armor": "light",
+      "action": "aim",
+      "facing": "north",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "unarmed",
+      "armor": "light",
+      "action": "aim",
+      "facing": "east",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "unarmed",
+      "armor": "light",
+      "action": "aim",
+      "facing": "south",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "unarmed",
+      "armor": "light",
+      "action": "aim",
+      "facing": "west",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "unarmed",
+      "armor": "light",
+      "action": "fire",
+      "facing": "north",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "unarmed",
+      "armor": "light",
+      "action": "fire",
+      "facing": "east",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "unarmed",
+      "armor": "light",
+      "action": "fire",
+      "facing": "south",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "unarmed",
+      "armor": "light",
+      "action": "fire",
+      "facing": "west",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "unarmed",
+      "armor": "light",
+      "action": "hit",
+      "facing": "north",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "unarmed",
+      "armor": "light",
+      "action": "hit",
+      "facing": "east",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "unarmed",
+      "armor": "light",
+      "action": "hit",
+      "facing": "south",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "unarmed",
+      "armor": "light",
+      "action": "hit",
+      "facing": "west",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "unarmed",
+      "armor": "light",
+      "action": "work",
+      "facing": "north",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "unarmed",
+      "armor": "light",
+      "action": "work",
+      "facing": "east",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "unarmed",
+      "armor": "light",
+      "action": "work",
+      "facing": "south",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "unarmed",
+      "armor": "light",
+      "action": "work",
+      "facing": "west",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "unarmed",
+      "armor": "light",
+      "action": "death",
+      "facing": "north",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "unarmed",
+      "armor": "light",
+      "action": "death",
+      "facing": "east",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "unarmed",
+      "armor": "light",
+      "action": "death",
+      "facing": "south",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "unarmed",
+      "armor": "light",
+      "action": "death",
+      "facing": "west",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "unarmed",
+      "armor": "heavy",
+      "action": "idle",
+      "facing": "north",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "unarmed",
+      "armor": "heavy",
+      "action": "idle",
+      "facing": "east",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "unarmed",
+      "armor": "heavy",
+      "action": "idle",
+      "facing": "south",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "unarmed",
+      "armor": "heavy",
+      "action": "idle",
+      "facing": "west",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "unarmed",
+      "armor": "heavy",
+      "action": "walk",
+      "facing": "north",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "unarmed",
+      "armor": "heavy",
+      "action": "walk",
+      "facing": "east",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "unarmed",
+      "armor": "heavy",
+      "action": "walk",
+      "facing": "south",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "unarmed",
+      "armor": "heavy",
+      "action": "walk",
+      "facing": "west",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "unarmed",
+      "armor": "heavy",
+      "action": "ready",
+      "facing": "north",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "unarmed",
+      "armor": "heavy",
+      "action": "ready",
+      "facing": "east",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "unarmed",
+      "armor": "heavy",
+      "action": "ready",
+      "facing": "south",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "unarmed",
+      "armor": "heavy",
+      "action": "ready",
+      "facing": "west",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "unarmed",
+      "armor": "heavy",
+      "action": "aim",
+      "facing": "north",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "unarmed",
+      "armor": "heavy",
+      "action": "aim",
+      "facing": "east",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "unarmed",
+      "armor": "heavy",
+      "action": "aim",
+      "facing": "south",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "unarmed",
+      "armor": "heavy",
+      "action": "aim",
+      "facing": "west",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "unarmed",
+      "armor": "heavy",
+      "action": "fire",
+      "facing": "north",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "unarmed",
+      "armor": "heavy",
+      "action": "fire",
+      "facing": "east",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "unarmed",
+      "armor": "heavy",
+      "action": "fire",
+      "facing": "south",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "unarmed",
+      "armor": "heavy",
+      "action": "fire",
+      "facing": "west",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "unarmed",
+      "armor": "heavy",
+      "action": "hit",
+      "facing": "north",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "unarmed",
+      "armor": "heavy",
+      "action": "hit",
+      "facing": "east",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "unarmed",
+      "armor": "heavy",
+      "action": "hit",
+      "facing": "south",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "unarmed",
+      "armor": "heavy",
+      "action": "hit",
+      "facing": "west",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "unarmed",
+      "armor": "heavy",
+      "action": "work",
+      "facing": "north",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "unarmed",
+      "armor": "heavy",
+      "action": "work",
+      "facing": "east",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "unarmed",
+      "armor": "heavy",
+      "action": "work",
+      "facing": "south",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "unarmed",
+      "armor": "heavy",
+      "action": "work",
+      "facing": "west",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "unarmed",
+      "armor": "heavy",
+      "action": "death",
+      "facing": "north",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "unarmed",
+      "armor": "heavy",
+      "action": "death",
+      "facing": "east",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "unarmed",
+      "armor": "heavy",
+      "action": "death",
+      "facing": "south",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "unarmed",
+      "armor": "heavy",
+      "action": "death",
+      "facing": "west",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "pistol",
+      "armor": "suit",
+      "action": "idle",
+      "facing": "north",
+      "status": "candidate",
+      "clip": "officer.pistol.suit.idle.north"
+    },
+    {
+      "style": "rendered",
+      "weapon": "pistol",
+      "armor": "suit",
+      "action": "idle",
+      "facing": "east",
+      "status": "candidate",
+      "clip": "officer.pistol.suit.idle.east"
+    },
+    {
+      "style": "rendered",
+      "weapon": "pistol",
+      "armor": "suit",
+      "action": "idle",
+      "facing": "south",
+      "status": "candidate",
+      "clip": "officer.pistol.suit.idle.south"
+    },
+    {
+      "style": "rendered",
+      "weapon": "pistol",
+      "armor": "suit",
+      "action": "idle",
+      "facing": "west",
+      "status": "candidate",
+      "clip": "officer.pistol.suit.idle.west"
+    },
+    {
+      "style": "rendered",
+      "weapon": "pistol",
+      "armor": "suit",
+      "action": "walk",
+      "facing": "north",
+      "status": "candidate",
+      "clip": "officer.pistol.suit.walk.north"
+    },
+    {
+      "style": "rendered",
+      "weapon": "pistol",
+      "armor": "suit",
+      "action": "walk",
+      "facing": "east",
+      "status": "candidate",
+      "clip": "officer.pistol.suit.walk.east"
+    },
+    {
+      "style": "rendered",
+      "weapon": "pistol",
+      "armor": "suit",
+      "action": "walk",
+      "facing": "south",
+      "status": "candidate",
+      "clip": "officer.pistol.suit.walk.south"
+    },
+    {
+      "style": "rendered",
+      "weapon": "pistol",
+      "armor": "suit",
+      "action": "walk",
+      "facing": "west",
+      "status": "candidate",
+      "clip": "officer.pistol.suit.walk.west"
+    },
+    {
+      "style": "rendered",
+      "weapon": "pistol",
+      "armor": "suit",
+      "action": "ready",
+      "facing": "north",
+      "status": "candidate",
+      "clip": "officer.pistol.suit.ready.north"
+    },
+    {
+      "style": "rendered",
+      "weapon": "pistol",
+      "armor": "suit",
+      "action": "ready",
+      "facing": "east",
+      "status": "candidate",
+      "clip": "officer.pistol.suit.ready.east"
+    },
+    {
+      "style": "rendered",
+      "weapon": "pistol",
+      "armor": "suit",
+      "action": "ready",
+      "facing": "south",
+      "status": "candidate",
+      "clip": "officer.pistol.suit.ready.south"
+    },
+    {
+      "style": "rendered",
+      "weapon": "pistol",
+      "armor": "suit",
+      "action": "ready",
+      "facing": "west",
+      "status": "candidate",
+      "clip": "officer.pistol.suit.ready.west"
+    },
+    {
+      "style": "rendered",
+      "weapon": "pistol",
+      "armor": "suit",
+      "action": "aim",
+      "facing": "north",
+      "status": "candidate",
+      "clip": "officer.pistol.suit.aim.north"
+    },
+    {
+      "style": "rendered",
+      "weapon": "pistol",
+      "armor": "suit",
+      "action": "aim",
+      "facing": "east",
+      "status": "candidate",
+      "clip": "officer.pistol.suit.aim.east"
+    },
+    {
+      "style": "rendered",
+      "weapon": "pistol",
+      "armor": "suit",
+      "action": "aim",
+      "facing": "south",
+      "status": "candidate",
+      "clip": "officer.pistol.suit.aim.south"
+    },
+    {
+      "style": "rendered",
+      "weapon": "pistol",
+      "armor": "suit",
+      "action": "aim",
+      "facing": "west",
+      "status": "candidate",
+      "clip": "officer.pistol.suit.aim.west"
+    },
+    {
+      "style": "rendered",
+      "weapon": "pistol",
+      "armor": "suit",
+      "action": "fire",
+      "facing": "north",
+      "status": "candidate",
+      "clip": "officer.pistol.suit.fire.north"
+    },
+    {
+      "style": "rendered",
+      "weapon": "pistol",
+      "armor": "suit",
+      "action": "fire",
+      "facing": "east",
+      "status": "candidate",
+      "clip": "officer.pistol.suit.fire.east"
+    },
+    {
+      "style": "rendered",
+      "weapon": "pistol",
+      "armor": "suit",
+      "action": "fire",
+      "facing": "south",
+      "status": "candidate",
+      "clip": "officer.pistol.suit.fire.south"
+    },
+    {
+      "style": "rendered",
+      "weapon": "pistol",
+      "armor": "suit",
+      "action": "fire",
+      "facing": "west",
+      "status": "candidate",
+      "clip": "officer.pistol.suit.fire.west"
+    },
+    {
+      "style": "rendered",
+      "weapon": "pistol",
+      "armor": "suit",
+      "action": "hit",
+      "facing": "north",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "pistol",
+      "armor": "suit",
+      "action": "hit",
+      "facing": "east",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "pistol",
+      "armor": "suit",
+      "action": "hit",
+      "facing": "south",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "pistol",
+      "armor": "suit",
+      "action": "hit",
+      "facing": "west",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "pistol",
+      "armor": "suit",
+      "action": "work",
+      "facing": "north",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "pistol",
+      "armor": "suit",
+      "action": "work",
+      "facing": "east",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "pistol",
+      "armor": "suit",
+      "action": "work",
+      "facing": "south",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "pistol",
+      "armor": "suit",
+      "action": "work",
+      "facing": "west",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "pistol",
+      "armor": "suit",
+      "action": "death",
+      "facing": "north",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "pistol",
+      "armor": "suit",
+      "action": "death",
+      "facing": "east",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "pistol",
+      "armor": "suit",
+      "action": "death",
+      "facing": "south",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "pistol",
+      "armor": "suit",
+      "action": "death",
+      "facing": "west",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "pistol",
+      "armor": "light",
+      "action": "idle",
+      "facing": "north",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "pistol",
+      "armor": "light",
+      "action": "idle",
+      "facing": "east",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "pistol",
+      "armor": "light",
+      "action": "idle",
+      "facing": "south",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "pistol",
+      "armor": "light",
+      "action": "idle",
+      "facing": "west",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "pistol",
+      "armor": "light",
+      "action": "walk",
+      "facing": "north",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "pistol",
+      "armor": "light",
+      "action": "walk",
+      "facing": "east",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "pistol",
+      "armor": "light",
+      "action": "walk",
+      "facing": "south",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "pistol",
+      "armor": "light",
+      "action": "walk",
+      "facing": "west",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "pistol",
+      "armor": "light",
+      "action": "ready",
+      "facing": "north",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "pistol",
+      "armor": "light",
+      "action": "ready",
+      "facing": "east",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "pistol",
+      "armor": "light",
+      "action": "ready",
+      "facing": "south",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "pistol",
+      "armor": "light",
+      "action": "ready",
+      "facing": "west",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "pistol",
+      "armor": "light",
+      "action": "aim",
+      "facing": "north",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "pistol",
+      "armor": "light",
+      "action": "aim",
+      "facing": "east",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "pistol",
+      "armor": "light",
+      "action": "aim",
+      "facing": "south",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "pistol",
+      "armor": "light",
+      "action": "aim",
+      "facing": "west",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "pistol",
+      "armor": "light",
+      "action": "fire",
+      "facing": "north",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "pistol",
+      "armor": "light",
+      "action": "fire",
+      "facing": "east",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "pistol",
+      "armor": "light",
+      "action": "fire",
+      "facing": "south",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "pistol",
+      "armor": "light",
+      "action": "fire",
+      "facing": "west",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "pistol",
+      "armor": "light",
+      "action": "hit",
+      "facing": "north",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "pistol",
+      "armor": "light",
+      "action": "hit",
+      "facing": "east",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "pistol",
+      "armor": "light",
+      "action": "hit",
+      "facing": "south",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "pistol",
+      "armor": "light",
+      "action": "hit",
+      "facing": "west",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "pistol",
+      "armor": "light",
+      "action": "work",
+      "facing": "north",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "pistol",
+      "armor": "light",
+      "action": "work",
+      "facing": "east",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "pistol",
+      "armor": "light",
+      "action": "work",
+      "facing": "south",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "pistol",
+      "armor": "light",
+      "action": "work",
+      "facing": "west",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "pistol",
+      "armor": "light",
+      "action": "death",
+      "facing": "north",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "pistol",
+      "armor": "light",
+      "action": "death",
+      "facing": "east",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "pistol",
+      "armor": "light",
+      "action": "death",
+      "facing": "south",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "pistol",
+      "armor": "light",
+      "action": "death",
+      "facing": "west",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "pistol",
+      "armor": "heavy",
+      "action": "idle",
+      "facing": "north",
+      "status": "candidate",
+      "clip": "officer.pistol.heavy.idle.north"
+    },
+    {
+      "style": "rendered",
+      "weapon": "pistol",
+      "armor": "heavy",
+      "action": "idle",
+      "facing": "east",
+      "status": "candidate",
+      "clip": "officer.pistol.heavy.idle.east"
+    },
+    {
+      "style": "rendered",
+      "weapon": "pistol",
+      "armor": "heavy",
+      "action": "idle",
+      "facing": "south",
+      "status": "candidate",
+      "clip": "officer.pistol.heavy.idle.south"
+    },
+    {
+      "style": "rendered",
+      "weapon": "pistol",
+      "armor": "heavy",
+      "action": "idle",
+      "facing": "west",
+      "status": "candidate",
+      "clip": "officer.pistol.heavy.idle.west"
+    },
+    {
+      "style": "rendered",
+      "weapon": "pistol",
+      "armor": "heavy",
+      "action": "walk",
+      "facing": "north",
+      "status": "candidate",
+      "clip": "officer.pistol.heavy.walk.north"
+    },
+    {
+      "style": "rendered",
+      "weapon": "pistol",
+      "armor": "heavy",
+      "action": "walk",
+      "facing": "east",
+      "status": "candidate",
+      "clip": "officer.pistol.heavy.walk.east"
+    },
+    {
+      "style": "rendered",
+      "weapon": "pistol",
+      "armor": "heavy",
+      "action": "walk",
+      "facing": "south",
+      "status": "candidate",
+      "clip": "officer.pistol.heavy.walk.south"
+    },
+    {
+      "style": "rendered",
+      "weapon": "pistol",
+      "armor": "heavy",
+      "action": "walk",
+      "facing": "west",
+      "status": "candidate",
+      "clip": "officer.pistol.heavy.walk.west"
+    },
+    {
+      "style": "rendered",
+      "weapon": "pistol",
+      "armor": "heavy",
+      "action": "ready",
+      "facing": "north",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "pistol",
+      "armor": "heavy",
+      "action": "ready",
+      "facing": "east",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "pistol",
+      "armor": "heavy",
+      "action": "ready",
+      "facing": "south",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "pistol",
+      "armor": "heavy",
+      "action": "ready",
+      "facing": "west",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "pistol",
+      "armor": "heavy",
+      "action": "aim",
+      "facing": "north",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "pistol",
+      "armor": "heavy",
+      "action": "aim",
+      "facing": "east",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "pistol",
+      "armor": "heavy",
+      "action": "aim",
+      "facing": "south",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "pistol",
+      "armor": "heavy",
+      "action": "aim",
+      "facing": "west",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "pistol",
+      "armor": "heavy",
+      "action": "fire",
+      "facing": "north",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "pistol",
+      "armor": "heavy",
+      "action": "fire",
+      "facing": "east",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "pistol",
+      "armor": "heavy",
+      "action": "fire",
+      "facing": "south",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "pistol",
+      "armor": "heavy",
+      "action": "fire",
+      "facing": "west",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "pistol",
+      "armor": "heavy",
+      "action": "hit",
+      "facing": "north",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "pistol",
+      "armor": "heavy",
+      "action": "hit",
+      "facing": "east",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "pistol",
+      "armor": "heavy",
+      "action": "hit",
+      "facing": "south",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "pistol",
+      "armor": "heavy",
+      "action": "hit",
+      "facing": "west",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "pistol",
+      "armor": "heavy",
+      "action": "work",
+      "facing": "north",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "pistol",
+      "armor": "heavy",
+      "action": "work",
+      "facing": "east",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "pistol",
+      "armor": "heavy",
+      "action": "work",
+      "facing": "south",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "pistol",
+      "armor": "heavy",
+      "action": "work",
+      "facing": "west",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "pistol",
+      "armor": "heavy",
+      "action": "death",
+      "facing": "north",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "pistol",
+      "armor": "heavy",
+      "action": "death",
+      "facing": "east",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "pistol",
+      "armor": "heavy",
+      "action": "death",
+      "facing": "south",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "pistol",
+      "armor": "heavy",
+      "action": "death",
+      "facing": "west",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "rifle",
+      "armor": "suit",
+      "action": "idle",
+      "facing": "north",
+      "status": "candidate",
+      "clip": "officer.rifle.suit.idle.north"
+    },
+    {
+      "style": "rendered",
+      "weapon": "rifle",
+      "armor": "suit",
+      "action": "idle",
+      "facing": "east",
+      "status": "candidate",
+      "clip": "officer.rifle.suit.idle.east"
+    },
+    {
+      "style": "rendered",
+      "weapon": "rifle",
+      "armor": "suit",
+      "action": "idle",
+      "facing": "south",
+      "status": "candidate",
+      "clip": "officer.rifle.suit.idle.south"
+    },
+    {
+      "style": "rendered",
+      "weapon": "rifle",
+      "armor": "suit",
+      "action": "idle",
+      "facing": "west",
+      "status": "candidate",
+      "clip": "officer.rifle.suit.idle.west"
+    },
+    {
+      "style": "rendered",
+      "weapon": "rifle",
+      "armor": "suit",
+      "action": "walk",
+      "facing": "north",
+      "status": "candidate",
+      "clip": "officer.rifle.suit.walk.north"
+    },
+    {
+      "style": "rendered",
+      "weapon": "rifle",
+      "armor": "suit",
+      "action": "walk",
+      "facing": "east",
+      "status": "candidate",
+      "clip": "officer.rifle.suit.walk.east"
+    },
+    {
+      "style": "rendered",
+      "weapon": "rifle",
+      "armor": "suit",
+      "action": "walk",
+      "facing": "south",
+      "status": "candidate",
+      "clip": "officer.rifle.suit.walk.south"
+    },
+    {
+      "style": "rendered",
+      "weapon": "rifle",
+      "armor": "suit",
+      "action": "walk",
+      "facing": "west",
+      "status": "candidate",
+      "clip": "officer.rifle.suit.walk.west"
+    },
+    {
+      "style": "rendered",
+      "weapon": "rifle",
+      "armor": "suit",
+      "action": "ready",
+      "facing": "north",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "rifle",
+      "armor": "suit",
+      "action": "ready",
+      "facing": "east",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "rifle",
+      "armor": "suit",
+      "action": "ready",
+      "facing": "south",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "rifle",
+      "armor": "suit",
+      "action": "ready",
+      "facing": "west",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "rifle",
+      "armor": "suit",
+      "action": "aim",
+      "facing": "north",
+      "status": "candidate",
+      "clip": "officer.rifle.suit.aim.north"
+    },
+    {
+      "style": "rendered",
+      "weapon": "rifle",
+      "armor": "suit",
+      "action": "aim",
+      "facing": "east",
+      "status": "candidate",
+      "clip": "officer.rifle.suit.aim.east"
+    },
+    {
+      "style": "rendered",
+      "weapon": "rifle",
+      "armor": "suit",
+      "action": "aim",
+      "facing": "south",
+      "status": "candidate",
+      "clip": "officer.rifle.suit.aim.south"
+    },
+    {
+      "style": "rendered",
+      "weapon": "rifle",
+      "armor": "suit",
+      "action": "aim",
+      "facing": "west",
+      "status": "candidate",
+      "clip": "officer.rifle.suit.aim.west"
+    },
+    {
+      "style": "rendered",
+      "weapon": "rifle",
+      "armor": "suit",
+      "action": "fire",
+      "facing": "north",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "rifle",
+      "armor": "suit",
+      "action": "fire",
+      "facing": "east",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "rifle",
+      "armor": "suit",
+      "action": "fire",
+      "facing": "south",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "rifle",
+      "armor": "suit",
+      "action": "fire",
+      "facing": "west",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "rifle",
+      "armor": "suit",
+      "action": "hit",
+      "facing": "north",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "rifle",
+      "armor": "suit",
+      "action": "hit",
+      "facing": "east",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "rifle",
+      "armor": "suit",
+      "action": "hit",
+      "facing": "south",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "rifle",
+      "armor": "suit",
+      "action": "hit",
+      "facing": "west",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "rifle",
+      "armor": "suit",
+      "action": "work",
+      "facing": "north",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "rifle",
+      "armor": "suit",
+      "action": "work",
+      "facing": "east",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "rifle",
+      "armor": "suit",
+      "action": "work",
+      "facing": "south",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "rifle",
+      "armor": "suit",
+      "action": "work",
+      "facing": "west",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "rifle",
+      "armor": "suit",
+      "action": "death",
+      "facing": "north",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "rifle",
+      "armor": "suit",
+      "action": "death",
+      "facing": "east",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "rifle",
+      "armor": "suit",
+      "action": "death",
+      "facing": "south",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "rifle",
+      "armor": "suit",
+      "action": "death",
+      "facing": "west",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "rifle",
+      "armor": "light",
+      "action": "idle",
+      "facing": "north",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "rifle",
+      "armor": "light",
+      "action": "idle",
+      "facing": "east",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "rifle",
+      "armor": "light",
+      "action": "idle",
+      "facing": "south",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "rifle",
+      "armor": "light",
+      "action": "idle",
+      "facing": "west",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "rifle",
+      "armor": "light",
+      "action": "walk",
+      "facing": "north",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "rifle",
+      "armor": "light",
+      "action": "walk",
+      "facing": "east",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "rifle",
+      "armor": "light",
+      "action": "walk",
+      "facing": "south",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "rifle",
+      "armor": "light",
+      "action": "walk",
+      "facing": "west",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "rifle",
+      "armor": "light",
+      "action": "ready",
+      "facing": "north",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "rifle",
+      "armor": "light",
+      "action": "ready",
+      "facing": "east",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "rifle",
+      "armor": "light",
+      "action": "ready",
+      "facing": "south",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "rifle",
+      "armor": "light",
+      "action": "ready",
+      "facing": "west",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "rifle",
+      "armor": "light",
+      "action": "aim",
+      "facing": "north",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "rifle",
+      "armor": "light",
+      "action": "aim",
+      "facing": "east",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "rifle",
+      "armor": "light",
+      "action": "aim",
+      "facing": "south",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "rifle",
+      "armor": "light",
+      "action": "aim",
+      "facing": "west",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "rifle",
+      "armor": "light",
+      "action": "fire",
+      "facing": "north",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "rifle",
+      "armor": "light",
+      "action": "fire",
+      "facing": "east",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "rifle",
+      "armor": "light",
+      "action": "fire",
+      "facing": "south",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "rifle",
+      "armor": "light",
+      "action": "fire",
+      "facing": "west",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "rifle",
+      "armor": "light",
+      "action": "hit",
+      "facing": "north",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "rifle",
+      "armor": "light",
+      "action": "hit",
+      "facing": "east",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "rifle",
+      "armor": "light",
+      "action": "hit",
+      "facing": "south",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "rifle",
+      "armor": "light",
+      "action": "hit",
+      "facing": "west",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "rifle",
+      "armor": "light",
+      "action": "work",
+      "facing": "north",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "rifle",
+      "armor": "light",
+      "action": "work",
+      "facing": "east",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "rifle",
+      "armor": "light",
+      "action": "work",
+      "facing": "south",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "rifle",
+      "armor": "light",
+      "action": "work",
+      "facing": "west",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "rifle",
+      "armor": "light",
+      "action": "death",
+      "facing": "north",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "rifle",
+      "armor": "light",
+      "action": "death",
+      "facing": "east",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "rifle",
+      "armor": "light",
+      "action": "death",
+      "facing": "south",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "rifle",
+      "armor": "light",
+      "action": "death",
+      "facing": "west",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "rifle",
+      "armor": "heavy",
+      "action": "idle",
+      "facing": "north",
+      "status": "candidate",
+      "clip": "officer.rifle.heavy.idle.north"
+    },
+    {
+      "style": "rendered",
+      "weapon": "rifle",
+      "armor": "heavy",
+      "action": "idle",
+      "facing": "east",
+      "status": "candidate",
+      "clip": "officer.rifle.heavy.idle.east"
+    },
+    {
+      "style": "rendered",
+      "weapon": "rifle",
+      "armor": "heavy",
+      "action": "idle",
+      "facing": "south",
+      "status": "candidate",
+      "clip": "officer.rifle.heavy.idle.south"
+    },
+    {
+      "style": "rendered",
+      "weapon": "rifle",
+      "armor": "heavy",
+      "action": "idle",
+      "facing": "west",
+      "status": "candidate",
+      "clip": "officer.rifle.heavy.idle.west"
+    },
+    {
+      "style": "rendered",
+      "weapon": "rifle",
+      "armor": "heavy",
+      "action": "walk",
+      "facing": "north",
+      "status": "candidate",
+      "clip": "officer.rifle.heavy.walk.north"
+    },
+    {
+      "style": "rendered",
+      "weapon": "rifle",
+      "armor": "heavy",
+      "action": "walk",
+      "facing": "east",
+      "status": "candidate",
+      "clip": "officer.rifle.heavy.walk.east"
+    },
+    {
+      "style": "rendered",
+      "weapon": "rifle",
+      "armor": "heavy",
+      "action": "walk",
+      "facing": "south",
+      "status": "candidate",
+      "clip": "officer.rifle.heavy.walk.south"
+    },
+    {
+      "style": "rendered",
+      "weapon": "rifle",
+      "armor": "heavy",
+      "action": "walk",
+      "facing": "west",
+      "status": "candidate",
+      "clip": "officer.rifle.heavy.walk.west"
+    },
+    {
+      "style": "rendered",
+      "weapon": "rifle",
+      "armor": "heavy",
+      "action": "ready",
+      "facing": "north",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "rifle",
+      "armor": "heavy",
+      "action": "ready",
+      "facing": "east",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "rifle",
+      "armor": "heavy",
+      "action": "ready",
+      "facing": "south",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "rifle",
+      "armor": "heavy",
+      "action": "ready",
+      "facing": "west",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "rifle",
+      "armor": "heavy",
+      "action": "aim",
+      "facing": "north",
+      "status": "candidate",
+      "clip": "officer.rifle.heavy.aim.north"
+    },
+    {
+      "style": "rendered",
+      "weapon": "rifle",
+      "armor": "heavy",
+      "action": "aim",
+      "facing": "east",
+      "status": "candidate",
+      "clip": "officer.rifle.heavy.aim.east"
+    },
+    {
+      "style": "rendered",
+      "weapon": "rifle",
+      "armor": "heavy",
+      "action": "aim",
+      "facing": "south",
+      "status": "candidate",
+      "clip": "officer.rifle.heavy.aim.south"
+    },
+    {
+      "style": "rendered",
+      "weapon": "rifle",
+      "armor": "heavy",
+      "action": "aim",
+      "facing": "west",
+      "status": "candidate",
+      "clip": "officer.rifle.heavy.aim.west"
+    },
+    {
+      "style": "rendered",
+      "weapon": "rifle",
+      "armor": "heavy",
+      "action": "fire",
+      "facing": "north",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "rifle",
+      "armor": "heavy",
+      "action": "fire",
+      "facing": "east",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "rifle",
+      "armor": "heavy",
+      "action": "fire",
+      "facing": "south",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "rifle",
+      "armor": "heavy",
+      "action": "fire",
+      "facing": "west",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "rifle",
+      "armor": "heavy",
+      "action": "hit",
+      "facing": "north",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "rifle",
+      "armor": "heavy",
+      "action": "hit",
+      "facing": "east",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "rifle",
+      "armor": "heavy",
+      "action": "hit",
+      "facing": "south",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "rifle",
+      "armor": "heavy",
+      "action": "hit",
+      "facing": "west",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "rifle",
+      "armor": "heavy",
+      "action": "work",
+      "facing": "north",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "rifle",
+      "armor": "heavy",
+      "action": "work",
+      "facing": "east",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "rifle",
+      "armor": "heavy",
+      "action": "work",
+      "facing": "south",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "rifle",
+      "armor": "heavy",
+      "action": "work",
+      "facing": "west",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "rifle",
+      "armor": "heavy",
+      "action": "death",
+      "facing": "north",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "rifle",
+      "armor": "heavy",
+      "action": "death",
+      "facing": "east",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "rifle",
+      "armor": "heavy",
+      "action": "death",
+      "facing": "south",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "rifle",
+      "armor": "heavy",
+      "action": "death",
+      "facing": "west",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "scattergun",
+      "armor": "suit",
+      "action": "idle",
+      "facing": "north",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "scattergun",
+      "armor": "suit",
+      "action": "idle",
+      "facing": "east",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "scattergun",
+      "armor": "suit",
+      "action": "idle",
+      "facing": "south",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "scattergun",
+      "armor": "suit",
+      "action": "idle",
+      "facing": "west",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "scattergun",
+      "armor": "suit",
+      "action": "walk",
+      "facing": "north",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "scattergun",
+      "armor": "suit",
+      "action": "walk",
+      "facing": "east",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "scattergun",
+      "armor": "suit",
+      "action": "walk",
+      "facing": "south",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "scattergun",
+      "armor": "suit",
+      "action": "walk",
+      "facing": "west",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "scattergun",
+      "armor": "suit",
+      "action": "ready",
+      "facing": "north",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "scattergun",
+      "armor": "suit",
+      "action": "ready",
+      "facing": "east",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "scattergun",
+      "armor": "suit",
+      "action": "ready",
+      "facing": "south",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "scattergun",
+      "armor": "suit",
+      "action": "ready",
+      "facing": "west",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "scattergun",
+      "armor": "suit",
+      "action": "aim",
+      "facing": "north",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "scattergun",
+      "armor": "suit",
+      "action": "aim",
+      "facing": "east",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "scattergun",
+      "armor": "suit",
+      "action": "aim",
+      "facing": "south",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "scattergun",
+      "armor": "suit",
+      "action": "aim",
+      "facing": "west",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "scattergun",
+      "armor": "suit",
+      "action": "fire",
+      "facing": "north",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "scattergun",
+      "armor": "suit",
+      "action": "fire",
+      "facing": "east",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "scattergun",
+      "armor": "suit",
+      "action": "fire",
+      "facing": "south",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "scattergun",
+      "armor": "suit",
+      "action": "fire",
+      "facing": "west",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "scattergun",
+      "armor": "suit",
+      "action": "hit",
+      "facing": "north",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "scattergun",
+      "armor": "suit",
+      "action": "hit",
+      "facing": "east",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "scattergun",
+      "armor": "suit",
+      "action": "hit",
+      "facing": "south",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "scattergun",
+      "armor": "suit",
+      "action": "hit",
+      "facing": "west",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "scattergun",
+      "armor": "suit",
+      "action": "work",
+      "facing": "north",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "scattergun",
+      "armor": "suit",
+      "action": "work",
+      "facing": "east",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "scattergun",
+      "armor": "suit",
+      "action": "work",
+      "facing": "south",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "scattergun",
+      "armor": "suit",
+      "action": "work",
+      "facing": "west",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "scattergun",
+      "armor": "suit",
+      "action": "death",
+      "facing": "north",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "scattergun",
+      "armor": "suit",
+      "action": "death",
+      "facing": "east",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "scattergun",
+      "armor": "suit",
+      "action": "death",
+      "facing": "south",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "scattergun",
+      "armor": "suit",
+      "action": "death",
+      "facing": "west",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "scattergun",
+      "armor": "light",
+      "action": "idle",
+      "facing": "north",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "scattergun",
+      "armor": "light",
+      "action": "idle",
+      "facing": "east",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "scattergun",
+      "armor": "light",
+      "action": "idle",
+      "facing": "south",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "scattergun",
+      "armor": "light",
+      "action": "idle",
+      "facing": "west",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "scattergun",
+      "armor": "light",
+      "action": "walk",
+      "facing": "north",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "scattergun",
+      "armor": "light",
+      "action": "walk",
+      "facing": "east",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "scattergun",
+      "armor": "light",
+      "action": "walk",
+      "facing": "south",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "scattergun",
+      "armor": "light",
+      "action": "walk",
+      "facing": "west",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "scattergun",
+      "armor": "light",
+      "action": "ready",
+      "facing": "north",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "scattergun",
+      "armor": "light",
+      "action": "ready",
+      "facing": "east",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "scattergun",
+      "armor": "light",
+      "action": "ready",
+      "facing": "south",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "scattergun",
+      "armor": "light",
+      "action": "ready",
+      "facing": "west",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "scattergun",
+      "armor": "light",
+      "action": "aim",
+      "facing": "north",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "scattergun",
+      "armor": "light",
+      "action": "aim",
+      "facing": "east",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "scattergun",
+      "armor": "light",
+      "action": "aim",
+      "facing": "south",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "scattergun",
+      "armor": "light",
+      "action": "aim",
+      "facing": "west",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "scattergun",
+      "armor": "light",
+      "action": "fire",
+      "facing": "north",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "scattergun",
+      "armor": "light",
+      "action": "fire",
+      "facing": "east",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "scattergun",
+      "armor": "light",
+      "action": "fire",
+      "facing": "south",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "scattergun",
+      "armor": "light",
+      "action": "fire",
+      "facing": "west",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "scattergun",
+      "armor": "light",
+      "action": "hit",
+      "facing": "north",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "scattergun",
+      "armor": "light",
+      "action": "hit",
+      "facing": "east",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "scattergun",
+      "armor": "light",
+      "action": "hit",
+      "facing": "south",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "scattergun",
+      "armor": "light",
+      "action": "hit",
+      "facing": "west",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "scattergun",
+      "armor": "light",
+      "action": "work",
+      "facing": "north",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "scattergun",
+      "armor": "light",
+      "action": "work",
+      "facing": "east",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "scattergun",
+      "armor": "light",
+      "action": "work",
+      "facing": "south",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "scattergun",
+      "armor": "light",
+      "action": "work",
+      "facing": "west",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "scattergun",
+      "armor": "light",
+      "action": "death",
+      "facing": "north",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "scattergun",
+      "armor": "light",
+      "action": "death",
+      "facing": "east",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "scattergun",
+      "armor": "light",
+      "action": "death",
+      "facing": "south",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "scattergun",
+      "armor": "light",
+      "action": "death",
+      "facing": "west",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "scattergun",
+      "armor": "heavy",
+      "action": "idle",
+      "facing": "north",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "scattergun",
+      "armor": "heavy",
+      "action": "idle",
+      "facing": "east",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "scattergun",
+      "armor": "heavy",
+      "action": "idle",
+      "facing": "south",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "scattergun",
+      "armor": "heavy",
+      "action": "idle",
+      "facing": "west",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "scattergun",
+      "armor": "heavy",
+      "action": "walk",
+      "facing": "north",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "scattergun",
+      "armor": "heavy",
+      "action": "walk",
+      "facing": "east",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "scattergun",
+      "armor": "heavy",
+      "action": "walk",
+      "facing": "south",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "scattergun",
+      "armor": "heavy",
+      "action": "walk",
+      "facing": "west",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "scattergun",
+      "armor": "heavy",
+      "action": "ready",
+      "facing": "north",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "scattergun",
+      "armor": "heavy",
+      "action": "ready",
+      "facing": "east",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "scattergun",
+      "armor": "heavy",
+      "action": "ready",
+      "facing": "south",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "scattergun",
+      "armor": "heavy",
+      "action": "ready",
+      "facing": "west",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "scattergun",
+      "armor": "heavy",
+      "action": "aim",
+      "facing": "north",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "scattergun",
+      "armor": "heavy",
+      "action": "aim",
+      "facing": "east",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "scattergun",
+      "armor": "heavy",
+      "action": "aim",
+      "facing": "south",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "scattergun",
+      "armor": "heavy",
+      "action": "aim",
+      "facing": "west",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "scattergun",
+      "armor": "heavy",
+      "action": "fire",
+      "facing": "north",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "scattergun",
+      "armor": "heavy",
+      "action": "fire",
+      "facing": "east",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "scattergun",
+      "armor": "heavy",
+      "action": "fire",
+      "facing": "south",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "scattergun",
+      "armor": "heavy",
+      "action": "fire",
+      "facing": "west",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "scattergun",
+      "armor": "heavy",
+      "action": "hit",
+      "facing": "north",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "scattergun",
+      "armor": "heavy",
+      "action": "hit",
+      "facing": "east",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "scattergun",
+      "armor": "heavy",
+      "action": "hit",
+      "facing": "south",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "scattergun",
+      "armor": "heavy",
+      "action": "hit",
+      "facing": "west",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "scattergun",
+      "armor": "heavy",
+      "action": "work",
+      "facing": "north",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "scattergun",
+      "armor": "heavy",
+      "action": "work",
+      "facing": "east",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "scattergun",
+      "armor": "heavy",
+      "action": "work",
+      "facing": "south",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "scattergun",
+      "armor": "heavy",
+      "action": "work",
+      "facing": "west",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "scattergun",
+      "armor": "heavy",
+      "action": "death",
+      "facing": "north",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "scattergun",
+      "armor": "heavy",
+      "action": "death",
+      "facing": "east",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "scattergun",
+      "armor": "heavy",
+      "action": "death",
+      "facing": "south",
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "style": "rendered",
+      "weapon": "scattergun",
+      "armor": "heavy",
+      "action": "death",
+      "facing": "west",
+      "status": "missing",
+      "clip": ""
+    }
+  ]
+}
