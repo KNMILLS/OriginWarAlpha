@@ -26,6 +26,8 @@ def check():
         for source in gen['sources']:
             assert sha(base/'source'/source.get('file',source.get('source')))==source['sha256']
             assert text_sha(base/'source'/source['prompt'])==source['promptSha256NormalizedLF']
+        if 'supersededAliasRecord' in gen:
+            alias=gen['supersededAliasRecord'];assert text_sha(base/alias['path'])==alias['sha256NormalizedLF']
     clips=json.loads((PAINTED/'clips.json').read_text());byid={c['id']:c for c in clips['clips']}
     assert len(byid)==24 and len(clips['bindings'])==24
     for binding in clips['bindings']:

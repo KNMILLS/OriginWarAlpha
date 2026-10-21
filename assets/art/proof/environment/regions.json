@@ -255,30 +255,93 @@
       "sha256": "5f04f96a1eaa6ce9ea23496bd858dfd9a76522779059d79f7eaaedd6a1c4588b"
     },
     {
-      "name": "terminal.console",
-      "path": "art/proof/environment/regions/prop.workbench.png",
-      "widthCells": 1.69921875,
-      "heightCells": 1.24609375,
+      "name": "wall.side-left",
+      "path": "art/proof/environment/regions/wall.side-left.png",
+      "widthCells": 0.3984375,
+      "heightCells": 1.1015625,
       "pivotX": 0.5,
       "pivotY": 0,
       "layer": "world",
-      "pixelWidth": 435,
-      "pixelHeight": 319,
-      "source": "environment-master.png",
+      "pixelWidth": 102,
+      "pixelHeight": 282,
+      "source": "side-console-master.png",
       "sourceCrop": [
+        140,
         20,
-        492,
-        625,
-        962
+        470,
+        980
       ],
       "alphaTrim": [
-        16,
-        17,
-        588,
-        436
+        51,
+        20,
+        289,
+        938
       ],
-      "sha256": "d85a9f1c8b87e8295be27fc8e6e001fbddbbcc50b5ebf35eef1fdccc02306da0",
-      "aliasOf": "prop.workbench"
+      "sha256": "7cb3fa9b724d8b0c5746c32190d6e7cf64e0af10699b22b6145ed5127eeca143",
+      "sourceDrawPadding": [
+        14,
+        15
+      ],
+      "innerFace": "right"
+    },
+    {
+      "name": "wall.side-right",
+      "path": "art/proof/environment/regions/wall.side-right.png",
+      "widthCells": 0.3984375,
+      "heightCells": 1.1015625,
+      "pivotX": 0.5,
+      "pivotY": 0,
+      "layer": "world",
+      "pixelWidth": 102,
+      "pixelHeight": 282,
+      "source": "side-console-master.png",
+      "sourceCrop": [
+        620,
+        20,
+        930,
+        980
+      ],
+      "alphaTrim": [
+        39,
+        20,
+        275,
+        939
+      ],
+      "sha256": "66dde309323b4da0e2663a0d2dc184740c54e4b07eb784f5741d8cd2a02e5cdc",
+      "sourceDrawPadding": [
+        15,
+        15
+      ],
+      "innerFace": "left"
+    },
+    {
+      "name": "terminal.console",
+      "path": "art/proof/environment/regions/terminal.console.png",
+      "widthCells": 0.71875,
+      "heightCells": 1.0,
+      "pivotX": 0.5,
+      "pivotY": 0,
+      "layer": "world",
+      "pixelWidth": 184,
+      "pixelHeight": 256,
+      "source": "side-console-master.png",
+      "sourceCrop": [
+        960,
+        150,
+        1480,
+        960
+      ],
+      "alphaTrim": [
+        37,
+        46,
+        490,
+        777
+      ],
+      "sha256": "cdb0ca1ac8726b5d9ab047fa995bce57734402f7324195133035acda8c5c504d",
+      "sourceDrawPadding": [
+        12,
+        13
+      ]
     },
     {
       "name": "floor.security",

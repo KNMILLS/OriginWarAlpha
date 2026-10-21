@@ -27,9 +27,23 @@
       "tool": "built-in image_gen",
       "selected": true,
       "limitations": "Generated diffuse paintings; runtime lighting, native integration and owner acceptance remain open."
+    },
+    {
+      "source": "side-console-master.png",
+      "sha256": "93fc2d970b0d7deebf70a065679bbe34938f206d79374c2cbe12d65ab201c65e",
+      "prompt": "side-console-prompt.txt",
+      "promptSha256NormalizedLF": "bdcc2ad5c9f2de094479fd60720c5f8a20dbeb53d0488c6ebaf40f3be5b48e17",
+      "tool": "built-in image_gen",
+      "selected": true,
+      "limitations": "Generated diffuse paintings; runtime lighting, native integration and owner acceptance remain open."
     }
   ],
   "medium": "original generated raster painting",
-  "rights": "No third-party reference images used; workplace-props master references own environment-master for material/camera only; original imagegen output; preserve generation provenance.",
+  "rights": "No third-party reference images used; workplace-props and side-console masters reference own environment-master for material/camera only; original imagegen output; preserve generation provenance.",
+  "supersededAlias": "source/terminal-workbench-alias-v1.json preserves the initial terminal.console/workbench alias; current terminal.console is distinct upright artwork.",
+  "supersededAliasRecord": {
+    "path": "source/terminal-workbench-alias-v1.json",
+    "sha256NormalizedLF": "637d65b2524b762ece84e4cef151d6c5f7f77f2f28325ad6ab6b6cb281b2009f"
+  },
   "editableCatalog": "Region layers only; original brushstroke layers do not exist."
 }

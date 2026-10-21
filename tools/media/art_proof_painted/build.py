@@ -89,10 +89,20 @@ def environment():
         ('prop.life-support',(25,620,625,1220),1.5,None),
         ('prop.equipment-rack',(640,625,1230,1230),1.45,None)]:
         regions.append(save_cutout(workplace,crop,name,width,ENV,height=height,isolate=True))
-    # A second name aliases actual workstation painting; it is not a second artwork.
-    alias=dict(next(r for r in regions if r['name']=='prop.workbench'))
-    alias.update(name='terminal.console',aliasOf='prop.workbench')
-    regions.append(alias)
+    # Correct longitudinal architecture and a genuine distinct upright console.
+    # The initial desk alias remains preserved in source/terminal-workbench-alias-v1.json.
+    sides=ENV/'source/side-console-master.png'
+    for name,crop,height,bounds_width in [
+        ('wall.side-left',(140,20,470,980),1.1,.4),
+        ('wall.side-right',(620,20,930,980),1.1,.4),
+        ('terminal.console',(960,150,1480,960),1.0,.72)]:
+        r=save_cutout(sides,crop,name,bounds_width,ENV,height=height,isolate=True)
+        path=ASSETS/r['path'];im=Image.open(path).convert('RGBA')
+        width=max(im.width,round(bounds_width*CELL));left=(width-im.width)//2
+        padded=Image.new('RGBA',(width,im.height));padded.alpha_composite(im,(left,0));padded.save(path)
+        r.update(widthCells=width/CELL,pixelWidth=width,sourceDrawPadding=[left,width-im.width-left],sha256=sha(path))
+        if name.startswith('wall.side-'):r['innerFace']='right' if name.endswith('left') else 'left'
+        regions.append(r)
     floor=Image.open(ENV/'source/floor-master.png').convert('RGBA')
     fw,fh=floor.size
     for i,(gx,gy) in enumerate([(1,1),(2,1),(1,2),(2,2)]):
@@ -106,9 +116,9 @@ def environment():
     contact(regions,ENV/'review/environment-contact.jpg')
     catalog(ENV,regions)
     sources=[]
-    for src,prompt in [('environment-master.png','environment-prompt.txt'),('floor-master.png','floor-prompt.txt'),('workplace-props-master.png','workplace-props-prompt.txt')]:
+    for src,prompt in [('environment-master.png','environment-prompt.txt'),('floor-master.png','floor-prompt.txt'),('workplace-props-master.png','workplace-props-prompt.txt'),('side-console-master.png','side-console-prompt.txt')]:
         sources.append(dict(source=src,sha256=sha(ENV/'source'/src),prompt=prompt,promptSha256NormalizedLF=text_sha(ENV/'source'/prompt),tool='built-in image_gen',selected=True,limitations='Generated diffuse paintings; runtime lighting, native integration and owner acceptance remain open.'))
-    dump(ENV/'source/GENERATION.json',dict(task='AP-PAINTED shared environment',sources=sources,medium='original generated raster painting',rights='No third-party reference images used; workplace-props master references own environment-master for material/camera only; original imagegen output; preserve generation provenance.',editableCatalog='Region layers only; original brushstroke layers do not exist.'))
+    dump(ENV/'source/GENERATION.json',dict(task='AP-PAINTED shared environment',sources=sources,medium='original generated raster painting',rights='No third-party reference images used; workplace-props and side-console masters reference own environment-master for material/camera only; original imagegen output; preserve generation provenance.',supersededAlias='source/terminal-workbench-alias-v1.json preserves the initial terminal.console/workbench alias; current terminal.console is distinct upright artwork.',supersededAliasRecord=dict(path='source/terminal-workbench-alias-v1.json',sha256NormalizedLF=text_sha(ENV/'source/terminal-workbench-alias-v1.json')),editableCatalog='Region layers only; original brushstroke layers do not exist.'))
     print('environment',len(regions),'regions exported')
 
 if __name__=='__main__':
