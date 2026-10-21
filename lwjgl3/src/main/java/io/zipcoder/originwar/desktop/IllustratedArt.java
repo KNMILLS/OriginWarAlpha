@@ -26,6 +26,8 @@ public final class IllustratedArt implements AutoCloseable {
         if(motion.exists())loadMotion(new JsonReader().parse(motion));
     }
     private final Map<String,List<String>> clips=new HashMap<>();
+    private final Map<String,Float> clipSeconds=new HashMap<>();
+    private final Map<String,Map<String,Float>> markers=new HashMap<>();
     private void loadMotion(JsonValue root){
         var entries=root.get("regions");if(entries!=null)for(var v:entries){
             var texture=textures.computeIfAbsent(v.getString("path"),path->{var t=new Texture(Gdx.files.internal(path));t.setFilter(Texture.TextureFilter.Linear,Texture.TextureFilter.Linear);return t;});
@@ -36,10 +38,13 @@ public final class IllustratedArt implements AutoCloseable {
             String name=id+"."+index++,path=frame.getString("path");
             var texture=textures.computeIfAbsent(path,p->{var t=new Texture(Gdx.files.internal(p));t.setFilter(Texture.TextureFilter.Linear,Texture.TextureFilter.Linear);return t;});
             regions.put(name,new Region(new TextureRegion(texture),frame.getFloat("widthCells"),frame.getFloat("heightCells"),frame.getFloat("pivotX",.5f),frame.getFloat("pivotY",0),"world"));frames.add(name);
-        }clips.put(id,List.copyOf(frames));}
+        }clips.put(id,List.copyOf(frames));float frameSeconds=clip.getFloat("frameSeconds",1f/24);clipSeconds.put(id,frameSeconds*frames.size());var marks=new HashMap<String,Float>();var entriesForClip=clip.get("markers");if(entriesForClip!=null)for(var marker:entriesForClip)marks.put(marker.getString("kind"),marker.getInt("frame")*frameSeconds);markers.put(id,Map.copyOf(marks));}
     }
     public boolean has(String name){return regions.containsKey(name);}
     public String frame(String clip,float progress,String fallback){var frames=clips.get(clip);return frames==null||frames.isEmpty()?fallback:frames.get(Math.min(frames.size()-1,(int)(Math.max(0,progress)*frames.size())));}
+    public String timedFrame(String clip,float seconds,String fallback){return frame(clip,seconds/clipSeconds.getOrDefault(clip,1f),fallback);}
+    public boolean hasClip(String id){return clips.containsKey(id);}
+    public float markerSeconds(String clip,String marker,float fallback){return markers.getOrDefault(clip,Map.of()).getOrDefault(marker,fallback);}
     public void draw(SpriteBatch batch,String name,float x,float y,float cell,Color tint){var r=regions.get(name);if(r==null)return;float w=r.width*cell,h=r.height*cell;batch.setColor(tint);batch.draw(r.texture,x-r.pivotX*w,y-r.pivotY*h,w,h);batch.setColor(Color.WHITE);}
     public void rect(SpriteBatch b,float x,float y,float w,float h,Color c){b.setColor(c);b.draw(white,x,y,w,h);b.setColor(Color.WHITE);}
     public int count(){return regions.size();}

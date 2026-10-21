@@ -1,52 +1,75 @@
-# Origin War
+# Origin War field reference
 
-2115. You are a young Terran security officer on your first assignment, sent to secure a science station orbiting Mars. Captain Marcus West's briefing is incomplete. Find the records, meet A.L.I.C.E., and decide what to do with your orders.
+2115. A Terran security officer boards a failing science station orbiting Mars. West's stored mission packet calls it a communications failure. The station's records suggest something else. ALICE is its resident intelligence and the only live voice on the channel.
 
-Start OriginWar.exe in the Windows package. A bundled runtime is included; installing Java is unnecessary. Extract the entire package before launching. New Expedition starts a seeded run; enter a number to replay its station layout or choose Randomize. Resume loads the current expedition. Death ends that expedition. There is no permanent character progression between runs.
+Extract the complete Windows package and launch OriginWar.exe. No separate Java installation is needed. A new expedition uses a chosen seed; Resume restores the current expedition. Death ends the run. Descent is permanent and supplies above are abandoned. There is no character progression between runs.
 
-Time advances when a world action succeeds. Opening a menu, inspecting, aiming, reading dialogue, or issuing an invalid command does not advance the station. Ordinary actions cost one tick; low gravity and hazards take two, no gravity three. Real resource transfers and longer door forcing take their stated ticks. Save data and settings live in your Windows LocalAppData/OriginWar directory. Keep the game directory together; replacement dependency JARs remain accessible under app.
+## Commitments and controls
+
+Only committed actions advance the station. Inspecting, aiming, browsing the pack, reading and rejected commands cost no world time. Ordinary movement costs one tick; careful movement costs two; slow terrain adds one. Turning the body, toggling the lamp, doors, collecting, dropping, equipping and using equipment cost a tick. The HUD previews known costs and observable danger. Machines act during long commitments; movement or work completes on the final tick. An obstruction leaves you at the source after spending the time.
 
 | Control | Action |
 | --- | --- |
-| WASD / arrows | Move; bump closed doors to open; bump hostile robots to melee |
-| Left mouse | Walk through explored terrain; threats interrupt the route |
-| Right mouse | Inspect a visible cell and select it as a target |
-| E / Enter | Interact with a nearby switch, console, person or hatch |
-| G | Pick up the item underfoot |
-| R | Use a finite oxygen tank |
+| WASD / arrows | Commit a cardinal step |
+| Shift + movement / Q | Careful step / toggle careful mode |
+| Alt + arrow | Turn body and real helmet beam, one tick |
+| Ctrl + arrow / Backspace | Move free inspection and targeting cursor / clear target |
+| Left mouse | Request a route through known terrain; each step replans and visible threats stop travel |
+| Right mouse | Select or clear a target; inspect freely |
+| E / Enter | Operate the selected or adjacent physical mechanism |
+| G / R | Collect underfoot / use carried oxygen |
+| N / L | Listen / toggle lamp |
+| P / B | Toggle local circuit / install or recover a closed-door brace |
+| H / O | Use local service access / force a locked shortcut |
+| F / M | Shoot selected cell / emergency melee |
+| V / T | Medical analysis / query available station radio |
 | Space / period | Wait one tick |
-| F | Fire at selected cell; a legal empty shot still spends ammunition/time |
-| M | Melee an adjacent hostile |
-| H | Hack selected or adjacent equipment |
-| B | Force a locked door using STR |
-| V | Check reliable suit readings |
-| Tab / I | Inventory; U uses one, Q equips, X drops one from the selected stack |
-| J / C | Journal / character and earned attribute points |
-| K | Full explored station map; unknown areas and unseen threats stay hidden |
-| 1 / 2 / 3 | Choose a displayed dialogue option |
-| Esc / F1 | Back or pause / paged manual |
-| Z / F11 / F12 | World zoom / fullscreen / screenshot |
+| Tab / I | Physical pack; Up/Down selects, U uses, Q equips, X drops, G collects |
+| J / K / C | Journal / known map / suit telemetry |
+| Backslash | All action buttons, including turning and descent |
+| Escape / F1 | Pause/back / field reference |
+| F11 / F12 | Fullscreen / screenshot |
 
-HP, oxygen reserve and body oxygenation are separate. A refill restores reserve before that action's breathing cost, but your body needs real turns to recover. With reserve empty, oxygenation falls; critical hypoxia distorts perception and eventually harms HP. Phantom impressions cannot collide, attack, change quests, or become loot. The suit HUD and legitimate sensor inspection remain reliable. Settings includes reduced distortion, enlarged text, independent master/music/effect volume and mute. Menus provide thinking time, not free recovery.
+Use Tab or Up/Down and Enter for menu buttons. Page Up/Down pages long text; Up/Down selects journal entries. All world operations also have pointer-accessible action buttons. Moving either cursor never sweeps the actual lamp or advances a machine fuse.
 
-New expeditions start with900 suit reserve, two carried360-unit tanks and a360-unit tank underfoot. Press G to collect supplies; R uses a carried tank. The HUD shows the carried tank count and warns at one-quarter reserve. Tanks remain finite and excess refill beyond suit capacity is lost, so refill when there is room. Existing expeditions preserve their saved suit capacity and supplies; start a new expedition to receive the more generous opening allocation. Text uses a larger smooth UI font, with further enlargement available in Settings.
+## Life support and carrying
 
-STR increases melee damage and reduces the effort of forcing doors. INT enables security hacks and persuasion; A.L.I.C.E. does not bypass these checks for you. DEX affects accuracy and evasion. Light armor improves effective DEX; heavy armor trades DEX for protection. Guns use finite battery cells. Compare equipment in the inventory. Medicines receive shuffled identities per expedition: using a dose or analyzing it at a medical terminal teaches its effect for that run. Unknown medicine is a risk.
+Start with 360 suit oxygen, one 180-unit canister, a pistol, twelve loaded cells, a twelve-cell pack and an identified healing dose. The pressure suit is permanent. Reserve, body oxygenation and HP are separate. Empty reserve lowers oxygenation; recovery takes paid actions after a refill. Exact suit readings and genuine warnings remain reliable during hypoxia.
 
-Matching items share one inventory row with a quantity and occupy one of24 stack slots. Oxygen tanks and battery packs with different strengths stay separate; medicines stack by compound. Use and drop act on one tank, pack, dose or piece of gear. Dropping a gear stack uses spare gear first; the final equipped item is labeled Drop equipped. Existing saves keep their item identities and quantities, and their matching items appear together on resume. An old saved multi-item quantity now drops one unit per action.
+Your automatically arranged pack holds twelve bulk. Duplicates each take their real space; equipping a gun does not remove its bulk. One worn protective shell has its own mount.
 
-Watch robot behavior. S.I.R.S. pursue and search after losing contact. A.D.D.s favor ranged firing positions. Cameras alert nearby security. R.O.V.E.R.s close in and telegraph their charges; move out of the one-tile blast radius before detonation. Cover interferes with shots, and glass blocks projectiles even when you can see through it. Hacking and forcing offer alternatives to locked shortcuts; public routes remain accessible.
+| Physical item | Bulk |
+| --- | ---: |
+| Pistol |2|
+| Rifle / scattergun |4|
+|180-unit oxygen canister |3|
+| Twelve-cell pack |1|
+| Medicine / door brace |1|
+| Service probe |2|
+| Unworn light / heavy shell |4 /6|
 
-Find each security override, then its hatch. The journal also identifies story objectives at physical station terminals and refuge encounters. The Constructor's industrial deck has two genuine solutions: redirect explosive R.O.V.E.R.s with sufficient INT, or reach and kill its human operator. Defeating a security switch alone cannot complete that encounter. The command deck requires Carmack's confrontation and A.L.I.C.E.'s decision before the evacuation pod can conclude the campaign.
+Partial refills keep the remainder in the actual canister or cell pack. Suit power holds at most twelve cells. Dropping the last gun leaves you unarmed. An armor swap can leave the previous shell on the floor when it cannot fit. Killing a machine purchases local safety; it awards no XP or guaranteed supplies.
 
-The primary save is written between decisions, with a last-good backup and a run-specific death record. Resume may report recovery from the backup if the primary is corrupt. Copying older saves is outside the intended permadeath rules. An interrupted write cannot guarantee preservation of the very last action; report any save error shown by the game.
+## Observing the station
 
-Pause provides the map and an offline expedition record. The ending and death screens also offer Run record: outcome, seed, deck, world ticks, build, remaining supplies, discovered medicines and crew/fleet consequences. Reading these screens costs no turns. A new expedition starts a separate run; the record does not grant permanent upgrades.
+Light, occlusion, machine facing and proximity affect optical detection. Darkness conceals; nearby machines can still notice you. Sound follows connected spaces: walls and sealed partitions block it, closed bulkheads attenuate it. Listen spends a tick and reports approximate direction and character, never a concealed actor's exact cell or identity.
 
-Build from source with JDK21: `gradlew.bat test :lwjgl3:installDist`. Launch development with `gradlew.bat :lwjgl3:run`. Before packaging, run `python tools/distribution/fetch_sources.py` with Python3 to fetch and verify the accompanying upstream sources. On Windows, `gradlew.bat :lwjgl3:packageWindows -PwindowsImageDir=<new-output-path>` creates an app image with its runtime, licenses and dependency sources. Existing package outputs are preserved. The source, original-design reference, provenance, dependency notices and verification records accompany the distribution. Current acceptance and any unresolved checks are stated in docs/VERIFICATION.md; development checkpoints are not release acceptance.
+Machines patrol, investigate sounds, pursue sightings, search last-known positions and return. Powered local surveillance shares observations. Mobile machines carry independent power. Door capabilities differ, and a brace can make isolation effective. A newly armed R.O.V.E.R. allows another decision before its fuse can expire. Subsequent long commitments can still be dangerous.
 
-## Helmet view and audio
+A local terminal or breaker affects its circuit's lights, communications and fixed security. It does not unlock a whole deck. A powered service terminal copies a static public-route chart and authenticated record into the suit. The chart supplies geometry, not current hidden objects or remotely changing door states. Later observations supersede it. Optional locked service connections can trade probe cells or noisy work for a shortcut. The public descent route requires neither optional tool. Forcing damages the release permanently and leaves the shortcut unable to reseal; a probe preserves the mechanism. Opened service panels and damaged releases survive saving.
 
-The station uses emergency fixture lighting and a directional helmet lamp. Move the mouse to aim the beam without spending a turn; moving with WASD/arrows faces the lamp along your route. L toggles the lamp. The full-width view keeps true oxygen, health and oxygenation at the visor edge. Pack is available on the HUD; the Suit/Menu button or Esc also opens journal, map, attributes and run records. Movement resolves in turns with short smooth animations between cells.
+Find the physical hatch release, then the hatch. On the fabrication deck, stop the Constructor through its physical supervisory controller or its unit-redirection interface. Deployed units remain active after shutdown. On command, restore authority, power and operate the outbound relay, then physically board and seal the evacuation pod. Reading and speech completion never unlock these mechanisms.
 
-Breathing and heartbeat remain audible during healthy exploration and change with actual oxygenation. Effects controls these and world cues; Music controls the restrained organ score. ALICE voice and Radio static have separate sliders. Set Radio static to zero to remove hiss and reception dropouts; the narrow radio tone remains. Static now swells into brief, uneven reception dips in her voice. Higher Radio settings strengthen the interference. The clean voice file and speech-free static remain separate; both stop with the current line. Pause/focus loss pause both layers, and muting ALICE voice pauses its associated radio window. Choices and subtitles remain immediately available during playback. Reduced distortion disables fixture flicker as well as reducing hypoxia distortion. No real-time audio cue advances an enemy fuse.
+## ALICE and accessibility
+
+ALICE has no physical body or follower. Ordinary operations remain yours. Her authored voiced exchanges use actual telemetry, records and remembered actions. Optional starts are spaced by real playing time and paid actions, suppress during known danger and expire without a queue. Started and completed speech history survives saving; unfinished essential contact/ending statements can resume. The journal and suit log preserve acquired information.
+
+Settings provide independent sound controls, clear speech, interference reduction, sound captions, reduced motion, reduced dynamic range, conversation frequency and separate text scaling. Pause and focus loss freeze action presentation and audio coherently. Suit breathing, station mechanisms and silence form the baseline; music is intermittent and cannot announce hidden threats.
+
+## Saving
+
+The survival profile is `%LOCALAPPDATA%/OriginWar/survival-0.2`. Each expedition has its own snapshot, last-good backup and death marker. A process holds the profile exclusively. New Game activates a new run only after its first snapshots are durable; the prior files remain preserved. There is no legacy migration.
+
+Saving happens in the background. World input waits for the committed snapshot; inspection remains available. A failure is shown explicitly. Retry writes that same outcome and cannot reroll or repeat the action. Close waits for a pending save. If a write fails, restore writable storage and retry. A corrupt primary can recover only its own expedition's backup; a death marker prevents a living backup from reviving the run.
+
+Current verification and unresolved release gates are in [survival qualification](docs/SURVIVAL_QUALIFICATION.md). Build from source using JDK 21 and `gradlew.bat test verifyAssets`. Windows packaging requires a clean committed checkout, pinned runtime and verified dependency-source materials; see tools/distribution/README.md.

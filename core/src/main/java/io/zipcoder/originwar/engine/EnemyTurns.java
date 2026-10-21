@@ -1,181 +1,84 @@
 package io.zipcoder.originwar.engine;
-
-import com.github.yellowstonegames.grid.Coord;
 import io.zipcoder.originwar.model.*;
-
-import java.util.List;
-
-/** One scheduler invocation per actual world tick, never per animation/render frame. */
-final class EnemyTurns {
-    private EnemyTurns() {}
-
-    static boolean disabled(GameState s, GameState.Actor actor) { return s.flags.contains("disabled:" + actor.id); }
-
-    static void hear(GameState s, int x, int y, int radius) {
-        for (var actor : s.actors) {
-            if (!CombatRules.alive(actor) || !CombatRules.hostile(actor) || disabled(s, actor)) continue;
-            int distance = CombatRules.distance(actor.x, actor.y, x, y);
-            if (distance <= radius && (distance <= radius / 2 || CombatRules.clearLine(s, actor.x, actor.y, x, y, false))) {
-                actor.alert = Math.max(actor.alert, 7); actor.lastX = x; actor.lastY = y;
-            }
-        }
+import java.util.*;
+/** Tick-driven imperfect machines. Perception targets and timers survive saving. */
+final class EnemyTurns{
+ private EnemyTurns(){}
+ static boolean disabled(GameState s,GameState.Actor a){return s.flags.contains("disabled:"+a.id)||((a.kind==GameState.ActorKind.CAMERA||a.kind==GameState.ActorKind.TURRET||a.kind==GameState.ActorKind.CONSTRUCTOR||a.kind==GameState.ActorKind.CONTROLLER)&&!StationSystems.powered(s,a.x,a.y));}
+ static void hear(GameState s,int x,int y,int radius){StationSystems.noise(s,x,y,radius,"mechanical noise",true,new ArrayList<>());}
+ static void advance(GameState s,List<GameEvent> e){
+  Visibility.refresh(s);
+  for(var a:List.copyOf(s.actors)){
+   if(s.dead)break;if(!CombatRules.alive(a)||disabled(s,a))continue;
+   if(a.kind==GameState.ActorKind.CONSTRUCTOR){constructor(s,a,e);continue;}
+   if(a.kind==GameState.ActorKind.CONTROLLER)continue;
+   boolean sees=StationSystems.seesPlayer(s,a);
+   if(sees){a.awareness=GameState.Awareness.PURSUE;a.lastX=s.playerX;a.lastY=s.playerY;a.lastSeenTick=s.tick;a.alert=8;
+    if(a.kind==GameState.ActorKind.CAMERA&&StationSystems.powered(s,a.x,a.y))for(var b:s.actors)if(b!=a&&CombatRules.alive(b)&&StationSystems.powered(s,b.x,b.y)&&s.circuits[b.x][b.y]==s.circuits[a.x][a.y]){b.lastX=a.lastX;b.lastY=a.lastY;b.lastSeenTick=s.tick;b.awareness=GameState.Awareness.INVESTIGATE;b.alert=8;}
+   }else if(a.awareness==GameState.Awareness.PURSUE){a.awareness=GameState.Awareness.SEARCH;a.searchTicks=6;a.aiming=false;}
+   if(a.kind==GameState.ActorKind.CAMERA){if(!sees&&s.tick%3==0)a.facing=(a.facing+1)%4;continue;}
+   if(a.kind==GameState.ActorKind.ROVER){rover(s,a,sees,e);continue;}
+   if(s.tick<a.nextActTick)continue;a.nextActTick=s.tick+(a.kind==GameState.ActorKind.TURRET?3:2);
+   int d=CombatRules.distance(a.x,a.y,s.playerX,s.playerY);
+   if(sees&&d<=(a.kind==GameState.ActorKind.ADD?7:a.kind==GameState.ActorKind.TURRET?7:4)&&CombatRules.clearLine(s,a.x,a.y,s.playerX,s.playerY,true)){
+    if(a.kind==GameState.ActorKind.ADD&&d<3&&retreat(s,a,e)){a.aiming=false;continue;}
+    if(!a.aiming){a.aiming=true;event(s,a,"aim","Weapon alignment. "+a.kind+" is aiming.",a.x,a.y,e);continue;}
+    attack(s,a,e);a.aiming=false;continue;
+   }
+   a.aiming=false;if(a.kind==GameState.ActorKind.TURRET)continue;
+   switch(a.awareness){
+    case INVESTIGATE,PURSUE,SEARCH->{
+     if(a.x!=a.lastX||a.y!=a.lastY){if(pursue(s,a,a.lastX,a.lastY,e))a.blockedTicks=0;else if(++a.blockedTicks>=3){a.awareness=GameState.Awareness.SEARCH;a.facing=(a.facing+1)%4;if(--a.searchTicks<=0){a.awareness=GameState.Awareness.RETURN;a.alert=0;a.blockedTicks=0;}}}
+     else{a.awareness=GameState.Awareness.SEARCH;a.facing=(a.facing+1)%4;if(--a.searchTicks<=0){a.awareness=GameState.Awareness.RETURN;a.alert=0;}}
     }
-
-    static void advance(GameState s, List<GameEvent> events) {
-        var actorsAtTickStart = List.copyOf(s.actors);
-        for (var actor : actorsAtTickStart) {
-            if (s.dead) break;
-            if (!CombatRules.alive(actor) || !CombatRules.hostile(actor) || disabled(s, actor)) continue;
-            if (actor.kind == GameState.ActorKind.CONSTRUCTOR) { constructor(s, actor, events); continue; }
-            if (actor.kind == GameState.ActorKind.CAMERA) { camera(s, actor, events); continue; }
-            if (actor.kind == GameState.ActorKind.ROVER && actor.redirected) { rover(s, actor, events); continue; }
-            int range = actor.kind == GameState.ActorKind.ADD ? 9 : actor.kind == GameState.ActorKind.ROVER ? 8 : 7;
-            boolean sees = CombatRules.distance(actor.x, actor.y, s.playerX, s.playerY) <= range
-                    && CombatRules.clearLine(s, actor.x, actor.y, s.playerX, s.playerY, false);
-            if (sees) { actor.alert = 8; actor.lastX = s.playerX; actor.lastY = s.playerY; }
-            else if (actor.alert > 0) actor.alert--;
-            if (actor.kind == GameState.ActorKind.ROVER) { rover(s, actor, events); continue; }
-            if (actor.alert <= 0) {
-                if (actor.kind == GameState.ActorKind.SIRS && s.tick % 4 == 0) patrol(s, actor, events);
-                continue;
-            }
-            int distance = CombatRules.distance(actor.x, actor.y, s.playerX, s.playerY);
-            if (actor.kind == GameState.ActorKind.TURRET) {
-                if (sees && distance <= 7 && s.tick % 3 == 0) attack(s, actor, 7, 74, events);
-            } else if (actor.kind == GameState.ActorKind.ADD) {
-                if (s.tick % 2 != 0) continue;
-                if (sees && distance < 3) retreat(s, actor, events);
-                else if (sees && distance <= 7) attack(s, actor, 8, 78, events);
-                else pursue(s, actor, actor.lastX, actor.lastY, events);
-            } else if (actor.kind == GameState.ActorKind.OPERATOR) {
-                if (sees && distance <= 5 && s.tick % 3 == 0) attack(s, actor, 6, 65, events);
-            } else if (s.tick % 2 == 0) {
-                if (sees && distance <= 3) attack(s, actor, 5, 64, events);
-                else pursue(s, actor, actor.lastX, actor.lastY, events);
-            }
-        }
-    }
-
-    private static void attack(GameState s, GameState.Actor actor, int damage, int accuracy, List<GameEvent> events) {
-        if (!CombatRules.clearLine(s, actor.x, actor.y, s.playerX, s.playerY, true)) return;
-        actor.facing = CombatRules.facing(actor.x, actor.y, s.playerX, s.playerY);
-        int chance = CombatRules.clampChance(accuracy - EquipmentRules.effectiveDex(s) * 3
-                - (CombatRules.cover(s, actor.x, actor.y, s.playerX, s.playerY) ? 25 : 0));
-        events.add(new GameEvent("gun", actor.x, actor.y, actor.kind + " fires."));
-        if (CombatRules.roll(s, 100) < chance) CombatRules.damagePlayer(s, damage, events, actor.kind.toString());
-        else events.add(new GameEvent("impact", s.playerX, s.playerY, "Dodged " + actor.kind + " fire."));
-    }
-
-    private static void camera(GameState s, GameState.Actor camera, List<GameEvent> events) {
-        boolean sees = CombatRules.distance(camera.x, camera.y, s.playerX, s.playerY) <= 9
-                && CombatRules.clearLine(s, camera.x, camera.y, s.playerX, s.playerY, false);
-        if (!sees) { camera.alert = Math.max(0, camera.alert - 1); return; }
-        if (camera.alert == 0) events.add(new GameEvent("warning", camera.x, camera.y, "Security camera detected movement. Nearby robots alerted."));
-        camera.alert = 8;
-        for (var actor : s.actors) if (actor != camera && CombatRules.alive(actor) && CombatRules.hostile(actor)
-                && CombatRules.distance(camera.x, camera.y, actor.x, actor.y) <= 10) {
-            actor.alert = 8; actor.lastX = s.playerX; actor.lastY = s.playerY;
-        }
-    }
-
-    private static void constructor(GameState s, GameState.Actor machine, List<GameEvent> events) {
-        if (s.flags.contains("constructor-defeated")) return;
-        boolean sees = CombatRules.distance(machine.x, machine.y, s.playerX, s.playerY) <= 12
-                && CombatRules.clearLine(s, machine.x, machine.y, s.playerX, s.playerY, false);
-        if (sees && s.bossPhase.equals("dormant")) {
-            s.bossPhase = "active";
-            events.add(new GameEvent("rover", machine.x, machine.y, "Constructor online. Explosive R.O.V.E.R. deployment initiated. Redirect units or locate the operator."));
-        }
-        if (!s.bossPhase.equals("active") || s.tick % 6 != 0
-                || s.actors.stream().filter(a -> CombatRules.alive(a) && a.id.startsWith("constructor-wave-")).count() >= 4) return;
-        for (int[] direction : GridRoutes.DIRECTIONS) {
-            int x = machine.x + direction[0], y = machine.y + direction[1];
-            if (!canEnter(s, null, x, y)) continue;
-            if (s.actors.size() >= 400) s.actors.removeIf(a -> a.dead && a.id.startsWith("constructor-wave-"));
-            var rover = actor(GameState.ActorKind.ROVER, "constructor-wave-" + s.tick, x, y);
-            rover.fuse = 18; rover.alert = 8; rover.lastX = s.playerX; rover.lastY = s.playerY;
-            s.actors.add(rover);
-            events.add(new GameEvent("rover", x, y, "Explosive R.O.V.E.R. deployed. Countdown: 18 ticks."));
-            return;
-        }
-    }
-
-    private static void rover(GameState s, GameState.Actor rover, List<GameEvent> events) {
-        GameState.Actor controller = rover.redirected ? s.actors.stream().filter(a -> CombatRules.alive(a)
-                && a.kind == GameState.ActorKind.CONSTRUCTOR).findFirst().orElse(null) : null;
-        int targetX = controller == null ? s.playerX : controller.x;
-        int targetY = controller == null ? s.playerY : controller.y;
-        int distance = CombatRules.distance(rover.x, rover.y, targetX, targetY);
-        if (rover.redirected && controller == null) { rover.dead = true; rover.hp = 0; return; }
-        if (rover.fuse >= 0) {
-            rover.fuse--;
-            if (rover.fuse == 0) { CombatRules.explode(s, rover, events); return; }
-            if (distance <= 1) {
-                if (rover.fuse > 2) {
-                    rover.fuse = 2;
-                    events.add(new GameEvent("rover", rover.x, rover.y, "R.O.V.E.R. armed: two ticks until detonation."));
-                }
-                return;
-            }
-        } else if (rover.alert > 0 && distance <= 1) {
-            rover.fuse = 2;
-            events.add(new GameEvent("rover", rover.x, rover.y, "R.O.V.E.R. armed: two ticks until detonation."));
-            return;
-        }
-        if (rover.redirected || rover.alert > 0) pursue(s, rover, rover.redirected ? targetX : rover.lastX,
-                rover.redirected ? targetY : rover.lastY, events);
-    }
-
-    static GameState.Actor actor(GameState.ActorKind kind, String id, int x, int y) {
-        var actor = new GameState.Actor();
-        actor.kind = kind; actor.id = id; actor.x = x; actor.y = y; actor.lastX = x; actor.lastY = y;
-        actor.maxHp = switch (kind) { case ADD -> 28; case ROVER, CAMERA -> 8; case TURRET -> 18; case OPERATOR -> 24; case CONSTRUCTOR -> 52; default -> 14; };
-        actor.hp = actor.maxHp;
-        return actor;
-    }
-
-    private static void pursue(GameState s, GameState.Actor actor, int x, int y, List<GameEvent> events) {
-        if (actor.x == x && actor.y == y) return;
-        // Small bounded per-actor routes, using the same actual station grid as player movement.
-        for (Coord cell : GridRoutes.route(s, actor.x, actor.y, x, y, false)) {
-            if (s.tiles[cell.x][cell.y] == Tile.DOOR_CLOSED) {
-                if (actor.kind == GameState.ActorKind.ROVER) return;
-                s.tiles[cell.x][cell.y] = Tile.DOOR_OPEN;
-                events.add(new GameEvent("door", cell.x, cell.y, actor.kind + " opens a bulkhead."));
-                return;
-            }
-            if (canEnter(s, actor, cell.x, cell.y)) move(s, actor, cell.x, cell.y, events);
-            return;
-        }
-    }
-
-    private static void retreat(GameState s, GameState.Actor actor, List<GameEvent> events) {
-        int best = CombatRules.distance(actor.x, actor.y, s.playerX, s.playerY);
-        int nx = actor.x, ny = actor.y;
-        for (int[] direction : GridRoutes.DIRECTIONS) {
-            int x = actor.x + direction[0], y = actor.y + direction[1];
-            int distance = CombatRules.distance(x, y, s.playerX, s.playerY);
-            if (distance > best && canEnter(s, actor, x, y)) { best = distance; nx = x; ny = y; }
-        }
-        if (nx != actor.x || ny != actor.y) move(s, actor, nx, ny, events);
-    }
-
-    private static void patrol(GameState s, GameState.Actor actor, List<GameEvent> events) {
-        int[] direction = GridRoutes.DIRECTIONS[Math.floorMod(actor.facing, 4)];
-        int x = actor.x + direction[0], y = actor.y + direction[1];
-        if (canEnter(s, actor, x, y)) move(s, actor, x, y, events);
-        else actor.facing = (actor.facing + 1) % 4;
-    }
-
-    private static boolean canEnter(GameState s, GameState.Actor self, int x, int y) {
-        return GridRoutes.inside(s, x, y) && !s.tiles[x][y].blocksMovement
-                && !(s.playerX == x && s.playerY == y)
-                && s.actors.stream().noneMatch(a -> a != self && CombatRules.alive(a) && CombatRules.hostile(a) && a.x == x && a.y == y);
-    }
-
-    private static void move(GameState s, GameState.Actor actor, int x, int y, List<GameEvent> events) {
-        actor.facing = x > actor.x ? 1 : y > actor.y ? 2 : x < actor.x ? 3 : 0;
-        actor.x = x; actor.y = y;
-        events.add(new GameEvent(actor.kind == GameState.ActorKind.ROVER ? "rover" : "robot_step", x, y, actor.kind + " moves."));
-    }
+    case RETURN->{if(a.x==a.homeX&&a.y==a.homeY)a.awareness=GameState.Awareness.PATROL;else if(pursue(s,a,a.homeX,a.homeY,e))a.blockedTicks=0;else if(++a.blockedTicks>=3){a.awareness=GameState.Awareness.PATROL;a.blockedTicks=0;}}
+    case PATROL->{a.nextActTick=s.tick+4;var dir=GridRoutes.DIRECTIONS[Math.floorMod(a.facing,4)];if(canEnter(s,a,a.x+dir[0],a.y+dir[1]))move(s,a,a.x+dir[0],a.y+dir[1],e);else a.facing=(a.facing+1)%4;}
+   }
+  }
+ }
+ private static void attack(GameState s,GameState.Actor a,List<GameEvent> e){
+  if(!CombatRules.clearLine(s,a.x,a.y,s.playerX,s.playerY,true))return;
+  a.facing=CombatRules.facing(a.x,a.y,s.playerX,s.playerY);int chance=70-(CombatRules.cover(s,a.x,a.y,s.playerX,s.playerY)?25:0);
+  event(s,a,"gun",a.kind+" fires.",a.x,a.y,e);StationSystems.noise(s,a.x,a.y,12,"gunfire",false,e);
+  if(CombatRules.roll(s,100)<chance)CombatRules.damagePlayer(s,a.kind==GameState.ActorKind.ADD?11:8,e,s.visible[a.x][a.y]?a.kind.toString():"Incoming fire");
+ }
+ private static void constructor(GameState s,GameState.Actor a,List<GameEvent> e){
+  if(s.flags.contains("constructor-defeated")||s.constructorStock<=0||s.tick<a.nextActTick)return;
+  a.nextActTick=s.tick+12;s.bossPhase="active";
+  for(var dir:GridRoutes.DIRECTIONS){int x=a.x+dir[0],y=a.y+dir[1];if(!canEnter(s,a,x,y))continue;
+   var r=actor(GameState.ActorKind.ROVER,"fabricated-"+s.deck+"-"+s.constructorStock,x,y);s.constructorStock--;s.actors.add(r);
+   event(s,a,"rover","Constructor releases a unit from finite stock.",a.x,a.y,e);StationSystems.noise(s,a.x,a.y,12,"heavy fabrication",false,e);return;
+  }
+ }
+ private static void rover(GameState s,GameState.Actor a,boolean sees,List<GameEvent> e){
+  var target=a.redirected?s.actors.stream().filter(b->b.kind==GameState.ActorKind.CONSTRUCTOR&&CombatRules.alive(b)).findFirst().orElse(null):null;
+  if(a.fuse>=0&&a.armedAction!=s.actionSerial){if(--a.fuse<=0){CombatRules.explode(s,a,e);return;}}
+  boolean near=a.redirected&&target!=null?CombatRules.distance(a.x,a.y,target.x,target.y)<=1:sees&&CombatRules.distance(a.x,a.y,s.playerX,s.playerY)<=1;
+  if(near&&a.fuse<0){a.fuse=2;a.armedAction=s.actionSerial;event(s,a,"rover","R.O.V.E.R. armed: two ticks after your next commitment.",a.x,a.y,e);StationSystems.noise(s,a.x,a.y,7,"arming mechanism",false,e);return;}
+  if(a.fuse>=0)return;
+  if(a.redirected&&target!=null)pursue(s,a,target.x,target.y,e);
+  else if(a.awareness==GameState.Awareness.RETURN){if(a.x==a.homeX&&a.y==a.homeY){a.awareness=GameState.Awareness.PATROL;a.blockedTicks=0;}else if(pursue(s,a,a.homeX,a.homeY,e))a.blockedTicks=0;else if(++a.blockedTicks>=3){a.awareness=GameState.Awareness.PATROL;a.blockedTicks=0;}}
+  else if(a.awareness!=GameState.Awareness.PATROL){if(a.x==a.lastX&&a.y==a.lastY||!pursue(s,a,a.lastX,a.lastY,e)&&++a.blockedTicks>=3){a.awareness=GameState.Awareness.SEARCH;a.facing=(a.facing+1)%4;if(--a.searchTicks<=0){a.awareness=GameState.Awareness.RETURN;a.alert=0;a.blockedTicks=0;}}}
+ }
+ static GameState.Actor actor(GameState.ActorKind kind,String id,int x,int y){
+  var a=new GameState.Actor();a.kind=kind;a.id=id;a.x=a.homeX=a.lastX=x;a.y=a.homeY=a.lastY=y;a.searchTicks=6;
+  a.maxHp=switch(kind){case ADD->28;case ROVER,CAMERA->8;case TURRET->18;case CONTROLLER->24;case CONSTRUCTOR->52;default->14;};a.hp=a.maxHp;return a;
+ }
+ private static boolean pursue(GameState s,GameState.Actor a,int tx,int ty,List<GameEvent> e){
+  int[][] dist=new int[s.width][s.height];for(var c:dist)Arrays.fill(c,-1);var q=new ArrayDeque<int[]>();if(!GridRoutes.inside(s,tx,ty))return false;dist[tx][ty]=0;q.add(new int[]{tx,ty});
+  while(!q.isEmpty()){var p=q.remove();for(var dir:GridRoutes.DIRECTIONS){int x=p[0]+dir[0],y=p[1]+dir[1];if(!GridRoutes.inside(s,x,y)||dist[x][y]>=0)continue;
+   Tile t=s.tiles[x][y];boolean closed=t==Tile.DOOR_CLOSED;
+   if(t.blocksMovement&&!closed)continue;if(closed&&(a.kind==GameState.ActorKind.ROVER||StationSystems.braced(s,x,y)||(a.kind!=GameState.ActorKind.SIRS&&!StationSystems.powered(s,x,y))))continue;
+   if(!(x==a.x&&y==a.y)&&s.actors.stream().anyMatch(b->b!=a&&CombatRules.alive(b)&&b.x==x&&b.y==y))continue;
+   dist[x][y]=dist[p[0]][p[1]]+1;q.add(new int[]{x,y});
+  }}
+  int best=Integer.MAX_VALUE,bx=a.x,by=a.y;for(var dir:GridRoutes.DIRECTIONS){int x=a.x+dir[0],y=a.y+dir[1];if(GridRoutes.inside(s,x,y)&&dist[x][y]>=0&&dist[x][y]<best){best=dist[x][y];bx=x;by=y;}}
+  if(bx==a.x&&by==a.y)return false;
+  if(s.tiles[bx][by]==Tile.DOOR_CLOSED){if(StationSystems.powered(s,bx,by)||a.kind==GameState.ActorKind.SIRS){s.tiles[bx][by]=Tile.DOOR_OPEN;event(s,a,"door",a.kind+" operates the bulkhead.",bx,by,e);StationSystems.noise(s,bx,by,5,"bulkhead",false,e);return true;}return false;}
+  if(canEnter(s,a,bx,by)){move(s,a,bx,by,e);return true;}return false;
+ }
+ private static boolean retreat(GameState s,GameState.Actor a,List<GameEvent> e){int best=CombatRules.distance(a.x,a.y,s.playerX,s.playerY),x=a.x,y=a.y;for(var d:GridRoutes.DIRECTIONS){int nx=a.x+d[0],ny=a.y+d[1],n=CombatRules.distance(nx,ny,s.playerX,s.playerY);if(n>best&&canEnter(s,a,nx,ny)){best=n;x=nx;y=ny;}}if(x==a.x&&y==a.y)return false;move(s,a,x,y,e);return true;}
+ private static boolean canEnter(GameState s,GameState.Actor self,int x,int y){return GridRoutes.inside(s,x,y)&&!s.tiles[x][y].blocksMovement&&!(x==s.playerX&&y==s.playerY)&&s.actors.stream().noneMatch(a->a!=self&&CombatRules.alive(a)&&a.x==x&&a.y==y);}
+ private static void move(GameState s,GameState.Actor a,int x,int y,List<GameEvent> e){int ox=a.x,oy=a.y;a.facing=CombatRules.facing(ox,oy,x,y);a.x=x;a.y=y;event(s,a,"robot_step",a.kind+" moves.",ox,oy,e);StationSystems.noise(s,x,y,a.kind==GameState.ActorKind.ADD?5:3,"machine movement",false,e);}
+ private static void event(GameState s,GameState.Actor a,String type,String text,int ox,int oy,List<GameEvent> e){boolean seen=s.visible[a.x][a.y];if(seen)e.add(new GameEvent(type,a.x,a.y,text,a.id,ox,oy,a.facing,s.tick,s.actionSerial,true,true,"contact"));}
 }

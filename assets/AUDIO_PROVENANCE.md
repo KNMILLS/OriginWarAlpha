@@ -1,3 +1,9 @@
+# Current survival sound and voice
+
+The0.2 candidate binds28 exact offline officer/ALICE lines in16 authored exchanges (twelve initial candidates plus four finale statements), with normal and clear variants,16 effects and three station/radio beds. Native masters, exact text/prompts/model/tool/license hashes, ASR screens, rejected takes and export recipes are under audio/survival/source and tools/media/survival_sound. See docs/design/sound/SURVIVAL_PRODUCTION.md. No runtime speech generation or imported reference recording. Existing original helmet breathing and intermittent score remain credited below. Decode, headroom and playback checks do not establish human intelligibility, performance quality or listening comfort.
+
+---
+
 # Audio provenance
 
 Current VOICE4 retains the nine VOICE3 performances, native masters and exact clean exports, and creates narrow/grainy runtime transmission derivatives. Original speech-free static is stronger and more uneven; AudioDirector swells it into brief reception dips without seeking or replaying speech. Radio0 removes noise/dropouts while the transmission EQ remains. The supplied YouTube video is a direction reference only: no recording samples or cloned voice are used. New actual-file transmission ASR evidence is separate from historical clean-file screens. See docs/design/sound/ALICE_RADIO_RECEPTION.md for recipe, preservation and acceptance limits.

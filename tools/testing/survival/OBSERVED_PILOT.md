@@ -32,7 +32,7 @@ $env:ORIGINWAR_PILOT_SEEDS='0,1,6,14'
 .\gradlew.bat :core:test --tests io.zipcoder.originwar.engine.SurvivalObservedPilotTest --rerun-tasks --no-daemon --console=plain
 ```
 
-`ORIGINWAR_PILOT_SEEDS` overrides the four default calibration seeds. Both approaches run for each seed. Other tests are not selected by this command. Use `--rerun-tasks` when changing the seed environment: Gradle does not otherwise consider that environment variable a test-task input, and an up-to-date result does not execute another probe or create a fresh evidence folder.
+`ORIGINWAR_PILOT_SEEDS` overrides the four default calibration seeds. Both approaches run for each seed. Other tests are not selected by this command. The integration build tracks both generation and pilot seed environment values as test-task inputs. `--rerun-tasks` also forces a new probe on an otherwise identical input; an up-to-date result does not execute another attempt or create a fresh evidence folder.
 
 Ignored output: `core/build/evidence/survival-observed/<timestamp-id>/`.
 

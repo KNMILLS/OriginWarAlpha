@@ -31,8 +31,9 @@ final class GridRoutes {
         char[][] map = new char[s.width][s.height];
         float[][] costs = new float[s.width][s.height];
         for (int x = 0; x < s.width; x++) for (int y = 0; y < s.height; y++) {
-            map[x][y] = passable(s.tiles[x][y]) && (!knownOnly || s.explored[x][y]) ? '.' : '#';
-            costs[x][y] = entryCost(s.tiles[x][y]);
+            Tile known=knownOnly?StationSystems.knownTile(s,x,y):s.tiles[x][y];
+            map[x][y] = known!=null&&passable(known) && (!knownOnly || s.explored[x][y]) ? '.' : '#';
+            costs[x][y] = known==null?1:entryCost(known);
         }
         DijkstraMap distances = new DijkstraMap(map, Measurement.MANHATTAN);
         distances.initializeCost(costs);
@@ -44,7 +45,7 @@ final class GridRoutes {
     /** Returns destination cells, excluding the start. An empty list also denotes no route. */
     static List<Coord> route(GameState s, int fromX, int fromY, int toX, int toY, boolean knownOnly) {
         if (!inside(s, fromX, fromY) || !inside(s, toX, toY)
-                || !passable(s.tiles[toX][toY]) || (knownOnly && !s.explored[toX][toY])) return List.of();
+                || (knownOnly ? !s.explored[toX][toY]||StationSystems.knownTile(s,toX,toY)==null||!passable(StationSystems.knownTile(s,toX,toY)) : !passable(s.tiles[toX][toY]))) return List.of();
         DijkstraMap distances = distances(s, toX, toY, knownOnly);
         if (distances.gradientMap[fromX][fromY] >= DijkstraMap.FLOOR) return List.of();
         ArrayList<Coord> result = new ArrayList<>();
@@ -54,11 +55,11 @@ final class GridRoutes {
             float best = Float.POSITIVE_INFINITY;
             for (int[] direction : DIRECTIONS) {
                 int nx = x + direction[0], ny = y + direction[1];
-                if (!inside(s, nx, ny) || !passable(s.tiles[nx][ny])
+                if (!inside(s, nx, ny) || (knownOnly?StationSystems.knownTile(s,nx,ny)==null||!passable(StationSystems.knownTile(s,nx,ny)):!passable(s.tiles[nx][ny]))
                         || (knownOnly && !s.explored[nx][ny])) continue;
                 float gradient = distances.gradientMap[nx][ny];
                 if (gradient >= distances.gradientMap[x][y]) continue;
-                float score = gradient + entryCost(s.tiles[nx][ny]);
+                float score = gradient + entryCost(knownOnly?StationSystems.knownTile(s,nx,ny):s.tiles[nx][ny]);
                 if (score < best) { best = score; nextX = nx; nextY = ny; }
             }
             if (nextX < 0 || result.size() >= s.width * s.height) return List.of();

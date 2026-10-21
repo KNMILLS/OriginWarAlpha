@@ -1,3 +1,21 @@
+# Current survival decisions —21 October2026
+
+The owner-approved SURVIVAL_HORROR_20261021 directive supersedes conflicting historical decisions below. Earlier release evidence remains preserved.
+
+- SH-D001: Remove RPG progression and human conversational actors. Statless gear, finite supplies and acquired evidence determine capability. ALICE is informational station AI; finale control is the explicit exception.
+- SH-D002: Preserve original reference/release, start schema/rules/generation2 and survival-0.2 profile. No migration. A run-specific folder is initialized durably before the active pointer changes; process lease and a single background writer protect it.
+- SH-D003: Every physical item has one identity and quantity1. Bulk counts duplicates and equipped weapons; only the worn shell is outside the12-bulk pack. Partial transfers preserve remainder, and the final gun can be dropped.
+- SH-D004: Mechanical visibility and shared acoustic propagation govern both machine information and player contacts. Saved machine memory never reads the hidden player. Presentation receives copied state and authorized ordered events.
+- SH-D005: A local powered terminal may copy the public maintenance chart. It reveals static public-route geometry and nearby structure, with no actor/loot/current power information. Remembered observations are separate from current terrain; repeated chart access cannot overwrite newer observations. This supports fair navigation within the fixed oxygen budget.
+- SH-D006: Generation budgets include the physical release, terrain, doors, handling, required controller and final relay journey. Oxygen allocation is fixed by the seed across the complete campaign; current resources never influence placement. Validation distinguishes seeds from individual decks.
+- SH-D007: A multi-tick effect finishes on its last tick. Newly armed R.O.V.E.R.s skip the remaining ticks of that same player commitment before decrementing. Subsequent long actions remain consequential.
+- SH-D008: Optional speech starts require eight paid actions and at least180 seconds at normal frequency (360 sparse); this satisfies the minimum90-second separation and the one-per-three-minute limit. Stale optional material expires without a queue. Essential statements may resume unfinished segments; no speech gates progress.
+- SH-D009: Isolated illustrated art, painted motion and offline sound sources have dedicated specialist ownership. Technical source/export checks do not grant artistic acceptance. The source/release includes explicit equipment/facing/native-review gaps.
+- SH-D010: Retain superseded tests unchanged under legacy/tests, with the removed contract explained. New conservation, sensing, physical campaign, generation and persistence tests replace those requirements. Historical audio/presentation helper tests are scoped helper regressions only.
+
+---
+
+## Historical decisions for preserved releases
 # Decisions
 
 - D001: Preserve the two unversioned 2025 Godot experiments privately; neither is a SquidSquad baseline. Do not import later lore/mechanics.

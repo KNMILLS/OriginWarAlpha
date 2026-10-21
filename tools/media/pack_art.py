@@ -3,7 +3,7 @@ This pipeline packs source artwork; it does not paint substitute sprites.
 Source sheet rasters remain unchanged under assets/art/source/.
 """
 from __future__ import annotations
-import hashlib,json
+import hashlib,json,argparse
 from pathlib import Path
 import numpy as np
 from PIL import Image
@@ -26,6 +26,11 @@ def strong_bbox(im):
     mask=Image.fromarray(np.uint8(alpha>=72)*255)
     return mask.getbbox()
 def main():
+    parser=argparse.ArgumentParser(description="Historical pixel-atlas exporter; active survival artwork has its own isolated exporter.")
+    parser.add_argument("--rebuild-historical-atlas",action="store_true",help="Explicitly authorize overwriting the preserved RPG atlas exports.")
+    args=parser.parse_args()
+    if not args.rebuild_historical_atlas:
+        parser.error("Historical exporter is guarded. Use tools/media/survival_art/build.py for active illustrated assets, or explicitly pass --rebuild-historical-atlas.")
     initial=ART/"source"/"station-generated.png"
     original=ART/"source"/"station-cleaned-generated.png"
     floorpath=ART/"source"/"station-floors-generated.png"

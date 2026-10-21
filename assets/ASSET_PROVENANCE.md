@@ -1,3 +1,9 @@
+# Current illustrated survival assets
+
+The0.2 candidate uses42 original named illustrated regions with retained source masters, prompts, reference attribution, an editable OpenRaster kit and deterministic exports under art/survival. Painted motion sources and per-frame metadata are isolated under art/survival/motion. See docs/design/art/SURVIVAL_PRODUCTION.md and SURVIVAL_ANIMATION.md for ownership, references, rejection criteria and explicit unaccepted coverage. Existing original art/font notices remain preserved. Historical pixel-atlas evidence below does not certify this illustrated candidate.
+
+---
+
 # Asset provenance
 
 Representative M1 art is integrated from original built-in image generation. See [art manifest](art/manifest.json) for every source raster, slot, prompt, hash, export rule and limitation. The 8x8 atlas contains station tiles/items/effects and human/android/robot frame families, authored at native 32px and exported nearest-neighbor. Selected generation originals and the deterministic export source are retained. No legacy or third-party artwork was reused.

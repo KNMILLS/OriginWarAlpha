@@ -1,3 +1,9 @@
+# Origin War0.2 survival candidate
+
+The owner-approved survival redesign replaces the earlier RPG release. Use the current [manual](../MANUAL.md), [authority](directives/SURVIVAL_HORROR_20261021.md) and [qualification gates](SURVIVAL_QUALIFICATION.md). This development candidate is not commercially accepted. The preserved0.1 release record follows as history.
+
+---
+
 # Origin War 0.1.0 — Windows candidate, owner-feedback update
 
 Extract the entire Windows ZIP, then launch OriginWar/OriginWar.exe. Java is bundled. Read MANUAL.md for controls, survival, equipment and the original campaign. Source/OriginWarSource.zip includes the current source/build wrapper, authoring assets and unchanged 2016 design reference. DependencySources, licenses and runtime/legal must remain with redistributed copies. BUILD_ID.txt supplies the exact packaged source revision; the archive checksum/verification files accompany the delivered ZIP.

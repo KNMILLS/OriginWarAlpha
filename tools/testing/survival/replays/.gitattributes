@@ -1,0 +1,2 @@
+# The fourth TSV field is an intentional empty action ID; preserve its trailing tab and exact replay bytes.
+*.tsv -text whitespace=-blank-at-eol

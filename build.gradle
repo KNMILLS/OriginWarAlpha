@@ -1,6 +1,6 @@
 allprojects {
     group = 'io.zipcoder.originwar'
-    version = '0.1.0'
+    version = '0.2.0'
     repositories { mavenCentral(); maven { url = uri('https://jitpack.io') } }
 }
 subprojects {
@@ -17,35 +17,47 @@ subprojects {
 
 tasks.register('verifyAssets') {
     group='verification'
-    description='Validate required runtime image dimensions, audio hashes and upstream notice payloads.'
+    description='Validate the active illustrated survival regions, motion, voice bindings and provenance.'
     doLast {
-        def sizes=['art/station.png':[1024,1024],'art/animation/actors.png':[1024,1024],
-            'art/sectors/sectors.png':[1024,512],'art/finale/finale.png':[1024,512],
-            'art/animation/directional-actions/attack.png':[1024,384],
-            'art/animation/humans/humans.png':[1024,128],'art/atmosphere/player-walk.png':[512,512],'ui/ui.png':[1024,1024]]
-        sizes.each { path,size ->
-            def image=javax.imageio.ImageIO.read(file('assets/'+path))
-            if(image==null||image.width!=size[0]||image.height!=size[1])throw new GradleException('Invalid runtime art: '+path)
-        }
         def digest={f -> java.security.MessageDigest.getInstance('SHA-256').digest(f.bytes).encodeHex().toString()}
-        def art=new groovy.json.JsonSlurper().parse(file('assets/art/atmosphere/manifest.json'))
-        (art.sources+art.outputs).each { path,hash -> if(!path.startsWith('assets/art/')||!file(path).isFile()||digest(file(path))!=hash)throw new GradleException('Art source/export mismatch: '+path) }
-        def uiFont=new groovy.json.JsonSlurper().parse(file('assets/ui/manifest.json'))
-        if(digest(file('assets/ui/source/LiberationSans-Regular.ttf'))!=uiFont.source_sha256)throw new GradleException('UI font source mismatch')
-        uiFont.outputs.each { path,hash -> if(!file('assets/ui/'+path).isFile()||digest(file('assets/ui/'+path))!=hash)throw new GradleException('UI font mismatch: '+path) }
-        def audio=new groovy.json.JsonSlurper().parse(file('assets/audio/manifest.json'))
-        if(audio.music.size()!=6||audio.sfx.size()!=34||audio.ambience.size()!=6)throw new GradleException('Incomplete soundtrack/effects/suit layers')
-        (audio.music.values()+audio.sfx.values()+audio.ambience.values()).each { item ->
-            if(!file(item.path).isFile()||digest(file(item.path))!=item.sha256)throw new GradleException('Audio hash mismatch: '+item.path)
+        def assetRoot=file('assets').canonicalPath+File.separator
+        def check={path,hash ->
+            def payload=file('assets/'+path)
+            if(!payload.canonicalPath.startsWith(assetRoot)||!payload.isFile()||digest(payload)!=hash)throw new GradleException('Missing/mismatched survival asset: '+path)
         }
-        def voices=new groovy.json.JsonSlurper().parse(file('assets/audio/voice/index.json'))
-        if(voices.clips.size()!=9)throw new GradleException('Incomplete ALICE voice catalog')
-        voices.clips.each { item -> if(!item.path.startsWith('audio/voice/')||digest(file('assets/'+item.path))!=item.sha256)throw new GradleException('Voice hash mismatch: '+item.path) }
-        def cues=new groovy.json.JsonSlurper().parse(file('assets/audio/runtime.json'))
-        if(cues.sfx.keySet()!=audio.sfx.keySet())throw new GradleException('Effect duration catalog mismatch')
-        cues.sfx.each { id,seconds -> if(Math.abs(seconds-audio.sfx[id].duration_seconds)>.0001)throw new GradleException('Effect duration mismatch: '+id) }
+        def art=new groovy.json.JsonSlurper().parse(file('assets/art/survival/regions.json'))
+        if(art.version!=1||art.regions.size()<42)throw new GradleException('Incomplete illustrated region contract')
+        art.regions.each { item ->
+            check(item.path,item.sha256)
+            def raster=javax.imageio.ImageIO.read(file('assets/'+item.path))
+            if(raster==null||raster.width!=item.pixelWidth||raster.height!=item.pixelHeight||item.widthCells<=0||item.heightCells<=0)throw new GradleException('Invalid illustrated bounds: '+item.name)
+        }
+        def speech=new groovy.json.JsonSlurper().parse(file('assets/audio/survival/exchanges.json'))
+        if(speech.exchanges.size()!=16||speech.exchanges.sum{it.lines.size()}!=28)throw new GradleException('Incomplete survival performance catalog')
+        speech.exchanges.each { exchange -> exchange.lines.each { line ->
+            check(line.path,line.sha256);check(line.clear_path,line.clear_sha256)
+            if(java.security.MessageDigest.getInstance('SHA-256').digest(line.text.getBytes('UTF-8')).encodeHex().toString()!=line.text_sha256)throw new GradleException('Changed speech text: '+exchange.id)
+        }}
+        (speech.sfx.values()+speech.ambience.values()).each { item -> check(item.path,item.sha256) }
+        def motionFile=file('assets/art/survival/motion/clips.json')
+        if(motionFile.isFile()){
+            def motion=new groovy.json.JsonSlurper().parse(motionFile)
+            ['north','east','south','west'].each { face ->
+                def clip=motion.clips.find{it.id=='officer.walk.'+face}
+                if(clip==null||clip.frames.size()!=12)throw new GradleException('Missing twelve-phase gait: '+face)
+            }
+            motion.clips.each { clip -> clip.frames.each { frame ->
+                def raster=file('assets/'+frame.path)
+                if(!raster.canonicalPath.startsWith(assetRoot)||!raster.isFile()||frame.widthCells<=0||frame.heightCells<=0)throw new GradleException('Invalid motion frame: '+frame.path)
+                if(frame.sha256!=null)check(frame.path,frame.sha256)
+            }}
+        } else throw new GradleException('Missing illustrated motion candidate. Source validation never implies artistic acceptance.')
+        def retainedAudio=new groovy.json.JsonSlurper().parse(file('assets/audio/manifest.json'))
+        (retainedAudio.music.values()+retainedAudio.sfx.values()+retainedAudio.ambience.values()).each { item -> check(item.path.replaceFirst('^assets/',''),item.sha256) }
+        def uiFont=new groovy.json.JsonSlurper().parse(file('assets/ui/manifest.json'))
+        uiFont.outputs.each { path,hash -> check('ui/'+path,hash) }
         def notices=new groovy.json.JsonSlurper().parse(file('licenses/MANIFEST.json'))
-        notices.each { path,entry -> if(!file('licenses/'+path).isFile()||digest(file('licenses/'+path))!=entry.sha256)throw new GradleException('Notice hash mismatch: '+path) }
-        logger.lifecycle('Validated art sources/exports, 6 music roles, 6 suit layers, 9 ALICE clips, '+audio.sfx.size()+' effects and '+notices.size()+' upstream notices.')
+        notices.each { path,entry -> if(!file('licenses/'+path).isFile()||digest(file('licenses/'+path))!=entry.sha256)throw new GradleException('Notice mismatch: '+path) }
+        logger.lifecycle('Validated '+art.regions.size()+' illustrated regions, 28 exact normal/clear performances, 16 effects, 3 station beds and dependency notices.')
     }
 }

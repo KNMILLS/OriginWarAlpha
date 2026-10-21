@@ -1,3 +1,9 @@
+# Current survival verification
+
+Version0.2 uses the new survival model and namespace. Its active evidence and unresolved gates are recorded in [Survival redesign qualification](SURVIVAL_QUALIFICATION.md). Counts and runtime statements below are preserved0.1 history and must not be reported as current redesign acceptance.
+
+---
+
 # Verification evidence
 
 ## Expressive ALICE and separate radio layer

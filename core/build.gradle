@@ -3,3 +3,9 @@ dependencies {
     implementation "com.github.yellowstonegames.squidsquad:squidplace:$squidVersion"
     implementation "com.github.yellowstonegames.squidsquad:squidpath:$squidVersion"
 }
+
+test {
+    // The requested sweep size changes verification work even when Java sources do not change.
+    inputs.property 'generationSeeds', System.getenv('ORIGINWAR_GENERATION_SEEDS') ?: '1000'
+    inputs.property 'observedPilotSeeds', System.getenv('ORIGINWAR_PILOT_SEEDS') ?: '0,1,6,14'
+}
