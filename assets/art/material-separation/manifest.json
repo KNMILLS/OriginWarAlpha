@@ -1,0 +1,191 @@
+{
+  "task": "MAT2",
+  "baseline": "039bebc8e0d36ab2497bd648c46da6de67d0fe2b",
+  "method": "Original built-in OpenAI image_gen rasters; deterministic crop/resample/pack only. Review composites reuse assets and fixed technical lighting, not Python-painted production art.",
+  "native_cell_pixels": 64,
+  "runtime_cell_pixels": 128,
+  "changed_slots": {
+    "station": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      11,
+      12,
+      13
+    ],
+    "sectors": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9
+    ]
+  },
+  "source_crops": {
+    "floor0": {
+      "source": "floors.png",
+      "box": [
+        0,
+        133,
+        443,
+        576
+      ]
+    },
+    "wall0": {
+      "source": "walls.png",
+      "box": [
+        0,
+        0,
+        443,
+        709
+      ]
+    },
+    "floor1": {
+      "source": "floors.png",
+      "box": [
+        443,
+        133,
+        886,
+        576
+      ]
+    },
+    "wall1": {
+      "source": "walls.png",
+      "box": [
+        443,
+        0,
+        886,
+        709
+      ]
+    },
+    "floor2": {
+      "source": "floors.png",
+      "box": [
+        886,
+        132,
+        1330,
+        576
+      ]
+    },
+    "wall2": {
+      "source": "walls.png",
+      "box": [
+        886,
+        0,
+        1330,
+        709
+      ]
+    },
+    "floor3": {
+      "source": "floors.png",
+      "box": [
+        1330,
+        133,
+        1773,
+        576
+      ]
+    },
+    "wall3": {
+      "source": "walls.png",
+      "box": [
+        1330,
+        0,
+        1773,
+        709
+      ]
+    },
+    "floor4": {
+      "source": "floors.png",
+      "box": [
+        1773,
+        133,
+        2216,
+        576
+      ]
+    },
+    "wall4": {
+      "source": "walls.png",
+      "box": [
+        1773,
+        0,
+        2216,
+        709
+      ]
+    },
+    "station6": {
+      "source": "special.png",
+      "box": [
+        0,
+        66,
+        434,
+        657
+      ]
+    },
+    "station7": {
+      "source": "special.png",
+      "box": [
+        434,
+        66,
+        869,
+        657
+      ]
+    },
+    "station11": {
+      "source": "special.png",
+      "box": [
+        869,
+        66,
+        1303,
+        657
+      ]
+    },
+    "station12": {
+      "source": "special.png",
+      "box": [
+        1303,
+        66,
+        1738,
+        657
+      ]
+    },
+    "station13": {
+      "source": "special.png",
+      "box": [
+        1738,
+        66,
+        2172,
+        657
+      ]
+    }
+  },
+  "sources": {
+    "assets/art/material-separation/source/baseline-identities.json": "e17e5b577eb333ca1abcb534510176a2dbd0b767bfcc9cce7fabd7f522906509",
+    "assets/art/material-separation/source/before/sectors-native.png": "ada44f282984e390fc71064f48666050157529b682a68d04440d91594bfd81d8",
+    "assets/art/material-separation/source/before/station-native.png": "eecf0dbc5b1a981cf11292caa90b0fb61e7ef2212edee3462d2896ee11deee7e",
+    "assets/art/material-separation/source/floors.png": "2dd350a7ded34b71284149d26c29d1e3a877d1606265826192d7d10f8d7055a1",
+    "assets/art/material-separation/source/GENERATION.json": "6b3da944e56df2d327e96bfec00046ded0a2e2390813aaea99571aba5f3c9172",
+    "assets/art/material-separation/source/prompts/floors-exact.txt": "3c199c0556506c0364c7710b9422e18dbd5cb92b3a585ce1c691105ff0964dd0",
+    "assets/art/material-separation/source/prompts/special-exact.txt": "f7391fe81e2d590c580fb5b577550e323ca5a1d6ba5085e90f3df4b9aca6f444",
+    "assets/art/material-separation/source/prompts/walls-exact.txt": "733824cc07a5f63ef14c02a2d3fc21bbabbbef4cc64efb9260a34907bd523a00",
+    "assets/art/material-separation/source/special.png": "037c14449328bc78a04c805882fed0eab3a2b9976a40e07417bc5685681ee525",
+    "assets/art/material-separation/source/walls.png": "465cbaeeb056a9b7715f29ac0df19d3b962f7d9e82bba5aee8adfdb0b038984e"
+  },
+  "outputs": {
+    "assets/art/source/station-native.png": "14c130584155c90228adbbbd544dd692c8e79f2f8bbc604f713282080bf9ee8a",
+    "assets/art/station.png": "6c02073664d4b56b05959899cdf07f2cd3c49cda2d66abde205c5a253f2b0c5d",
+    "assets/art/sectors/sectors-native.png": "0faf294f4113df032b3e17b7d69f4baa67d7a7a6a729e4d62ab77b37ea59fb86",
+    "assets/art/sectors/sectors.png": "05eeb11508acde70bf9589efcf19f410a38c407b372fb4eb233f23200d2cf937"
+  },
+  "review_scope": "Labelled material/dark/frozen-room composites only; not game captures, real FOV/lighting validation or owner artistic approval.",
+  "unchanged_scope": "All original artwork except the4 named native/runtime station+sector PNGs; protected by baseline identity manifest and independent per-cell comparison."
+}

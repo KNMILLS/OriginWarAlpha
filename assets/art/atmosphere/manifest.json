@@ -227,14 +227,14 @@
     "sha256": "fb2916e0238f8e105d7be7a208f5fc20b07765c6d44b1642442cd0b046b3e072"
   },
   "outputs": {
-    "assets/art/station.png": "43720bd326778867d3612cfb4eafeac003a439a7e6c248f0ce0224eebff92cf0",
-    "assets/art/source/station-native.png": "eecf0dbc5b1a981cf11292caa90b0fb61e7ef2212edee3462d2896ee11deee7e",
+    "assets/art/station.png": "6c02073664d4b56b05959899cdf07f2cd3c49cda2d66abde205c5a253f2b0c5d",
+    "assets/art/source/station-native.png": "14c130584155c90228adbbbd544dd692c8e79f2f8bbc604f713282080bf9ee8a",
     "assets/art/animation/actors.png": "01f155bdf0f2f3caec1984aa11907b5cab50aeef944d92018b92f88b53b4f80e",
     "assets/art/animation/actors-native.png": "2a6ac08365c358ba496cee98a56ef60436fdfd855ac5851ab0c0a229ec283557",
     "assets/art/animation/directional-actions/attack.png": "373ed5d05f111acb4eac7769fc9c346e58772a70b4cb207e0ab0af735c453b30",
     "assets/art/animation/directional-actions/attack-native.png": "b7650e31cb917917cfc85d4bb2da443b286112e2c4446080084dab1e6b5f4ac9",
-    "assets/art/sectors/sectors.png": "cc456298f22a8563ea2f88fa746a2fffd7d823a175443ca680d84b9a410f67ea",
-    "assets/art/sectors/sectors-native.png": "ada44f282984e390fc71064f48666050157529b682a68d04440d91594bfd81d8",
+    "assets/art/sectors/sectors.png": "05eeb11508acde70bf9589efcf19f410a38c407b372fb4eb233f23200d2cf937",
+    "assets/art/sectors/sectors-native.png": "0faf294f4113df032b3e17b7d69f4baa67d7a7a6a729e4d62ab77b37ea59fb86",
     "assets/art/atmosphere/player-walk.png": "8d3edaddc833fc37a077682b7faabcbeccc01c751c5fdb8f17074f8cd144df17",
     "assets/art/atmosphere/player-walk-native.png": "2f4a854491d756b35c56684ff3411c9a536d4f1da05cba71474dcce0a998913c"
   },
@@ -244,5 +244,6 @@
     "Side profile weapon handedness is mirrored for west.",
     "Attack extent differs from walking; check north aim/recoil size in engine.",
     "All other actor/robot/human/finale frames remain unchanged pixels at runtime."
-  ]
+  ],
+  "material_separation_override": "assets/art/material-separation/manifest.json"
 }

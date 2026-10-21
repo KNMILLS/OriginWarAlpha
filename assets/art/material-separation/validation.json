@@ -1,0 +1,163 @@
+{
+  "task": "MAT2",
+  "result": "PASS",
+  "baseline": "039bebc8e0d36ab2497bd648c46da6de67d0fe2b",
+  "repeatability": "PASS",
+  "independent_cell_checks": {
+    "station": {
+      "changed_slots": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        11,
+        12,
+        13
+      ],
+      "unchanged_cells": 53,
+      "unchanged_pixels_outside_declared_cells": true
+    },
+    "sectors": {
+      "changed_slots": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unchanged_cells": 22,
+      "unchanged_pixels_outside_declared_cells": true
+    }
+  },
+  "unrelated_original_png_sha256_verified": 72,
+  "current_atmosphere_validator": "PASS",
+  "fixture_alpha_and_preservation": [
+    {
+      "slot": 15,
+      "unchanged_pixels": true,
+      "transparent_percent": 45.459,
+      "corner_alpha": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "slot": 16,
+      "unchanged_pixels": true,
+      "transparent_percent": 54.639,
+      "corner_alpha": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "slot": 17,
+      "unchanged_pixels": true,
+      "transparent_percent": 59.912,
+      "corner_alpha": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "slot": 18,
+      "unchanged_pixels": true,
+      "transparent_percent": 40.43,
+      "corner_alpha": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "slot": 19,
+      "unchanged_pixels": true,
+      "transparent_percent": 42.676,
+      "corner_alpha": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  ],
+  "metrics": [
+    {
+      "zone": 0,
+      "floor_mean_rgb": 76.001,
+      "wall_mean_rgb": 38.987,
+      "floor_wall_mean_ratio": 1.949,
+      "wall_cap_mean_rgb": 80.783,
+      "wall_foot_mean_rgb": 15.829,
+      "same_x25_multiplier_means": [
+        19.0,
+        9.747
+      ]
+    },
+    {
+      "zone": 1,
+      "floor_mean_rgb": 119.528,
+      "wall_mean_rgb": 40.453,
+      "floor_wall_mean_ratio": 2.955,
+      "wall_cap_mean_rgb": 80.525,
+      "wall_foot_mean_rgb": 16.748,
+      "same_x25_multiplier_means": [
+        29.882,
+        10.113
+      ]
+    },
+    {
+      "zone": 2,
+      "floor_mean_rgb": 183.475,
+      "wall_mean_rgb": 42.119,
+      "floor_wall_mean_ratio": 4.356,
+      "wall_cap_mean_rgb": 78.923,
+      "wall_foot_mean_rgb": 16.429,
+      "same_x25_multiplier_means": [
+        45.869,
+        10.53
+      ]
+    },
+    {
+      "zone": 3,
+      "floor_mean_rgb": 73.086,
+      "wall_mean_rgb": 40.696,
+      "floor_wall_mean_ratio": 1.796,
+      "wall_cap_mean_rgb": 79.948,
+      "wall_foot_mean_rgb": 16.564,
+      "same_x25_multiplier_means": [
+        18.272,
+        10.174
+      ]
+    },
+    {
+      "zone": 4,
+      "floor_mean_rgb": 126.035,
+      "wall_mean_rgb": 42.853,
+      "floor_wall_mean_ratio": 2.941,
+      "wall_cap_mean_rgb": 80.768,
+      "wall_foot_mean_rgb": 16.002,
+      "same_x25_multiplier_means": [
+        31.509,
+        10.713
+      ]
+    }
+  ],
+  "scope": "Source/export/byte-repeatability/unchanged-asset and independent native-cell checks, plus measurable value/cap-foot contrast. Static dark/frozen-room review is separately documented; no real game shader/FOV, navigation, performance or owner artistic acceptance."
+}

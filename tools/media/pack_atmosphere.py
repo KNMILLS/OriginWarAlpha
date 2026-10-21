@@ -174,6 +174,9 @@ def pack():
             if 'native_size' in d['atlas']:d['atlas']['native_size']=[512,192]
         d['current_export']='tools/media/pack_atmosphere.py'
         path.write_text(json.dumps(d,indent=2)+'\n',encoding='utf-8',newline='\n')
+    if (ART/'material-separation/source/floors.png').exists():
+        from pack_material_separation import pack as pack_separation
+        pack_separation()
     print('ATM-ART packed: unchanged runtime dimensions;64px native materials/player;30sector,26station,12actor,8attack slots.')
 
 if __name__=='__main__':pack()

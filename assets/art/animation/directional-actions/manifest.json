@@ -795,6 +795,7 @@
   ],
   "atmosphere_override": "assets/art/atmosphere/manifest.json",
   "atmosphere_note": "Historical source/layout entries below describe the preserved prior pass. The ATM-ART override identifies current64px native crops and changed slots; runtime128px cells are unchanged.",
-  "current_export": "tools/media/pack_atmosphere.py",
-  "current_reference_station_sha256": "43720bd326778867d3612cfb4eafeac003a439a7e6c248f0ce0224eebff92cf0"
+  "current_export": "tools/media/pack_atmosphere.py then tools/media/pack_material_separation.py",
+  "current_reference_station_sha256": "6c02073664d4b56b05959899cdf07f2cd3c49cda2d66abde205c5a253f2b0c5d",
+  "material_separation_override": "assets/art/material-separation/manifest.json"
 }
