@@ -5,7 +5,7 @@
       "source": "environment-master.png",
       "sha256": "ec8e551398e595b4c712cf5188f1e18e08ea7d1f902b57519bb1db8567316ecd",
       "prompt": "environment-prompt.txt",
-      "promptSha256": "5574e8180a714e23cf67fc32499e9f88cef7d8ab95faa2a9e8aad842da85d229",
+      "promptSha256NormalizedLF": "5574e8180a714e23cf67fc32499e9f88cef7d8ab95faa2a9e8aad842da85d229",
       "tool": "built-in image_gen",
       "selected": true,
       "limitations": "Generated diffuse paintings; runtime lighting, native integration and owner acceptance remain open."
@@ -14,7 +14,7 @@
       "source": "floor-master.png",
       "sha256": "24abdfb4431242cf0a413582727c65282e77dadb328dbc76bab044dc4a6b0a6b",
       "prompt": "floor-prompt.txt",
-      "promptSha256": "10502897ebbe55f8a8757544e6414c7e804af00d85a66cba27bdee6b85cbe242",
+      "promptSha256NormalizedLF": "10502897ebbe55f8a8757544e6414c7e804af00d85a66cba27bdee6b85cbe242",
       "tool": "built-in image_gen",
       "selected": true,
       "limitations": "Generated diffuse paintings; runtime lighting, native integration and owner acceptance remain open."

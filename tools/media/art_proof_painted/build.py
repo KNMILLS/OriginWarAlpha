@@ -1,7 +1,7 @@
 """Extract actual imagegen paintings; no artwork is drawn, warped or interpolated."""
 from pathlib import Path
 from PIL import Image, ImageDraw, ImageFont
-import hashlib, json, zipfile, xml.etree.ElementTree as ET
+import hashlib, json, zipfile, io, xml.etree.ElementTree as ET
 ROOT = Path(__file__).resolve().parents[3]
 ASSETS = ROOT / 'assets'
 ENV = ASSETS / 'art/proof/environment'
@@ -10,6 +10,9 @@ CELL = 256
 
 def sha(path):
     return hashlib.sha256(path.read_bytes()).hexdigest()
+
+def text_sha(path):
+    return hashlib.sha256(path.read_text(encoding='utf-8').replace('\r\n','\n').encode('utf-8')).hexdigest()
 
 def dump(path, data):
     path.parent.mkdir(parents=True, exist_ok=True)
@@ -59,8 +62,11 @@ def catalog(target, regions):
         put('mimetype',b'image/openraster')
         for i,r in enumerate(regions):
             name=f'data/layer{i:03}.png'; put(name,(ASSETS/r['path']).read_bytes())
-            ET.SubElement(stack,'layer',name=r['name'],src=name,x='16',y='16',opacity='1.0',visibility='hidden',**{'composite-op':'svg:src-over'})
+            ET.SubElement(stack,'layer',name=r['name'],src=name,x='16',y='16',opacity='1.0',visibility='visible' if i==0 else 'hidden',**{'composite-op':'svg:src-over'})
         put('stack.xml',ET.tostring(tree,encoding='utf-8',xml_declaration=True))
+        merged=Image.new('RGBA',(width,height));first=Image.open(ASSETS/regions[0]['path']).convert('RGBA');merged.alpha_composite(first,(16,16))
+        buffer=io.BytesIO();merged.save(buffer,format='PNG');put('mergedimage.png',buffer.getvalue())
+        merged.thumbnail((256,256));buffer=io.BytesIO();merged.save(buffer,format='PNG');put('Thumbnails/thumbnail.png',buffer.getvalue())
 
 def environment():
     source=ENV/'source/environment-master.png'
@@ -86,7 +92,7 @@ def environment():
     catalog(ENV,regions)
     sources=[]
     for src,prompt in [('environment-master.png','environment-prompt.txt'),('floor-master.png','floor-prompt.txt')]:
-        sources.append(dict(source=src,sha256=sha(ENV/'source'/src),prompt=prompt,promptSha256=sha(ENV/'source'/prompt),tool='built-in image_gen',selected=True,limitations='Generated diffuse paintings; runtime lighting, native integration and owner acceptance remain open.'))
+        sources.append(dict(source=src,sha256=sha(ENV/'source'/src),prompt=prompt,promptSha256NormalizedLF=text_sha(ENV/'source'/prompt),tool='built-in image_gen',selected=True,limitations='Generated diffuse paintings; runtime lighting, native integration and owner acceptance remain open.'))
     dump(ENV/'source/GENERATION.json',dict(task='AP-PAINTED shared environment',sources=sources,medium='original generated raster painting',rights='No third-party reference images used; original imagegen output; preserve generation provenance.',editableCatalog='Region layers only; original brushstroke layers do not exist.'))
     print('environment',len(regions),'regions exported')
 

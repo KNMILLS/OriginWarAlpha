@@ -1813,6 +1813,146 @@
       "markers": [],
       "uniqueDrawings": 1,
       "sourceNote": "New actual rifle/heavy equipment drawing; static silhouette proof only"
+    },
+    {
+      "id": "officer.rifle.suit.idle.north",
+      "frameSeconds": 0.5,
+      "loop": true,
+      "frames": [
+        {
+          "name": "officer.rifle.suit.idle.north",
+          "path": "art/proof/painted/regions/officer.rifle.suit.idle.north.png",
+          "widthCells": 0.8515625,
+          "heightCells": 1.37109375,
+          "pivotX": 0.5,
+          "pivotY": 0.02564102564102564,
+          "layer": "world",
+          "pixelWidth": 218,
+          "pixelHeight": 351,
+          "source": "officer-rifle-turnaround-v1.png",
+          "sourceComponent": 1,
+          "sourceCrop": [
+            22,
+            42,
+            425,
+            821
+          ],
+          "sourceScale": 0.43053040103492884,
+          "sourceAnchorX": 233.87883000289602,
+          "referenceBodyHeightCells": 1.3,
+          "sha256": "7b0dc30bc6345cf8cfa4790510b4876d1b1bf8e6bb4321090da5991cefa4b415",
+          "sourceOrigin": "existing original painted survival asset",
+          "baselinePath": "art/survival/equipment-motion/regions/officer.rifle.north.png"
+        }
+      ],
+      "markers": [],
+      "uniqueDrawings": 1,
+      "sourceNote": "Unchanged existing original rifle/suit equipment facing; static equipment proof only"
+    },
+    {
+      "id": "officer.rifle.suit.idle.east",
+      "frameSeconds": 0.5,
+      "loop": true,
+      "frames": [
+        {
+          "name": "officer.rifle.suit.idle.east",
+          "path": "art/proof/painted/regions/officer.rifle.suit.idle.east.png",
+          "widthCells": 0.9921875,
+          "heightCells": 1.37109375,
+          "pivotX": 0.5,
+          "pivotY": 0.02564102564102564,
+          "layer": "world",
+          "pixelWidth": 254,
+          "pixelHeight": 351,
+          "source": "officer-rifle-turnaround-v1.png",
+          "sourceComponent": 2,
+          "sourceCrop": [
+            528,
+            44,
+            962,
+            842
+          ],
+          "sourceScale": 0.42020202020202024,
+          "sourceAnchorX": 149.79166458447853,
+          "referenceBodyHeightCells": 1.3,
+          "sha256": "da4d874c1bed49d22c583c3499cbd877cbd7749b7d2ad333e1c84bf93c045901",
+          "sourceOrigin": "existing original painted survival asset",
+          "baselinePath": "art/survival/equipment-motion/regions/officer.rifle.east.png"
+        }
+      ],
+      "markers": [],
+      "uniqueDrawings": 1,
+      "sourceNote": "Unchanged existing original rifle/suit equipment facing; static equipment proof only"
+    },
+    {
+      "id": "officer.rifle.suit.idle.south",
+      "frameSeconds": 0.5,
+      "loop": true,
+      "frames": [
+        {
+          "name": "officer.rifle.suit.idle.south",
+          "path": "art/proof/painted/regions/officer.rifle.suit.idle.south.png",
+          "widthCells": 0.84375,
+          "heightCells": 1.375,
+          "pivotX": 0.5,
+          "pivotY": 0.028409090909090908,
+          "layer": "world",
+          "pixelWidth": 216,
+          "pixelHeight": 352,
+          "source": "officer-rifle-turnaround-v1.png",
+          "sourceComponent": 3,
+          "sourceCrop": [
+            941,
+            45,
+            1363,
+            830
+          ],
+          "sourceScale": 0.42776349614395887,
+          "sourceAnchorX": 189.00717826012647,
+          "referenceBodyHeightCells": 1.3,
+          "sha256": "4a34814f2d2179934ddfebe5e7a62db525ba86927a2981f110418f025b33c777",
+          "sourceOrigin": "existing original painted survival asset",
+          "baselinePath": "art/survival/equipment-motion/regions/officer.rifle.south.png"
+        }
+      ],
+      "markers": [],
+      "uniqueDrawings": 1,
+      "sourceNote": "Unchanged existing original rifle/suit equipment facing; static equipment proof only"
+    },
+    {
+      "id": "officer.rifle.suit.idle.west",
+      "frameSeconds": 0.5,
+      "loop": true,
+      "frames": [
+        {
+          "name": "officer.rifle.suit.idle.west",
+          "path": "art/proof/painted/regions/officer.rifle.suit.idle.west.png",
+          "widthCells": 0.5859375,
+          "heightCells": 1.375,
+          "pivotX": 0.5,
+          "pivotY": 0.028409090909090908,
+          "layer": "world",
+          "pixelWidth": 150,
+          "pixelHeight": 352,
+          "source": "officer-rifle-turnaround-v1.png",
+          "sourceComponent": 4,
+          "sourceCrop": [
+            1404,
+            44,
+            1712,
+            835
+          ],
+          "sourceScale": 0.4244897959183674,
+          "sourceAnchorX": 158.9313549314576,
+          "referenceBodyHeightCells": 1.3,
+          "sha256": "afd0fb8c750cce854766d1e73ff6ed200ded6911964aac2ec558f948649db2c6",
+          "sourceOrigin": "existing original painted survival asset",
+          "baselinePath": "art/survival/equipment-motion/regions/officer.rifle.west.png"
+        }
+      ],
+      "markers": [],
+      "uniqueDrawings": 1,
+      "sourceNote": "Unchanged existing original rifle/suit equipment facing; static equipment proof only"
     }
   ],
   "bindings": [
@@ -1975,10 +2115,42 @@
       "action": "idle",
       "facing": "west",
       "clip": "officer.rifle.heavy.idle.west"
+    },
+    {
+      "actor": "officer",
+      "weapon": "rifle",
+      "armor": "suit",
+      "action": "idle",
+      "facing": "north",
+      "clip": "officer.rifle.suit.idle.north"
+    },
+    {
+      "actor": "officer",
+      "weapon": "rifle",
+      "armor": "suit",
+      "action": "idle",
+      "facing": "east",
+      "clip": "officer.rifle.suit.idle.east"
+    },
+    {
+      "actor": "officer",
+      "weapon": "rifle",
+      "armor": "suit",
+      "action": "idle",
+      "facing": "south",
+      "clip": "officer.rifle.suit.idle.south"
+    },
+    {
+      "actor": "officer",
+      "weapon": "rifle",
+      "armor": "suit",
+      "action": "idle",
+      "facing": "west",
+      "clip": "officer.rifle.suit.idle.west"
     }
   ],
   "unsupported": [
-    "rifle/heavy locomotion, aim and fire",
+    "rifle/suit and rifle/heavy locomotion, aim and fire",
     "unarmed and scattergun motion",
     "suit/heavy hit, work and death",
     "new fully choreographed12-phase cardinal gait"

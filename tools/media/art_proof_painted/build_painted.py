@@ -1,5 +1,5 @@
 """Export real painting exposures; no tweening, warping or painted pixels synthesized."""
-from build import ROOT, ASSETS, PAINTED, CELL, sha, dump, catalog
+from build import ROOT, ASSETS, PAINTED, CELL, sha, text_sha, dump, catalog
 from PIL import Image, ImageDraw
 import numpy as np
 from scipy import ndimage
@@ -51,6 +51,8 @@ def baseline_frame(frame,name):
 def build():
     motion=__import__('json').loads((ASSETS/'art/survival/motion/clips.json').read_text())
     equipment=__import__('json').loads((ASSETS/'art/survival/equipment-motion/clips.json').read_text())
+    equipment_regions=__import__('json').loads((ASSETS/'art/survival/equipment-motion/regions.json').read_text())
+    equipment_by_name={r['name']:r for r in equipment_regions['regions']}
     by_id={c['id']:c for c in motion['clips']+equipment['clips']}
     static=__import__('json').loads((ASSETS/'art/survival/regions.json').read_text())
     static_by_name={r['name']:r for r in static['regions']}
@@ -88,7 +90,12 @@ def build():
         cid=f'officer.rifle.heavy.idle.{facing}'
         clips.append(dict(id=cid,frameSeconds=.5,loop=True,frames=[r],markers=[],uniqueDrawings=1,sourceNote='New actual rifle/heavy equipment drawing; static silhouette proof only'))
         bindings.append(dict(actor='officer',weapon='rifle',armor='heavy',action='idle',facing=facing,clip=cid))
-    dump(PAINTED/'clips.json',dict(version=1,referenceCellPixels=CELL,pivotOrigin='bottom-left',clips=clips,bindings=bindings,unsupported=['rifle/heavy locomotion, aim and fire','unarmed and scattergun motion','suit/heavy hit, work and death','new fully choreographed12-phase cardinal gait'],acceptance='A/B proof candidate only. Exposure slots and unique drawings are different.'))
+    for facing in ['north','east','south','west']:
+        cid=f'officer.rifle.suit.idle.{facing}'
+        r=baseline_frame(equipment_by_name[f'officer.rifle.{facing}'],cid);regions.append(r)
+        clips.append(dict(id=cid,frameSeconds=.5,loop=True,frames=[r],markers=[],uniqueDrawings=1,sourceNote='Unchanged existing original rifle/suit equipment facing; static equipment proof only'))
+        bindings.append(dict(actor='officer',weapon='rifle',armor='suit',action='idle',facing=facing,clip=cid))
+    dump(PAINTED/'clips.json',dict(version=1,referenceCellPixels=CELL,pivotOrigin='bottom-left',clips=clips,bindings=bindings,unsupported=['rifle/suit and rifle/heavy locomotion, aim and fire','unarmed and scattergun motion','suit/heavy hit, work and death','new fully choreographed12-phase cardinal gait'],acceptance='A/B proof candidate only. Exposure slots and unique drawings are different.'))
     dump(PAINTED/'regions.json',dict(version=1,referenceCellPixels=CELL,pivotOrigin='bottom-left',pathRoot='assets',regions=regions))
     catalog(PAINTED,regions)
     # Contact strip for actual new south gait and heavy equipment. Review labels only.
@@ -112,8 +119,9 @@ def build():
         ('officer-walk-south-v1.png','officer-walk-south-v1-prompt.txt','rejected','12-pose expansion collapses most frames into one lead-leg stance.'),
         ('officer-south-passing.png','officer-south-passing-prompt.txt','selected','Single independently edited opposite passing pose; integrated continuity still requires review.'),
         ('officer-rifle-heavy.png','officer-rifle-heavy-prompt.txt','selected-static-only','4 actual cardinal low-ready equipment silhouettes, not motion.')]:
-        sources.append(dict(file=image,sha256=sha(PAINTED/'source'/image),prompt=prompt,promptSha256=sha(PAINTED/'source'/prompt),status=status,reason=reason,tool='built-in image_gen'))
-    dump(PAINTED/'source/GENERATION.json',dict(task='AP-PAINTED',base='604c910',sources=sources,newUniqueSelectedDrawings=8,newSouthGaitDrawings=4,newEquipmentDrawings=4,baselineSources=['art/survival/motion/clips.json','art/survival/equipment-motion/clips.json','art/survival/regions.json'],editableCatalog='Named flattened region layers, not original brushstroke layers or a skeleton.',rules='No morphing, puppet warp, mirrored limbs, generated code painting or fabricated unique-phase counts.'))
+        sources.append(dict(file=image,sha256=sha(PAINTED/'source'/image),prompt=prompt,promptSha256NormalizedLF=text_sha(PAINTED/'source'/prompt),status=status,reason=reason,tool='built-in image_gen'))
+    refs=['art/survival/source/owner-player-reference.png','art/survival/source/officer-turnaround.png','art/survival/regions/item.armor-heavy.png','art/survival/regions/item.rifle.png']
+    dump(PAINTED/'source/GENERATION.json',dict(task='AP-PAINTED',base='604c910',sources=sources,newUniqueSelectedDrawings=8,newSouthGaitDrawings=4,newEquipmentDrawings=4,references=[dict(path=p,sha256=sha(ASSETS/p)) for p in refs],baselineSources=['art/survival/motion/clips.json','art/survival/equipment-motion/clips.json','art/survival/equipment-motion/regions.json','art/survival/regions.json'],editableCatalog='Named flattened region layers, not original brushstroke layers or a skeleton.',rules='No morphing, puppet warp, mirrored limbs, generated code painting or fabricated unique-phase counts.'))
     print('painted',len(clips),'clips;',len(regions),'region bindings; new unique selected paintings8; south4 drawings at8fps')
 
 if __name__=='__main__':build()

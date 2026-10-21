@@ -1,0 +1,15 @@
+{
+  "status": "PASS",
+  "scope": "exports and provenance only",
+  "regionBindings": {
+    "environment": 11,
+    "painted": 72
+  },
+  "clips": 24,
+  "uniquePaintedExportHashes": 68,
+  "newSelectedDrawings": 8,
+  "newSouthGaitDrawings": 4,
+  "commercialArtisticAcceptance": "OPEN",
+  "nativeRuntime": "lead-owned; not tested by exporter",
+  "repeatability": "PASS: exact export/source manifest/catalog/review bytes on two builds"
+}
