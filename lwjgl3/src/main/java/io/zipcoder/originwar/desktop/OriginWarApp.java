@@ -14,7 +14,7 @@ import java.nio.file.Path;
 import java.util.*;
 
 public final class OriginWarApp extends ApplicationAdapter {
-    private enum Screen { TITLE, PLAY, PAUSE, INVENTORY, JOURNAL, STATS, SETTINGS, HELP, CREDITS, DEAD, VICTORY }
+    private enum Screen { TITLE, PLAY, PAUSE, INVENTORY, JOURNAL, STATS, MAP, RECORD, SETTINGS, HELP, CREDITS, DEAD, VICTORY }
     private record Button(Rectangle box,Runnable action){}
     private record Slider(Rectangle box,int channel){}
     private record Effect(String type,int x,int y,int toX,int toY,float until){}
@@ -91,6 +91,7 @@ public final class OriginWarApp extends ApplicationAdapter {
         });
         for(String arg:args)if(arg.equals("--play"))newGame();
         for(String arg:args)if(arg.equals("--resume"))resumeGame();
+        if(state!=null)for(String arg:args){if(arg.equals("--view=map"))open(Screen.MAP);else if(arg.equals("--view=record"))open(Screen.RECORD);}
         Gdx.app.log("OriginWar","Assets: atlas="+art.ready()+", music="+audio.loadedMusic()+", SFX="+audio.loadedSounds());
         if(!replay.isEmpty())Gdx.app.log("Replay","Ordinary action replay; no state injection. Commands="+replay.size());
     }
@@ -163,6 +164,7 @@ public final class OriginWarApp extends ApplicationAdapter {
             case Input.Keys.R->act(PlayerAction.of(PlayerAction.Type.USE));
             case Input.Keys.TAB,Input.Keys.I->screen=Screen.INVENTORY;
             case Input.Keys.J->screen=Screen.JOURNAL;
+            case Input.Keys.K->open(Screen.MAP);
             case Input.Keys.C->screen=Screen.STATS;
             case Input.Keys.F->{if(targetX>=0)act(PlayerAction.at(PlayerAction.Type.SHOOT,targetX,targetY));else notice("Right-click a visible target first.");}
             case Input.Keys.H->{if(targetX>=0)act(PlayerAction.at(PlayerAction.Type.HACK,targetX,targetY));else act(PlayerAction.of(PlayerAction.Type.HACK));}
@@ -229,7 +231,7 @@ public final class OriginWarApp extends ApplicationAdapter {
         if(state!=null&&screen!=Screen.TITLE&&screen!=Screen.CREDITS&&screen!=Screen.VICTORY){world(dt);hud();}
         switch(screen){
             case TITLE->title();case PLAY->{if(state!=null&&!state.activeDialogue.isEmpty())dialogue();}case PAUSE->pauseMenu();case INVENTORY->inventory();
-            case JOURNAL->journal();case STATS->stats();case SETTINGS->settings();case HELP->help();
+            case JOURNAL->journal();case STATS->stats();case MAP->stationMap();case RECORD->runRecord();case SETTINGS->settings();case HELP->help();
             case CREDITS->credits();case DEAD->ending(false);case VICTORY->ending(true);
         }
         if(noticeTime>0&&!notice.isEmpty()){
@@ -389,7 +391,7 @@ public final class OriginWarApp extends ApplicationAdapter {
     }
     private String musicRole(){
         if(screen==Screen.TITLE||screen==Screen.CREDITS)return "menu";
-        if(screen==Screen.VICTORY)return "ending";
+        if(screen==Screen.VICTORY||(state!=null&&state.victory&&screen!=Screen.TITLE&&screen!=Screen.CREDITS))return "ending";
         if(state==null)return "menu";
         if(!state.activeDialogue.isEmpty()&&(state.activeDialogue.startsWith("alice")||state.deck==10||state.activeDialogue.equals("refusal")||state.activeDialogue.equals("sacrifice-plan")))return "alice";
         if(state.oxygenation<70||state.reserve==0)return "danger";
@@ -462,14 +464,42 @@ public final class OriginWarApp extends ApplicationAdapter {
         buttons.clear();sliders.clear();
         float w=Gdx.graphics.getWidth(),h=Gdx.graphics.getHeight();
         rect(0,0,w,h,new Color(.008f,.018f,.027f,.96f));text(title,80,h-70,2,cyan);
-        button("Back [Esc]",w-240,44,160,36,this::back);
+        float backWidth=settings.uiScale>1.25f?250:160;button("Back [Esc]",w-80-backWidth,44,backWidth,36,this::back);
     }
     private void pauseMenu(){
         overlay("EXPEDITION PAUSED");float x=100,y=Gdx.graphics.getHeight()-160;
-        button("Resume",x,y,300,44,()->{screen=Screen.PLAY;audio.pause(false);});
-        button("Settings",x,y-60,300,44,()->open(Screen.SETTINGS));
-        button("How to play",x,y-120,300,44,()->open(Screen.HELP));
-        button("Save and return to title",x,y-180,300,44,()->{screen=Screen.TITLE;audio.pause(false);});
+        float width=settings.uiScale>1.25f?380:300;
+        button("Resume",x,y,width,44,()->{screen=Screen.PLAY;audio.pause(false);});
+        button("Settings",x,y-60,width,44,()->open(Screen.SETTINGS));
+        button("How to play",x,y-120,width,44,()->open(Screen.HELP));
+        button("Save and return to title",x,y-180,width,44,()->{screen=Screen.TITLE;audio.pause(false);});
+        button("Station map [K]",x+width+40,y,width,44,()->open(Screen.MAP));
+        button("Expedition record",x+width+40,y-60,width,44,()->open(Screen.RECORD));
+    }
+    private void stationMap(){
+        overlay("STATION MAP / DECK "+state.deck);float w=Gdx.graphics.getWidth(),h=Gdx.graphics.getHeight();
+        paragraph("Explored terrain. Cyan: you. Amber: objectives. Red: visible threat.",80,h-120,w-160,.8f,ink);
+        float size=Math.min((w-160)/state.width,(h-290)/state.height),left=(w-size*state.width)/2,top=h-190;
+        for(int x=0;x<state.width;x++)for(int y=0;y<state.height;y++)if(state.explored[x][y]){
+            Tile t=state.tiles[x][y];Color color=t.blocksMovement?new Color(.19f,.25f,.28f,1):state.visible[x][y]?new Color(.42f,.56f,.59f,1):new Color(.16f,.25f,.28f,1);
+            if(t==Tile.HATCH||t==Tile.SWITCH||t==Tile.TERMINAL)color=amber;
+            rect(left+x*size,top-(y+1)*size,size-1,size-1,color);
+        }
+        for(var actor:state.actors)if(state.visible[actor.x][actor.y]&&RunEngine.isThreat(state,actor))rect(left+actor.x*size,top-(actor.y+1)*size,size-1,size-1,Color.SCARLET);
+        rect(left+state.playerX*size,top-(state.playerY+1)*size,size-1,size-1,cyan);
+    }
+    private void runRecord(){
+        overlay("EXPEDITION RECORD");
+        String outcome=state.victory?"Escaped toward Mars":state.dead?"Expedition lost":"Expedition in progress";
+        String body=outcome+"\n\nSeed "+state.seed+" / Deck "+state.deck+" / World ticks "+state.tick
+            +"\n\nLevel "+state.level+" / XP "+state.xp+" / STR "+state.str+" / INT "+state.intel+" / DEX "+state.dex
+            +"\n\nHP "+state.hp+" / "+state.maxHp+" / Oxygen reserve "+state.reserve+" / "+state.maxReserve+" / Oxygenation "+state.oxygenation+"%"
+            +"\n\nWeapon "+state.weapon+" / Armor "+state.armor+" / Battery cells "+state.batteries
+            +"\n\nIdentified medicines "+state.identifiedMedicine.size()+" / Journal entries "+state.journal.size()
+            +"\n\nConstructor route: "+(state.constructorRoute.isEmpty()?"not completed":state.constructorRoute)
+            +"\n\nCrew: "+(state.flags.contains("crew-safe")?"rescued":state.flags.contains("crew-decided")?"left behind":"undecided")
+            +" / Fleet: "+(state.flags.contains("fleet-standdown")?"assault held":state.flags.contains("fleet-records")?"records received":"orders active");
+        pagedProse(body,90,Gdx.graphics.getHeight()-135,Gdx.graphics.getWidth()-180,130,1.05f);
     }
     private void inventory(){
         overlay("INVENTORY / EQUIPMENT");float h=Gdx.graphics.getHeight(),w=Gdx.graphics.getWidth(),detailX=w*.53f,listWidth=detailX-120;
@@ -556,7 +586,7 @@ public final class OriginWarApp extends ApplicationAdapter {
     private void saveSettings(){try{settings.save();}catch(Exception e){notice("Settings could not be saved: "+e.getMessage());}}
     private void help(){
         overlay("HOW TO PLAY");
-        pagedProse("Explore the station one decision at a time. Time advances only when you commit a world action. Menus, aiming and inspection pause the simulation.\n\nWASD / arrows: move. Bump closed doors to open them; bump hostile robots to melee. Left-click explored terrain to walk; visible threats interrupt the route. Right-click: inspect / select target.\n\nE / Enter: interact. G: pick up underfoot. R: oxygen tank. Space / period: wait. F: fire at selected target. M: adjacent melee. H: hack. B: force a locked door. V: inspect true suit status.\n\nTab / I: inventory. U / Enter: use. Q: equip. X: drop. J: journal. C: character / earned attribute points. Esc: back / pause. F11: fullscreen. Z: world zoom. Dialogue choices: mouse or1/2/3.\n\nFind security overrides and follow the journal's story objectives. Low gravity and hazards cost extra time. Heavy armor lowers effective DEX. Observe real R.O.V.E.R. countdowns. Guns consume finite battery cells. Medicines are unidentified separately in each run.\n\nWatch reserve and oxygenation: an empty tank causes hypoxia. Visual impressions can be unreliable; suit telemetry and right-click sensor inspection remain true within legitimate vision. Refill and allow real turns for oxygenation to recover. Reduced distortion is available in Settings.\n\nDeath ends the expedition. Save and resume between decisions. Different seeds produce different stations.",90,Gdx.graphics.getHeight()-125,Gdx.graphics.getWidth()-190,130,1.04f);
+        pagedProse("Explore the station one decision at a time. Time advances only when you commit a world action. Menus, aiming and inspection pause the simulation.\n\nWASD / arrows: move. Bump closed doors to open them; bump hostile robots to melee. Left-click explored terrain to walk; visible threats interrupt the route. Right-click: inspect / select target.\n\nE / Enter: interact. G: pick up underfoot. R: oxygen tank. Space / period: wait. F: fire at selected target. M: adjacent melee. H: hack. B: force a locked door. V: inspect true suit status.\n\nTab / I: inventory. U / Enter: use. Q: equip. X: drop. J: journal. K: explored station map. C: character / earned attribute points. Esc: back / pause. F11: fullscreen. Z: world zoom. Dialogue choices: mouse or1/2/3.\n\nFind security overrides and follow the journal's story objectives. Low gravity and hazards cost extra time. Heavy armor lowers effective DEX. Observe real R.O.V.E.R. countdowns. Guns consume finite battery cells. Medicines are unidentified separately in each run.\n\nWatch reserve and oxygenation: an empty tank causes hypoxia. Visual impressions can be unreliable; suit telemetry and right-click sensor inspection remain true within legitimate vision. Refill and allow real turns for oxygenation to recover. Reduced distortion is available in Settings.\n\nDeath ends the expedition. Save and resume between decisions. Different seeds produce different stations.",90,Gdx.graphics.getHeight()-125,Gdx.graphics.getWidth()-190,130,1.04f);
     }
     private void credits(){
         overlay("ORIGIN WAR / CREDITS");
@@ -569,6 +599,7 @@ public final class OriginWarApp extends ApplicationAdapter {
             float elapsed=clock-endingStarted;String caption=elapsed<2?"BROADCAST / UNENCRYPTED":elapsed<4?"EVACUATION POD / SEALED":"TOWARD MARS";
             rect(0,h-90,w,90,new Color(.008f,.02f,.04f,.72f));text(caption,32,h-34,1.4f,cyan);
             if(elapsed<4)return;
+            button("Run record",w-290,h-75,250,40,()->open(Screen.RECORD));
             if(!endingPanel){button("Read epilogue",40,28,280,44,()->endingPanel=true);return;}
             float panel=settings.uiScale>1.25f?420:340;rect(0,0,w,panel,new Color(.008f,.018f,.027f,.96f));
             pagedProse(Campaign.epilogue(state),40,panel-26,w-80,94,1.02f);
@@ -579,11 +610,12 @@ public final class OriginWarApp extends ApplicationAdapter {
             :"The station keeps its silence.\n\nSeed "+state.seed+"   Deck "+state.deck+"   Turns "+state.tick+"\n\nThis expedition has ended. Equipment and discoveries belonged to this run.";
         pagedProse(body,100,Gdx.graphics.getHeight()-155,Gdx.graphics.getWidth()-200,210,1.15f);
         button("New expedition",100,130,280,44,this::newGame);button("Title",410,130,180,44,()->screen=Screen.TITLE);
+        button("Run record",620,130,280,44,()->open(Screen.RECORD));
     }
     private void open(Screen next){returnScreen=screen;screen=next;walking.clear();if(next==Screen.INVENTORY&&state!=null)selectedItem=Math.max(0,Math.min(selectedItem,state.inventory.size()-1));audio.pause(next==Screen.PAUSE);}
     private void back(){
         walking.clear();
-        if(screen==Screen.SETTINGS||screen==Screen.HELP||screen==Screen.CREDITS)screen=returnScreen;
+        if(screen==Screen.SETTINGS||screen==Screen.HELP||screen==Screen.CREDITS||screen==Screen.MAP||screen==Screen.RECORD)screen=returnScreen;
         else if(screen==Screen.DEAD||screen==Screen.VICTORY)screen=Screen.TITLE;
         else screen=state==null?Screen.TITLE:Screen.PLAY;
         audio.pause(screen==Screen.PAUSE);

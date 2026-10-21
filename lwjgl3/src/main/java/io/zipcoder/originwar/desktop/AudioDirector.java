@@ -46,14 +46,19 @@ public final class AudioDirector implements AutoCloseable {
             case "dialogue","level"->"confirm";case "hit"->"impact";
             case "rover"->event.detail().contains("armed:")?"rover":event.detail().contains("moves")?"robot_step":"alarm";
             case "step"->event.detail().contains("GRAV")?"step_lowgrav":"step";default->event.type();
-        };play(id);
+        };
+        float pitch=1;
+        if(id.equals("gun")||id.equals("robot_step"))pitch=event.detail().startsWith("SIRS")?1.18f:event.detail().startsWith("ADD")?.72f:event.detail().startsWith("ROVER")?1.35f:1;
+        play(id,pitch);
     }
-    public void play(String id){
+    public void play(String id){play(id,1);}
+    private void play(String id,float pitch){
         if(paused)return;var sound=sounds.get(id);if(sound==null)return;
         float interval=switch(id){case "rover","warning","alarm"->.6f;case "robot_step"->.12f;case "step","step_lowgrav"->.06f;default->.035f;};
-        if(elapsed-lastPlayed.getOrDefault(id,-100f)<interval)return;lastPlayed.put(id,elapsed);
+        String voiceKind=id+":"+pitch;
+        if(elapsed-lastPlayed.getOrDefault(voiceKind,-100f)<interval)return;lastPlayed.put(voiceKind,elapsed);
         float gain=switch(id){case "ui","confirm","error"->.55f;case "step","step_lowgrav"->.6f;case "breath","pulse","hallucination"->.6f;default->.85f;};
-        long voice=sound.play(master*sfx*gain);if(voice>=0)playedSounds++;else{failedSounds++;Gdx.app.error("Audio","No playback voice for "+id);}
+        long voice=sound.play(master*sfx*gain,pitch,0);if(voice>=0)playedSounds++;else{failedSounds++;Gdx.app.error("Audio","No playback voice for "+id);}
     }
     public void volumes(float master,float music,float sfx){this.master=Math.max(0,Math.min(1,master));this.music=Math.max(0,Math.min(1,music));this.sfx=Math.max(0,Math.min(1,sfx));}
     public void pause(boolean value){paused=value;if(value){if(current!=null)current.pause();if(previous!=null)previous.pause();for(var sound:sounds.values())sound.stop();}else{if(current!=null)current.play();if(previous!=null)previous.play();}}

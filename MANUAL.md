@@ -22,6 +22,7 @@ Time advances when a world action succeeds. Opening a menu, inspecting, aiming, 
 | V | Check reliable suit readings |
 | Tab / I | Inventory; U uses, Q equips, X drops the selected item |
 | J / C | Journal / character and earned attribute points |
+| K | Full explored station map; unknown areas and unseen threats stay hidden |
 | 1 / 2 / 3 | Choose a displayed dialogue option |
 | Esc / F1 | Back or pause / paged manual |
 | Z / F11 / F12 | World zoom / fullscreen / screenshot |
@@ -35,5 +36,7 @@ Watch robot behavior. S.I.R.S. pursue and search after losing contact. A.D.D.s f
 Find each security override, then its hatch. The journal also identifies story objectives at physical station terminals and refuge encounters. The Constructor's industrial deck has two genuine solutions: redirect explosive R.O.V.E.R.s with sufficient INT, or reach and kill its human operator. Defeating a security switch alone cannot complete that encounter. The command deck requires Carmack's confrontation and A.L.I.C.E.'s decision before the evacuation pod can conclude the campaign.
 
 The primary save is written between decisions, with a last-good backup and a run-specific death record. Resume may report recovery from the backup if the primary is corrupt. Copying older saves is outside the intended permadeath rules. An interrupted write cannot guarantee preservation of the very last action; report any save error shown by the game.
+
+Pause provides the map and an offline expedition record. The ending and death screens also offer Run record: outcome, seed, deck, world ticks, build, remaining supplies, discovered medicines and crew/fleet consequences. Reading these screens costs no turns. A new expedition starts a separate run; the record does not grant permanent upgrades.
 
 Build from source with JDK21: `gradlew.bat test :lwjgl3:installDist`. Launch development with `gradlew.bat :lwjgl3:run`. Before packaging, run `python tools/distribution/fetch_sources.py` with Python3 to fetch and verify the accompanying upstream sources. On Windows, `gradlew.bat :lwjgl3:packageWindows -PwindowsImageDir=<new-output-path>` creates an app image with its runtime, licenses and dependency sources. Existing package outputs are preserved. The source, original-design reference, provenance, dependency notices and verification records accompany the distribution. Current acceptance and any unresolved checks are stated in docs/VERIFICATION.md; development checkpoints are not release acceptance.
