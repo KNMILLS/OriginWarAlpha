@@ -1,0 +1,2897 @@
+{
+  "version": 1,
+  "referenceCellPixels": 256,
+  "pivotOrigin": "bottom-left",
+  "clips": [
+    {
+      "id": "officer.pistol.suit.walk.south",
+      "frameSeconds": 0.041666666666666664,
+      "loop": true,
+      "cycleDistanceCells": 1,
+      "equipment": "pistol",
+      "armor": "suit",
+      "frames": [
+        {
+          "path": "art/proof/rendered/regions/officer.pistol.suit.walk.south.00.png",
+          "widthCells": 1.5,
+          "heightCells": 1.75,
+          "pivotX": 0.5,
+          "pivotY": 0.13676586747169495,
+          "pixelWidth": 384,
+          "pixelHeight": 448,
+          "sha256": "c2c264940b076e6d3116f8b140e8ffe535ea0a1a0390edb79ab8802def0ddd47"
+        },
+        {
+          "path": "art/proof/rendered/regions/officer.pistol.suit.walk.south.01.png",
+          "widthCells": 1.5,
+          "heightCells": 1.75,
+          "pivotX": 0.5,
+          "pivotY": 0.13676586747169495,
+          "pixelWidth": 384,
+          "pixelHeight": 448,
+          "sha256": "d544676ef7ed85196b47de0121ed5e4cc8d2c58de293e8d7f150a4a972d77209"
+        },
+        {
+          "path": "art/proof/rendered/regions/officer.pistol.suit.walk.south.02.png",
+          "widthCells": 1.5,
+          "heightCells": 1.75,
+          "pivotX": 0.5,
+          "pivotY": 0.13676586747169495,
+          "pixelWidth": 384,
+          "pixelHeight": 448,
+          "sha256": "66cc44ce274abe15843446fa44b803d0b3bca8fa382c7e531f0ab054fc961851"
+        },
+        {
+          "path": "art/proof/rendered/regions/officer.pistol.suit.walk.south.03.png",
+          "widthCells": 1.5,
+          "heightCells": 1.75,
+          "pivotX": 0.5,
+          "pivotY": 0.13676586747169495,
+          "pixelWidth": 384,
+          "pixelHeight": 448,
+          "sha256": "97433054fe79d99fdb2aff5dcf6275830c064113bebc2fce6982e09e347b7058"
+        },
+        {
+          "path": "art/proof/rendered/regions/officer.pistol.suit.walk.south.04.png",
+          "widthCells": 1.5,
+          "heightCells": 1.75,
+          "pivotX": 0.5,
+          "pivotY": 0.13676586747169495,
+          "pixelWidth": 384,
+          "pixelHeight": 448,
+          "sha256": "213922eea14b6b44a41902fbf211a495c637d6cc9d986cdbd313ec746a6f6f27"
+        },
+        {
+          "path": "art/proof/rendered/regions/officer.pistol.suit.walk.south.05.png",
+          "widthCells": 1.5,
+          "heightCells": 1.75,
+          "pivotX": 0.5,
+          "pivotY": 0.13676586747169495,
+          "pixelWidth": 384,
+          "pixelHeight": 448,
+          "sha256": "7adfe439e9b3faf55696aaa5886dc68073227cda7bb2de87ab272056943368de"
+        },
+        {
+          "path": "art/proof/rendered/regions/officer.pistol.suit.walk.south.06.png",
+          "widthCells": 1.5,
+          "heightCells": 1.75,
+          "pivotX": 0.5,
+          "pivotY": 0.13676586747169495,
+          "pixelWidth": 384,
+          "pixelHeight": 448,
+          "sha256": "bcccb9a788378c5f119c7c64c3655a8be4c673658958b5719afe681c39565ba1"
+        },
+        {
+          "path": "art/proof/rendered/regions/officer.pistol.suit.walk.south.07.png",
+          "widthCells": 1.5,
+          "heightCells": 1.75,
+          "pivotX": 0.5,
+          "pivotY": 0.13676586747169495,
+          "pixelWidth": 384,
+          "pixelHeight": 448,
+          "sha256": "4794f193f88c77b441ff141181235fba8140a88a47954db60bb5dbe987133a1f"
+        },
+        {
+          "path": "art/proof/rendered/regions/officer.pistol.suit.walk.south.08.png",
+          "widthCells": 1.5,
+          "heightCells": 1.75,
+          "pivotX": 0.5,
+          "pivotY": 0.13676586747169495,
+          "pixelWidth": 384,
+          "pixelHeight": 448,
+          "sha256": "81288b7e4f9ca6d892cdad47e51cfa20f71d269b73b51afdc61db71adf558b1c"
+        },
+        {
+          "path": "art/proof/rendered/regions/officer.pistol.suit.walk.south.09.png",
+          "widthCells": 1.5,
+          "heightCells": 1.75,
+          "pivotX": 0.5,
+          "pivotY": 0.13676586747169495,
+          "pixelWidth": 384,
+          "pixelHeight": 448,
+          "sha256": "ebbca629c63c4ceccae469c994b7f69f4f8c1afd5fb63be82b03d39d154664bb"
+        },
+        {
+          "path": "art/proof/rendered/regions/officer.pistol.suit.walk.south.10.png",
+          "widthCells": 1.5,
+          "heightCells": 1.75,
+          "pivotX": 0.5,
+          "pivotY": 0.13676586747169495,
+          "pixelWidth": 384,
+          "pixelHeight": 448,
+          "sha256": "079b04b4d92a1ee194c27628d2b22aba41bb97b8f0221886121ca12ea367626f"
+        },
+        {
+          "path": "art/proof/rendered/regions/officer.pistol.suit.walk.south.11.png",
+          "widthCells": 1.5,
+          "heightCells": 1.75,
+          "pivotX": 0.5,
+          "pivotY": 0.13676586747169495,
+          "pixelWidth": 384,
+          "pixelHeight": 448,
+          "sha256": "ae692d5c4b432d19fd265e4f6a6a1cd7addecb2ca2a3df081f4442b47ef1f136"
+        }
+      ],
+      "markers": [
+        {
+          "kind": "contact",
+          "frame": 0,
+          "foot": "left"
+        },
+        {
+          "kind": "contact",
+          "frame": 6,
+          "foot": "right"
+        }
+      ]
+    },
+    {
+      "id": "officer.pistol.suit.idle.south",
+      "frameSeconds": 0.041666666666666664,
+      "loop": false,
+      "cycleDistanceCells": 0,
+      "equipment": "pistol",
+      "armor": "suit",
+      "frames": [
+        {
+          "path": "art/proof/rendered/regions/officer.pistol.suit.idle.south.00.png",
+          "widthCells": 1.5,
+          "heightCells": 1.75,
+          "pivotX": 0.5,
+          "pivotY": 0.13676586747169495,
+          "pixelWidth": 384,
+          "pixelHeight": 448,
+          "sha256": "4adb133997c478b2ffb91262445e779f25c2752aa2ba1f94cf0e12d30340b17e"
+        }
+      ],
+      "markers": []
+    },
+    {
+      "id": "officer.pistol.suit.ready.south",
+      "frameSeconds": 0.07,
+      "loop": false,
+      "cycleDistanceCells": 0,
+      "equipment": "pistol",
+      "armor": "suit",
+      "frames": [
+        {
+          "path": "art/proof/rendered/regions/officer.pistol.suit.ready.south.00.png",
+          "widthCells": 1.5,
+          "heightCells": 1.75,
+          "pivotX": 0.5,
+          "pivotY": 0.13676586747169495,
+          "pixelWidth": 384,
+          "pixelHeight": 448,
+          "sha256": "789566e39670de99634abb4cdcaaf677397790b2e609e2999fedaae08b077488"
+        },
+        {
+          "path": "art/proof/rendered/regions/officer.pistol.suit.ready.south.01.png",
+          "widthCells": 1.5,
+          "heightCells": 1.75,
+          "pivotX": 0.5,
+          "pivotY": 0.13676586747169495,
+          "pixelWidth": 384,
+          "pixelHeight": 448,
+          "sha256": "bc2d95824b30fee8b1c0615ce9c02018025a6e04cb0f6e12e0409d9484129608"
+        },
+        {
+          "path": "art/proof/rendered/regions/officer.pistol.suit.ready.south.02.png",
+          "widthCells": 1.5,
+          "heightCells": 1.75,
+          "pivotX": 0.5,
+          "pivotY": 0.13676586747169495,
+          "pixelWidth": 384,
+          "pixelHeight": 448,
+          "sha256": "e43bdef616bc1b883901c9ec996927ce457ac555e1d740fbb4442abc0a32c325"
+        },
+        {
+          "path": "art/proof/rendered/regions/officer.pistol.suit.ready.south.03.png",
+          "widthCells": 1.5,
+          "heightCells": 1.75,
+          "pivotX": 0.5,
+          "pivotY": 0.13676586747169495,
+          "pixelWidth": 384,
+          "pixelHeight": 448,
+          "sha256": "6e93a11715d3d06a9f748b262261ed4aca0b443b0f97549d31c4cc3b3c71b79e"
+        }
+      ],
+      "markers": []
+    },
+    {
+      "id": "officer.pistol.suit.aim.south",
+      "frameSeconds": 0.041666666666666664,
+      "loop": false,
+      "cycleDistanceCells": 0,
+      "equipment": "pistol",
+      "armor": "suit",
+      "frames": [
+        {
+          "path": "art/proof/rendered/regions/officer.pistol.suit.aim.south.00.png",
+          "widthCells": 1.5,
+          "heightCells": 1.75,
+          "pivotX": 0.5,
+          "pivotY": 0.13676586747169495,
+          "pixelWidth": 384,
+          "pixelHeight": 448,
+          "sha256": "6e93a11715d3d06a9f748b262261ed4aca0b443b0f97549d31c4cc3b3c71b79e"
+        }
+      ],
+      "markers": []
+    },
+    {
+      "id": "officer.pistol.suit.fire.south",
+      "frameSeconds": 0.07,
+      "loop": false,
+      "cycleDistanceCells": 0,
+      "equipment": "pistol",
+      "armor": "suit",
+      "frames": [
+        {
+          "path": "art/proof/rendered/regions/officer.pistol.suit.fire.south.00.png",
+          "widthCells": 1.5,
+          "heightCells": 1.75,
+          "pivotX": 0.5,
+          "pivotY": 0.13676586747169495,
+          "pixelWidth": 384,
+          "pixelHeight": 448,
+          "sha256": "fc54a2439595491847d8b52dc519c930305529169a87a0b1b2858559ebd79c47"
+        },
+        {
+          "path": "art/proof/rendered/regions/officer.pistol.suit.fire.south.01.png",
+          "widthCells": 1.5,
+          "heightCells": 1.75,
+          "pivotX": 0.5,
+          "pivotY": 0.13676586747169495,
+          "pixelWidth": 384,
+          "pixelHeight": 448,
+          "sha256": "dc976c3d704ede499220cff8d8709a8c88ad7b010096833b13edb3cf788ac606"
+        },
+        {
+          "path": "art/proof/rendered/regions/officer.pistol.suit.fire.south.02.png",
+          "widthCells": 1.5,
+          "heightCells": 1.75,
+          "pivotX": 0.5,
+          "pivotY": 0.13676586747169495,
+          "pixelWidth": 384,
+          "pixelHeight": 448,
+          "sha256": "cea45f4f5ce8f04c7f3ce75530b9983e092993fe99b1ad1669c78b8b2c3d7a41"
+        },
+        {
+          "path": "art/proof/rendered/regions/officer.pistol.suit.fire.south.03.png",
+          "widthCells": 1.5,
+          "heightCells": 1.75,
+          "pivotX": 0.5,
+          "pivotY": 0.13676586747169495,
+          "pixelWidth": 384,
+          "pixelHeight": 448,
+          "sha256": "ba948b9aa3fc9f17a0f8598c20f926cb339d8901840a2c7c5335e7d8472f161e"
+        }
+      ],
+      "markers": [
+        {
+          "kind": "release",
+          "frame": 2
+        },
+        {
+          "kind": "recovery",
+          "frame": 3
+        }
+      ]
+    },
+    {
+      "id": "officer.rifle.suit.walk.south",
+      "frameSeconds": 0.041666666666666664,
+      "loop": true,
+      "cycleDistanceCells": 1,
+      "equipment": "rifle",
+      "armor": "suit",
+      "frames": [
+        {
+          "path": "art/proof/rendered/regions/officer.rifle.suit.walk.south.00.png",
+          "widthCells": 1.5,
+          "heightCells": 1.75,
+          "pivotX": 0.5,
+          "pivotY": 0.13676586747169495,
+          "pixelWidth": 384,
+          "pixelHeight": 448,
+          "sha256": "8c907d37ad639e435d3501fa21698d6764bbbcb67aba5d56f89b172efbbdb397"
+        },
+        {
+          "path": "art/proof/rendered/regions/officer.rifle.suit.walk.south.01.png",
+          "widthCells": 1.5,
+          "heightCells": 1.75,
+          "pivotX": 0.5,
+          "pivotY": 0.13676586747169495,
+          "pixelWidth": 384,
+          "pixelHeight": 448,
+          "sha256": "d2466de6d2306deed64bf38436ef227f5bc4d5c64951eef56adfbea2a1e09c25"
+        },
+        {
+          "path": "art/proof/rendered/regions/officer.rifle.suit.walk.south.02.png",
+          "widthCells": 1.5,
+          "heightCells": 1.75,
+          "pivotX": 0.5,
+          "pivotY": 0.13676586747169495,
+          "pixelWidth": 384,
+          "pixelHeight": 448,
+          "sha256": "5c95f8b5b75d198bcfe5343baf8c8b88f236484430a901e2e3865c78afd02aa4"
+        },
+        {
+          "path": "art/proof/rendered/regions/officer.rifle.suit.walk.south.03.png",
+          "widthCells": 1.5,
+          "heightCells": 1.75,
+          "pivotX": 0.5,
+          "pivotY": 0.13676586747169495,
+          "pixelWidth": 384,
+          "pixelHeight": 448,
+          "sha256": "a316eeaa6f21477fcd03204ee2b8ca4bc33d7da497690bb90f735492a4fc1636"
+        },
+        {
+          "path": "art/proof/rendered/regions/officer.rifle.suit.walk.south.04.png",
+          "widthCells": 1.5,
+          "heightCells": 1.75,
+          "pivotX": 0.5,
+          "pivotY": 0.13676586747169495,
+          "pixelWidth": 384,
+          "pixelHeight": 448,
+          "sha256": "f5f9a97c094c41e75f13357ededd820402e2e4569bc807968931d69e3e405387"
+        },
+        {
+          "path": "art/proof/rendered/regions/officer.rifle.suit.walk.south.05.png",
+          "widthCells": 1.5,
+          "heightCells": 1.75,
+          "pivotX": 0.5,
+          "pivotY": 0.13676586747169495,
+          "pixelWidth": 384,
+          "pixelHeight": 448,
+          "sha256": "4cdef5010d5c957de61a3c5245656937ddbe2022399b0223753b2969464ec0d9"
+        },
+        {
+          "path": "art/proof/rendered/regions/officer.rifle.suit.walk.south.06.png",
+          "widthCells": 1.5,
+          "heightCells": 1.75,
+          "pivotX": 0.5,
+          "pivotY": 0.13676586747169495,
+          "pixelWidth": 384,
+          "pixelHeight": 448,
+          "sha256": "a0b0a1afc74b99e4e0f671c0a5fc48e9b9e8e36924199681d58c98d1458acdd4"
+        },
+        {
+          "path": "art/proof/rendered/regions/officer.rifle.suit.walk.south.07.png",
+          "widthCells": 1.5,
+          "heightCells": 1.75,
+          "pivotX": 0.5,
+          "pivotY": 0.13676586747169495,
+          "pixelWidth": 384,
+          "pixelHeight": 448,
+          "sha256": "59b7f16c480a46370cc40d64cde78b16e0d89af3ef5f8958d627080635f739f5"
+        },
+        {
+          "path": "art/proof/rendered/regions/officer.rifle.suit.walk.south.08.png",
+          "widthCells": 1.5,
+          "heightCells": 1.75,
+          "pivotX": 0.5,
+          "pivotY": 0.13676586747169495,
+          "pixelWidth": 384,
+          "pixelHeight": 448,
+          "sha256": "387269024e1de5cf956eff09e5e9739ca45dd0ae61814ba69c744f1230fce840"
+        },
+        {
+          "path": "art/proof/rendered/regions/officer.rifle.suit.walk.south.09.png",
+          "widthCells": 1.5,
+          "heightCells": 1.75,
+          "pivotX": 0.5,
+          "pivotY": 0.13676586747169495,
+          "pixelWidth": 384,
+          "pixelHeight": 448,
+          "sha256": "a9f06ca0f65adde07dce6f6f7c3c6ed0076e48efc6c08742d5ddb2193fe04676"
+        },
+        {
+          "path": "art/proof/rendered/regions/officer.rifle.suit.walk.south.10.png",
+          "widthCells": 1.5,
+          "heightCells": 1.75,
+          "pivotX": 0.5,
+          "pivotY": 0.13676586747169495,
+          "pixelWidth": 384,
+          "pixelHeight": 448,
+          "sha256": "bed2df91131b1311c95e82c6b58bf4a773be67164b7e59601e418744d527471b"
+        },
+        {
+          "path": "art/proof/rendered/regions/officer.rifle.suit.walk.south.11.png",
+          "widthCells": 1.5,
+          "heightCells": 1.75,
+          "pivotX": 0.5,
+          "pivotY": 0.13676586747169495,
+          "pixelWidth": 384,
+          "pixelHeight": 448,
+          "sha256": "395bb0e8211490caece9f73cb2b8344467b75f43383b8936fdad2e8221d4e4d5"
+        }
+      ],
+      "markers": [
+        {
+          "kind": "contact",
+          "frame": 0,
+          "foot": "left"
+        },
+        {
+          "kind": "contact",
+          "frame": 6,
+          "foot": "right"
+        }
+      ]
+    },
+    {
+      "id": "officer.rifle.suit.idle.south",
+      "frameSeconds": 0.041666666666666664,
+      "loop": false,
+      "cycleDistanceCells": 0,
+      "equipment": "rifle",
+      "armor": "suit",
+      "frames": [
+        {
+          "path": "art/proof/rendered/regions/officer.rifle.suit.idle.south.00.png",
+          "widthCells": 1.5,
+          "heightCells": 1.75,
+          "pivotX": 0.5,
+          "pivotY": 0.13676586747169495,
+          "pixelWidth": 384,
+          "pixelHeight": 448,
+          "sha256": "e522d329ed27be1f4af5932ef0d2da93240887996c1c78c317d9765316489ef0"
+        }
+      ],
+      "markers": []
+    },
+    {
+      "id": "officer.rifle.suit.aim.south",
+      "frameSeconds": 0.041666666666666664,
+      "loop": false,
+      "cycleDistanceCells": 0,
+      "equipment": "rifle",
+      "armor": "suit",
+      "frames": [
+        {
+          "path": "art/proof/rendered/regions/officer.rifle.suit.aim.south.00.png",
+          "widthCells": 1.5,
+          "heightCells": 1.75,
+          "pivotX": 0.5,
+          "pivotY": 0.13676586747169495,
+          "pixelWidth": 384,
+          "pixelHeight": 448,
+          "sha256": "064eb32612232ba6829b8c76c4c6dde6685c3d68ab028ae8a65792c0139ed2e6"
+        }
+      ],
+      "markers": []
+    },
+    {
+      "id": "officer.pistol.heavy.walk.south",
+      "frameSeconds": 0.041666666666666664,
+      "loop": true,
+      "cycleDistanceCells": 1,
+      "equipment": "pistol",
+      "armor": "heavy",
+      "frames": [
+        {
+          "path": "art/proof/rendered/regions/officer.pistol.heavy.walk.south.00.png",
+          "widthCells": 1.5,
+          "heightCells": 1.75,
+          "pivotX": 0.5,
+          "pivotY": 0.13676586747169495,
+          "pixelWidth": 384,
+          "pixelHeight": 448,
+          "sha256": "09d4029de17662f82877e3c132e615bb109eae0fb5e4637e2e4f0cc6efdb07bf"
+        },
+        {
+          "path": "art/proof/rendered/regions/officer.pistol.heavy.walk.south.01.png",
+          "widthCells": 1.5,
+          "heightCells": 1.75,
+          "pivotX": 0.5,
+          "pivotY": 0.13676586747169495,
+          "pixelWidth": 384,
+          "pixelHeight": 448,
+          "sha256": "12ff3a8a6891df9ccfa9d2935e44852536c5087d9586b33d9070d5a6d8cc795a"
+        },
+        {
+          "path": "art/proof/rendered/regions/officer.pistol.heavy.walk.south.02.png",
+          "widthCells": 1.5,
+          "heightCells": 1.75,
+          "pivotX": 0.5,
+          "pivotY": 0.13676586747169495,
+          "pixelWidth": 384,
+          "pixelHeight": 448,
+          "sha256": "b32455dfe513b5a6e2833bbb3f2754d4cb466bd48d76783d9f7d63a28b0378c5"
+        },
+        {
+          "path": "art/proof/rendered/regions/officer.pistol.heavy.walk.south.03.png",
+          "widthCells": 1.5,
+          "heightCells": 1.75,
+          "pivotX": 0.5,
+          "pivotY": 0.13676586747169495,
+          "pixelWidth": 384,
+          "pixelHeight": 448,
+          "sha256": "38b57a2e72687a4b9daa1682a101550bbb0cc2db2261d49bae64a6a3192887c1"
+        },
+        {
+          "path": "art/proof/rendered/regions/officer.pistol.heavy.walk.south.04.png",
+          "widthCells": 1.5,
+          "heightCells": 1.75,
+          "pivotX": 0.5,
+          "pivotY": 0.13676586747169495,
+          "pixelWidth": 384,
+          "pixelHeight": 448,
+          "sha256": "2236385c186d8303cccdff35a5f99944419adcbfab283925b17b13bba328082c"
+        },
+        {
+          "path": "art/proof/rendered/regions/officer.pistol.heavy.walk.south.05.png",
+          "widthCells": 1.5,
+          "heightCells": 1.75,
+          "pivotX": 0.5,
+          "pivotY": 0.13676586747169495,
+          "pixelWidth": 384,
+          "pixelHeight": 448,
+          "sha256": "7893a01ce21205b978c8ffbc719e9ad6a81289840b73a826f41cd96997fb148c"
+        },
+        {
+          "path": "art/proof/rendered/regions/officer.pistol.heavy.walk.south.06.png",
+          "widthCells": 1.5,
+          "heightCells": 1.75,
+          "pivotX": 0.5,
+          "pivotY": 0.13676586747169495,
+          "pixelWidth": 384,
+          "pixelHeight": 448,
+          "sha256": "7ab08fe618f2bfcf3838beed12a97ad2020edbe72f058f7a61ba267fd4ff4697"
+        },
+        {
+          "path": "art/proof/rendered/regions/officer.pistol.heavy.walk.south.07.png",
+          "widthCells": 1.5,
+          "heightCells": 1.75,
+          "pivotX": 0.5,
+          "pivotY": 0.13676586747169495,
+          "pixelWidth": 384,
+          "pixelHeight": 448,
+          "sha256": "4971acc8ba02538b4c37e7eb7506bbbccfbd8c52bf0d7a880823cd3b6da473f3"
+        },
+        {
+          "path": "art/proof/rendered/regions/officer.pistol.heavy.walk.south.08.png",
+          "widthCells": 1.5,
+          "heightCells": 1.75,
+          "pivotX": 0.5,
+          "pivotY": 0.13676586747169495,
+          "pixelWidth": 384,
+          "pixelHeight": 448,
+          "sha256": "6c7549f5125d7e4e2319e2ff294349cb07d7419624d50f82fd581439d36c0bdd"
+        },
+        {
+          "path": "art/proof/rendered/regions/officer.pistol.heavy.walk.south.09.png",
+          "widthCells": 1.5,
+          "heightCells": 1.75,
+          "pivotX": 0.5,
+          "pivotY": 0.13676586747169495,
+          "pixelWidth": 384,
+          "pixelHeight": 448,
+          "sha256": "7bb0b6e06d6cc383ed7827cb6f33ec15eeae3dfd8a7e095940e10ea2a2985eca"
+        },
+        {
+          "path": "art/proof/rendered/regions/officer.pistol.heavy.walk.south.10.png",
+          "widthCells": 1.5,
+          "heightCells": 1.75,
+          "pivotX": 0.5,
+          "pivotY": 0.13676586747169495,
+          "pixelWidth": 384,
+          "pixelHeight": 448,
+          "sha256": "b95e4457d5c79e399971274b0c18cdff91bde41f7010cca48c2a0b84bd509478"
+        },
+        {
+          "path": "art/proof/rendered/regions/officer.pistol.heavy.walk.south.11.png",
+          "widthCells": 1.5,
+          "heightCells": 1.75,
+          "pivotX": 0.5,
+          "pivotY": 0.13676586747169495,
+          "pixelWidth": 384,
+          "pixelHeight": 448,
+          "sha256": "3a95f7c35ff60869b2d16d4c5e342b00dba50efe3fe0263488019a5a934c4ad2"
+        }
+      ],
+      "markers": [
+        {
+          "kind": "contact",
+          "frame": 0,
+          "foot": "left"
+        },
+        {
+          "kind": "contact",
+          "frame": 6,
+          "foot": "right"
+        }
+      ]
+    },
+    {
+      "id": "officer.pistol.heavy.idle.south",
+      "frameSeconds": 0.041666666666666664,
+      "loop": false,
+      "cycleDistanceCells": 0,
+      "equipment": "pistol",
+      "armor": "heavy",
+      "frames": [
+        {
+          "path": "art/proof/rendered/regions/officer.pistol.heavy.idle.south.00.png",
+          "widthCells": 1.5,
+          "heightCells": 1.75,
+          "pivotX": 0.5,
+          "pivotY": 0.13676586747169495,
+          "pixelWidth": 384,
+          "pixelHeight": 448,
+          "sha256": "4ef238a4cf9a8e537bd1e2e94a9b7917f97297238af2696dc064dd2d8b9f011b"
+        }
+      ],
+      "markers": []
+    },
+    {
+      "id": "officer.pistol.suit.walk.east",
+      "frameSeconds": 0.041666666666666664,
+      "loop": true,
+      "cycleDistanceCells": 1,
+      "equipment": "pistol",
+      "armor": "suit",
+      "frames": [
+        {
+          "path": "art/proof/rendered/regions/officer.pistol.suit.walk.east.00.png",
+          "widthCells": 1.5,
+          "heightCells": 1.75,
+          "pivotX": 0.5,
+          "pivotY": 0.13676586747169495,
+          "pixelWidth": 384,
+          "pixelHeight": 448,
+          "sha256": "451fdba547034a57e41d85f3e05db06b041b4a91d69b0f3e324d4de301f0c9ff"
+        },
+        {
+          "path": "art/proof/rendered/regions/officer.pistol.suit.walk.east.01.png",
+          "widthCells": 1.5,
+          "heightCells": 1.75,
+          "pivotX": 0.5,
+          "pivotY": 0.13676586747169495,
+          "pixelWidth": 384,
+          "pixelHeight": 448,
+          "sha256": "08f360b1d3c97d5748922b137655cfff97face7e10f1bfc04bf440f4954d5fc3"
+        },
+        {
+          "path": "art/proof/rendered/regions/officer.pistol.suit.walk.east.02.png",
+          "widthCells": 1.5,
+          "heightCells": 1.75,
+          "pivotX": 0.5,
+          "pivotY": 0.13676586747169495,
+          "pixelWidth": 384,
+          "pixelHeight": 448,
+          "sha256": "41ba0ea62cd564d4b8cba233e90e6730862d19ed8194c49209b0e011fc9ab56a"
+        },
+        {
+          "path": "art/proof/rendered/regions/officer.pistol.suit.walk.east.03.png",
+          "widthCells": 1.5,
+          "heightCells": 1.75,
+          "pivotX": 0.5,
+          "pivotY": 0.13676586747169495,
+          "pixelWidth": 384,
+          "pixelHeight": 448,
+          "sha256": "11330ccb2097739ec318a1154db1bd466240d0b8343ff616a17e0d24eb53a7f6"
+        },
+        {
+          "path": "art/proof/rendered/regions/officer.pistol.suit.walk.east.04.png",
+          "widthCells": 1.5,
+          "heightCells": 1.75,
+          "pivotX": 0.5,
+          "pivotY": 0.13676586747169495,
+          "pixelWidth": 384,
+          "pixelHeight": 448,
+          "sha256": "d20ad531441e84c9d1f6b7953c39e8262a2a0b6ebe989725ec7768ffb879c666"
+        },
+        {
+          "path": "art/proof/rendered/regions/officer.pistol.suit.walk.east.05.png",
+          "widthCells": 1.5,
+          "heightCells": 1.75,
+          "pivotX": 0.5,
+          "pivotY": 0.13676586747169495,
+          "pixelWidth": 384,
+          "pixelHeight": 448,
+          "sha256": "4ad49ce4ca0c26e9c1442c75dd343bd3df46e815f1fca339c3b94a4d6676f0f0"
+        },
+        {
+          "path": "art/proof/rendered/regions/officer.pistol.suit.walk.east.06.png",
+          "widthCells": 1.5,
+          "heightCells": 1.75,
+          "pivotX": 0.5,
+          "pivotY": 0.13676586747169495,
+          "pixelWidth": 384,
+          "pixelHeight": 448,
+          "sha256": "f17da5c451e8914d6c0a4a44fabf3b7dd7135bd6a5f67e9ba698f185ad555cd3"
+        },
+        {
+          "path": "art/proof/rendered/regions/officer.pistol.suit.walk.east.07.png",
+          "widthCells": 1.5,
+          "heightCells": 1.75,
+          "pivotX": 0.5,
+          "pivotY": 0.13676586747169495,
+          "pixelWidth": 384,
+          "pixelHeight": 448,
+          "sha256": "a7c4625128dd57f9bba83c92f26f231885c789124df60b1064627a2897c9fd0d"
+        },
+        {
+          "path": "art/proof/rendered/regions/officer.pistol.suit.walk.east.08.png",
+          "widthCells": 1.5,
+          "heightCells": 1.75,
+          "pivotX": 0.5,
+          "pivotY": 0.13676586747169495,
+          "pixelWidth": 384,
+          "pixelHeight": 448,
+          "sha256": "cf745a323f541cedbe346add800cda5187675d0fe6e48d53851bd72bac81fd67"
+        },
+        {
+          "path": "art/proof/rendered/regions/officer.pistol.suit.walk.east.09.png",
+          "widthCells": 1.5,
+          "heightCells": 1.75,
+          "pivotX": 0.5,
+          "pivotY": 0.13676586747169495,
+          "pixelWidth": 384,
+          "pixelHeight": 448,
+          "sha256": "39a757c69fe833a5439d287130055750df3eb068a59a96572f93596a0cdec3bb"
+        },
+        {
+          "path": "art/proof/rendered/regions/officer.pistol.suit.walk.east.10.png",
+          "widthCells": 1.5,
+          "heightCells": 1.75,
+          "pivotX": 0.5,
+          "pivotY": 0.13676586747169495,
+          "pixelWidth": 384,
+          "pixelHeight": 448,
+          "sha256": "1c0b8bc84f0319938efd5fd9e720256c7b0529990aba131bf90d7d04cdb60064"
+        },
+        {
+          "path": "art/proof/rendered/regions/officer.pistol.suit.walk.east.11.png",
+          "widthCells": 1.5,
+          "heightCells": 1.75,
+          "pivotX": 0.5,
+          "pivotY": 0.13676586747169495,
+          "pixelWidth": 384,
+          "pixelHeight": 448,
+          "sha256": "ac372aab8fbd44998df40a70a6a8e4e8e408d394a539fe317979d10dbde8da6d"
+        }
+      ],
+      "markers": [
+        {
+          "kind": "contact",
+          "frame": 0,
+          "foot": "left"
+        },
+        {
+          "kind": "contact",
+          "frame": 6,
+          "foot": "right"
+        }
+      ]
+    },
+    {
+      "id": "officer.pistol.suit.idle.east",
+      "frameSeconds": 0.041666666666666664,
+      "loop": false,
+      "cycleDistanceCells": 0,
+      "equipment": "pistol",
+      "armor": "suit",
+      "frames": [
+        {
+          "path": "art/proof/rendered/regions/officer.pistol.suit.idle.east.00.png",
+          "widthCells": 1.5,
+          "heightCells": 1.75,
+          "pivotX": 0.5,
+          "pivotY": 0.13676586747169495,
+          "pixelWidth": 384,
+          "pixelHeight": 448,
+          "sha256": "80897b32d14408f6a2569cf761dabc519988c571bbc4e6274d5e154f2d0af4b2"
+        }
+      ],
+      "markers": []
+    },
+    {
+      "id": "officer.pistol.suit.ready.east",
+      "frameSeconds": 0.07,
+      "loop": false,
+      "cycleDistanceCells": 0,
+      "equipment": "pistol",
+      "armor": "suit",
+      "frames": [
+        {
+          "path": "art/proof/rendered/regions/officer.pistol.suit.ready.east.00.png",
+          "widthCells": 1.5,
+          "heightCells": 1.75,
+          "pivotX": 0.5,
+          "pivotY": 0.13676586747169495,
+          "pixelWidth": 384,
+          "pixelHeight": 448,
+          "sha256": "3a53a0799900878c455970f491dc6cf6dceb0c08090d9c556f56a856f01bc0cc"
+        },
+        {
+          "path": "art/proof/rendered/regions/officer.pistol.suit.ready.east.01.png",
+          "widthCells": 1.5,
+          "heightCells": 1.75,
+          "pivotX": 0.5,
+          "pivotY": 0.13676586747169495,
+          "pixelWidth": 384,
+          "pixelHeight": 448,
+          "sha256": "4a8b435272c825fe880856ff87debaf7165d0f4c5a8fff73255757027c129d0d"
+        },
+        {
+          "path": "art/proof/rendered/regions/officer.pistol.suit.ready.east.02.png",
+          "widthCells": 1.5,
+          "heightCells": 1.75,
+          "pivotX": 0.5,
+          "pivotY": 0.13676586747169495,
+          "pixelWidth": 384,
+          "pixelHeight": 448,
+          "sha256": "dc454b2532ed2a027ee2f2e536bd5b66ffe0dc7dca629fd3766c3e79700277e9"
+        },
+        {
+          "path": "art/proof/rendered/regions/officer.pistol.suit.ready.east.03.png",
+          "widthCells": 1.5,
+          "heightCells": 1.75,
+          "pivotX": 0.5,
+          "pivotY": 0.13676586747169495,
+          "pixelWidth": 384,
+          "pixelHeight": 448,
+          "sha256": "f57ed0124a5835fc1a7b7fac4821495b68dc78e98292dd4d8957c9ede19abaf0"
+        }
+      ],
+      "markers": []
+    },
+    {
+      "id": "officer.pistol.suit.aim.east",
+      "frameSeconds": 0.041666666666666664,
+      "loop": false,
+      "cycleDistanceCells": 0,
+      "equipment": "pistol",
+      "armor": "suit",
+      "frames": [
+        {
+          "path": "art/proof/rendered/regions/officer.pistol.suit.aim.east.00.png",
+          "widthCells": 1.5,
+          "heightCells": 1.75,
+          "pivotX": 0.5,
+          "pivotY": 0.13676586747169495,
+          "pixelWidth": 384,
+          "pixelHeight": 448,
+          "sha256": "04e71e70d761c57f6ca6de12705c8427dd4180e7b4f34fda9f02b12f97845f52"
+        }
+      ],
+      "markers": []
+    },
+    {
+      "id": "officer.pistol.suit.fire.east",
+      "frameSeconds": 0.07,
+      "loop": false,
+      "cycleDistanceCells": 0,
+      "equipment": "pistol",
+      "armor": "suit",
+      "frames": [
+        {
+          "path": "art/proof/rendered/regions/officer.pistol.suit.fire.east.00.png",
+          "widthCells": 1.5,
+          "heightCells": 1.75,
+          "pivotX": 0.5,
+          "pivotY": 0.13676586747169495,
+          "pixelWidth": 384,
+          "pixelHeight": 448,
+          "sha256": "04e71e70d761c57f6ca6de12705c8427dd4180e7b4f34fda9f02b12f97845f52"
+        },
+        {
+          "path": "art/proof/rendered/regions/officer.pistol.suit.fire.east.01.png",
+          "widthCells": 1.5,
+          "heightCells": 1.75,
+          "pivotX": 0.5,
+          "pivotY": 0.13676586747169495,
+          "pixelWidth": 384,
+          "pixelHeight": 448,
+          "sha256": "04e71e70d761c57f6ca6de12705c8427dd4180e7b4f34fda9f02b12f97845f52"
+        },
+        {
+          "path": "art/proof/rendered/regions/officer.pistol.suit.fire.east.02.png",
+          "widthCells": 1.5,
+          "heightCells": 1.75,
+          "pivotX": 0.5,
+          "pivotY": 0.13676586747169495,
+          "pixelWidth": 384,
+          "pixelHeight": 448,
+          "sha256": "ad4b814180d589f3af91b6485d360aec6c187ddcdef58e62a515c5a4c7533128"
+        },
+        {
+          "path": "art/proof/rendered/regions/officer.pistol.suit.fire.east.03.png",
+          "widthCells": 1.5,
+          "heightCells": 1.75,
+          "pivotX": 0.5,
+          "pivotY": 0.13676586747169495,
+          "pixelWidth": 384,
+          "pixelHeight": 448,
+          "sha256": "96029577debe3d6f8be97762f48bb9ac503f7bf6a480cc723e9c68f47e25cb80"
+        }
+      ],
+      "markers": [
+        {
+          "kind": "release",
+          "frame": 2
+        },
+        {
+          "kind": "recovery",
+          "frame": 3
+        }
+      ]
+    },
+    {
+      "id": "officer.rifle.suit.walk.east",
+      "frameSeconds": 0.041666666666666664,
+      "loop": true,
+      "cycleDistanceCells": 1,
+      "equipment": "rifle",
+      "armor": "suit",
+      "frames": [
+        {
+          "path": "art/proof/rendered/regions/officer.rifle.suit.walk.east.00.png",
+          "widthCells": 1.5,
+          "heightCells": 1.75,
+          "pivotX": 0.5,
+          "pivotY": 0.13676586747169495,
+          "pixelWidth": 384,
+          "pixelHeight": 448,
+          "sha256": "c82edb314df9e5792ca037193208d39c8b5576c0a4e7962c6cded1b54c69738a"
+        },
+        {
+          "path": "art/proof/rendered/regions/officer.rifle.suit.walk.east.01.png",
+          "widthCells": 1.5,
+          "heightCells": 1.75,
+          "pivotX": 0.5,
+          "pivotY": 0.13676586747169495,
+          "pixelWidth": 384,
+          "pixelHeight": 448,
+          "sha256": "d90a11b9bb4dfac5f4c961fcf1d3cbeb9bb216928b4acdc9959cbe397b35345e"
+        },
+        {
+          "path": "art/proof/rendered/regions/officer.rifle.suit.walk.east.02.png",
+          "widthCells": 1.5,
+          "heightCells": 1.75,
+          "pivotX": 0.5,
+          "pivotY": 0.13676586747169495,
+          "pixelWidth": 384,
+          "pixelHeight": 448,
+          "sha256": "e77fc35bfd242226b005ae601675704f6406592a109d286d812623a852b9734b"
+        },
+        {
+          "path": "art/proof/rendered/regions/officer.rifle.suit.walk.east.03.png",
+          "widthCells": 1.5,
+          "heightCells": 1.75,
+          "pivotX": 0.5,
+          "pivotY": 0.13676586747169495,
+          "pixelWidth": 384,
+          "pixelHeight": 448,
+          "sha256": "69ad54a473c11b9ab0b22b57484527f5a783841826af79d6625089b4372dd676"
+        },
+        {
+          "path": "art/proof/rendered/regions/officer.rifle.suit.walk.east.04.png",
+          "widthCells": 1.5,
+          "heightCells": 1.75,
+          "pivotX": 0.5,
+          "pivotY": 0.13676586747169495,
+          "pixelWidth": 384,
+          "pixelHeight": 448,
+          "sha256": "aace490bc387097e21c07b6d1925c8f7309a10188f0f5fb26b5cc8c883a127ad"
+        },
+        {
+          "path": "art/proof/rendered/regions/officer.rifle.suit.walk.east.05.png",
+          "widthCells": 1.5,
+          "heightCells": 1.75,
+          "pivotX": 0.5,
+          "pivotY": 0.13676586747169495,
+          "pixelWidth": 384,
+          "pixelHeight": 448,
+          "sha256": "3d223881754743503fb3aae864d51aaa72f637af82ef423d29f54a01adc2138d"
+        },
+        {
+          "path": "art/proof/rendered/regions/officer.rifle.suit.walk.east.06.png",
+          "widthCells": 1.5,
+          "heightCells": 1.75,
+          "pivotX": 0.5,
+          "pivotY": 0.13676586747169495,
+          "pixelWidth": 384,
+          "pixelHeight": 448,
+          "sha256": "3ac2f4a5227d5a52a5a6a3761e1eb3c86ec122b0ba0e91dae3b26a15ae59ac75"
+        },
+        {
+          "path": "art/proof/rendered/regions/officer.rifle.suit.walk.east.07.png",
+          "widthCells": 1.5,
+          "heightCells": 1.75,
+          "pivotX": 0.5,
+          "pivotY": 0.13676586747169495,
+          "pixelWidth": 384,
+          "pixelHeight": 448,
+          "sha256": "195b52bc4c1359aebb106239a739524b4302ee6dc94180f504e996b131933199"
+        },
+        {
+          "path": "art/proof/rendered/regions/officer.rifle.suit.walk.east.08.png",
+          "widthCells": 1.5,
+          "heightCells": 1.75,
+          "pivotX": 0.5,
+          "pivotY": 0.13676586747169495,
+          "pixelWidth": 384,
+          "pixelHeight": 448,
+          "sha256": "7a313939850092cfb75323dd97275e3f69f207cd6145976f13ad96b714633d03"
+        },
+        {
+          "path": "art/proof/rendered/regions/officer.rifle.suit.walk.east.09.png",
+          "widthCells": 1.5,
+          "heightCells": 1.75,
+          "pivotX": 0.5,
+          "pivotY": 0.13676586747169495,
+          "pixelWidth": 384,
+          "pixelHeight": 448,
+          "sha256": "67e96a76bf3d8742c09c092bfd8c6e985b1e01324bdb4e27963eec65c05ef358"
+        },
+        {
+          "path": "art/proof/rendered/regions/officer.rifle.suit.walk.east.10.png",
+          "widthCells": 1.5,
+          "heightCells": 1.75,
+          "pivotX": 0.5,
+          "pivotY": 0.13676586747169495,
+          "pixelWidth": 384,
+          "pixelHeight": 448,
+          "sha256": "071aeeabcca3a9fa74fca238eee2b01161db660f4088c5e8594911814693b1e8"
+        },
+        {
+          "path": "art/proof/rendered/regions/officer.rifle.suit.walk.east.11.png",
+          "widthCells": 1.5,
+          "heightCells": 1.75,
+          "pivotX": 0.5,
+          "pivotY": 0.13676586747169495,
+          "pixelWidth": 384,
+          "pixelHeight": 448,
+          "sha256": "c53d63e68b3a3b217cfa4ef2e27b2a1b3cc07ce71ee7fab994294e062ef2ac16"
+        }
+      ],
+      "markers": [
+        {
+          "kind": "contact",
+          "frame": 0,
+          "foot": "left"
+        },
+        {
+          "kind": "contact",
+          "frame": 6,
+          "foot": "right"
+        }
+      ]
+    },
+    {
+      "id": "officer.rifle.suit.idle.east",
+      "frameSeconds": 0.041666666666666664,
+      "loop": false,
+      "cycleDistanceCells": 0,
+      "equipment": "rifle",
+      "armor": "suit",
+      "frames": [
+        {
+          "path": "art/proof/rendered/regions/officer.rifle.suit.idle.east.00.png",
+          "widthCells": 1.5,
+          "heightCells": 1.75,
+          "pivotX": 0.5,
+          "pivotY": 0.13676586747169495,
+          "pixelWidth": 384,
+          "pixelHeight": 448,
+          "sha256": "d4726e6740d951adb7351e116c3823aa2bcd7f660a52de88c7ad3d9355ecb01c"
+        }
+      ],
+      "markers": []
+    },
+    {
+      "id": "officer.rifle.suit.aim.east",
+      "frameSeconds": 0.041666666666666664,
+      "loop": false,
+      "cycleDistanceCells": 0,
+      "equipment": "rifle",
+      "armor": "suit",
+      "frames": [
+        {
+          "path": "art/proof/rendered/regions/officer.rifle.suit.aim.east.00.png",
+          "widthCells": 1.5,
+          "heightCells": 1.75,
+          "pivotX": 0.5,
+          "pivotY": 0.13676586747169495,
+          "pixelWidth": 384,
+          "pixelHeight": 448,
+          "sha256": "b7d76cce08a3a0d1a70f12835291352d5ca05bc88ec574d4dd9871c40236f740"
+        }
+      ],
+      "markers": []
+    },
+    {
+      "id": "officer.pistol.heavy.walk.east",
+      "frameSeconds": 0.041666666666666664,
+      "loop": true,
+      "cycleDistanceCells": 1,
+      "equipment": "pistol",
+      "armor": "heavy",
+      "frames": [
+        {
+          "path": "art/proof/rendered/regions/officer.pistol.heavy.walk.east.00.png",
+          "widthCells": 1.5,
+          "heightCells": 1.75,
+          "pivotX": 0.5,
+          "pivotY": 0.13676586747169495,
+          "pixelWidth": 384,
+          "pixelHeight": 448,
+          "sha256": "6fccc9c5b41661b6f16708f8ba48b0dc949eab9aefc346b4dfb285ea4bf00031"
+        },
+        {
+          "path": "art/proof/rendered/regions/officer.pistol.heavy.walk.east.01.png",
+          "widthCells": 1.5,
+          "heightCells": 1.75,
+          "pivotX": 0.5,
+          "pivotY": 0.13676586747169495,
+          "pixelWidth": 384,
+          "pixelHeight": 448,
+          "sha256": "29528d4da1b583ec6f24ed9363e69b23e9c4fc93ddefb620ebe33cb94e0b60fe"
+        },
+        {
+          "path": "art/proof/rendered/regions/officer.pistol.heavy.walk.east.02.png",
+          "widthCells": 1.5,
+          "heightCells": 1.75,
+          "pivotX": 0.5,
+          "pivotY": 0.13676586747169495,
+          "pixelWidth": 384,
+          "pixelHeight": 448,
+          "sha256": "73ebb3d2cf0335f1006a0e9b37c6f064fb2a12b3ceaffe79851a99352d9474db"
+        },
+        {
+          "path": "art/proof/rendered/regions/officer.pistol.heavy.walk.east.03.png",
+          "widthCells": 1.5,
+          "heightCells": 1.75,
+          "pivotX": 0.5,
+          "pivotY": 0.13676586747169495,
+          "pixelWidth": 384,
+          "pixelHeight": 448,
+          "sha256": "54ebdb4d93f7f4476a7d3b1672a1ec107f3fb054b42312a5dec031c493466624"
+        },
+        {
+          "path": "art/proof/rendered/regions/officer.pistol.heavy.walk.east.04.png",
+          "widthCells": 1.5,
+          "heightCells": 1.75,
+          "pivotX": 0.5,
+          "pivotY": 0.13676586747169495,
+          "pixelWidth": 384,
+          "pixelHeight": 448,
+          "sha256": "6f6999997d834c095835cd215f7e12a88f194d24689a6816a9190f41ffda4680"
+        },
+        {
+          "path": "art/proof/rendered/regions/officer.pistol.heavy.walk.east.05.png",
+          "widthCells": 1.5,
+          "heightCells": 1.75,
+          "pivotX": 0.5,
+          "pivotY": 0.13676586747169495,
+          "pixelWidth": 384,
+          "pixelHeight": 448,
+          "sha256": "64223515e46af05ce6aa4605c817ff299109fa4c02ba31968abb31151939b501"
+        },
+        {
+          "path": "art/proof/rendered/regions/officer.pistol.heavy.walk.east.06.png",
+          "widthCells": 1.5,
+          "heightCells": 1.75,
+          "pivotX": 0.5,
+          "pivotY": 0.13676586747169495,
+          "pixelWidth": 384,
+          "pixelHeight": 448,
+          "sha256": "9974a68b0ff32ee83e87cbf2c0a3505164910ab52ff40a30e48ad46d259f965b"
+        },
+        {
+          "path": "art/proof/rendered/regions/officer.pistol.heavy.walk.east.07.png",
+          "widthCells": 1.5,
+          "heightCells": 1.75,
+          "pivotX": 0.5,
+          "pivotY": 0.13676586747169495,
+          "pixelWidth": 384,
+          "pixelHeight": 448,
+          "sha256": "2cca854a8fb6116b42c586ffb8beb431f42dd3f70335ce58dead4e471c3597e6"
+        },
+        {
+          "path": "art/proof/rendered/regions/officer.pistol.heavy.walk.east.08.png",
+          "widthCells": 1.5,
+          "heightCells": 1.75,
+          "pivotX": 0.5,
+          "pivotY": 0.13676586747169495,
+          "pixelWidth": 384,
+          "pixelHeight": 448,
+          "sha256": "b3d7a1328c6575db573ca388f0ee668200d277af35964c83579f8aa3b4841d6c"
+        },
+        {
+          "path": "art/proof/rendered/regions/officer.pistol.heavy.walk.east.09.png",
+          "widthCells": 1.5,
+          "heightCells": 1.75,
+          "pivotX": 0.5,
+          "pivotY": 0.13676586747169495,
+          "pixelWidth": 384,
+          "pixelHeight": 448,
+          "sha256": "3529a83c2b63515d8ea6fd9449f6ef24c91aa22a3693694d89194a7bf114c160"
+        },
+        {
+          "path": "art/proof/rendered/regions/officer.pistol.heavy.walk.east.10.png",
+          "widthCells": 1.5,
+          "heightCells": 1.75,
+          "pivotX": 0.5,
+          "pivotY": 0.13676586747169495,
+          "pixelWidth": 384,
+          "pixelHeight": 448,
+          "sha256": "6b71066e996f0ddb38a97d16ba105f8d1fd108f34620b4f18c97508ae48ef352"
+        },
+        {
+          "path": "art/proof/rendered/regions/officer.pistol.heavy.walk.east.11.png",
+          "widthCells": 1.5,
+          "heightCells": 1.75,
+          "pivotX": 0.5,
+          "pivotY": 0.13676586747169495,
+          "pixelWidth": 384,
+          "pixelHeight": 448,
+          "sha256": "39e1efcabee87e2a5ce82fc943eb40070618bb52d42b823c814286162ae7dfee"
+        }
+      ],
+      "markers": [
+        {
+          "kind": "contact",
+          "frame": 0,
+          "foot": "left"
+        },
+        {
+          "kind": "contact",
+          "frame": 6,
+          "foot": "right"
+        }
+      ]
+    },
+    {
+      "id": "officer.pistol.heavy.idle.east",
+      "frameSeconds": 0.041666666666666664,
+      "loop": false,
+      "cycleDistanceCells": 0,
+      "equipment": "pistol",
+      "armor": "heavy",
+      "frames": [
+        {
+          "path": "art/proof/rendered/regions/officer.pistol.heavy.idle.east.00.png",
+          "widthCells": 1.5,
+          "heightCells": 1.75,
+          "pivotX": 0.5,
+          "pivotY": 0.13676586747169495,
+          "pixelWidth": 384,
+          "pixelHeight": 448,
+          "sha256": "47f3950a4f8735c2ce4757cbea3c934d746119a0a3acfac33bb656eb10db56cd"
+        }
+      ],
+      "markers": []
+    },
+    {
+      "id": "officer.pistol.suit.walk.north",
+      "frameSeconds": 0.041666666666666664,
+      "loop": true,
+      "cycleDistanceCells": 1,
+      "equipment": "pistol",
+      "armor": "suit",
+      "frames": [
+        {
+          "path": "art/proof/rendered/regions/officer.pistol.suit.walk.north.00.png",
+          "widthCells": 1.5,
+          "heightCells": 1.75,
+          "pivotX": 0.5,
+          "pivotY": 0.13676586747169495,
+          "pixelWidth": 384,
+          "pixelHeight": 448,
+          "sha256": "f235fdd521c8bb41c3d9b77f55c9010a4272a22c561cc7fda09d3f4cbcbf82e3"
+        },
+        {
+          "path": "art/proof/rendered/regions/officer.pistol.suit.walk.north.01.png",
+          "widthCells": 1.5,
+          "heightCells": 1.75,
+          "pivotX": 0.5,
+          "pivotY": 0.13676586747169495,
+          "pixelWidth": 384,
+          "pixelHeight": 448,
+          "sha256": "d7dd02cc5dd853b176bb155297be728906fff0af6fa4cbf1f143e987591a5eba"
+        },
+        {
+          "path": "art/proof/rendered/regions/officer.pistol.suit.walk.north.02.png",
+          "widthCells": 1.5,
+          "heightCells": 1.75,
+          "pivotX": 0.5,
+          "pivotY": 0.13676586747169495,
+          "pixelWidth": 384,
+          "pixelHeight": 448,
+          "sha256": "142f5588114ffacf1f00edc9616e0e754af53bf99d1ff48b3161a30d91109095"
+        },
+        {
+          "path": "art/proof/rendered/regions/officer.pistol.suit.walk.north.03.png",
+          "widthCells": 1.5,
+          "heightCells": 1.75,
+          "pivotX": 0.5,
+          "pivotY": 0.13676586747169495,
+          "pixelWidth": 384,
+          "pixelHeight": 448,
+          "sha256": "99e2591da850310ed845ca8db122c27d98ed7146c312557d4793c941216b67ae"
+        },
+        {
+          "path": "art/proof/rendered/regions/officer.pistol.suit.walk.north.04.png",
+          "widthCells": 1.5,
+          "heightCells": 1.75,
+          "pivotX": 0.5,
+          "pivotY": 0.13676586747169495,
+          "pixelWidth": 384,
+          "pixelHeight": 448,
+          "sha256": "be406db3dfccb23b54bb8b8afa1652961bdc09583e10102bb1d53b875e3d5a36"
+        },
+        {
+          "path": "art/proof/rendered/regions/officer.pistol.suit.walk.north.05.png",
+          "widthCells": 1.5,
+          "heightCells": 1.75,
+          "pivotX": 0.5,
+          "pivotY": 0.13676586747169495,
+          "pixelWidth": 384,
+          "pixelHeight": 448,
+          "sha256": "8e5a75d3df95f9f5a82932ff6cea4793c0f40448a6b87f60e7b94c41856239b8"
+        },
+        {
+          "path": "art/proof/rendered/regions/officer.pistol.suit.walk.north.06.png",
+          "widthCells": 1.5,
+          "heightCells": 1.75,
+          "pivotX": 0.5,
+          "pivotY": 0.13676586747169495,
+          "pixelWidth": 384,
+          "pixelHeight": 448,
+          "sha256": "e917daef74853b6941b75766050733fad7a2a2f540215b32e42548c164ede5bf"
+        },
+        {
+          "path": "art/proof/rendered/regions/officer.pistol.suit.walk.north.07.png",
+          "widthCells": 1.5,
+          "heightCells": 1.75,
+          "pivotX": 0.5,
+          "pivotY": 0.13676586747169495,
+          "pixelWidth": 384,
+          "pixelHeight": 448,
+          "sha256": "603bb5024cb92817bbe7e8f3c393d38ee0129839d074d948f6786bf1469c8969"
+        },
+        {
+          "path": "art/proof/rendered/regions/officer.pistol.suit.walk.north.08.png",
+          "widthCells": 1.5,
+          "heightCells": 1.75,
+          "pivotX": 0.5,
+          "pivotY": 0.13676586747169495,
+          "pixelWidth": 384,
+          "pixelHeight": 448,
+          "sha256": "f87e20f5935000f2e707a8da6d92eb77376d21d60dabb8e23d5e29f47cdcdb95"
+        },
+        {
+          "path": "art/proof/rendered/regions/officer.pistol.suit.walk.north.09.png",
+          "widthCells": 1.5,
+          "heightCells": 1.75,
+          "pivotX": 0.5,
+          "pivotY": 0.13676586747169495,
+          "pixelWidth": 384,
+          "pixelHeight": 448,
+          "sha256": "9a4dc88d3b828003ec81b7f0e0d32fc8721fb1f073b5d36944d7a26b0c5ab578"
+        },
+        {
+          "path": "art/proof/rendered/regions/officer.pistol.suit.walk.north.10.png",
+          "widthCells": 1.5,
+          "heightCells": 1.75,
+          "pivotX": 0.5,
+          "pivotY": 0.13676586747169495,
+          "pixelWidth": 384,
+          "pixelHeight": 448,
+          "sha256": "e5e59e6fca0ff9199e5f839fdc9c73190339eba329abf4de45b77d11f147a520"
+        },
+        {
+          "path": "art/proof/rendered/regions/officer.pistol.suit.walk.north.11.png",
+          "widthCells": 1.5,
+          "heightCells": 1.75,
+          "pivotX": 0.5,
+          "pivotY": 0.13676586747169495,
+          "pixelWidth": 384,
+          "pixelHeight": 448,
+          "sha256": "8d690bc92cdc989df4fdcb00284cd93b4d64f800f26a163e7d1743fb920a27a2"
+        }
+      ],
+      "markers": [
+        {
+          "kind": "contact",
+          "frame": 0,
+          "foot": "left"
+        },
+        {
+          "kind": "contact",
+          "frame": 6,
+          "foot": "right"
+        }
+      ]
+    },
+    {
+      "id": "officer.pistol.suit.idle.north",
+      "frameSeconds": 0.041666666666666664,
+      "loop": false,
+      "cycleDistanceCells": 0,
+      "equipment": "pistol",
+      "armor": "suit",
+      "frames": [
+        {
+          "path": "art/proof/rendered/regions/officer.pistol.suit.idle.north.00.png",
+          "widthCells": 1.5,
+          "heightCells": 1.75,
+          "pivotX": 0.5,
+          "pivotY": 0.13676586747169495,
+          "pixelWidth": 384,
+          "pixelHeight": 448,
+          "sha256": "30a0587ae7bf515ef81f958ce438283c60d7b1937976803e8996cdc0021976ba"
+        }
+      ],
+      "markers": []
+    },
+    {
+      "id": "officer.pistol.suit.ready.north",
+      "frameSeconds": 0.07,
+      "loop": false,
+      "cycleDistanceCells": 0,
+      "equipment": "pistol",
+      "armor": "suit",
+      "frames": [
+        {
+          "path": "art/proof/rendered/regions/officer.pistol.suit.ready.north.00.png",
+          "widthCells": 1.5,
+          "heightCells": 1.75,
+          "pivotX": 0.5,
+          "pivotY": 0.13676586747169495,
+          "pixelWidth": 384,
+          "pixelHeight": 448,
+          "sha256": "e393eab3bc71f4d897e8dc88ec6543a054173afd8efc3a8e8cf62e5a8472958e"
+        },
+        {
+          "path": "art/proof/rendered/regions/officer.pistol.suit.ready.north.01.png",
+          "widthCells": 1.5,
+          "heightCells": 1.75,
+          "pivotX": 0.5,
+          "pivotY": 0.13676586747169495,
+          "pixelWidth": 384,
+          "pixelHeight": 448,
+          "sha256": "8a74652908661fccd768148ab8783f9263195364273bead73a677e6f09bcb624"
+        },
+        {
+          "path": "art/proof/rendered/regions/officer.pistol.suit.ready.north.02.png",
+          "widthCells": 1.5,
+          "heightCells": 1.75,
+          "pivotX": 0.5,
+          "pivotY": 0.13676586747169495,
+          "pixelWidth": 384,
+          "pixelHeight": 448,
+          "sha256": "1abb9161ece6bca6035b4db16c2ad8f49d117f62b2fd6ac3b983c91adda59402"
+        },
+        {
+          "path": "art/proof/rendered/regions/officer.pistol.suit.ready.north.03.png",
+          "widthCells": 1.5,
+          "heightCells": 1.75,
+          "pivotX": 0.5,
+          "pivotY": 0.13676586747169495,
+          "pixelWidth": 384,
+          "pixelHeight": 448,
+          "sha256": "b2d127c00dc67f8b5e7b83d009dbb77f69d5c305a40f142b382a6dce2fe6c15f"
+        }
+      ],
+      "markers": []
+    },
+    {
+      "id": "officer.pistol.suit.aim.north",
+      "frameSeconds": 0.041666666666666664,
+      "loop": false,
+      "cycleDistanceCells": 0,
+      "equipment": "pistol",
+      "armor": "suit",
+      "frames": [
+        {
+          "path": "art/proof/rendered/regions/officer.pistol.suit.aim.north.00.png",
+          "widthCells": 1.5,
+          "heightCells": 1.75,
+          "pivotX": 0.5,
+          "pivotY": 0.13676586747169495,
+          "pixelWidth": 384,
+          "pixelHeight": 448,
+          "sha256": "0496d02e820b6c757afb5e4ea38f4a7e79d72e62cd06b03cf522f8faa82f5acf"
+        }
+      ],
+      "markers": []
+    },
+    {
+      "id": "officer.pistol.suit.fire.north",
+      "frameSeconds": 0.07,
+      "loop": false,
+      "cycleDistanceCells": 0,
+      "equipment": "pistol",
+      "armor": "suit",
+      "frames": [
+        {
+          "path": "art/proof/rendered/regions/officer.pistol.suit.fire.north.00.png",
+          "widthCells": 1.5,
+          "heightCells": 1.75,
+          "pivotX": 0.5,
+          "pivotY": 0.13676586747169495,
+          "pixelWidth": 384,
+          "pixelHeight": 448,
+          "sha256": "c63d95dc59e1c21e5a6857fdd2d57f21c762513be726c0305670ccddc79d51a7"
+        },
+        {
+          "path": "art/proof/rendered/regions/officer.pistol.suit.fire.north.01.png",
+          "widthCells": 1.5,
+          "heightCells": 1.75,
+          "pivotX": 0.5,
+          "pivotY": 0.13676586747169495,
+          "pixelWidth": 384,
+          "pixelHeight": 448,
+          "sha256": "4156b81c5d9f85a229c9d15e9f2e5e42f2dd318125e448952c63685730f5db87"
+        },
+        {
+          "path": "art/proof/rendered/regions/officer.pistol.suit.fire.north.02.png",
+          "widthCells": 1.5,
+          "heightCells": 1.75,
+          "pivotX": 0.5,
+          "pivotY": 0.13676586747169495,
+          "pixelWidth": 384,
+          "pixelHeight": 448,
+          "sha256": "4a9e2b31de66ed9728808dac0df0ae15faaca3adc143506d39444b5fca94ed6b"
+        },
+        {
+          "path": "art/proof/rendered/regions/officer.pistol.suit.fire.north.03.png",
+          "widthCells": 1.5,
+          "heightCells": 1.75,
+          "pivotX": 0.5,
+          "pivotY": 0.13676586747169495,
+          "pixelWidth": 384,
+          "pixelHeight": 448,
+          "sha256": "ca419b71cfdcb3409265e33354168c77fe662151574ab02b8fa91ea6cc9c1ea4"
+        }
+      ],
+      "markers": [
+        {
+          "kind": "release",
+          "frame": 2
+        },
+        {
+          "kind": "recovery",
+          "frame": 3
+        }
+      ]
+    },
+    {
+      "id": "officer.rifle.suit.walk.north",
+      "frameSeconds": 0.041666666666666664,
+      "loop": true,
+      "cycleDistanceCells": 1,
+      "equipment": "rifle",
+      "armor": "suit",
+      "frames": [
+        {
+          "path": "art/proof/rendered/regions/officer.rifle.suit.walk.north.00.png",
+          "widthCells": 1.5,
+          "heightCells": 1.75,
+          "pivotX": 0.5,
+          "pivotY": 0.13676586747169495,
+          "pixelWidth": 384,
+          "pixelHeight": 448,
+          "sha256": "4961ab9eba2212d76ede53fb484c4d142bc9bdc8221fd4ba3ae50f285abc081b"
+        },
+        {
+          "path": "art/proof/rendered/regions/officer.rifle.suit.walk.north.01.png",
+          "widthCells": 1.5,
+          "heightCells": 1.75,
+          "pivotX": 0.5,
+          "pivotY": 0.13676586747169495,
+          "pixelWidth": 384,
+          "pixelHeight": 448,
+          "sha256": "10cda32bdd767cd10c9ed82ce55ad48f1abc64f34b899f2bd696943d625ec63b"
+        },
+        {
+          "path": "art/proof/rendered/regions/officer.rifle.suit.walk.north.02.png",
+          "widthCells": 1.5,
+          "heightCells": 1.75,
+          "pivotX": 0.5,
+          "pivotY": 0.13676586747169495,
+          "pixelWidth": 384,
+          "pixelHeight": 448,
+          "sha256": "c87b8ef7525c5ccabd2c999f57a00d5557ab568c0cfd987fc3e23bb2314227a4"
+        },
+        {
+          "path": "art/proof/rendered/regions/officer.rifle.suit.walk.north.03.png",
+          "widthCells": 1.5,
+          "heightCells": 1.75,
+          "pivotX": 0.5,
+          "pivotY": 0.13676586747169495,
+          "pixelWidth": 384,
+          "pixelHeight": 448,
+          "sha256": "f8e3dea322736900bd1ff3616729875252db658e130959610a8ea3c551ca9e17"
+        },
+        {
+          "path": "art/proof/rendered/regions/officer.rifle.suit.walk.north.04.png",
+          "widthCells": 1.5,
+          "heightCells": 1.75,
+          "pivotX": 0.5,
+          "pivotY": 0.13676586747169495,
+          "pixelWidth": 384,
+          "pixelHeight": 448,
+          "sha256": "0ceaa530bd79fe9f7ae2ac573c2f8e1bc5f993029fffa2c40193c0194999812f"
+        },
+        {
+          "path": "art/proof/rendered/regions/officer.rifle.suit.walk.north.05.png",
+          "widthCells": 1.5,
+          "heightCells": 1.75,
+          "pivotX": 0.5,
+          "pivotY": 0.13676586747169495,
+          "pixelWidth": 384,
+          "pixelHeight": 448,
+          "sha256": "440b6645c937732f5627a2de718e10b0f1eb0badc1384f7c23c1460c51ab50c2"
+        },
+        {
+          "path": "art/proof/rendered/regions/officer.rifle.suit.walk.north.06.png",
+          "widthCells": 1.5,
+          "heightCells": 1.75,
+          "pivotX": 0.5,
+          "pivotY": 0.13676586747169495,
+          "pixelWidth": 384,
+          "pixelHeight": 448,
+          "sha256": "5432a6f455d6a4a7a82b7ab5e0b0566d1dc81b63305d55eabbf2e3e3749c72fd"
+        },
+        {
+          "path": "art/proof/rendered/regions/officer.rifle.suit.walk.north.07.png",
+          "widthCells": 1.5,
+          "heightCells": 1.75,
+          "pivotX": 0.5,
+          "pivotY": 0.13676586747169495,
+          "pixelWidth": 384,
+          "pixelHeight": 448,
+          "sha256": "710460256734f35c3be6e5ad1b02234f4ee1af426ab2e935c66e5a00d107bca7"
+        },
+        {
+          "path": "art/proof/rendered/regions/officer.rifle.suit.walk.north.08.png",
+          "widthCells": 1.5,
+          "heightCells": 1.75,
+          "pivotX": 0.5,
+          "pivotY": 0.13676586747169495,
+          "pixelWidth": 384,
+          "pixelHeight": 448,
+          "sha256": "5db4580ebff2dcdffad57a0a32abd4aae03e55d18668360f79d11593563c8a77"
+        },
+        {
+          "path": "art/proof/rendered/regions/officer.rifle.suit.walk.north.09.png",
+          "widthCells": 1.5,
+          "heightCells": 1.75,
+          "pivotX": 0.5,
+          "pivotY": 0.13676586747169495,
+          "pixelWidth": 384,
+          "pixelHeight": 448,
+          "sha256": "056c26cf2cdbfcda5e57eabc71839b3c7b68a266e29e4cc15b97815e8dfe6220"
+        },
+        {
+          "path": "art/proof/rendered/regions/officer.rifle.suit.walk.north.10.png",
+          "widthCells": 1.5,
+          "heightCells": 1.75,
+          "pivotX": 0.5,
+          "pivotY": 0.13676586747169495,
+          "pixelWidth": 384,
+          "pixelHeight": 448,
+          "sha256": "559b41382944ad19f2e5c180b1f80fd688f4e6b3840a5cfe278b8097b0d9f2ad"
+        },
+        {
+          "path": "art/proof/rendered/regions/officer.rifle.suit.walk.north.11.png",
+          "widthCells": 1.5,
+          "heightCells": 1.75,
+          "pivotX": 0.5,
+          "pivotY": 0.13676586747169495,
+          "pixelWidth": 384,
+          "pixelHeight": 448,
+          "sha256": "769c7bc7544bc7e746be811192ac014f49a01f1f1beaede799a89163779a2a2c"
+        }
+      ],
+      "markers": [
+        {
+          "kind": "contact",
+          "frame": 0,
+          "foot": "left"
+        },
+        {
+          "kind": "contact",
+          "frame": 6,
+          "foot": "right"
+        }
+      ]
+    },
+    {
+      "id": "officer.rifle.suit.idle.north",
+      "frameSeconds": 0.041666666666666664,
+      "loop": false,
+      "cycleDistanceCells": 0,
+      "equipment": "rifle",
+      "armor": "suit",
+      "frames": [
+        {
+          "path": "art/proof/rendered/regions/officer.rifle.suit.idle.north.00.png",
+          "widthCells": 1.5,
+          "heightCells": 1.75,
+          "pivotX": 0.5,
+          "pivotY": 0.13676586747169495,
+          "pixelWidth": 384,
+          "pixelHeight": 448,
+          "sha256": "0eab42abba1aacd23b059d9c921eec58bff3666a5ce45554c2565054058ee138"
+        }
+      ],
+      "markers": []
+    },
+    {
+      "id": "officer.rifle.suit.aim.north",
+      "frameSeconds": 0.041666666666666664,
+      "loop": false,
+      "cycleDistanceCells": 0,
+      "equipment": "rifle",
+      "armor": "suit",
+      "frames": [
+        {
+          "path": "art/proof/rendered/regions/officer.rifle.suit.aim.north.00.png",
+          "widthCells": 1.5,
+          "heightCells": 1.75,
+          "pivotX": 0.5,
+          "pivotY": 0.13676586747169495,
+          "pixelWidth": 384,
+          "pixelHeight": 448,
+          "sha256": "34023a1f009080fa5ca0556790b2765075d69b4e64be949d95e7fefd8385be8e"
+        }
+      ],
+      "markers": []
+    },
+    {
+      "id": "officer.pistol.heavy.walk.north",
+      "frameSeconds": 0.041666666666666664,
+      "loop": true,
+      "cycleDistanceCells": 1,
+      "equipment": "pistol",
+      "armor": "heavy",
+      "frames": [
+        {
+          "path": "art/proof/rendered/regions/officer.pistol.heavy.walk.north.00.png",
+          "widthCells": 1.5,
+          "heightCells": 1.75,
+          "pivotX": 0.5,
+          "pivotY": 0.13676586747169495,
+          "pixelWidth": 384,
+          "pixelHeight": 448,
+          "sha256": "34c497b13eb053e9f9718e2a8a5154cc0776e2411ff433529bf429b75ac5bb45"
+        },
+        {
+          "path": "art/proof/rendered/regions/officer.pistol.heavy.walk.north.01.png",
+          "widthCells": 1.5,
+          "heightCells": 1.75,
+          "pivotX": 0.5,
+          "pivotY": 0.13676586747169495,
+          "pixelWidth": 384,
+          "pixelHeight": 448,
+          "sha256": "242c601b1257e3b4a53ed43614af1383fefcd7e6ab9ba1fa33d27367700f0f81"
+        },
+        {
+          "path": "art/proof/rendered/regions/officer.pistol.heavy.walk.north.02.png",
+          "widthCells": 1.5,
+          "heightCells": 1.75,
+          "pivotX": 0.5,
+          "pivotY": 0.13676586747169495,
+          "pixelWidth": 384,
+          "pixelHeight": 448,
+          "sha256": "314b8d4327089242fedf8a02c405267f2d4bc8826064e58110d33503c10bc240"
+        },
+        {
+          "path": "art/proof/rendered/regions/officer.pistol.heavy.walk.north.03.png",
+          "widthCells": 1.5,
+          "heightCells": 1.75,
+          "pivotX": 0.5,
+          "pivotY": 0.13676586747169495,
+          "pixelWidth": 384,
+          "pixelHeight": 448,
+          "sha256": "d22e8573ed45678eaa5d9c91f273fd599a0c06538bf253f9b3174c3cd189f0dd"
+        },
+        {
+          "path": "art/proof/rendered/regions/officer.pistol.heavy.walk.north.04.png",
+          "widthCells": 1.5,
+          "heightCells": 1.75,
+          "pivotX": 0.5,
+          "pivotY": 0.13676586747169495,
+          "pixelWidth": 384,
+          "pixelHeight": 448,
+          "sha256": "fc1002e5c3e9b7a65f4d88bb041c2cae7f3d3fd106797fc4ac53c83002177628"
+        },
+        {
+          "path": "art/proof/rendered/regions/officer.pistol.heavy.walk.north.05.png",
+          "widthCells": 1.5,
+          "heightCells": 1.75,
+          "pivotX": 0.5,
+          "pivotY": 0.13676586747169495,
+          "pixelWidth": 384,
+          "pixelHeight": 448,
+          "sha256": "b37ac4866bfe3e842c6887a43af9b0601e0c7306ffb7fe3ffbff23f72a436c6c"
+        },
+        {
+          "path": "art/proof/rendered/regions/officer.pistol.heavy.walk.north.06.png",
+          "widthCells": 1.5,
+          "heightCells": 1.75,
+          "pivotX": 0.5,
+          "pivotY": 0.13676586747169495,
+          "pixelWidth": 384,
+          "pixelHeight": 448,
+          "sha256": "1b0927bb58abb2f8ba412c44ce661b103d82f4ef459ba7470a393952a193d345"
+        },
+        {
+          "path": "art/proof/rendered/regions/officer.pistol.heavy.walk.north.07.png",
+          "widthCells": 1.5,
+          "heightCells": 1.75,
+          "pivotX": 0.5,
+          "pivotY": 0.13676586747169495,
+          "pixelWidth": 384,
+          "pixelHeight": 448,
+          "sha256": "e5cf1d4f45342ccbb5664611589e727e6361d174feddbafc3fc2278b95b660e1"
+        },
+        {
+          "path": "art/proof/rendered/regions/officer.pistol.heavy.walk.north.08.png",
+          "widthCells": 1.5,
+          "heightCells": 1.75,
+          "pivotX": 0.5,
+          "pivotY": 0.13676586747169495,
+          "pixelWidth": 384,
+          "pixelHeight": 448,
+          "sha256": "93398abfc440b042f12696f31377e4223b4084c957c0f51ecf1c268708530647"
+        },
+        {
+          "path": "art/proof/rendered/regions/officer.pistol.heavy.walk.north.09.png",
+          "widthCells": 1.5,
+          "heightCells": 1.75,
+          "pivotX": 0.5,
+          "pivotY": 0.13676586747169495,
+          "pixelWidth": 384,
+          "pixelHeight": 448,
+          "sha256": "1e218314765831b8c8084e030f9e40bae0704d832da34fbe2915b874bff1eb9b"
+        },
+        {
+          "path": "art/proof/rendered/regions/officer.pistol.heavy.walk.north.10.png",
+          "widthCells": 1.5,
+          "heightCells": 1.75,
+          "pivotX": 0.5,
+          "pivotY": 0.13676586747169495,
+          "pixelWidth": 384,
+          "pixelHeight": 448,
+          "sha256": "7269bb8dadc2b45656316cc6dd4694b0c0a82060a74fbaef82de9a55d0e3b890"
+        },
+        {
+          "path": "art/proof/rendered/regions/officer.pistol.heavy.walk.north.11.png",
+          "widthCells": 1.5,
+          "heightCells": 1.75,
+          "pivotX": 0.5,
+          "pivotY": 0.13676586747169495,
+          "pixelWidth": 384,
+          "pixelHeight": 448,
+          "sha256": "da023dd567b917c6c93e05e6101d2e69bec61f1e7a330077a9d9916ef81e4baf"
+        }
+      ],
+      "markers": [
+        {
+          "kind": "contact",
+          "frame": 0,
+          "foot": "left"
+        },
+        {
+          "kind": "contact",
+          "frame": 6,
+          "foot": "right"
+        }
+      ]
+    },
+    {
+      "id": "officer.pistol.heavy.idle.north",
+      "frameSeconds": 0.041666666666666664,
+      "loop": false,
+      "cycleDistanceCells": 0,
+      "equipment": "pistol",
+      "armor": "heavy",
+      "frames": [
+        {
+          "path": "art/proof/rendered/regions/officer.pistol.heavy.idle.north.00.png",
+          "widthCells": 1.5,
+          "heightCells": 1.75,
+          "pivotX": 0.5,
+          "pivotY": 0.13676586747169495,
+          "pixelWidth": 384,
+          "pixelHeight": 448,
+          "sha256": "53e1f397fa2b044fcd907c3c3cae6d0e4b3785d9dfb3b479ff52e99f468ee939"
+        }
+      ],
+      "markers": []
+    },
+    {
+      "id": "officer.pistol.suit.walk.west",
+      "frameSeconds": 0.041666666666666664,
+      "loop": true,
+      "cycleDistanceCells": 1,
+      "equipment": "pistol",
+      "armor": "suit",
+      "frames": [
+        {
+          "path": "art/proof/rendered/regions/officer.pistol.suit.walk.west.00.png",
+          "widthCells": 1.5,
+          "heightCells": 1.75,
+          "pivotX": 0.5,
+          "pivotY": 0.13676586747169495,
+          "pixelWidth": 384,
+          "pixelHeight": 448,
+          "sha256": "00f0c8178cb3e37b6ca7a1bf84eb67d29ee76b152e2040f0fbff3a7c792a0f9f"
+        },
+        {
+          "path": "art/proof/rendered/regions/officer.pistol.suit.walk.west.01.png",
+          "widthCells": 1.5,
+          "heightCells": 1.75,
+          "pivotX": 0.5,
+          "pivotY": 0.13676586747169495,
+          "pixelWidth": 384,
+          "pixelHeight": 448,
+          "sha256": "64083984464ce15322c37bf34ca70619d13910460d4622db6e61381aa6d3f079"
+        },
+        {
+          "path": "art/proof/rendered/regions/officer.pistol.suit.walk.west.02.png",
+          "widthCells": 1.5,
+          "heightCells": 1.75,
+          "pivotX": 0.5,
+          "pivotY": 0.13676586747169495,
+          "pixelWidth": 384,
+          "pixelHeight": 448,
+          "sha256": "2b858b9d34124f35095deb4b37d59c66cb4efd0ec9dc28ffeb152abdf5a3dd69"
+        },
+        {
+          "path": "art/proof/rendered/regions/officer.pistol.suit.walk.west.03.png",
+          "widthCells": 1.5,
+          "heightCells": 1.75,
+          "pivotX": 0.5,
+          "pivotY": 0.13676586747169495,
+          "pixelWidth": 384,
+          "pixelHeight": 448,
+          "sha256": "d0d78dbbc55d29831fdfde1308bcb1b8dfda7b701045f6b43d55e4991340143f"
+        },
+        {
+          "path": "art/proof/rendered/regions/officer.pistol.suit.walk.west.04.png",
+          "widthCells": 1.5,
+          "heightCells": 1.75,
+          "pivotX": 0.5,
+          "pivotY": 0.13676586747169495,
+          "pixelWidth": 384,
+          "pixelHeight": 448,
+          "sha256": "6684a9f9e3d7113c4d92f9a70d4af8157fe7cd00489f7c2f2f5fd117cdeb1c9b"
+        },
+        {
+          "path": "art/proof/rendered/regions/officer.pistol.suit.walk.west.05.png",
+          "widthCells": 1.5,
+          "heightCells": 1.75,
+          "pivotX": 0.5,
+          "pivotY": 0.13676586747169495,
+          "pixelWidth": 384,
+          "pixelHeight": 448,
+          "sha256": "a84895ea23fe6e5b5807629f50a171d33b50fd98f8c2a326cc8d24f7899af58f"
+        },
+        {
+          "path": "art/proof/rendered/regions/officer.pistol.suit.walk.west.06.png",
+          "widthCells": 1.5,
+          "heightCells": 1.75,
+          "pivotX": 0.5,
+          "pivotY": 0.13676586747169495,
+          "pixelWidth": 384,
+          "pixelHeight": 448,
+          "sha256": "472eeb508824cc147dd8da78d10be8d357153919d0a090ae74bf61ddd158c8ac"
+        },
+        {
+          "path": "art/proof/rendered/regions/officer.pistol.suit.walk.west.07.png",
+          "widthCells": 1.5,
+          "heightCells": 1.75,
+          "pivotX": 0.5,
+          "pivotY": 0.13676586747169495,
+          "pixelWidth": 384,
+          "pixelHeight": 448,
+          "sha256": "4aa14915bd01f134e40d39a67a77111eb9a9f2d79d88d5503b760895eba123cf"
+        },
+        {
+          "path": "art/proof/rendered/regions/officer.pistol.suit.walk.west.08.png",
+          "widthCells": 1.5,
+          "heightCells": 1.75,
+          "pivotX": 0.5,
+          "pivotY": 0.13676586747169495,
+          "pixelWidth": 384,
+          "pixelHeight": 448,
+          "sha256": "d07150923431cf2e3611ad080335758ee09c5f51f552b1b73ac7b7271f7a8d98"
+        },
+        {
+          "path": "art/proof/rendered/regions/officer.pistol.suit.walk.west.09.png",
+          "widthCells": 1.5,
+          "heightCells": 1.75,
+          "pivotX": 0.5,
+          "pivotY": 0.13676586747169495,
+          "pixelWidth": 384,
+          "pixelHeight": 448,
+          "sha256": "df9a23d987ed3342d8f55652e9e247f58a862ccd41eba1f18e19bfaad040c380"
+        },
+        {
+          "path": "art/proof/rendered/regions/officer.pistol.suit.walk.west.10.png",
+          "widthCells": 1.5,
+          "heightCells": 1.75,
+          "pivotX": 0.5,
+          "pivotY": 0.13676586747169495,
+          "pixelWidth": 384,
+          "pixelHeight": 448,
+          "sha256": "de206fc7bd021d29254db8142056a98ce0f28eff443d58d2203dd1316f7078af"
+        },
+        {
+          "path": "art/proof/rendered/regions/officer.pistol.suit.walk.west.11.png",
+          "widthCells": 1.5,
+          "heightCells": 1.75,
+          "pivotX": 0.5,
+          "pivotY": 0.13676586747169495,
+          "pixelWidth": 384,
+          "pixelHeight": 448,
+          "sha256": "c15001de53516aa46022990d7c8b32b78f888ab959c3b6d2a31d74c556f0b975"
+        }
+      ],
+      "markers": [
+        {
+          "kind": "contact",
+          "frame": 0,
+          "foot": "left"
+        },
+        {
+          "kind": "contact",
+          "frame": 6,
+          "foot": "right"
+        }
+      ]
+    },
+    {
+      "id": "officer.pistol.suit.idle.west",
+      "frameSeconds": 0.041666666666666664,
+      "loop": false,
+      "cycleDistanceCells": 0,
+      "equipment": "pistol",
+      "armor": "suit",
+      "frames": [
+        {
+          "path": "art/proof/rendered/regions/officer.pistol.suit.idle.west.00.png",
+          "widthCells": 1.5,
+          "heightCells": 1.75,
+          "pivotX": 0.5,
+          "pivotY": 0.13676586747169495,
+          "pixelWidth": 384,
+          "pixelHeight": 448,
+          "sha256": "06643634384c9007865d8971c18ad6e40d8987d709f0ff900b73595f03ad347a"
+        }
+      ],
+      "markers": []
+    },
+    {
+      "id": "officer.pistol.suit.ready.west",
+      "frameSeconds": 0.07,
+      "loop": false,
+      "cycleDistanceCells": 0,
+      "equipment": "pistol",
+      "armor": "suit",
+      "frames": [
+        {
+          "path": "art/proof/rendered/regions/officer.pistol.suit.ready.west.00.png",
+          "widthCells": 1.5,
+          "heightCells": 1.75,
+          "pivotX": 0.5,
+          "pivotY": 0.13676586747169495,
+          "pixelWidth": 384,
+          "pixelHeight": 448,
+          "sha256": "ee13db42c2e41b3054dfbcea64ff11474c136e8a91d0062a750e3497506be7f3"
+        },
+        {
+          "path": "art/proof/rendered/regions/officer.pistol.suit.ready.west.01.png",
+          "widthCells": 1.5,
+          "heightCells": 1.75,
+          "pivotX": 0.5,
+          "pivotY": 0.13676586747169495,
+          "pixelWidth": 384,
+          "pixelHeight": 448,
+          "sha256": "ff165640d0b9f93572a59f9fdb86a420e8d40c25c638579e68e8b48999cc6a3d"
+        },
+        {
+          "path": "art/proof/rendered/regions/officer.pistol.suit.ready.west.02.png",
+          "widthCells": 1.5,
+          "heightCells": 1.75,
+          "pivotX": 0.5,
+          "pivotY": 0.13676586747169495,
+          "pixelWidth": 384,
+          "pixelHeight": 448,
+          "sha256": "9b4ca13c10216e637fa7253567bb0573797c37af8ab0eab0647ea1a62ffa9425"
+        },
+        {
+          "path": "art/proof/rendered/regions/officer.pistol.suit.ready.west.03.png",
+          "widthCells": 1.5,
+          "heightCells": 1.75,
+          "pivotX": 0.5,
+          "pivotY": 0.13676586747169495,
+          "pixelWidth": 384,
+          "pixelHeight": 448,
+          "sha256": "c2192f800009bc22097f9689f1e693e80b7cd0d2461f480515d9dc28514d0ae6"
+        }
+      ],
+      "markers": []
+    },
+    {
+      "id": "officer.pistol.suit.aim.west",
+      "frameSeconds": 0.041666666666666664,
+      "loop": false,
+      "cycleDistanceCells": 0,
+      "equipment": "pistol",
+      "armor": "suit",
+      "frames": [
+        {
+          "path": "art/proof/rendered/regions/officer.pistol.suit.aim.west.00.png",
+          "widthCells": 1.5,
+          "heightCells": 1.75,
+          "pivotX": 0.5,
+          "pivotY": 0.13676586747169495,
+          "pixelWidth": 384,
+          "pixelHeight": 448,
+          "sha256": "c2192f800009bc22097f9689f1e693e80b7cd0d2461f480515d9dc28514d0ae6"
+        }
+      ],
+      "markers": []
+    },
+    {
+      "id": "officer.pistol.suit.fire.west",
+      "frameSeconds": 0.07,
+      "loop": false,
+      "cycleDistanceCells": 0,
+      "equipment": "pistol",
+      "armor": "suit",
+      "frames": [
+        {
+          "path": "art/proof/rendered/regions/officer.pistol.suit.fire.west.00.png",
+          "widthCells": 1.5,
+          "heightCells": 1.75,
+          "pivotX": 0.5,
+          "pivotY": 0.13676586747169495,
+          "pixelWidth": 384,
+          "pixelHeight": 448,
+          "sha256": "c2192f800009bc22097f9689f1e693e80b7cd0d2461f480515d9dc28514d0ae6"
+        },
+        {
+          "path": "art/proof/rendered/regions/officer.pistol.suit.fire.west.01.png",
+          "widthCells": 1.5,
+          "heightCells": 1.75,
+          "pivotX": 0.5,
+          "pivotY": 0.13676586747169495,
+          "pixelWidth": 384,
+          "pixelHeight": 448,
+          "sha256": "018ebac3c9d8d6481e37d38653cd0ca222494199fee126c6077efc790acd817e"
+        },
+        {
+          "path": "art/proof/rendered/regions/officer.pistol.suit.fire.west.02.png",
+          "widthCells": 1.5,
+          "heightCells": 1.75,
+          "pivotX": 0.5,
+          "pivotY": 0.13676586747169495,
+          "pixelWidth": 384,
+          "pixelHeight": 448,
+          "sha256": "2edb16db0212961ed8470c8f130ed78b4210f1151c986bd5f0b9a3d951472e4f"
+        },
+        {
+          "path": "art/proof/rendered/regions/officer.pistol.suit.fire.west.03.png",
+          "widthCells": 1.5,
+          "heightCells": 1.75,
+          "pivotX": 0.5,
+          "pivotY": 0.13676586747169495,
+          "pixelWidth": 384,
+          "pixelHeight": 448,
+          "sha256": "8026c0ad17955a17f3b35e5070342ecceac90dec320310f193d1bee68811c9a4"
+        }
+      ],
+      "markers": [
+        {
+          "kind": "release",
+          "frame": 2
+        },
+        {
+          "kind": "recovery",
+          "frame": 3
+        }
+      ]
+    },
+    {
+      "id": "officer.rifle.suit.walk.west",
+      "frameSeconds": 0.041666666666666664,
+      "loop": true,
+      "cycleDistanceCells": 1,
+      "equipment": "rifle",
+      "armor": "suit",
+      "frames": [
+        {
+          "path": "art/proof/rendered/regions/officer.rifle.suit.walk.west.00.png",
+          "widthCells": 1.5,
+          "heightCells": 1.75,
+          "pivotX": 0.5,
+          "pivotY": 0.13676586747169495,
+          "pixelWidth": 384,
+          "pixelHeight": 448,
+          "sha256": "ff2dd89fb4b0b6568c7683e0875911c4cf0da24b42acc97f2eb6d615716ec840"
+        },
+        {
+          "path": "art/proof/rendered/regions/officer.rifle.suit.walk.west.01.png",
+          "widthCells": 1.5,
+          "heightCells": 1.75,
+          "pivotX": 0.5,
+          "pivotY": 0.13676586747169495,
+          "pixelWidth": 384,
+          "pixelHeight": 448,
+          "sha256": "004b0c4284d5619d4cc0f4b476e62aa5714904910c76a910c484a2796269fa74"
+        },
+        {
+          "path": "art/proof/rendered/regions/officer.rifle.suit.walk.west.02.png",
+          "widthCells": 1.5,
+          "heightCells": 1.75,
+          "pivotX": 0.5,
+          "pivotY": 0.13676586747169495,
+          "pixelWidth": 384,
+          "pixelHeight": 448,
+          "sha256": "ae28689c348d9a1c7d62bc605a4c34b642e77f8992708a0bb4ecd1f61b7cfadf"
+        },
+        {
+          "path": "art/proof/rendered/regions/officer.rifle.suit.walk.west.03.png",
+          "widthCells": 1.5,
+          "heightCells": 1.75,
+          "pivotX": 0.5,
+          "pivotY": 0.13676586747169495,
+          "pixelWidth": 384,
+          "pixelHeight": 448,
+          "sha256": "623816207dd8057d83371a8006511ac634e5c24a0fb38c56c5189b37b1538757"
+        },
+        {
+          "path": "art/proof/rendered/regions/officer.rifle.suit.walk.west.04.png",
+          "widthCells": 1.5,
+          "heightCells": 1.75,
+          "pivotX": 0.5,
+          "pivotY": 0.13676586747169495,
+          "pixelWidth": 384,
+          "pixelHeight": 448,
+          "sha256": "06b8014c3587456e89c438e14a4375725812d48f0f71b4b34ba7c36f3161d180"
+        },
+        {
+          "path": "art/proof/rendered/regions/officer.rifle.suit.walk.west.05.png",
+          "widthCells": 1.5,
+          "heightCells": 1.75,
+          "pivotX": 0.5,
+          "pivotY": 0.13676586747169495,
+          "pixelWidth": 384,
+          "pixelHeight": 448,
+          "sha256": "54ad8210888c0c4324f11172f44ae664f42c548497e7cc8fd09d45609e074ab9"
+        },
+        {
+          "path": "art/proof/rendered/regions/officer.rifle.suit.walk.west.06.png",
+          "widthCells": 1.5,
+          "heightCells": 1.75,
+          "pivotX": 0.5,
+          "pivotY": 0.13676586747169495,
+          "pixelWidth": 384,
+          "pixelHeight": 448,
+          "sha256": "f343d4d4d6fe951826ec8f8bf40e8626577c9571f9d35987aeabcad77312da91"
+        },
+        {
+          "path": "art/proof/rendered/regions/officer.rifle.suit.walk.west.07.png",
+          "widthCells": 1.5,
+          "heightCells": 1.75,
+          "pivotX": 0.5,
+          "pivotY": 0.13676586747169495,
+          "pixelWidth": 384,
+          "pixelHeight": 448,
+          "sha256": "a705cc9b001deb39c3b946f641246037c9cc6f9baaf5560319e7953a03723661"
+        },
+        {
+          "path": "art/proof/rendered/regions/officer.rifle.suit.walk.west.08.png",
+          "widthCells": 1.5,
+          "heightCells": 1.75,
+          "pivotX": 0.5,
+          "pivotY": 0.13676586747169495,
+          "pixelWidth": 384,
+          "pixelHeight": 448,
+          "sha256": "bb2a972563b881274e46987baf58fc19dc905b6117089cadf2c9bb3d75a2d613"
+        },
+        {
+          "path": "art/proof/rendered/regions/officer.rifle.suit.walk.west.09.png",
+          "widthCells": 1.5,
+          "heightCells": 1.75,
+          "pivotX": 0.5,
+          "pivotY": 0.13676586747169495,
+          "pixelWidth": 384,
+          "pixelHeight": 448,
+          "sha256": "beddff396ae485666513d51920559313fd26e99efa77f6a9f85a1a6f6f3b8428"
+        },
+        {
+          "path": "art/proof/rendered/regions/officer.rifle.suit.walk.west.10.png",
+          "widthCells": 1.5,
+          "heightCells": 1.75,
+          "pivotX": 0.5,
+          "pivotY": 0.13676586747169495,
+          "pixelWidth": 384,
+          "pixelHeight": 448,
+          "sha256": "6700cc2bab41800f1afa0044f912a2d629d7bdd6633a150ce7d0811e741afe3e"
+        },
+        {
+          "path": "art/proof/rendered/regions/officer.rifle.suit.walk.west.11.png",
+          "widthCells": 1.5,
+          "heightCells": 1.75,
+          "pivotX": 0.5,
+          "pivotY": 0.13676586747169495,
+          "pixelWidth": 384,
+          "pixelHeight": 448,
+          "sha256": "4873ab5ba4fece141bfc210739a7362a05b98991961943ef47a338f59e060f07"
+        }
+      ],
+      "markers": [
+        {
+          "kind": "contact",
+          "frame": 0,
+          "foot": "left"
+        },
+        {
+          "kind": "contact",
+          "frame": 6,
+          "foot": "right"
+        }
+      ]
+    },
+    {
+      "id": "officer.rifle.suit.idle.west",
+      "frameSeconds": 0.041666666666666664,
+      "loop": false,
+      "cycleDistanceCells": 0,
+      "equipment": "rifle",
+      "armor": "suit",
+      "frames": [
+        {
+          "path": "art/proof/rendered/regions/officer.rifle.suit.idle.west.00.png",
+          "widthCells": 1.5,
+          "heightCells": 1.75,
+          "pivotX": 0.5,
+          "pivotY": 0.13676586747169495,
+          "pixelWidth": 384,
+          "pixelHeight": 448,
+          "sha256": "3097958b4fc395030da466222a6dc72d15effb86bca016f2135dc47f860135d7"
+        }
+      ],
+      "markers": []
+    },
+    {
+      "id": "officer.rifle.suit.aim.west",
+      "frameSeconds": 0.041666666666666664,
+      "loop": false,
+      "cycleDistanceCells": 0,
+      "equipment": "rifle",
+      "armor": "suit",
+      "frames": [
+        {
+          "path": "art/proof/rendered/regions/officer.rifle.suit.aim.west.00.png",
+          "widthCells": 1.5,
+          "heightCells": 1.75,
+          "pivotX": 0.5,
+          "pivotY": 0.13676586747169495,
+          "pixelWidth": 384,
+          "pixelHeight": 448,
+          "sha256": "8a500bb64007b26bea46734fec32cb96144b4a6e2ec32a92e2627780e1bc8595"
+        }
+      ],
+      "markers": []
+    },
+    {
+      "id": "officer.pistol.heavy.walk.west",
+      "frameSeconds": 0.041666666666666664,
+      "loop": true,
+      "cycleDistanceCells": 1,
+      "equipment": "pistol",
+      "armor": "heavy",
+      "frames": [
+        {
+          "path": "art/proof/rendered/regions/officer.pistol.heavy.walk.west.00.png",
+          "widthCells": 1.5,
+          "heightCells": 1.75,
+          "pivotX": 0.5,
+          "pivotY": 0.13676586747169495,
+          "pixelWidth": 384,
+          "pixelHeight": 448,
+          "sha256": "41dd7ea64c4904606ef28b3052e785e122a14aa9520fcfc1a8c8a2b6da6ffdea"
+        },
+        {
+          "path": "art/proof/rendered/regions/officer.pistol.heavy.walk.west.01.png",
+          "widthCells": 1.5,
+          "heightCells": 1.75,
+          "pivotX": 0.5,
+          "pivotY": 0.13676586747169495,
+          "pixelWidth": 384,
+          "pixelHeight": 448,
+          "sha256": "43366ee80d67d658678e7e15cecf50d4152c7b972ba2754e78a06ee19762779c"
+        },
+        {
+          "path": "art/proof/rendered/regions/officer.pistol.heavy.walk.west.02.png",
+          "widthCells": 1.5,
+          "heightCells": 1.75,
+          "pivotX": 0.5,
+          "pivotY": 0.13676586747169495,
+          "pixelWidth": 384,
+          "pixelHeight": 448,
+          "sha256": "fc42f31d6eb2c8816016fb12865d40732c46d8244daaf48d2a1a77a3567f51ee"
+        },
+        {
+          "path": "art/proof/rendered/regions/officer.pistol.heavy.walk.west.03.png",
+          "widthCells": 1.5,
+          "heightCells": 1.75,
+          "pivotX": 0.5,
+          "pivotY": 0.13676586747169495,
+          "pixelWidth": 384,
+          "pixelHeight": 448,
+          "sha256": "85b83cc1deb017e308b9c8dd7ec361bf1967e61e044c67d97d4b1cb463b61683"
+        },
+        {
+          "path": "art/proof/rendered/regions/officer.pistol.heavy.walk.west.04.png",
+          "widthCells": 1.5,
+          "heightCells": 1.75,
+          "pivotX": 0.5,
+          "pivotY": 0.13676586747169495,
+          "pixelWidth": 384,
+          "pixelHeight": 448,
+          "sha256": "b45c27e09697ccb4461e02b63b74ee7d6c6219a0cf381be73e9cb539e153c9ac"
+        },
+        {
+          "path": "art/proof/rendered/regions/officer.pistol.heavy.walk.west.05.png",
+          "widthCells": 1.5,
+          "heightCells": 1.75,
+          "pivotX": 0.5,
+          "pivotY": 0.13676586747169495,
+          "pixelWidth": 384,
+          "pixelHeight": 448,
+          "sha256": "6569c495a30c2b2ff9c79848fa9aa7a479003f72306f0fb68df78160315ef3ef"
+        },
+        {
+          "path": "art/proof/rendered/regions/officer.pistol.heavy.walk.west.06.png",
+          "widthCells": 1.5,
+          "heightCells": 1.75,
+          "pivotX": 0.5,
+          "pivotY": 0.13676586747169495,
+          "pixelWidth": 384,
+          "pixelHeight": 448,
+          "sha256": "b9c2008e7e26d56b4776d94673650559ae479439b3d62c5f5e9dc9a2320e1924"
+        },
+        {
+          "path": "art/proof/rendered/regions/officer.pistol.heavy.walk.west.07.png",
+          "widthCells": 1.5,
+          "heightCells": 1.75,
+          "pivotX": 0.5,
+          "pivotY": 0.13676586747169495,
+          "pixelWidth": 384,
+          "pixelHeight": 448,
+          "sha256": "a705ef71005655e361f34881ef62ec8b797af28e866247e913057d8088f00cf5"
+        },
+        {
+          "path": "art/proof/rendered/regions/officer.pistol.heavy.walk.west.08.png",
+          "widthCells": 1.5,
+          "heightCells": 1.75,
+          "pivotX": 0.5,
+          "pivotY": 0.13676586747169495,
+          "pixelWidth": 384,
+          "pixelHeight": 448,
+          "sha256": "bfc6e6fb132e058a43693a221a74a3d43a4d2d828f3e43ef85dd3a214733c15c"
+        },
+        {
+          "path": "art/proof/rendered/regions/officer.pistol.heavy.walk.west.09.png",
+          "widthCells": 1.5,
+          "heightCells": 1.75,
+          "pivotX": 0.5,
+          "pivotY": 0.13676586747169495,
+          "pixelWidth": 384,
+          "pixelHeight": 448,
+          "sha256": "eba81ac3d8891b7575a45c7748738b895434dd4f95342e226709e12b6e0bad33"
+        },
+        {
+          "path": "art/proof/rendered/regions/officer.pistol.heavy.walk.west.10.png",
+          "widthCells": 1.5,
+          "heightCells": 1.75,
+          "pivotX": 0.5,
+          "pivotY": 0.13676586747169495,
+          "pixelWidth": 384,
+          "pixelHeight": 448,
+          "sha256": "e5827e5b8adb0c2dab091e29dbd848a1f6956d34efecfbf5279529d3673718da"
+        },
+        {
+          "path": "art/proof/rendered/regions/officer.pistol.heavy.walk.west.11.png",
+          "widthCells": 1.5,
+          "heightCells": 1.75,
+          "pivotX": 0.5,
+          "pivotY": 0.13676586747169495,
+          "pixelWidth": 384,
+          "pixelHeight": 448,
+          "sha256": "954fe7eeea50c5d4990e29ec9b3742cfb10d8db6fd6bca3cc57ce14fa1d777ba"
+        }
+      ],
+      "markers": [
+        {
+          "kind": "contact",
+          "frame": 0,
+          "foot": "left"
+        },
+        {
+          "kind": "contact",
+          "frame": 6,
+          "foot": "right"
+        }
+      ]
+    },
+    {
+      "id": "officer.pistol.heavy.idle.west",
+      "frameSeconds": 0.041666666666666664,
+      "loop": false,
+      "cycleDistanceCells": 0,
+      "equipment": "pistol",
+      "armor": "heavy",
+      "frames": [
+        {
+          "path": "art/proof/rendered/regions/officer.pistol.heavy.idle.west.00.png",
+          "widthCells": 1.5,
+          "heightCells": 1.75,
+          "pivotX": 0.5,
+          "pivotY": 0.13676586747169495,
+          "pixelWidth": 384,
+          "pixelHeight": 448,
+          "sha256": "2b7f7f1f6eaaa237d481abed6d43ad884f633145190d7825cc54c3d63b4a5b24"
+        }
+      ],
+      "markers": []
+    }
+  ],
+  "bindings": [
+    {
+      "actor": "officer",
+      "weapon": "pistol",
+      "armor": "suit",
+      "action": "walk",
+      "facing": "south",
+      "clip": "officer.pistol.suit.walk.south"
+    },
+    {
+      "actor": "officer",
+      "weapon": "pistol",
+      "armor": "suit",
+      "action": "idle",
+      "facing": "south",
+      "clip": "officer.pistol.suit.idle.south"
+    },
+    {
+      "actor": "officer",
+      "weapon": "pistol",
+      "armor": "suit",
+      "action": "ready",
+      "facing": "south",
+      "clip": "officer.pistol.suit.ready.south"
+    },
+    {
+      "actor": "officer",
+      "weapon": "pistol",
+      "armor": "suit",
+      "action": "aim",
+      "facing": "south",
+      "clip": "officer.pistol.suit.aim.south"
+    },
+    {
+      "actor": "officer",
+      "weapon": "pistol",
+      "armor": "suit",
+      "action": "fire",
+      "facing": "south",
+      "clip": "officer.pistol.suit.fire.south"
+    },
+    {
+      "actor": "officer",
+      "weapon": "rifle",
+      "armor": "suit",
+      "action": "walk",
+      "facing": "south",
+      "clip": "officer.rifle.suit.walk.south"
+    },
+    {
+      "actor": "officer",
+      "weapon": "rifle",
+      "armor": "suit",
+      "action": "idle",
+      "facing": "south",
+      "clip": "officer.rifle.suit.idle.south"
+    },
+    {
+      "actor": "officer",
+      "weapon": "rifle",
+      "armor": "suit",
+      "action": "aim",
+      "facing": "south",
+      "clip": "officer.rifle.suit.aim.south"
+    },
+    {
+      "actor": "officer",
+      "weapon": "pistol",
+      "armor": "heavy",
+      "action": "walk",
+      "facing": "south",
+      "clip": "officer.pistol.heavy.walk.south"
+    },
+    {
+      "actor": "officer",
+      "weapon": "pistol",
+      "armor": "heavy",
+      "action": "idle",
+      "facing": "south",
+      "clip": "officer.pistol.heavy.idle.south"
+    },
+    {
+      "actor": "officer",
+      "weapon": "pistol",
+      "armor": "suit",
+      "action": "walk",
+      "facing": "east",
+      "clip": "officer.pistol.suit.walk.east"
+    },
+    {
+      "actor": "officer",
+      "weapon": "pistol",
+      "armor": "suit",
+      "action": "idle",
+      "facing": "east",
+      "clip": "officer.pistol.suit.idle.east"
+    },
+    {
+      "actor": "officer",
+      "weapon": "pistol",
+      "armor": "suit",
+      "action": "ready",
+      "facing": "east",
+      "clip": "officer.pistol.suit.ready.east"
+    },
+    {
+      "actor": "officer",
+      "weapon": "pistol",
+      "armor": "suit",
+      "action": "aim",
+      "facing": "east",
+      "clip": "officer.pistol.suit.aim.east"
+    },
+    {
+      "actor": "officer",
+      "weapon": "pistol",
+      "armor": "suit",
+      "action": "fire",
+      "facing": "east",
+      "clip": "officer.pistol.suit.fire.east"
+    },
+    {
+      "actor": "officer",
+      "weapon": "rifle",
+      "armor": "suit",
+      "action": "walk",
+      "facing": "east",
+      "clip": "officer.rifle.suit.walk.east"
+    },
+    {
+      "actor": "officer",
+      "weapon": "rifle",
+      "armor": "suit",
+      "action": "idle",
+      "facing": "east",
+      "clip": "officer.rifle.suit.idle.east"
+    },
+    {
+      "actor": "officer",
+      "weapon": "rifle",
+      "armor": "suit",
+      "action": "aim",
+      "facing": "east",
+      "clip": "officer.rifle.suit.aim.east"
+    },
+    {
+      "actor": "officer",
+      "weapon": "pistol",
+      "armor": "heavy",
+      "action": "walk",
+      "facing": "east",
+      "clip": "officer.pistol.heavy.walk.east"
+    },
+    {
+      "actor": "officer",
+      "weapon": "pistol",
+      "armor": "heavy",
+      "action": "idle",
+      "facing": "east",
+      "clip": "officer.pistol.heavy.idle.east"
+    },
+    {
+      "actor": "officer",
+      "weapon": "pistol",
+      "armor": "suit",
+      "action": "walk",
+      "facing": "north",
+      "clip": "officer.pistol.suit.walk.north"
+    },
+    {
+      "actor": "officer",
+      "weapon": "pistol",
+      "armor": "suit",
+      "action": "idle",
+      "facing": "north",
+      "clip": "officer.pistol.suit.idle.north"
+    },
+    {
+      "actor": "officer",
+      "weapon": "pistol",
+      "armor": "suit",
+      "action": "ready",
+      "facing": "north",
+      "clip": "officer.pistol.suit.ready.north"
+    },
+    {
+      "actor": "officer",
+      "weapon": "pistol",
+      "armor": "suit",
+      "action": "aim",
+      "facing": "north",
+      "clip": "officer.pistol.suit.aim.north"
+    },
+    {
+      "actor": "officer",
+      "weapon": "pistol",
+      "armor": "suit",
+      "action": "fire",
+      "facing": "north",
+      "clip": "officer.pistol.suit.fire.north"
+    },
+    {
+      "actor": "officer",
+      "weapon": "rifle",
+      "armor": "suit",
+      "action": "walk",
+      "facing": "north",
+      "clip": "officer.rifle.suit.walk.north"
+    },
+    {
+      "actor": "officer",
+      "weapon": "rifle",
+      "armor": "suit",
+      "action": "idle",
+      "facing": "north",
+      "clip": "officer.rifle.suit.idle.north"
+    },
+    {
+      "actor": "officer",
+      "weapon": "rifle",
+      "armor": "suit",
+      "action": "aim",
+      "facing": "north",
+      "clip": "officer.rifle.suit.aim.north"
+    },
+    {
+      "actor": "officer",
+      "weapon": "pistol",
+      "armor": "heavy",
+      "action": "walk",
+      "facing": "north",
+      "clip": "officer.pistol.heavy.walk.north"
+    },
+    {
+      "actor": "officer",
+      "weapon": "pistol",
+      "armor": "heavy",
+      "action": "idle",
+      "facing": "north",
+      "clip": "officer.pistol.heavy.idle.north"
+    },
+    {
+      "actor": "officer",
+      "weapon": "pistol",
+      "armor": "suit",
+      "action": "walk",
+      "facing": "west",
+      "clip": "officer.pistol.suit.walk.west"
+    },
+    {
+      "actor": "officer",
+      "weapon": "pistol",
+      "armor": "suit",
+      "action": "idle",
+      "facing": "west",
+      "clip": "officer.pistol.suit.idle.west"
+    },
+    {
+      "actor": "officer",
+      "weapon": "pistol",
+      "armor": "suit",
+      "action": "ready",
+      "facing": "west",
+      "clip": "officer.pistol.suit.ready.west"
+    },
+    {
+      "actor": "officer",
+      "weapon": "pistol",
+      "armor": "suit",
+      "action": "aim",
+      "facing": "west",
+      "clip": "officer.pistol.suit.aim.west"
+    },
+    {
+      "actor": "officer",
+      "weapon": "pistol",
+      "armor": "suit",
+      "action": "fire",
+      "facing": "west",
+      "clip": "officer.pistol.suit.fire.west"
+    },
+    {
+      "actor": "officer",
+      "weapon": "rifle",
+      "armor": "suit",
+      "action": "walk",
+      "facing": "west",
+      "clip": "officer.rifle.suit.walk.west"
+    },
+    {
+      "actor": "officer",
+      "weapon": "rifle",
+      "armor": "suit",
+      "action": "idle",
+      "facing": "west",
+      "clip": "officer.rifle.suit.idle.west"
+    },
+    {
+      "actor": "officer",
+      "weapon": "rifle",
+      "armor": "suit",
+      "action": "aim",
+      "facing": "west",
+      "clip": "officer.rifle.suit.aim.west"
+    },
+    {
+      "actor": "officer",
+      "weapon": "pistol",
+      "armor": "heavy",
+      "action": "walk",
+      "facing": "west",
+      "clip": "officer.pistol.heavy.walk.west"
+    },
+    {
+      "actor": "officer",
+      "weapon": "pistol",
+      "armor": "heavy",
+      "action": "idle",
+      "facing": "west",
+      "clip": "officer.pistol.heavy.idle.west"
+    }
+  ]
+}
