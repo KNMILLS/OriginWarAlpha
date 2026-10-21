@@ -1,0 +1,248 @@
+{
+  "task": "ATM-ART",
+  "baseline": "374e27c764d55adaae7a9a3b4003a5ff883de157",
+  "native_cell_pixels": 64,
+  "runtime_cell_pixels": 128,
+  "runtime_scale": 2,
+  "method": "OpenAI built-in image_gen source; deterministic crop/resample/alpha cleanup only; no Python painting of game assets",
+  "reference": "owner-player-reference.png; original owner helmet illustration, unchanged",
+  "changed_slots": {
+    "station": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      29,
+      30,
+      32,
+      33,
+      34,
+      35
+    ],
+    "sectors": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28,
+      29
+    ],
+    "actors": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      40,
+      41,
+      42,
+      43
+    ],
+    "attacks": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+    ]
+  },
+  "source_layouts": {
+    "materials.png": {
+      "columns": 5,
+      "rows": 2,
+      "slots": "sector0-4 floors,5-9 walls; station0-5"
+    },
+    "terrain.png": {
+      "columns": 5,
+      "source_y": [
+        126,
+        595
+      ],
+      "station_slots": [
+        6,
+        7,
+        11,
+        12,
+        13
+      ]
+    },
+    "props.png": {
+      "columns": 5,
+      "row_edges": [
+        0,
+        286,
+        552,
+        819,
+        1122
+      ],
+      "slots": "sector10-29"
+    },
+    "doors.png": {
+      "columns": 3,
+      "rows": 1,
+      "station_slots": [
+        8,
+        9,
+        10
+      ],
+      "hatch_reuse": [
+        17,
+        18
+      ]
+    },
+    "player-actions.png": {
+      "columns": 5,
+      "row_edges": [
+        0,
+        421,
+        793
+      ],
+      "selection": "first4 columns N/E/S/W ready/recoil; fifth collapse/prone; largest component removes adjacent-frame fragments"
+    },
+    "player-east-four.png": {
+      "columns": 4,
+      "rows": 1,
+      "selection": "east phases; mirrored west"
+    },
+    "player-north-south-four.png": {
+      "columns": 4,
+      "row_edges": [
+        0,
+        426,
+        887
+      ],
+      "selection": "cols0,1,3 become phases0,1,3 for N/S; largest component and tight-height normalization remove boundary fragments and inconsistent source-grid scale"
+    },
+    "player-walk-four-initial.png": {
+      "columns": 4,
+      "row_edges": [
+        0,
+        313,
+        621,
+        932,
+        1241
+      ],
+      "selection": "N row0col3, S row2col1 become phase2; wrong-facing east frame excluded"
+    },
+    "player-walk-initial.png": {
+      "selection": "retained initial identity reference; not exported"
+    }
+  },
+  "player_walk": {
+    "path": "assets/art/atmosphere/player-walk.png",
+    "columns": 4,
+    "rows": 4,
+    "row_facings": [
+      "north",
+      "east",
+      "south",
+      "west"
+    ],
+    "phase_columns": 4,
+    "anchor_native": [
+      32,
+      60
+    ],
+    "west": "horizontal reflection of the corrected east poses"
+  },
+  "sources": {
+    "assets/art/atmosphere/source/baseline/actors-native.png": "1ac2fa0ce473b1ec621821ced8f9d08763fdb3b966d4dd5dc824cdfc08fe92b3",
+    "assets/art/atmosphere/source/baseline/attack-native.png": "cbdfd8beb8b44f8fe5ed7fcff0cc625f722f8a9da07315264b012f79fd3a46a2",
+    "assets/art/atmosphere/source/baseline/sectors-native.png": "53925da2630f2948852ddb6cb3cee267ebc695555c58d39c650784a64c082637",
+    "assets/art/atmosphere/source/baseline/station-native.png": "4567134f6aa2598ef424f2d39b825aadf704fdb537f93adc8da9b9ad55430c7f",
+    "assets/art/atmosphere/source/doors.png": "7cde536a015c0fac238757ab8ef534e8e1d7b310deb19a881404138ebd39a44a",
+    "assets/art/atmosphere/source/materials.png": "3bec9fdf299cbf10ed90f04e0256e7355a9e6188e9c782c65c79f356bbf13462",
+    "assets/art/atmosphere/source/owner-player-reference.png": "5ca47c3532a5a7d80247753fef399c29ba719382f30f0464c625587db2d5930e",
+    "assets/art/atmosphere/source/player-actions.png": "51c1fc601cd49cc1dabb5748f66feb89f4ead8a0c372b124411729fd96d0c4de",
+    "assets/art/atmosphere/source/player-east-four.png": "7eb2a316e63ce049074904a5f8a902d15eb14dbba84b36fc18b88c7bce397d69",
+    "assets/art/atmosphere/source/player-north-south-four.png": "4badff00d3a15b61fda40e0d9496d22a9d2c9f8091d1a2dab698aad8c1d71ec8",
+    "assets/art/atmosphere/source/player-walk-four-initial.png": "7dc38e04dae8aed15730619bf55cc7ec48898202d159704ba637077b6a06c373",
+    "assets/art/atmosphere/source/player-walk-initial.png": "71588f82d0315bd520471c6a4501a33f003a1785c236a153c63032dcc32adba6",
+    "assets/art/atmosphere/source/props.png": "7cdb773c1c5fd96687c02c1d53953527d29fe46cf496bf8d6cf55b7488e5dc43",
+    "assets/art/atmosphere/source/terrain.png": "5486ad85d2a94359b9a1bc097b758a5f1f2ae2959fd4aa14b7050e2e5dad3dc5"
+  },
+  "authoring_request_records": {
+    "assets/art/atmosphere/source/prompts/01-materials.txt": "c4054ed9d14ef0ee59394f091b0bbf39a4fcc4b3d46bce379f1ddcd379332cdb",
+    "assets/art/atmosphere/source/prompts/02-props.txt": "7eb96a27f3a05e558425a44dafae200e68248c7dda93e5d63740f396529b37ea",
+    "assets/art/atmosphere/source/prompts/03-player-initial.txt": "d52af25a81a66e908ba354922363b4abdd5e6e01b60ab13495da922ed44e97b7",
+    "assets/art/atmosphere/source/prompts/04-player-four-initial.txt": "39038b84e4c29c5c82ab0dfa7f279c8851df8379f0cf23efed2c7139adcdb7e6",
+    "assets/art/atmosphere/source/prompts/05-player-east-four.txt": "07448392096d482091ec4996e7d464af2c9a0dd130abdd6350c2654078b17849",
+    "assets/art/atmosphere/source/prompts/06-player-actions.txt": "562f0d93d9d0c3ca959a39e59e5396962598ad21b212af8b55ce0b46a7dcbf08",
+    "assets/art/atmosphere/source/prompts/07-doors.txt": "70b88c1194eb35fd2cd72b75a873ee9c354956278ab9ac4aa67b45bf5060d55c",
+    "assets/art/atmosphere/source/prompts/08-player-north-south-four.txt": "8d7c9a6cee53011ba24467008179fb772dc3d9018e61412ad8504a15b40238f3",
+    "assets/art/atmosphere/source/prompts/09-terrain-exact.txt": "9601e7bc2122e86d2d49dea71f822f1226d66d78d524be4583266d4b65f1eccc"
+  },
+  "generation_record": {
+    "path": "assets/art/atmosphere/source/GENERATION.json",
+    "sha256": "5b04726fe9e4cf4fb442e24193d8c2880be98020171eeff38c26a98f7b871e96"
+  },
+  "baseline_runtime_identities": {
+    "path": "assets/art/atmosphere/source/baseline/runtime-identities.json",
+    "sha256": "fb2916e0238f8e105d7be7a208f5fc20b07765c6d44b1642442cd0b046b3e072"
+  },
+  "outputs": {
+    "assets/art/station.png": "43720bd326778867d3612cfb4eafeac003a439a7e6c248f0ce0224eebff92cf0",
+    "assets/art/source/station-native.png": "eecf0dbc5b1a981cf11292caa90b0fb61e7ef2212edee3462d2896ee11deee7e",
+    "assets/art/animation/actors.png": "01f155bdf0f2f3caec1984aa11907b5cab50aeef944d92018b92f88b53b4f80e",
+    "assets/art/animation/actors-native.png": "2a6ac08365c358ba496cee98a56ef60436fdfd855ac5851ab0c0a229ec283557",
+    "assets/art/animation/directional-actions/attack.png": "373ed5d05f111acb4eac7769fc9c346e58772a70b4cb207e0ab0af735c453b30",
+    "assets/art/animation/directional-actions/attack-native.png": "b7650e31cb917917cfc85d4bb2da443b286112e2c4446080084dab1e6b5f4ac9",
+    "assets/art/sectors/sectors.png": "cc456298f22a8563ea2f88fa746a2fffd7d823a175443ca680d84b9a410f67ea",
+    "assets/art/sectors/sectors-native.png": "ada44f282984e390fc71064f48666050157529b682a68d04440d91594bfd81d8",
+    "assets/art/atmosphere/player-walk.png": "8d3edaddc833fc37a077682b7faabcbeccc01c751c5fdb8f17074f8cd144df17",
+    "assets/art/atmosphere/player-walk-native.png": "2f4a854491d756b35c56684ff3411c9a536d4f1da05cba71474dcce0a998913c"
+  },
+  "limits": [
+    "Not a runtime capture or owner artistic acceptance.",
+    "Four selected source poses are supplied; walking anatomy/cadence still needs actual integration review.",
+    "Side profile weapon handedness is mirrored for west.",
+    "Attack extent differs from walking; check north aim/recoil size in engine.",
+    "All other actor/robot/human/finale frames remain unchanged pixels at runtime."
+  ]
+}

@@ -19,6 +19,9 @@ def inspect(base,name,rows):
     return x,{"native_sha256":sha(native),"atlas_sha256":sha(atlas),"columns":8,"rows":rows,
               "native_cell_pixels":32,"nearest_scale":4,"occupied_slots":rows*8}
 def main():
+    if (ART/"atmosphere"/"manifest.json").exists():
+        subprocess.run([sys.executable,str(ROOT/"tools/media/validate_atmosphere.py"),*sys.argv[1:]],check=True)
+        return
     p=argparse.ArgumentParser();p.add_argument("--verify-repeatability",action="store_true");args=p.parse_args()
     keep=[ART/"animation"/"actors.png",ART/"animation"/"actors-native.png",
           ART/"animation"/"manifest.json",ART/"sectors"/"sectors.png",ART/"sectors"/"sectors-native.png",ART/"sectors"/"manifest.json",

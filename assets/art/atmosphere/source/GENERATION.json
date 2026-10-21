@@ -1,0 +1,72 @@
+{
+  "date": "2026-10-20",
+  "tool": "OpenAI built-in image_gen",
+  "model_identifier": "not exposed by tool; not inferred",
+  "source_rasters": [
+    {
+      "path": "materials.png",
+      "tool_output_name": "exec-8a2aada1-d8cc-468c-9785-170afc608f9a.png",
+      "sha256": "3bec9fdf299cbf10ed90f04e0256e7355a9e6188e9c782c65c79f356bbf13462",
+      "selection": "selected five-zone materials"
+    },
+    {
+      "path": "props.png",
+      "tool_output_name": "exec-47f50e69-6a22-4fad-9f95-e7aa067b1a5e.png",
+      "sha256": "7cdb773c1c5fd96687c02c1d53953527d29fe46cf496bf8d6cf55b7488e5dc43",
+      "selection": "selected institutional props"
+    },
+    {
+      "path": "player-walk-initial.png",
+      "tool_output_name": "exec-99b47fb0-6d8e-4e6b-bdd2-4ea3000d5cb6.png",
+      "sha256": "71588f82d0315bd520471c6a4501a33f003a1785c236a153c63032dcc32adba6",
+      "selection": "retained initial identity; not directly exported"
+    },
+    {
+      "path": "player-walk-four-initial.png",
+      "tool_output_name": "exec-702bcfb4-2842-408b-a6e1-f45ad9dae3cf.png",
+      "sha256": "7dc38e04dae8aed15730619bf55cc7ec48898202d159704ba637077b6a06c373",
+      "selection": "first expanded failure retained; only inspected N phase2/S phase2 used"
+    },
+    {
+      "path": "player-east-four.png",
+      "tool_output_name": "exec-d756b549-5271-47ce-9852-a45cc7eaa61c.png",
+      "sha256": "7eb2a316e63ce049074904a5f8a902d15eb14dbba84b36fc18b88c7bce397d69",
+      "selection": "selected focused east four poses; mirrored west"
+    },
+    {
+      "path": "player-actions.png",
+      "tool_output_name": "exec-b195f5ec-efd7-4242-9811-6b8d6bc80f6c.png",
+      "sha256": "51c1fc601cd49cc1dabb5748f66feb89f4ead8a0c372b124411729fd96d0c4de",
+      "selection": "selected aim/recoil/collapse/prone"
+    },
+    {
+      "path": "doors.png",
+      "tool_output_name": "exec-0d6a3ad7-ab09-438a-8cb2-a591b4a719cb.png",
+      "sha256": "7cde536a015c0fac238757ab8ef534e8e1d7b310deb19a881404138ebd39a44a",
+      "selection": "selected institutional door states"
+    },
+    {
+      "path": "player-north-south-four.png",
+      "tool_output_name": "exec-07c307fc-adcc-43f5-9129-ba81f362d206.png",
+      "sha256": "4badff00d3a15b61fda40e0d9496d22a9d2c9f8091d1a2dab698aad8c1d71ec8",
+      "selection": "selected focused north/south phases0,1,3"
+    },
+    {
+      "path": "terrain.png",
+      "tool_output_name": "exec-6858caf2-acb7-4e0f-a607-4717337eff18.png",
+      "sha256": "5486ad85d2a94359b9a1bc097b758a5f1f2ae2959fd4aa14b7050e2e5dad3dc5",
+      "selection": "selected corner/glass/special floors; actual y126:595 excludes white padding"
+    }
+  ],
+  "owner_reference": {
+    "path": "owner-player-reference.png",
+    "origin": "legacy/core/assets/playerTexture.png",
+    "status": "owner-authored identity reference supplied by project; original unchanged; no blanket relicense"
+  },
+  "prompts": {
+    "directory": "prompts",
+    "records_01_through_08": "readable faithful authoring-request constraints, explicitly not token-for-token transcripts",
+    "record_09": "exact final terrain tool prompt"
+  },
+  "runtime_scope": "source/export/contact inspection only; integration and owner acceptance pending"
+}

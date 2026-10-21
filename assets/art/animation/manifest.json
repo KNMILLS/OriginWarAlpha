@@ -7,8 +7,8 @@
     "columns": 8,
     "rows": 8,
     "cell_pixels": 128,
-    "native_cell_pixels": 32,
-    "nearest_scale": 4,
+    "native_cell_pixels": 64,
+    "nearest_scale": 2,
     "alpha": "RGBA"
   },
   "layout": "Rows0-4 player/alice/sirs/add/rover; columns north2,east2,south2,west2. Row5 playerAttack2/playerDeath2/SIRSattack2/SIRSdeath2. Row6 ADDattack2/ADDdeath2/ROVERarmed2/ROVERexplosion2. Row7 camera2/turret2/operator2/Constructor2.",
@@ -1902,5 +1902,9 @@
       "path": "assets/art/animation/source/sirs.png",
       "sha256": "c9db22469dab3f09ee4867b9cdc37cd5ea21c61de076309a52c8a89b8f48f948"
     }
-  ]
+  ],
+  "atmosphere_override": "assets/art/atmosphere/manifest.json",
+  "atmosphere_note": "Historical source/layout entries below describe the preserved prior pass. The ATM-ART override identifies current64px native crops and changed slots; runtime128px cells are unchanged.",
+  "current_export": "tools/media/pack_atmosphere.py",
+  "current_reference_station_sha256": "43720bd326778867d3612cfb4eafeac003a439a7e6c248f0ce0224eebff92cf0"
 }

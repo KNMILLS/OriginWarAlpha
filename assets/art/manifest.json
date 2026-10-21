@@ -15,8 +15,8 @@
     "columns": 8,
     "rows": 8,
     "cell_pixels": 128,
-    "native_cell_pixels": 32,
-    "nearest_neighbor_scale": 4,
+    "native_cell_pixels": 64,
+    "nearest_neighbor_scale": 2,
     "alpha": "RGBA; slot63 intentionally empty"
   },
   "source_rasters": [
@@ -1257,5 +1257,9 @@
       ],
       "source": "station-cleaned-generated.png"
     }
-  ]
+  ],
+  "atmosphere_override": "assets/art/atmosphere/manifest.json",
+  "atmosphere_note": "Historical source/layout entries below describe the preserved prior pass. The ATM-ART override identifies current64px native crops and changed slots; runtime128px cells are unchanged.",
+  "current_export": "tools/media/pack_atmosphere.py",
+  "current_reference_station_sha256": "43720bd326778867d3612cfb4eafeac003a439a7e6c248f0ce0224eebff92cf0"
 }

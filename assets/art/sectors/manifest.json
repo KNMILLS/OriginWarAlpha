@@ -7,8 +7,8 @@
     "columns": 8,
     "rows": 4,
     "cell_pixels": 128,
-    "native_cell_pixels": 32,
-    "nearest_scale": 4
+    "native_cell_pixels": 64,
+    "nearest_scale": 2
   },
   "layout": "0-4 floors;5-9 matching walls;10-14 furniture;15-19 console/light;20-24 clutter;25-29 story anchors, always docking/habitation/medical/industry/command.30 escapePod,31 MarsWindow.",
   "provenance": "Original OpenAI built-in image_gen artwork using existing original project art as palette/material reference, with recorded prompts. No external pack, stock or legacy artwork.",
@@ -850,5 +850,9 @@
       ],
       "alpha_cutoff": 32
     }
-  ]
+  ],
+  "atmosphere_override": "assets/art/atmosphere/manifest.json",
+  "atmosphere_note": "Historical source/layout entries below describe the preserved prior pass. The ATM-ART override identifies current64px native crops and changed slots; runtime128px cells are unchanged.",
+  "current_export": "tools/media/pack_atmosphere.py",
+  "current_reference_station_sha256": "43720bd326778867d3612cfb4eafeac003a439a7e6c248f0ce0224eebff92cf0"
 }
