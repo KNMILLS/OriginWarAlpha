@@ -1,0 +1,252 @@
+{
+  "version": 1,
+  "referenceCellPixels": 256,
+  "pivotOrigin": "bottom-left",
+  "pathRoot": "assets",
+  "regions": [
+    {
+      "name": "wall.bulkhead",
+      "path": "art/proof/environment/regions/wall.bulkhead.png",
+      "widthCells": 1.1015625,
+      "heightCells": 0.92578125,
+      "pivotX": 0.5,
+      "pivotY": 0,
+      "layer": "world",
+      "pixelWidth": 282,
+      "pixelHeight": 237,
+      "source": "environment-master.png",
+      "sourceCrop": [
+        15,
+        15,
+        552,
+        478
+      ],
+      "alphaTrim": [
+        10,
+        13,
+        532,
+        453
+      ],
+      "sha256": "12cbbe6b05913541b7f0f50f785fe2bd4299dce0809cea69417967be1e0ed419"
+    },
+    {
+      "name": "door.closed",
+      "path": "art/proof/environment/regions/door.closed.png",
+      "widthCells": 1.1484375,
+      "heightCells": 1.1328125,
+      "pivotX": 0.5,
+      "pivotY": 0,
+      "layer": "world",
+      "pixelWidth": 294,
+      "pixelHeight": 290,
+      "source": "environment-master.png",
+      "sourceCrop": [
+        568,
+        15,
+        1030,
+        478
+      ],
+      "alphaTrim": [
+        7,
+        11,
+        456,
+        454
+      ],
+      "sha256": "8d8dc73dc2e44f04cb870875ca53da6f4f4916b3e286d238e162302552f2c47f"
+    },
+    {
+      "name": "door.open",
+      "path": "art/proof/environment/regions/door.open.png",
+      "widthCells": 1.1484375,
+      "heightCells": 1.12890625,
+      "pivotX": 0.5,
+      "pivotY": 0,
+      "layer": "world",
+      "pixelWidth": 294,
+      "pixelHeight": 289,
+      "source": "environment-master.png",
+      "sourceCrop": [
+        1048,
+        15,
+        1520,
+        478
+      ],
+      "alphaTrim": [
+        6,
+        12,
+        457,
+        454
+      ],
+      "sha256": "1ebb3119cb1f4a43bc2460ae8fc0b9d3120f17f0414a17ced3d09adb7167c586"
+    },
+    {
+      "name": "prop.workbench",
+      "path": "art/proof/environment/regions/prop.workbench.png",
+      "widthCells": 1.69921875,
+      "heightCells": 1.24609375,
+      "pivotX": 0.5,
+      "pivotY": 0,
+      "layer": "world",
+      "pixelWidth": 435,
+      "pixelHeight": 319,
+      "source": "environment-master.png",
+      "sourceCrop": [
+        20,
+        492,
+        625,
+        962
+      ],
+      "alphaTrim": [
+        16,
+        17,
+        588,
+        436
+      ],
+      "sha256": "d85a9f1c8b87e8295be27fc8e6e001fbddbbcc50b5ebf35eef1fdccc02306da0"
+    },
+    {
+      "name": "control.switch",
+      "path": "art/proof/environment/regions/control.switch.png",
+      "widthCells": 0.71875,
+      "heightCells": 1.0859375,
+      "pivotX": 0.5,
+      "pivotY": 0,
+      "layer": "world",
+      "pixelWidth": 184,
+      "pixelHeight": 278,
+      "source": "environment-master.png",
+      "sourceCrop": [
+        642,
+        492,
+        968,
+        966
+      ],
+      "alphaTrim": [
+        12,
+        7,
+        314,
+        463
+      ],
+      "sha256": "88d7b788b4f5044adfc1770cd113569c526239cbc400ee08a650eea7044ee0a6"
+    },
+    {
+      "name": "hatch.closed",
+      "path": "art/proof/environment/regions/hatch.closed.png",
+      "widthCells": 1.3984375,
+      "heightCells": 1.1796875,
+      "pivotX": 0.5,
+      "pivotY": 0,
+      "layer": "world",
+      "pixelWidth": 358,
+      "pixelHeight": 302,
+      "source": "environment-master.png",
+      "sourceCrop": [
+        990,
+        505,
+        1520,
+        980
+      ],
+      "alphaTrim": [
+        10,
+        28,
+        521,
+        459
+      ],
+      "sha256": "f797dd919fa17e9d15fedc3aaae4feb23eb0a7f27f990f99d5e13aa1d66d7501"
+    },
+    {
+      "name": "terminal.console",
+      "path": "art/proof/environment/regions/prop.workbench.png",
+      "widthCells": 1.69921875,
+      "heightCells": 1.24609375,
+      "pivotX": 0.5,
+      "pivotY": 0,
+      "layer": "world",
+      "pixelWidth": 435,
+      "pixelHeight": 319,
+      "source": "environment-master.png",
+      "sourceCrop": [
+        20,
+        492,
+        625,
+        962
+      ],
+      "alphaTrim": [
+        16,
+        17,
+        588,
+        436
+      ],
+      "sha256": "d85a9f1c8b87e8295be27fc8e6e001fbddbbcc50b5ebf35eef1fdccc02306da0",
+      "aliasOf": "prop.workbench"
+    },
+    {
+      "name": "floor.security",
+      "path": "art/proof/environment/regions/floor.security.png",
+      "widthCells": 1,
+      "heightCells": 1,
+      "pivotX": 0,
+      "pivotY": 0,
+      "layer": "ground",
+      "source": "floor-master.png",
+      "sourceCrop": [
+        324,
+        324,
+        616,
+        616
+      ],
+      "sha256": "80acde4f6f81560096279e36518b36b929f552989df2b98744b163fd4c6c9109"
+    },
+    {
+      "name": "floor.security.variant1",
+      "path": "art/proof/environment/regions/floor.security.variant1.png",
+      "widthCells": 1,
+      "heightCells": 1,
+      "pivotX": 0,
+      "pivotY": 0,
+      "layer": "ground",
+      "source": "floor-master.png",
+      "sourceCrop": [
+        638,
+        324,
+        930,
+        616
+      ],
+      "sha256": "8be28fc32fa2acb1e489b5e9815de9edcb0131d6a9ed24c5f06804d4f930f4ee"
+    },
+    {
+      "name": "floor.security.variant2",
+      "path": "art/proof/environment/regions/floor.security.variant2.png",
+      "widthCells": 1,
+      "heightCells": 1,
+      "pivotX": 0,
+      "pivotY": 0,
+      "layer": "ground",
+      "source": "floor-master.png",
+      "sourceCrop": [
+        324,
+        638,
+        616,
+        930
+      ],
+      "sha256": "5a963a3f5cee3810049699e9500d565f2213e9f8963262bc0bfc5754c5c726d8"
+    },
+    {
+      "name": "floor.security.variant3",
+      "path": "art/proof/environment/regions/floor.security.variant3.png",
+      "widthCells": 1,
+      "heightCells": 1,
+      "pivotX": 0,
+      "pivotY": 0,
+      "layer": "ground",
+      "source": "floor-master.png",
+      "sourceCrop": [
+        638,
+        638,
+        930,
+        930
+      ],
+      "sha256": "868afe58057f43f072918410f8db9d6a7c081eb77b7529ceef5e25404bc3b496"
+    }
+  ]
+}
