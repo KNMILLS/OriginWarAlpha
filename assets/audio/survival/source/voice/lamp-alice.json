@@ -1,0 +1,43 @@
+{
+  "speaker": "alice",
+  "text": "All right. I shall resist the urge to describe how dark it is.",
+  "text_sha256": "968a1edc57590d6151bb00abd165567d6f5b67290348ab49b34be4a368060732",
+  "source_key": "lamp-alice",
+  "engine": "Qwen3-TTS-VoiceDesign",
+  "model_revision": "5ecdb67327fd37bb2e042aab12ff7391903235d3",
+  "instruct": "An adult woman with a cool low American voice. Clear precise diction. She is scared and tries to disguise it with dry, bitter sarcasm. Her voice is tense and slightly unsteady beneath pointed ironic emphasis. She tries hard to sound in control.",
+  "seed": 2115,
+  "language": "English",
+  "generation": {
+    "non_streaming_mode": true,
+    "max_new_tokens": 512,
+    "do_sample": true,
+    "temperature": 0.9,
+    "top_p": 1.0,
+    "top_k": 50,
+    "repetition_penalty": 1.05,
+    "subtalker_dosample": true,
+    "subtalker_temperature": 0.9,
+    "subtalker_top_k": 50,
+    "subtalker_top_p": 1.0
+  },
+  "source_wav": "lamp-alice-dry.wav",
+  "source_rate": 24000,
+  "source_subtype": "PCM_24",
+  "seconds": 5.52,
+  "finite": true,
+  "peak_linear": 0.58203125,
+  "sha256": "5f7a0a56d9a657990652412564eca8cd7541b930dd808e7f374781bd16a9ef2f",
+  "elapsed_seconds": 19.78200000000652,
+  "versions": {
+    "qwen-tts": "0.1.1",
+    "torch": "2.6.0+cu124",
+    "transformers": "4.57.3",
+    "accelerate": "1.12.0",
+    "numpy": "2.5.4",
+    "soundfile": "0.14.0"
+  },
+  "plan_sha256": "36491130765dcdd43ced6d81ad1a65091f0caaee49fe243484a993f4665eafd3",
+  "generator_sha256": "e59f6674b3c302944f1d18792b6d3752ae63b313c36bd7a1439b387710f97550",
+  "quality_scope": "Generated candidate. Exact input/hash/header is not proof of output words, voice consistency or acting quality."
+}

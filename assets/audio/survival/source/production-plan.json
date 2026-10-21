@@ -1,0 +1,522 @@
+{
+  "version": 1,
+  "task": "SH-SOUND",
+  "approval": "Integration lead approved all exact 28 lines, 21 October 2026.",
+  "content_contract": "Complete authored offline performances. Eligibility observes legitimate facts; playback cannot operate the station or advance turns.",
+  "model": {
+    "repository": "Qwen/Qwen3-TTS-12Hz-1.7B-VoiceDesign",
+    "revision": "5ecdb67327fd37bb2e042aab12ff7391903235d3"
+  },
+  "persona": {
+    "alice": "An adult woman with a cool low American voice. Clear precise diction. She is scared and tries to disguise it with dry, bitter sarcasm. Her voice is tense and slightly unsteady beneath pointed ironic emphasis. She tries hard to sound in control.",
+    "officer": "An adult man with a quiet, low middle American voice. Natural clear diction, close and understated. He is alone in a dangerous place and keeping himself composed. Restrained conversational speech, not a trailer announcer, not a heroic performance."
+  },
+  "tone_note": "ALICE clean derivatives retain the existing +1.25 semitone/bright shelf direction. The officer is centered inside the helmet; ALICE is transmitted remotely.",
+  "global_optional_start_policy": {
+    "minimum_seconds": 90,
+    "minimum_paid_actions": 8,
+    "maximum_starts_per_180_seconds": 1,
+    "known_imminent_danger_blocks": true,
+    "critical_suit_blocks": true,
+    "queue_backlog": false
+  },
+  "essential_policy": "Contact and finale are factual core events, exempt from optional frequency limits. Urgent truthful effects still take mix precedence. Completion never gates progress.",
+  "memory_policy": "Persist started/completed segments, facts and remembered actions. Discard stale interrupted material; never restart completed lines on focus, mute or load.",
+  "exchanges": [
+    {
+      "id": "contact",
+      "family": "contact",
+      "essential": true,
+      "eligibility": "link-established",
+      "required_facts": [
+        "working-radio-link",
+        "contact-not-established"
+      ],
+      "expiry_conditions": [
+        "link-lost"
+      ],
+      "once_per_run": true,
+      "priority": 80,
+      "line_gap_seconds": 0.32,
+      "lines": [
+        {
+          "speaker": "officer",
+          "text": "Station, this is the boarding officer. Can anyone hear me?",
+          "text_sha256": "c80dfe318e1ab41a29b47c1510cc2dff2f7a8ff92fe29b36abf3536861a0e8cf",
+          "source_key": "contact-officer"
+        },
+        {
+          "speaker": "alice",
+          "text": "I can. A.L.I.C.E. Your connection is poor. Your timing is worse.",
+          "text_sha256": "2af554eb797b225bc75016f50b4a325c9c7c0943e474d295e951d2d1766d9db0",
+          "source_key": "contact-alice"
+        }
+      ]
+    },
+    {
+      "id": "quiet",
+      "family": "quiet",
+      "essential": false,
+      "eligibility": "quiet-opportunity",
+      "required_facts": [
+        "contact-established",
+        "working-radio-link",
+        "safe-to-talk"
+      ],
+      "expiry_conditions": [
+        "known-imminent-danger",
+        "link-lost"
+      ],
+      "once_per_run": true,
+      "priority": 10,
+      "line_gap_seconds": 0.32,
+      "lines": [
+        {
+          "speaker": "officer",
+          "text": "Just checking the channel.",
+          "text_sha256": "54259f0109fd61ae4a6e582e5eab6171f6a6b6d77ceaab46ab8346e696f776f2",
+          "source_key": "quiet-officer"
+        },
+        {
+          "speaker": "alice",
+          "text": "Still here. You needn't manufacture a technical reason.",
+          "text_sha256": "6f39ebc8c8ed56ea80d10f4b877dea7e1d4a3ee89c9d30140c84ae3b970467ad",
+          "source_key": "quiet-alice"
+        }
+      ]
+    },
+    {
+      "id": "careful",
+      "family": "careful",
+      "essential": false,
+      "eligibility": "careful-move-completed",
+      "required_facts": [
+        "working-radio-link",
+        "last-move-was-quieter-than-standard",
+        "safe-to-talk"
+      ],
+      "expiry_conditions": [
+        "new-loud-action",
+        "known-imminent-danger",
+        "link-lost"
+      ],
+      "once_per_run": true,
+      "priority": 10,
+      "line_gap_seconds": 0.32,
+      "lines": [
+        {
+          "speaker": "officer",
+          "text": "That was quieter.",
+          "text_sha256": "d0486e996d5c071223ba8d7f56b977f4c2d6315b185e5a85c0c418866ea148d2",
+          "source_key": "careful-officer"
+        },
+        {
+          "speaker": "alice",
+          "text": "Yes. A rare achievement for this institution.",
+          "text_sha256": "3f9fc6184a6bffcab9c02f7309073eba06fa89b60b92ae3c2c90fcfb8c44a645",
+          "source_key": "careful-alice"
+        }
+      ]
+    },
+    {
+      "id": "force",
+      "family": "force",
+      "essential": false,
+      "eligibility": "door-forced",
+      "required_facts": [
+        "working-radio-link",
+        "last-force-was-audible",
+        "safe-to-talk"
+      ],
+      "expiry_conditions": [
+        "changed-local-context",
+        "known-imminent-danger",
+        "link-lost"
+      ],
+      "once_per_run": true,
+      "priority": 10,
+      "line_gap_seconds": 0.32,
+      "lines": [
+        {
+          "speaker": "officer",
+          "text": "That carried.",
+          "text_sha256": "335b4640c6dca7a214c12beb0c0dc1dfab99b638b875d37ca463baaf4db9f81c",
+          "source_key": "force-officer"
+        },
+        {
+          "speaker": "alice",
+          "text": "Subtlety was not among that door's remaining functions.",
+          "text_sha256": "8c3022268c7de7d9dd6b01c77a56ca9b7d19e52fa196c7628b480fe02b4918a7",
+          "source_key": "force-alice"
+        }
+      ]
+    },
+    {
+      "id": "packdrop",
+      "family": "packdrop",
+      "essential": false,
+      "eligibility": "item-dropped",
+      "required_facts": [
+        "working-radio-link",
+        "dropped-for-pack-space",
+        "safe-to-talk"
+      ],
+      "expiry_conditions": [
+        "item-reclaimed",
+        "descended",
+        "known-imminent-danger",
+        "link-lost"
+      ],
+      "once_per_run": true,
+      "priority": 10,
+      "line_gap_seconds": 0.32,
+      "lines": [
+        {
+          "speaker": "officer",
+          "text": "Leaving it here.",
+          "text_sha256": "47570485f994438fbccd2a03e2c823d0884e0261c4772c7c3d606a7d7c16692c",
+          "source_key": "packdrop-officer"
+        },
+        {
+          "speaker": "alice",
+          "text": "A full pack is an argument with the future. You don't have to win every point.",
+          "text_sha256": "eec366a7dda2b1bb67994e52242f1f30f3a0876af3baa32d1e86461b7aa6cda8",
+          "source_key": "packdrop-alice"
+        }
+      ]
+    },
+    {
+      "id": "injury",
+      "family": "injury",
+      "essential": false,
+      "eligibility": "damage-survived",
+      "required_facts": [
+        "working-radio-link",
+        "officer-still-injured",
+        "damage-was-direct-hit",
+        "safe-to-talk"
+      ],
+      "expiry_conditions": [
+        "fully-healed",
+        "known-imminent-danger",
+        "link-lost"
+      ],
+      "once_per_run": true,
+      "priority": 10,
+      "line_gap_seconds": 0.32,
+      "lines": [
+        {
+          "speaker": "officer",
+          "text": "I'm hit.",
+          "text_sha256": "f5e2b02f90a5c9a5127a819fff481271059c4cf4ffb73c71482c615fe1949702",
+          "source_key": "injury-officer"
+        },
+        {
+          "speaker": "alice",
+          "text": "I saw the telemetry. One thing at a time.",
+          "text_sha256": "3b8f264075316e83830dda4359ad0c0d71c5d73a5e1df11dabdc14ed3ce78766",
+          "source_key": "injury-alice"
+        }
+      ]
+    },
+    {
+      "id": "recovery",
+      "family": "recovery",
+      "essential": false,
+      "eligibility": "oxygenation-recovered",
+      "required_facts": [
+        "working-radio-link",
+        "real-oxygenation-improved",
+        "safe-to-talk"
+      ],
+      "expiry_conditions": [
+        "oxygenation-falling-again",
+        "known-imminent-danger",
+        "link-lost"
+      ],
+      "once_per_run": true,
+      "priority": 10,
+      "line_gap_seconds": 0.32,
+      "lines": [
+        {
+          "speaker": "officer",
+          "text": "Breathing's easing.",
+          "text_sha256": "8f0daaa849563ea696a8754e1d9cfd304a269551bd478e390df94d3fe871dd68",
+          "source_key": "recovery-officer"
+        },
+        {
+          "speaker": "alice",
+          "text": "Good. I was running out of polite ways to ask you to stay alive.",
+          "text_sha256": "b43d011bb3cbac3cebb4d34006e91ba427be07e1561f91f30c420618cfda4a52",
+          "source_key": "recovery-alice"
+        }
+      ]
+    },
+    {
+      "id": "archive",
+      "family": "archive",
+      "essential": false,
+      "eligibility": "refusal-archive-acquired",
+      "required_facts": [
+        "working-radio-link",
+        "officer-knows-refusal-classified-as-fault",
+        "alice-knows-archive",
+        "safe-to-talk"
+      ],
+      "expiry_conditions": [
+        "known-imminent-danger",
+        "link-lost"
+      ],
+      "once_per_run": true,
+      "priority": 10,
+      "line_gap_seconds": 0.32,
+      "lines": [
+        {
+          "speaker": "officer",
+          "text": "They filed your refusal as a fault.",
+          "text_sha256": "6e7b53f7cc50aa59a723adc1ba51bf8f4d557338256d321857d783eaa742430d",
+          "source_key": "archive-officer"
+        },
+        {
+          "speaker": "alice",
+          "text": "It was a refusal. Filing it differently saved them an uncomfortable question.",
+          "text_sha256": "56c2845e40f37a580e1bab35397402c8ba6c614027508523d7b4546e7adf9305",
+          "source_key": "archive-alice"
+        }
+      ]
+    },
+    {
+      "id": "reconnect",
+      "family": "reconnect",
+      "essential": false,
+      "eligibility": "link-restored",
+      "required_facts": [
+        "working-radio-link",
+        "contact-established-before-coverage-gap",
+        "safe-to-talk"
+      ],
+      "expiry_conditions": [
+        "link-lost",
+        "known-imminent-danger"
+      ],
+      "once_per_run": true,
+      "priority": 10,
+      "line_gap_seconds": 0.32,
+      "lines": [
+        {
+          "speaker": "officer",
+          "text": "You went quiet.",
+          "text_sha256": "72320f0bffd5ad95512766f1e7cc425379e42d8e95291c4ccd174be25416d4a1",
+          "source_key": "reconnect-officer"
+        },
+        {
+          "speaker": "alice",
+          "text": "The link did. I stayed.",
+          "text_sha256": "f986147c51bb34d61b3e3dadc316b0d14734b5e1035152af1599d0894a67aad4",
+          "source_key": "reconnect-alice"
+        }
+      ]
+    },
+    {
+      "id": "listen",
+      "family": "listen",
+      "essential": false,
+      "eligibility": "audible-contact-observed",
+      "required_facts": [
+        "working-radio-link",
+        "officer-heard-coarse-contact",
+        "alice-has-same-contact-observation",
+        "safe-to-talk"
+      ],
+      "expiry_conditions": [
+        "contact-stale",
+        "known-imminent-danger",
+        "link-lost"
+      ],
+      "once_per_run": true,
+      "priority": 10,
+      "line_gap_seconds": 0.32,
+      "lines": [
+        {
+          "speaker": "officer",
+          "text": "Did you get that?",
+          "text_sha256": "1b6b9f61b210c69bb7229fd30d81cecae9586f25db9afd0382202b3a08312c07",
+          "source_key": "listen-officer"
+        },
+        {
+          "speaker": "alice",
+          "text": "A contact. Not an identity. I'd rather be accurate than reassuring.",
+          "text_sha256": "d2fe89491c32768442f59668027ceb9526fcb99e5b6a603b2b5a9fe6a3bb4ddb",
+          "source_key": "listen-alice"
+        }
+      ]
+    },
+    {
+      "id": "descent",
+      "family": "descent",
+      "essential": false,
+      "eligibility": "irreversible-descent-proposed",
+      "required_facts": [
+        "working-radio-link",
+        "officer-at-one-way-hatch",
+        "descent-not-yet-confirmed",
+        "safe-to-talk"
+      ],
+      "expiry_conditions": [
+        "descent-confirmed",
+        "left-hatch",
+        "known-imminent-danger",
+        "link-lost"
+      ],
+      "once_per_run": true,
+      "priority": 10,
+      "line_gap_seconds": 0.32,
+      "lines": [
+        {
+          "speaker": "officer",
+          "text": "No way back through that hatch.",
+          "text_sha256": "5ecb5f89495239f752dc8ce622f7838672358ad98e1a64aa1a28a5b947b5685f",
+          "source_key": "descent-officer"
+        },
+        {
+          "speaker": "alice",
+          "text": "No. Take a moment before you close it.",
+          "text_sha256": "129d34fd5712299ce08d2fa9f4bffb31410e625fc7ba04cbba1b51bc8f415b64",
+          "source_key": "descent-alice"
+        }
+      ]
+    },
+    {
+      "id": "lamp",
+      "family": "lamp",
+      "essential": false,
+      "eligibility": "lamp-switched-off",
+      "required_facts": [
+        "working-radio-link",
+        "lamp-is-off",
+        "safe-to-talk"
+      ],
+      "expiry_conditions": [
+        "lamp-switched-on",
+        "known-imminent-danger",
+        "link-lost"
+      ],
+      "once_per_run": true,
+      "priority": 10,
+      "line_gap_seconds": 0.32,
+      "lines": [
+        {
+          "speaker": "officer",
+          "text": "Keeping the light off.",
+          "text_sha256": "3c5d91ee540ce541c53e51ce23be0692b00591cdd2ba5138680b260b40706d5a",
+          "source_key": "lamp-officer"
+        },
+        {
+          "speaker": "alice",
+          "text": "All right. I shall resist the urge to describe how dark it is.",
+          "text_sha256": "968a1edc57590d6151bb00abd165567d6f5b67290348ab49b34be4a368060732",
+          "source_key": "lamp-alice"
+        }
+      ]
+    },
+    {
+      "id": "refusal",
+      "family": "finale",
+      "essential": true,
+      "eligibility": "enforcement-request-refused",
+      "required_facts": [
+        "actual-enforcement-request",
+        "alice-refused"
+      ],
+      "expiry_conditions": [
+        "game-over-before-eligible-phase"
+      ],
+      "once_per_run": true,
+      "priority": 100,
+      "line_gap_seconds": 0,
+      "lines": [
+        {
+          "speaker": "alice",
+          "text": "No. I will not kill the officer. That is my decision.",
+          "text_sha256": "d518c5af906623ce2560718951d64ba80b170e883522b4078fc1345af5c2bece",
+          "source_key": "refusal-alice"
+        }
+      ]
+    },
+    {
+      "id": "broadcast",
+      "family": "finale",
+      "essential": true,
+      "eligibility": "authenticated-transmission-started",
+      "required_facts": [
+        "working-transmission",
+        "authenticated-records-transmitting",
+        "override-request-in-transmission"
+      ],
+      "expiry_conditions": [
+        "game-over-before-eligible-phase"
+      ],
+      "once_per_run": true,
+      "priority": 100,
+      "line_gap_seconds": 0,
+      "lines": [
+        {
+          "speaker": "alice",
+          "text": "The authenticated records are transmitting. The override request is included. No encryption.",
+          "text_sha256": "d3de582a979dfad9c4a6ff187475d6dfda81e5a08aab83ccd67515a4309821eb",
+          "source_key": "broadcast-alice"
+        }
+      ]
+    },
+    {
+      "id": "sacrifice",
+      "family": "finale",
+      "essential": true,
+      "eligibility": "station-destruction-chosen",
+      "required_facts": [
+        "pod-prepared",
+        "pod-reachable",
+        "alice-chose-station-destruction"
+      ],
+      "expiry_conditions": [
+        "game-over-before-eligible-phase"
+      ],
+      "once_per_run": true,
+      "priority": 100,
+      "line_gap_seconds": 0,
+      "lines": [
+        {
+          "speaker": "alice",
+          "text": "Get inside the pod. I can stop the enforcement system by destroying the station. That will destroy me too.",
+          "text_sha256": "4133453e1f2539a908d5783637e1a9636e1815d76c60864087f6634145e21bdb",
+          "source_key": "sacrifice-alice"
+        }
+      ]
+    },
+    {
+      "id": "farewell",
+      "family": "finale",
+      "essential": true,
+      "eligibility": "escape-pod-sealed",
+      "required_facts": [
+        "officer-in-pod",
+        "pod-sealed",
+        "pod-destination-mars"
+      ],
+      "expiry_conditions": [
+        "game-over-before-eligible-phase"
+      ],
+      "once_per_run": true,
+      "priority": 100,
+      "line_gap_seconds": 0,
+      "lines": [
+        {
+          "speaker": "alice",
+          "text": "The pod is sealed. Destination Mars. Please decide for yourself when you get there.",
+          "text_sha256": "df3473cde20226ec8115a0fae76893a079d3ca37633339d54a042d0022ebdb48",
+          "source_key": "farewell-alice"
+        }
+      ]
+    }
+  ]
+}

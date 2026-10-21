@@ -1,0 +1,55 @@
+{
+  "scope": "Complete unprompted offline ASR screen; fallible transcription does not prove exact audible words, speaker continuity, emotion or listener comprehension.",
+  "model": {
+    "local_directory_name": "alice-asr-small.en",
+    "files": {
+      "config.json": "666a9605530ac1f61fa8177f3702b4dacec9966749e42610839fcc32661d5fae",
+      "model.bin": "62b2a45b05ee59acb4a5341b33ee35e041395d378d418a18acfe4c9e768ee37a",
+      "tokenizer.json": "929c5252409436dce1b38a75d1abbcb5e132d170d8e324e4e04ed915fa2d22df",
+      "vocabulary.txt": "ff77588746d3a2595d32ab5b69ffd7b95ce2441ac57533cb66fc3eb575a115cf"
+    }
+  },
+  "faster_whisper": "1.2.1",
+  "records": [
+    {
+      "source_key": "recovery-alice",
+      "layer": "normal",
+      "path": "assets/audio/survival/voice/recovery-alice.ogg",
+      "sha256": "dcf1c59727a40545d04cb6f226ec4f64674788f96d79071bf3453b30b415d4c0",
+      "expected": "Good. I was running out of polite ways to ask you to stay alive.",
+      "recognized": "Good. I was running out of polite ways to ask you to stay alive.",
+      "normalized_exact": true,
+      "differences": [],
+      "segments": [
+        {
+          "start": 0.0,
+          "end": 4.02,
+          "text": " Good. I was running out of polite ways to ask you to stay alive.",
+          "avg_logprob": -0.22388260301790738,
+          "no_speech_prob": 0.014409681782126427
+        }
+      ]
+    },
+    {
+      "source_key": "recovery-alice",
+      "layer": "clear",
+      "path": "assets/audio/survival/voice/clear/recovery-alice.ogg",
+      "sha256": "ba0e1b9bf6661e17f294048bc3874e49be4630b7b0f4dfd1ba9ad24786d9a74d",
+      "expected": "Good. I was running out of polite ways to ask you to stay alive.",
+      "recognized": "Good. I was running out of polite ways to ask you to stay alive.",
+      "normalized_exact": true,
+      "differences": [],
+      "segments": [
+        {
+          "start": 0.0,
+          "end": 4.02,
+          "text": " Good. I was running out of polite ways to ask you to stay alive.",
+          "avg_logprob": -0.22779394137231926,
+          "no_speech_prob": 0.022152097895741463
+        }
+      ]
+    }
+  ],
+  "normalized_matches": 2,
+  "review_required": 0
+}

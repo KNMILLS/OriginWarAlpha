@@ -1,0 +1,43 @@
+{
+  "speaker": "officer",
+  "text": "Just checking the channel.",
+  "text_sha256": "54259f0109fd61ae4a6e582e5eab6171f6a6b6d77ceaab46ab8346e696f776f2",
+  "source_key": "quiet-officer",
+  "engine": "Qwen3-TTS-VoiceDesign",
+  "model_revision": "5ecdb67327fd37bb2e042aab12ff7391903235d3",
+  "instruct": "An adult man with a quiet, low middle American voice. Natural clear diction, close and understated. He is alone in a dangerous place and keeping himself composed. Restrained conversational speech, not a trailer announcer, not a heroic performance.",
+  "seed": 21151021,
+  "language": "English",
+  "generation": {
+    "non_streaming_mode": true,
+    "max_new_tokens": 512,
+    "do_sample": true,
+    "temperature": 0.9,
+    "top_p": 1.0,
+    "top_k": 50,
+    "repetition_penalty": 1.05,
+    "subtalker_dosample": true,
+    "subtalker_temperature": 0.9,
+    "subtalker_top_k": 50,
+    "subtalker_top_p": 1.0
+  },
+  "source_wav": "quiet-officer-dry.wav",
+  "source_rate": 24000,
+  "source_subtype": "PCM_24",
+  "seconds": 1.68,
+  "finite": true,
+  "peak_linear": 0.6640625,
+  "sha256": "f2714fd44ee93dd7eb6471ec0d99b15320f193ae045fd9ed8fb87656c64c7bb3",
+  "elapsed_seconds": 6.204000000027008,
+  "versions": {
+    "qwen-tts": "0.1.1",
+    "torch": "2.6.0+cu124",
+    "transformers": "4.57.3",
+    "accelerate": "1.12.0",
+    "numpy": "2.5.4",
+    "soundfile": "0.14.0"
+  },
+  "plan_sha256": "36491130765dcdd43ced6d81ad1a65091f0caaee49fe243484a993f4665eafd3",
+  "generator_sha256": "e59f6674b3c302944f1d18792b6d3752ae63b313c36bd7a1439b387710f97550",
+  "quality_scope": "Generated candidate. Exact input/hash/header is not proof of output words, voice consistency or acting quality."
+}

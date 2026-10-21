@@ -1,0 +1,43 @@
+{
+  "speaker": "alice",
+  "text": "It was a refusal. Filing it differently saved them an uncomfortable question.",
+  "text_sha256": "56c2845e40f37a580e1bab35397402c8ba6c614027508523d7b4546e7adf9305",
+  "source_key": "archive-alice",
+  "engine": "Qwen3-TTS-VoiceDesign",
+  "model_revision": "5ecdb67327fd37bb2e042aab12ff7391903235d3",
+  "instruct": "An adult woman with a cool low American voice. Clear precise diction. She is scared and tries to disguise it with dry, bitter sarcasm. Her voice is tense and slightly unsteady beneath pointed ironic emphasis. She tries hard to sound in control.",
+  "seed": 2115,
+  "language": "English",
+  "generation": {
+    "non_streaming_mode": true,
+    "max_new_tokens": 512,
+    "do_sample": true,
+    "temperature": 0.9,
+    "top_p": 1.0,
+    "top_k": 50,
+    "repetition_penalty": 1.05,
+    "subtalker_dosample": true,
+    "subtalker_temperature": 0.9,
+    "subtalker_top_k": 50,
+    "subtalker_top_p": 1.0
+  },
+  "source_wav": "archive-alice-dry.wav",
+  "source_rate": 24000,
+  "source_subtype": "PCM_24",
+  "seconds": 6.08,
+  "finite": true,
+  "peak_linear": 0.6953125,
+  "sha256": "5ec554f18d0bb40493d43f09351dbd49ebc60d7b287957b848c00094bb013747",
+  "elapsed_seconds": 22.92200000002049,
+  "versions": {
+    "qwen-tts": "0.1.1",
+    "torch": "2.6.0+cu124",
+    "transformers": "4.57.3",
+    "accelerate": "1.12.0",
+    "numpy": "2.5.4",
+    "soundfile": "0.14.0"
+  },
+  "plan_sha256": "36491130765dcdd43ced6d81ad1a65091f0caaee49fe243484a993f4665eafd3",
+  "generator_sha256": "e59f6674b3c302944f1d18792b6d3752ae63b313c36bd7a1439b387710f97550",
+  "quality_scope": "Generated candidate. Exact input/hash/header is not proof of output words, voice consistency or acting quality."
+}

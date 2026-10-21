@@ -1,0 +1,43 @@
+{
+  "speaker": "alice",
+  "text": "I saw the telemetry. One thing at a time.",
+  "text_sha256": "3b8f264075316e83830dda4359ad0c0d71c5d73a5e1df11dabdc14ed3ce78766",
+  "source_key": "injury-alice",
+  "engine": "Qwen3-TTS-VoiceDesign",
+  "model_revision": "5ecdb67327fd37bb2e042aab12ff7391903235d3",
+  "instruct": "An adult woman with a cool low American voice. Clear precise diction. She is scared and tries to disguise it with dry, bitter sarcasm. Her voice is tense and slightly unsteady beneath pointed ironic emphasis. She tries hard to sound in control.",
+  "seed": 2115,
+  "language": "English",
+  "generation": {
+    "non_streaming_mode": true,
+    "max_new_tokens": 512,
+    "do_sample": true,
+    "temperature": 0.9,
+    "top_p": 1.0,
+    "top_k": 50,
+    "repetition_penalty": 1.05,
+    "subtalker_dosample": true,
+    "subtalker_temperature": 0.9,
+    "subtalker_top_k": 50,
+    "subtalker_top_p": 1.0
+  },
+  "source_wav": "injury-alice-dry.wav",
+  "source_rate": 24000,
+  "source_subtype": "PCM_24",
+  "seconds": 4.48,
+  "finite": true,
+  "peak_linear": 0.48828125,
+  "sha256": "89d21b50a62b5a23932e9f0f05d74522eb0eb3d9cc60ac8fb36ba2944cf0cc2d",
+  "elapsed_seconds": 16.875,
+  "versions": {
+    "qwen-tts": "0.1.1",
+    "torch": "2.6.0+cu124",
+    "transformers": "4.57.3",
+    "accelerate": "1.12.0",
+    "numpy": "2.5.4",
+    "soundfile": "0.14.0"
+  },
+  "plan_sha256": "36491130765dcdd43ced6d81ad1a65091f0caaee49fe243484a993f4665eafd3",
+  "generator_sha256": "e59f6674b3c302944f1d18792b6d3752ae63b313c36bd7a1439b387710f97550",
+  "quality_scope": "Generated candidate. Exact input/hash/header is not proof of output words, voice consistency or acting quality."
+}

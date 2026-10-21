@@ -1,0 +1,43 @@
+{
+  "speaker": "alice",
+  "text": "A full pack is an argument with the future. You don't have to win every point.",
+  "text_sha256": "eec366a7dda2b1bb67994e52242f1f30f3a0876af3baa32d1e86461b7aa6cda8",
+  "source_key": "packdrop-alice",
+  "engine": "Qwen3-TTS-VoiceDesign",
+  "model_revision": "5ecdb67327fd37bb2e042aab12ff7391903235d3",
+  "instruct": "An adult woman with a cool low American voice. Clear precise diction. She is scared and tries to disguise it with dry, bitter sarcasm. Her voice is tense and slightly unsteady beneath pointed ironic emphasis. She tries hard to sound in control.",
+  "seed": 2115,
+  "language": "English",
+  "generation": {
+    "non_streaming_mode": true,
+    "max_new_tokens": 512,
+    "do_sample": true,
+    "temperature": 0.9,
+    "top_p": 1.0,
+    "top_k": 50,
+    "repetition_penalty": 1.05,
+    "subtalker_dosample": true,
+    "subtalker_temperature": 0.9,
+    "subtalker_top_k": 50,
+    "subtalker_top_p": 1.0
+  },
+  "source_wav": "packdrop-alice-dry.wav",
+  "source_rate": 24000,
+  "source_subtype": "PCM_24",
+  "seconds": 5.84,
+  "finite": true,
+  "peak_linear": 0.486328125,
+  "sha256": "9568c118b982006a31254ef14dd132c4ef2549e229681da7aa2c0c0663144b21",
+  "elapsed_seconds": 21.094000000040978,
+  "versions": {
+    "qwen-tts": "0.1.1",
+    "torch": "2.6.0+cu124",
+    "transformers": "4.57.3",
+    "accelerate": "1.12.0",
+    "numpy": "2.5.4",
+    "soundfile": "0.14.0"
+  },
+  "plan_sha256": "36491130765dcdd43ced6d81ad1a65091f0caaee49fe243484a993f4665eafd3",
+  "generator_sha256": "e59f6674b3c302944f1d18792b6d3752ae63b313c36bd7a1439b387710f97550",
+  "quality_scope": "Generated candidate. Exact input/hash/header is not proof of output words, voice consistency or acting quality."
+}
