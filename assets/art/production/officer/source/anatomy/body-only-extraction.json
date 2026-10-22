@@ -1,0 +1,81 @@
+{
+  "sourceOfficialArchive": "https://download.blender.org/demo/asset-bundles/human-base-meshes/human-base-meshes-bundle-v1.4.1.zip",
+  "sourcePage": "https://www.blender.org/download/demo-files/",
+  "collection": "Body Male - Realistic",
+  "author": "Dan Ulrich",
+  "description": "Realistic scan data model with multiresolution details",
+  "license": "CC0",
+  "copyright": "",
+  "sha256": "6bab9747e3651cf34bbf42a4cd26958236d22edc27cab5be2b99da4138902bc6",
+  "objects": [
+    {
+      "name": "GEO-body_male_realistic",
+      "vertices": 10582,
+      "location": [
+        -2.2643022537231445,
+        0.0,
+        0.0
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "parent": null,
+      "modifiers": [
+        [
+          "Multires",
+          "MULTIRES"
+        ]
+      ]
+    },
+    {
+      "name": "GEO-body_male_realistic.eye.L",
+      "vertices": 546,
+      "location": [
+        -2.2314207553863525,
+        -0.12182286381721497,
+        1.5737066268920898
+      ],
+      "rotation": [
+        1.570796251296997,
+        -0.0,
+        0.0
+      ],
+      "scale": [
+        0.8616507053375244,
+        0.8616507053375244,
+        0.8616507053375244
+      ],
+      "parent": "GEO-body_male_realistic",
+      "modifiers": []
+    },
+    {
+      "name": "GEO-body_male_realistic.eye.R",
+      "vertices": 546,
+      "location": [
+        -2.297226905822754,
+        -0.12182184308767319,
+        1.5737066268920898
+      ],
+      "rotation": [
+        1.570796251296997,
+        -0.0,
+        0.0
+      ],
+      "scale": [
+        0.8616507053375244,
+        0.8616507053375244,
+        0.8616507053375244
+      ],
+      "parent": "GEO-body_male_realistic",
+      "modifiers": []
+    }
+  ],
+  "scope": "Only selected collection; no unrelated rig or license text imported. Unchanged geometry, transforms, materials and modifiers."
+}

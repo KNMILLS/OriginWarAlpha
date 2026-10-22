@@ -2,11 +2,23 @@
 # One readable adult ribcage/waist mass and a connected garment under practical shells.
 loft('continuous tailored torso',[(0,0,.99,.185,.125),(0,0,1.09,.165,.115),(0,0,1.24,.20,.135),(0,0,1.38,.228,.141),(0,0,1.47,.205,.112),(0,0,1.51,.105,.084)],fabric,'torso')
 loft('continuous seat and hip garment',[(0,0,.86,.16,.115),(0,0,.94,.19,.13),(0,0,1.035,.18,.124)],fabric,'pelvis')
-plate('single shaped ribcage shell',[(-.158,-.145,1.205),(-.198,-.151,1.365),(-.145,-.145,1.465),(.145,-.145,1.465),(.198,-.151,1.365),(.158,-.145,1.205)],.022,ivory,'torso',True)
-tube('chest bottom selective contour',[(-.158,-.159,1.205),(0,-.167,1.19),(.158,-.159,1.205)],.003,steel,'torso')
+# Curved ribcage shell: normal changes belong to the modeled form, rather than a flat slab.
+rows=[(1.205,.158,-.13,-.174),(1.26,.181,-.125,-.182),(1.365,.198,-.115,-.183),(1.425,.174,-.105,-.164),(1.465,.145,-.099,-.139)]
+verts=[];faces=[];columns=13
+for z,width,edge_y,centre_y in rows:
+    for i in range(columns):
+        t=2*i/(columns-1)-1;verts.append((width*t,edge_y+(centre_y-edge_y)*(1-t*t),z))
+for j in range(len(rows)-1):
+    for i in range(columns-1):
+        a=j*columns+i;faces.append((a,a+1,a+columns+1,a+columns))
+me=bpy.data.meshes.new('curved ribcage shell');me.from_pydata(verts,[],faces);me.update()
+ob=bpy.data.objects.new('single curved ribcage shell',me);bpy.context.collection.objects.link(ob)
+solid=ob.modifiers.new('practical shell thickness','SOLIDIFY');solid.thickness=.012
+finish(ob,ob.name,ivory,'torso')
+tube('chest bottom selective contour',[(-.158,-.136,1.205),(-.08,-.169,1.205),(0,-.181,1.205),(.08,-.169,1.205),(.158,-.136,1.205)],.004,steel,'torso')
 plate('abdomen overlapping flexible enamel',[(-.13,-.132,1.075),(-.15,-.148,1.17),(0,-.16,1.19),(.15,-.148,1.17),(.13,-.132,1.075)],.014,fabric,'torso')
 for x in [-.14,.14]:
-    tube('load harness strap',[(x,-.105,1.49),(x*1.04,-.167,1.39),(x*.91,-.163,1.24),(x*.82,-.133,1.09)],.019,darkcloth,'torso')
+    tube('load harness strap',[(x,-.105,1.49),(x*1.04,-.153,1.39),(x*.91,-.165,1.24),(x*.82,-.133,1.09)],.019,darkcloth,'torso')
     box('harness practical buckle',(x,-.18,1.36),(.043,.015,.046),steel,'torso',.003)
     box('harness buckle slot',(x,-.189,1.36),(.026,.004,.02),ink,'torso',.001)
 box('small suit identifier',(-.055,-.171,1.385),(.055,.006,.012),edge,'torso',.001)
@@ -104,5 +116,5 @@ for ob in weapon_objects+[flash]:
 for source in outline_objects:
     ob=source.copy();ob.data=source.data.copy();ob.name=source.name+' selected ink edge';bpy.context.collection.objects.link(ob)
     ob.data.materials.clear();ob.data.materials.append(ink)
-    for v in ob.data.vertices:v.co+=v.normal*.004
+    for v in ob.data.vertices:v.co+=v.normal*.0055
     for p in ob.data.polygons:p.flip()

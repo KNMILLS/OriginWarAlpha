@@ -1,0 +1,4525 @@
+[
+  {
+    "collection": "Body Female - Primitive (Stylized)",
+    "properties": {},
+    "objects": [
+      {
+        "name": "GEO-neck_female_primitive_stylized",
+        "type": "MESH",
+        "vertices": 50,
+        "bounds": [
+          [
+            -3.3055307865142822,
+            -0.0834369957447052,
+            1.2367535829544067
+          ],
+          [
+            -3.161695718765259,
+            0.04862074553966522,
+            1.4084081649780273
+          ]
+        ],
+        "properties": {
+          "cycles": "<bpy id prop: owner=\"OBGEO-neck_female_primitive_stylized\", name=\"cycles\", address=0x0000012846D31260>",
+          "conform_object": "<bpy id prop: owner=\"OBGEO-neck_female_primitive_stylized\", name=\"conform_object\", address=0x0000012846D311A0>"
+        }
+      },
+      {
+        "name": "GEO-leg_upper_female_primitive_stylized.L",
+        "type": "MESH",
+        "vertices": 74,
+        "bounds": [
+          [
+            -3.229646921157837,
+            -0.11982008814811707,
+            0.43084782361984253
+          ],
+          [
+            -3.0597212314605713,
+            0.07360661774873734,
+            0.939644992351532
+          ]
+        ],
+        "properties": {
+          "cycles": "<bpy id prop: owner=\"OBGEO-leg_upper_female_primitive_stylized.L\", name=\"cycles\", address=0x0000012846D32A60>",
+          "conform_object": "<bpy id prop: owner=\"OBGEO-leg_upper_female_primitive_stylized.L\", name=\"conform_object\", address=0x0000012846D329A0>"
+        }
+      },
+      {
+        "name": "GEO-breast_female_primitive_stylized.L",
+        "type": "MESH",
+        "vertices": 52,
+        "bounds": [
+          [
+            -3.231766939163208,
+            -0.1272333562374115,
+            1.1031403541564941
+          ],
+          [
+            -3.1345348358154297,
+            -0.031416237354278564,
+            1.2449575662612915
+          ]
+        ],
+        "properties": {
+          "cycles": "<bpy id prop: owner=\"OBGEO-breast_female_primitive_stylized.L\", name=\"cycles\", address=0x0000012846D8ECA0>",
+          "conform_object": "<bpy id prop: owner=\"OBGEO-breast_female_primitive_stylized.L\", name=\"conform_object\", address=0x0000012846D8EBE0>"
+        }
+      },
+      {
+        "name": "GEO-shoulder_female_primitive_stylized.L",
+        "type": "MESH",
+        "vertices": 44,
+        "bounds": [
+          [
+            -3.1978394985198975,
+            -0.04509861022233963,
+            1.1416834592819214
+          ],
+          [
+            -3.0119221210479736,
+            0.06338246166706085,
+            1.3209556341171265
+          ]
+        ],
+        "properties": {
+          "cycles": "<bpy id prop: owner=\"OBGEO-shoulder_female_primitive_stylized.L\", name=\"cycles\", address=0x0000012846D1DB60>",
+          "conform_object": "<bpy id prop: owner=\"OBGEO-shoulder_female_primitive_stylized.L\", name=\"conform_object\", address=0x0000012846D1DAA0>"
+        }
+      },
+      {
+        "name": "GEO-arm_upper_female_primitive_stylized.L",
+        "type": "MESH",
+        "vertices": 50,
+        "bounds": [
+          [
+            -3.18277645111084,
+            -0.03196607157588005,
+            1.025112271308899
+          ],
+          [
+            -2.9186673164367676,
+            0.06332497298717499,
+            1.2771587371826172
+          ]
+        ],
+        "properties": {
+          "cycles": "<bpy id prop: owner=\"OBGEO-arm_upper_female_primitive_stylized.L\", name=\"cycles\", address=0x0000012846DAD7A0>",
+          "conform_object": "<bpy id prop: owner=\"OBGEO-arm_upper_female_primitive_stylized.L\", name=\"conform_object\", address=0x0000012846DAD6E0>"
+        }
+      },
+      {
+        "name": "GEO-toe_big_female_primitive_stylized.L",
+        "type": "MESH",
+        "vertices": 42,
+        "bounds": [
+          [
+            -3.1796302795410156,
+            -0.18818973004817963,
+            -0.008259693160653114
+          ],
+          [
+            -3.1279494762420654,
+            -0.11865899711847305,
+            0.031669773161411285
+          ]
+        ],
+        "properties": {
+          "cycles": "<bpy id prop: owner=\"OBGEO-toe_big_female_primitive_stylized.L\", name=\"cycles\", address=0x0000012846CAC8A0>",
+          "conform_object": "<bpy id prop: owner=\"OBGEO-toe_big_female_primitive_stylized.L\", name=\"conform_object\", address=0x0000012846CAC7E0>"
+        }
+      },
+      {
+        "name": "GEO-pelvis_female_primitive_stylized",
+        "type": "MESH",
+        "vertices": 182,
+        "bounds": [
+          [
+            -3.3827991485595703,
+            -0.1137910932302475,
+            0.7614058256149292
+          ],
+          [
+            -3.084427833557129,
+            0.0816849023103714,
+            0.9742251634597778
+          ]
+        ],
+        "properties": {
+          "cycles": "<bpy id prop: owner=\"OBGEO-pelvis_female_primitive_stylized\", name=\"cycles\", address=0x0000012846D1E460>",
+          "conform_object": "<bpy id prop: owner=\"OBGEO-pelvis_female_primitive_stylized\", name=\"conform_object\", address=0x0000012846D1E3A0>"
+        }
+      },
+      {
+        "name": "GEO-hand_female_primitive_stylized.L",
+        "type": "MESH",
+        "vertices": 113,
+        "bounds": [
+          [
+            -2.9310264587402344,
+            -0.08061157912015915,
+            0.7795640230178833
+          ],
+          [
+            -2.848309278488159,
+            0.032130710780620575,
+            0.9083511829376221
+          ]
+        ],
+        "properties": {
+          "cycles": "<bpy id prop: owner=\"OBGEO-hand_female_primitive_stylized.L\", name=\"cycles\", address=0x0000012846D4E3A0>",
+          "conform_object": "<bpy id prop: owner=\"OBGEO-hand_female_primitive_stylized.L\", name=\"conform_object\", address=0x0000012846D4E2E0>"
+        }
+      },
+      {
+        "name": "GEO-belly_female_primitive_stylized",
+        "type": "MESH",
+        "vertices": 182,
+        "bounds": [
+          [
+            -3.3410134315490723,
+            -0.11790193617343903,
+            0.8790489435195923
+          ],
+          [
+            -3.126213550567627,
+            0.04338403046131134,
+            1.1304168701171875
+          ]
+        ],
+        "properties": {
+          "cycles": "<bpy id prop: owner=\"OBGEO-belly_female_primitive_stylized\", name=\"cycles\", address=0x0000012846D9FEA0>",
+          "conform_object": "<bpy id prop: owner=\"OBGEO-belly_female_primitive_stylized\", name=\"conform_object\", address=0x0000012846D9FDE0>"
+        }
+      },
+      {
+        "name": "GEO-leg_lower_female_primitive_stylized.L",
+        "type": "MESH",
+        "vertices": 74,
+        "bounds": [
+          [
+            -3.2118349075317383,
+            -0.09087558835744858,
+            0.04833320900797844
+          ],
+          [
+            -3.0743207931518555,
+            0.0717821940779686,
+            0.5390608310699463
+          ]
+        ],
+        "properties": {
+          "cycles": "<bpy id prop: owner=\"OBGEO-leg_lower_female_primitive_stylized.L\", name=\"cycles\", address=0x0000012846D48360>",
+          "conform_object": "<bpy id prop: owner=\"OBGEO-leg_lower_female_primitive_stylized.L\", name=\"conform_object\", address=0x0000012846D482A0>"
+        }
+      },
+      {
+        "name": "GEO-chest_female_primitive_stylized",
+        "type": "MESH",
+        "vertices": 194,
+        "bounds": [
+          [
+            -3.3452234268188477,
+            -0.12144878506660461,
+            1.0439403057098389
+          ],
+          [
+            -3.1220035552978516,
+            0.06941375881433487,
+            1.3042235374450684
+          ]
+        ],
+        "properties": {
+          "cycles": "<bpy id prop: owner=\"OBGEO-chest_female_primitive_stylized\", name=\"cycles\", address=0x0000012846D8E3A0>",
+          "conform_object": "<bpy id prop: owner=\"OBGEO-chest_female_primitive_stylized\", name=\"conform_object\", address=0x0000012846D8E2E0>"
+        }
+      },
+      {
+        "name": "GEO-finger_ring_female_primitive_stylized.L",
+        "type": "MESH",
+        "vertices": 74,
+        "bounds": [
+          [
+            -2.8940913677215576,
+            -0.01651708409190178,
+            0.7205483317375183
+          ],
+          [
+            -2.856393814086914,
+            0.019918588921427727,
+            0.8041632175445557
+          ]
+        ],
+        "properties": {
+          "cycles": "<bpy id prop: owner=\"OBGEO-finger_ring_female_primitive_stylized.L\", name=\"cycles\", address=0x0000012846D694A0>",
+          "conform_object": "<bpy id prop: owner=\"OBGEO-finger_ring_female_primitive_stylized.L\", name=\"conform_object\", address=0x0000012846D693E0>"
+        }
+      },
+      {
+        "name": "GEO-arm_lower_female_primitive_stylized.L",
+        "type": "MESH",
+        "vertices": 58,
+        "bounds": [
+          [
+            -3.0343973636627197,
+            -0.04960000887513161,
+            0.8493121266365051
+          ],
+          [
+            -2.843191146850586,
+            0.06519816815853119,
+            1.1183515787124634
+          ]
+        ],
+        "properties": {
+          "cycles": "<bpy id prop: owner=\"OBGEO-arm_lower_female_primitive_stylized.L\", name=\"cycles\", address=0x0000012846DAEFA0>",
+          "conform_object": "<bpy id prop: owner=\"OBGEO-arm_lower_female_primitive_stylized.L\", name=\"conform_object\", address=0x0000012846DAEEE0>"
+        }
+      },
+      {
+        "name": "GEO-head_female_primitive_stylized",
+        "type": "MESH",
+        "vertices": 266,
+        "bounds": [
+          [
+            -3.3404440879821777,
+            -0.1427609920501709,
+            1.3335435390472412
+          ],
+          [
+            -3.1267828941345215,
+            0.10623829066753387,
+            1.6144680976867676
+          ]
+        ],
+        "properties": {
+          "cycles": "<bpy id prop: owner=\"OBGEO-head_female_primitive_stylized\", name=\"cycles\", address=0x0000012846D4B960>",
+          "conform_object": "<bpy id prop: owner=\"OBGEO-head_female_primitive_stylized\", name=\"conform_object\", address=0x0000012846D4B8A0>"
+        }
+      },
+      {
+        "name": "GEO-nose_bridge_female_primitive_stylized",
+        "type": "MESH",
+        "vertices": 54,
+        "bounds": [
+          [
+            -3.277214527130127,
+            -0.13587044179439545,
+            1.4311164617538452
+          ],
+          [
+            -3.190013885498047,
+            -0.09089506417512894,
+            1.512046456336975
+          ]
+        ],
+        "properties": {
+          "cycles": "<bpy id prop: owner=\"OBGEO-nose_bridge_female_primitive_stylized\", name=\"cycles\", address=0x0000012846D30660>",
+          "conform_object": "<bpy id prop: owner=\"OBGEO-nose_bridge_female_primitive_stylized\", name=\"conform_object\", address=0x0000012846D305A0>"
+        }
+      },
+      {
+        "name": "GEO-eye_female_primitive_stylized.L",
+        "type": "MESH",
+        "vertices": 162,
+        "bounds": [
+          [
+            -3.22379732131958,
+            -0.11766631156206131,
+            1.4330028295516968
+          ],
+          [
+            -3.152094841003418,
+            -0.0479702353477478,
+            1.5045651197433472
+          ]
+        ],
+        "properties": {
+          "conform_object": "<bpy id prop: owner=\"OBGEO-eye_female_primitive_stylized.L\", name=\"conform_object\", address=0x0000012846D7F8A0>",
+          "cycles": "<bpy id prop: owner=\"OBGEO-eye_female_primitive_stylized.L\", name=\"cycles\", address=0x0000012846D7F7E0>"
+        }
+      },
+      {
+        "name": "GEO-eyelid_upper_female_primitive_stylized.L",
+        "type": "MESH",
+        "vertices": 131,
+        "bounds": [
+          [
+            -3.230893611907959,
+            -0.12237414717674255,
+            1.4333505630493164
+          ],
+          [
+            -3.145738124847412,
+            -0.04088816046714783,
+            1.5116472244262695
+          ]
+        ],
+        "properties": {
+          "cycles": "<bpy id prop: owner=\"OBGEO-eyelid_upper_female_primitive_stylized.L\", name=\"cycles\", address=0x0000012846D7BBA0>",
+          "conform_object": "<bpy id prop: owner=\"OBGEO-eyelid_upper_female_primitive_stylized.L\", name=\"conform_object\", address=0x0000012846D7BAE0>"
+        }
+      },
+      {
+        "name": "GEO-eyelid_lower_female_primitive_stylized.L",
+        "type": "MESH",
+        "vertices": 98,
+        "bounds": [
+          [
+            -3.2319650650024414,
+            -0.12182150781154633,
+            1.4256718158721924
+          ],
+          [
+            -3.1472134590148926,
+            -0.04067658632993698,
+            1.4781798124313354
+          ]
+        ],
+        "properties": {
+          "cycles": "<bpy id prop: owner=\"OBGEO-eyelid_lower_female_primitive_stylized.L\", name=\"cycles\", address=0x0000012846D7DAA0>",
+          "conform_object": "<bpy id prop: owner=\"OBGEO-eyelid_lower_female_primitive_stylized.L\", name=\"conform_object\", address=0x0000012846D7D9E0>"
+        }
+      },
+      {
+        "name": "GEO-nose_female_primitive_stylized",
+        "type": "MESH",
+        "vertices": 192,
+        "bounds": [
+          [
+            -3.258075475692749,
+            -0.1580294966697693,
+            1.4048062562942505
+          ],
+          [
+            -3.209152936935425,
+            -0.10056456178426743,
+            1.4725207090377808
+          ]
+        ],
+        "properties": {
+          "cycles": "<bpy id prop: owner=\"OBGEO-nose_female_primitive_stylized\", name=\"cycles\", address=0x0000012846D1F660>",
+          "conform_object": "<bpy id prop: owner=\"OBGEO-nose_female_primitive_stylized\", name=\"conform_object\", address=0x0000012846D1F5A0>"
+        }
+      },
+      {
+        "name": "GEO-finger_middle_female_primitive_stylized.L",
+        "type": "MESH",
+        "vertices": 74,
+        "bounds": [
+          [
+            -2.895045518875122,
+            -0.036058295518159866,
+            0.7121390700340271
+          ],
+          [
+            -2.8599414825439453,
+            -0.009184233844280243,
+            0.7977778911590576
+          ]
+        ],
+        "properties": {
+          "cycles": "<bpy id prop: owner=\"OBGEO-finger_middle_female_primitive_stylized.L\", name=\"cycles\", address=0x0000012846D785A0>",
+          "conform_object": "<bpy id prop: owner=\"OBGEO-finger_middle_female_primitive_stylized.L\", name=\"conform_object\", address=0x0000012846D784E0>"
+        }
+      },
+      {
+        "name": "GEO-thumb_female_primitive_stylized.L",
+        "type": "MESH",
+        "vertices": 59,
+        "bounds": [
+          [
+            -2.9210166931152344,
+            -0.09627288579940796,
+            0.7715212106704712
+          ],
+          [
+            -2.8814828395843506,
+            -0.03754724562168121,
+            0.8546978831291199
+          ]
+        ],
+        "properties": {
+          "cycles": "<bpy id prop: owner=\"OBGEO-thumb_female_primitive_stylized.L\", name=\"cycles\", address=0x0000012846CAE0A0>",
+          "conform_object": "<bpy id prop: owner=\"OBGEO-thumb_female_primitive_stylized.L\", name=\"conform_object\", address=0x0000012846CADFE0>"
+        }
+      },
+      {
+        "name": "GEO-finger_index_female_primitive_stylized.L",
+        "type": "MESH",
+        "vertices": 74,
+        "bounds": [
+          [
+            -2.8990960121154785,
+            -0.059861283749341965,
+            0.7215816378593445
+          ],
+          [
+            -2.865631103515625,
+            -0.030115369707345963,
+            0.8027148842811584
+          ]
+        ],
+        "properties": {
+          "cycles": "<bpy id prop: owner=\"OBGEO-finger_index_female_primitive_stylized.L\", name=\"cycles\", address=0x0000012846D79DA0>",
+          "conform_object": "<bpy id prop: owner=\"OBGEO-finger_index_female_primitive_stylized.L\", name=\"conform_object\", address=0x0000012846D79CE0>"
+        }
+      },
+      {
+        "name": "GEO-finger_pinky_female_primitive_stylized.L",
+        "type": "MESH",
+        "vertices": 74,
+        "bounds": [
+          [
+            -2.8939101696014404,
+            0.004521205089986324,
+            0.7430695295333862
+          ],
+          [
+            -2.8631370067596436,
+            0.03691527992486954,
+            0.8146098256111145
+          ]
+        ],
+        "properties": {
+          "cycles": "<bpy id prop: owner=\"OBGEO-finger_pinky_female_primitive_stylized.L\", name=\"cycles\", address=0x0000012846D6ACA0>",
+          "conform_object": "<bpy id prop: owner=\"OBGEO-finger_pinky_female_primitive_stylized.L\", name=\"conform_object\", address=0x0000012846D6ABE0>"
+        }
+      },
+      {
+        "name": "GEO-toe_index_female_primitive_stylized.L",
+        "type": "MESH",
+        "vertices": 42,
+        "bounds": [
+          [
+            -3.154261589050293,
+            -0.1743806153535843,
+            -0.003996366169303656
+          ],
+          [
+            -3.116856336593628,
+            -0.11863738298416138,
+            0.0313200019299984
+          ]
+        ],
+        "properties": {
+          "cycles": "<bpy id prop: owner=\"OBGEO-toe_index_female_primitive_stylized.L\", name=\"cycles\", address=0x0000012846CA35A0>",
+          "conform_object": "<bpy id prop: owner=\"OBGEO-toe_index_female_primitive_stylized.L\", name=\"conform_object\", address=0x0000012846CA34E0>"
+        }
+      },
+      {
+        "name": "GEO-toe_middle_female_primitive_stylized.L",
+        "type": "MESH",
+        "vertices": 42,
+        "bounds": [
+          [
+            -3.136463165283203,
+            -0.16019009053707123,
+            -0.003998707514256239
+          ],
+          [
+            -3.1053287982940674,
+            -0.11431410163640976,
+            0.025822950527071953
+          ]
+        ],
+        "properties": {
+          "cycles": "<bpy id prop: owner=\"OBGEO-toe_middle_female_primitive_stylized.L\", name=\"cycles\", address=0x0000012846CA1DA0>",
+          "conform_object": "<bpy id prop: owner=\"OBGEO-toe_middle_female_primitive_stylized.L\", name=\"conform_object\", address=0x0000012846CA1CE0>"
+        }
+      },
+      {
+        "name": "GEO-toe_ring_female_primitive_stylized.L",
+        "type": "MESH",
+        "vertices": 42,
+        "bounds": [
+          [
+            -3.1216537952423096,
+            -0.14466345310211182,
+            -0.004606358241289854
+          ],
+          [
+            -3.099229574203491,
+            -0.10698346048593521,
+            0.02306152880191803
+          ]
+        ],
+        "properties": {
+          "cycles": "<bpy id prop: owner=\"OBGEO-toe_ring_female_primitive_stylized.L\", name=\"cycles\", address=0x0000012846C92CA0>",
+          "conform_object": "<bpy id prop: owner=\"OBGEO-toe_ring_female_primitive_stylized.L\", name=\"conform_object\", address=0x0000012846C92BE0>"
+        }
+      },
+      {
+        "name": "GEO-toe_pinky_female_primitive_stylized.L",
+        "type": "MESH",
+        "vertices": 50,
+        "bounds": [
+          [
+            -3.109976291656494,
+            -0.13191914558410645,
+            -0.0038035809993743896
+          ],
+          [
+            -3.0920815467834473,
+            -0.0949096605181694,
+            0.017353180795907974
+          ]
+        ],
+        "properties": {
+          "cycles": "<bpy id prop: owner=\"OBGEO-toe_pinky_female_primitive_stylized.L\", name=\"cycles\", address=0x0000012846CA05A0>",
+          "conform_object": "<bpy id prop: owner=\"OBGEO-toe_pinky_female_primitive_stylized.L\", name=\"conform_object\", address=0x0000012846CA04E0>"
+        }
+      },
+      {
+        "name": "GEO-foot_female_primitive_stylized.L",
+        "type": "MESH",
+        "vertices": 121,
+        "bounds": [
+          [
+            -3.2205934524536133,
+            -0.15407374501228333,
+            -0.006672685034573078
+          ],
+          [
+            -3.0848946571350098,
+            0.04818285256624222,
+            0.08597379177808762
+          ]
+        ],
+        "properties": {
+          "cycles": "<bpy id prop: owner=\"OBGEO-foot_female_primitive_stylized.L\", name=\"cycles\", address=0x0000012846D4F5A0>",
+          "conform_object": "<bpy id prop: owner=\"OBGEO-foot_female_primitive_stylized.L\", name=\"conform_object\", address=0x0000012846D4F4E0>"
+        }
+      },
+      {
+        "name": "GEO-ear_female_primitive_stylized.L",
+        "type": "MESH",
+        "vertices": 96,
+        "bounds": [
+          [
+            -3.153426170349121,
+            -0.03077774867415428,
+            1.3998483419418335
+          ],
+          [
+            -3.103816270828247,
+            0.021379610523581505,
+            1.4777922630310059
+          ]
+        ],
+        "properties": {
+          "cycles": "<bpy id prop: owner=\"OBGEO-ear_female_primitive_stylized.L\", name=\"cycles\", address=0x0000012846D8D7A0>",
+          "conform_object": "<bpy id prop: owner=\"OBGEO-ear_female_primitive_stylized.L\", name=\"conform_object\", address=0x0000012846D8D6E0>"
+        }
+      },
+      {
+        "name": "GEO-breast_female_primitive_stylized.R",
+        "type": "MESH",
+        "vertices": 52,
+        "bounds": [
+          [
+            -3.3326921463012695,
+            -0.1272333562374115,
+            1.1031403541564941
+          ],
+          [
+            -3.235460042953491,
+            -0.031416237354278564,
+            1.2449575662612915
+          ]
+        ],
+        "properties": {
+          "cycles": "<bpy id prop: owner=\"OBGEO-breast_female_primitive_stylized.R\", name=\"cycles\", address=0x0000012846D8E9A0>",
+          "conform_object": "<bpy id prop: owner=\"OBGEO-breast_female_primitive_stylized.R\", name=\"conform_object\", address=0x0000012846D8E8E0>"
+        }
+      },
+      {
+        "name": "GEO-eye_female_primitive_stylized.R",
+        "type": "MESH",
+        "vertices": 162,
+        "bounds": [
+          [
+            -3.3151321411132812,
+            -0.11766631156206131,
+            1.4330028295516968
+          ],
+          [
+            -3.243429660797119,
+            -0.0479702353477478,
+            1.5045651197433472
+          ]
+        ],
+        "properties": {
+          "conform_object": "<bpy id prop: owner=\"OBGEO-eye_female_primitive_stylized.R\", name=\"conform_object\", address=0x0000012846D7F5A0>",
+          "cycles": "<bpy id prop: owner=\"OBGEO-eye_female_primitive_stylized.R\", name=\"cycles\", address=0x0000012846D7F4E0>"
+        }
+      },
+      {
+        "name": "GEO-eyelid_upper_female_primitive_stylized.R",
+        "type": "MESH",
+        "vertices": 131,
+        "bounds": [
+          [
+            -3.321488857269287,
+            -0.12237414717674255,
+            1.4333505630493164
+          ],
+          [
+            -3.2363333702087402,
+            -0.04088816046714783,
+            1.5116472244262695
+          ]
+        ],
+        "properties": {
+          "cycles": "<bpy id prop: owner=\"OBGEO-eyelid_upper_female_primitive_stylized.R\", name=\"cycles\", address=0x0000012846D7B8A0>",
+          "conform_object": "<bpy id prop: owner=\"OBGEO-eyelid_upper_female_primitive_stylized.R\", name=\"conform_object\", address=0x0000012846D7B7E0>"
+        }
+      },
+      {
+        "name": "GEO-eyelid_lower_female_primitive_stylized.R",
+        "type": "MESH",
+        "vertices": 98,
+        "bounds": [
+          [
+            -3.3200135231018066,
+            -0.12182150781154633,
+            1.4256718158721924
+          ],
+          [
+            -3.235261917114258,
+            -0.04067658632993698,
+            1.4781798124313354
+          ]
+        ],
+        "properties": {
+          "cycles": "<bpy id prop: owner=\"OBGEO-eyelid_lower_female_primitive_stylized.R\", name=\"cycles\", address=0x0000012846D7D7A0>",
+          "conform_object": "<bpy id prop: owner=\"OBGEO-eyelid_lower_female_primitive_stylized.R\", name=\"conform_object\", address=0x0000012846D7D6E0>"
+        }
+      },
+      {
+        "name": "GEO-ear_female_primitive_stylized.R",
+        "type": "MESH",
+        "vertices": 96,
+        "bounds": [
+          [
+            -3.363410711288452,
+            -0.03077774867415428,
+            1.3998483419418335
+          ],
+          [
+            -3.313800811767578,
+            0.021379610523581505,
+            1.4777922630310059
+          ]
+        ],
+        "properties": {
+          "cycles": "<bpy id prop: owner=\"OBGEO-ear_female_primitive_stylized.R\", name=\"cycles\", address=0x0000012846D8D4A0>",
+          "conform_object": "<bpy id prop: owner=\"OBGEO-ear_female_primitive_stylized.R\", name=\"conform_object\", address=0x0000012846D8D3E0>"
+        }
+      },
+      {
+        "name": "GEO-leg_upper_female_primitive_stylized.R",
+        "type": "MESH",
+        "vertices": 74,
+        "bounds": [
+          [
+            -3.407505750656128,
+            -0.11982008814811707,
+            0.43084782361984253
+          ],
+          [
+            -3.2375800609588623,
+            0.07360661774873734,
+            0.939644992351532
+          ]
+        ],
+        "properties": {
+          "cycles": "<bpy id prop: owner=\"OBGEO-leg_upper_female_primitive_stylized.R\", name=\"cycles\", address=0x0000012846D32760>",
+          "conform_object": "<bpy id prop: owner=\"OBGEO-leg_upper_female_primitive_stylized.R\", name=\"conform_object\", address=0x0000012846D326A0>"
+        }
+      },
+      {
+        "name": "GEO-shoulder_female_primitive_stylized.R",
+        "type": "MESH",
+        "vertices": 44,
+        "bounds": [
+          [
+            -3.4553048610687256,
+            -0.04509861022233963,
+            1.1416834592819214
+          ],
+          [
+            -3.2693874835968018,
+            0.06338246166706085,
+            1.3209556341171265
+          ]
+        ],
+        "properties": {
+          "cycles": "<bpy id prop: owner=\"OBGEO-shoulder_female_primitive_stylized.R\", name=\"cycles\", address=0x0000012846D1D860>",
+          "conform_object": "<bpy id prop: owner=\"OBGEO-shoulder_female_primitive_stylized.R\", name=\"conform_object\", address=0x0000012846D1D7A0>"
+        }
+      },
+      {
+        "name": "GEO-arm_upper_female_primitive_stylized.R",
+        "type": "MESH",
+        "vertices": 50,
+        "bounds": [
+          [
+            -3.5485594272613525,
+            -0.03196607157588005,
+            1.025112271308899
+          ],
+          [
+            -3.2844502925872803,
+            0.06332497298717499,
+            1.2771587371826172
+          ]
+        ],
+        "properties": {
+          "cycles": "<bpy id prop: owner=\"OBGEO-arm_upper_female_primitive_stylized.R\", name=\"cycles\", address=0x0000012846DAD4A0>",
+          "conform_object": "<bpy id prop: owner=\"OBGEO-arm_upper_female_primitive_stylized.R\", name=\"conform_object\", address=0x0000012846DAD3E0>"
+        }
+      },
+      {
+        "name": "GEO-toe_big_female_primitive_stylized.R",
+        "type": "MESH",
+        "vertices": 42,
+        "bounds": [
+          [
+            -3.339277744293213,
+            -0.18818973004817963,
+            -0.008259693160653114
+          ],
+          [
+            -3.2875969409942627,
+            -0.11865899711847305,
+            0.031669773161411285
+          ]
+        ],
+        "properties": {
+          "cycles": "<bpy id prop: owner=\"OBGEO-toe_big_female_primitive_stylized.R\", name=\"cycles\", address=0x0000012846CAC5A0>",
+          "conform_object": "<bpy id prop: owner=\"OBGEO-toe_big_female_primitive_stylized.R\", name=\"conform_object\", address=0x0000012846CAC4E0>"
+        }
+      },
+      {
+        "name": "GEO-hand_female_primitive_stylized.R",
+        "type": "MESH",
+        "vertices": 113,
+        "bounds": [
+          [
+            -3.618917226791382,
+            -0.08061157912015915,
+            0.7795640230178833
+          ],
+          [
+            -3.5362000465393066,
+            0.032130710780620575,
+            0.9083511829376221
+          ]
+        ],
+        "properties": {
+          "cycles": "<bpy id prop: owner=\"OBGEO-hand_female_primitive_stylized.R\", name=\"cycles\", address=0x0000012846D4E0A0>",
+          "conform_object": "<bpy id prop: owner=\"OBGEO-hand_female_primitive_stylized.R\", name=\"conform_object\", address=0x0000012846D4DFE0>"
+        }
+      },
+      {
+        "name": "GEO-leg_lower_female_primitive_stylized.R",
+        "type": "MESH",
+        "vertices": 74,
+        "bounds": [
+          [
+            -3.3929059505462646,
+            -0.09087558835744858,
+            0.04833320900797844
+          ],
+          [
+            -3.255391836166382,
+            0.0717821940779686,
+            0.5390608310699463
+          ]
+        ],
+        "properties": {
+          "cycles": "<bpy id prop: owner=\"OBGEO-leg_lower_female_primitive_stylized.R\", name=\"cycles\", address=0x0000012846D33F60>",
+          "conform_object": "<bpy id prop: owner=\"OBGEO-leg_lower_female_primitive_stylized.R\", name=\"conform_object\", address=0x0000012846D33EA0>"
+        }
+      },
+      {
+        "name": "GEO-finger_ring_female_primitive_stylized.R",
+        "type": "MESH",
+        "vertices": 74,
+        "bounds": [
+          [
+            -3.610832452774048,
+            -0.01651708409190178,
+            0.7205483317375183
+          ],
+          [
+            -3.5731348991394043,
+            0.019918588921427727,
+            0.8041632175445557
+          ]
+        ],
+        "properties": {
+          "cycles": "<bpy id prop: owner=\"OBGEO-finger_ring_female_primitive_stylized.R\", name=\"cycles\", address=0x0000012846D691A0>",
+          "conform_object": "<bpy id prop: owner=\"OBGEO-finger_ring_female_primitive_stylized.R\", name=\"conform_object\", address=0x0000012846D690E0>"
+        }
+      },
+      {
+        "name": "GEO-arm_lower_female_primitive_stylized.R",
+        "type": "MESH",
+        "vertices": 58,
+        "bounds": [
+          [
+            -3.624035358428955,
+            -0.04960000887513161,
+            0.8493121266365051
+          ],
+          [
+            -3.4328291416168213,
+            0.06519816815853119,
+            1.1183515787124634
+          ]
+        ],
+        "properties": {
+          "cycles": "<bpy id prop: owner=\"OBGEO-arm_lower_female_primitive_stylized.R\", name=\"cycles\", address=0x0000012846DAECA0>",
+          "conform_object": "<bpy id prop: owner=\"OBGEO-arm_lower_female_primitive_stylized.R\", name=\"conform_object\", address=0x0000012846DAEBE0>"
+        }
+      },
+      {
+        "name": "GEO-finger_middle_female_primitive_stylized.R",
+        "type": "MESH",
+        "vertices": 74,
+        "bounds": [
+          [
+            -3.6072850227355957,
+            -0.036058295518159866,
+            0.7121390700340271
+          ],
+          [
+            -3.572180986404419,
+            -0.009184233844280243,
+            0.7977778911590576
+          ]
+        ],
+        "properties": {
+          "cycles": "<bpy id prop: owner=\"OBGEO-finger_middle_female_primitive_stylized.R\", name=\"cycles\", address=0x0000012846D782A0>",
+          "conform_object": "<bpy id prop: owner=\"OBGEO-finger_middle_female_primitive_stylized.R\", name=\"conform_object\", address=0x0000012846D781E0>"
+        }
+      },
+      {
+        "name": "GEO-thumb_female_primitive_stylized.R",
+        "type": "MESH",
+        "vertices": 59,
+        "bounds": [
+          [
+            -3.5857436656951904,
+            -0.09627288579940796,
+            0.7715212106704712
+          ],
+          [
+            -3.5462098121643066,
+            -0.03754724562168121,
+            0.8546978831291199
+          ]
+        ],
+        "properties": {
+          "cycles": "<bpy id prop: owner=\"OBGEO-thumb_female_primitive_stylized.R\", name=\"cycles\", address=0x0000012846CADDA0>",
+          "conform_object": "<bpy id prop: owner=\"OBGEO-thumb_female_primitive_stylized.R\", name=\"conform_object\", address=0x0000012846CADCE0>"
+        }
+      },
+      {
+        "name": "GEO-finger_index_female_primitive_stylized.R",
+        "type": "MESH",
+        "vertices": 74,
+        "bounds": [
+          [
+            -3.601594924926758,
+            -0.059861283749341965,
+            0.7215816378593445
+          ],
+          [
+            -3.5681300163269043,
+            -0.030115369707345963,
+            0.8027148842811584
+          ]
+        ],
+        "properties": {
+          "cycles": "<bpy id prop: owner=\"OBGEO-finger_index_female_primitive_stylized.R\", name=\"cycles\", address=0x0000012846D79AA0>",
+          "conform_object": "<bpy id prop: owner=\"OBGEO-finger_index_female_primitive_stylized.R\", name=\"conform_object\", address=0x0000012846D799E0>"
+        }
+      },
+      {
+        "name": "GEO-finger_pinky_female_primitive_stylized.R",
+        "type": "MESH",
+        "vertices": 74,
+        "bounds": [
+          [
+            -3.6040894985198975,
+            0.004521205089986324,
+            0.7430695295333862
+          ],
+          [
+            -3.5733163356781006,
+            0.03691527992486954,
+            0.8146098256111145
+          ]
+        ],
+        "properties": {
+          "cycles": "<bpy id prop: owner=\"OBGEO-finger_pinky_female_primitive_stylized.R\", name=\"cycles\", address=0x0000012846D6A9A0>",
+          "conform_object": "<bpy id prop: owner=\"OBGEO-finger_pinky_female_primitive_stylized.R\", name=\"conform_object\", address=0x0000012846D6A8E0>"
+        }
+      },
+      {
+        "name": "GEO-toe_index_female_primitive_stylized.R",
+        "type": "MESH",
+        "vertices": 42,
+        "bounds": [
+          [
+            -3.3503706455230713,
+            -0.1743806153535843,
+            -0.003996366169303656
+          ],
+          [
+            -3.3129653930664062,
+            -0.11863738298416138,
+            0.0313200019299984
+          ]
+        ],
+        "properties": {
+          "cycles": "<bpy id prop: owner=\"OBGEO-toe_index_female_primitive_stylized.R\", name=\"cycles\", address=0x0000012846CA32A0>",
+          "conform_object": "<bpy id prop: owner=\"OBGEO-toe_index_female_primitive_stylized.R\", name=\"conform_object\", address=0x0000012846CA31E0>"
+        }
+      },
+      {
+        "name": "GEO-toe_middle_female_primitive_stylized.R",
+        "type": "MESH",
+        "vertices": 42,
+        "bounds": [
+          [
+            -3.3618979454040527,
+            -0.16019009053707123,
+            -0.003998707514256239
+          ],
+          [
+            -3.330763578414917,
+            -0.11431410163640976,
+            0.025822950527071953
+          ]
+        ],
+        "properties": {
+          "cycles": "<bpy id prop: owner=\"OBGEO-toe_middle_female_primitive_stylized.R\", name=\"cycles\", address=0x0000012846CA1AA0>",
+          "conform_object": "<bpy id prop: owner=\"OBGEO-toe_middle_female_primitive_stylized.R\", name=\"conform_object\", address=0x0000012846CA19E0>"
+        }
+      },
+      {
+        "name": "GEO-toe_ring_female_primitive_stylized.R",
+        "type": "MESH",
+        "vertices": 42,
+        "bounds": [
+          [
+            -3.367997407913208,
+            -0.14466345310211182,
+            -0.004606358241289854
+          ],
+          [
+            -3.3455731868743896,
+            -0.10698346048593521,
+            0.02306152880191803
+          ]
+        ],
+        "properties": {
+          "cycles": "<bpy id prop: owner=\"OBGEO-toe_ring_female_primitive_stylized.R\", name=\"cycles\", address=0x0000012846C929A0>",
+          "conform_object": "<bpy id prop: owner=\"OBGEO-toe_ring_female_primitive_stylized.R\", name=\"conform_object\", address=0x0000012846C928E0>"
+        }
+      },
+      {
+        "name": "GEO-toe_pinky_female_primitive_stylized.R",
+        "type": "MESH",
+        "vertices": 50,
+        "bounds": [
+          [
+            -3.375145435333252,
+            -0.13191914558410645,
+            -0.0038035809993743896
+          ],
+          [
+            -3.357250690460205,
+            -0.0949096605181694,
+            0.017353180795907974
+          ]
+        ],
+        "properties": {
+          "cycles": "<bpy id prop: owner=\"OBGEO-toe_pinky_female_primitive_stylized.R\", name=\"cycles\", address=0x0000012846CA02A0>",
+          "conform_object": "<bpy id prop: owner=\"OBGEO-toe_pinky_female_primitive_stylized.R\", name=\"conform_object\", address=0x0000012846CA01E0>"
+        }
+      },
+      {
+        "name": "GEO-foot_female_primitive_stylized.R",
+        "type": "MESH",
+        "vertices": 121,
+        "bounds": [
+          [
+            -3.3823320865631104,
+            -0.15407374501228333,
+            -0.006672685034573078
+          ],
+          [
+            -3.246633291244507,
+            0.04818285256624222,
+            0.08597379177808762
+          ]
+        ],
+        "properties": {
+          "cycles": "<bpy id prop: owner=\"OBGEO-foot_female_primitive_stylized.R\", name=\"cycles\", address=0x0000012846D4F2A0>",
+          "conform_object": "<bpy id prop: owner=\"OBGEO-foot_female_primitive_stylized.R\", name=\"conform_object\", address=0x0000012846D4F1E0>"
+        }
+      }
+    ]
+  },
+  {
+    "collection": "Body Female - Primitve (Realistic)",
+    "properties": {},
+    "objects": [
+      {
+        "name": "GEO-breasts_primitive_female_realistic",
+        "type": "MESH",
+        "vertices": 104,
+        "bounds": [
+          [
+            -5.3182172775268555,
+            -0.15125350654125214,
+            1.1188621520996094
+          ],
+          [
+            -5.035879135131836,
+            -0.02674281597137451,
+            1.298909068107605
+          ]
+        ],
+        "properties": {
+          "cycles": "<bpy id prop: owner=\"OBGEO-breasts_primitive_female_realistic\", name=\"cycles\", address=0x0000012846D8E6A0>",
+          "conform_object": "<bpy id prop: owner=\"OBGEO-breasts_primitive_female_realistic\", name=\"conform_object\", address=0x0000012846D8E5E0>"
+        }
+      },
+      {
+        "name": "GEO-leg_lower_primitive_female_realistic.L",
+        "type": "MESH",
+        "vertices": 74,
+        "bounds": [
+          [
+            -5.126842021942139,
+            -0.06415362656116486,
+            0.05883333459496498
+          ],
+          [
+            -4.987280368804932,
+            0.09688878804445267,
+            0.5307325124740601
+          ]
+        ],
+        "properties": {
+          "cycles": "<bpy id prop: owner=\"OBGEO-leg_lower_primitive_female_realistic.L\", name=\"cycles\", address=0x0000012846D33060>",
+          "conform_object": "<bpy id prop: owner=\"OBGEO-leg_lower_primitive_female_realistic.L\", name=\"conform_object\", address=0x0000012846D32FA0>"
+        }
+      },
+      {
+        "name": "GEO-leg_upper_primitive_female_realistic.L",
+        "type": "MESH",
+        "vertices": 74,
+        "bounds": [
+          [
+            -5.173647880554199,
+            -0.09897802770137787,
+            0.4123486578464508
+          ],
+          [
+            -4.98661470413208,
+            0.090525321662426,
+            0.9389355778694153
+          ]
+        ],
+        "properties": {
+          "cycles": "<bpy id prop: owner=\"OBGEO-leg_upper_primitive_female_realistic.L\", name=\"cycles\", address=0x0000012846D31860>",
+          "conform_object": "<bpy id prop: owner=\"OBGEO-leg_upper_primitive_female_realistic.L\", name=\"conform_object\", address=0x0000012846D317A0>"
+        }
+      },
+      {
+        "name": "GEO-belly_primitive_female_realistic",
+        "type": "MESH",
+        "vertices": 182,
+        "bounds": [
+          [
+            -5.3083815574646,
+            -0.13914275169372559,
+            0.8776450157165527
+          ],
+          [
+            -5.045714855194092,
+            0.05542141944169998,
+            1.1764185428619385
+          ]
+        ],
+        "properties": {
+          "cycles": "<bpy id prop: owner=\"OBGEO-belly_primitive_female_realistic\", name=\"cycles\", address=0x0000012846D9F5A0>",
+          "conform_object": "<bpy id prop: owner=\"OBGEO-belly_primitive_female_realistic\", name=\"conform_object\", address=0x0000012846D9F4E0>"
+        }
+      },
+      {
+        "name": "GEO-toe_big_primitive_female_realistic.L",
+        "type": "MESH",
+        "vertices": 50,
+        "bounds": [
+          [
+            -5.069578170776367,
+            -0.15464791655540466,
+            -0.010516047477722168
+          ],
+          [
+            -5.014554977416992,
+            -0.08279751241207123,
+            0.02566342242062092
+          ]
+        ],
+        "properties": {
+          "cycles": "<bpy id prop: owner=\"OBGEO-toe_big_primitive_female_realistic.L\", name=\"cycles\", address=0x0000012846CA3BA0>",
+          "conform_object": "<bpy id prop: owner=\"OBGEO-toe_big_primitive_female_realistic.L\", name=\"conform_object\", address=0x0000012846CA3AE0>"
+        }
+      },
+      {
+        "name": "GEO-shoulder_primitive_female_realistic.L",
+        "type": "MESH",
+        "vertices": 44,
+        "bounds": [
+          [
+            -5.136988162994385,
+            -0.0691048875451088,
+            1.1585198640823364
+          ],
+          [
+            -4.914068698883057,
+            0.08815784752368927,
+            1.3979084491729736
+          ]
+        ],
+        "properties": {
+          "cycles": "<bpy id prop: owner=\"OBGEO-shoulder_primitive_female_realistic.L\", name=\"cycles\", address=0x0000012846D1C960>",
+          "conform_object": "<bpy id prop: owner=\"OBGEO-shoulder_primitive_female_realistic.L\", name=\"conform_object\", address=0x0000012846D1C8A0>"
+        }
+      },
+      {
+        "name": "GEO-finger_ring_primitive_female_realistic.L",
+        "type": "MESH",
+        "vertices": 82,
+        "bounds": [
+          [
+            -4.770781517028809,
+            -0.06877464801073074,
+            0.6936925649642944
+          ],
+          [
+            -4.713794708251953,
+            -0.025085311383008957,
+            0.7863184213638306
+          ]
+        ],
+        "properties": {
+          "cycles": "<bpy id prop: owner=\"OBGEO-finger_ring_primitive_female_realistic.L\", name=\"cycles\", address=0x0000012846D682A0>",
+          "conform_object": "<bpy id prop: owner=\"OBGEO-finger_ring_primitive_female_realistic.L\", name=\"conform_object\", address=0x0000012846D681E0>"
+        }
+      },
+      {
+        "name": "GEO-arm_lower_primitive_female_realistic.L",
+        "type": "MESH",
+        "vertices": 58,
+        "bounds": [
+          [
+            -4.977078914642334,
+            -0.053549330681562424,
+            0.8148938417434692
+          ],
+          [
+            -4.754514217376709,
+            0.07882963120937347,
+            1.1141104698181152
+          ]
+        ],
+        "properties": {
+          "cycles": "<bpy id prop: owner=\"OBGEO-arm_lower_primitive_female_realistic.L\", name=\"cycles\", address=0x0000012846DADDA0>",
+          "conform_object": "<bpy id prop: owner=\"OBGEO-arm_lower_primitive_female_realistic.L\", name=\"conform_object\", address=0x0000012846DADCE0>"
+        }
+      },
+      {
+        "name": "GEO-hand_primitive_female_realistic.L",
+        "type": "MESH",
+        "vertices": 113,
+        "bounds": [
+          [
+            -4.855199813842773,
+            -0.11502771824598312,
+            0.7359083294868469
+          ],
+          [
+            -4.727514266967773,
+            0.027987204492092133,
+            0.8943384885787964
+          ]
+        ],
+        "properties": {
+          "cycles": "<bpy id prop: owner=\"OBGEO-hand_primitive_female_realistic.L\", name=\"cycles\", address=0x0000012846D4D1A0>",
+          "conform_object": "<bpy id prop: owner=\"OBGEO-hand_primitive_female_realistic.L\", name=\"conform_object\", address=0x0000012846D4D0E0>"
+        }
+      },
+      {
+        "name": "GEO-chest_primitive_female_realistic",
+        "type": "MESH",
+        "vertices": 194,
+        "bounds": [
+          [
+            -5.324979305267334,
+            -0.14306460320949554,
+            1.031877040863037
+          ],
+          [
+            -5.029117107391357,
+            0.07787641882896423,
+            1.3796002864837646
+          ]
+        ],
+        "properties": {
+          "cycles": "<bpy id prop: owner=\"OBGEO-chest_primitive_female_realistic\", name=\"cycles\", address=0x0000012846D8DAA0>",
+          "conform_object": "<bpy id prop: owner=\"OBGEO-chest_primitive_female_realistic\", name=\"conform_object\", address=0x0000012846D8D9E0>"
+        }
+      },
+      {
+        "name": "GEO-arm_upper_primitive_female_realistic.L",
+        "type": "MESH",
+        "vertices": 50,
+        "bounds": [
+          [
+            -5.067068099975586,
+            -0.03603145107626915,
+            1.0024772882461548
+          ],
+          [
+            -4.86417293548584,
+            0.09801379591226578,
+            1.3149315118789673
+          ]
+        ],
+        "properties": {
+          "cycles": "<bpy id prop: owner=\"OBGEO-arm_upper_primitive_female_realistic.L\", name=\"cycles\", address=0x0000012846DAC5A0>",
+          "conform_object": "<bpy id prop: owner=\"OBGEO-arm_upper_primitive_female_realistic.L\", name=\"conform_object\", address=0x0000012846DAC4E0>"
+        }
+      },
+      {
+        "name": "GEO-pelvis_female_primitive_realistic",
+        "type": "MESH",
+        "vertices": 182,
+        "bounds": [
+          [
+            -5.345411777496338,
+            -0.1269332766532898,
+            0.7312259674072266
+          ],
+          [
+            -5.0086846351623535,
+            0.12201148271560669,
+            0.9737167358398438
+          ]
+        ],
+        "properties": {
+          "cycles": "<bpy id prop: owner=\"OBGEO-pelvis_female_primitive_realistic\", name=\"cycles\", address=0x0000012846D1E760>",
+          "conform_object": "<bpy id prop: owner=\"OBGEO-pelvis_female_primitive_realistic\", name=\"conform_object\", address=0x0000012846D1E6A0>"
+        }
+      },
+      {
+        "name": "GEO-neck_primitive_female_realistic",
+        "type": "MESH",
+        "vertices": 50,
+        "bounds": [
+          [
+            -5.266528606414795,
+            -0.11205875128507614,
+            1.304489016532898
+          ],
+          [
+            -5.0875678062438965,
+            0.06144481897354126,
+            1.491760015487671
+          ]
+        ],
+        "properties": {
+          "cycles": "<bpy id prop: owner=\"OBGEO-neck_primitive_female_realistic\", name=\"cycles\", address=0x0000012846D30960>",
+          "conform_object": "<bpy id prop: owner=\"OBGEO-neck_primitive_female_realistic\", name=\"conform_object\", address=0x0000012846D308A0>"
+        }
+      },
+      {
+        "name": "GEO-head_primitive_female_realistic",
+        "type": "MESH",
+        "vertices": 266,
+        "bounds": [
+          [
+            -5.256609916687012,
+            -0.15209494531154633,
+            1.409542202949524
+          ],
+          [
+            -5.097487449645996,
+            0.05578147619962692,
+            1.6313426494598389
+          ]
+        ],
+        "properties": {
+          "cycles": "<bpy id prop: owner=\"OBGEO-head_primitive_female_realistic\", name=\"cycles\", address=0x0000012846D4B060>",
+          "conform_object": "<bpy id prop: owner=\"OBGEO-head_primitive_female_realistic\", name=\"conform_object\", address=0x0000012846D4AFA0>"
+        }
+      },
+      {
+        "name": "GEO-eye_primitve_female_realistic.L",
+        "type": "MESH",
+        "vertices": 162,
+        "bounds": [
+          [
+            -5.1682281494140625,
+            -0.13307438790798187,
+            1.504296898841858
+          ],
+          [
+            -5.127001762390137,
+            -0.09276608377695084,
+            1.5429316759109497
+          ]
+        ],
+        "properties": {
+          "conform_object": "<bpy id prop: owner=\"OBGEO-eye_primitve_female_realistic.L\", name=\"conform_object\", address=0x0000012846D7E0A0>",
+          "cycles": "<bpy id prop: owner=\"OBGEO-eye_primitve_female_realistic.L\", name=\"cycles\", address=0x0000012846D7DFE0>"
+        }
+      },
+      {
+        "name": "GEO-nose_bridge_primitve_female_realistic",
+        "type": "MESH",
+        "vertices": 110,
+        "bounds": [
+          [
+            -5.198890209197998,
+            -0.1445433497428894,
+            1.5096122026443481
+          ],
+          [
+            -5.1552205085754395,
+            -0.12044687569141388,
+            1.5556288957595825
+          ]
+        ],
+        "properties": {
+          "cycles": "<bpy id prop: owner=\"OBGEO-nose_bridge_primitve_female_realistic\", name=\"cycles\", address=0x0000012846D1F960>",
+          "conform_object": "<bpy id prop: owner=\"OBGEO-nose_bridge_primitve_female_realistic\", name=\"conform_object\", address=0x0000012846D1F8A0>"
+        }
+      },
+      {
+        "name": "GEO-ear_primitve_female_realistic.L",
+        "type": "MESH",
+        "vertices": 96,
+        "bounds": [
+          [
+            -5.117364406585693,
+            -0.06286634504795074,
+            1.4667954444885254
+          ],
+          [
+            -5.088275909423828,
+            -0.0230213925242424,
+            1.5283989906311035
+          ]
+        ],
+        "properties": {
+          "cycles": "<bpy id prop: owner=\"OBGEO-ear_primitve_female_realistic.L\", name=\"cycles\", address=0x0000012846D7FEA0>",
+          "conform_object": "<bpy id prop: owner=\"OBGEO-ear_primitve_female_realistic.L\", name=\"conform_object\", address=0x0000012846D7FDE0>"
+        }
+      },
+      {
+        "name": "GEO-eyelid_lower_primitve_female_realistic.L",
+        "type": "MESH",
+        "vertices": 98,
+        "bounds": [
+          [
+            -5.169878959655762,
+            -0.13427498936653137,
+            1.5008217096328735
+          ],
+          [
+            -5.124101638793945,
+            -0.0887584239244461,
+            1.528767704963684
+          ]
+        ],
+        "properties": {
+          "cycles": "<bpy id prop: owner=\"OBGEO-eyelid_lower_primitve_female_realistic.L\", name=\"cycles\", address=0x0000012846D7C2A0>",
+          "conform_object": "<bpy id prop: owner=\"OBGEO-eyelid_lower_primitve_female_realistic.L\", name=\"conform_object\", address=0x0000012846D7C1E0>"
+        }
+      },
+      {
+        "name": "GEO-eyelid_upper_primitve_female_realistic.L",
+        "type": "MESH",
+        "vertices": 131,
+        "bounds": [
+          [
+            -5.168953895568848,
+            -0.13349097967147827,
+            1.5063858032226562
+          ],
+          [
+            -5.123478412628174,
+            -0.08880594372749329,
+            1.546732783317566
+          ]
+        ],
+        "properties": {
+          "cycles": "<bpy id prop: owner=\"OBGEO-eyelid_upper_primitve_female_realistic.L\", name=\"cycles\", address=0x0000012846D7A3A0>",
+          "conform_object": "<bpy id prop: owner=\"OBGEO-eyelid_upper_primitve_female_realistic.L\", name=\"conform_object\", address=0x0000012846D7A2E0>"
+        }
+      },
+      {
+        "name": "GEO-nose_primitve_female_realistic",
+        "type": "MESH",
+        "vertices": 192,
+        "bounds": [
+          [
+            -5.195886135101318,
+            -0.16801056265830994,
+            1.4797427654266357
+          ],
+          [
+            -5.158224582672119,
+            -0.11376608163118362,
+            1.5343012809753418
+          ]
+        ],
+        "properties": {
+          "cycles": "<bpy id prop: owner=\"OBGEO-nose_primitve_female_realistic\", name=\"cycles\", address=0x0000012846D1EA60>",
+          "conform_object": "<bpy id prop: owner=\"OBGEO-nose_primitve_female_realistic\", name=\"conform_object\", address=0x0000012846D1E9A0>"
+        }
+      },
+      {
+        "name": "GEO-finger_pinky_primitive_female_realistic.L",
+        "type": "MESH",
+        "vertices": 82,
+        "bounds": [
+          [
+            -4.776392936706543,
+            -0.025974443182349205,
+            0.7064818143844604
+          ],
+          [
+            -4.729034900665283,
+            -0.004393859300762415,
+            0.7822042107582092
+          ]
+        ],
+        "properties": {
+          "cycles": "<bpy id prop: owner=\"OBGEO-finger_pinky_primitive_female_realistic.L\", name=\"cycles\", address=0x0000012846D69AA0>",
+          "conform_object": "<bpy id prop: owner=\"OBGEO-finger_pinky_primitive_female_realistic.L\", name=\"conform_object\", address=0x0000012846D699E0>"
+        }
+      },
+      {
+        "name": "GEO-thumb_primitive_female_realistic.L",
+        "type": "MESH",
+        "vertices": 66,
+        "bounds": [
+          [
+            -4.823116302490234,
+            -0.14488451182842255,
+            0.7758312821388245
+          ],
+          [
+            -4.780625820159912,
+            -0.06915029138326645,
+            0.8363590240478516
+          ]
+        ],
+        "properties": {
+          "cycles": "<bpy id prop: owner=\"OBGEO-thumb_primitive_female_realistic.L\", name=\"cycles\", address=0x0000012846CACEA0>",
+          "conform_object": "<bpy id prop: owner=\"OBGEO-thumb_primitive_female_realistic.L\", name=\"conform_object\", address=0x0000012846CACDE0>"
+        }
+      },
+      {
+        "name": "GEO-finger_index_primitive_female_realistic.L",
+        "type": "MESH",
+        "vertices": 82,
+        "bounds": [
+          [
+            -4.779921054840088,
+            -0.1287754774093628,
+            0.7112012505531311
+          ],
+          [
+            -4.721051216125488,
+            -0.06696395576000214,
+            0.8013171553611755
+          ]
+        ],
+        "properties": {
+          "cycles": "<bpy id prop: owner=\"OBGEO-finger_index_primitive_female_realistic.L\", name=\"cycles\", address=0x0000012846D78BA0>",
+          "conform_object": "<bpy id prop: owner=\"OBGEO-finger_index_primitive_female_realistic.L\", name=\"conform_object\", address=0x0000012846D78AE0>"
+        }
+      },
+      {
+        "name": "GEO-finger_middle_primitive_female_realistic.L",
+        "type": "MESH",
+        "vertices": 82,
+        "bounds": [
+          [
+            -4.771917343139648,
+            -0.1019413024187088,
+            0.6923711895942688
+          ],
+          [
+            -4.70908260345459,
+            -0.05095890164375305,
+            0.7886370420455933
+          ]
+        ],
+        "properties": {
+          "cycles": "<bpy id prop: owner=\"OBGEO-finger_middle_primitive_female_realistic.L\", name=\"cycles\", address=0x0000012846D6B2A0>",
+          "conform_object": "<bpy id prop: owner=\"OBGEO-finger_middle_primitive_female_realistic.L\", name=\"conform_object\", address=0x0000012846D6B1E0>"
+        }
+      },
+      {
+        "name": "GEO-toe_index_primitive_female_realistic.L",
+        "type": "MESH",
+        "vertices": 58,
+        "bounds": [
+          [
+            -5.03810453414917,
+            -0.14167654514312744,
+            -0.007947663776576519
+          ],
+          [
+            -5.004634380340576,
+            -0.0909155011177063,
+            0.02465798892080784
+          ]
+        ],
+        "properties": {
+          "cycles": "<bpy id prop: owner=\"OBGEO-toe_index_primitive_female_realistic.L\", name=\"cycles\", address=0x0000012846CA23A0>",
+          "conform_object": "<bpy id prop: owner=\"OBGEO-toe_index_primitive_female_realistic.L\", name=\"conform_object\", address=0x0000012846CA22E0>"
+        }
+      },
+      {
+        "name": "GEO-toe_ring_primitive_female_realistic.L",
+        "type": "MESH",
+        "vertices": 58,
+        "bounds": [
+          [
+            -5.011074542999268,
+            -0.11902500689029694,
+            -0.007498209830373526
+          ],
+          [
+            -4.9844746589660645,
+            -0.06903713196516037,
+            0.024115392938256264
+          ]
+        ],
+        "properties": {
+          "cycles": "<bpy id prop: owner=\"OBGEO-toe_ring_primitive_female_realistic.L\", name=\"cycles\", address=0x0000012846C91AA0>",
+          "conform_object": "<bpy id prop: owner=\"OBGEO-toe_ring_primitive_female_realistic.L\", name=\"conform_object\", address=0x0000012846C919E0>"
+        }
+      },
+      {
+        "name": "GEO-toe_pinky_primitive_female_realistic.L",
+        "type": "MESH",
+        "vertices": 58,
+        "bounds": [
+          [
+            -5.003204345703125,
+            -0.10585404932498932,
+            -0.009074250236153603
+          ],
+          [
+            -4.969338417053223,
+            -0.06351079791784286,
+            0.022716794162988663
+          ]
+        ],
+        "properties": {
+          "cycles": "<bpy id prop: owner=\"OBGEO-toe_pinky_primitive_female_realistic.L\", name=\"cycles\", address=0x0000012846C932A0>",
+          "conform_object": "<bpy id prop: owner=\"OBGEO-toe_pinky_primitive_female_realistic.L\", name=\"conform_object\", address=0x0000012846C931E0>"
+        }
+      },
+      {
+        "name": "GEO-toe_middle_primitive_female_realistic.L",
+        "type": "MESH",
+        "vertices": 58,
+        "bounds": [
+          [
+            -5.0257039070129395,
+            -0.13113686442375183,
+            -0.007949724793434143
+          ],
+          [
+            -4.993722438812256,
+            -0.08107158541679382,
+            0.025241130962967873
+          ]
+        ],
+        "properties": {
+          "cycles": "<bpy id prop: owner=\"OBGEO-toe_middle_primitive_female_realistic.L\", name=\"cycles\", address=0x0000012846CA0BA0>",
+          "conform_object": "<bpy id prop: owner=\"OBGEO-toe_middle_primitive_female_realistic.L\", name=\"conform_object\", address=0x0000012846CA0AE0>"
+        }
+      },
+      {
+        "name": "GEO-foot_primitive_female_realistic.L",
+        "type": "MESH",
+        "vertices": 121,
+        "bounds": [
+          [
+            -5.09820556640625,
+            -0.11958618462085724,
+            -0.007722242269665003
+          ],
+          [
+            -4.975528717041016,
+            0.0972265675663948,
+            0.10376466065645218
+          ]
+        ],
+        "properties": {
+          "cycles": "<bpy id prop: owner=\"OBGEO-foot_primitive_female_realistic.L\", name=\"cycles\", address=0x0000012846D4E9A0>",
+          "conform_object": "<bpy id prop: owner=\"OBGEO-foot_primitive_female_realistic.L\", name=\"conform_object\", address=0x0000012846D4E8E0>"
+        }
+      },
+      {
+        "name": "GEO-leg_lower_primitive_female_realistic.R",
+        "type": "MESH",
+        "vertices": 74,
+        "bounds": [
+          [
+            -5.36681604385376,
+            -0.06415362656116486,
+            0.05883333459496498
+          ],
+          [
+            -5.227254390716553,
+            0.09688878804445267,
+            0.5307325124740601
+          ]
+        ],
+        "properties": {
+          "cycles": "<bpy id prop: owner=\"OBGEO-leg_lower_primitive_female_realistic.R\", name=\"cycles\", address=0x0000012846D32D60>",
+          "conform_object": "<bpy id prop: owner=\"OBGEO-leg_lower_primitive_female_realistic.R\", name=\"conform_object\", address=0x0000012846D32CA0>"
+        }
+      },
+      {
+        "name": "GEO-leg_upper_primitive_female_realistic.R",
+        "type": "MESH",
+        "vertices": 74,
+        "bounds": [
+          [
+            -5.367481708526611,
+            -0.09897802770137787,
+            0.4123486578464508
+          ],
+          [
+            -5.180448532104492,
+            0.090525321662426,
+            0.9389355778694153
+          ]
+        ],
+        "properties": {
+          "cycles": "<bpy id prop: owner=\"OBGEO-leg_upper_primitive_female_realistic.R\", name=\"cycles\", address=0x0000012846D31560>",
+          "conform_object": "<bpy id prop: owner=\"OBGEO-leg_upper_primitive_female_realistic.R\", name=\"conform_object\", address=0x0000012846D314A0>"
+        }
+      },
+      {
+        "name": "GEO-toe_big_primitive_female_realistic.R",
+        "type": "MESH",
+        "vertices": 50,
+        "bounds": [
+          [
+            -5.339540958404541,
+            -0.15464791655540466,
+            -0.010516047477722168
+          ],
+          [
+            -5.284517765045166,
+            -0.08279751241207123,
+            0.02566342242062092
+          ]
+        ],
+        "properties": {
+          "cycles": "<bpy id prop: owner=\"OBGEO-toe_big_primitive_female_realistic.R\", name=\"cycles\", address=0x0000012846CA38A0>",
+          "conform_object": "<bpy id prop: owner=\"OBGEO-toe_big_primitive_female_realistic.R\", name=\"conform_object\", address=0x0000012846CA37E0>"
+        }
+      },
+      {
+        "name": "GEO-eye_primitve_female_realistic.R",
+        "type": "MESH",
+        "vertices": 162,
+        "bounds": [
+          [
+            -5.227094650268555,
+            -0.13307438790798187,
+            1.504296898841858
+          ],
+          [
+            -5.185868263244629,
+            -0.09276608377695084,
+            1.5429316759109497
+          ]
+        ],
+        "properties": {
+          "conform_object": "<bpy id prop: owner=\"OBGEO-eye_primitve_female_realistic.R\", name=\"conform_object\", address=0x0000012846D7DDA0>",
+          "cycles": "<bpy id prop: owner=\"OBGEO-eye_primitve_female_realistic.R\", name=\"cycles\", address=0x0000012846D7DCE0>"
+        }
+      },
+      {
+        "name": "GEO-ear_primitve_female_realistic.R",
+        "type": "MESH",
+        "vertices": 96,
+        "bounds": [
+          [
+            -5.265820503234863,
+            -0.06286634504795074,
+            1.4667954444885254
+          ],
+          [
+            -5.236732006072998,
+            -0.0230213925242424,
+            1.5283989906311035
+          ]
+        ],
+        "properties": {
+          "cycles": "<bpy id prop: owner=\"OBGEO-ear_primitve_female_realistic.R\", name=\"cycles\", address=0x0000012846D7FBA0>",
+          "conform_object": "<bpy id prop: owner=\"OBGEO-ear_primitve_female_realistic.R\", name=\"conform_object\", address=0x0000012846D7FAE0>"
+        }
+      },
+      {
+        "name": "GEO-eyelid_lower_primitve_female_realistic.R",
+        "type": "MESH",
+        "vertices": 98,
+        "bounds": [
+          [
+            -5.229994773864746,
+            -0.13427498936653137,
+            1.5008217096328735
+          ],
+          [
+            -5.18421745300293,
+            -0.0887584239244461,
+            1.528767704963684
+          ]
+        ],
+        "properties": {
+          "cycles": "<bpy id prop: owner=\"OBGEO-eyelid_lower_primitve_female_realistic.R\", name=\"cycles\", address=0x0000012846D7BEA0>",
+          "conform_object": "<bpy id prop: owner=\"OBGEO-eyelid_lower_primitve_female_realistic.R\", name=\"conform_object\", address=0x0000012846D7BDE0>"
+        }
+      },
+      {
+        "name": "GEO-eyelid_upper_primitve_female_realistic.R",
+        "type": "MESH",
+        "vertices": 131,
+        "bounds": [
+          [
+            -5.230618000030518,
+            -0.13349097967147827,
+            1.5063858032226562
+          ],
+          [
+            -5.185142517089844,
+            -0.08880594372749329,
+            1.546732783317566
+          ]
+        ],
+        "properties": {
+          "cycles": "<bpy id prop: owner=\"OBGEO-eyelid_upper_primitve_female_realistic.R\", name=\"cycles\", address=0x0000012846D7A0A0>",
+          "conform_object": "<bpy id prop: owner=\"OBGEO-eyelid_upper_primitve_female_realistic.R\", name=\"conform_object\", address=0x0000012846D79FE0>"
+        }
+      },
+      {
+        "name": "GEO-toe_index_primitive_female_realistic.R",
+        "type": "MESH",
+        "vertices": 58,
+        "bounds": [
+          [
+            -5.349461555480957,
+            -0.14167654514312744,
+            -0.007947663776576519
+          ],
+          [
+            -5.315991401672363,
+            -0.0909155011177063,
+            0.02465798892080784
+          ]
+        ],
+        "properties": {
+          "cycles": "<bpy id prop: owner=\"OBGEO-toe_index_primitive_female_realistic.R\", name=\"cycles\", address=0x0000012846CA20A0>",
+          "conform_object": "<bpy id prop: owner=\"OBGEO-toe_index_primitive_female_realistic.R\", name=\"conform_object\", address=0x0000012846CA1FE0>"
+        }
+      },
+      {
+        "name": "GEO-toe_ring_primitive_female_realistic.R",
+        "type": "MESH",
+        "vertices": 58,
+        "bounds": [
+          [
+            -5.369621276855469,
+            -0.11902500689029694,
+            -0.007498209830373526
+          ],
+          [
+            -5.343021392822266,
+            -0.06903713196516037,
+            0.024115392938256264
+          ]
+        ],
+        "properties": {
+          "cycles": "<bpy id prop: owner=\"OBGEO-toe_ring_primitive_female_realistic.R\", name=\"cycles\", address=0x0000012846C917A0>",
+          "conform_object": "<bpy id prop: owner=\"OBGEO-toe_ring_primitive_female_realistic.R\", name=\"conform_object\", address=0x0000012846C916E0>"
+        }
+      },
+      {
+        "name": "GEO-toe_pinky_primitive_female_realistic.R",
+        "type": "MESH",
+        "vertices": 58,
+        "bounds": [
+          [
+            -5.3847575187683105,
+            -0.10585404932498932,
+            -0.009074250236153603
+          ],
+          [
+            -5.350891590118408,
+            -0.06351079791784286,
+            0.022716794162988663
+          ]
+        ],
+        "properties": {
+          "cycles": "<bpy id prop: owner=\"OBGEO-toe_pinky_primitive_female_realistic.R\", name=\"cycles\", address=0x0000012846C92FA0>",
+          "conform_object": "<bpy id prop: owner=\"OBGEO-toe_pinky_primitive_female_realistic.R\", name=\"conform_object\", address=0x0000012846C92EE0>"
+        }
+      },
+      {
+        "name": "GEO-toe_middle_primitive_female_realistic.R",
+        "type": "MESH",
+        "vertices": 58,
+        "bounds": [
+          [
+            -5.360373497009277,
+            -0.13113686442375183,
+            -0.007949724793434143
+          ],
+          [
+            -5.328392028808594,
+            -0.08107158541679382,
+            0.025241130962967873
+          ]
+        ],
+        "properties": {
+          "cycles": "<bpy id prop: owner=\"OBGEO-toe_middle_primitive_female_realistic.R\", name=\"cycles\", address=0x0000012846CA08A0>",
+          "conform_object": "<bpy id prop: owner=\"OBGEO-toe_middle_primitive_female_realistic.R\", name=\"conform_object\", address=0x0000012846CA07E0>"
+        }
+      },
+      {
+        "name": "GEO-foot_primitive_female_realistic.R",
+        "type": "MESH",
+        "vertices": 121,
+        "bounds": [
+          [
+            -5.378567218780518,
+            -0.11958618462085724,
+            -0.007722242269665003
+          ],
+          [
+            -5.255890369415283,
+            0.0972265675663948,
+            0.10376466065645218
+          ]
+        ],
+        "properties": {
+          "cycles": "<bpy id prop: owner=\"OBGEO-foot_primitive_female_realistic.R\", name=\"cycles\", address=0x0000012846D4E6A0>",
+          "conform_object": "<bpy id prop: owner=\"OBGEO-foot_primitive_female_realistic.R\", name=\"conform_object\", address=0x0000012846D4E5E0>"
+        }
+      },
+      {
+        "name": "GEO-shoulder_primitive_female_realistic.R",
+        "type": "MESH",
+        "vertices": 44,
+        "bounds": [
+          [
+            -5.440027713775635,
+            -0.0691048875451088,
+            1.1585198640823364
+          ],
+          [
+            -5.217108249664307,
+            0.08815784752368927,
+            1.3979084491729736
+          ]
+        ],
+        "properties": {
+          "cycles": "<bpy id prop: owner=\"OBGEO-shoulder_primitive_female_realistic.R\", name=\"cycles\", address=0x0000012846D1C660>",
+          "conform_object": "<bpy id prop: owner=\"OBGEO-shoulder_primitive_female_realistic.R\", name=\"conform_object\", address=0x0000012846D1C5A0>"
+        }
+      },
+      {
+        "name": "GEO-finger_ring_primitive_female_realistic.R",
+        "type": "MESH",
+        "vertices": 82,
+        "bounds": [
+          [
+            -5.640301704406738,
+            -0.06877452880144119,
+            0.6936913728713989
+          ],
+          [
+            -5.583314895629883,
+            -0.025085192173719406,
+            0.7863172292709351
+          ]
+        ],
+        "properties": {
+          "cycles": "<bpy id prop: owner=\"OBGEO-finger_ring_primitive_female_realistic.R\", name=\"cycles\", address=0x0000012846D4FEA0>",
+          "conform_object": "<bpy id prop: owner=\"OBGEO-finger_ring_primitive_female_realistic.R\", name=\"conform_object\", address=0x0000012846D4FDE0>"
+        }
+      },
+      {
+        "name": "GEO-arm_lower_primitive_female_realistic.R",
+        "type": "MESH",
+        "vertices": 58,
+        "bounds": [
+          [
+            -5.599581718444824,
+            -0.05354927107691765,
+            0.8148926496505737
+          ],
+          [
+            -5.377017021179199,
+            0.07882969826459885,
+            1.1141092777252197
+          ]
+        ],
+        "properties": {
+          "cycles": "<bpy id prop: owner=\"OBGEO-arm_lower_primitive_female_realistic.R\", name=\"cycles\", address=0x0000012846DADAA0>",
+          "conform_object": "<bpy id prop: owner=\"OBGEO-arm_lower_primitive_female_realistic.R\", name=\"conform_object\", address=0x0000012846DAD9E0>"
+        }
+      },
+      {
+        "name": "GEO-hand_primitive_female_realistic.R",
+        "type": "MESH",
+        "vertices": 113,
+        "bounds": [
+          [
+            -5.62658166885376,
+            -0.11502765864133835,
+            0.7359071373939514
+          ],
+          [
+            -5.49889612197876,
+            0.027987264096736908,
+            0.8943372964859009
+          ]
+        ],
+        "properties": {
+          "cycles": "<bpy id prop: owner=\"OBGEO-hand_primitive_female_realistic.R\", name=\"cycles\", address=0x0000012846D4CEA0>",
+          "conform_object": "<bpy id prop: owner=\"OBGEO-hand_primitive_female_realistic.R\", name=\"conform_object\", address=0x0000012846D4CDE0>"
+        }
+      },
+      {
+        "name": "GEO-arm_upper_primitive_female_realistic.R",
+        "type": "MESH",
+        "vertices": 50,
+        "bounds": [
+          [
+            -5.489923000335693,
+            -0.03603145480155945,
+            1.0024768114089966
+          ],
+          [
+            -5.287027835845947,
+            0.09801379591226578,
+            1.314931035041809
+          ]
+        ],
+        "properties": {
+          "cycles": "<bpy id prop: owner=\"OBGEO-arm_upper_primitive_female_realistic.R\", name=\"cycles\", address=0x0000012846DAC2A0>",
+          "conform_object": "<bpy id prop: owner=\"OBGEO-arm_upper_primitive_female_realistic.R\", name=\"conform_object\", address=0x0000012846DAC1E0>"
+        }
+      },
+      {
+        "name": "GEO-finger_pinky_primitive_female_realistic.R",
+        "type": "MESH",
+        "vertices": 82,
+        "bounds": [
+          [
+            -5.625062465667725,
+            -0.025974323973059654,
+            0.7064806222915649
+          ],
+          [
+            -5.577704429626465,
+            -0.004393740091472864,
+            0.7822030186653137
+          ]
+        ],
+        "properties": {
+          "cycles": "<bpy id prop: owner=\"OBGEO-finger_pinky_primitive_female_realistic.R\", name=\"cycles\", address=0x0000012846D697A0>",
+          "conform_object": "<bpy id prop: owner=\"OBGEO-finger_pinky_primitive_female_realistic.R\", name=\"conform_object\", address=0x0000012846D696E0>"
+        }
+      },
+      {
+        "name": "GEO-thumb_primitive_female_realistic.R",
+        "type": "MESH",
+        "vertices": 66,
+        "bounds": [
+          [
+            -5.573470592498779,
+            -0.144884392619133,
+            0.775830090045929
+          ],
+          [
+            -5.530980110168457,
+            -0.0691501647233963,
+            0.836357831954956
+          ]
+        ],
+        "properties": {
+          "cycles": "<bpy id prop: owner=\"OBGEO-thumb_primitive_female_realistic.R\", name=\"cycles\", address=0x0000012846CACBA0>",
+          "conform_object": "<bpy id prop: owner=\"OBGEO-thumb_primitive_female_realistic.R\", name=\"conform_object\", address=0x0000012846CACAE0>"
+        }
+      },
+      {
+        "name": "GEO-finger_index_primitive_female_realistic.R",
+        "type": "MESH",
+        "vertices": 82,
+        "bounds": [
+          [
+            -5.633045673370361,
+            -0.12877535820007324,
+            0.7111998200416565
+          ],
+          [
+            -5.574175834655762,
+            -0.06696383655071259,
+            0.8013157248497009
+          ]
+        ],
+        "properties": {
+          "cycles": "<bpy id prop: owner=\"OBGEO-finger_index_primitive_female_realistic.R\", name=\"cycles\", address=0x0000012846D788A0>",
+          "conform_object": "<bpy id prop: owner=\"OBGEO-finger_index_primitive_female_realistic.R\", name=\"conform_object\", address=0x0000012846D787E0>"
+        }
+      },
+      {
+        "name": "GEO-finger_middle_primitive_female_realistic.R",
+        "type": "MESH",
+        "vertices": 82,
+        "bounds": [
+          [
+            -5.645013332366943,
+            -0.10194118320941925,
+            0.6923699975013733
+          ],
+          [
+            -5.582178592681885,
+            -0.0509587824344635,
+            0.7886358499526978
+          ]
+        ],
+        "properties": {
+          "cycles": "<bpy id prop: owner=\"OBGEO-finger_middle_primitive_female_realistic.R\", name=\"cycles\", address=0x0000012846D6AFA0>",
+          "conform_object": "<bpy id prop: owner=\"OBGEO-finger_middle_primitive_female_realistic.R\", name=\"conform_object\", address=0x0000012846D6AEE0>"
+        }
+      }
+    ]
+  },
+  {
+    "collection": "Body Female - Realistic",
+    "properties": {},
+    "objects": [
+      {
+        "name": "GEO-body_female_realistic",
+        "type": "MESH",
+        "vertices": 10582,
+        "bounds": [
+          [
+            -1.7612662315368652,
+            -0.1675872653722763,
+            0.00195710314437747
+          ],
+          [
+            -0.9189411401748657,
+            0.11686371266841888,
+            1.6414071321487427
+          ]
+        ],
+        "properties": {
+          "MM": "<bpy id prop: owner=\"OBGEO-body_female_realistic\", name=\"MM\", address=0x0000012846D9F2A0>",
+          "M3": "<bpy id prop: owner=\"OBGEO-body_female_realistic\", name=\"M3\", address=0x0000012846D9F1E0>",
+          "mesh_data_transfer_object": "<bpy id prop: owner=\"OBGEO-body_female_realistic\", name=\"mesh_data_transfer_object\", address=0x0000012846D9F120>",
+          "conform_object": "<bpy id prop: owner=\"OBGEO-body_female_realistic\", name=\"conform_object\", address=0x0000012846D9EFA0>",
+          "cycles": "<bpy id prop: owner=\"OBGEO-body_female_realistic\", name=\"cycles\", address=0x0000012846D9EEE0>"
+        }
+      },
+      {
+        "name": "GEO-body_female_realistic.eye.L",
+        "type": "MESH",
+        "vertices": 546,
+        "bounds": [
+          [
+            -1.3191922903060913,
+            -0.13354866206645966,
+            1.5224188566207886
+          ],
+          [
+            -1.295194149017334,
+            -0.10965269058942795,
+            1.5464413166046143
+          ]
+        ],
+        "properties": {
+          "MM": "<bpy id prop: owner=\"OBGEO-body_female_realistic.eye.L\", name=\"MM\", address=0x0000012846D9ECA0>",
+          "M3": "<bpy id prop: owner=\"OBGEO-body_female_realistic.eye.L\", name=\"M3\", address=0x0000012846D9EBE0>",
+          "mesh_data_transfer_object": "<bpy id prop: owner=\"OBGEO-body_female_realistic.eye.L\", name=\"mesh_data_transfer_object\", address=0x0000012846D9EB20>",
+          "conform_object": "<bpy id prop: owner=\"OBGEO-body_female_realistic.eye.L\", name=\"conform_object\", address=0x0000012846D9E9A0>"
+        }
+      },
+      {
+        "name": "GEO-body_female_realistic.eye.R",
+        "type": "MESH",
+        "vertices": 546,
+        "bounds": [
+          [
+            -1.3849362134933472,
+            -0.13337214291095734,
+            1.52241849899292
+          ],
+          [
+            -1.3609317541122437,
+            -0.10945476591587067,
+            1.5464409589767456
+          ]
+        ],
+        "properties": {
+          "MM": "<bpy id prop: owner=\"OBGEO-body_female_realistic.eye.R\", name=\"MM\", address=0x0000012846D9E820>",
+          "M3": "<bpy id prop: owner=\"OBGEO-body_female_realistic.eye.R\", name=\"M3\", address=0x0000012846D9E760>",
+          "mesh_data_transfer_object": "<bpy id prop: owner=\"OBGEO-body_female_realistic.eye.R\", name=\"mesh_data_transfer_object\", address=0x0000012846D9E6A0>",
+          "conform_object": "<bpy id prop: owner=\"OBGEO-body_female_realistic.eye.R\", name=\"conform_object\", address=0x0000012846D9E520>"
+        }
+      }
+    ]
+  },
+  {
+    "collection": "Body Female - Stylized",
+    "properties": {},
+    "objects": [
+      {
+        "name": "GEO-body_female_stylized",
+        "type": "MESH",
+        "vertices": 12502,
+        "bounds": [
+          [
+            0.27553632855415344,
+            -0.18053914606571198,
+            -0.0037532122805714607
+          ],
+          [
+            0.99642014503479,
+            0.09264557808637619,
+            1.613161563873291
+          ]
+        ],
+        "properties": {
+          "cycles": "<bpy id prop: owner=\"OBGEO-body_female_stylized\", name=\"cycles\", address=0x0000012846D9E3A0>",
+          "cycles_visibility": "<bpy id prop: owner=\"OBGEO-body_female_stylized\", name=\"cycles_visibility\", address=0x0000012846D9E2E0>",
+          "Character": "Rain",
+          "Weight_Paint_Body": 1,
+          "id_keys": "<bpy id prop: owner=\"OBGEO-body_female_stylized\", name=\"id_keys\", address=0x0000012846D9E0A0>",
+          "vs": "<bpy id prop: owner=\"OBGEO-body_female_stylized\", name=\"vs\", address=0x0000012846D9DFE0>",
+          "conform_object": "<bpy id prop: owner=\"OBGEO-body_female_stylized\", name=\"conform_object\", address=0x0000012846D9DF20>"
+        }
+      },
+      {
+        "name": "GEO-body_female_stylized.eye.L",
+        "type": "MESH",
+        "vertices": 802,
+        "bounds": [
+          [
+            0.6449381709098816,
+            -0.11537066102027893,
+            1.4249078035354614
+          ],
+          [
+            0.7216796875,
+            -0.04169921204447746,
+            1.5016487836837769
+          ]
+        ],
+        "properties": {
+          "cycles": "<bpy id prop: owner=\"OBGEO-body_female_stylized.eye.L\", name=\"cycles\", address=0x0000012846D9DC20>",
+          "cycles_visibility": "<bpy id prop: owner=\"OBGEO-body_female_stylized.eye.L\", name=\"cycles_visibility\", address=0x0000012846D9DB60>",
+          "Character": "Rain",
+          "Weight_Paint_Body": 1,
+          "id_keys": "<bpy id prop: owner=\"OBGEO-body_female_stylized.eye.L\", name=\"id_keys\", address=0x0000012846D9D920>",
+          "vs": "<bpy id prop: owner=\"OBGEO-body_female_stylized.eye.L\", name=\"vs\", address=0x0000012846D9D860>",
+          "conform_object": "<bpy id prop: owner=\"OBGEO-body_female_stylized.eye.L\", name=\"conform_object\", address=0x0000012846D9D7A0>"
+        }
+      },
+      {
+        "name": "GEO-body_female_stylized.eye.R",
+        "type": "MESH",
+        "vertices": 802,
+        "bounds": [
+          [
+            0.5502768158912659,
+            -0.11537066102027893,
+            1.4249078035354614
+          ],
+          [
+            0.6270183324813843,
+            -0.04169921204447746,
+            1.5016487836837769
+          ]
+        ],
+        "properties": {
+          "cycles": "<bpy id prop: owner=\"OBGEO-body_female_stylized.eye.R\", name=\"cycles\", address=0x0000012846D9D4A0>",
+          "cycles_visibility": "<bpy id prop: owner=\"OBGEO-body_female_stylized.eye.R\", name=\"cycles_visibility\", address=0x0000012846D9D3E0>",
+          "Character": "Rain",
+          "Weight_Paint_Body": 1,
+          "id_keys": "<bpy id prop: owner=\"OBGEO-body_female_stylized.eye.R\", name=\"id_keys\", address=0x0000012846D9D1A0>",
+          "vs": "<bpy id prop: owner=\"OBGEO-body_female_stylized.eye.R\", name=\"vs\", address=0x0000012846D9D0E0>",
+          "conform_object": "<bpy id prop: owner=\"OBGEO-body_female_stylized.eye.R\", name=\"conform_object\", address=0x0000012846D9D020>"
+        }
+      }
+    ]
+  },
+  {
+    "collection": "Body Male - Primitve (Realistic)",
+    "properties": {},
+    "objects": [
+      {
+        "name": "GEO-leg_lower_male_primitive_realistic.L",
+        "type": "MESH",
+        "vertices": 74,
+        "bounds": [
+          [
+            -6.114187717437744,
+            -0.06125543266534805,
+            0.07913047820329666
+          ],
+          [
+            -5.958327293395996,
+            0.1262773871421814,
+            0.5457233190536499
+          ]
+        ],
+        "properties": {
+          "cycles": "<bpy id prop: owner=\"OBGEO-leg_lower_male_primitive_realistic.L\", name=\"cycles\", address=0x0000012846D33C60>",
+          "conform_object": "<bpy id prop: owner=\"OBGEO-leg_lower_male_primitive_realistic.L\", name=\"conform_object\", address=0x0000012846D33BA0>"
+        }
+      },
+      {
+        "name": "GEO-leg_upper_male_primitive_realistic.L",
+        "type": "MESH",
+        "vertices": 74,
+        "bounds": [
+          [
+            -6.208992004394531,
+            -0.13487476110458374,
+            0.4241458773612976
+          ],
+          [
+            -5.9746785163879395,
+            0.08397657424211502,
+            0.9657585620880127
+          ]
+        ],
+        "properties": {
+          "cycles": "<bpy id prop: owner=\"OBGEO-leg_upper_male_primitive_realistic.L\", name=\"cycles\", address=0x0000012846D32460>",
+          "conform_object": "<bpy id prop: owner=\"OBGEO-leg_upper_male_primitive_realistic.L\", name=\"conform_object\", address=0x0000012846D323A0>"
+        }
+      },
+      {
+        "name": "GEO-belly_male_primitive_realistic",
+        "type": "MESH",
+        "vertices": 182,
+        "bounds": [
+          [
+            -6.348394393920898,
+            -0.14162328839302063,
+            0.8962663412094116
+          ],
+          [
+            -6.035029411315918,
+            0.07338115572929382,
+            1.200028896331787
+          ]
+        ],
+        "properties": {
+          "cycles": "<bpy id prop: owner=\"OBGEO-belly_male_primitive_realistic\", name=\"cycles\", address=0x0000012846D9FBA0>",
+          "conform_object": "<bpy id prop: owner=\"OBGEO-belly_male_primitive_realistic\", name=\"conform_object\", address=0x0000012846D9FAE0>"
+        }
+      },
+      {
+        "name": "GEO-teo_big_male_primitive_realistic.L",
+        "type": "MESH",
+        "vertices": 50,
+        "bounds": [
+          [
+            -6.005099296569824,
+            -0.13640998303890228,
+            -0.005299868527799845
+          ],
+          [
+            -5.957284450531006,
+            -0.06492675840854645,
+            0.03271231800317764
+          ]
+        ],
+        "properties": {
+          "cycles": "<bpy id prop: owner=\"OBGEO-teo_big_male_primitive_realistic.L\", name=\"cycles\", address=0x0000012846CAE6A0>",
+          "conform_object": "<bpy id prop: owner=\"OBGEO-teo_big_male_primitive_realistic.L\", name=\"conform_object\", address=0x0000012846CAE5E0>"
+        }
+      },
+      {
+        "name": "GEO-shoulder_male_primitive_realistic.L",
+        "type": "MESH",
+        "vertices": 44,
+        "bounds": [
+          [
+            -6.108302116394043,
+            -0.07283828407526016,
+            1.1977174282073975
+          ],
+          [
+            -5.884184837341309,
+            0.084234818816185,
+            1.4286566972732544
+          ]
+        ],
+        "properties": {
+          "cycles": "<bpy id prop: owner=\"OBGEO-shoulder_male_primitive_realistic.L\", name=\"cycles\", address=0x0000012846D1D560>",
+          "conform_object": "<bpy id prop: owner=\"OBGEO-shoulder_male_primitive_realistic.L\", name=\"conform_object\", address=0x0000012846D1D4A0>"
+        }
+      },
+      {
+        "name": "GEO-finger_ring_male_primitive_realistic.L",
+        "type": "MESH",
+        "vertices": 82,
+        "bounds": [
+          [
+            -5.670707702636719,
+            -0.11811278760433197,
+            0.7957859039306641
+          ],
+          [
+            -5.603794097900391,
+            -0.06720805913209915,
+            0.8850827813148499
+          ]
+        ],
+        "properties": {
+          "cycles": "<bpy id prop: owner=\"OBGEO-finger_ring_male_primitive_realistic.L\", name=\"cycles\", address=0x0000012846D68EA0>",
+          "conform_object": "<bpy id prop: owner=\"OBGEO-finger_ring_male_primitive_realistic.L\", name=\"conform_object\", address=0x0000012846D68DE0>"
+        }
+      },
+      {
+        "name": "GEO-arm_lower_male_primitive_realistic.L",
+        "type": "MESH",
+        "vertices": 58,
+        "bounds": [
+          [
+            -5.91632080078125,
+            -0.12488356232643127,
+            0.8891099691390991
+          ],
+          [
+            -5.645651340484619,
+            0.0702429786324501,
+            1.2042676210403442
+          ]
+        ],
+        "properties": {
+          "cycles": "<bpy id prop: owner=\"OBGEO-arm_lower_male_primitive_realistic.L\", name=\"cycles\", address=0x0000012846DAE9A0>",
+          "conform_object": "<bpy id prop: owner=\"OBGEO-arm_lower_male_primitive_realistic.L\", name=\"conform_object\", address=0x0000012846DAE8E0>"
+        }
+      },
+      {
+        "name": "GEO-hand_male_primitive_realistic.L",
+        "type": "MESH",
+        "vertices": 113,
+        "bounds": [
+          [
+            -5.765182971954346,
+            -0.15930801630020142,
+            0.8294885158538818
+          ],
+          [
+            -5.6240363121032715,
+            -0.008702408522367477,
+            0.9898128509521484
+          ]
+        ],
+        "properties": {
+          "cycles": "<bpy id prop: owner=\"OBGEO-hand_male_primitive_realistic.L\", name=\"cycles\", address=0x0000012846D4DDA0>",
+          "conform_object": "<bpy id prop: owner=\"OBGEO-hand_male_primitive_realistic.L\", name=\"conform_object\", address=0x0000012846D4DCE0>"
+        }
+      },
+      {
+        "name": "GEO-chest_male_primitive_realistic",
+        "type": "MESH",
+        "vertices": 194,
+        "bounds": [
+          [
+            -6.395816802978516,
+            -0.15136393904685974,
+            1.080368161201477
+          ],
+          [
+            -5.987607955932617,
+            0.11795732378959656,
+            1.4477721452713013
+          ]
+        ],
+        "properties": {
+          "cycles": "<bpy id prop: owner=\"OBGEO-chest_male_primitive_realistic\", name=\"cycles\", address=0x0000012846D8E0A0>",
+          "conform_object": "<bpy id prop: owner=\"OBGEO-chest_male_primitive_realistic\", name=\"conform_object\", address=0x0000012846D8DFE0>"
+        }
+      },
+      {
+        "name": "GEO-arm_upper_male_primitive_realistic.L",
+        "type": "MESH",
+        "vertices": 50,
+        "bounds": [
+          [
+            -6.055580139160156,
+            -0.052313823252916336,
+            1.073854684829712
+          ],
+          [
+            -5.767606735229492,
+            0.07205896079540253,
+            1.3717466592788696
+          ]
+        ],
+        "properties": {
+          "cycles": "<bpy id prop: owner=\"OBGEO-arm_upper_male_primitive_realistic.L\", name=\"cycles\", address=0x0000012846DAD1A0>",
+          "conform_object": "<bpy id prop: owner=\"OBGEO-arm_upper_male_primitive_realistic.L\", name=\"conform_object\", address=0x0000012846DAD0E0>"
+        }
+      },
+      {
+        "name": "GEO-pelvis_male_primitive_realistic",
+        "type": "MESH",
+        "vertices": 182,
+        "bounds": [
+          [
+            -6.35623836517334,
+            -0.14097860455513,
+            0.7482800483703613
+          ],
+          [
+            -6.027186393737793,
+            0.1212853342294693,
+            0.9727997779846191
+          ]
+        ],
+        "properties": {
+          "cycles": "<bpy id prop: owner=\"OBGEO-pelvis_male_primitive_realistic\", name=\"cycles\", address=0x0000012846D1E160>",
+          "conform_object": "<bpy id prop: owner=\"OBGEO-pelvis_male_primitive_realistic\", name=\"conform_object\", address=0x0000012846D1E0A0>"
+        }
+      },
+      {
+        "name": "GEO-neck_male_primitive_realistic",
+        "type": "MESH",
+        "vertices": 50,
+        "bounds": [
+          [
+            -6.300055980682373,
+            -0.11218323558568954,
+            1.3481281995773315
+          ],
+          [
+            -6.08336877822876,
+            0.062106288969516754,
+            1.5507423877716064
+          ]
+        ],
+        "properties": {
+          "cycles": "<bpy id prop: owner=\"OBGEO-neck_male_primitive_realistic\", name=\"cycles\", address=0x0000012846D30F60>",
+          "conform_object": "<bpy id prop: owner=\"OBGEO-neck_male_primitive_realistic\", name=\"conform_object\", address=0x0000012846D30EA0>"
+        }
+      },
+      {
+        "name": "GEO-head_male_primitive_realistic",
+        "type": "MESH",
+        "vertices": 266,
+        "bounds": [
+          [
+            -6.273310661315918,
+            -0.15397560596466064,
+            1.461052417755127
+          ],
+          [
+            -6.110114097595215,
+            0.06100071594119072,
+            1.6963270902633667
+          ]
+        ],
+        "properties": {
+          "cycles": "<bpy id prop: owner=\"OBGEO-head_male_primitive_realistic\", name=\"cycles\", address=0x0000012846D4B660>",
+          "conform_object": "<bpy id prop: owner=\"OBGEO-head_male_primitive_realistic\", name=\"conform_object\", address=0x0000012846D4B5A0>"
+        }
+      },
+      {
+        "name": "GEO-eye_male_primitive_realistic.L",
+        "type": "MESH",
+        "vertices": 162,
+        "bounds": [
+          [
+            -6.182892322540283,
+            -0.1339699625968933,
+            1.562097191810608
+          ],
+          [
+            -6.141665935516357,
+            -0.09366164356470108,
+            1.6007319688796997
+          ]
+        ],
+        "properties": {
+          "conform_object": "<bpy id prop: owner=\"OBGEO-eye_male_primitive_realistic.L\", name=\"conform_object\", address=0x0000012846D7F2A0>",
+          "cycles": "<bpy id prop: owner=\"OBGEO-eye_male_primitive_realistic.L\", name=\"cycles\", address=0x0000012846D7F1E0>"
+        }
+      },
+      {
+        "name": "GEO-nose_bridge_male_primitive_realistic",
+        "type": "MESH",
+        "vertices": 110,
+        "bounds": [
+          [
+            -6.2139058113098145,
+            -0.14544932544231415,
+            1.5674124956130981
+          ],
+          [
+            -6.169532299041748,
+            -0.12136494368314743,
+            1.6134291887283325
+          ]
+        ],
+        "properties": {
+          "cycles": "<bpy id prop: owner=\"OBGEO-nose_bridge_male_primitive_realistic\", name=\"cycles\", address=0x0000012846D30360>",
+          "conform_object": "<bpy id prop: owner=\"OBGEO-nose_bridge_male_primitive_realistic\", name=\"conform_object\", address=0x0000012846D302A0>"
+        }
+      },
+      {
+        "name": "GEO-ear_male_primitive_realistic.L",
+        "type": "MESH",
+        "vertices": 96,
+        "bounds": [
+          [
+            -6.132028579711914,
+            -0.05875534191727638,
+            1.5293078422546387
+          ],
+          [
+            -6.102940082550049,
+            -0.01891038939356804,
+            1.5909113883972168
+          ]
+        ],
+        "properties": {
+          "cycles": "<bpy id prop: owner=\"OBGEO-ear_male_primitive_realistic.L\", name=\"cycles\", address=0x0000012846D8D1A0>",
+          "conform_object": "<bpy id prop: owner=\"OBGEO-ear_male_primitive_realistic.L\", name=\"conform_object\", address=0x0000012846D8D0E0>"
+        }
+      },
+      {
+        "name": "GEO-eyelid_lower_male_primitive_realistic.L",
+        "type": "MESH",
+        "vertices": 98,
+        "bounds": [
+          [
+            -6.184542179107666,
+            -0.13517051935195923,
+            1.558621883392334
+          ],
+          [
+            -6.13876485824585,
+            -0.08965394645929337,
+            1.5865678787231445
+          ]
+        ],
+        "properties": {
+          "cycles": "<bpy id prop: owner=\"OBGEO-eyelid_lower_male_primitive_realistic.L\", name=\"cycles\", address=0x0000012846D7D4A0>",
+          "conform_object": "<bpy id prop: owner=\"OBGEO-eyelid_lower_male_primitive_realistic.L\", name=\"conform_object\", address=0x0000012846D7D3E0>"
+        }
+      },
+      {
+        "name": "GEO-eyelid_upper_male_primitive_realistic.L",
+        "type": "MESH",
+        "vertices": 131,
+        "bounds": [
+          [
+            -6.183617115020752,
+            -0.13438650965690613,
+            1.5641860961914062
+          ],
+          [
+            -6.138141632080078,
+            -0.08970146626234055,
+            1.6045329570770264
+          ]
+        ],
+        "properties": {
+          "cycles": "<bpy id prop: owner=\"OBGEO-eyelid_upper_male_primitive_realistic.L\", name=\"cycles\", address=0x0000012846D7B5A0>",
+          "conform_object": "<bpy id prop: owner=\"OBGEO-eyelid_upper_male_primitive_realistic.L\", name=\"conform_object\", address=0x0000012846D7B4E0>"
+        }
+      },
+      {
+        "name": "GEO-nose_male_primitive_realistic",
+        "type": "MESH",
+        "vertices": 192,
+        "bounds": [
+          [
+            -6.21095085144043,
+            -0.16597753763198853,
+            1.5350663661956787
+          ],
+          [
+            -6.172475814819336,
+            -0.11445450037717819,
+            1.592305064201355
+          ]
+        ],
+        "properties": {
+          "cycles": "<bpy id prop: owner=\"OBGEO-nose_male_primitive_realistic\", name=\"cycles\", address=0x0000012846D1F360>",
+          "conform_object": "<bpy id prop: owner=\"OBGEO-nose_male_primitive_realistic\", name=\"conform_object\", address=0x0000012846D1F2A0>"
+        }
+      },
+      {
+        "name": "GEO-finger_pinky_male_primitive_realistic.L",
+        "type": "MESH",
+        "vertices": 82,
+        "bounds": [
+          [
+            -5.675518035888672,
+            -0.0738489031791687,
+            0.8075007796287537
+          ],
+          [
+            -5.613061428070068,
+            -0.046387892216444016,
+            0.8807257413864136
+          ]
+        ],
+        "properties": {
+          "cycles": "<bpy id prop: owner=\"OBGEO-finger_pinky_male_primitive_realistic.L\", name=\"cycles\", address=0x0000012846D6A6A0>",
+          "conform_object": "<bpy id prop: owner=\"OBGEO-finger_pinky_male_primitive_realistic.L\", name=\"conform_object\", address=0x0000012846D6A5E0>"
+        }
+      },
+      {
+        "name": "GEO-thumb_male_primitive_realistic.L",
+        "type": "MESH",
+        "vertices": 66,
+        "bounds": [
+          [
+            -5.727066516876221,
+            -0.18217787146568298,
+            0.8657530546188354
+          ],
+          [
+            -5.687981128692627,
+            -0.10869721323251724,
+            0.9330758452415466
+          ]
+        ],
+        "properties": {
+          "cycles": "<bpy id prop: owner=\"OBGEO-thumb_male_primitive_realistic.L\", name=\"cycles\", address=0x0000012846CADAA0>",
+          "conform_object": "<bpy id prop: owner=\"OBGEO-thumb_male_primitive_realistic.L\", name=\"conform_object\", address=0x0000012846CAD9E0>"
+        }
+      },
+      {
+        "name": "GEO-finger_index_male_primitive_realistic.L",
+        "type": "MESH",
+        "vertices": 82,
+        "bounds": [
+          [
+            -5.682684421539307,
+            -0.1782532036304474,
+            0.814358115196228
+          ],
+          [
+            -5.618046760559082,
+            -0.10876262187957764,
+            0.8995585441589355
+          ]
+        ],
+        "properties": {
+          "cycles": "<bpy id prop: owner=\"OBGEO-finger_index_male_primitive_realistic.L\", name=\"cycles\", address=0x0000012846D797A0>",
+          "conform_object": "<bpy id prop: owner=\"OBGEO-finger_index_male_primitive_realistic.L\", name=\"conform_object\", address=0x0000012846D796E0>"
+        }
+      },
+      {
+        "name": "GEO-finger_middle_male_primitive_realistic.L",
+        "type": "MESH",
+        "vertices": 82,
+        "bounds": [
+          [
+            -5.6753315925598145,
+            -0.149170383810997,
+            0.7945586442947388
+          ],
+          [
+            -5.599745750427246,
+            -0.09421080350875854,
+            0.8876625895500183
+          ]
+        ],
+        "properties": {
+          "cycles": "<bpy id prop: owner=\"OBGEO-finger_middle_male_primitive_realistic.L\", name=\"cycles\", address=0x0000012846D6BEA0>",
+          "conform_object": "<bpy id prop: owner=\"OBGEO-finger_middle_male_primitive_realistic.L\", name=\"conform_object\", address=0x0000012846D6BDE0>"
+        }
+      },
+      {
+        "name": "GEO-toe_index_male_primitive_realistic.L",
+        "type": "MESH",
+        "vertices": 58,
+        "bounds": [
+          [
+            -5.972747325897217,
+            -0.1191316545009613,
+            -0.0016762589802965522
+          ],
+          [
+            -5.944917678833008,
+            -0.06781814247369766,
+            0.03076554648578167
+          ]
+        ],
+        "properties": {
+          "cycles": "<bpy id prop: owner=\"OBGEO-toe_index_male_primitive_realistic.L\", name=\"cycles\", address=0x0000012846CA2FA0>",
+          "conform_object": "<bpy id prop: owner=\"OBGEO-toe_index_male_primitive_realistic.L\", name=\"conform_object\", address=0x0000012846CA2EE0>"
+        }
+      },
+      {
+        "name": "GEO-toe_ring_male_primitive_realistic.L",
+        "type": "MESH",
+        "vertices": 58,
+        "bounds": [
+          [
+            -5.948647975921631,
+            -0.09030447900295258,
+            -0.002216269727796316
+          ],
+          [
+            -5.923003196716309,
+            -0.03953683748841286,
+            0.030295083299279213
+          ]
+        ],
+        "properties": {
+          "cycles": "<bpy id prop: owner=\"OBGEO-toe_ring_male_primitive_realistic.L\", name=\"cycles\", address=0x0000012846C926A0>",
+          "conform_object": "<bpy id prop: owner=\"OBGEO-toe_ring_male_primitive_realistic.L\", name=\"conform_object\", address=0x0000012846C925E0>"
+        }
+      },
+      {
+        "name": "GEO-toe_pinky_male_primitive_realistic.L",
+        "type": "MESH",
+        "vertices": 58,
+        "bounds": [
+          [
+            -5.937297344207764,
+            -0.07661093771457672,
+            -0.0035572689957916737
+          ],
+          [
+            -5.916413307189941,
+            -0.032069213688373566,
+            0.029428116977214813
+          ]
+        ],
+        "properties": {
+          "cycles": "<bpy id prop: owner=\"OBGEO-toe_pinky_male_primitive_realistic.L\", name=\"cycles\", address=0x0000012846C93EA0>",
+          "conform_object": "<bpy id prop: owner=\"OBGEO-toe_pinky_male_primitive_realistic.L\", name=\"conform_object\", address=0x0000012846C93DE0>"
+        }
+      },
+      {
+        "name": "GEO-toe_middle_male_primitive_realistic.L",
+        "type": "MESH",
+        "vertices": 58,
+        "bounds": [
+          [
+            -5.960221767425537,
+            -0.10598177462816238,
+            -0.0019386224448680878
+          ],
+          [
+            -5.934080600738525,
+            -0.05545555055141449,
+            0.031103000044822693
+          ]
+        ],
+        "properties": {
+          "cycles": "<bpy id prop: owner=\"OBGEO-toe_middle_male_primitive_realistic.L\", name=\"cycles\", address=0x0000012846CA17A0>",
+          "conform_object": "<bpy id prop: owner=\"OBGEO-toe_middle_male_primitive_realistic.L\", name=\"conform_object\", address=0x0000012846CA16E0>"
+        }
+      },
+      {
+        "name": "GEO-foot.005_male_primitive_realistic.L",
+        "type": "MESH",
+        "vertices": 121,
+        "bounds": [
+          [
+            -6.071530342102051,
+            -0.1050243079662323,
+            -0.004480001982301474
+          ],
+          [
+            -5.906522274017334,
+            0.12885768711566925,
+            0.12327734380960464
+          ]
+        ],
+        "properties": {
+          "cycles": "<bpy id prop: owner=\"OBGEO-foot.005_male_primitive_realistic.L\", name=\"cycles\", address=0x0000012846D4FBA0>",
+          "conform_object": "<bpy id prop: owner=\"OBGEO-foot.005_male_primitive_realistic.L\", name=\"conform_object\", address=0x0000012846D4FAE0>"
+        }
+      },
+      {
+        "name": "GEO-leg_lower_male_primitive_realistic.R",
+        "type": "MESH",
+        "vertices": 74,
+        "bounds": [
+          [
+            -6.425096035003662,
+            -0.06125543266534805,
+            0.07913047820329666
+          ],
+          [
+            -6.269235610961914,
+            0.1262773871421814,
+            0.5457233190536499
+          ]
+        ],
+        "properties": {
+          "cycles": "<bpy id prop: owner=\"OBGEO-leg_lower_male_primitive_realistic.R\", name=\"cycles\", address=0x0000012846D33960>",
+          "conform_object": "<bpy id prop: owner=\"OBGEO-leg_lower_male_primitive_realistic.R\", name=\"conform_object\", address=0x0000012846D338A0>"
+        }
+      },
+      {
+        "name": "GEO-leg_upper_male_primitive_realistic.R",
+        "type": "MESH",
+        "vertices": 74,
+        "bounds": [
+          [
+            -6.4087443351745605,
+            -0.13487476110458374,
+            0.4241458773612976
+          ],
+          [
+            -6.174430847167969,
+            0.08397657424211502,
+            0.9657585620880127
+          ]
+        ],
+        "properties": {
+          "cycles": "<bpy id prop: owner=\"OBGEO-leg_upper_male_primitive_realistic.R\", name=\"cycles\", address=0x0000012846D32160>",
+          "conform_object": "<bpy id prop: owner=\"OBGEO-leg_upper_male_primitive_realistic.R\", name=\"conform_object\", address=0x0000012846D320A0>"
+        }
+      },
+      {
+        "name": "GEO-teo_big_male_primitive_realistic.R",
+        "type": "MESH",
+        "vertices": 50,
+        "bounds": [
+          [
+            -6.426140785217285,
+            -0.13640986382961273,
+            -0.005299868527799845
+          ],
+          [
+            -6.378325939178467,
+            -0.0649266317486763,
+            0.03271231800317764
+          ]
+        ],
+        "properties": {
+          "cycles": "<bpy id prop: owner=\"OBGEO-teo_big_male_primitive_realistic.R\", name=\"cycles\", address=0x0000012846CAE3A0>",
+          "conform_object": "<bpy id prop: owner=\"OBGEO-teo_big_male_primitive_realistic.R\", name=\"conform_object\", address=0x0000012846CAE2E0>"
+        }
+      },
+      {
+        "name": "GEO-shoulder_male_primitive_realistic.R",
+        "type": "MESH",
+        "vertices": 44,
+        "bounds": [
+          [
+            -6.498347759246826,
+            -0.0726848766207695,
+            1.1977174282073975
+          ],
+          [
+            -6.27595329284668,
+            0.08288578689098358,
+            1.4286566972732544
+          ]
+        ],
+        "properties": {
+          "cycles": "<bpy id prop: owner=\"OBGEO-shoulder_male_primitive_realistic.R\", name=\"cycles\", address=0x0000012846D1D260>",
+          "conform_object": "<bpy id prop: owner=\"OBGEO-shoulder_male_primitive_realistic.R\", name=\"conform_object\", address=0x0000012846D1D1A0>"
+        }
+      },
+      {
+        "name": "GEO-finger_ring_male_primitive_realistic.R",
+        "type": "MESH",
+        "vertices": 82,
+        "bounds": [
+          [
+            -6.754958152770996,
+            -0.12865781784057617,
+            0.7799004316329956
+          ],
+          [
+            -6.690951824188232,
+            -0.0769268199801445,
+            0.870021641254425
+          ]
+        ],
+        "properties": {
+          "cycles": "<bpy id prop: owner=\"OBGEO-finger_ring_male_primitive_realistic.R\", name=\"cycles\", address=0x0000012846D68BA0>",
+          "conform_object": "<bpy id prop: owner=\"OBGEO-finger_ring_male_primitive_realistic.R\", name=\"conform_object\", address=0x0000012846D68AE0>"
+        }
+      },
+      {
+        "name": "GEO-arm_lower_male_primitive_realistic.R",
+        "type": "MESH",
+        "vertices": 58,
+        "bounds": [
+          [
+            -6.720527172088623,
+            -0.13262055814266205,
+            0.8767869472503662
+          ],
+          [
+            -6.457801342010498,
+            0.06529594212770462,
+            1.196413516998291
+          ]
+        ],
+        "properties": {
+          "cycles": "<bpy id prop: owner=\"OBGEO-arm_lower_male_primitive_realistic.R\", name=\"cycles\", address=0x0000012846DAE6A0>",
+          "conform_object": "<bpy id prop: owner=\"OBGEO-arm_lower_male_primitive_realistic.R\", name=\"conform_object\", address=0x0000012846DAE5E0>"
+        }
+      },
+      {
+        "name": "GEO-hand_male_primitive_realistic.R",
+        "type": "MESH",
+        "vertices": 113,
+        "bounds": [
+          [
+            -6.738074779510498,
+            -0.16842512786388397,
+            0.8150980472564697
+          ],
+          [
+            -6.599324703216553,
+            -0.016962427645921707,
+            0.9777964353561401
+          ]
+        ],
+        "properties": {
+          "cycles": "<bpy id prop: owner=\"OBGEO-hand_male_primitive_realistic.R\", name=\"cycles\", address=0x0000012846D4DAA0>",
+          "conform_object": "<bpy id prop: owner=\"OBGEO-hand_male_primitive_realistic.R\", name=\"conform_object\", address=0x0000012846D4D9E0>"
+        }
+      },
+      {
+        "name": "GEO-arm_upper_male_primitive_realistic.R",
+        "type": "MESH",
+        "vertices": 50,
+        "bounds": [
+          [
+            -6.606907844543457,
+            -0.05369503051042557,
+            1.0664570331573486
+          ],
+          [
+            -6.326523780822754,
+            0.0675274208188057,
+            1.369051456451416
+          ]
+        ],
+        "properties": {
+          "cycles": "<bpy id prop: owner=\"OBGEO-arm_upper_male_primitive_realistic.R\", name=\"cycles\", address=0x0000012846DACEA0>",
+          "conform_object": "<bpy id prop: owner=\"OBGEO-arm_upper_male_primitive_realistic.R\", name=\"conform_object\", address=0x0000012846DACDE0>"
+        }
+      },
+      {
+        "name": "GEO-eye_male_primitive_realistic.R",
+        "type": "MESH",
+        "vertices": 162,
+        "bounds": [
+          [
+            -6.241756916046143,
+            -0.1339699625968933,
+            1.562097191810608
+          ],
+          [
+            -6.200530529022217,
+            -0.09366164356470108,
+            1.6007319688796997
+          ]
+        ],
+        "properties": {
+          "conform_object": "<bpy id prop: owner=\"OBGEO-eye_male_primitive_realistic.R\", name=\"conform_object\", address=0x0000012846D7EFA0>",
+          "cycles": "<bpy id prop: owner=\"OBGEO-eye_male_primitive_realistic.R\", name=\"cycles\", address=0x0000012846D7EEE0>"
+        }
+      },
+      {
+        "name": "GEO-ear_male_primitive_realistic.R",
+        "type": "MESH",
+        "vertices": 96,
+        "bounds": [
+          [
+            -6.280482769012451,
+            -0.05875534191727638,
+            1.5293078422546387
+          ],
+          [
+            -6.251394271850586,
+            -0.01891038939356804,
+            1.5909113883972168
+          ]
+        ],
+        "properties": {
+          "cycles": "<bpy id prop: owner=\"OBGEO-ear_male_primitive_realistic.R\", name=\"cycles\", address=0x0000012846D8CEA0>",
+          "conform_object": "<bpy id prop: owner=\"OBGEO-ear_male_primitive_realistic.R\", name=\"conform_object\", address=0x0000012846D8CDE0>"
+        }
+      },
+      {
+        "name": "GEO-eyelid_lower_male_primitive_realistic.R",
+        "type": "MESH",
+        "vertices": 98,
+        "bounds": [
+          [
+            -6.24465799331665,
+            -0.13517051935195923,
+            1.558621883392334
+          ],
+          [
+            -6.198880672454834,
+            -0.08965394645929337,
+            1.5865678787231445
+          ]
+        ],
+        "properties": {
+          "cycles": "<bpy id prop: owner=\"OBGEO-eyelid_lower_male_primitive_realistic.R\", name=\"cycles\", address=0x0000012846D7D1A0>",
+          "conform_object": "<bpy id prop: owner=\"OBGEO-eyelid_lower_male_primitive_realistic.R\", name=\"conform_object\", address=0x0000012846D7D0E0>"
+        }
+      },
+      {
+        "name": "GEO-eyelid_upper_male_primitive_realistic.R",
+        "type": "MESH",
+        "vertices": 131,
+        "bounds": [
+          [
+            -6.245281219482422,
+            -0.13438650965690613,
+            1.5641860961914062
+          ],
+          [
+            -6.199805736541748,
+            -0.08970146626234055,
+            1.6045329570770264
+          ]
+        ],
+        "properties": {
+          "cycles": "<bpy id prop: owner=\"OBGEO-eyelid_upper_male_primitive_realistic.R\", name=\"cycles\", address=0x0000012846D7B2A0>",
+          "conform_object": "<bpy id prop: owner=\"OBGEO-eyelid_upper_male_primitive_realistic.R\", name=\"conform_object\", address=0x0000012846D7B1E0>"
+        }
+      },
+      {
+        "name": "GEO-finger_pinky_male_primitive_realistic.R",
+        "type": "MESH",
+        "vertices": 82,
+        "bounds": [
+          [
+            -6.746801853179932,
+            -0.0843057930469513,
+            0.7915768623352051
+          ],
+          [
+            -6.686542510986328,
+            -0.05590594932436943,
+            0.8658736944198608
+          ]
+        ],
+        "properties": {
+          "cycles": "<bpy id prop: owner=\"OBGEO-finger_pinky_male_primitive_realistic.R\", name=\"cycles\", address=0x0000012846D6A3A0>",
+          "conform_object": "<bpy id prop: owner=\"OBGEO-finger_pinky_male_primitive_realistic.R\", name=\"conform_object\", address=0x0000012846D6A2E0>"
+        }
+      },
+      {
+        "name": "GEO-thumb_male_primitive_realistic.R",
+        "type": "MESH",
+        "vertices": 66,
+        "bounds": [
+          [
+            -6.672239780426025,
+            -0.19096162915229797,
+            0.8538593053817749
+          ],
+          [
+            -6.636256217956543,
+            -0.1169009804725647,
+            0.9204264879226685
+          ]
+        ],
+        "properties": {
+          "cycles": "<bpy id prop: owner=\"OBGEO-thumb_male_primitive_realistic.R\", name=\"cycles\", address=0x0000012846CAD7A0>",
+          "conform_object": "<bpy id prop: owner=\"OBGEO-thumb_male_primitive_realistic.R\", name=\"conform_object\", address=0x0000012846CAD6E0>"
+        }
+      },
+      {
+        "name": "GEO-finger_index_male_primitive_realistic.R",
+        "type": "MESH",
+        "vertices": 82,
+        "bounds": [
+          [
+            -6.74033784866333,
+            -0.1886114478111267,
+            0.7993806004524231
+          ],
+          [
+            -6.678887367248535,
+            -0.11798037588596344,
+            0.885289192199707
+          ]
+        ],
+        "properties": {
+          "cycles": "<bpy id prop: owner=\"OBGEO-finger_index_male_primitive_realistic.R\", name=\"cycles\", address=0x0000012846D794A0>",
+          "conform_object": "<bpy id prop: owner=\"OBGEO-finger_index_male_primitive_realistic.R\", name=\"conform_object\", address=0x0000012846D793E0>"
+        }
+      },
+      {
+        "name": "GEO-finger_middle_male_primitive_realistic.R",
+        "type": "MESH",
+        "vertices": 82,
+        "bounds": [
+          [
+            -6.758478164672852,
+            -0.15968553721904755,
+            0.7788133025169373
+          ],
+          [
+            -6.685850143432617,
+            -0.10393130779266357,
+            0.8728485703468323
+          ]
+        ],
+        "properties": {
+          "cycles": "<bpy id prop: owner=\"OBGEO-finger_middle_male_primitive_realistic.R\", name=\"cycles\", address=0x0000012846D6BBA0>",
+          "conform_object": "<bpy id prop: owner=\"OBGEO-finger_middle_male_primitive_realistic.R\", name=\"conform_object\", address=0x0000012846D6BAE0>"
+        }
+      },
+      {
+        "name": "GEO-toe_index_male_primitive_realistic.R",
+        "type": "MESH",
+        "vertices": 58,
+        "bounds": [
+          [
+            -6.438507080078125,
+            -0.11913153529167175,
+            -0.0016762589802965522
+          ],
+          [
+            -6.410677433013916,
+            -0.06781802326440811,
+            0.03076554648578167
+          ]
+        ],
+        "properties": {
+          "cycles": "<bpy id prop: owner=\"OBGEO-toe_index_male_primitive_realistic.R\", name=\"cycles\", address=0x0000012846CA2CA0>",
+          "conform_object": "<bpy id prop: owner=\"OBGEO-toe_index_male_primitive_realistic.R\", name=\"conform_object\", address=0x0000012846CA2BE0>"
+        }
+      },
+      {
+        "name": "GEO-toe_ring_male_primitive_realistic.R",
+        "type": "MESH",
+        "vertices": 58,
+        "bounds": [
+          [
+            -6.460421562194824,
+            -0.09030435979366302,
+            -0.002216269727796316
+          ],
+          [
+            -6.434776782989502,
+            -0.039536718279123306,
+            0.030295083299279213
+          ]
+        ],
+        "properties": {
+          "cycles": "<bpy id prop: owner=\"OBGEO-toe_ring_male_primitive_realistic.R\", name=\"cycles\", address=0x0000012846C923A0>",
+          "conform_object": "<bpy id prop: owner=\"OBGEO-toe_ring_male_primitive_realistic.R\", name=\"conform_object\", address=0x0000012846C922E0>"
+        }
+      },
+      {
+        "name": "GEO-toe_pinky_male_primitive_realistic.R",
+        "type": "MESH",
+        "vertices": 58,
+        "bounds": [
+          [
+            -6.467010974884033,
+            -0.07661081850528717,
+            -0.0035572689957916737
+          ],
+          [
+            -6.446126937866211,
+            -0.032069090753793716,
+            0.029428116977214813
+          ]
+        ],
+        "properties": {
+          "cycles": "<bpy id prop: owner=\"OBGEO-toe_pinky_male_primitive_realistic.R\", name=\"cycles\", address=0x0000012846C93BA0>",
+          "conform_object": "<bpy id prop: owner=\"OBGEO-toe_pinky_male_primitive_realistic.R\", name=\"conform_object\", address=0x0000012846C93AE0>"
+        }
+      },
+      {
+        "name": "GEO-toe_middle_male_primitive_realistic.R",
+        "type": "MESH",
+        "vertices": 58,
+        "bounds": [
+          [
+            -6.449344635009766,
+            -0.10598165541887283,
+            -0.0019386224448680878
+          ],
+          [
+            -6.423203468322754,
+            -0.05545543134212494,
+            0.031103000044822693
+          ]
+        ],
+        "properties": {
+          "cycles": "<bpy id prop: owner=\"OBGEO-toe_middle_male_primitive_realistic.R\", name=\"cycles\", address=0x0000012846CA14A0>",
+          "conform_object": "<bpy id prop: owner=\"OBGEO-toe_middle_male_primitive_realistic.R\", name=\"conform_object\", address=0x0000012846CA13E0>"
+        }
+      },
+      {
+        "name": "GEO-foot.005_male_primitive_realistic.R",
+        "type": "MESH",
+        "vertices": 121,
+        "bounds": [
+          [
+            -6.476902008056641,
+            -0.1050243154168129,
+            -0.004480001982301474
+          ],
+          [
+            -6.311893939971924,
+            0.12885768711566925,
+            0.12327734380960464
+          ]
+        ],
+        "properties": {
+          "cycles": "<bpy id prop: owner=\"OBGEO-foot.005_male_primitive_realistic.R\", name=\"cycles\", address=0x0000012846D4F8A0>",
+          "conform_object": "<bpy id prop: owner=\"OBGEO-foot.005_male_primitive_realistic.R\", name=\"conform_object\", address=0x0000012846D4F7E0>"
+        }
+      }
+    ]
+  },
+  {
+    "collection": "Body Male - Primitve (Stylized)",
+    "properties": {},
+    "objects": [
+      {
+        "name": "GEO-neck_male_primitive_stylized",
+        "type": "MESH",
+        "vertices": 50,
+        "bounds": [
+          [
+            -4.247888088226318,
+            -0.07890881597995758,
+            1.3676069974899292
+          ],
+          [
+            -4.075867176055908,
+            0.08731397986412048,
+            1.5551114082336426
+          ]
+        ],
+        "properties": {
+          "cycles": "<bpy id prop: owner=\"OBGEO-neck_male_primitive_stylized\", name=\"cycles\", address=0x0000012846D30C60>",
+          "conform_object": "<bpy id prop: owner=\"OBGEO-neck_male_primitive_stylized\", name=\"conform_object\", address=0x0000012846D30BA0>"
+        }
+      },
+      {
+        "name": "GEO-shoulder_male_primitive_stylized.L",
+        "type": "MESH",
+        "vertices": 34,
+        "bounds": [
+          [
+            -4.089578628540039,
+            -0.05577889084815979,
+            1.2369256019592285
+          ],
+          [
+            -3.8633205890655518,
+            0.10145538300275803,
+            1.4851614236831665
+          ]
+        ],
+        "properties": {
+          "cycles": "<bpy id prop: owner=\"OBGEO-shoulder_male_primitive_stylized.L\", name=\"cycles\", address=0x0000012846D1CF60>",
+          "conform_object": "<bpy id prop: owner=\"OBGEO-shoulder_male_primitive_stylized.L\", name=\"conform_object\", address=0x0000012846D1CEA0>"
+        }
+      },
+      {
+        "name": "GEO-belly_male_primitive_stylized",
+        "type": "MESH",
+        "vertices": 78,
+        "bounds": [
+          [
+            -4.287989139556885,
+            -0.14141538739204407,
+            0.9385432600975037
+          ],
+          [
+            -4.035767078399658,
+            0.06494215130805969,
+            1.174074649810791
+          ]
+        ],
+        "properties": {
+          "cycles": "<bpy id prop: owner=\"OBGEO-belly_male_primitive_stylized\", name=\"cycles\", address=0x0000012846D9F8A0>",
+          "conform_object": "<bpy id prop: owner=\"OBGEO-belly_male_primitive_stylized\", name=\"conform_object\", address=0x0000012846D9F7E0>"
+        }
+      },
+      {
+        "name": "GEO-leg_upper_male_primitive_stylized.L",
+        "type": "MESH",
+        "vertices": 66,
+        "bounds": [
+          [
+            -4.170444965362549,
+            -0.11684838682413101,
+            0.45279285311698914
+          ],
+          [
+            -3.9821102619171143,
+            0.07326564192771912,
+            0.9637497067451477
+          ]
+        ],
+        "properties": {
+          "cycles": "<bpy id prop: owner=\"OBGEO-leg_upper_male_primitive_stylized.L\", name=\"cycles\", address=0x0000012846D31E60>",
+          "conform_object": "<bpy id prop: owner=\"OBGEO-leg_upper_male_primitive_stylized.L\", name=\"conform_object\", address=0x0000012846D31DA0>"
+        }
+      },
+      {
+        "name": "GEO-hand_male_primitive_stylized.L",
+        "type": "MESH",
+        "vertices": 113,
+        "bounds": [
+          [
+            -3.8237881660461426,
+            -0.09944024682044983,
+            0.7967470288276672
+          ],
+          [
+            -3.705068588256836,
+            0.060151711106300354,
+            0.9645007848739624
+          ]
+        ],
+        "properties": {
+          "cycles": "<bpy id prop: owner=\"OBGEO-hand_male_primitive_stylized.L\", name=\"cycles\", address=0x0000012846D4D7A0>",
+          "conform_object": "<bpy id prop: owner=\"OBGEO-hand_male_primitive_stylized.L\", name=\"conform_object\", address=0x0000012846D4D6E0>"
+        }
+      },
+      {
+        "name": "GEO-arm_lower_male_primitive_stylized.L",
+        "type": "MESH",
+        "vertices": 42,
+        "bounds": [
+          [
+            -3.9313201904296875,
+            -0.06069193407893181,
+            0.8890335559844971
+          ],
+          [
+            -3.6887545585632324,
+            0.10405522584915161,
+            1.225649356842041
+          ]
+        ],
+        "properties": {
+          "cycles": "<bpy id prop: owner=\"OBGEO-arm_lower_male_primitive_stylized.L\", name=\"cycles\", address=0x0000012846DAE3A0>",
+          "conform_object": "<bpy id prop: owner=\"OBGEO-arm_lower_male_primitive_stylized.L\", name=\"conform_object\", address=0x0000012846DAE2E0>"
+        }
+      },
+      {
+        "name": "GEO-toe_big_male_primitive_stylized.L",
+        "type": "MESH",
+        "vertices": 42,
+        "bounds": [
+          [
+            -4.088622093200684,
+            -0.2021998018026352,
+            -0.006978521589189768
+          ],
+          [
+            -4.030623912811279,
+            -0.12019922584295273,
+            0.037518054246902466
+          ]
+        ],
+        "properties": {
+          "cycles": "<bpy id prop: owner=\"OBGEO-toe_big_male_primitive_stylized.L\", name=\"cycles\", address=0x0000012846CAC2A0>",
+          "conform_object": "<bpy id prop: owner=\"OBGEO-toe_big_male_primitive_stylized.L\", name=\"conform_object\", address=0x0000012846CAC1E0>"
+        }
+      },
+      {
+        "name": "GEO-leg_lower_male_primitive_stylized.L",
+        "type": "MESH",
+        "vertices": 82,
+        "bounds": [
+          [
+            -4.143858909606934,
+            -0.09587015211582184,
+            0.06495427340269089
+          ],
+          [
+            -3.9851062297821045,
+            0.10299162566661835,
+            0.5552219152450562
+          ]
+        ],
+        "properties": {
+          "cycles": "<bpy id prop: owner=\"OBGEO-leg_lower_male_primitive_stylized.L\", name=\"cycles\", address=0x0000012846D33660>",
+          "conform_object": "<bpy id prop: owner=\"OBGEO-leg_lower_male_primitive_stylized.L\", name=\"conform_object\", address=0x0000012846D335A0>"
+        }
+      },
+      {
+        "name": "GEO-chest_male_primitive_stylized",
+        "type": "MESH",
+        "vertices": 194,
+        "bounds": [
+          [
+            -4.3405585289001465,
+            -0.14056101441383362,
+            1.0927233695983887
+          ],
+          [
+            -3.9831976890563965,
+            0.11190424859523773,
+            1.457748532295227
+          ]
+        ],
+        "properties": {
+          "cycles": "<bpy id prop: owner=\"OBGEO-chest_male_primitive_stylized\", name=\"cycles\", address=0x0000012846D8DDA0>",
+          "conform_object": "<bpy id prop: owner=\"OBGEO-chest_male_primitive_stylized\", name=\"conform_object\", address=0x0000012846D8DCE0>"
+        }
+      },
+      {
+        "name": "GEO-arm_upper_male_primitive_stylized.L",
+        "type": "MESH",
+        "vertices": 34,
+        "bounds": [
+          [
+            -4.030218601226807,
+            -0.03826344758272171,
+            1.08717942237854
+          ],
+          [
+            -3.7856223583221436,
+            0.09252799302339554,
+            1.3935058116912842
+          ]
+        ],
+        "properties": {
+          "cycles": "<bpy id prop: owner=\"OBGEO-arm_upper_male_primitive_stylized.L\", name=\"cycles\", address=0x0000012846DACBA0>",
+          "conform_object": "<bpy id prop: owner=\"OBGEO-arm_upper_male_primitive_stylized.L\", name=\"conform_object\", address=0x0000012846DACAE0>"
+        }
+      },
+      {
+        "name": "GEO-finger_ring_male_primitive_stylized.L",
+        "type": "MESH",
+        "vertices": 74,
+        "bounds": [
+          [
+            -3.7741782665252686,
+            -0.019812587648630142,
+            0.7153522968292236
+          ],
+          [
+            -3.7158143520355225,
+            0.019840877503156662,
+            0.8326775431632996
+          ]
+        ],
+        "properties": {
+          "cycles": "<bpy id prop: owner=\"OBGEO-finger_ring_male_primitive_stylized.L\", name=\"cycles\", address=0x0000012846D688A0>",
+          "conform_object": "<bpy id prop: owner=\"OBGEO-finger_ring_male_primitive_stylized.L\", name=\"conform_object\", address=0x0000012846D687E0>"
+        }
+      },
+      {
+        "name": "GEO-head_male_primitive_stylized",
+        "type": "MESH",
+        "vertices": 266,
+        "bounds": [
+          [
+            -4.269897937774658,
+            -0.14109165966510773,
+            1.4755933284759521
+          ],
+          [
+            -4.0544514656066895,
+            0.12203262001276016,
+            1.7811185121536255
+          ]
+        ],
+        "properties": {
+          "cycles": "<bpy id prop: owner=\"OBGEO-head_male_primitive_stylized\", name=\"cycles\", address=0x0000012846D4B360>",
+          "conform_object": "<bpy id prop: owner=\"OBGEO-head_male_primitive_stylized\", name=\"conform_object\", address=0x0000012846D4B2A0>"
+        }
+      },
+      {
+        "name": "GEO-eyelid_upper_male_primitive_stylized.L",
+        "type": "MESH",
+        "vertices": 131,
+        "bounds": [
+          [
+            -4.1632561683654785,
+            -0.11776286363601685,
+            1.5934900045394897
+          ],
+          [
+            -4.078601360321045,
+            -0.03584735095500946,
+            1.6718084812164307
+          ]
+        ],
+        "properties": {
+          "cycles": "<bpy id prop: owner=\"OBGEO-eyelid_upper_male_primitive_stylized.L\", name=\"cycles\", address=0x0000012846D7AFA0>",
+          "conform_object": "<bpy id prop: owner=\"OBGEO-eyelid_upper_male_primitive_stylized.L\", name=\"conform_object\", address=0x0000012846D7AEE0>"
+        }
+      },
+      {
+        "name": "GEO-eye_male_primitive_stylized.L",
+        "type": "MESH",
+        "vertices": 162,
+        "bounds": [
+          [
+            -4.156096458435059,
+            -0.11556906998157501,
+            1.5930986404418945
+          ],
+          [
+            -4.0845232009887695,
+            -0.04583832994103432,
+            1.6647717952728271
+          ]
+        ],
+        "properties": {
+          "conform_object": "<bpy id prop: owner=\"OBGEO-eye_male_primitive_stylized.L\", name=\"conform_object\", address=0x0000012846D7ECA0>",
+          "cycles": "<bpy id prop: owner=\"OBGEO-eye_male_primitive_stylized.L\", name=\"cycles\", address=0x0000012846D7EBE0>"
+        }
+      },
+      {
+        "name": "GEO-nose_bridge_male_primitive_stylized",
+        "type": "MESH",
+        "vertices": 110,
+        "bounds": [
+          [
+            -4.201605319976807,
+            -0.13337427377700806,
+            1.5891706943511963
+          ],
+          [
+            -4.12276029586792,
+            -0.08625227212905884,
+            1.6733810901641846
+          ]
+        ],
+        "properties": {
+          "cycles": "<bpy id prop: owner=\"OBGEO-nose_bridge_male_primitive_stylized\", name=\"cycles\", address=0x0000012846D1FF60>",
+          "conform_object": "<bpy id prop: owner=\"OBGEO-nose_bridge_male_primitive_stylized\", name=\"conform_object\", address=0x0000012846D1FEA0>"
+        }
+      },
+      {
+        "name": "GEO-ear_male_primitive_stylized.L",
+        "type": "MESH",
+        "vertices": 96,
+        "bounds": [
+          [
+            -4.077516078948975,
+            -0.028451068326830864,
+            1.561131477355957
+          ],
+          [
+            -4.027971267700195,
+            0.028347807005047798,
+            1.6473606824874878
+          ]
+        ],
+        "properties": {
+          "cycles": "<bpy id prop: owner=\"OBGEO-ear_male_primitive_stylized.L\", name=\"cycles\", address=0x0000012846D8CBA0>",
+          "conform_object": "<bpy id prop: owner=\"OBGEO-ear_male_primitive_stylized.L\", name=\"conform_object\", address=0x0000012846D8CAE0>"
+        }
+      },
+      {
+        "name": "GEO-eyelid_lower_male_primitive_stylized.L",
+        "type": "MESH",
+        "vertices": 98,
+        "bounds": [
+          [
+            -4.164327621459961,
+            -0.1172538623213768,
+            1.5858137607574463
+          ],
+          [
+            -4.079812049865723,
+            -0.035634834319353104,
+            1.6384954452514648
+          ]
+        ],
+        "properties": {
+          "cycles": "<bpy id prop: owner=\"OBGEO-eyelid_lower_male_primitive_stylized.L\", name=\"cycles\", address=0x0000012846D7CEA0>",
+          "conform_object": "<bpy id prop: owner=\"OBGEO-eyelid_lower_male_primitive_stylized.L\", name=\"conform_object\", address=0x0000012846D7CDE0>"
+        }
+      },
+      {
+        "name": "GEO-nose_male_primitive_stylized",
+        "type": "MESH",
+        "vertices": 197,
+        "bounds": [
+          [
+            -4.190165996551514,
+            -0.16232551634311676,
+            1.5643588304519653
+          ],
+          [
+            -4.134199619293213,
+            -0.09550569206476212,
+            1.6346687078475952
+          ]
+        ],
+        "properties": {
+          "cycles": "<bpy id prop: owner=\"OBGEO-nose_male_primitive_stylized\", name=\"cycles\", address=0x0000012846D1F060>",
+          "conform_object": "<bpy id prop: owner=\"OBGEO-nose_male_primitive_stylized\", name=\"conform_object\", address=0x0000012846D1EFA0>"
+        }
+      },
+      {
+        "name": "GEO-finger_pinky_male_primitive_stylized.L",
+        "type": "MESH",
+        "vertices": 74,
+        "bounds": [
+          [
+            -3.7766313552856445,
+            0.009458833374083042,
+            0.7442532181739807
+          ],
+          [
+            -3.721391201019287,
+            0.045612599700689316,
+            0.8392947316169739
+          ]
+        ],
+        "properties": {
+          "cycles": "<bpy id prop: owner=\"OBGEO-finger_pinky_male_primitive_stylized.L\", name=\"cycles\", address=0x0000012846D6A0A0>",
+          "conform_object": "<bpy id prop: owner=\"OBGEO-finger_pinky_male_primitive_stylized.L\", name=\"conform_object\", address=0x0000012846D69FE0>"
+        }
+      },
+      {
+        "name": "GEO-thumb_male_primitive_stylized.L",
+        "type": "MESH",
+        "vertices": 58,
+        "bounds": [
+          [
+            -3.825838565826416,
+            -0.12378023564815521,
+            0.8036715388298035
+          ],
+          [
+            -3.759148359298706,
+            -0.025076277554035187,
+            0.9134477972984314
+          ]
+        ],
+        "properties": {
+          "cycles": "<bpy id prop: owner=\"OBGEO-thumb_male_primitive_stylized.L\", name=\"cycles\", address=0x0000012846CAD4A0>",
+          "conform_object": "<bpy id prop: owner=\"OBGEO-thumb_male_primitive_stylized.L\", name=\"conform_object\", address=0x0000012846CAD3E0>"
+        }
+      },
+      {
+        "name": "GEO-finger_index_male_primitive_stylized.L",
+        "type": "MESH",
+        "vertices": 74,
+        "bounds": [
+          [
+            -3.7918131351470947,
+            -0.08347007632255554,
+            0.7235249876976013
+          ],
+          [
+            -3.7286159992218018,
+            -0.027907226234674454,
+            0.8405195474624634
+          ]
+        ],
+        "properties": {
+          "cycles": "<bpy id prop: owner=\"OBGEO-finger_index_male_primitive_stylized.L\", name=\"cycles\", address=0x0000012846D791A0>",
+          "conform_object": "<bpy id prop: owner=\"OBGEO-finger_index_male_primitive_stylized.L\", name=\"conform_object\", address=0x0000012846D790E0>"
+        }
+      },
+      {
+        "name": "GEO-finger_middle_male_primitive_stylized.L",
+        "type": "MESH",
+        "vertices": 74,
+        "bounds": [
+          [
+            -3.778592586517334,
+            -0.05222305655479431,
+            0.7093508243560791
+          ],
+          [
+            -3.7195143699645996,
+            -0.004483249969780445,
+            0.8321322202682495
+          ]
+        ],
+        "properties": {
+          "cycles": "<bpy id prop: owner=\"OBGEO-finger_middle_male_primitive_stylized.L\", name=\"cycles\", address=0x0000012846D6B8A0>",
+          "conform_object": "<bpy id prop: owner=\"OBGEO-finger_middle_male_primitive_stylized.L\", name=\"conform_object\", address=0x0000012846D6B7E0>"
+        }
+      },
+      {
+        "name": "GEO-toe_index_male_primitive_stylized.L",
+        "type": "MESH",
+        "vertices": 42,
+        "bounds": [
+          [
+            -4.054197311401367,
+            -0.18682949244976044,
+            -0.0012965892674401402
+          ],
+          [
+            -4.01399564743042,
+            -0.12277834862470627,
+            0.03735539689660072
+          ]
+        ],
+        "properties": {
+          "cycles": "<bpy id prop: owner=\"OBGEO-toe_index_male_primitive_stylized.L\", name=\"cycles\", address=0x0000012846CA29A0>",
+          "conform_object": "<bpy id prop: owner=\"OBGEO-toe_index_male_primitive_stylized.L\", name=\"conform_object\", address=0x0000012846CA28E0>"
+        }
+      },
+      {
+        "name": "GEO-toe_middle_male_primitive_stylized.L",
+        "type": "MESH",
+        "vertices": 42,
+        "bounds": [
+          [
+            -4.030965328216553,
+            -0.17581741511821747,
+            -0.0021527865901589394
+          ],
+          [
+            -3.9979891777038574,
+            -0.11704052984714508,
+            0.03542285040020943
+          ]
+        ],
+        "properties": {
+          "cycles": "<bpy id prop: owner=\"OBGEO-toe_middle_male_primitive_stylized.L\", name=\"cycles\", address=0x0000012846CA11A0>",
+          "conform_object": "<bpy id prop: owner=\"OBGEO-toe_middle_male_primitive_stylized.L\", name=\"conform_object\", address=0x0000012846CA10E0>"
+        }
+      },
+      {
+        "name": "GEO-toe_ring_male_primitive_stylized.L",
+        "type": "MESH",
+        "vertices": 42,
+        "bounds": [
+          [
+            -4.010245323181152,
+            -0.1612369865179062,
+            -0.001952330581843853
+          ],
+          [
+            -3.9827260971069336,
+            -0.11066389828920364,
+            0.03108965791761875
+          ]
+        ],
+        "properties": {
+          "cycles": "<bpy id prop: owner=\"OBGEO-toe_ring_male_primitive_stylized.L\", name=\"cycles\", address=0x0000012846C920A0>",
+          "conform_object": "<bpy id prop: owner=\"OBGEO-toe_ring_male_primitive_stylized.L\", name=\"conform_object\", address=0x0000012846C91FE0>"
+        }
+      },
+      {
+        "name": "GEO-toe_pinky_male_primitive_stylized.L",
+        "type": "MESH",
+        "vertices": 50,
+        "bounds": [
+          [
+            -3.9950785636901855,
+            -0.14703896641731262,
+            0.0018961329478770494
+          ],
+          [
+            -3.9728620052337646,
+            -0.09696832299232483,
+            0.0282845888286829
+          ]
+        ],
+        "properties": {
+          "cycles": "<bpy id prop: owner=\"OBGEO-toe_pinky_male_primitive_stylized.L\", name=\"cycles\", address=0x0000012846C938A0>",
+          "conform_object": "<bpy id prop: owner=\"OBGEO-toe_pinky_male_primitive_stylized.L\", name=\"conform_object\", address=0x0000012846C937E0>"
+        }
+      },
+      {
+        "name": "GEO-foot_male_primitive_stylized.L",
+        "type": "MESH",
+        "vertices": 121,
+        "bounds": [
+          [
+            -4.12648868560791,
+            -0.1610596477985382,
+            -0.0046480512246489525
+          ],
+          [
+            -3.966322660446167,
+            0.07590846717357635,
+            0.11458077281713486
+          ]
+        ],
+        "properties": {
+          "cycles": "<bpy id prop: owner=\"OBGEO-foot_male_primitive_stylized.L\", name=\"cycles\", address=0x0000012846D4EFA0>",
+          "conform_object": "<bpy id prop: owner=\"OBGEO-foot_male_primitive_stylized.L\", name=\"conform_object\", address=0x0000012846D4EEE0>"
+        }
+      },
+      {
+        "name": "GEO-pelvis_male_primitive_stylized",
+        "type": "MESH",
+        "vertices": 78,
+        "bounds": [
+          [
+            -4.304586410522461,
+            -0.12012258917093277,
+            0.7882223725318909
+          ],
+          [
+            -4.019169807434082,
+            0.09776949882507324,
+            0.9920158386230469
+          ]
+        ],
+        "properties": {
+          "cycles": "<bpy id prop: owner=\"OBGEO-pelvis_male_primitive_stylized\", name=\"cycles\", address=0x0000012846D1DE60>",
+          "conform_object": "<bpy id prop: owner=\"OBGEO-pelvis_male_primitive_stylized\", name=\"conform_object\", address=0x0000012846D1DDA0>"
+        }
+      },
+      {
+        "name": "GEO-eyelid_upper_male_primitive_stylized.R",
+        "type": "MESH",
+        "vertices": 131,
+        "bounds": [
+          [
+            -4.245153427124023,
+            -0.11776286363601685,
+            1.5934900045394897
+          ],
+          [
+            -4.16049861907959,
+            -0.03584735095500946,
+            1.6718084812164307
+          ]
+        ],
+        "properties": {
+          "cycles": "<bpy id prop: owner=\"OBGEO-eyelid_upper_male_primitive_stylized.R\", name=\"cycles\", address=0x0000012846D7ACA0>",
+          "conform_object": "<bpy id prop: owner=\"OBGEO-eyelid_upper_male_primitive_stylized.R\", name=\"conform_object\", address=0x0000012846D7ABE0>"
+        }
+      },
+      {
+        "name": "GEO-eye_male_primitive_stylized.R",
+        "type": "MESH",
+        "vertices": 162,
+        "bounds": [
+          [
+            -4.239232063293457,
+            -0.11556906998157501,
+            1.5930986404418945
+          ],
+          [
+            -4.167658805847168,
+            -0.04583832994103432,
+            1.6647717952728271
+          ]
+        ],
+        "properties": {
+          "conform_object": "<bpy id prop: owner=\"OBGEO-eye_male_primitive_stylized.R\", name=\"conform_object\", address=0x0000012846D7E9A0>",
+          "cycles": "<bpy id prop: owner=\"OBGEO-eye_male_primitive_stylized.R\", name=\"cycles\", address=0x0000012846D7E8E0>"
+        }
+      },
+      {
+        "name": "GEO-ear_male_primitive_stylized.R",
+        "type": "MESH",
+        "vertices": 96,
+        "bounds": [
+          [
+            -4.295783996582031,
+            -0.028451068326830864,
+            1.561131477355957
+          ],
+          [
+            -4.246239185333252,
+            0.028347807005047798,
+            1.6473606824874878
+          ]
+        ],
+        "properties": {
+          "cycles": "<bpy id prop: owner=\"OBGEO-ear_male_primitive_stylized.R\", name=\"cycles\", address=0x0000012846D8C8A0>",
+          "conform_object": "<bpy id prop: owner=\"OBGEO-ear_male_primitive_stylized.R\", name=\"conform_object\", address=0x0000012846D8C7E0>"
+        }
+      },
+      {
+        "name": "GEO-eyelid_lower_male_primitive_stylized.R",
+        "type": "MESH",
+        "vertices": 98,
+        "bounds": [
+          [
+            -4.243942737579346,
+            -0.1172538623213768,
+            1.5858137607574463
+          ],
+          [
+            -4.159427165985107,
+            -0.035634834319353104,
+            1.6384954452514648
+          ]
+        ],
+        "properties": {
+          "cycles": "<bpy id prop: owner=\"OBGEO-eyelid_lower_male_primitive_stylized.R\", name=\"cycles\", address=0x0000012846D7CBA0>",
+          "conform_object": "<bpy id prop: owner=\"OBGEO-eyelid_lower_male_primitive_stylized.R\", name=\"conform_object\", address=0x0000012846D7CAE0>"
+        }
+      },
+      {
+        "name": "GEO-shoulder_male_primitive_stylized.R",
+        "type": "MESH",
+        "vertices": 34,
+        "bounds": [
+          [
+            -4.46043586730957,
+            -0.05577889457345009,
+            1.2369256019592285
+          ],
+          [
+            -4.234177589416504,
+            0.10145538300275803,
+            1.4851614236831665
+          ]
+        ],
+        "properties": {
+          "cycles": "<bpy id prop: owner=\"OBGEO-shoulder_male_primitive_stylized.R\", name=\"cycles\", address=0x0000012846D1CC60>",
+          "conform_object": "<bpy id prop: owner=\"OBGEO-shoulder_male_primitive_stylized.R\", name=\"conform_object\", address=0x0000012846D1CBA0>"
+        }
+      },
+      {
+        "name": "GEO-hand_male_primitive_stylized.R",
+        "type": "MESH",
+        "vertices": 113,
+        "bounds": [
+          [
+            -4.618688583374023,
+            -0.09944024682044983,
+            0.7967470288276672
+          ],
+          [
+            -4.499969482421875,
+            0.060151711106300354,
+            0.9645007848739624
+          ]
+        ],
+        "properties": {
+          "cycles": "<bpy id prop: owner=\"OBGEO-hand_male_primitive_stylized.R\", name=\"cycles\", address=0x0000012846D4D4A0>",
+          "conform_object": "<bpy id prop: owner=\"OBGEO-hand_male_primitive_stylized.R\", name=\"conform_object\", address=0x0000012846D4D3E0>"
+        }
+      },
+      {
+        "name": "GEO-arm_lower_male_primitive_stylized.R",
+        "type": "MESH",
+        "vertices": 42,
+        "bounds": [
+          [
+            -4.635002613067627,
+            -0.06069193780422211,
+            0.8890335559844971
+          ],
+          [
+            -4.392436981201172,
+            0.10405521839857101,
+            1.225649356842041
+          ]
+        ],
+        "properties": {
+          "cycles": "<bpy id prop: owner=\"OBGEO-arm_lower_male_primitive_stylized.R\", name=\"cycles\", address=0x0000012846DAE0A0>",
+          "conform_object": "<bpy id prop: owner=\"OBGEO-arm_lower_male_primitive_stylized.R\", name=\"conform_object\", address=0x0000012846DADFE0>"
+        }
+      },
+      {
+        "name": "GEO-arm_upper_male_primitive_stylized.R",
+        "type": "MESH",
+        "vertices": 34,
+        "bounds": [
+          [
+            -4.53813362121582,
+            -0.03826345130801201,
+            1.08717942237854
+          ],
+          [
+            -4.293537616729736,
+            0.09252799302339554,
+            1.3935058116912842
+          ]
+        ],
+        "properties": {
+          "cycles": "<bpy id prop: owner=\"OBGEO-arm_upper_male_primitive_stylized.R\", name=\"cycles\", address=0x0000012846DAC8A0>",
+          "conform_object": "<bpy id prop: owner=\"OBGEO-arm_upper_male_primitive_stylized.R\", name=\"conform_object\", address=0x0000012846DAC7E0>"
+        }
+      },
+      {
+        "name": "GEO-finger_ring_male_primitive_stylized.R",
+        "type": "MESH",
+        "vertices": 74,
+        "bounds": [
+          [
+            -4.607943058013916,
+            -0.019812587648630142,
+            0.7153522968292236
+          ],
+          [
+            -4.54957914352417,
+            0.019840877503156662,
+            0.8326775431632996
+          ]
+        ],
+        "properties": {
+          "cycles": "<bpy id prop: owner=\"OBGEO-finger_ring_male_primitive_stylized.R\", name=\"cycles\", address=0x0000012846D685A0>",
+          "conform_object": "<bpy id prop: owner=\"OBGEO-finger_ring_male_primitive_stylized.R\", name=\"conform_object\", address=0x0000012846D684E0>"
+        }
+      },
+      {
+        "name": "GEO-finger_pinky_male_primitive_stylized.R",
+        "type": "MESH",
+        "vertices": 74,
+        "bounds": [
+          [
+            -4.602365970611572,
+            0.009458833374083042,
+            0.7442532181739807
+          ],
+          [
+            -4.547125816345215,
+            0.045612599700689316,
+            0.8392947316169739
+          ]
+        ],
+        "properties": {
+          "cycles": "<bpy id prop: owner=\"OBGEO-finger_pinky_male_primitive_stylized.R\", name=\"cycles\", address=0x0000012846D69DA0>",
+          "conform_object": "<bpy id prop: owner=\"OBGEO-finger_pinky_male_primitive_stylized.R\", name=\"conform_object\", address=0x0000012846D69CE0>"
+        }
+      },
+      {
+        "name": "GEO-thumb_male_primitive_stylized.R",
+        "type": "MESH",
+        "vertices": 58,
+        "bounds": [
+          [
+            -4.564609050750732,
+            -0.12378023564815521,
+            0.8036715388298035
+          ],
+          [
+            -4.497919082641602,
+            -0.025076277554035187,
+            0.9134477972984314
+          ]
+        ],
+        "properties": {
+          "cycles": "<bpy id prop: owner=\"OBGEO-thumb_male_primitive_stylized.R\", name=\"cycles\", address=0x0000012846CAD1A0>",
+          "conform_object": "<bpy id prop: owner=\"OBGEO-thumb_male_primitive_stylized.R\", name=\"conform_object\", address=0x0000012846CAD0E0>"
+        }
+      },
+      {
+        "name": "GEO-finger_index_male_primitive_stylized.R",
+        "type": "MESH",
+        "vertices": 74,
+        "bounds": [
+          [
+            -4.595141410827637,
+            -0.08347007632255554,
+            0.7235249876976013
+          ],
+          [
+            -4.531944274902344,
+            -0.027907226234674454,
+            0.8405195474624634
+          ]
+        ],
+        "properties": {
+          "cycles": "<bpy id prop: owner=\"OBGEO-finger_index_male_primitive_stylized.R\", name=\"cycles\", address=0x0000012846D78EA0>",
+          "conform_object": "<bpy id prop: owner=\"OBGEO-finger_index_male_primitive_stylized.R\", name=\"conform_object\", address=0x0000012846D78DE0>"
+        }
+      },
+      {
+        "name": "GEO-finger_middle_male_primitive_stylized.R",
+        "type": "MESH",
+        "vertices": 74,
+        "bounds": [
+          [
+            -4.604243278503418,
+            -0.05222305655479431,
+            0.7093508243560791
+          ],
+          [
+            -4.545165061950684,
+            -0.004483249969780445,
+            0.8321322202682495
+          ]
+        ],
+        "properties": {
+          "cycles": "<bpy id prop: owner=\"OBGEO-finger_middle_male_primitive_stylized.R\", name=\"cycles\", address=0x0000012846D6B5A0>",
+          "conform_object": "<bpy id prop: owner=\"OBGEO-finger_middle_male_primitive_stylized.R\", name=\"conform_object\", address=0x0000012846D6B4E0>"
+        }
+      },
+      {
+        "name": "GEO-leg_upper_male_primitive_stylized.R",
+        "type": "MESH",
+        "vertices": 66,
+        "bounds": [
+          [
+            -4.341646194458008,
+            -0.11684838682413101,
+            0.45279285311698914
+          ],
+          [
+            -4.153311252593994,
+            0.07326564192771912,
+            0.9637497067451477
+          ]
+        ],
+        "properties": {
+          "cycles": "<bpy id prop: owner=\"OBGEO-leg_upper_male_primitive_stylized.R\", name=\"cycles\", address=0x0000012846D31B60>",
+          "conform_object": "<bpy id prop: owner=\"OBGEO-leg_upper_male_primitive_stylized.R\", name=\"conform_object\", address=0x0000012846D31AA0>"
+        }
+      },
+      {
+        "name": "GEO-toe_big_male_primitive_stylized.R",
+        "type": "MESH",
+        "vertices": 42,
+        "bounds": [
+          [
+            -4.293132305145264,
+            -0.2021998018026352,
+            -0.006978514604270458
+          ],
+          [
+            -4.235134124755859,
+            -0.12019922584295273,
+            0.03751806169748306
+          ]
+        ],
+        "properties": {
+          "cycles": "<bpy id prop: owner=\"OBGEO-toe_big_male_primitive_stylized.R\", name=\"cycles\", address=0x0000012846CA3EA0>",
+          "conform_object": "<bpy id prop: owner=\"OBGEO-toe_big_male_primitive_stylized.R\", name=\"conform_object\", address=0x0000012846CA3DE0>"
+        }
+      },
+      {
+        "name": "GEO-leg_lower_male_primitive_stylized.R",
+        "type": "MESH",
+        "vertices": 82,
+        "bounds": [
+          [
+            -4.338649749755859,
+            -0.09587015211582184,
+            0.06495427340269089
+          ],
+          [
+            -4.179897308349609,
+            0.10299162566661835,
+            0.5552219152450562
+          ]
+        ],
+        "properties": {
+          "cycles": "<bpy id prop: owner=\"OBGEO-leg_lower_male_primitive_stylized.R\", name=\"cycles\", address=0x0000012846D33360>",
+          "conform_object": "<bpy id prop: owner=\"OBGEO-leg_lower_male_primitive_stylized.R\", name=\"conform_object\", address=0x0000012846D332A0>"
+        }
+      },
+      {
+        "name": "GEO-toe_index_male_primitive_stylized.R",
+        "type": "MESH",
+        "vertices": 42,
+        "bounds": [
+          [
+            -4.309760570526123,
+            -0.18682949244976044,
+            -0.0012965818168595433
+          ],
+          [
+            -4.269558906555176,
+            -0.12277834862470627,
+            0.03735540434718132
+          ]
+        ],
+        "properties": {
+          "cycles": "<bpy id prop: owner=\"OBGEO-toe_index_male_primitive_stylized.R\", name=\"cycles\", address=0x0000012846CA26A0>",
+          "conform_object": "<bpy id prop: owner=\"OBGEO-toe_index_male_primitive_stylized.R\", name=\"conform_object\", address=0x0000012846CA25E0>"
+        }
+      },
+      {
+        "name": "GEO-toe_middle_male_primitive_stylized.R",
+        "type": "MESH",
+        "vertices": 42,
+        "bounds": [
+          [
+            -4.3257670402526855,
+            -0.17581741511821747,
+            -0.002152778906747699
+          ],
+          [
+            -4.29279088973999,
+            -0.11704052984714508,
+            0.035422857850790024
+          ]
+        ],
+        "properties": {
+          "cycles": "<bpy id prop: owner=\"OBGEO-toe_middle_male_primitive_stylized.R\", name=\"cycles\", address=0x0000012846CA0EA0>",
+          "conform_object": "<bpy id prop: owner=\"OBGEO-toe_middle_male_primitive_stylized.R\", name=\"conform_object\", address=0x0000012846CA0DE0>"
+        }
+      },
+      {
+        "name": "GEO-toe_ring_male_primitive_stylized.R",
+        "type": "MESH",
+        "vertices": 42,
+        "bounds": [
+          [
+            -4.341030120849609,
+            -0.1612369865179062,
+            -0.001952323131263256
+          ],
+          [
+            -4.313510894775391,
+            -0.11066389828920364,
+            0.03108966536819935
+          ]
+        ],
+        "properties": {
+          "cycles": "<bpy id prop: owner=\"OBGEO-toe_ring_male_primitive_stylized.R\", name=\"cycles\", address=0x0000012846C91DA0>",
+          "conform_object": "<bpy id prop: owner=\"OBGEO-toe_ring_male_primitive_stylized.R\", name=\"conform_object\", address=0x0000012846C91CE0>"
+        }
+      },
+      {
+        "name": "GEO-toe_pinky_male_primitive_stylized.R",
+        "type": "MESH",
+        "vertices": 50,
+        "bounds": [
+          [
+            -4.350894451141357,
+            -0.14703896641731262,
+            0.001896139932796359
+          ],
+          [
+            -4.328678131103516,
+            -0.09696832299232483,
+            0.028284596279263496
+          ]
+        ],
+        "properties": {
+          "cycles": "<bpy id prop: owner=\"OBGEO-toe_pinky_male_primitive_stylized.R\", name=\"cycles\", address=0x0000012846C935A0>",
+          "conform_object": "<bpy id prop: owner=\"OBGEO-toe_pinky_male_primitive_stylized.R\", name=\"conform_object\", address=0x0000012846C934E0>"
+        }
+      },
+      {
+        "name": "GEO-foot_male_primitive_stylized.R",
+        "type": "MESH",
+        "vertices": 121,
+        "bounds": [
+          [
+            -4.357434272766113,
+            -0.1610596477985382,
+            -0.0046480437740683556
+          ],
+          [
+            -4.197268009185791,
+            0.07590846717357635,
+            0.11458078026771545
+          ]
+        ],
+        "properties": {
+          "cycles": "<bpy id prop: owner=\"OBGEO-foot_male_primitive_stylized.R\", name=\"cycles\", address=0x0000012846D4ECA0>",
+          "conform_object": "<bpy id prop: owner=\"OBGEO-foot_male_primitive_stylized.R\", name=\"conform_object\", address=0x0000012846D4EBE0>"
+        }
+      }
+    ]
+  },
+  {
+    "collection": "Body Male - Realistic",
+    "properties": {},
+    "objects": [
+      {
+        "name": "GEO-body_male_realistic",
+        "type": "MESH",
+        "vertices": 10582,
+        "bounds": [
+          [
+            -2.705880880355835,
+            -0.17982545495033264,
+            -0.005640706978738308
+          ],
+          [
+            -1.8228728771209717,
+            0.11206948012113571,
+            1.6844427585601807
+          ]
+        ],
+        "properties": {
+          "MM": "<bpy id prop: owner=\"OBGEO-body_male_realistic\", name=\"MM\", address=0x0000012846C825E0>",
+          "M3": "<bpy id prop: owner=\"OBGEO-body_male_realistic\", name=\"M3\", address=0x0000012846C82520>",
+          "mesh_data_transfer_object": "<bpy id prop: owner=\"OBGEO-body_male_realistic\", name=\"mesh_data_transfer_object\", address=0x0000012846C82460>",
+          "conform_object": "<bpy id prop: owner=\"OBGEO-body_male_realistic\", name=\"conform_object\", address=0x0000012846C82220>",
+          "cycles": "<bpy id prop: owner=\"OBGEO-body_male_realistic\", name=\"cycles\", address=0x0000012846C82160>"
+        }
+      },
+      {
+        "name": "GEO-body_male_realistic.eye.L",
+        "type": "MESH",
+        "vertices": 546,
+        "bounds": [
+          [
+            -2.2434420585632324,
+            -0.13376502692699432,
+            1.5616847276687622
+          ],
+          [
+            -2.2194442749023438,
+            -0.1098688617348671,
+            1.5857065916061401
+          ]
+        ],
+        "properties": {
+          "MM": "<bpy id prop: owner=\"OBGEO-body_male_realistic.eye.L\", name=\"MM\", address=0x0000012846D9CD20>",
+          "M3": "<bpy id prop: owner=\"OBGEO-body_male_realistic.eye.L\", name=\"M3\", address=0x0000012846D9CC60>",
+          "mesh_data_transfer_object": "<bpy id prop: owner=\"OBGEO-body_male_realistic.eye.L\", name=\"mesh_data_transfer_object\", address=0x0000012846D9CBA0>",
+          "conform_object": "<bpy id prop: owner=\"OBGEO-body_male_realistic.eye.L\", name=\"conform_object\", address=0x0000012846D9CA20>"
+        }
+      },
+      {
+        "name": "GEO-body_male_realistic.eye.R",
+        "type": "MESH",
+        "vertices": 546,
+        "bounds": [
+          [
+            -2.309199810028076,
+            -0.13378296792507172,
+            1.5616847276687622
+          ],
+          [
+            -2.2851951122283936,
+            -0.10986526310443878,
+            1.5857065916061401
+          ]
+        ],
+        "properties": {
+          "MM": "<bpy id prop: owner=\"OBGEO-body_male_realistic.eye.R\", name=\"MM\", address=0x0000012846D9C8A0>",
+          "M3": "<bpy id prop: owner=\"OBGEO-body_male_realistic.eye.R\", name=\"M3\", address=0x0000012846D9C7E0>",
+          "mesh_data_transfer_object": "<bpy id prop: owner=\"OBGEO-body_male_realistic.eye.R\", name=\"mesh_data_transfer_object\", address=0x0000012846D9C720>",
+          "conform_object": "<bpy id prop: owner=\"OBGEO-body_male_realistic.eye.R\", name=\"conform_object\", address=0x0000012846D9C5A0>"
+        }
+      }
+    ]
+  },
+  {
+    "collection": "Body Male - Stylized",
+    "properties": {},
+    "objects": [
+      {
+        "name": "GEO-body_male_stylized",
+        "type": "MESH",
+        "vertices": 12502,
+        "bounds": [
+          [
+            -0.7099827527999878,
+            -0.19439518451690674,
+            -0.003781557083129883
+          ],
+          [
+            0.16929611563682556,
+            0.11402518302202225,
+            1.7941797971725464
+          ]
+        ],
+        "properties": {
+          "cycles": "<bpy id prop: owner=\"OBGEO-body_male_stylized\", name=\"cycles\", address=0x0000012846D9C420>",
+          "cycles_visibility": "<bpy id prop: owner=\"OBGEO-body_male_stylized\", name=\"cycles_visibility\", address=0x0000012846D9C360>",
+          "Character": "Rain",
+          "Weight_Paint_Body": 1,
+          "id_keys": "<bpy id prop: owner=\"OBGEO-body_male_stylized\", name=\"id_keys\", address=0x0000012846D9C120>",
+          "vs": "<bpy id prop: owner=\"OBGEO-body_male_stylized\", name=\"vs\", address=0x0000012846D8FF60>",
+          "conform_object": "<bpy id prop: owner=\"OBGEO-body_male_stylized\", name=\"conform_object\", address=0x0000012846D8FEA0>"
+        }
+      },
+      {
+        "name": "GEO-body_male_stylized.eye.L",
+        "type": "MESH",
+        "vertices": 802,
+        "bounds": [
+          [
+            -0.2679591774940491,
+            -0.11991958320140839,
+            1.5916378498077393
+          ],
+          [
+            -0.1914113610982895,
+            -0.04571404680609703,
+            1.6683900356292725
+          ]
+        ],
+        "properties": {
+          "cycles": "<bpy id prop: owner=\"OBGEO-body_male_stylized.eye.L\", name=\"cycles\", address=0x0000012846D8FBA0>",
+          "cycles_visibility": "<bpy id prop: owner=\"OBGEO-body_male_stylized.eye.L\", name=\"cycles_visibility\", address=0x0000012846D8FAE0>",
+          "Character": "Rain",
+          "Weight_Paint_Body": 1,
+          "id_keys": "<bpy id prop: owner=\"OBGEO-body_male_stylized.eye.L\", name=\"id_keys\", address=0x0000012846D8F8A0>",
+          "vs": "<bpy id prop: owner=\"OBGEO-body_male_stylized.eye.L\", name=\"vs\", address=0x0000012846D8F7E0>",
+          "conform_object": "<bpy id prop: owner=\"OBGEO-body_male_stylized.eye.L\", name=\"conform_object\", address=0x0000012846D8F720>"
+        }
+      },
+      {
+        "name": "GEO-body_male_stylized.eye.R",
+        "type": "MESH",
+        "vertices": 802,
+        "bounds": [
+          [
+            -0.34927529096603394,
+            -0.11991958320140839,
+            1.5916378498077393
+          ],
+          [
+            -0.27272748947143555,
+            -0.04571404680609703,
+            1.6683900356292725
+          ]
+        ],
+        "properties": {
+          "cycles": "<bpy id prop: owner=\"OBGEO-body_male_stylized.eye.R\", name=\"cycles\", address=0x0000012846D8F420>",
+          "cycles_visibility": "<bpy id prop: owner=\"OBGEO-body_male_stylized.eye.R\", name=\"cycles_visibility\", address=0x0000012846D8F360>",
+          "Character": "Rain",
+          "Weight_Paint_Body": 1,
+          "id_keys": "<bpy id prop: owner=\"OBGEO-body_male_stylized.eye.R\", name=\"id_keys\", address=0x0000012846D8F120>",
+          "vs": "<bpy id prop: owner=\"OBGEO-body_male_stylized.eye.R\", name=\"vs\", address=0x0000012846D8F060>",
+          "conform_object": "<bpy id prop: owner=\"OBGEO-body_male_stylized.eye.R\", name=\"conform_object\", address=0x0000012846D8EFA0>"
+        }
+      }
+    ]
+  }
+]

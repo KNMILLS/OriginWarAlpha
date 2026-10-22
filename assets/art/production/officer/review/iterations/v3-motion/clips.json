@@ -1,0 +1,4763 @@
+{
+  "version": 1,
+  "referenceCellPixels": 256,
+  "runtimeReferenceCellPixels": 192,
+  "pivotOrigin": "bottom-left",
+  "clips": [
+    {
+      "id": "officer.pistol.suit.idle.south",
+      "frameSeconds": 0.016666666666666666,
+      "cycleCells": 0,
+      "cycleDistanceCells": 0,
+      "loop": false,
+      "equipment": "pistol",
+      "armor": "suit",
+      "frames": [
+        {
+          "path": "art/production/officer/review/iterations/v3-motion/regions/officer.pistol.suit.idle.south.00.png",
+          "widthCells": 1.5,
+          "heightCells": 1.75,
+          "pivotX": 0.5,
+          "pivotY": 0.14500541985034943,
+          "pixelWidth": 288,
+          "pixelHeight": 336,
+          "sha256": "075860f7e17a750eb417d2f82b71dc9ff942045133ab5d9c7222726949168d87",
+          "feet": {
+            "left": {
+              "phase": 0,
+              "stance": true,
+              "anchorWorld": [
+                0.11500000208616257,
+                -0.0560000017285347,
+                0.012000000104308128
+              ],
+              "localPixels": [
+                25.017723083496094,
+                -6.403918266296387
+              ],
+              "screenCells": [
+                0.09772548079490662,
+                -0.02501530572772026
+              ],
+              "rootPixels": [
+                0.0,
+                0.0
+              ],
+              "rootPlusLocalPixels": [
+                25.017723083496094,
+                -6.403918266296387
+              ],
+              "liftWorld": 0
+            },
+            "right": {
+              "phase": 0.5,
+              "stance": true,
+              "anchorWorld": [
+                -0.11500000208616257,
+                -0.024000000208616257,
+                0.012000000104308128
+              ],
+              "localPixels": [
+                -25.017711639404297,
+                -1.6539897918701172
+              ],
+              "screenCells": [
+                -0.09772543609142303,
+                -0.006460897624492645
+              ],
+              "rootPixels": [
+                0.0,
+                0.0
+              ],
+              "rootPlusLocalPixels": [
+                -25.017711639404297,
+                -1.6539897918701172
+              ],
+              "liftWorld": 0
+            }
+          }
+        }
+      ],
+      "markers": []
+    },
+    {
+      "id": "officer.pistol.suit.idle.east",
+      "frameSeconds": 0.016666666666666666,
+      "cycleCells": 0,
+      "cycleDistanceCells": 0,
+      "loop": false,
+      "equipment": "pistol",
+      "armor": "suit",
+      "frames": [
+        {
+          "path": "art/production/officer/review/iterations/v3-motion/regions/officer.pistol.suit.idle.east.00.png",
+          "widthCells": 1.5,
+          "heightCells": 1.75,
+          "pivotX": 0.5,
+          "pivotY": 0.14500541985034943,
+          "pixelWidth": 288,
+          "pixelHeight": 336,
+          "sha256": "e0494e0ee205f0f149faf652f9feef13ed8f4ae1ff3035e3fdbfafc587342d2d",
+          "feet": {
+            "left": {
+              "phase": 0,
+              "stance": true,
+              "anchorWorld": [
+                0.056000009179115295,
+                0.11499999463558197,
+                0.012000000104308128
+              ],
+              "localPixels": [
+                12.182533264160156,
+                18.978498458862305
+              ],
+              "screenCells": [
+                0.04758802056312561,
+                0.07413475960493088
+              ],
+              "rootPixels": [
+                0.0,
+                0.0
+              ],
+              "rootPlusLocalPixels": [
+                12.182533264160156,
+                18.978498458862305
+              ],
+              "liftWorld": 0
+            },
+            "right": {
+              "phase": 0.5,
+              "stance": true,
+              "anchorWorld": [
+                0.02399999089539051,
+                -0.11500000208616257,
+                0.012000000104308128
+              ],
+              "localPixels": [
+                5.221092224121094,
+                -15.161585330963135
+              ],
+              "screenCells": [
+                0.020394891500473022,
+                -0.059224942699074745
+              ],
+              "rootPixels": [
+                0.0,
+                0.0
+              ],
+              "rootPlusLocalPixels": [
+                5.221092224121094,
+                -15.161585330963135
+              ],
+              "liftWorld": 0
+            }
+          }
+        }
+      ],
+      "markers": []
+    },
+    {
+      "id": "officer.pistol.suit.start.south",
+      "frameSeconds": 0.027777777777777776,
+      "cycleCells": 0,
+      "cycleDistanceCells": 0,
+      "loop": false,
+      "equipment": "pistol",
+      "armor": "suit",
+      "frames": [
+        {
+          "path": "art/production/officer/review/iterations/v3-motion/regions/officer.pistol.suit.start.south.00.png",
+          "widthCells": 1.5,
+          "heightCells": 1.75,
+          "pivotX": 0.5,
+          "pivotY": 0.14500541985034943,
+          "pixelWidth": 288,
+          "pixelHeight": 336,
+          "sha256": "075860f7e17a750eb417d2f82b71dc9ff942045133ab5d9c7222726949168d87",
+          "feet": {
+            "left": {
+              "phase": 0.0,
+              "stance": true,
+              "anchorWorld": [
+                0.11500000208616257,
+                -0.0560000017285347,
+                0.012000000104308128
+              ],
+              "localPixels": [
+                25.017723083496094,
+                -6.403918266296387
+              ],
+              "screenCells": [
+                0.09772548079490662,
+                -0.02501530572772026
+              ],
+              "rootPixels": [
+                0.0,
+                0.0
+              ],
+              "rootPlusLocalPixels": [
+                25.017723083496094,
+                -6.403918266296387
+              ],
+              "liftWorld": 0.0
+            },
+            "right": {
+              "phase": 0.5,
+              "stance": true,
+              "anchorWorld": [
+                -0.11500000208616257,
+                -0.024000000208616257,
+                0.012000000104308128
+              ],
+              "localPixels": [
+                -25.017711639404297,
+                -1.6539897918701172
+              ],
+              "screenCells": [
+                -0.09772543609142303,
+                -0.006460897624492645
+              ],
+              "rootPixels": [
+                0.0,
+                0.0
+              ],
+              "rootPlusLocalPixels": [
+                -25.017711639404297,
+                -1.6539897918701172
+              ],
+              "liftWorld": 0.0
+            }
+          }
+        },
+        {
+          "path": "art/production/officer/review/iterations/v3-motion/regions/officer.pistol.suit.start.south.01.png",
+          "widthCells": 1.5,
+          "heightCells": 1.75,
+          "pivotX": 0.5,
+          "pivotY": 0.14500541985034943,
+          "pixelWidth": 288,
+          "pixelHeight": 336,
+          "sha256": "646ba09a295d1b79e7257ee1abb6357bbc60723d597cd6ad861673344e4aab45",
+          "feet": {
+            "left": {
+              "phase": 0.2,
+              "stance": false,
+              "anchorWorld": [
+                0.11500000208616257,
+                -0.12625299394130707,
+                0.03672746941447258
+              ],
+              "localPixels": [
+                25.017723083496094,
+                -12.89933729171753
+              ],
+              "screenCells": [
+                0.09772548079490662,
+                -0.0503880362957716
+              ],
+              "rootPixels": [
+                0.0,
+                0.0
+              ],
+              "rootPlusLocalPixels": [
+                25.017723083496094,
+                -12.89933729171753
+              ],
+              "liftWorld": 0.02472746942367399
+            },
+            "right": {
+              "phase": 0.7,
+              "stance": true,
+              "anchorWorld": [
+                -0.11500000208616257,
+                -0.024000000208616257,
+                0.012000000104308128
+              ],
+              "localPixels": [
+                -25.017711639404297,
+                -1.6539897918701172
+              ],
+              "screenCells": [
+                -0.09772543609142303,
+                -0.006460897624492645
+              ],
+              "rootPixels": [
+                0.0,
+                0.0
+              ],
+              "rootPlusLocalPixels": [
+                -25.017711639404297,
+                -1.6539897918701172
+              ],
+              "liftWorld": 0.0
+            }
+          }
+        },
+        {
+          "path": "art/production/officer/review/iterations/v3-motion/regions/officer.pistol.suit.start.south.02.png",
+          "widthCells": 1.5,
+          "heightCells": 1.75,
+          "pivotX": 0.5,
+          "pivotY": 0.14500541985034943,
+          "pixelWidth": 288,
+          "pixelHeight": 336,
+          "sha256": "8ce79b680ab72843d99d551f7e76767aca1ec544e10fef4e11d2f240eb461f51",
+          "feet": {
+            "left": {
+              "phase": 0.4,
+              "stance": false,
+              "anchorWorld": [
+                0.11500000208616257,
+                -0.23482578992843628,
+                0.027282416820526123
+              ],
+              "localPixels": [
+                25.017723083496094,
+                -30.517467498779297
+              ],
+              "screenCells": [
+                0.09772548079490662,
+                -0.11920885741710663
+              ],
+              "rootPixels": [
+                0.0,
+                0.0
+              ],
+              "rootPlusLocalPixels": [
+                25.017723083496094,
+                -30.517467498779297
+              ],
+              "liftWorld": 0.015282416559604304
+            },
+            "right": {
+              "phase": 0.9,
+              "stance": true,
+              "anchorWorld": [
+                -0.11500000208616257,
+                -0.024000000208616257,
+                0.012000000104308128
+              ],
+              "localPixels": [
+                -25.017711639404297,
+                -1.6539897918701172
+              ],
+              "screenCells": [
+                -0.09772543609142303,
+                -0.006460897624492645
+              ],
+              "rootPixels": [
+                0.0,
+                0.0
+              ],
+              "rootPlusLocalPixels": [
+                -25.017711639404297,
+                -1.6539897918701172
+              ],
+              "liftWorld": 0.0
+            }
+          }
+        },
+        {
+          "path": "art/production/officer/review/iterations/v3-motion/regions/officer.pistol.suit.start.south.03.png",
+          "widthCells": 1.5,
+          "heightCells": 1.75,
+          "pivotX": 0.5,
+          "pivotY": 0.14500541985034943,
+          "pixelWidth": 288,
+          "pixelHeight": 336,
+          "sha256": "121b7df8254bff9b1904ccd77c8a1486401514eef74050af678d17a7683fe910",
+          "feet": {
+            "left": {
+              "phase": 0.6,
+              "stance": true,
+              "anchorWorld": [
+                0.11500000208616257,
+                -0.25558236241340637,
+                0.012000000104308128
+              ],
+              "localPixels": [
+                25.017723083496094,
+                -36.028958797454834
+              ],
+              "screenCells": [
+                0.09772548079490662,
+                -0.14073812030255795
+              ],
+              "rootPixels": [
+                0.0,
+                0.0
+              ],
+              "rootPlusLocalPixels": [
+                25.017723083496094,
+                -36.028958797454834
+              ],
+              "liftWorld": 3.1840816777831182e-18
+            },
+            "right": {
+              "phase": 0.10000000000000009,
+              "stance": false,
+              "anchorWorld": [
+                -0.11500000208616257,
+                -0.003243434941396117,
+                0.027282416820526123
+              ],
+              "localPixels": [
+                -25.017711639404297,
+                3.8574981689453125
+              ],
+              "screenCells": [
+                -0.09772543609142303,
+                0.015068352222442627
+              ],
+              "rootPixels": [
+                0.0,
+                0.0
+              ],
+              "rootPlusLocalPixels": [
+                -25.017711639404297,
+                3.8574981689453125
+              ],
+              "liftWorld": 0.015282416559604299
+            }
+          }
+        },
+        {
+          "path": "art/production/officer/review/iterations/v3-motion/regions/officer.pistol.suit.start.south.04.png",
+          "widthCells": 1.5,
+          "heightCells": 1.75,
+          "pivotX": 0.5,
+          "pivotY": 0.14500541985034943,
+          "pixelWidth": 288,
+          "pixelHeight": 336,
+          "sha256": "20d2ca03a5566a9a8ef026fdf13f046560d2ba140e74426c7e1a421fe69aba78",
+          "feet": {
+            "left": {
+              "phase": 0.8,
+              "stance": true,
+              "anchorWorld": [
+                0.11500000208616257,
+                -0.25558236241340637,
+                0.012000000104308128
+              ],
+              "localPixels": [
+                25.017723083496094,
+                -36.028958797454834
+              ],
+              "screenCells": [
+                0.09772548079490662,
+                -0.14073812030255795
+              ],
+              "rootPixels": [
+                0.0,
+                0.0
+              ],
+              "rootPlusLocalPixels": [
+                25.017723083496094,
+                -36.028958797454834
+              ],
+              "liftWorld": 3.1840816777831182e-18
+            },
+            "right": {
+              "phase": 0.30000000000000004,
+              "stance": false,
+              "anchorWorld": [
+                -0.11500000208616257,
+                0.10532936453819275,
+                0.03672746941447258
+              ],
+              "localPixels": [
+                -25.017711639404297,
+                21.475638389587402
+              ],
+              "screenCells": [
+                -0.09772543609142303,
+                0.08388921245932579
+              ],
+              "rootPixels": [
+                0.0,
+                0.0
+              ],
+              "rootPlusLocalPixels": [
+                -25.017711639404297,
+                21.475638389587402
+              ],
+              "liftWorld": 0.02472746942367399
+            }
+          }
+        },
+        {
+          "path": "art/production/officer/review/iterations/v3-motion/regions/officer.pistol.suit.start.south.05.png",
+          "widthCells": 1.5,
+          "heightCells": 1.75,
+          "pivotX": 0.5,
+          "pivotY": 0.14500541985034943,
+          "pixelWidth": 288,
+          "pixelHeight": 336,
+          "sha256": "765fafbffd3e7b9a6995efe340e29c4ef1e190b844a36c80e1a3579d330359e6",
+          "feet": {
+            "left": {
+              "phase": 0.0,
+              "stance": true,
+              "anchorWorld": [
+                0.11500000208616257,
+                -0.25558236241340637,
+                0.012000000104308128
+              ],
+              "localPixels": [
+                25.017723083496094,
+                -36.028958797454834
+              ],
+              "screenCells": [
+                0.09772548079490662,
+                -0.14073812030255795
+              ],
+              "rootPixels": [
+                0.0,
+                0.0
+              ],
+              "rootPlusLocalPixels": [
+                25.017723083496094,
+                -36.028958797454834
+              ],
+              "liftWorld": 3.1840816777831182e-18
+            },
+            "right": {
+              "phase": 0.5,
+              "stance": true,
+              "anchorWorld": [
+                -0.11500000208616257,
+                0.17558234930038452,
+                0.012000000104308128
+              ],
+              "localPixels": [
+                -25.017711639404297,
+                27.971047401428223
+              ],
+              "screenCells": [
+                -0.09772543609142303,
+                0.109261903911829
+              ],
+              "rootPixels": [
+                0.0,
+                0.0
+              ],
+              "rootPlusLocalPixels": [
+                -25.017711639404297,
+                27.971047401428223
+              ],
+              "liftWorld": 3.1840816777831182e-18
+            }
+          }
+        }
+      ],
+      "markers": []
+    },
+    {
+      "id": "officer.pistol.suit.walk.south",
+      "frameSeconds": 0.016666666666666666,
+      "cycleCells": 0.5,
+      "cycleDistanceCells": 0.5,
+      "loop": true,
+      "equipment": "pistol",
+      "armor": "suit",
+      "frames": [
+        {
+          "path": "art/production/officer/review/iterations/v3-motion/regions/officer.pistol.suit.walk.south.00.png",
+          "widthCells": 1.5,
+          "heightCells": 1.75,
+          "pivotX": 0.5,
+          "pivotY": 0.14500541985034943,
+          "pixelWidth": 288,
+          "pixelHeight": 336,
+          "sha256": "dd54f6d11e7d3bb976b989c92ceecaa13cf826742b3bab8d5793af707ebc37cb",
+          "feet": {
+            "left": {
+              "phase": 0.0,
+              "stance": true,
+              "anchorWorld": [
+                0.11500000208616257,
+                -0.25558236241340637,
+                0.012000000104308128
+              ],
+              "localPixels": [
+                25.017723083496094,
+                -36.028958797454834
+              ],
+              "screenCells": [
+                0.09772548079490662,
+                -0.14073812030255795
+              ],
+              "rootPixels": [
+                0.0,
+                -0.0
+              ],
+              "rootPlusLocalPixels": [
+                25.017723083496094,
+                -36.028958797454834
+              ],
+              "liftWorld": 0
+            },
+            "right": {
+              "phase": 0.5,
+              "stance": false,
+              "anchorWorld": [
+                -0.11500000208616257,
+                0.17558234930038452,
+                0.012000000104308128
+              ],
+              "localPixels": [
+                -25.017711639404297,
+                27.971047401428223
+              ],
+              "screenCells": [
+                -0.09772543609142303,
+                0.109261903911829
+              ],
+              "rootPixels": [
+                0.0,
+                -0.0
+              ],
+              "rootPlusLocalPixels": [
+                -25.017711639404297,
+                27.971047401428223
+              ],
+              "liftWorld": 0.0
+            }
+          }
+        },
+        {
+          "path": "art/production/officer/review/iterations/v3-motion/regions/officer.pistol.suit.walk.south.01.png",
+          "widthCells": 1.5,
+          "heightCells": 1.75,
+          "pivotX": 0.5,
+          "pivotY": 0.14500541985034943,
+          "pixelWidth": 288,
+          "pixelHeight": 336,
+          "sha256": "b82606d095a4434f7e321acf6830c3557e3976d603f19bb3c51f68e627cffc7c",
+          "feet": {
+            "left": {
+              "phase": 0.027777777777777776,
+              "stance": true,
+              "anchorWorld": [
+                0.11500000208616257,
+                -0.23162876069545746,
+                0.012000000104308128
+              ],
+              "localPixels": [
+                25.017723083496094,
+                -32.47339344024658
+              ],
+              "screenCells": [
+                0.09772548079490662,
+                -0.1268491931259632
+              ],
+              "rootPixels": [
+                0.0,
+                -3.5555555555555554
+              ],
+              "rootPlusLocalPixels": [
+                25.017723083496094,
+                -36.02894899580214
+              ],
+              "liftWorld": 0
+            },
+            "right": {
+              "phase": 0.5277777777777778,
+              "stance": false,
+              "anchorWorld": [
+                -0.11500000208616257,
+                0.17173795402050018,
+                0.019987815991044044
+              ],
+              "localPixels": [
+                -25.017711639404297,
+                28.670769691467285
+              ],
+              "screenCells": [
+                -0.09772543609142303,
+                0.11199519410729408
+              ],
+              "rootPixels": [
+                0.0,
+                -3.5555555555555554
+              ],
+              "rootPlusLocalPixels": [
+                -25.017711639404297,
+                25.115214135911728
+              ],
+              "liftWorld": 0.007987816172678798
+            }
+          }
+        },
+        {
+          "path": "art/production/officer/review/iterations/v3-motion/regions/officer.pistol.suit.walk.south.02.png",
+          "widthCells": 1.5,
+          "heightCells": 1.75,
+          "pivotX": 0.5,
+          "pivotY": 0.14500541985034943,
+          "pixelWidth": 288,
+          "pixelHeight": 336,
+          "sha256": "025b2bf76212ad105b6cef813ca9dee4055d9f13cdd24a3b4bb2eb51b308a672",
+          "feet": {
+            "left": {
+              "phase": 0.05555555555555555,
+              "stance": true,
+              "anchorWorld": [
+                0.11500000208616257,
+                -0.20767515897750854,
+                0.012000000104308128
+              ],
+              "localPixels": [
+                25.017723083496094,
+                -28.917844772338867
+              ],
+              "screenCells": [
+                0.09772548079490662,
+                -0.1129603311419487
+              ],
+              "rootPixels": [
+                0.0,
+                -7.111111111111111
+              ],
+              "rootPlusLocalPixels": [
+                25.017723083496094,
+                -36.02895588344998
+              ],
+              "liftWorld": 0
+            },
+            "right": {
+              "phase": 0.5555555555555556,
+              "stance": false,
+              "anchorWorld": [
+                -0.11500000208616257,
+                0.1607961803674698,
+                0.027732927352190018
+              ],
+              "localPixels": [
+                -25.017711639404297,
+                28.27839756011963
+              ],
+              "screenCells": [
+                -0.09772543609142303,
+                0.1104624904692173
+              ],
+              "rootPixels": [
+                0.0,
+                -7.111111111111111
+              ],
+              "rootPlusLocalPixels": [
+                -25.017711639404297,
+                21.167286449008518
+              ],
+              "liftWorld": 0.01573292659298077
+            }
+          }
+        },
+        {
+          "path": "art/production/officer/review/iterations/v3-motion/regions/officer.pistol.suit.walk.south.03.png",
+          "widthCells": 1.5,
+          "heightCells": 1.75,
+          "pivotX": 0.5,
+          "pivotY": 0.14500541985034943,
+          "pixelWidth": 288,
+          "pixelHeight": 336,
+          "sha256": "9a9c83098dcdf6717726d0298cad4d325177ae782ffade261bc3768092c46480",
+          "feet": {
+            "left": {
+              "phase": 0.08333333333333333,
+              "stance": true,
+              "anchorWorld": [
+                0.11500000208616257,
+                -0.18372157216072083,
+                0.012000000104308128
+              ],
+              "localPixels": [
+                25.017723083496094,
+                -25.362292766571045
+              ],
+              "screenCells": [
+                0.09772548079490662,
+                -0.09907145611941814
+              ],
+              "rootPixels": [
+                0.0,
+                -10.666666666666666
+              ],
+              "rootPlusLocalPixels": [
+                25.017723083496094,
+                -36.02895943323771
+              ],
+              "liftWorld": 0
+            },
+            "right": {
+              "phase": 0.5833333333333334,
+              "stance": false,
+              "anchorWorld": [
+                -0.11500000208616257,
+                0.14364422857761383,
+                0.03500000014901161
+              ],
+              "localPixels": [
+                -25.017711639404297,
+                26.888178825378418
+              ],
+              "screenCells": [
+                -0.09772543609142303,
+                0.10503194853663445
+              ],
+              "rootPixels": [
+                0.0,
+                -10.666666666666666
+              ],
+              "rootPlusLocalPixels": [
+                -25.017711639404297,
+                16.221512158711754
+              ],
+              "liftWorld": 0.023000000000000003
+            }
+          }
+        },
+        {
+          "path": "art/production/officer/review/iterations/v3-motion/regions/officer.pistol.suit.walk.south.04.png",
+          "widthCells": 1.5,
+          "heightCells": 1.75,
+          "pivotX": 0.5,
+          "pivotY": 0.14500541985034943,
+          "pixelWidth": 288,
+          "pixelHeight": 336,
+          "sha256": "c0a2cdf5f25dea72695a5cf20df460f720b210719351a80678a0dc4f35af2078",
+          "feet": {
+            "left": {
+              "phase": 0.1111111111111111,
+              "stance": true,
+              "anchorWorld": [
+                0.11500000208616257,
+                -0.1597679704427719,
+                0.012000000104308128
+              ],
+              "localPixels": [
+                25.017723083496094,
+                -21.8067307472229
+              ],
+              "screenCells": [
+                0.09772548079490662,
+                -0.08518254198133945
+              ],
+              "rootPixels": [
+                0.0,
+                -14.222222222222221
+              ],
+              "rootPlusLocalPixels": [
+                25.017723083496094,
+                -36.02895296944512
+              ],
+              "liftWorld": 0
+            },
+            "right": {
+              "phase": 0.6111111111111112,
+              "stance": false,
+              "anchorWorld": [
+                -0.11500000208616257,
+                0.12116925418376923,
+                0.04156823083758354
+              ],
+              "localPixels": [
+                -25.017711639404297,
+                24.596691131591797
+              ],
+              "screenCells": [
+                -0.09772543609142303,
+                0.09608082473278046
+              ],
+              "rootPixels": [
+                0.0,
+                -14.222222222222221
+              ],
+              "rootPlusLocalPixels": [
+                -25.017711639404297,
+                10.374468909369575
+              ],
+              "liftWorld": 0.02956823004558082
+            }
+          }
+        },
+        {
+          "path": "art/production/officer/review/iterations/v3-motion/regions/officer.pistol.suit.walk.south.05.png",
+          "widthCells": 1.5,
+          "heightCells": 1.75,
+          "pivotX": 0.5,
+          "pivotY": 0.14500541985034943,
+          "pixelWidth": 288,
+          "pixelHeight": 336,
+          "sha256": "2ee61328a14f76c8dccd7891f482dd8a9650e209a04078f6d8e30419902d7bae",
+          "feet": {
+            "left": {
+              "phase": 0.1388888888888889,
+              "stance": true,
+              "anchorWorld": [
+                0.11500000208616257,
+                -0.1358143836259842,
+                0.012000000104308128
+              ],
+              "localPixels": [
+                25.017723083496094,
+                -18.251178741455078
+              ],
+              "screenCells": [
+                0.09772548079490662,
+                -0.0712936669588089
+              ],
+              "rootPixels": [
+                0.0,
+                -17.77777777777778
+              ],
+              "rootPlusLocalPixels": [
+                25.017723083496094,
+                -36.02895651923286
+              ],
+              "liftWorld": 0
+            },
+            "right": {
+              "phase": 0.6388888888888888,
+              "stance": false,
+              "anchorWorld": [
+                -0.11500000208616257,
+                0.09425842016935349,
+                0.04723804444074631
+              ],
+              "localPixels": [
+                -25.017711639404297,
+                21.503896713256836
+              ],
+              "screenCells": [
+                -0.09772543609142303,
+                0.08399959653615952
+              ],
+              "rootPixels": [
+                0.0,
+                -17.77777777777778
+              ],
+              "rootPlusLocalPixels": [
+                -25.017711639404297,
+                3.7261189354790574
+              ],
+              "liftWorld": 0.03523804438347298
+            }
+          }
+        },
+        {
+          "path": "art/production/officer/review/iterations/v3-motion/regions/officer.pistol.suit.walk.south.06.png",
+          "widthCells": 1.5,
+          "heightCells": 1.75,
+          "pivotX": 0.5,
+          "pivotY": 0.14500541985034943,
+          "pixelWidth": 288,
+          "pixelHeight": 336,
+          "sha256": "5e65682b9b67234ff35ef8cdcf783628680912d9fb87f7b1304604da8b19c755",
+          "feet": {
+            "left": {
+              "phase": 0.16666666666666666,
+              "stance": true,
+              "anchorWorld": [
+                0.11500000208616257,
+                -0.11186078190803528,
+                0.012000000104308128
+              ],
+              "localPixels": [
+                25.017723083496094,
+                -14.695613384246826
+              ],
+              "screenCells": [
+                0.09772548079490662,
+                -0.057404739782214165
+              ],
+              "rootPixels": [
+                0.0,
+                -21.333333333333332
+              ],
+              "rootPlusLocalPixels": [
+                25.017723083496094,
+                -36.028946717580155
+              ],
+              "liftWorld": 0
+            },
+            "right": {
+              "phase": 0.6666666666666666,
+              "stance": false,
+              "anchorWorld": [
+                -0.11500000208616257,
+                0.06379891186952591,
+                0.051837168633937836
+              ],
+              "localPixels": [
+                -25.017711639404297,
+                17.71406364440918
+              ],
+              "screenCells": [
+                -0.09772543609142303,
+                0.06919556111097336
+              ],
+              "rootPixels": [
+                0.0,
+                -21.333333333333332
+              ],
+              "rootPlusLocalPixels": [
+                -25.017711639404297,
+                -3.6192696889241525
+              ],
+              "liftWorld": 0.03983716857408417
+            }
+          }
+        },
+        {
+          "path": "art/production/officer/review/iterations/v3-motion/regions/officer.pistol.suit.walk.south.07.png",
+          "widthCells": 1.5,
+          "heightCells": 1.75,
+          "pivotX": 0.5,
+          "pivotY": 0.14500541985034943,
+          "pixelWidth": 288,
+          "pixelHeight": 336,
+          "sha256": "e28e9208ed01d7b475be3e0079154d088ed5f045beca75191074a381358243f5",
+          "feet": {
+            "left": {
+              "phase": 0.19444444444444445,
+              "stance": true,
+              "anchorWorld": [
+                0.11500000208616257,
+                -0.08790718764066696,
+                0.012000000104308128
+              ],
+              "localPixels": [
+                25.017723083496094,
+                -11.140064716339111
+              ],
+              "screenCells": [
+                0.09772548079490662,
+                -0.043515877798199654
+              ],
+              "rootPixels": [
+                0.0,
+                -24.88888888888889
+              ],
+              "rootPlusLocalPixels": [
+                25.017723083496094,
+                -36.028953605228
+              ],
+              "liftWorld": 0
+            },
+            "right": {
+              "phase": 0.6944444444444444,
+              "stance": false,
+              "anchorWorld": [
+                -0.11500000208616257,
+                0.03067789226770401,
+                0.055225860327482224
+              ],
+              "localPixels": [
+                -25.017711639404297,
+                13.33666706085205
+              ],
+              "screenCells": [
+                -0.09772543609142303,
+                0.05209635570645332
+              ],
+              "rootPixels": [
+                0.0,
+                -24.88888888888889
+              ],
+              "rootPlusLocalPixels": [
+                -25.017711639404297,
+                -11.552221828036839
+              ],
+              "liftWorld": 0.04322586055615178
+            }
+          }
+        },
+        {
+          "path": "art/production/officer/review/iterations/v3-motion/regions/officer.pistol.suit.walk.south.08.png",
+          "widthCells": 1.5,
+          "heightCells": 1.75,
+          "pivotX": 0.5,
+          "pivotY": 0.14500541985034943,
+          "pixelWidth": 288,
+          "pixelHeight": 336,
+          "sha256": "f83ad0da566b0301441752cee36e21e74602ac75dd34b10c25b9c21a60661888",
+          "feet": {
+            "left": {
+              "phase": 0.2222222222222222,
+              "stance": true,
+              "anchorWorld": [
+                0.11500000208616257,
+                -0.06395359337329865,
+                0.012000000104308128
+              ],
+              "localPixels": [
+                25.017723083496094,
+                -7.584512710571289
+              ],
+              "screenCells": [
+                0.09772548079490662,
+                -0.029627002775669098
+              ],
+              "rootPixels": [
+                0.0,
+                -28.444444444444443
+              ],
+              "rootPlusLocalPixels": [
+                25.017723083496094,
+                -36.02895715501573
+              ],
+              "liftWorld": 0
+            },
+            "right": {
+              "phase": 0.7222222222222222,
+              "stance": false,
+              "anchorWorld": [
+                -0.11500000208616257,
+                -0.00421746913343668,
+                0.05730115622282028
+              ],
+              "localPixels": [
+                -25.017711639404297,
+                8.487030029296875
+              ],
+              "screenCells": [
+                -0.09772543609142303,
+                0.03315246105194092
+              ],
+              "rootPixels": [
+                0.0,
+                -28.444444444444443
+              ],
+              "rootPlusLocalPixels": [
+                -25.017711639404297,
+                -19.957414415147568
+              ],
+              "liftWorld": 0.04530115663856157
+            }
+          }
+        },
+        {
+          "path": "art/production/officer/review/iterations/v3-motion/regions/officer.pistol.suit.walk.south.09.png",
+          "widthCells": 1.5,
+          "heightCells": 1.75,
+          "pivotX": 0.5,
+          "pivotY": 0.14500541985034943,
+          "pixelWidth": 288,
+          "pixelHeight": 336,
+          "sha256": "e1f959448108fb451deaadb7af7f5d23f6616634ef895207a45af46d4c777bb7",
+          "feet": {
+            "left": {
+              "phase": 0.25,
+              "stance": true,
+              "anchorWorld": [
+                0.11500000208616257,
+                -0.03999999910593033,
+                0.012000000104308128
+              ],
+              "localPixels": [
+                25.017723083496094,
+                -4.0289506912231445
+              ],
+              "screenCells": [
+                0.09772548079490662,
+                -0.01573808863759041
+              ],
+              "rootPixels": [
+                0.0,
+                -32.0
+              ],
+              "rootPlusLocalPixels": [
+                25.017723083496094,
+                -36.028950691223145
+              ],
+              "liftWorld": 0
+            },
+            "right": {
+              "phase": 0.75,
+              "stance": false,
+              "anchorWorld": [
+                -0.11500000208616257,
+                -0.03999999910593033,
+                0.057999998331069946
+              ],
+              "localPixels": [
+                -25.017711639404297,
+                3.2867774963378906
+              ],
+              "screenCells": [
+                -0.09772543609142303,
+                0.012838974595069885
+              ],
+              "rootPixels": [
+                0.0,
+                -32.0
+              ],
+              "rootPlusLocalPixels": [
+                -25.017711639404297,
+                -28.71322250366211
+              ],
+              "liftWorld": 0.046
+            }
+          }
+        },
+        {
+          "path": "art/production/officer/review/iterations/v3-motion/regions/officer.pistol.suit.walk.south.10.png",
+          "widthCells": 1.5,
+          "heightCells": 1.75,
+          "pivotX": 0.5,
+          "pivotY": 0.14500541985034943,
+          "pixelWidth": 288,
+          "pixelHeight": 336,
+          "sha256": "089161f67caec9dce9aa11b62b90fc75a614f17ca09a2bc51642936398c30038",
+          "feet": {
+            "left": {
+              "phase": 0.2777777777777778,
+              "stance": true,
+              "anchorWorld": [
+                0.11500000208616257,
+                -0.01604640483856201,
+                0.012000000104308128
+              ],
+              "localPixels": [
+                25.017723083496094,
+                -0.4734020233154297
+              ],
+              "screenCells": [
+                0.09772548079490662,
+                -0.0018492266535758972
+              ],
+              "rootPixels": [
+                0.0,
+                -35.55555555555556
+              ],
+              "rootPlusLocalPixels": [
+                25.017723083496094,
+                -36.02895757887099
+              ],
+              "liftWorld": 0
+            },
+            "right": {
+              "phase": 0.7777777777777778,
+              "stance": false,
+              "anchorWorld": [
+                -0.11500000208616257,
+                -0.07578253000974655,
+                0.05730115622282028
+              ],
+              "localPixels": [
+                -25.017711639404297,
+                -2.1357431411743164
+              ],
+              "screenCells": [
+                -0.09772543609142303,
+                -0.008342746645212173
+              ],
+              "rootPixels": [
+                0.0,
+                -35.55555555555556
+              ],
+              "rootPlusLocalPixels": [
+                -25.017711639404297,
+                -37.69129869672987
+              ],
+              "liftWorld": 0.04530115663856157
+            }
+          }
+        },
+        {
+          "path": "art/production/officer/review/iterations/v3-motion/regions/officer.pistol.suit.walk.south.11.png",
+          "widthCells": 1.5,
+          "heightCells": 1.75,
+          "pivotX": 0.5,
+          "pivotY": 0.14500541985034943,
+          "pixelWidth": 288,
+          "pixelHeight": 336,
+          "sha256": "8fc8d72d7c3270826a816c1ed56858b5afdcb4b52764d9d7b77523c23067db53",
+          "feet": {
+            "left": {
+              "phase": 0.3055555555555556,
+              "stance": true,
+              "anchorWorld": [
+                0.11500000208616257,
+                0.00790719036012888,
+                0.012000000104308128
+              ],
+              "localPixels": [
+                25.017723083496094,
+                3.0821666717529297
+              ],
+              "screenCells": [
+                0.09772548079490662,
+                0.012039713561534882
+              ],
+              "rootPixels": [
+                0.0,
+                -39.111111111111114
+              ],
+              "rootPlusLocalPixels": [
+                25.017723083496094,
+                -36.028944439358185
+              ],
+              "liftWorld": 0
+            },
+            "right": {
+              "phase": 0.8055555555555556,
+              "stance": false,
+              "anchorWorld": [
+                -0.11500000208616257,
+                -0.11067789047956467,
+                0.055225860327482224
+              ],
+              "localPixels": [
+                -25.017711639404297,
+                -7.645495414733887
+              ],
+              "screenCells": [
+                -0.09772543609142303,
+                -0.029865216463804245
+              ],
+              "rootPixels": [
+                0.0,
+                -39.111111111111114
+              ],
+              "rootPlusLocalPixels": [
+                -25.017711639404297,
+                -46.756606525845
+              ],
+              "liftWorld": 0.04322586055615179
+            }
+          }
+        },
+        {
+          "path": "art/production/officer/review/iterations/v3-motion/regions/officer.pistol.suit.walk.south.12.png",
+          "widthCells": 1.5,
+          "heightCells": 1.75,
+          "pivotX": 0.5,
+          "pivotY": 0.14500541985034943,
+          "pixelWidth": 288,
+          "pixelHeight": 336,
+          "sha256": "474786099c55cb9ddee8086b91e6f0f5af9ae708924bff4a07ce5a49b63c297c",
+          "feet": {
+            "left": {
+              "phase": 0.3333333333333333,
+              "stance": true,
+              "anchorWorld": [
+                0.11500000208616257,
+                0.03186078369617462,
+                0.012000000104308128
+              ],
+              "localPixels": [
+                25.017723083496094,
+                6.6377153396606445
+              ],
+              "screenCells": [
+                0.09772548079490662,
+                0.025928575545549393
+              ],
+              "rootPixels": [
+                0.0,
+                -42.666666666666664
+              ],
+              "rootPlusLocalPixels": [
+                25.017723083496094,
+                -36.02895132700602
+              ],
+              "liftWorld": 0
+            },
+            "right": {
+              "phase": 0.8333333333333333,
+              "stance": false,
+              "anchorWorld": [
+                -0.11500000208616257,
+                -0.14379891753196716,
+                0.051837168633937836
+              ],
+              "localPixels": [
+                -25.017711639404297,
+                -13.100747108459473
+              ],
+              "screenCells": [
+                -0.09772543609142303,
+                -0.051174793392419815
+              ],
+              "rootPixels": [
+                0.0,
+                -42.666666666666664
+              ],
+              "rootPlusLocalPixels": [
+                -25.017711639404297,
+                -55.76741377512614
+              ],
+              "liftWorld": 0.039837168574084196
+            }
+          }
+        },
+        {
+          "path": "art/production/officer/review/iterations/v3-motion/regions/officer.pistol.suit.walk.south.13.png",
+          "widthCells": 1.5,
+          "heightCells": 1.75,
+          "pivotX": 0.5,
+          "pivotY": 0.14500541985034943,
+          "pixelWidth": 288,
+          "pixelHeight": 336,
+          "sha256": "baf626a8b1b3fe8d2d661e4f8d2a136701e2b3d6b5c891dd783f3d5678554fad",
+          "feet": {
+            "left": {
+              "phase": 0.3611111111111111,
+              "stance": true,
+              "anchorWorld": [
+                0.11500000208616257,
+                0.05581438168883324,
+                0.012000000104308128
+              ],
+              "localPixels": [
+                25.017723083496094,
+                10.19326400756836
+              ],
+              "screenCells": [
+                0.09772548079490662,
+                0.039817437529563904
+              ],
+              "rootPixels": [
+                0.0,
+                -46.22222222222222
+              ],
+              "rootPlusLocalPixels": [
+                25.017723083496094,
+                -36.02895821465386
+              ],
+              "liftWorld": 0
+            },
+            "right": {
+              "phase": 0.8611111111111112,
+              "stance": false,
+              "anchorWorld": [
+                -0.11500000208616257,
+                -0.17425842583179474,
+                0.04723804444074631
+              ],
+              "localPixels": [
+                -25.017711639404297,
+                -18.353447437286377
+              ],
+              "screenCells": [
+                -0.09772543609142303,
+                -0.07169315405189991
+              ],
+              "rootPixels": [
+                0.0,
+                -46.22222222222222
+              ],
+              "rootPlusLocalPixels": [
+                -25.017711639404297,
+                -64.5756696595086
+              ],
+              "liftWorld": 0.035238044383472986
+            }
+          }
+        },
+        {
+          "path": "art/production/officer/review/iterations/v3-motion/regions/officer.pistol.suit.walk.south.14.png",
+          "widthCells": 1.5,
+          "heightCells": 1.75,
+          "pivotX": 0.5,
+          "pivotY": 0.14500541985034943,
+          "pixelWidth": 288,
+          "pixelHeight": 336,
+          "sha256": "aaed704b5c329ebaee0ebac09c9ec8cdc4faf39f7a713c046c88b05735a47485",
+          "feet": {
+            "left": {
+              "phase": 0.3888888888888889,
+              "stance": true,
+              "anchorWorld": [
+                0.11500000208616257,
+                0.07976797223091125,
+                0.012000000104308128
+              ],
+              "localPixels": [
+                25.017723083496094,
+                13.748826026916504
+              ],
+              "screenCells": [
+                0.09772548079490662,
+                0.05370635166764259
+              ],
+              "rootPixels": [
+                0.0,
+                -49.77777777777778
+              ],
+              "rootPlusLocalPixels": [
+                25.017723083496094,
+                -36.028951750861275
+              ],
+              "liftWorld": 0
+            },
+            "right": {
+              "phase": 0.8888888888888888,
+              "stance": false,
+              "anchorWorld": [
+                -0.11500000208616257,
+                -0.20116925239562988,
+                0.04156823083758354
+              ],
+              "localPixels": [
+                -25.017711639404297,
+                -23.249677658081055
+              ],
+              "screenCells": [
+                -0.09772543609142303,
+                -0.09081905335187912
+              ],
+              "rootPixels": [
+                0.0,
+                -49.77777777777778
+              ],
+              "rootPlusLocalPixels": [
+                -25.017711639404297,
+                -73.02745543585883
+              ],
+              "liftWorld": 0.029568230045580814
+            }
+          }
+        },
+        {
+          "path": "art/production/officer/review/iterations/v3-motion/regions/officer.pistol.suit.walk.south.15.png",
+          "widthCells": 1.5,
+          "heightCells": 1.75,
+          "pivotX": 0.5,
+          "pivotY": 0.14500541985034943,
+          "pixelWidth": 288,
+          "pixelHeight": 336,
+          "sha256": "9563c1ea9da3f4ca1c8a6ef39a9db7d48d70fbb779e4ebda7d0d82c32e82f200",
+          "feet": {
+            "left": {
+              "phase": 0.4166666666666667,
+              "stance": true,
+              "anchorWorld": [
+                0.11500000208616257,
+                0.10372157394886017,
+                0.012000000104308128
+              ],
+              "localPixels": [
+                25.017723083496094,
+                17.304381370544434
+              ],
+              "screenCells": [
+                0.09772548079490662,
+                0.0675952397286892
+              ],
+              "rootPixels": [
+                0.0,
+                -53.333333333333336
+              ],
+              "rootPlusLocalPixels": [
+                25.017723083496094,
+                -36.0289519627889
+              ],
+              "liftWorld": 0
+            },
+            "right": {
+              "phase": 0.9166666666666667,
+              "stance": false,
+              "anchorWorld": [
+                -0.11500000208616257,
+                -0.2236442267894745,
+                0.03500000014901161
+              ],
+              "localPixels": [
+                -25.017711639404297,
+                -27.630352020263672
+              ],
+              "screenCells": [
+                -0.09772543609142303,
+                -0.10793106257915497
+              ],
+              "rootPixels": [
+                0.0,
+                -53.333333333333336
+              ],
+              "rootPlusLocalPixels": [
+                -25.017711639404297,
+                -80.96368535359701
+              ],
+              "liftWorld": 0.02299999999999998
+            }
+          }
+        },
+        {
+          "path": "art/production/officer/review/iterations/v3-motion/regions/officer.pistol.suit.walk.south.16.png",
+          "widthCells": 1.5,
+          "heightCells": 1.75,
+          "pivotX": 0.5,
+          "pivotY": 0.14500541985034943,
+          "pixelWidth": 288,
+          "pixelHeight": 336,
+          "sha256": "8baf64dc3c2d95cfb541d74bbb6713f5c08ef5a218c865e5ead9a3d571e01370",
+          "feet": {
+            "left": {
+              "phase": 0.4444444444444444,
+              "stance": true,
+              "anchorWorld": [
+                0.11500000208616257,
+                0.1276751607656479,
+                0.012000000104308128
+              ],
+              "localPixels": [
+                25.017723083496094,
+                20.859943389892578
+              ],
+              "screenCells": [
+                0.09772548079490662,
+                0.08148415386676788
+              ],
+              "rootPixels": [
+                0.0,
+                -56.888888888888886
+              ],
+              "rootPlusLocalPixels": [
+                25.017723083496094,
+                -36.02894549899631
+              ],
+              "liftWorld": 0
+            },
+            "right": {
+              "phase": 0.9444444444444444,
+              "stance": false,
+              "anchorWorld": [
+                -0.11500000208616257,
+                -0.24079619348049164,
+                0.027732927352190018
+              ],
+              "localPixels": [
+                -25.017711639404297,
+                -31.33203887939453
+              ],
+              "screenCells": [
+                -0.09772543609142303,
+                -0.12239077687263489
+              ],
+              "rootPixels": [
+                0.0,
+                -56.888888888888886
+              ],
+              "rootPlusLocalPixels": [
+                -25.017711639404297,
+                -88.22092776828342
+              ],
+              "liftWorld": 0.01573292659298077
+            }
+          }
+        },
+        {
+          "path": "art/production/officer/review/iterations/v3-motion/regions/officer.pistol.suit.walk.south.17.png",
+          "widthCells": 1.5,
+          "heightCells": 1.75,
+          "pivotX": 0.5,
+          "pivotY": 0.14500541985034943,
+          "pixelWidth": 288,
+          "pixelHeight": 336,
+          "sha256": "99554dd7782d42fcc88b41169514f7683ff3ae0c65f5f94a36d5d6d34a560468",
+          "feet": {
+            "left": {
+              "phase": 0.4722222222222222,
+              "stance": true,
+              "anchorWorld": [
+                0.11500000208616257,
+                0.1516287624835968,
+                0.012000000104308128
+              ],
+              "localPixels": [
+                25.017723083496094,
+                24.415492057800293
+              ],
+              "screenCells": [
+                0.09772548079490662,
+                0.0953730158507824
+              ],
+              "rootPixels": [
+                0.0,
+                -60.44444444444444
+              ],
+              "rootPlusLocalPixels": [
+                25.017723083496094,
+                -36.02895238664415
+              ],
+              "liftWorld": 0
+            },
+            "right": {
+              "phase": 0.9722222222222222,
+              "stance": false,
+              "anchorWorld": [
+                -0.11500000208616257,
+                -0.25173795223236084,
+                0.019987815991044044
+              ],
+              "localPixels": [
+                -25.017711639404297,
+                -34.187942028045654
+              ],
+              "screenCells": [
+                -0.09772543609142303,
+                -0.13354664854705334
+              ],
+              "rootPixels": [
+                0.0,
+                -60.44444444444444
+              ],
+              "rootPlusLocalPixels": [
+                -25.017711639404297,
+                -94.6323864724901
+              ],
+              "liftWorld": 0.007987816172678812
+            }
+          }
+        },
+        {
+          "path": "art/production/officer/review/iterations/v3-motion/regions/officer.pistol.suit.walk.south.18.png",
+          "widthCells": 1.5,
+          "heightCells": 1.75,
+          "pivotX": 0.5,
+          "pivotY": 0.14500541985034943,
+          "pixelWidth": 288,
+          "pixelHeight": 336,
+          "sha256": "2e5efa03a357c76b1ee6a5419f6a687c897370517be4a42d76cf638a79e02c6b",
+          "feet": {
+            "left": {
+              "phase": 0.5,
+              "stance": false,
+              "anchorWorld": [
+                0.11500000208616257,
+                0.17558234930038452,
+                0.012000000104308128
+              ],
+              "localPixels": [
+                25.017723083496094,
+                27.971047401428223
+              ],
+              "screenCells": [
+                0.09772548079490662,
+                0.109261903911829
+              ],
+              "rootPixels": [
+                0.0,
+                -64.0
+              ],
+              "rootPlusLocalPixels": [
+                25.017723083496094,
+                -36.02895259857178
+              ],
+              "liftWorld": 0.0
+            },
+            "right": {
+              "phase": 0.0,
+              "stance": true,
+              "anchorWorld": [
+                -0.11500000208616257,
+                -0.25558236241340637,
+                0.012000000104308128
+              ],
+              "localPixels": [
+                -25.017711639404297,
+                -36.028958797454834
+              ],
+              "screenCells": [
+                -0.09772543609142303,
+                -0.14073812030255795
+              ],
+              "rootPixels": [
+                0.0,
+                -64.0
+              ],
+              "rootPlusLocalPixels": [
+                -25.017711639404297,
+                -100.02895879745483
+              ],
+              "liftWorld": 0
+            }
+          }
+        },
+        {
+          "path": "art/production/officer/review/iterations/v3-motion/regions/officer.pistol.suit.walk.south.19.png",
+          "widthCells": 1.5,
+          "heightCells": 1.75,
+          "pivotX": 0.5,
+          "pivotY": 0.14500541985034943,
+          "pixelWidth": 288,
+          "pixelHeight": 336,
+          "sha256": "68439fad93b93b8df9ff191418e36fdc0370623bcb959928b8e0e4591502f181",
+          "feet": {
+            "left": {
+              "phase": 0.5277777777777778,
+              "stance": false,
+              "anchorWorld": [
+                0.11500000208616257,
+                0.17173795402050018,
+                0.019987815991044044
+              ],
+              "localPixels": [
+                25.017723083496094,
+                28.670769691467285
+              ],
+              "screenCells": [
+                0.09772548079490662,
+                0.11199519410729408
+              ],
+              "rootPixels": [
+                0.0,
+                -67.55555555555556
+              ],
+              "rootPlusLocalPixels": [
+                25.017723083496094,
+                -38.88478586408827
+              ],
+              "liftWorld": 0.007987816172678798
+            },
+            "right": {
+              "phase": 0.02777777777777768,
+              "stance": true,
+              "anchorWorld": [
+                -0.11500000208616257,
+                -0.23162876069545746,
+                0.012000000104308128
+              ],
+              "localPixels": [
+                -25.017711639404297,
+                -32.47339344024658
+              ],
+              "screenCells": [
+                -0.09772543609142303,
+                -0.1268491931259632
+              ],
+              "rootPixels": [
+                0.0,
+                -67.55555555555556
+              ],
+              "rootPlusLocalPixels": [
+                -25.017711639404297,
+                -100.02894899580214
+              ],
+              "liftWorld": 0
+            }
+          }
+        },
+        {
+          "path": "art/production/officer/review/iterations/v3-motion/regions/officer.pistol.suit.walk.south.20.png",
+          "widthCells": 1.5,
+          "heightCells": 1.75,
+          "pivotX": 0.5,
+          "pivotY": 0.14500541985034943,
+          "pixelWidth": 288,
+          "pixelHeight": 336,
+          "sha256": "dceb8726c3975c3aa87c49b090ac6a33068b351c09978ff9099d7e823dda0791",
+          "feet": {
+            "left": {
+              "phase": 0.5555555555555556,
+              "stance": false,
+              "anchorWorld": [
+                0.11500000208616257,
+                0.1607961803674698,
+                0.027732927352190018
+              ],
+              "localPixels": [
+                25.017723083496094,
+                28.27839756011963
+              ],
+              "screenCells": [
+                0.09772548079490662,
+                0.1104624904692173
+              ],
+              "rootPixels": [
+                0.0,
+                -71.11111111111111
+              ],
+              "rootPlusLocalPixels": [
+                25.017723083496094,
+                -42.832713550991485
+              ],
+              "liftWorld": 0.01573292659298077
+            },
+            "right": {
+              "phase": 0.05555555555555558,
+              "stance": true,
+              "anchorWorld": [
+                -0.11500000208616257,
+                -0.20767515897750854,
+                0.012000000104308128
+              ],
+              "localPixels": [
+                -25.017711639404297,
+                -28.917844772338867
+              ],
+              "screenCells": [
+                -0.09772543609142303,
+                -0.1129603311419487
+              ],
+              "rootPixels": [
+                0.0,
+                -71.11111111111111
+              ],
+              "rootPlusLocalPixels": [
+                -25.017711639404297,
+                -100.02895588344998
+              ],
+              "liftWorld": 0
+            }
+          }
+        },
+        {
+          "path": "art/production/officer/review/iterations/v3-motion/regions/officer.pistol.suit.walk.south.21.png",
+          "widthCells": 1.5,
+          "heightCells": 1.75,
+          "pivotX": 0.5,
+          "pivotY": 0.14500541985034943,
+          "pixelWidth": 288,
+          "pixelHeight": 336,
+          "sha256": "ba7cb9bc05832713566ebfd8c17652b3c0fa0d37a2b567beb676405653eaee98",
+          "feet": {
+            "left": {
+              "phase": 0.5833333333333334,
+              "stance": false,
+              "anchorWorld": [
+                0.11500000208616257,
+                0.14364422857761383,
+                0.03500000014901161
+              ],
+              "localPixels": [
+                25.017723083496094,
+                26.888178825378418
+              ],
+              "screenCells": [
+                0.09772548079490662,
+                0.10503194853663445
+              ],
+              "rootPixels": [
+                0.0,
+                -74.66666666666667
+              ],
+              "rootPlusLocalPixels": [
+                25.017723083496094,
+                -47.77848784128825
+              ],
+              "liftWorld": 0.023000000000000003
+            },
+            "right": {
+              "phase": 0.08333333333333348,
+              "stance": true,
+              "anchorWorld": [
+                -0.11500000208616257,
+                -0.18372157216072083,
+                0.012000000104308128
+              ],
+              "localPixels": [
+                -25.017711639404297,
+                -25.362292766571045
+              ],
+              "screenCells": [
+                -0.09772543609142303,
+                -0.09907145611941814
+              ],
+              "rootPixels": [
+                0.0,
+                -74.66666666666667
+              ],
+              "rootPlusLocalPixels": [
+                -25.017711639404297,
+                -100.02895943323772
+              ],
+              "liftWorld": 0
+            }
+          }
+        },
+        {
+          "path": "art/production/officer/review/iterations/v3-motion/regions/officer.pistol.suit.walk.south.22.png",
+          "widthCells": 1.5,
+          "heightCells": 1.75,
+          "pivotX": 0.5,
+          "pivotY": 0.14500541985034943,
+          "pixelWidth": 288,
+          "pixelHeight": 336,
+          "sha256": "ef956cb450ef93c98a7e36d0c1e4e99e5acab53c827e5a5d3050b32f6ab7ac19",
+          "feet": {
+            "left": {
+              "phase": 0.6111111111111112,
+              "stance": false,
+              "anchorWorld": [
+                0.11500000208616257,
+                0.12116925418376923,
+                0.04156823083758354
+              ],
+              "localPixels": [
+                25.017723083496094,
+                24.596691131591797
+              ],
+              "screenCells": [
+                0.09772548079490662,
+                0.09608082473278046
+              ],
+              "rootPixels": [
+                0.0,
+                -78.22222222222223
+              ],
+              "rootPlusLocalPixels": [
+                25.017723083496094,
+                -53.62553109063043
+              ],
+              "liftWorld": 0.02956823004558082
+            },
+            "right": {
+              "phase": 0.11111111111111116,
+              "stance": true,
+              "anchorWorld": [
+                -0.11500000208616257,
+                -0.1597679704427719,
+                0.012000000104308128
+              ],
+              "localPixels": [
+                -25.017711639404297,
+                -21.8067307472229
+              ],
+              "screenCells": [
+                -0.09772543609142303,
+                -0.08518254198133945
+              ],
+              "rootPixels": [
+                0.0,
+                -78.22222222222223
+              ],
+              "rootPlusLocalPixels": [
+                -25.017711639404297,
+                -100.02895296944513
+              ],
+              "liftWorld": 0
+            }
+          }
+        },
+        {
+          "path": "art/production/officer/review/iterations/v3-motion/regions/officer.pistol.suit.walk.south.23.png",
+          "widthCells": 1.5,
+          "heightCells": 1.75,
+          "pivotX": 0.5,
+          "pivotY": 0.14500541985034943,
+          "pixelWidth": 288,
+          "pixelHeight": 336,
+          "sha256": "54e8ef7e296eac79d49af236ce97605df39bfeba790de8db646b3cc6769a7df8",
+          "feet": {
+            "left": {
+              "phase": 0.6388888888888888,
+              "stance": false,
+              "anchorWorld": [
+                0.11500000208616257,
+                0.09425842016935349,
+                0.04723804444074631
+              ],
+              "localPixels": [
+                25.017723083496094,
+                21.503896713256836
+              ],
+              "screenCells": [
+                0.09772548079490662,
+                0.08399959653615952
+              ],
+              "rootPixels": [
+                0.0,
+                -81.77777777777777
+              ],
+              "rootPlusLocalPixels": [
+                25.017723083496094,
+                -60.273881064520936
+              ],
+              "liftWorld": 0.03523804438347298
+            },
+            "right": {
+              "phase": 0.13888888888888884,
+              "stance": true,
+              "anchorWorld": [
+                -0.11500000208616257,
+                -0.1358143836259842,
+                0.012000000104308128
+              ],
+              "localPixels": [
+                -25.017711639404297,
+                -18.251178741455078
+              ],
+              "screenCells": [
+                -0.09772543609142303,
+                -0.0712936669588089
+              ],
+              "rootPixels": [
+                0.0,
+                -81.77777777777777
+              ],
+              "rootPlusLocalPixels": [
+                -25.017711639404297,
+                -100.02895651923285
+              ],
+              "liftWorld": 0
+            }
+          }
+        },
+        {
+          "path": "art/production/officer/review/iterations/v3-motion/regions/officer.pistol.suit.walk.south.24.png",
+          "widthCells": 1.5,
+          "heightCells": 1.75,
+          "pivotX": 0.5,
+          "pivotY": 0.14500541985034943,
+          "pixelWidth": 288,
+          "pixelHeight": 336,
+          "sha256": "96d63c2033a4fc189d930fe8931e67f188b932b4e22e976160fa20253b4279ff",
+          "feet": {
+            "left": {
+              "phase": 0.6666666666666666,
+              "stance": false,
+              "anchorWorld": [
+                0.11500000208616257,
+                0.06379891186952591,
+                0.051837168633937836
+              ],
+              "localPixels": [
+                25.017723083496094,
+                17.71406364440918
+              ],
+              "screenCells": [
+                0.09772548079490662,
+                0.06919556111097336
+              ],
+              "rootPixels": [
+                0.0,
+                -85.33333333333333
+              ],
+              "rootPlusLocalPixels": [
+                25.017723083496094,
+                -67.61926968892415
+              ],
+              "liftWorld": 0.03983716857408417
+            },
+            "right": {
+              "phase": 0.16666666666666652,
+              "stance": true,
+              "anchorWorld": [
+                -0.11500000208616257,
+                -0.11186078190803528,
+                0.012000000104308128
+              ],
+              "localPixels": [
+                -25.017711639404297,
+                -14.695613384246826
+              ],
+              "screenCells": [
+                -0.09772543609142303,
+                -0.057404739782214165
+              ],
+              "rootPixels": [
+                0.0,
+                -85.33333333333333
+              ],
+              "rootPlusLocalPixels": [
+                -25.017711639404297,
+                -100.02894671758015
+              ],
+              "liftWorld": 0
+            }
+          }
+        },
+        {
+          "path": "art/production/officer/review/iterations/v3-motion/regions/officer.pistol.suit.walk.south.25.png",
+          "widthCells": 1.5,
+          "heightCells": 1.75,
+          "pivotX": 0.5,
+          "pivotY": 0.14500541985034943,
+          "pixelWidth": 288,
+          "pixelHeight": 336,
+          "sha256": "f0c2d9f3d6def090951b98a626c766366e9fee39033e16f863116ce18286164e",
+          "feet": {
+            "left": {
+              "phase": 0.6944444444444444,
+              "stance": false,
+              "anchorWorld": [
+                0.11500000208616257,
+                0.03067789226770401,
+                0.055225860327482224
+              ],
+              "localPixels": [
+                25.017723083496094,
+                13.33666706085205
+              ],
+              "screenCells": [
+                0.09772548079490662,
+                0.05209635570645332
+              ],
+              "rootPixels": [
+                0.0,
+                -88.88888888888889
+              ],
+              "rootPlusLocalPixels": [
+                25.017723083496094,
+                -75.55222182803683
+              ],
+              "liftWorld": 0.04322586055615178
+            },
+            "right": {
+              "phase": 0.19444444444444442,
+              "stance": true,
+              "anchorWorld": [
+                -0.11500000208616257,
+                -0.08790718764066696,
+                0.012000000104308128
+              ],
+              "localPixels": [
+                -25.017711639404297,
+                -11.140064716339111
+              ],
+              "screenCells": [
+                -0.09772543609142303,
+                -0.043515877798199654
+              ],
+              "rootPixels": [
+                0.0,
+                -88.88888888888889
+              ],
+              "rootPlusLocalPixels": [
+                -25.017711639404297,
+                -100.028953605228
+              ],
+              "liftWorld": 0
+            }
+          }
+        },
+        {
+          "path": "art/production/officer/review/iterations/v3-motion/regions/officer.pistol.suit.walk.south.26.png",
+          "widthCells": 1.5,
+          "heightCells": 1.75,
+          "pivotX": 0.5,
+          "pivotY": 0.14500541985034943,
+          "pixelWidth": 288,
+          "pixelHeight": 336,
+          "sha256": "3a6b973d364ddbce1710faf50985ac5a738161b77c5514a022fee3ccdbeb5a08",
+          "feet": {
+            "left": {
+              "phase": 0.7222222222222222,
+              "stance": false,
+              "anchorWorld": [
+                0.11500000208616257,
+                -0.00421746913343668,
+                0.05730115622282028
+              ],
+              "localPixels": [
+                25.017723083496094,
+                8.487030029296875
+              ],
+              "screenCells": [
+                0.09772548079490662,
+                0.03315246105194092
+              ],
+              "rootPixels": [
+                0.0,
+                -92.44444444444444
+              ],
+              "rootPlusLocalPixels": [
+                25.017723083496094,
+                -83.95741441514757
+              ],
+              "liftWorld": 0.04530115663856157
+            },
+            "right": {
+              "phase": 0.22222222222222232,
+              "stance": true,
+              "anchorWorld": [
+                -0.11500000208616257,
+                -0.06395359337329865,
+                0.012000000104308128
+              ],
+              "localPixels": [
+                -25.017711639404297,
+                -7.584512710571289
+              ],
+              "screenCells": [
+                -0.09772543609142303,
+                -0.029627002775669098
+              ],
+              "rootPixels": [
+                0.0,
+                -92.44444444444444
+              ],
+              "rootPlusLocalPixels": [
+                -25.017711639404297,
+                -100.02895715501573
+              ],
+              "liftWorld": 0
+            }
+          }
+        },
+        {
+          "path": "art/production/officer/review/iterations/v3-motion/regions/officer.pistol.suit.walk.south.27.png",
+          "widthCells": 1.5,
+          "heightCells": 1.75,
+          "pivotX": 0.5,
+          "pivotY": 0.14500541985034943,
+          "pixelWidth": 288,
+          "pixelHeight": 336,
+          "sha256": "9ec9cdc37fd14c587b565c71ecb522d33316dc832752355de0c8679df7509517",
+          "feet": {
+            "left": {
+              "phase": 0.75,
+              "stance": false,
+              "anchorWorld": [
+                0.11500000208616257,
+                -0.03999999910593033,
+                0.057999998331069946
+              ],
+              "localPixels": [
+                25.017723083496094,
+                3.2867774963378906
+              ],
+              "screenCells": [
+                0.09772548079490662,
+                0.012838974595069885
+              ],
+              "rootPixels": [
+                0.0,
+                -96.0
+              ],
+              "rootPlusLocalPixels": [
+                25.017723083496094,
+                -92.71322250366211
+              ],
+              "liftWorld": 0.046
+            },
+            "right": {
+              "phase": 0.25,
+              "stance": true,
+              "anchorWorld": [
+                -0.11500000208616257,
+                -0.03999999910593033,
+                0.012000000104308128
+              ],
+              "localPixels": [
+                -25.017711639404297,
+                -4.0289506912231445
+              ],
+              "screenCells": [
+                -0.09772543609142303,
+                -0.01573808863759041
+              ],
+              "rootPixels": [
+                0.0,
+                -96.0
+              ],
+              "rootPlusLocalPixels": [
+                -25.017711639404297,
+                -100.02895069122314
+              ],
+              "liftWorld": 0
+            }
+          }
+        },
+        {
+          "path": "art/production/officer/review/iterations/v3-motion/regions/officer.pistol.suit.walk.south.28.png",
+          "widthCells": 1.5,
+          "heightCells": 1.75,
+          "pivotX": 0.5,
+          "pivotY": 0.14500541985034943,
+          "pixelWidth": 288,
+          "pixelHeight": 336,
+          "sha256": "6b2e6e9ebb694097ac2354f5176e3e654a9e7de9e61b9f1b1b6f0b7537c085ce",
+          "feet": {
+            "left": {
+              "phase": 0.7777777777777778,
+              "stance": false,
+              "anchorWorld": [
+                0.11500000208616257,
+                -0.07578253000974655,
+                0.05730115622282028
+              ],
+              "localPixels": [
+                25.017723083496094,
+                -2.1357431411743164
+              ],
+              "screenCells": [
+                0.09772548079490662,
+                -0.008342746645212173
+              ],
+              "rootPixels": [
+                0.0,
+                -99.55555555555556
+              ],
+              "rootPlusLocalPixels": [
+                25.017723083496094,
+                -101.69129869672987
+              ],
+              "liftWorld": 0.04530115663856157
+            },
+            "right": {
+              "phase": 0.2777777777777777,
+              "stance": true,
+              "anchorWorld": [
+                -0.11500000208616257,
+                -0.01604640483856201,
+                0.012000000104308128
+              ],
+              "localPixels": [
+                -25.017711639404297,
+                -0.4734020233154297
+              ],
+              "screenCells": [
+                -0.09772543609142303,
+                -0.0018492266535758972
+              ],
+              "rootPixels": [
+                0.0,
+                -99.55555555555556
+              ],
+              "rootPlusLocalPixels": [
+                -25.017711639404297,
+                -100.02895757887099
+              ],
+              "liftWorld": 0
+            }
+          }
+        },
+        {
+          "path": "art/production/officer/review/iterations/v3-motion/regions/officer.pistol.suit.walk.south.29.png",
+          "widthCells": 1.5,
+          "heightCells": 1.75,
+          "pivotX": 0.5,
+          "pivotY": 0.14500541985034943,
+          "pixelWidth": 288,
+          "pixelHeight": 336,
+          "sha256": "b9a98903d2bf749fd0464e53e336d2c90aed8cd428989cf2175900485157f48e",
+          "feet": {
+            "left": {
+              "phase": 0.8055555555555556,
+              "stance": false,
+              "anchorWorld": [
+                0.11500000208616257,
+                -0.11067789047956467,
+                0.055225860327482224
+              ],
+              "localPixels": [
+                25.017723083496094,
+                -7.645495414733887
+              ],
+              "screenCells": [
+                0.09772548079490662,
+                -0.029865216463804245
+              ],
+              "rootPixels": [
+                0.0,
+                -103.11111111111111
+              ],
+              "rootPlusLocalPixels": [
+                25.017723083496094,
+                -110.756606525845
+              ],
+              "liftWorld": 0.04322586055615179
+            },
+            "right": {
+              "phase": 0.3055555555555556,
+              "stance": true,
+              "anchorWorld": [
+                -0.11500000208616257,
+                0.00790719036012888,
+                0.012000000104308128
+              ],
+              "localPixels": [
+                -25.017711639404297,
+                3.0821666717529297
+              ],
+              "screenCells": [
+                -0.09772543609142303,
+                0.012039713561534882
+              ],
+              "rootPixels": [
+                0.0,
+                -103.11111111111111
+              ],
+              "rootPlusLocalPixels": [
+                -25.017711639404297,
+                -100.02894443935818
+              ],
+              "liftWorld": 0
+            }
+          }
+        },
+        {
+          "path": "art/production/officer/review/iterations/v3-motion/regions/officer.pistol.suit.walk.south.30.png",
+          "widthCells": 1.5,
+          "heightCells": 1.75,
+          "pivotX": 0.5,
+          "pivotY": 0.14500541985034943,
+          "pixelWidth": 288,
+          "pixelHeight": 336,
+          "sha256": "92b0fa2f3d91987a026484ba2125c8b40dd4c19e53bc2034c5609495faa506fe",
+          "feet": {
+            "left": {
+              "phase": 0.8333333333333334,
+              "stance": false,
+              "anchorWorld": [
+                0.11500000208616257,
+                -0.14379891753196716,
+                0.051837168633937836
+              ],
+              "localPixels": [
+                25.017723083496094,
+                -13.100747108459473
+              ],
+              "screenCells": [
+                0.09772548079490662,
+                -0.051174793392419815
+              ],
+              "rootPixels": [
+                0.0,
+                -106.66666666666667
+              ],
+              "rootPlusLocalPixels": [
+                25.017723083496094,
+                -119.76741377512614
+              ],
+              "liftWorld": 0.039837168574084175
+            },
+            "right": {
+              "phase": 0.3333333333333335,
+              "stance": true,
+              "anchorWorld": [
+                -0.11500000208616257,
+                0.03186078369617462,
+                0.012000000104308128
+              ],
+              "localPixels": [
+                -25.017711639404297,
+                6.6377153396606445
+              ],
+              "screenCells": [
+                -0.09772543609142303,
+                0.025928575545549393
+              ],
+              "rootPixels": [
+                0.0,
+                -106.66666666666667
+              ],
+              "rootPlusLocalPixels": [
+                -25.017711639404297,
+                -100.02895132700603
+              ],
+              "liftWorld": 0
+            }
+          }
+        },
+        {
+          "path": "art/production/officer/review/iterations/v3-motion/regions/officer.pistol.suit.walk.south.31.png",
+          "widthCells": 1.5,
+          "heightCells": 1.75,
+          "pivotX": 0.5,
+          "pivotY": 0.14500541985034943,
+          "pixelWidth": 288,
+          "pixelHeight": 336,
+          "sha256": "248ddbec8cdb350c83948a9bebf630be9b9b27b731fbde795c1a9bc881d3549b",
+          "feet": {
+            "left": {
+              "phase": 0.8611111111111112,
+              "stance": false,
+              "anchorWorld": [
+                0.11500000208616257,
+                -0.17425842583179474,
+                0.04723804444074631
+              ],
+              "localPixels": [
+                25.017723083496094,
+                -18.353447437286377
+              ],
+              "screenCells": [
+                0.09772548079490662,
+                -0.07169315405189991
+              ],
+              "rootPixels": [
+                0.0,
+                -110.22222222222223
+              ],
+              "rootPlusLocalPixels": [
+                25.017723083496094,
+                -128.5756696595086
+              ],
+              "liftWorld": 0.035238044383472986
+            },
+            "right": {
+              "phase": 0.36111111111111116,
+              "stance": true,
+              "anchorWorld": [
+                -0.11500000208616257,
+                0.05581438168883324,
+                0.012000000104308128
+              ],
+              "localPixels": [
+                -25.017711639404297,
+                10.19326400756836
+              ],
+              "screenCells": [
+                -0.09772543609142303,
+                0.039817437529563904
+              ],
+              "rootPixels": [
+                0.0,
+                -110.22222222222223
+              ],
+              "rootPlusLocalPixels": [
+                -25.017711639404297,
+                -100.02895821465387
+              ],
+              "liftWorld": 0
+            }
+          }
+        },
+        {
+          "path": "art/production/officer/review/iterations/v3-motion/regions/officer.pistol.suit.walk.south.32.png",
+          "widthCells": 1.5,
+          "heightCells": 1.75,
+          "pivotX": 0.5,
+          "pivotY": 0.14500541985034943,
+          "pixelWidth": 288,
+          "pixelHeight": 336,
+          "sha256": "cc0f31485066b0ccca87cde15ae61f1d20465bb1313ab947ad0adef0547bef93",
+          "feet": {
+            "left": {
+              "phase": 0.8888888888888888,
+              "stance": false,
+              "anchorWorld": [
+                0.11500000208616257,
+                -0.20116925239562988,
+                0.04156823083758354
+              ],
+              "localPixels": [
+                25.017723083496094,
+                -23.249677658081055
+              ],
+              "screenCells": [
+                0.09772548079490662,
+                -0.09081905335187912
+              ],
+              "rootPixels": [
+                0.0,
+                -113.77777777777777
+              ],
+              "rootPlusLocalPixels": [
+                25.017723083496094,
+                -137.02745543585883
+              ],
+              "liftWorld": 0.029568230045580814
+            },
+            "right": {
+              "phase": 0.38888888888888884,
+              "stance": true,
+              "anchorWorld": [
+                -0.11500000208616257,
+                0.07976797223091125,
+                0.012000000104308128
+              ],
+              "localPixels": [
+                -25.017711639404297,
+                13.748826026916504
+              ],
+              "screenCells": [
+                -0.09772543609142303,
+                0.05370635166764259
+              ],
+              "rootPixels": [
+                0.0,
+                -113.77777777777777
+              ],
+              "rootPlusLocalPixels": [
+                -25.017711639404297,
+                -100.02895175086127
+              ],
+              "liftWorld": 0
+            }
+          }
+        },
+        {
+          "path": "art/production/officer/review/iterations/v3-motion/regions/officer.pistol.suit.walk.south.33.png",
+          "widthCells": 1.5,
+          "heightCells": 1.75,
+          "pivotX": 0.5,
+          "pivotY": 0.14500541985034943,
+          "pixelWidth": 288,
+          "pixelHeight": 336,
+          "sha256": "10f4c81f188d8247fd78641fd1cae995485cc8d860052b75de1ed2581a11eafb",
+          "feet": {
+            "left": {
+              "phase": 0.9166666666666666,
+              "stance": false,
+              "anchorWorld": [
+                0.11500000208616257,
+                -0.2236442267894745,
+                0.03500000014901161
+              ],
+              "localPixels": [
+                25.017723083496094,
+                -27.630352020263672
+              ],
+              "screenCells": [
+                0.09772548079490662,
+                -0.10793106257915497
+              ],
+              "rootPixels": [
+                0.0,
+                -117.33333333333333
+              ],
+              "rootPlusLocalPixels": [
+                25.017723083496094,
+                -144.963685353597
+              ],
+              "liftWorld": 0.023000000000000013
+            },
+            "right": {
+              "phase": 0.4166666666666665,
+              "stance": true,
+              "anchorWorld": [
+                -0.11500000208616257,
+                0.10372157394886017,
+                0.012000000104308128
+              ],
+              "localPixels": [
+                -25.017711639404297,
+                17.304381370544434
+              ],
+              "screenCells": [
+                -0.09772543609142303,
+                0.0675952397286892
+              ],
+              "rootPixels": [
+                0.0,
+                -117.33333333333333
+              ],
+              "rootPlusLocalPixels": [
+                -25.017711639404297,
+                -100.0289519627889
+              ],
+              "liftWorld": 0
+            }
+          }
+        },
+        {
+          "path": "art/production/officer/review/iterations/v3-motion/regions/officer.pistol.suit.walk.south.34.png",
+          "widthCells": 1.5,
+          "heightCells": 1.75,
+          "pivotX": 0.5,
+          "pivotY": 0.14500541985034943,
+          "pixelWidth": 288,
+          "pixelHeight": 336,
+          "sha256": "75e6fba2a239b26be0f12f6e5e22e0858a4df0c48bad4712f9016a4e8848ee34",
+          "feet": {
+            "left": {
+              "phase": 0.9444444444444444,
+              "stance": false,
+              "anchorWorld": [
+                0.11500000208616257,
+                -0.24079619348049164,
+                0.027732927352190018
+              ],
+              "localPixels": [
+                25.017723083496094,
+                -31.33203887939453
+              ],
+              "screenCells": [
+                0.09772548079490662,
+                -0.12239077687263489
+              ],
+              "rootPixels": [
+                0.0,
+                -120.88888888888889
+              ],
+              "rootPlusLocalPixels": [
+                25.017723083496094,
+                -152.22092776828342
+              ],
+              "liftWorld": 0.01573292659298077
+            },
+            "right": {
+              "phase": 0.4444444444444444,
+              "stance": true,
+              "anchorWorld": [
+                -0.11500000208616257,
+                0.1276751607656479,
+                0.012000000104308128
+              ],
+              "localPixels": [
+                -25.017711639404297,
+                20.859943389892578
+              ],
+              "screenCells": [
+                -0.09772543609142303,
+                0.08148415386676788
+              ],
+              "rootPixels": [
+                0.0,
+                -120.88888888888889
+              ],
+              "rootPlusLocalPixels": [
+                -25.017711639404297,
+                -100.02894549899631
+              ],
+              "liftWorld": 0
+            }
+          }
+        },
+        {
+          "path": "art/production/officer/review/iterations/v3-motion/regions/officer.pistol.suit.walk.south.35.png",
+          "widthCells": 1.5,
+          "heightCells": 1.75,
+          "pivotX": 0.5,
+          "pivotY": 0.14500541985034943,
+          "pixelWidth": 288,
+          "pixelHeight": 336,
+          "sha256": "60f082c3270010bd4b0f8369595a325604d93919b830eaa05b88bfd2a8c10867",
+          "feet": {
+            "left": {
+              "phase": 0.9722222222222222,
+              "stance": false,
+              "anchorWorld": [
+                0.11500000208616257,
+                -0.25173795223236084,
+                0.019987815991044044
+              ],
+              "localPixels": [
+                25.017723083496094,
+                -34.187942028045654
+              ],
+              "screenCells": [
+                0.09772548079490662,
+                -0.13354664854705334
+              ],
+              "rootPixels": [
+                0.0,
+                -124.44444444444444
+              ],
+              "rootPlusLocalPixels": [
+                25.017723083496094,
+                -158.6323864724901
+              ],
+              "liftWorld": 0.007987816172678812
+            },
+            "right": {
+              "phase": 0.4722222222222223,
+              "stance": true,
+              "anchorWorld": [
+                -0.11500000208616257,
+                0.1516287624835968,
+                0.012000000104308128
+              ],
+              "localPixels": [
+                -25.017711639404297,
+                24.415492057800293
+              ],
+              "screenCells": [
+                -0.09772543609142303,
+                0.0953730158507824
+              ],
+              "rootPixels": [
+                0.0,
+                -124.44444444444444
+              ],
+              "rootPlusLocalPixels": [
+                -25.017711639404297,
+                -100.02895238664415
+              ],
+              "liftWorld": 0
+            }
+          }
+        }
+      ],
+      "markers": [
+        {
+          "kind": "contact",
+          "frame": 0,
+          "foot": "left"
+        },
+        {
+          "kind": "contact",
+          "frame": 18,
+          "foot": "right"
+        }
+      ]
+    },
+    {
+      "id": "officer.pistol.suit.stop.south",
+      "frameSeconds": 0.027777777777777776,
+      "cycleCells": 0,
+      "cycleDistanceCells": 0,
+      "loop": false,
+      "equipment": "pistol",
+      "armor": "suit",
+      "frames": [
+        {
+          "path": "art/production/officer/review/iterations/v3-motion/regions/officer.pistol.suit.stop.south.00.png",
+          "widthCells": 1.5,
+          "heightCells": 1.75,
+          "pivotX": 0.5,
+          "pivotY": 0.14500541985034943,
+          "pixelWidth": 288,
+          "pixelHeight": 336,
+          "sha256": "0b2454a637a233bf46b44a35f6642acc905b0afbd4c3a4f32b5687b102e29665",
+          "feet": {
+            "left": {
+              "phase": 0.0,
+              "stance": true,
+              "anchorWorld": [
+                0.11500000208616257,
+                -0.25558236241340637,
+                0.012000000104308128
+              ],
+              "localPixels": [
+                25.017723083496094,
+                -36.028958797454834
+              ],
+              "screenCells": [
+                0.09772548079490662,
+                -0.14073812030255795
+              ],
+              "rootPixels": [
+                0.0,
+                0.0
+              ],
+              "rootPlusLocalPixels": [
+                25.017723083496094,
+                -36.028958797454834
+              ],
+              "liftWorld": 0.0
+            },
+            "right": {
+              "phase": 0.5,
+              "stance": true,
+              "anchorWorld": [
+                -0.11500000208616257,
+                0.17558234930038452,
+                0.012000000104308128
+              ],
+              "localPixels": [
+                -25.017711639404297,
+                27.971047401428223
+              ],
+              "screenCells": [
+                -0.09772543609142303,
+                0.109261903911829
+              ],
+              "rootPixels": [
+                0.0,
+                0.0
+              ],
+              "rootPlusLocalPixels": [
+                -25.017711639404297,
+                27.971047401428223
+              ],
+              "liftWorld": 0.0
+            }
+          }
+        },
+        {
+          "path": "art/production/officer/review/iterations/v3-motion/regions/officer.pistol.suit.stop.south.01.png",
+          "widthCells": 1.5,
+          "heightCells": 1.75,
+          "pivotX": 0.5,
+          "pivotY": 0.14500541985034943,
+          "pixelWidth": 288,
+          "pixelHeight": 336,
+          "sha256": "120520137922d3410fad70402cea8da3155610836d273b1b3c3425ad64465a12",
+          "feet": {
+            "left": {
+              "phase": 0.2,
+              "stance": true,
+              "anchorWorld": [
+                0.11500000208616257,
+                -0.25558236241340637,
+                0.012000000104308128
+              ],
+              "localPixels": [
+                25.017723083496094,
+                -36.028958797454834
+              ],
+              "screenCells": [
+                0.09772548079490662,
+                -0.14073812030255795
+              ],
+              "rootPixels": [
+                0.0,
+                0.0
+              ],
+              "rootPlusLocalPixels": [
+                25.017723083496094,
+                -36.028958797454834
+              ],
+              "liftWorld": 0.0
+            },
+            "right": {
+              "phase": 0.7,
+              "stance": false,
+              "anchorWorld": [
+                -0.11500000208616257,
+                0.10532936453819275,
+                0.03672746941447258
+              ],
+              "localPixels": [
+                -25.017711639404297,
+                21.475638389587402
+              ],
+              "screenCells": [
+                -0.09772543609142303,
+                0.08388921245932579
+              ],
+              "rootPixels": [
+                0.0,
+                0.0
+              ],
+              "rootPlusLocalPixels": [
+                -25.017711639404297,
+                21.475638389587402
+              ],
+              "liftWorld": 0.02472746942367399
+            }
+          }
+        },
+        {
+          "path": "art/production/officer/review/iterations/v3-motion/regions/officer.pistol.suit.stop.south.02.png",
+          "widthCells": 1.5,
+          "heightCells": 1.75,
+          "pivotX": 0.5,
+          "pivotY": 0.14500541985034943,
+          "pixelWidth": 288,
+          "pixelHeight": 336,
+          "sha256": "fc712000719a7c062083268fc001849e0d0d55b99150f33819da0f96c7e5ba24",
+          "feet": {
+            "left": {
+              "phase": 0.4,
+              "stance": true,
+              "anchorWorld": [
+                0.11500000208616257,
+                -0.25558236241340637,
+                0.012000000104308128
+              ],
+              "localPixels": [
+                25.017723083496094,
+                -36.028958797454834
+              ],
+              "screenCells": [
+                0.09772548079490662,
+                -0.14073812030255795
+              ],
+              "rootPixels": [
+                0.0,
+                0.0
+              ],
+              "rootPlusLocalPixels": [
+                25.017723083496094,
+                -36.028958797454834
+              ],
+              "liftWorld": 0.0
+            },
+            "right": {
+              "phase": 0.9,
+              "stance": false,
+              "anchorWorld": [
+                -0.11500000208616257,
+                -0.003243434941396117,
+                0.027282416820526123
+              ],
+              "localPixels": [
+                -25.017711639404297,
+                3.8574981689453125
+              ],
+              "screenCells": [
+                -0.09772543609142303,
+                0.015068352222442627
+              ],
+              "rootPixels": [
+                0.0,
+                0.0
+              ],
+              "rootPlusLocalPixels": [
+                -25.017711639404297,
+                3.8574981689453125
+              ],
+              "liftWorld": 0.015282416559604304
+            }
+          }
+        },
+        {
+          "path": "art/production/officer/review/iterations/v3-motion/regions/officer.pistol.suit.stop.south.03.png",
+          "widthCells": 1.5,
+          "heightCells": 1.75,
+          "pivotX": 0.5,
+          "pivotY": 0.14500541985034943,
+          "pixelWidth": 288,
+          "pixelHeight": 336,
+          "sha256": "d257c70e33500291d347267a64663ce85ebc67acb3d798a1152edb46c879e27a",
+          "feet": {
+            "left": {
+              "phase": 0.6,
+              "stance": false,
+              "anchorWorld": [
+                0.11500000208616257,
+                -0.23482578992843628,
+                0.027282416820526123
+              ],
+              "localPixels": [
+                25.017723083496094,
+                -30.517467498779297
+              ],
+              "screenCells": [
+                0.09772548079490662,
+                -0.11920885741710663
+              ],
+              "rootPixels": [
+                0.0,
+                0.0
+              ],
+              "rootPlusLocalPixels": [
+                25.017723083496094,
+                -30.517467498779297
+              ],
+              "liftWorld": 0.015282416559604299
+            },
+            "right": {
+              "phase": 0.10000000000000009,
+              "stance": true,
+              "anchorWorld": [
+                -0.11500000208616257,
+                -0.024000000208616257,
+                0.012000000104308128
+              ],
+              "localPixels": [
+                -25.017711639404297,
+                -1.6539897918701172
+              ],
+              "screenCells": [
+                -0.09772543609142303,
+                -0.006460897624492645
+              ],
+              "rootPixels": [
+                0.0,
+                0.0
+              ],
+              "rootPlusLocalPixels": [
+                -25.017711639404297,
+                -1.6539897918701172
+              ],
+              "liftWorld": 3.1840816777831182e-18
+            }
+          }
+        },
+        {
+          "path": "art/production/officer/review/iterations/v3-motion/regions/officer.pistol.suit.stop.south.04.png",
+          "widthCells": 1.5,
+          "heightCells": 1.75,
+          "pivotX": 0.5,
+          "pivotY": 0.14500541985034943,
+          "pixelWidth": 288,
+          "pixelHeight": 336,
+          "sha256": "790e664face9fb434e47b08889e6b69a19cc0751477f3860470ae15c6aa0e039",
+          "feet": {
+            "left": {
+              "phase": 0.8,
+              "stance": false,
+              "anchorWorld": [
+                0.11500000208616257,
+                -0.12625299394130707,
+                0.03672746941447258
+              ],
+              "localPixels": [
+                25.017723083496094,
+                -12.89933729171753
+              ],
+              "screenCells": [
+                0.09772548079490662,
+                -0.0503880362957716
+              ],
+              "rootPixels": [
+                0.0,
+                0.0
+              ],
+              "rootPlusLocalPixels": [
+                25.017723083496094,
+                -12.89933729171753
+              ],
+              "liftWorld": 0.02472746942367399
+            },
+            "right": {
+              "phase": 0.30000000000000004,
+              "stance": true,
+              "anchorWorld": [
+                -0.11500000208616257,
+                -0.024000000208616257,
+                0.012000000104308128
+              ],
+              "localPixels": [
+                -25.017711639404297,
+                -1.6539897918701172
+              ],
+              "screenCells": [
+                -0.09772543609142303,
+                -0.006460897624492645
+              ],
+              "rootPixels": [
+                0.0,
+                0.0
+              ],
+              "rootPlusLocalPixels": [
+                -25.017711639404297,
+                -1.6539897918701172
+              ],
+              "liftWorld": 3.1840816777831182e-18
+            }
+          }
+        },
+        {
+          "path": "art/production/officer/review/iterations/v3-motion/regions/officer.pistol.suit.stop.south.05.png",
+          "widthCells": 1.5,
+          "heightCells": 1.75,
+          "pivotX": 0.5,
+          "pivotY": 0.14500541985034943,
+          "pixelWidth": 288,
+          "pixelHeight": 336,
+          "sha256": "52bdaedaf28c75e28a3a9c82d61dc77de941f320d585a10fa6cf730c1e6f754a",
+          "feet": {
+            "left": {
+              "phase": 0.0,
+              "stance": true,
+              "anchorWorld": [
+                0.11500000208616257,
+                -0.0560000017285347,
+                0.012000000104308128
+              ],
+              "localPixels": [
+                25.017723083496094,
+                -6.403918266296387
+              ],
+              "screenCells": [
+                0.09772548079490662,
+                -0.02501530572772026
+              ],
+              "rootPixels": [
+                0.0,
+                0.0
+              ],
+              "rootPlusLocalPixels": [
+                25.017723083496094,
+                -6.403918266296387
+              ],
+              "liftWorld": 3.1840816777831182e-18
+            },
+            "right": {
+              "phase": 0.5,
+              "stance": true,
+              "anchorWorld": [
+                -0.11500000208616257,
+                -0.024000000208616257,
+                0.012000000104308128
+              ],
+              "localPixels": [
+                -25.017711639404297,
+                -1.6539897918701172
+              ],
+              "screenCells": [
+                -0.09772543609142303,
+                -0.006460897624492645
+              ],
+              "rootPixels": [
+                0.0,
+                0.0
+              ],
+              "rootPlusLocalPixels": [
+                -25.017711639404297,
+                -1.6539897918701172
+              ],
+              "liftWorld": 3.1840816777831182e-18
+            }
+          }
+        }
+      ],
+      "markers": []
+    },
+    {
+      "id": "officer.pistol.suit.turn_from_south.east",
+      "frameSeconds": 0.05,
+      "cycleCells": 0,
+      "cycleDistanceCells": 0,
+      "loop": false,
+      "equipment": "pistol",
+      "armor": "suit",
+      "frames": [
+        {
+          "path": "art/production/officer/review/iterations/v3-motion/regions/officer.pistol.suit.turn_from_south.east.00.png",
+          "widthCells": 1.5,
+          "heightCells": 1.75,
+          "pivotX": 0.5,
+          "pivotY": 0.14500541985034943,
+          "pixelWidth": 288,
+          "pixelHeight": 336,
+          "sha256": "52bdaedaf28c75e28a3a9c82d61dc77de941f320d585a10fa6cf730c1e6f754a",
+          "feet": {
+            "left": {
+              "phase": 0,
+              "stance": true,
+              "anchorWorld": [
+                0.11500000208616257,
+                -0.0560000017285347,
+                0.012000000104308128
+              ],
+              "localPixels": [
+                25.017723083496094,
+                -6.403918266296387
+              ],
+              "screenCells": [
+                0.09772548079490662,
+                -0.02501530572772026
+              ],
+              "rootPixels": [
+                0.0,
+                0.0
+              ],
+              "rootPlusLocalPixels": [
+                25.017723083496094,
+                -6.403918266296387
+              ],
+              "liftWorld": 0
+            },
+            "right": {
+              "phase": 0.5,
+              "stance": true,
+              "anchorWorld": [
+                -0.11500000208616257,
+                -0.024000000208616257,
+                0.012000000104308128
+              ],
+              "localPixels": [
+                -25.017711639404297,
+                -1.6539897918701172
+              ],
+              "screenCells": [
+                -0.09772543609142303,
+                -0.006460897624492645
+              ],
+              "rootPixels": [
+                0.0,
+                0.0
+              ],
+              "rootPlusLocalPixels": [
+                -25.017711639404297,
+                -1.6539897918701172
+              ],
+              "liftWorld": 0
+            }
+          }
+        },
+        {
+          "path": "art/production/officer/review/iterations/v3-motion/regions/officer.pistol.suit.turn_from_south.east.01.png",
+          "widthCells": 1.5,
+          "heightCells": 1.75,
+          "pivotX": 0.5,
+          "pivotY": 0.14500541985034943,
+          "pixelWidth": 288,
+          "pixelHeight": 336,
+          "sha256": "5656ec1d62178c0f1edc2c3b9790c465f47ba24bab96711a518ef013d1b39adf",
+          "feet": {
+            "right": {
+              "stance": false,
+              "anchorWorld": [
+                -0.12136851996183395,
+                -0.06144977733492851,
+                0.047182418406009674
+              ],
+              "localPixels": [
+                -26.403156280517578,
+                -1.6175203323364258
+              ],
+              "screenCells": [
+                -0.10313732922077179,
+                -0.006318438798189163
+              ],
+              "rootPixels": [
+                0,
+                0
+              ],
+              "rootPlusLocalPixels": [
+                -26.403156280517578,
+                -1.6175203323364258
+              ],
+              "liftWorld": 0.03518241671106134,
+              "footHeadingRadians": 0.31141151668237016,
+              "bodyHeadingRadians": 0.08701204142595637,
+              "placement": 0,
+              "fromFacing": "south",
+              "toFacing": "east"
+            },
+            "left": {
+              "stance": true,
+              "anchorWorld": [
+                0.11500000208616257,
+                -0.0560000017285347,
+                0.012000001966953278
+              ],
+              "localPixels": [
+                25.017723083496094,
+                -6.403918266296387
+              ],
+              "screenCells": [
+                0.09772548079490662,
+                -0.02501530572772026
+              ],
+              "rootPixels": [
+                0,
+                0
+              ],
+              "rootPlusLocalPixels": [
+                25.017723083496094,
+                -6.403918266296387
+              ],
+              "liftWorld": 0,
+              "footHeadingRadians": 0.0,
+              "bodyHeadingRadians": 0.08701204142595637,
+              "placement": 0,
+              "fromFacing": "south",
+              "toFacing": "east"
+            }
+          }
+        },
+        {
+          "path": "art/production/officer/review/iterations/v3-motion/regions/officer.pistol.suit.turn_from_south.east.02.png",
+          "widthCells": 1.5,
+          "heightCells": 1.75,
+          "pivotX": 0.5,
+          "pivotY": 0.14500541985034943,
+          "pixelWidth": 288,
+          "pixelHeight": 336,
+          "sha256": "68fb300f671d35579a91f26858baab1acb919eabe5ef39cd19d48bd20534878a",
+          "feet": {
+            "right": {
+              "stance": false,
+              "anchorWorld": [
+                -0.06382600963115692,
+                -0.1253492385149002,
+                0.05587175488471985
+              ],
+              "localPixels": [
+                -13.885047912597656,
+                -9.720519542694092
+              ],
+              "screenCells": [
+                -0.054238468408584595,
+                -0.037970779463648796
+              ],
+              "rootPixels": [
+                0,
+                0
+              ],
+              "rootPlusLocalPixels": [
+                -13.885047912597656,
+                -9.720519542694092
+              ],
+              "liftWorld": 0.04387175604818206,
+              "footHeadingRadians": 0.952552874557838,
+              "bodyHeadingRadians": 0.31141151668237016,
+              "placement": 0,
+              "fromFacing": "south",
+              "toFacing": "east"
+            },
+            "left": {
+              "stance": true,
+              "anchorWorld": [
+                0.11500000208616257,
+                -0.0560000017285347,
+                0.012000001966953278
+              ],
+              "localPixels": [
+                25.017723083496094,
+                -6.403918266296387
+              ],
+              "screenCells": [
+                0.09772548079490662,
+                -0.02501530572772026
+              ],
+              "rootPixels": [
+                0,
+                0
+              ],
+              "rootPlusLocalPixels": [
+                25.017723083496094,
+                -6.403918266296387
+              ],
+              "liftWorld": 0,
+              "footHeadingRadians": 0.0,
+              "bodyHeadingRadians": 0.31141151668237016,
+              "placement": 0,
+              "fromFacing": "south",
+              "toFacing": "east"
+            }
+          }
+        },
+        {
+          "path": "art/production/officer/review/iterations/v3-motion/regions/officer.pistol.suit.turn_from_south.east.03.png",
+          "widthCells": 1.5,
+          "heightCells": 1.75,
+          "pivotX": 0.5,
+          "pivotY": 0.14500541985034943,
+          "pixelWidth": 288,
+          "pixelHeight": 336,
+          "sha256": "64ee7af64b10dfca44056a64e89de43ecbf0dec943d3677238b97fce71fdf94d",
+          "feet": {
+            "right": {
+              "stance": false,
+              "anchorWorld": [
+                0.011492706835269928,
+                -0.1272236555814743,
+                0.031524769961833954
+              ],
+              "localPixels": [
+                2.5001907348632812,
+                -13.87084150314331
+              ],
+              "screenCells": [
+                0.009766370058059692,
+                -0.05418297462165356
+              ],
+              "rootPixels": [
+                0,
+                0
+              ],
+              "rootPlusLocalPixels": [
+                2.5001907348632812,
+                -13.87084150314331
+              ],
+              "liftWorld": 0.01952476826029012,
+              "footHeadingRadians": 1.4837842853689402,
+              "bodyHeadingRadians": 0.6182434522370583,
+              "placement": 0,
+              "fromFacing": "south",
+              "toFacing": "east"
+            },
+            "left": {
+              "stance": true,
+              "anchorWorld": [
+                0.11500000208616257,
+                -0.0560000017285347,
+                0.012000001966953278
+              ],
+              "localPixels": [
+                25.017723083496094,
+                -6.403918266296387
+              ],
+              "screenCells": [
+                0.09772548079490662,
+                -0.02501530572772026
+              ],
+              "rootPixels": [
+                0,
+                0
+              ],
+              "rootPlusLocalPixels": [
+                25.017723083496094,
+                -6.403918266296387
+              ],
+              "liftWorld": 0,
+              "footHeadingRadians": 0.0,
+              "bodyHeadingRadians": 0.6182434522370583,
+              "placement": 0,
+              "fromFacing": "south",
+              "toFacing": "east"
+            }
+          }
+        },
+        {
+          "path": "art/production/officer/review/iterations/v3-motion/regions/officer.pistol.suit.turn_from_south.east.04.png",
+          "widthCells": 1.5,
+          "heightCells": 1.75,
+          "pivotX": 0.5,
+          "pivotY": 0.14500541985034943,
+          "pixelWidth": 288,
+          "pixelHeight": 336,
+          "sha256": "15afe06b94984aed864332e42a14ba5796a9414f8c84f4b27ce3efd767eaa88c",
+          "feet": {
+            "right": {
+              "stance": true,
+              "anchorWorld": [
+                0.02399998903274536,
+                -0.11500000208616257,
+                0.012000001966953278
+              ],
+              "localPixels": [
+                5.221092224121094,
+                -15.161585330963135
+              ],
+              "screenCells": [
+                0.020394891500473022,
+                -0.059224942699074745
+              ],
+              "rootPixels": [
+                0,
+                0
+              ],
+              "rootPlusLocalPixels": [
+                5.221092224121094,
+                -15.161585330963135
+              ],
+              "liftWorld": 0,
+              "footHeadingRadians": 1.5707963267948966,
+              "bodyHeadingRadians": 0.952552874557838,
+              "placement": 1,
+              "fromFacing": "south",
+              "toFacing": "east"
+            },
+            "left": {
+              "stance": false,
+              "anchorWorld": [
+                0.13026434183120728,
+                -0.046349842101335526,
+                0.031524769961833954
+              ],
+              "localPixels": [
+                28.338409423828125,
+                -1.8663244247436523
+              ],
+              "screenCells": [
+                0.11069691181182861,
+                -0.007290329784154892
+              ],
+              "rootPixels": [
+                0,
+                0
+              ],
+              "rootPlusLocalPixels": [
+                28.338409423828125,
+                -1.8663244247436523
+              ],
+              "liftWorld": 0.019524768260290103,
+              "footHeadingRadians": 0.0870120414259563,
+              "bodyHeadingRadians": 0.952552874557838,
+              "placement": 1,
+              "fromFacing": "south",
+              "toFacing": "east"
+            }
+          }
+        },
+        {
+          "path": "art/production/officer/review/iterations/v3-motion/regions/officer.pistol.suit.turn_from_south.east.05.png",
+          "widthCells": 1.5,
+          "heightCells": 1.75,
+          "pivotX": 0.5,
+          "pivotY": 0.14500541985034943,
+          "pixelWidth": 288,
+          "pixelHeight": 336,
+          "sha256": "3a660298e37c260829939654639a0ff4904e04e6546d47db2dfc6d6c5f7b30d0",
+          "feet": {
+            "right": {
+              "stance": true,
+              "anchorWorld": [
+                0.02399998903274536,
+                -0.11500000208616257,
+                0.012000001966953278
+              ],
+              "localPixels": [
+                5.221092224121094,
+                -15.161585330963135
+              ],
+              "screenCells": [
+                0.020394891500473022,
+                -0.059224942699074745
+              ],
+              "rootPixels": [
+                0,
+                0
+              ],
+              "rootPlusLocalPixels": [
+                5.221092224121094,
+                -15.161585330963135
+              ],
+              "liftWorld": 0,
+              "footHeadingRadians": 1.5707963267948966,
+              "bodyHeadingRadians": 1.2593848101125265,
+              "placement": 1,
+              "fromFacing": "south",
+              "toFacing": "east"
+            },
+            "left": {
+              "stance": false,
+              "anchorWorld": [
+                0.14779001474380493,
+                0.03227529302239418,
+                0.05587175488471985
+              ],
+              "localPixels": [
+                32.151031494140625,
+                13.676501274108887
+              ],
+              "screenCells": [
+                0.12558996677398682,
+                0.05342383310198784
+              ],
+              "rootPixels": [
+                0,
+                0
+              ],
+              "rootPlusLocalPixels": [
+                32.151031494140625,
+                13.676501274108887
+              ],
+              "liftWorld": 0.04387175604818206,
+              "footHeadingRadians": 0.6182434522370586,
+              "bodyHeadingRadians": 1.2593848101125265,
+              "placement": 1,
+              "fromFacing": "south",
+              "toFacing": "east"
+            }
+          }
+        },
+        {
+          "path": "art/production/officer/review/iterations/v3-motion/regions/officer.pistol.suit.turn_from_south.east.06.png",
+          "widthCells": 1.5,
+          "heightCells": 1.75,
+          "pivotX": 0.5,
+          "pivotY": 0.14500541985034943,
+          "pixelWidth": 288,
+          "pixelHeight": 336,
+          "sha256": "c4266c44dc9e4b4429dd1a8b1ddd399ea581383ffd98dd56cfafdf6264a7353f",
+          "feet": {
+            "right": {
+              "stance": true,
+              "anchorWorld": [
+                0.02399998903274536,
+                -0.11500000208616257,
+                0.012000001966953278
+              ],
+              "localPixels": [
+                5.221092224121094,
+                -15.161585330963135
+              ],
+              "screenCells": [
+                0.020394891500473022,
+                -0.059224942699074745
+              ],
+              "rootPixels": [
+                0,
+                0
+              ],
+              "rootPlusLocalPixels": [
+                5.221092224121094,
+                -15.161585330963135
+              ],
+              "liftWorld": 0,
+              "footHeadingRadians": 1.5707963267948966,
+              "bodyHeadingRadians": 1.4837842853689402,
+              "placement": 1,
+              "fromFacing": "south",
+              "toFacing": "east"
+            },
+            "left": {
+              "stance": false,
+              "anchorWorld": [
+                0.09703846275806427,
+                0.10991308093070984,
+                0.047182418406009674
+              ],
+              "localPixels": [
+                21.110275268554688,
+                23.81874942779541
+              ],
+              "screenCells": [
+                0.08246201276779175,
+                0.09304198995232582
+              ],
+              "rootPixels": [
+                0,
+                0
+              ],
+              "rootPlusLocalPixels": [
+                21.110275268554688,
+                23.81874942779541
+              ],
+              "liftWorld": 0.03518241671106136,
+              "footHeadingRadians": 1.2593848101125265,
+              "bodyHeadingRadians": 1.4837842853689402,
+              "placement": 1,
+              "fromFacing": "south",
+              "toFacing": "east"
+            }
+          }
+        },
+        {
+          "path": "art/production/officer/review/iterations/v3-motion/regions/officer.pistol.suit.turn_from_south.east.07.png",
+          "widthCells": 1.5,
+          "heightCells": 1.75,
+          "pivotX": 0.5,
+          "pivotY": 0.14500541985034943,
+          "pixelWidth": 288,
+          "pixelHeight": 336,
+          "sha256": "b702121db421baa59164a9ba9a19587224a2d954069bac44f4100bc233bdb2ec",
+          "feet": {
+            "left": {
+              "phase": 0,
+              "stance": true,
+              "anchorWorld": [
+                0.056000009179115295,
+                0.11499999463558197,
+                0.012000000104308128
+              ],
+              "localPixels": [
+                12.182533264160156,
+                18.978498458862305
+              ],
+              "screenCells": [
+                0.04758802056312561,
+                0.07413475960493088
+              ],
+              "rootPixels": [
+                0.0,
+                0.0
+              ],
+              "rootPlusLocalPixels": [
+                12.182533264160156,
+                18.978498458862305
+              ],
+              "liftWorld": 0
+            },
+            "right": {
+              "phase": 0.5,
+              "stance": true,
+              "anchorWorld": [
+                0.02399999089539051,
+                -0.11500000208616257,
+                0.012000000104308128
+              ],
+              "localPixels": [
+                5.221092224121094,
+                -15.161585330963135
+              ],
+              "screenCells": [
+                0.020394891500473022,
+                -0.059224942699074745
+              ],
+              "rootPixels": [
+                0.0,
+                0.0
+              ],
+              "rootPlusLocalPixels": [
+                5.221092224121094,
+                -15.161585330963135
+              ],
+              "liftWorld": 0
+            }
+          }
+        }
+      ],
+      "markers": []
+    },
+    {
+      "id": "officer.pistol.suit.death.south",
+      "frameSeconds": 0.08333333333333333,
+      "cycleCells": 0,
+      "cycleDistanceCells": 0,
+      "loop": false,
+      "equipment": "pistol",
+      "armor": "suit",
+      "frames": [
+        {
+          "path": "art/production/officer/review/iterations/v3-motion/regions/officer.pistol.suit.death.south.00.png",
+          "widthCells": 4.0,
+          "heightCells": 4.0,
+          "pivotX": 0.5,
+          "pivotY": 0.5,
+          "pixelWidth": 768,
+          "pixelHeight": 768,
+          "sha256": "4b42ee789f79e68390176dafaef70c9649fdb29f023dc325e1f30ea9a8cee5af",
+          "feet": {
+            "left": {
+              "phase": 0.0,
+              "stance": true,
+              "anchorWorld": [
+                0.11500000208616257,
+                -0.0560000017285347,
+                0.012000000104308128
+              ],
+              "localPixels": [
+                25.0177001953125,
+                -6.4039306640625
+              ],
+              "screenCells": [
+                0.09772539138793945,
+                -0.02501535415649414
+              ],
+              "rootPixels": [
+                0.0,
+                0.0
+              ],
+              "rootPlusLocalPixels": [
+                25.0177001953125,
+                -6.4039306640625
+              ],
+              "liftWorld": 0
+            },
+            "right": {
+              "phase": 0.5,
+              "stance": true,
+              "anchorWorld": [
+                -0.11500000208616257,
+                -0.024000000208616257,
+                0.012000000104308128
+              ],
+              "localPixels": [
+                -25.017730712890625,
+                -1.65399169921875
+              ],
+              "screenCells": [
+                -0.097725510597229,
+                -0.006460905075073242
+              ],
+              "rootPixels": [
+                0.0,
+                0.0
+              ],
+              "rootPlusLocalPixels": [
+                -25.017730712890625,
+                -1.65399169921875
+              ],
+              "liftWorld": 0
+            }
+          }
+        },
+        {
+          "path": "art/production/officer/review/iterations/v3-motion/regions/officer.pistol.suit.death.south.01.png",
+          "widthCells": 4.0,
+          "heightCells": 4.0,
+          "pivotX": 0.5,
+          "pivotY": 0.5,
+          "pixelWidth": 768,
+          "pixelHeight": 768,
+          "sha256": "ea5a0a4336ba56565084a32c2f49963908e71743e8e652e0dd168257e947c1d9",
+          "feet": {
+            "left": {
+              "phase": 0.09090909090909091,
+              "stance": false,
+              "anchorWorld": [
+                0.11500000208616257,
+                -0.05640145391225815,
+                0.01831473968923092
+              ],
+              "localPixels": [
+                25.0177001953125,
+                -5.459228515625
+              ],
+              "screenCells": [
+                0.09772539138793945,
+                -0.021325111389160156
+              ],
+              "rootPixels": [
+                0.0,
+                0.0
+              ],
+              "rootPlusLocalPixels": [
+                25.0177001953125,
+                -5.459228515625
+              ],
+              "liftWorld": 0,
+              "fallRadians": 0.03658503841520796,
+              "evaluatedFloorMinimum": 0.012,
+              "floorTranslation": 0.008371077839285136
+            },
+            "right": {
+              "phase": 0.5909090909090909,
+              "stance": false,
+              "anchorWorld": [
+                -0.11500000208616257,
+                -0.024422863498330116,
+                0.019485201686620712
+              ],
+              "localPixels": [
+                -25.017730712890625,
+                -0.526336669921875
+              ],
+              "screenCells": [
+                -0.097725510597229,
+                -0.0020560026168823242
+              ],
+              "rootPixels": [
+                0.0,
+                0.0
+              ],
+              "rootPlusLocalPixels": [
+                -25.017730712890625,
+                -0.526336669921875
+              ],
+              "liftWorld": 0,
+              "fallRadians": 0.03658503841520796,
+              "evaluatedFloorMinimum": 0.012,
+              "floorTranslation": 0.008371077839285136
+            }
+          }
+        },
+        {
+          "path": "art/production/officer/review/iterations/v3-motion/regions/officer.pistol.suit.death.south.02.png",
+          "widthCells": 4.0,
+          "heightCells": 4.0,
+          "pivotX": 0.5,
+          "pivotY": 0.5,
+          "pixelWidth": 768,
+          "pixelHeight": 768,
+          "sha256": "4d2958d47409b1c113b29cfd43aef26ad6214222e69351e0a9b09ecf72c15be3",
+          "feet": {
+            "left": {
+              "phase": 0.18181818181818182,
+              "stance": false,
+              "anchorWorld": [
+                0.11500000208616257,
+                -0.05711372569203377,
+                0.03008492849767208
+              ],
+              "localPixels": [
+                25.0177001953125,
+                -3.69305419921875
+              ],
+              "screenCells": [
+                0.09772539138793945,
+                -0.014425992965698242
+              ],
+              "rootPixels": [
+                0.0,
+                0.0
+              ],
+              "rootPlusLocalPixels": [
+                25.0177001953125,
+                -3.69305419921875
+              ],
+              "liftWorld": 0,
+              "fallRadians": 0.13689885342464914,
+              "evaluatedFloorMinimum": 0.012,
+              "floorTranslation": 0.025839606195688248
+            },
+            "right": {
+              "phase": 0.6818181818181819,
+              "stance": false,
+              "anchorWorld": [
+                -0.11500000208616257,
+                -0.025413114577531815,
+                0.03445201739668846
+              ],
+              "localPixels": [
+                -25.017730712890625,
+                1.70697021484375
+              ],
+              "screenCells": [
+                -0.097725510597229,
+                0.0066678524017333984
+              ],
+              "rootPixels": [
+                0.0,
+                0.0
+              ],
+              "rootPlusLocalPixels": [
+                -25.017730712890625,
+                1.70697021484375
+              ],
+              "liftWorld": 0,
+              "fallRadians": 0.13689885342464914,
+              "evaluatedFloorMinimum": 0.012,
+              "floorTranslation": 0.025839606195688248
+            }
+          }
+        },
+        {
+          "path": "art/production/officer/review/iterations/v3-motion/regions/officer.pistol.suit.death.south.03.png",
+          "widthCells": 4.0,
+          "heightCells": 4.0,
+          "pivotX": 0.5,
+          "pivotY": 0.5,
+          "pixelWidth": 768,
+          "pixelHeight": 768,
+          "sha256": "40b87fa31d286f2b30807aeaab1d8aed0559af995d3d4519ac3d62e2895de3b1",
+          "feet": {
+            "left": {
+              "phase": 0.2727272727272727,
+              "stance": false,
+              "anchorWorld": [
+                0.11500000208616257,
+                -0.05710732936859131,
+                0.04729635640978813
+              ],
+              "localPixels": [
+                25.0177001953125,
+                -0.954833984375
+              ],
+              "screenCells": [
+                0.09772539138793945,
+                -0.0037298202514648438
+              ],
+              "rootPixels": [
+                0.0,
+                0.0
+              ],
+              "rootPlusLocalPixels": [
+                25.0177001953125,
+                -0.954833984375
+              ],
+              "liftWorld": 0,
+              "fallRadians": 0.28677949467404945,
+              "evaluatedFloorMinimum": 0.012,
+              "floorTranslation": 0.051626859128475186
+            },
+            "right": {
+              "phase": 0.7727272727272727,
+              "stance": false,
+              "anchorWorld": [
+                -0.11500000208616257,
+                -0.026414211839437485,
+                0.05634802579879761
+              ],
+              "localPixels": [
+                -25.017730712890625,
+                5.0406494140625
+              ],
+              "screenCells": [
+                -0.097725510597229,
+                0.01969003677368164
+              ],
+              "rootPixels": [
+                0.0,
+                0.0
+              ],
+              "rootPlusLocalPixels": [
+                -25.017730712890625,
+                5.0406494140625
+              ],
+              "liftWorld": 0,
+              "fallRadians": 0.28677949467404945,
+              "evaluatedFloorMinimum": 0.012,
+              "floorTranslation": 0.051626859128475186
+            }
+          }
+        },
+        {
+          "path": "art/production/officer/review/iterations/v3-motion/regions/officer.pistol.suit.death.south.04.png",
+          "widthCells": 4.0,
+          "heightCells": 4.0,
+          "pivotX": 0.5,
+          "pivotY": 0.5,
+          "pixelWidth": 768,
+          "pixelHeight": 768,
+          "sha256": "3dacd970bd16839496dc01832fa1e9b37a7f666ef16760fc0256d15399e32121",
+          "feet": {
+            "left": {
+              "phase": 0.36363636363636365,
+              "stance": false,
+              "anchorWorld": [
+                0.11500000208616257,
+                -0.055332064628601074,
+                0.06751783937215805
+              ],
+              "localPixels": [
+                25.0177001953125,
+                2.524658203125
+              ],
+              "screenCells": [
+                0.09772539138793945,
+                0.009861946105957031
+              ],
+              "rootPixels": [
+                0.0,
+                0.0
+              ],
+              "rootPlusLocalPixels": [
+                25.0177001953125,
+                2.524658203125
+              ],
+              "liftWorld": 0,
+              "fallRadians": 0.4720650118091349,
+              "evaluatedFloorMinimum": 0.012,
+              "floorTranslation": 0.08229494643211364
+            },
+            "right": {
+              "phase": 0.8636363636363636,
+              "stance": false,
+              "anchorWorld": [
+                -0.11500000208616257,
+                -0.026831865310668945,
+                0.08206909149885178
+              ],
+              "localPixels": [
+                -25.017730712890625,
+                9.06927490234375
+              ],
+              "screenCells": [
+                -0.097725510597229,
+                0.03542685508728027
+              ],
+              "rootPixels": [
+                0.0,
+                0.0
+              ],
+              "rootPlusLocalPixels": [
+                -25.017730712890625,
+                9.06927490234375
+              ],
+              "liftWorld": 0,
+              "fallRadians": 0.4720650118091349,
+              "evaluatedFloorMinimum": 0.012,
+              "floorTranslation": 0.08229494643211364
+            }
+          }
+        },
+        {
+          "path": "art/production/officer/review/iterations/v3-motion/regions/officer.pistol.suit.death.south.05.png",
+          "widthCells": 4.0,
+          "heightCells": 4.0,
+          "pivotX": 0.5,
+          "pivotY": 0.5,
+          "pixelWidth": 768,
+          "pixelHeight": 768,
+          "sha256": "297d0f9bc5313ceb1de409525cc8fccaabc50c6ef4d49130b08de1281353e1c1",
+          "feet": {
+            "left": {
+              "phase": 0.45454545454545453,
+              "stance": false,
+              "anchorWorld": [
+                0.11500000208616257,
+                -0.051125943660736084,
+                0.0887908935546875
+              ],
+              "localPixels": [
+                25.0177001953125,
+                6.5322265625
+              ],
+              "screenCells": [
+                0.09772539138793945,
+                0.025516510009765625
+              ],
+              "rootPixels": [
+                0.0,
+                0.0
+              ],
+              "rootPlusLocalPixels": [
+                25.0177001953125,
+                6.5322265625
+              ],
+              "liftWorld": 0,
+              "fallRadians": 0.6785934544756314,
+              "evaluatedFloorMinimum": 0.012,
+              "floorTranslation": 0.11460054469108581
+            },
+            "right": {
+              "phase": 0.9545454545454546,
+              "stance": false,
+              "anchorWorld": [
+                -0.11500000208616257,
+                -0.026215337216854095,
+                0.1088772565126419
+              ],
+              "localPixels": [
+                -25.017730712890625,
+                13.42431640625
+              ],
+              "screenCells": [
+                -0.097725510597229,
+                0.05243873596191406
+              ],
+              "rootPixels": [
+                0.0,
+                0.0
+              ],
+              "rootPlusLocalPixels": [
+                -25.017730712890625,
+                13.42431640625
+              ],
+              "liftWorld": 0,
+              "fallRadians": 0.6785934544756314,
+              "evaluatedFloorMinimum": 0.012,
+              "floorTranslation": 0.11460054469108581
+            }
+          }
+        },
+        {
+          "path": "art/production/officer/review/iterations/v3-motion/regions/officer.pistol.suit.death.south.06.png",
+          "widthCells": 4.0,
+          "heightCells": 4.0,
+          "pivotX": 0.5,
+          "pivotY": 0.5,
+          "pixelWidth": 768,
+          "pixelHeight": 768,
+          "sha256": "4aac4514fed5549a7cdf01064469b7aa0be8874b92a32ef52be5be2c83ef5437",
+          "feet": {
+            "left": {
+              "phase": 0.5454545454545454,
+              "stance": false,
+              "anchorWorld": [
+                0.11500000208616257,
+                -0.04449261352419853,
+                0.10969893634319305
+              ],
+              "localPixels": [
+                25.0177001953125,
+                10.84197998046875
+              ],
+              "screenCells": [
+                0.09772539138793945,
+                0.042351484298706055
+              ],
+              "rootPixels": [
+                0.0,
+                0.0
+              ],
+              "rootPlusLocalPixels": [
+                25.0177001953125,
+                10.84197998046875
+              ],
+              "liftWorld": 0,
+              "fallRadians": 0.892202872319265,
+              "evaluatedFloorMinimum": 0.012,
+              "floorTranslation": 0.14576009464263917
+            },
+            "right": {
+              "phase": 0.045454545454545414,
+              "stance": false,
+              "anchorWorld": [
+                -0.11500000208616257,
+                -0.024406248703598976,
+                0.13460953533649445
+              ],
+              "localPixels": [
+                -25.017730712890625,
+                17.78521728515625
+              ],
+              "screenCells": [
+                -0.097725510597229,
+                0.0694735050201416
+              ],
+              "rootPixels": [
+                0.0,
+                0.0
+              ],
+              "rootPlusLocalPixels": [
+                -25.017730712890625,
+                17.78521728515625
+              ],
+              "liftWorld": 0,
+              "fallRadians": 0.892202872319265,
+              "evaluatedFloorMinimum": 0.012,
+              "floorTranslation": 0.14576009464263917
+            }
+          }
+        },
+        {
+          "path": "art/production/officer/review/iterations/v3-motion/regions/officer.pistol.suit.death.south.07.png",
+          "widthCells": 4.0,
+          "heightCells": 4.0,
+          "pivotX": 0.5,
+          "pivotY": 0.5,
+          "pixelWidth": 768,
+          "pixelHeight": 768,
+          "sha256": "e4b6c113ee15d086f2fce6a6dd1d5f0be9bc48719a4b4333fc14b59ce3d4c508",
+          "feet": {
+            "left": {
+              "phase": 0.6363636363636364,
+              "stance": false,
+              "anchorWorld": [
+                0.11500000208616257,
+                -0.03615225479006767,
+                0.12976513803005219
+              ],
+              "localPixels": [
+                25.0177001953125,
+                15.27130126953125
+              ],
+              "screenCells": [
+                0.09772539138793945,
+                0.059653520584106445
+              ],
+              "rootPixels": [
+                0.0,
+                0.0
+              ],
+              "rootPlusLocalPixels": [
+                25.0177001953125,
+                15.27130126953125
+              ],
+              "liftWorld": 0,
+              "fallRadians": 1.0987313149857616,
+              "evaluatedFloorMinimum": 0.012,
+              "floorTranslation": 0.1741837615966797
+            },
+            "right": {
+              "phase": 0.13636363636363624,
+              "stance": false,
+              "anchorWorld": [
+                -0.11500000208616257,
+                -0.021601010113954544,
+                0.15826533734798431
+              ],
+              "localPixels": [
+                -25.017730712890625,
+                21.96380615234375
+              ],
+              "screenCells": [
+                -0.097725510597229,
+                0.08579611778259277
+              ],
+              "rootPixels": [
+                0.0,
+                0.0
+              ],
+              "rootPlusLocalPixels": [
+                -25.017730712890625,
+                21.96380615234375
+              ],
+              "liftWorld": 0,
+              "fallRadians": 1.0987313149857616,
+              "evaluatedFloorMinimum": 0.012,
+              "floorTranslation": 0.1741837615966797
+            }
+          }
+        },
+        {
+          "path": "art/production/officer/review/iterations/v3-motion/regions/officer.pistol.suit.death.south.08.png",
+          "widthCells": 4.0,
+          "heightCells": 4.0,
+          "pivotX": 0.5,
+          "pivotY": 0.5,
+          "pixelWidth": 768,
+          "pixelHeight": 768,
+          "sha256": "a8d6b8c6636666074de59eccd63215e37ecc6cb8b2ac1b914669dff9b21774f5",
+          "feet": {
+            "left": {
+              "phase": 0.7272727272727273,
+              "stance": false,
+              "anchorWorld": [
+                0.11500000208616257,
+                -0.02735034003853798,
+                0.14354954659938812
+              ],
+              "localPixels": [
+                25.0177001953125,
+                18.77001953125
+              ],
+              "screenCells": [
+                0.09772539138793945,
+                0.07332038879394531
+              ],
+              "rootPixels": [
+                0.0,
+                0.0
+              ],
+              "rootPlusLocalPixels": [
+                25.0177001953125,
+                18.77001953125
+              ],
+              "liftWorld": 0,
+              "fallRadians": 1.2840168321208472,
+              "evaluatedFloorMinimum": 0.012,
+              "floorTranslation": 0.19386812102794648
+            },
+            "right": {
+              "phase": 0.2272727272727273,
+              "stance": false,
+              "anchorWorld": [
+                -0.11500000208616257,
+                -0.018298670649528503,
+                0.17424266040325165
+              ],
+              "localPixels": [
+                -25.017730712890625,
+                24.9949951171875
+              ],
+              "screenCells": [
+                -0.097725510597229,
+                0.09763669967651367
+              ],
+              "rootPixels": [
+                0.0,
+                0.0
+              ],
+              "rootPlusLocalPixels": [
+                -25.017730712890625,
+                24.9949951171875
+              ],
+              "liftWorld": 0,
+              "fallRadians": 1.2840168321208472,
+              "evaluatedFloorMinimum": 0.012,
+              "floorTranslation": 0.19386812102794648
+            }
+          }
+        },
+        {
+          "path": "art/production/officer/review/iterations/v3-motion/regions/officer.pistol.suit.death.south.09.png",
+          "widthCells": 4.0,
+          "heightCells": 4.0,
+          "pivotX": 0.5,
+          "pivotY": 0.5,
+          "pixelWidth": 768,
+          "pixelHeight": 768,
+          "sha256": "0e77fe373c10941fd418279965d44405995f455b288cd1db8d155cff7eea4f9c",
+          "feet": {
+            "left": {
+              "phase": 0.8181818181818182,
+              "stance": false,
+              "anchorWorld": [
+                0.11500000208616257,
+                -0.019530151039361954,
+                0.16074033081531525
+              ],
+              "localPixels": [
+                25.0177001953125,
+                22.664794921875
+              ],
+              "screenCells": [
+                0.09772539138793945,
+                0.08853435516357422
+              ],
+              "rootPixels": [
+                0.0,
+                0.0
+              ],
+              "rootPlusLocalPixels": [
+                25.0177001953125,
+                22.664794921875
+              ],
+              "liftWorld": 0,
+              "fallRadians": 1.4338974733702476,
+              "evaluatedFloorMinimum": 0.012,
+              "floorTranslation": 0.21457872343063356
+            },
+            "right": {
+              "phase": 0.31818181818181834,
+              "stance": false,
+              "anchorWorld": [
+                -0.11500000208616257,
+                -0.015163051895797253,
+                0.192440927028656
+              ],
+              "localPixels": [
+                -25.017730712890625,
+                28.3546142578125
+              ],
+              "screenCells": [
+                -0.097725510597229,
+                0.11076021194458008
+              ],
+              "rootPixels": [
+                0.0,
+                0.0
+              ],
+              "rootPlusLocalPixels": [
+                -25.017730712890625,
+                28.3546142578125
+              ],
+              "liftWorld": 0,
+              "fallRadians": 1.4338974733702476,
+              "evaluatedFloorMinimum": 0.012,
+              "floorTranslation": 0.21457872343063356
+            }
+          }
+        },
+        {
+          "path": "art/production/officer/review/iterations/v3-motion/regions/officer.pistol.suit.death.south.10.png",
+          "widthCells": 4.0,
+          "heightCells": 4.0,
+          "pivotX": 0.5,
+          "pivotY": 0.5,
+          "pixelWidth": 768,
+          "pixelHeight": 768,
+          "sha256": "7cfdc45f37a3f7691431c5ab5e8befc9dd815ddf7ec520b2940472704d326acd",
+          "feet": {
+            "left": {
+              "phase": 0.9090909090909091,
+              "stance": false,
+              "anchorWorld": [
+                0.11500000208616257,
+                -0.014040268957614899,
+                0.23955464363098145
+              ],
+              "localPixels": [
+                25.0177001953125,
+                36.01416015625
+              ],
+              "screenCells": [
+                0.09772539138793945,
+                0.14068031311035156
+              ],
+              "rootPixels": [
+                0.0,
+                0.0
+              ],
+              "rootPlusLocalPixels": [
+                25.0177001953125,
+                36.01416015625
+              ],
+              "liftWorld": 0,
+              "fallRadians": 1.5342112883796886,
+              "evaluatedFloorMinimum": 0.012,
+              "floorTranslation": 0.29507825326919557
+            },
+            "right": {
+              "phase": 0.40909090909090917,
+              "stance": false,
+              "anchorWorld": [
+                -0.11500000208616257,
+                -0.012869812548160553,
+                0.27153322100639343
+              ],
+              "localPixels": [
+                -25.017730712890625,
+                41.273681640625
+              ],
+              "screenCells": [
+                -0.097725510597229,
+                0.1612253189086914
+              ],
+              "rootPixels": [
+                0.0,
+                0.0
+              ],
+              "rootPlusLocalPixels": [
+                -25.017730712890625,
+                41.273681640625
+              ],
+              "liftWorld": 0,
+              "fallRadians": 1.5342112883796886,
+              "evaluatedFloorMinimum": 0.012,
+              "floorTranslation": 0.29507825326919557
+            }
+          }
+        },
+        {
+          "path": "art/production/officer/review/iterations/v3-motion/regions/officer.pistol.suit.death.south.11.png",
+          "widthCells": 4.0,
+          "heightCells": 4.0,
+          "pivotX": 0.5,
+          "pivotY": 0.5,
+          "pixelWidth": 768,
+          "pixelHeight": 768,
+          "sha256": "76570de5092008d82c5ab94a9627446491f0aba9d16062bfb95507d5082efe8d",
+          "feet": {
+            "left": {
+              "phase": 0.0,
+              "stance": false,
+              "anchorWorld": [
+                0.11500000208616257,
+                -0.012000004760921001,
+                0.2792220413684845
+              ],
+              "localPixels": [
+                25.0177001953125,
+                42.6256103515625
+              ],
+              "screenCells": [
+                0.09772539138793945,
+                0.16650629043579102
+              ],
+              "rootPixels": [
+                0.0,
+                0.0
+              ],
+              "rootPlusLocalPixels": [
+                25.0177001953125,
+                42.6256103515625
+              ],
+              "liftWorld": 0,
+              "fallRadians": 1.5707963267948966,
+              "evaluatedFloorMinimum": 0.012,
+              "floorTranslation": 0.33522204113006593
+            },
+            "right": {
+              "phase": 0.5,
+              "stance": false,
+              "anchorWorld": [
+                -0.11500000208616257,
+                -0.012000001966953278,
+                0.31122204661369324
+              ],
+              "localPixels": [
+                -25.017730712890625,
+                47.71478271484375
+              ],
+              "screenCells": [
+                -0.097725510597229,
+                0.1863858699798584
+              ],
+              "rootPixels": [
+                0.0,
+                0.0
+              ],
+              "rootPlusLocalPixels": [
+                -25.017730712890625,
+                47.71478271484375
+              ],
+              "liftWorld": 0,
+              "fallRadians": 1.5707963267948966,
+              "evaluatedFloorMinimum": 0.012,
+              "floorTranslation": 0.33522204113006593
+            }
+          }
+        }
+      ],
+      "markers": []
+    }
+  ],
+  "bindings": [
+    {
+      "actor": "officer",
+      "weapon": "pistol",
+      "armor": "suit",
+      "action": "idle",
+      "facing": "south",
+      "clip": "officer.pistol.suit.idle.south"
+    },
+    {
+      "actor": "officer",
+      "weapon": "pistol",
+      "armor": "suit",
+      "action": "idle",
+      "facing": "east",
+      "clip": "officer.pistol.suit.idle.east"
+    },
+    {
+      "actor": "officer",
+      "weapon": "pistol",
+      "armor": "suit",
+      "action": "start",
+      "facing": "south",
+      "clip": "officer.pistol.suit.start.south"
+    },
+    {
+      "actor": "officer",
+      "weapon": "pistol",
+      "armor": "suit",
+      "action": "walk",
+      "facing": "south",
+      "clip": "officer.pistol.suit.walk.south"
+    },
+    {
+      "actor": "officer",
+      "weapon": "pistol",
+      "armor": "suit",
+      "action": "stop",
+      "facing": "south",
+      "clip": "officer.pistol.suit.stop.south"
+    },
+    {
+      "actor": "officer",
+      "weapon": "pistol",
+      "armor": "suit",
+      "action": "turn_from_south",
+      "facing": "east",
+      "clip": "officer.pistol.suit.turn_from_south.east"
+    },
+    {
+      "actor": "officer",
+      "weapon": "pistol",
+      "armor": "suit",
+      "action": "death",
+      "facing": "south",
+      "clip": "officer.pistol.suit.death.south"
+    }
+  ],
+  "footCalibration": [
+    {
+      "clip": "officer.pistol.suit.walk.south",
+      "sampledStanceResidualPixels": 1.4358096649402796e-05,
+      "maximumHeldPoseRootTravelPixels": 3.5555555555555554,
+      "maximumHeldPoseRootTravelAt720p47pxCell": 0.6527777777777778
+    }
+  ]
+}

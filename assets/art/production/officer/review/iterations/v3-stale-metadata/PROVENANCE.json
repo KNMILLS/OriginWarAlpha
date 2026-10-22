@@ -1,0 +1,230 @@
+{
+  "task": "OFFICER-PRODUCTION",
+  "integrationBase": "d80aa83b32706b7058e80176befe73468592765f",
+  "status": "Approved development candidate for native evaluation; commercial finish OPEN",
+  "tool": {
+    "name": "Blender",
+    "version": "4.5.3 LTS",
+    "buildHash": "67807e1800cc",
+    "officialArchive": "https://download.blender.org/release/Blender4.5/blender-4.5.3-windows-x64.zip",
+    "archiveSha256": "6b657c8bdd3a7b65b07b9e1ae17eb4be7dd4aa23121da7f3d3354fc2551330a7",
+    "runtimeDependency": false
+  },
+  "anatomy": {
+    "source": "https://www.blender.org/download/demo-files/",
+    "officialArchive": "https://download.blender.org/demo/asset-bundles/human-base-meshes/human-base-meshes-bundle-v1.4.1.zip",
+    "collection": "Head (Animation) - Realistic",
+    "author": "Dan Ulrich",
+    "license": "CC0",
+    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "selectedObjects": [
+      "GEO-head_animation_realistic",
+      "GEO-head_animation_realistic.iris.L",
+      "GEO-head_animation_realistic.iris.R",
+      "GEO-head_animation_realistic.sclera.L",
+      "GEO-head_animation_realistic.sclera.R"
+    ],
+    "productionChanges": [
+      "Multires evaluated",
+      "Uniform fit and parent-transform correction",
+      "Project materials and head-bone binding"
+    ],
+    "unrelatedRainRigImported": false
+  },
+  "originalProjectWork": [
+    "Suit design and continuous garment fitting/envelope/folds/reinforcement derived from CC0 body topology",
+    "Original helmet and U-shaped visor enclosure",
+    "Original equipment, rig and pose rules",
+    "Projected foot calibration, planted-turn and floor-fall method",
+    "Cel materials, selective model-space edges and lighting"
+  ],
+  "purchaseSpend": 0,
+  "sourceHashPolicy": "Binary files exact bytes; Python source canonicalLF",
+  "sources": {
+    "assets/art/production/officer/source/officer-illustrated-pilot.blend": "834b92efda969e0ad0a6bb4380bc565aad1a3471497a9b07dc15adc60f5ac9da",
+    "assets/art/production/officer/source/anatomy/realistic-head-animation-cc0.blend": "ea1a71ded363d4ae32248e914ea9e9c23e04a834692bdf85b4eedbb70abe6cff",
+    "assets/art/production/officer/source/anatomy/realistic-body-male-cc0.blend": "6bab9747e3651cf34bbf42a4cd26958236d22edc27cab5be2b99da4138902bc6",
+    "tools/media/officer_production/anatomical_head.py": "99d3459036ac3e48b4e86b8b9a7b08f053dfdad827570a360f162ef7b2e60b25",
+    "tools/media/officer_production/anatomical_suit.py": "f3ff5c28b9f08d6c783c13d1e51da8fd23957e38b0223db35e3d81d851d1c0a8",
+    "tools/media/officer_production/build.py": "69fd4e2233eaf54e2e0144d927572fb5d9b86de526412f19fa9bd929640e340a",
+    "tools/media/officer_production/finalize.py": "b991c1187ebe5c25ceb5bba84a6e91bf21b9ec82de449992b6f6be1dbd4ac382",
+    "tools/media/officer_production/inspect_anatomy.py": "c50e16ba7f6d130f23966c0b8dff4f29d70fe256315eddc2aef70cc88aa9f242",
+    "tools/media/officer_production/inspect_body.py": "6cae92f592aae5e3006cf7e96000e9168e75b8f1614ab602e3e4151dd76a1f39",
+    "tools/media/officer_production/model.py": "138fe5056553c2f7d18c6118d1cd957f9cc8727d48d559a8d82864c22816a146",
+    "tools/media/officer_production/motion.py": "6f76791b8a8f683f0688a18ef38e6e7799cdbfb6001def87248a1c86e39111a9",
+    "tools/media/officer_production/prepare_body.py": "933cefd8a393c212e3a41b471b9c04b83fbcd9dbb6e55fac419117c95edc3462",
+    "tools/media/officer_production/previous_exporter_reference.py": "28a01871865a6c8741aac2dca6a51f417a9d83cd37ef593dd38350117c29ba70",
+    "tools/media/officer_production/review.py": "e43c7866b74e6db13499475beb1f6f3876ea82ce0626601070d00da91ae09918",
+    "tools/media/officer_production/review_v2.py": "de680f9b5dd1956ac2ea1f9709c1ce62d4c2b8a2ca61018a01ce751662086399"
+  },
+  "raster": {
+    "editableMasterReferenceCellPixels": 256,
+    "editableMasterCanvas": [
+      384,
+      448
+    ],
+    "runtimeReferenceCellPixels": 192,
+    "runtimeCanvas": [
+      288,
+      336
+    ],
+    "deathMasterCanvas": [
+      1024,
+      1024
+    ],
+    "deathRuntimeCanvas": [
+      768,
+      768
+    ],
+    "deathLogicalBounds": [
+      4,
+      4
+    ],
+    "deathCamera": "Same orientation and pixel density; canvas centered on original ground origin",
+    "method": "Direct75% Blender render; no per-frame pixel filtering"
+  },
+  "timing": {
+    "modelAndCalibrationSeconds": 27.061914499965496,
+    "totalProcessSeconds": 134.9504590999568,
+    "renderSeconds": 88.65562859992497,
+    "geometryIterations": 4,
+    "boundedLookCorrections": 5,
+    "status": "Continuous anatomical suit development candidate for native evaluation; artistic finish OPEN",
+    "productionConstructionHypotheses": 4,
+    "version2FinishRejected": true,
+    "v3FitCorrections": 2,
+    "authoringReviewWallMinutes": 24.61,
+    "wallTimeMeaning": "Elapsed since v1 preservation for this follow-up; includes v2/v3 source authoring, renders, review and waits; not billed labor",
+    "fullOpeningBatch": {
+      "modelAndCalibrationSeconds": 11.082453400013037,
+      "totalProcessSeconds": 55.41026609996334,
+      "renderSeconds": 44.32781429996248,
+      "geometryIterations": 3,
+      "boundedLookCorrections": 5,
+      "status": "Development candidate for native evaluation; artistic finish OPEN"
+    },
+    "deathReadabilityCorrection": {
+      "modelAndCalibrationSeconds": 11.082453400013037,
+      "totalProcessSeconds": 55.41026609996334,
+      "renderSeconds": 44.32781429996248,
+      "geometryIterations": 3,
+      "boundedLookCorrections": 5,
+      "status": "Development candidate for native evaluation; artistic finish OPEN"
+    },
+    "metadataRefresh": {
+      "modelAndCalibrationSeconds": 4.897007699939422,
+      "totalProcessSeconds": 24.129926900030114,
+      "renderSeconds": 19.23292019998189,
+      "geometryIterations": 3,
+      "boundedLookCorrections": 5,
+      "status": "Continuous anatomical suit development candidate for native evaluation; artistic finish OPEN",
+      "productionConstructionHypotheses": 4,
+      "version2FinishRejected": true,
+      "v3FitCorrections": 2,
+      "authoringReviewWallMinutes": 24.61,
+      "wallTimeMeaning": "Elapsed since v1 preservation for this follow-up; includes v2/v3 source authoring, renders, review and waits; not billed labor"
+    },
+    "metadataSerializationSeconds": 19.23292019998189
+  },
+  "limits": [
+    "No native v3 runtime evidence by worker",
+    "No commercial illustration or animation acceptance",
+    "Floor collapse is a simple authored buckle/brace/prone fall; acting polish remains open",
+    "Other equipment/armor and campaign art remain outside bounded opening coverage"
+  ],
+  "anatomicalBody": {
+    "sourceOfficialArchive": "https://download.blender.org/demo/asset-bundles/human-base-meshes/human-base-meshes-bundle-v1.4.1.zip",
+    "sourcePage": "https://www.blender.org/download/demo-files/",
+    "collection": "Body Male - Realistic",
+    "author": "Dan Ulrich",
+    "description": "Realistic scan data model with multiresolution details",
+    "license": "CC0",
+    "copyright": "",
+    "sha256": "6bab9747e3651cf34bbf42a4cd26958236d22edc27cab5be2b99da4138902bc6",
+    "objects": [
+      {
+        "name": "GEO-body_male_realistic",
+        "vertices": 10582,
+        "location": [
+          -2.2643022537231445,
+          0.0,
+          0.0
+        ],
+        "rotation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "parent": null,
+        "modifiers": [
+          [
+            "Multires",
+            "MULTIRES"
+          ]
+        ]
+      },
+      {
+        "name": "GEO-body_male_realistic.eye.L",
+        "vertices": 546,
+        "location": [
+          -2.2314207553863525,
+          -0.12182286381721497,
+          1.5737066268920898
+        ],
+        "rotation": [
+          1.570796251296997,
+          -0.0,
+          0.0
+        ],
+        "scale": [
+          0.8616507053375244,
+          0.8616507053375244,
+          0.8616507053375244
+        ],
+        "parent": "GEO-body_male_realistic",
+        "modifiers": []
+      },
+      {
+        "name": "GEO-body_male_realistic.eye.R",
+        "vertices": 546,
+        "location": [
+          -2.297226905822754,
+          -0.12182184308767319,
+          1.5737066268920898
+        ],
+        "rotation": [
+          1.570796251296997,
+          -0.0,
+          0.0
+        ],
+        "scale": [
+          0.8616507053375244,
+          0.8616507053375244,
+          0.8616507053375244
+        ],
+        "parent": "GEO-body_male_realistic",
+        "modifiers": []
+      }
+    ],
+    "scope": "Only selected collection; no unrelated rig or license text imported. Unchanged geometry, transforms, materials and modifiers."
+  },
+  "continuousGarmentChanges": [
+    "Remove source head/hands from derived garment copy",
+    "Fit source body landmarks to officer rig",
+    "Smooth and inflate one continuous cloth surface",
+    "Bridge anatomical chest muscle detail with pressure cloth envelope",
+    "Model compression folds, fitted chest/shoulder reinforcement and rigid flat-soled boots",
+    "Maintain original helmet/gear and verified separate anatomical head"
+  ],
+  "turns": {
+    "orderedClips": 24,
+    "quarterTurnSeconds": 0.4,
+    "halfTurnSeconds": 0.6,
+    "method": "Alternating world-planted two-/three-step placements with exact neutral endpoints"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "modelAndCalibrationSeconds": 2.31193720002193,
+  "totalProcessSeconds": 148.58386370004155,
+  "renderSeconds": 146.27192770002875,
+  "geometryIterations": 3,
+  "status": "Development candidate for native evaluation; artistic finish OPEN",
+  "boundedLookCorrections": 4,
+  "authoringReviewWallMinutes": 32.94,
+  "wallTimeMeaning": "Elapsed since new tool subtree creation; includes source authoring, rendering, review and waits; not a billed labor claim"
+}

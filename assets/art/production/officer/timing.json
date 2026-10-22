@@ -1,10 +1,65 @@
 {
-  "modelAndCalibrationSeconds": 2.31193720002193,
-  "totalProcessSeconds": 148.58386370004155,
-  "renderSeconds": 146.27192770002875,
-  "geometryIterations": 3,
-  "status": "Development candidate for native evaluation; artistic finish OPEN",
-  "boundedLookCorrections": 4,
-  "authoringReviewWallMinutes": 32.94,
-  "wallTimeMeaning": "Elapsed since new tool subtree creation; includes source authoring, rendering, review and waits; not a billed labor claim"
+  "modelAndCalibrationSeconds": 40.543919299962,
+  "totalProcessSeconds": 395.268991000019,
+  "renderSeconds": 327.69683619996067,
+  "geometryIterations": 4,
+  "boundedLookCorrections": 5,
+  "status": "Continuous anatomical suit development candidate for native evaluation; artistic finish OPEN",
+  "productionConstructionHypotheses": 4,
+  "version2FinishRejected": true,
+  "v3FitCorrections": 2,
+  "authoringReviewWallMinutes": 35.05,
+  "wallTimeMeaning": "Elapsed since v1 preservation for this follow-up; includes v2/v3 source authoring, renders, review and waits; not billed labor",
+  "fullOpeningBatch": {
+    "totalProcessSeconds": 253.05063960002735,
+    "modelAndCalibrationSeconds": 4.976796300034039,
+    "renderSeconds": 248.0733093000017,
+    "scope": "Full104clip916frame direct192px production export. Completion preserved from actual render log and captured timing JSON before partial exports."
+  },
+  "deathReadabilityCorrection": {
+    "modelAndCalibrationSeconds": 11.082453400013037,
+    "totalProcessSeconds": 55.41026609996334,
+    "renderSeconds": 44.32781429996248,
+    "geometryIterations": 3,
+    "boundedLookCorrections": 5,
+    "status": "Development candidate for native evaluation; artistic finish OPEN"
+  },
+  "work24fpsCorrection": {
+    "modelAndCalibrationSeconds": 6.867468500044197,
+    "totalProcessSeconds": 37.810899600037374,
+    "renderSeconds": 30.943432500003837,
+    "geometryIterations": 3,
+    "boundedLookCorrections": 5,
+    "status": "Development candidate for native evaluation; artistic finish OPEN"
+  },
+  "workExactEndpointCorrection": {
+    "modelAndCalibrationSeconds": 5.43686399993021,
+    "totalProcessSeconds": 9.789142999914475,
+    "renderSeconds": 4.35228009999264,
+    "geometryIterations": 3,
+    "boundedLookCorrections": 5,
+    "status": "Development candidate for native evaluation; artistic finish OPEN"
+  },
+  "canonicalNeutralMetadata": {
+    "modelAndCalibrationSeconds": 5.172604899969883,
+    "totalProcessSeconds": 8.217821600032039,
+    "renderSeconds": 3.04521770006977,
+    "geometryIterations": 3,
+    "boundedLookCorrections": 5,
+    "status": "Continuous anatomical suit development candidate for native evaluation; artistic finish OPEN",
+    "productionConstructionHypotheses": 4,
+    "version2FinishRejected": true,
+    "v3FitCorrections": 2,
+    "authoringReviewWallMinutes": 35.05,
+    "wallTimeMeaning": "Elapsed since v1 preservation for this follow-up; includes v2/v3 source authoring, renders, review and waits; not billed labor"
+  },
+  "metadataRefresh": {
+    "modelAndCalibrationSeconds": 7.007732199970633,
+    "totalProcessSeconds": 30.990221100044437,
+    "renderSeconds": 23.982490200083703,
+    "geometryIterations": 3,
+    "boundedLookCorrections": 5,
+    "status": "Development candidate for native evaluation; artistic finish OPEN"
+  },
+  "metadataSerializationSeconds": 27.027707900153473
 }

@@ -29,12 +29,13 @@ def pose(phase,direction,action='walk',weapon='pistol',sample_index=0):
     transition=phase if action=='start' else 1-phase if action=='stop' else 1 if action=='walk' else 0
     offset=-.02-.045*transition;twist=.007*math.sin(phase*math.tau) if action=='walk' else 0
     hit=([0,.85,1,.45,0][min(4,sample_index)] if action=='hit' else 0)
-    fall=([0,.10,.30,.55,.75,.90,1,1][min(7,sample_index)] if action=='death' else 0)
-    offset-=.40*fall
+    fall=smooth(phase) if action=='death' else 0
+    # Buckle briefly, then extend into a supported floor fall. Final is prone, not kneeling.
+    offset-=.18*math.sin(math.pi*fall) if action=='death' else 0
     bone_pose('pelvis',(0,0,.97+offset),(0,0,1.08+offset))
     bone_pose('torso',(0,0,1.07+offset),(twist,-.012+.025*hit-.10*fall,1.50+offset))
     # A guarded upward glance keeps real cheek/eye planes visible from the elevated game camera.
-    bone_pose('head',(twist,-.012+.025*hit-.10*fall,1.50+offset),(twist,.032+.04*hit-.24*fall,1.85+offset-.10*fall))
+    bone_pose('head',(twist,-.012+.025*hit-.10*fall,1.50+offset),(twist+.105*fall,.032+.04*hit-.24*fall,1.85+offset-.10*fall))
     for side,label,sgn,shift in [('L','left',1,0),('R','right',-1,.5)]:
         p=(phase+shift)%1
         neutral=-.016 if side=='L' else .016
@@ -52,11 +53,15 @@ def pose(phase,direction,action='walk',weapon='pistol',sample_index=0):
         else:
             t=(p-.5)*2;s=t*t*(3-2*t)
             y=travel/2-travel*s;lift=.046*math.sin(math.pi*t);stance=False
-        x=sgn*.115;hip=(x,0,.97+offset);ankle=(x,y,.085+lift)
+        x=sgn*.115;hip=(x,0,.97+offset)
+        ankle=(x+.035*fall if side=='L' else x,y,.085+lift)
         knee=knee_for(hip,ankle)
         bone_pose('thigh.'+side,hip,knee);bone_pose('shin.'+side,knee,ankle)
-        bone_pose('foot.'+side,ankle,(x,y-.15,.085+lift))
-        sole=rotation@Vector((x,y-.04,.012+lift));local=project(sole)-origin
+        bone_pose('foot.'+side,ankle,(ankle[0]+(.018*fall if side=='L' else 0),y-.15,.085+lift))
+        # Exact rigid-sole mapping from the authored foot endpoint. Reading a pose-bone
+        # matrix here can return stale dependency state until the final scene update.
+        marker_x=ankle[0]+(.04*.018/.15*fall if side=='L' else 0)
+        sole=rotation@Vector((marker_x,y-.04,.012+lift));local=project(sole)-origin
         root=unit*128*phase if action=='walk' else np.zeros(2);contact=root+local
         result[label]={'phase':p,'stance':stance,'anchorWorld':list(sole),'localPixels':local.tolist(),'screenCells':(local/256).tolist(),'rootPixels':root.tolist(),'rootPlusLocalPixels':contact.tolist(),'liftWorld':lift}
     # Guarded low-ready, genuine action poses and actual right-hand equipment socket.
@@ -73,7 +78,9 @@ def pose(phase,direction,action='walk',weapon='pistol',sample_index=0):
         if action=='fire' and side=='R' and sample_index in [2,3]:
             recoil=.025 if sample_index==2 else .010;wrist[1]+=recoil;hand[1]+=recoil
         if action=='work' and side=='L':
-            amount=[0,.65,1,1,.5,0][min(5,sample_index)]
+            seconds=phase*11/24
+            amount=smooth(seconds/(1/6)) if seconds<1/6 else 1 if seconds<=7/24 else 1-smooth((seconds-7/24)/(1/6))
+            if phase<=0 or phase>=1:amount=0
             aw=np.array((.12,-.30,1.29+offset));ah=aw+np.array((0,-.065,-.015))
             wrist=wrist*(1-amount)+aw*amount;hand=hand*(1-amount)+ah*amount
         if action=='melee':
@@ -81,10 +88,81 @@ def pose(phase,direction,action='walk',weapon='pistol',sample_index=0):
             aw=np.array((-.12,-.39,1.25+offset)) if side=='R' else np.array((.15,-.19,1.22+offset))
             ah=aw+np.array((0,-.065,-.02));wrist=wrist*(1-amount)+aw*amount;hand=hand*(1-amount)+ah*amount
         if hit>0:wrist[1]+=.025*hit;hand[1]+=.025*hit
-        if fall>0:wrist[1]-=.12*fall;hand[1]-=.12*fall
+        if fall>0:
+            wrist[1]-=.12*fall;hand[1]-=.12*fall
+            if side=='L':
+                # Left arm reaches to brace and remains folded beside the head on the floor.
+                amount=smooth(fall/.7);aw=np.array((.20,-.11,1.34+offset));ah=np.array((.15,-.17,1.36+offset))
+                wrist=wrist*(1-amount)+aw*amount;hand=hand*(1-amount)+ah*amount
         elbow=arm_joint(shoulder,wrist,sgn)
         bone_pose('upperarm.'+side,shoulder,elbow);bone_pose('forearm.'+side,elbow,wrist);bone_pose('hand.'+side,wrist,hand)
     for ob in weapon_objects:ob.hide_render=weapon!='pistol'
     flash.hide_render=not(action=='fire' and weapon=='pistol' and sample_index==2)
     bpy.context.view_layer.update()
+    if action=='death' and phase>0:
+        # A whole-body fall follows the authored buckle; mesh bounds determine floor contact.
+        # The same transform moves hands and attached equipment, avoiding detached gear.
+        fall_matrix=Matrix.Rotation(math.pi*.5*fall,4,'X')@Matrix.Rotation(.12*fall,4,'Y')
+        matrices={b.name:fall_matrix@b.matrix.copy() for b in rig.pose.bones}
+        for b in rig.pose.bones:b.matrix=matrices[b.name]
+        bpy.context.view_layer.update();deps=bpy.context.evaluated_depsgraph_get();minimum=1e9
+        for ob in scene.objects:
+            if ob.type!='MESH' or ob.hide_render:continue
+            evaluated=ob.evaluated_get(deps);mesh=evaluated.to_mesh()
+            if mesh.vertices:
+                coords=np.empty(len(mesh.vertices)*3);mesh.vertices.foreach_get('co',coords)
+                points=coords.reshape(-1,3);matrix=np.array(evaluated.matrix_world)
+                minimum=min(minimum,float(np.min(points@matrix[2,:3]+matrix[2,3])))
+            evaluated.to_mesh_clear()
+        floor_shift=.012-minimum
+        # Keep frame zero exactly neutral; after release, actual deformed mesh rests on floor.
+        for b in rig.pose.bones:
+            matrix=b.matrix.copy();matrix.translation.z+=floor_shift;b.matrix=matrix
+        bpy.context.view_layer.update()
+        for foot in result.values():
+            local=rotation.inverted()@Vector(foot['anchorWorld']);point=fall_matrix@local
+            point.z+=floor_shift;point=rotation@point;projected=project(point)-origin
+            foot.update({'stance':False,'anchorWorld':list(point),'localPixels':projected.tolist(),'screenCells':(projected/256).tolist(),'rootPlusLocalPixels':projected.tolist(),'fallRadians':math.pi*.5*fall,'evaluatedFloorMinimum':.012,'floorTranslation':floor_shift})
     return result
+
+def pose_turn(phase,source,destination,weapon='pistol'):
+    if phase<=0:return pose(0,source,'idle',weapon)
+    if phase>=1:return pose(0,destination,'idle',weapon)
+    pose(0,destination,'idle',weapon)
+    start=directions[source];delta=(directions[destination]-start+math.pi)%(math.tau)-math.pi
+    # Three alternating placements for a half turn; a two-step half turn crosses the feet.
+    half=abs(abs(delta)-math.pi)<.01
+    steps=3 if half else 2;step=min(steps-1,int(phase*steps));t=phase*steps-step;s=smooth(t)
+    angle=start+delta*smooth(phase);rig.rotation_euler.z=angle;bpy.context.view_layer.update()
+    rotate=Matrix.Rotation(angle,3,'Z');inv=rotate.inverted();origin=project((0,0,0))
+    result={};support='L' if step%2==0 else 'R'
+    def foot_target(side):
+        sgn=1 if side=='L' else -1;neutral=Vector((sgn*.115,-.016 if side=='L' else .016,.085))
+        if not half:
+            footstep=0 if side=='R' else 1;a=start;b=start+delta
+            progress=0 if step<footstep else 1 if step>footstep else s
+        elif side=='L':
+            a=start;b=start+delta;progress=0 if step<1 else 1 if step>1 else s
+        else:
+            a=start if step<2 else start+delta*.5;b=start+delta*.5 if step<2 else start+delta
+            progress=s if step in [0,2] else 1
+        yaw=a+(b-a)*progress;point=Matrix.Rotation(yaw,3,'Z')@neutral
+        moving=(side!=support);lift=.045*math.sin(math.pi*t) if moving else 0
+        # Slight outside arc opens the crossing space without moving the planted support.
+        if moving:
+            radial=Vector((point.x,point.y,0)).normalized();point+=radial*.025*math.sin(math.pi*t)
+        point.z+=lift
+        return point,yaw,lift,moving
+    targets={side:foot_target(side) for side in ['R','L']}
+    weight=targets[support][0].copy();weight.z=0;weight*=.18*math.sin(math.pi*t)
+    local_weight=inv@weight
+    for b in rig.pose.bones:
+        matrix=b.matrix.copy();matrix.translation+=local_weight;b.matrix=matrix
+    for side,sgn,label in [('R',-1,'right'),('L',1,'left')]:
+        ankle_world,yaw,lift,moving=targets[side];ankle=inv@ankle_world
+        hip=Vector((sgn*.115,0,.95))+local_weight;knee=knee_for(hip,ankle)
+        toe=inv@(ankle_world+Matrix.Rotation(yaw,3,'Z')@Vector((0,-.15,0)))
+        bone_pose('thigh.'+side,hip,knee);bone_pose('shin.'+side,knee,ankle);bone_pose('foot.'+side,ankle,toe)
+        sole=ankle_world+Matrix.Rotation(yaw,3,'Z')@Vector((0,-.04,-.073));local=project(sole)-origin
+        result[label]={'stance':not moving,'anchorWorld':list(sole),'localPixels':local.tolist(),'screenCells':(local/256).tolist(),'rootPixels':[0,0],'rootPlusLocalPixels':local.tolist(),'liftWorld':lift,'footHeadingRadians':yaw,'bodyHeadingRadians':angle,'placement':step,'fromFacing':source,'toFacing':destination}
+    bpy.context.view_layer.update();return result

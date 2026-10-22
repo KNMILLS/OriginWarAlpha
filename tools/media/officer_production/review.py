@@ -1,10 +1,11 @@
 """Faithful source/camera diagnostics and previews; never changes exported frame pixels."""
 from pathlib import Path
-import json,hashlib
+import json,hashlib,sys
 import numpy as np
 from PIL import Image,ImageDraw,ImageFont
 ROOT=Path(__file__).resolve().parents[3];OUT=ROOT/'assets/art/production/officer';REVIEW=OUT/'review';REVIEW.mkdir(exist_ok=True)
 m=json.loads((OUT/'clips.json').read_text());font=ImageFont.truetype('C:/Windows/Fonts/arial.ttf',15)
+CHECKS_ONLY='--checks-only' in sys.argv
 def frame(f):return Image.open(ROOT/'assets'/f['path']).convert('RGBA')
 def thumb(im,height):
     box=im.getbbox();im=im.crop(box);return im.resize((round(im.width*height/im.height),height),Image.Resampling.LANCZOS)
@@ -26,6 +27,8 @@ for c in m['clips']:
         im=frame(f);assert im.size==(f['pixelWidth'],f['pixelHeight']);assert hashlib.sha256((ROOT/'assets'/f['path']).read_bytes()).hexdigest()==f['sha256']
         b=im.getbbox();assert b and b[0]>1 and b[1]>1 and b[2]<im.width-1 and b[3]<im.height-1,(c['id'],b)
     if '.walk.' not in c['id'] and '.walk24.' not in c['id']:continue
+    if CHECKS_ONLY:
+        checks.append({'clip':c['id'],'distinctRenders':len({f['sha256'] for f in c['frames']}),'count':len(c['frames'])});continue
     direction=c['id'].split('.')[-1];axis={'south':(0,1),'east':(1,0),'north':(0,-1),'west':(-1,0)}[direction]
     preview=[];n=len(c['frames']);cell=77;scale=cell/256
     for i,f in enumerate(c['frames']):
@@ -47,7 +50,7 @@ for c in m['clips']:
     elif n==12:durations=[40,40,50]*4
     preview[0].save(REVIEW/(c['id']+'.gif'),save_all=True,append_images=preview[1:],duration=durations,loop=0,disposal=2)
     checks.append({'clip':c['id'],'distinctRenders':len({f['sha256'] for f in c['frames']}),'count':n})
-for direction in ['south','east']:
+for direction in ([] if CHECKS_ONLY else ['south','east']):
     axis={'south':(0,1),'east':(1,0)}[direction];cell=77;scale=cell/256
     named={c['id'].split('.')[-2]:c for c in m['clips'] if c['id'].endswith('.'+direction)}
     start=named.get('start');stop=named.get('stop');walk=named.get('walk')
@@ -75,6 +78,12 @@ unique_hashes={f['sha256']:f for f in unique.values()};hash_area=0
 for f in unique_hashes.values():
     b=frame(f).getbbox();hash_area+=(b[2]-b[0]+4)*(b[3]-b[1]+4)
 result['residencyEstimate']={'uniquePNGFiles':len(unique),'exactPNGBytes':pngbytes,'trimmedPaddedRGBABytes':area*4,'minimum2048PagesByArea':(area+2048*2048-1)//(2048*2048),'uniquePNGHashes':len(unique_hashes),'hashDeduplicatedTrimmedRGBABytes':hash_area*4,'hashDeduplicatedMinimum2048PagesByArea':(hash_area+2048*2048-1)//(2048*2048),'note':'Area lower bound only; actual lossless packing and allocated pages are lead-owned.'}
+pixel_crops={}
+for f in unique.values():
+    im=frame(f);crop=im.crop(im.getbbox());key=(crop.size,hashlib.sha256(crop.tobytes()).hexdigest())
+    pixel_crops[key]=(crop.width+4)*(crop.height+4)
+pixel_area=sum(pixel_crops.values())
+result['residencyEstimate'].update({'uniqueExactRGBACrops':len(pixel_crops),'exactCropDeduplicatedTrimmedRGBABytes':pixel_area*4,'exactCropDeduplicatedMinimum2048PagesByArea':(pixel_area+2048*2048-1)//(2048*2048)})
 byid={c['id']:c for c in m['clips']};endpoints=[]
 for weapon in ['pistol','unarmed']:
     for direction in dirs:
@@ -89,16 +98,18 @@ for weapon in ['pistol','unarmed']:
             assert maximum<=2,(c['id'],'pose endpoint differs',maximum,changed)
             endpoints.append({'clip':c['id'],'frame':index,'maximumChannelDifference':maximum,'changedPixels':changed})
 result['endpointChecks']=endpoints
-for action in ['walk','fire','work','hit','death','melee']:
+for action in (['work'] if '--work-contact-only' in sys.argv else ['death'] if '--death-contact-only' in sys.argv else [] if CHECKS_ONLY else ['walk','fire','work','hit','death','melee']):
     selected=[c for c in m['clips'] if c['id'].split('.')[-2]==action]
     if not selected:continue
-    n=8 if action in ['fire','death','melee'] else 6 if action in ['walk','work'] else 5
-    board=Image.new('RGB',(144*n,196*len(selected)),back);dd=ImageDraw.Draw(board)
+    n=12 if action in ['death','work'] else 8 if action in ['fire','melee'] else 6 if action=='walk' else 5
+    board=Image.new('RGB',(184*n,290*len(selected)),back);dd=ImageDraw.Draw(board)
     for row,c in enumerate(selected):
-        dd.text((5,row*196+3),c['id'],font=font,fill=(205,216,201))
+        dd.text((5,row*290+3),c['id'],font=font,fill=(205,216,201))
         indices=range(len(c['frames'])) if action!='walk' else [0,6,12,18,24,30]
         for col,index in enumerate(indices):
-            im=frame(c['frames'][index]).resize((144,168),Image.Resampling.LANCZOS);board.paste(im,(col*144,row*196+24),im)
+            f=c['frames'][index];im=frame(f).resize((round(f['widthCells']*68),round(f['heightCells']*68)),Image.Resampling.LANCZOS)
+            cell=Image.new('RGBA',(184,260),(*back,255));cell.alpha_composite(im,(round(92-f['pivotX']*im.width),round(130-(1-f['pivotY'])*im.height)))
+            board.paste(cell.convert('RGB'),(col*184,row*290+24))
     board.save(REVIEW/(action+'-all-facing-contact.jpg'),quality=93)
 (OUT/'validation.json').write_text(json.dumps(result,indent=2)+'\n',newline='\n')
 print('PASS structural pilot',result['clips'],result['frames'],'renders; visual/native review OPEN')

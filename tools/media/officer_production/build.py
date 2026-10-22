@@ -11,10 +11,27 @@ from bpy_extras.object_utils import world_to_camera_view
 
 START=time.perf_counter()
 LOOK_ONLY='--look-only' in sys.argv
+PILOT_V2='--pilot-v2' in sys.argv
+BODY_LOOK='--body-look' in sys.argv
+BODY_MOTION='--body-motion' in sys.argv
+DEATH_ONLY='--death-only' in sys.argv
+METADATA_ONLY='--metadata-only' in sys.argv
+WORK_ENDPOINTS_ONLY='--work-endpoints-only' in sys.argv
+WORK_ONLY='--work-only' in sys.argv or WORK_ENDPOINTS_ONLY
 RUNTIME_SCALE=1 if '--master' in sys.argv else .75
 ROOT=Path(__file__).resolve().parents[3]
 OUT=ROOT/'assets/art/production/officer'; SRC=OUT/'source'; FRAMES=OUT/'regions'; REVIEW=OUT/'review'
 for p in [OUT,SRC,FRAMES,REVIEW]:p.mkdir(parents=True,exist_ok=True)
+EXPORT_OUT=OUT
+if PILOT_V2:
+    EXPORT_OUT=REVIEW/'iterations/v2-pilot';EXPORT_OUT.mkdir(parents=True,exist_ok=True)
+    REVIEW=EXPORT_OUT;FRAMES=EXPORT_OUT/'regions';FRAMES.mkdir(exist_ok=True)
+if BODY_LOOK:
+    EXPORT_OUT=OUT/'review/iterations/v3-anatomical-suit';EXPORT_OUT.mkdir(parents=True,exist_ok=True)
+    REVIEW=EXPORT_OUT;FRAMES=EXPORT_OUT/'regions';FRAMES.mkdir(exist_ok=True)
+if BODY_MOTION:
+    EXPORT_OUT=OUT/'review/iterations/v3-motion';EXPORT_OUT.mkdir(parents=True,exist_ok=True)
+    REVIEW=EXPORT_OUT;FRAMES=EXPORT_OUT/'regions';FRAMES.mkdir(exist_ok=True)
 bpy.ops.object.select_all(action='SELECT');bpy.ops.object.delete(use_global=False)
 scene=bpy.context.scene;scene.render.engine='BLENDER_EEVEE_NEXT'
 scene.render.resolution_x=384;scene.render.resolution_y=448;scene.render.resolution_percentage=round(RUNTIME_SCALE*100)
@@ -41,11 +58,17 @@ def material(name,base,worn=False):
         wear=n.new('ShaderNodeValToRGB');wear.color_ramp.elements[0].color=(.80,.81,.78,1);wear.color_ramp.elements[1].color=(1,1,1,1)
         l.new(noise.outputs['Fac'],wear.inputs[0]);mix=n.new('ShaderNodeMixRGB');mix.blend_type='MULTIPLY';mix.inputs[0].default_value=1
         l.new(color,mix.inputs[1]);l.new(wear.outputs[0],mix.inputs[2]);color=mix.outputs[0]
+    # Geometry-aware crevice shadow supplies the painted dark overlap hierarchy.
+    # This is evaluated on the deformed model, never a per-frame image filter.
+    ao=n.new('ShaderNodeAmbientOcclusion');ao.inputs['Distance'].default_value=.12
+    ao.inputs['Color'].default_value=(1,1,1,1)
+    crevice=n.new('ShaderNodeMixRGB');crevice.blend_type='MULTIPLY';crevice.inputs[0].default_value=.52
+    l.new(color,crevice.inputs[1]);l.new(ao.outputs['Color'],crevice.inputs[2]);color=crevice.outputs[0]
     emission=n.new('ShaderNodeEmission');emission.inputs['Strength'].default_value=1;l.new(color,emission.inputs[0]);l.new(emission.outputs[0],out.inputs['Surface'])
     return m
 
-ivory=material('ivory shell: bounded broad painted values',(.64,.59,.45),True)
-fabric=material('tailored pressure fabric warm gray ivory',(.48,.45,.36),True)
+ivory=material('ivory shell: bounded broad painted values',(.70,.63,.46),True)
+fabric=material('tailored pressure fabric warm gray ivory',(.44,.415,.32),True)
 darkcloth=material('charcoal continuous bellows weave',(.035,.046,.037),True)
 steel=material('matte graphite hardware',(.135,.155,.14),True)
 edge=material('worn edge muted pewter',(.29,.31,.27),True)
@@ -121,6 +144,7 @@ def plate(name,points,depth,mat,bone,outline=False):
     return finish(ob,name,mat,bone,outline=outline)
 
 exec((Path(__file__).with_name('model.py')).read_text(),globals())
+if not PILOT_V2:exec((Path(__file__).with_name('anatomical_suit.py')).read_text(),globals())
 
 def area(name,loc,power,size):
     d=bpy.data.lights.new(name,'AREA');d.energy=power;d.size=size;ob=bpy.data.objects.new(name,d);bpy.context.collection.objects.link(ob);ob.location=loc
@@ -131,7 +155,7 @@ cam.location=(0,-6,6.6);target=Vector((0,0,1.0));cam.rotation_euler=(target-cam.
 directions={'south':0,'east':math.pi/2,'north':math.pi,'west':-math.pi/2}
 
 def project(point):
-    c=world_to_camera_view(scene,cam,Vector(point));return np.array([c.x*384,c.y*448],dtype=float)
+    c=world_to_camera_view(scene,cam,Vector(point));return np.array([c.x*scene.render.resolution_x,c.y*scene.render.resolution_y],dtype=float)
 exec((Path(__file__).with_name('motion.py')).read_text(),globals())
 
 # A bounded calibration render sets common camera scale, never individual frame scales.
@@ -144,19 +168,54 @@ for trial in range(2):
     bpy.context.view_layer.update()
 
 MODEL_SECONDS=time.perf_counter()-START
+normal_camera_location=cam.location.copy();normal_camera_scale=cd.ortho_scale
+normal_density=float(np.linalg.norm(project((1,0,0))-project((0,0,0))))
+def set_canvas(action):
+    cam.location=normal_camera_location;cd.ortho_scale=normal_camera_scale
+    scene.render.resolution_x=384;scene.render.resolution_y=448
+    if action=='death':
+        # A floor-length body needs wider bounds, while preserving source pixel density.
+        scene.render.resolution_x=1024;scene.render.resolution_y=1024
+        forward=cam.rotation_euler.to_matrix()@Vector((0,0,-1))
+        cam.location=-forward*normal_camera_location.length
+        density=float(np.linalg.norm(project((1,0,0))-project((0,0,0))))
+        cd.ortho_scale*=density/normal_density
+    bpy.context.view_layer.update()
 clips=[];bindings=[];metrics=[]
+if DEATH_ONLY or WORK_ONLY:
+    previous=json.loads((OUT/'clips.json').read_text())
+    replaced_action='death' if DEATH_ONLY else 'work'
+    clips=[c for c in previous['clips'] if f'.{replaced_action}.' not in c['id']]
+    bindings=[b for b in previous['bindings'] if b['action']!=replaced_action];metrics=previous['footCalibration']
 def export(direction,n=30,fps=60,action='walk',clip_action=None,weapon='pistol',exposures=None):
     clip_action=clip_action or action;clipid=f'officer.{weapon}.suit.{clip_action}.{direction}'
+    set_canvas(action)
     rig.rotation_euler.z=directions[direction];bpy.context.view_layer.update()
     frames=[];feet=[]
     for i in range(n):
         phase=i/n if action=='walk' else i/(n-1) if n>1 else 0
-        foot=pose(phase,direction,action,weapon,i)
-        target=FRAMES/f'{clipid}.{i:02}.png';scene.render.filepath=str(target);bpy.ops.render.render(write_still=True)
-        anchor=project((0,0,0));frames.append({'path':target.relative_to(ROOT/'assets').as_posix(),'widthCells':1.5,'heightCells':1.75,'pivotX':float(anchor[0]/384),'pivotY':float(anchor[1]/448),'pixelWidth':round(384*RUNTIME_SCALE),'pixelHeight':round(448*RUNTIME_SCALE),'sha256':hashlib.sha256(target.read_bytes()).hexdigest(),'feet':foot})
+        foot=pose_turn(phase,clip_action.removeprefix('turn_from_'),direction,weapon) if action=='turn' else pose(phase,direction,action,weapon,i)
+        target=FRAMES/f'{clipid}.{i:02}.png';scene.render.filepath=str(target)
+        if not METADATA_ONLY and (not WORK_ENDPOINTS_ONLY or i==n-1):bpy.ops.render.render(write_still=True)
+        w,h=scene.render.resolution_x,scene.render.resolution_y
+        anchor=project((0,0,0));frames.append({'path':target.relative_to(ROOT/'assets').as_posix(),'widthCells':w/256,'heightCells':h/256,'pivotX':float(anchor[0]/w),'pivotY':float(anchor[1]/h),'pixelWidth':round(w*RUNTIME_SCALE),'pixelHeight':round(h*RUNTIME_SCALE),'sha256':hashlib.sha256(target.read_bytes()).hexdigest(),'feet':foot})
         if exposures:frames[-1]['seconds']=exposures[i]
         feet.append(foot)
+    if action=='work':
+        idle=next((c for c in clips if c['id']==f'officer.{weapon}.suit.idle.{direction}'),None)
+        if idle:
+            # Canonical real-render neutral avoids one-value shader/decomposition noise
+            # between independently rendered identical poses; retain every raw render.
+            for index in [0,-1]:
+                authored=frames[index]
+                frames[index]=dict(idle['frames'][0],canonicalNeutral=True,authoredSourceRender={'path':authored['path'],'sha256':authored['sha256']})
     marker=([{'kind':'contact','frame':0,'foot':'left'},{'kind':'contact','frame':n//2,'foot':'right'}] if action=='walk' else [{'kind':'release','frame':2,'seconds':.14},{'kind':'recovery','frame':6,'seconds':.35}] if action=='fire' else [{'kind':'contact','frame':3}] if action=='melee' else [{'kind':'work_contact','frame':2}] if action=='work' else [])
+    if action=='turn':
+        delta=(directions[direction]-directions[clip_action.removeprefix('turn_from_')]+math.pi)%math.tau-math.pi
+        steps=3 if abs(abs(delta)-math.pi)<.01 else 2
+        marker=[{'kind':'contact','frame':math.ceil((step+1)*(n-1)/steps),'foot':'right' if step%2==0 else 'left'} for step in range(steps)]
+    elif action=='death':marker=[{'kind':'floor_impact','frame':n-3},{'kind':'settled','frame':n-1}]
+    elif action=='work':marker=[{'kind':'work_contact','frame':4,'seconds':1/6},{'kind':'recovery','frame':7,'seconds':7/24}]
     clips.append({'id':clipid,'frameSeconds':1/fps,'cycleCells':.5 if action=='walk' else 0,'cycleDistanceCells':.5 if action=='walk' else 0,'loop':action=='walk','equipment':weapon,'armor':'suit','frames':frames,'markers':marker})
     bindings.append({'actor':'officer','weapon':weapon,'armor':'suit','action':clip_action,'facing':direction,'clip':clipid})
     if action=='walk':
@@ -170,7 +229,7 @@ def export(direction,n=30,fps=60,action='walk',clip_action=None,weapon='pistol',
             for run in runs:
                 arr=np.array(run);residual.append(float(np.max(np.linalg.norm(arr-arr[0],axis=1))))
         metrics.append({'clip':clipid,'sampledStanceResidualPixels':max(residual,default=0),'maximumHeldPoseRootTravelPixels':128/n,'maximumHeldPoseRootTravelAt720p47pxCell':47*.5/n})
-    (OUT/'clips.json').write_text(json.dumps({'version':1,'referenceCellPixels':256,'runtimeReferenceCellPixels':round(256*RUNTIME_SCALE),'pivotOrigin':'bottom-left','clips':clips,'bindings':bindings,'footCalibration':metrics},indent=2)+'\n',newline='\n')
+    (EXPORT_OUT/'clips.json').write_text(json.dumps({'version':1,'referenceCellPixels':256,'runtimeReferenceCellPixels':round(256*RUNTIME_SCALE),'pivotOrigin':'bottom-left','clips':clips,'bindings':bindings,'footCalibration':metrics},indent=2)+'\n',newline='\n')
 
 # True editable keyframes; source action retained even though export samples explicit poses.
 for i in range(37):
@@ -179,19 +238,41 @@ for i in range(37):
         bone.rotation_mode='QUATERNION';bone.keyframe_insert('location',frame=i+1);bone.keyframe_insert('rotation_quaternion',frame=i+1);bone.keyframe_insert('scale',frame=i+1)
 scene.frame_start=1;scene.frame_end=36;scene.frame_set(1)
 scene['masterReferenceCellPixels']=256;scene['masterCanvasPixels']=[384,448];scene['runtimeReferenceCellPixels']=round(256*RUNTIME_SCALE)
-bpy.ops.wm.save_as_mainfile(filepath=str(SRC/'officer-illustrated-pilot.blend'))
+bpy.ops.wm.save_as_mainfile(filepath=str((EXPORT_OUT if PILOT_V2 or BODY_LOOK or BODY_MOTION else SRC)/'officer-illustrated-pilot.blend'))
 rig.animation_data.action=None
-for weapon in (['pistol'] if LOOK_ONLY else ['pistol','unarmed']):
+if PILOT_V2:
+    for d in directions:export(d,1,60,'idle')
+    export('east',8,20,'turn','turn_from_south')
+    export('north',8,13.3333333333,'turn','turn_from_south')
+    for d in ['south','east']:export(d,12,12,'death')
+if BODY_LOOK:
+    for d in ['south','east']:export(d,1,60,'idle')
+if BODY_MOTION:
+    for d in ['south','east']:export(d,1,60,'idle')
+    export('south',6,36,'start');export('south',36,60,'walk');export('south',6,36,'stop')
+    export('east',8,20,'turn','turn_from_south');export('south',12,12,'death')
+if DEATH_ONLY:
+    for weapon in ['pistol','unarmed']:
+        for d in directions:export(d,12,12,'death',weapon=weapon)
+if WORK_ONLY:
+    for weapon in ['pistol','unarmed']:
+        for d in directions:export(d,12,24,'work',weapon=weapon)
+for weapon in ([] if PILOT_V2 or BODY_LOOK or BODY_MOTION or DEATH_ONLY or WORK_ONLY else ['pistol'] if LOOK_ONLY else ['pistol','unarmed']):
     for d in directions:export(d,1,60,'idle',weapon=weapon)
     if not LOOK_ONLY:
         for d in directions:
             export(d,6,36,'start',weapon=weapon);export(d,6,36,'stop',weapon=weapon)
             export(d,36,60,'walk',weapon=weapon)
-            export(d,6,12,'ready',weapon=weapon);export(d,6,12,'work',weapon=weapon)
-            export(d,5,20,'hit',weapon=weapon);export(d,8,10,'death',weapon=weapon)
+            export(d,6,12,'ready',weapon=weapon);export(d,12,24,'work',weapon=weapon)
+            export(d,5,20,'hit',weapon=weapon);export(d,12,12,'death',weapon=weapon)
             if weapon=='pistol':
                 export(d,1,60,'aim',weapon=weapon)
                 export(d,8,16,'fire',weapon=weapon,exposures=[.07,.07,.04,.04,.06,.07,.07,.08])
-            else:export(d,8,20,'melee',weapon=weapon)
-(OUT/'timing.json').write_text(json.dumps({'modelAndCalibrationSeconds':MODEL_SECONDS,'totalProcessSeconds':time.perf_counter()-START,'renderSeconds':time.perf_counter()-START-MODEL_SECONDS,'geometryIterations':3,'boundedLookCorrections':4,'status':'Development candidate for native evaluation; artistic finish OPEN'},indent=2)+'\n',newline='\n')
+            export(d,8,20,'melee',weapon=weapon)
+        for source in directions:
+            for destination in directions:
+                if source==destination:continue
+                half=abs(abs(directions[destination]-directions[source])-math.pi)<.01
+                export(destination,8,8/(.6 if half else .4),'turn','turn_from_'+source,weapon)
+(EXPORT_OUT/'timing.json').write_text(json.dumps({'modelAndCalibrationSeconds':MODEL_SECONDS,'totalProcessSeconds':time.perf_counter()-START,'renderSeconds':time.perf_counter()-START-MODEL_SECONDS,'geometryIterations':3,'boundedLookCorrections':5,'status':'V2 pilot before independent review' if PILOT_V2 else 'Development candidate for native evaluation; artistic finish OPEN'},indent=2)+'\n',newline='\n')
 print('OFFICER_PILOT_COMPLETE',len(clips),sum(len(c['frames']) for c in clips),time.perf_counter()-START)
