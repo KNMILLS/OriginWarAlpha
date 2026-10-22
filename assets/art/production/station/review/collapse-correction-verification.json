@@ -1,0 +1,216 @@
+{
+  "scope": "bounded export/source verification; no native or artistic acceptance",
+  "totalRegions": 369,
+  "byteIdenticalNoncollapseRasters": 329,
+  "byteIdenticalNoncollapseMasters": 329,
+  "rerenderedCollapseRasters": 40,
+  "earlyCollapseRgbaPixelsPreserved": 16,
+  "lateCollapsePixelsChanged": 23,
+  "checks": [
+    {
+      "name": "machine.sirs.destroyed.north.00",
+      "sensorDark": false,
+      "rgbaPixelsChanged": false
+    },
+    {
+      "name": "machine.sirs.destroyed.north.01",
+      "sensorDark": false,
+      "rgbaPixelsChanged": false
+    },
+    {
+      "name": "machine.sirs.destroyed.north.02",
+      "sensorDark": false,
+      "rgbaPixelsChanged": false
+    },
+    {
+      "name": "machine.sirs.destroyed.north.03",
+      "sensorDark": false,
+      "rgbaPixelsChanged": false
+    },
+    {
+      "name": "machine.sirs.destroyed.north.04",
+      "sensorDark": true,
+      "rgbaPixelsChanged": false
+    },
+    {
+      "name": "machine.sirs.destroyed.north.05",
+      "sensorDark": true,
+      "rgbaPixelsChanged": true
+    },
+    {
+      "name": "machine.sirs.destroyed.north.06",
+      "sensorDark": true,
+      "rgbaPixelsChanged": true
+    },
+    {
+      "name": "machine.sirs.destroyed.north.07",
+      "sensorDark": true,
+      "rgbaPixelsChanged": true
+    },
+    {
+      "name": "machine.sirs.destroyed.north.08",
+      "sensorDark": true,
+      "rgbaPixelsChanged": true
+    },
+    {
+      "name": "machine.sirs.destroyed.north.09",
+      "sensorDark": true,
+      "rgbaPixelsChanged": true
+    },
+    {
+      "name": "machine.sirs.destroyed.east.00",
+      "sensorDark": false,
+      "rgbaPixelsChanged": false
+    },
+    {
+      "name": "machine.sirs.destroyed.east.01",
+      "sensorDark": false,
+      "rgbaPixelsChanged": false
+    },
+    {
+      "name": "machine.sirs.destroyed.east.02",
+      "sensorDark": false,
+      "rgbaPixelsChanged": false
+    },
+    {
+      "name": "machine.sirs.destroyed.east.03",
+      "sensorDark": false,
+      "rgbaPixelsChanged": false
+    },
+    {
+      "name": "machine.sirs.destroyed.east.04",
+      "sensorDark": true,
+      "rgbaPixelsChanged": true
+    },
+    {
+      "name": "machine.sirs.destroyed.east.05",
+      "sensorDark": true,
+      "rgbaPixelsChanged": true
+    },
+    {
+      "name": "machine.sirs.destroyed.east.06",
+      "sensorDark": true,
+      "rgbaPixelsChanged": true
+    },
+    {
+      "name": "machine.sirs.destroyed.east.07",
+      "sensorDark": true,
+      "rgbaPixelsChanged": true
+    },
+    {
+      "name": "machine.sirs.destroyed.east.08",
+      "sensorDark": true,
+      "rgbaPixelsChanged": true
+    },
+    {
+      "name": "machine.sirs.destroyed.east.09",
+      "sensorDark": true,
+      "rgbaPixelsChanged": true
+    },
+    {
+      "name": "machine.sirs.destroyed.south.00",
+      "sensorDark": false,
+      "rgbaPixelsChanged": false
+    },
+    {
+      "name": "machine.sirs.destroyed.south.01",
+      "sensorDark": false,
+      "rgbaPixelsChanged": false
+    },
+    {
+      "name": "machine.sirs.destroyed.south.02",
+      "sensorDark": false,
+      "rgbaPixelsChanged": false
+    },
+    {
+      "name": "machine.sirs.destroyed.south.03",
+      "sensorDark": false,
+      "rgbaPixelsChanged": false
+    },
+    {
+      "name": "machine.sirs.destroyed.south.04",
+      "sensorDark": true,
+      "rgbaPixelsChanged": true
+    },
+    {
+      "name": "machine.sirs.destroyed.south.05",
+      "sensorDark": true,
+      "rgbaPixelsChanged": true
+    },
+    {
+      "name": "machine.sirs.destroyed.south.06",
+      "sensorDark": true,
+      "rgbaPixelsChanged": true
+    },
+    {
+      "name": "machine.sirs.destroyed.south.07",
+      "sensorDark": true,
+      "rgbaPixelsChanged": true
+    },
+    {
+      "name": "machine.sirs.destroyed.south.08",
+      "sensorDark": true,
+      "rgbaPixelsChanged": true
+    },
+    {
+      "name": "machine.sirs.destroyed.south.09",
+      "sensorDark": true,
+      "rgbaPixelsChanged": true
+    },
+    {
+      "name": "machine.sirs.destroyed.west.00",
+      "sensorDark": false,
+      "rgbaPixelsChanged": false
+    },
+    {
+      "name": "machine.sirs.destroyed.west.01",
+      "sensorDark": false,
+      "rgbaPixelsChanged": false
+    },
+    {
+      "name": "machine.sirs.destroyed.west.02",
+      "sensorDark": false,
+      "rgbaPixelsChanged": false
+    },
+    {
+      "name": "machine.sirs.destroyed.west.03",
+      "sensorDark": false,
+      "rgbaPixelsChanged": false
+    },
+    {
+      "name": "machine.sirs.destroyed.west.04",
+      "sensorDark": true,
+      "rgbaPixelsChanged": true
+    },
+    {
+      "name": "machine.sirs.destroyed.west.05",
+      "sensorDark": true,
+      "rgbaPixelsChanged": true
+    },
+    {
+      "name": "machine.sirs.destroyed.west.06",
+      "sensorDark": true,
+      "rgbaPixelsChanged": true
+    },
+    {
+      "name": "machine.sirs.destroyed.west.07",
+      "sensorDark": true,
+      "rgbaPixelsChanged": true
+    },
+    {
+      "name": "machine.sirs.destroyed.west.08",
+      "sensorDark": true,
+      "rgbaPixelsChanged": true
+    },
+    {
+      "name": "machine.sirs.destroyed.west.09",
+      "sensorDark": true,
+      "rgbaPixelsChanged": true
+    }
+  ],
+  "full02TotalSeconds": 354.15012839995325,
+  "correctionTotalSeconds": 165.6067051999271,
+  "sourceBlendSha256": "8d064b9deb7801bba1e195d7e3ab7f74a89885591dc5ee57b810f490b17f8a89",
+  "currentBuildSha256": "89d27e1b998a78007b6306983ace92d7e7c2c4ad4de0dd31a8ee23fd5b7b1119",
+  "currentMotionSha256": "5097778e549d8fefc97eb22e2e8442aaba41f0ebe756a72ad39c6a43d1127d55"
+}

@@ -1,0 +1,5127 @@
+{
+  "version": 1,
+  "referenceCellPixels": 192,
+  "editableReferenceCellPixels": 256,
+  "pivotOrigin": "bottom-left",
+  "pathRoot": "assets",
+  "regions": [
+    {
+      "name": "machine.sirs.idle.north",
+      "path": "art/production/station/review/iterations/benchmark-room-motion04/regions/machine.sirs.idle.north.png",
+      "widthCells": 1.5,
+      "heightCells": 2.0,
+      "pivotX": 0.5,
+      "pivotY": 0.2125542163848877,
+      "pixelWidth": 288,
+      "pixelHeight": 384,
+      "layer": "world",
+      "sha256": "bb41988dbd37d21e253464ed1018a945a6a1c0164e9be28ff711367b76038d46",
+      "asset": "sirs",
+      "feet": {
+        "left": {
+          "phase": 0,
+          "stance": true,
+          "anchorWorld": [
+            -0.2150000035762787,
+            0.05500001832842827,
+            0.006000000052154064
+          ],
+          "localPixels": [
+            -32.83446979522705,
+            5.831302642822266
+          ],
+          "screenCells": [
+            -0.17101286351680756,
+            0.030371367931365967
+          ],
+          "rootPixels": [
+            0.0,
+            0.0
+          ],
+          "rootPlusLocalPixels": [
+            -32.83446979522705,
+            5.831302642822266
+          ],
+          "liftWorld": 0
+        },
+        "right": {
+          "phase": 0.5,
+          "stance": true,
+          "anchorWorld": [
+            0.2150000035762787,
+            0.054999981075525284,
+            0.006000000052154064
+          ],
+          "localPixels": [
+            32.8344612121582,
+            5.831302642822266
+          ],
+          "screenCells": [
+            0.17101281881332397,
+            0.030371367931365967
+          ],
+          "rootPixels": [
+            0.0,
+            0.0
+          ],
+          "rootPlusLocalPixels": [
+            32.8344612121582,
+            5.831302642822266
+          ],
+          "liftWorld": 0
+        }
+      }
+    },
+    {
+      "name": "machine.sirs.idle.east",
+      "path": "art/production/station/review/iterations/benchmark-room-motion04/regions/machine.sirs.idle.east.png",
+      "widthCells": 1.5,
+      "heightCells": 2.0,
+      "pivotX": 0.5,
+      "pivotY": 0.2125542163848877,
+      "pixelWidth": 288,
+      "pixelHeight": 384,
+      "layer": "world",
+      "sha256": "e9b718fec87e5dfa3ada141835fe16559baa31a589dd2e365b837f2eae308443",
+      "asset": "sirs",
+      "feet": {
+        "left": {
+          "phase": 0,
+          "stance": true,
+          "anchorWorld": [
+            0.05500001460313797,
+            0.2150000035762787,
+            0.006000000052154064
+          ],
+          "localPixels": [
+            8.399511337280273,
+            20.67791748046875
+          ],
+          "screenCells": [
+            0.04374745488166809,
+            0.1076974868774414
+          ],
+          "rootPixels": [
+            0.0,
+            0.0
+          ],
+          "rootPlusLocalPixels": [
+            8.399511337280273,
+            20.67791748046875
+          ],
+          "liftWorld": 0
+        },
+        "right": {
+          "phase": 0.5,
+          "stance": true,
+          "anchorWorld": [
+            0.05499998480081558,
+            -0.2150000035762787,
+            0.006000000052154064
+          ],
+          "localPixels": [
+            8.399511337280273,
+            -19.222366333007812
+          ],
+          "screenCells": [
+            0.04374745488166809,
+            -0.10011649131774902
+          ],
+          "rootPixels": [
+            0.0,
+            0.0
+          ],
+          "rootPlusLocalPixels": [
+            8.399511337280273,
+            -19.222366333007812
+          ],
+          "liftWorld": 0
+        }
+      }
+    },
+    {
+      "name": "machine.sirs.idle.south",
+      "path": "art/production/station/review/iterations/benchmark-room-motion04/regions/machine.sirs.idle.south.png",
+      "widthCells": 1.5,
+      "heightCells": 2.0,
+      "pivotX": 0.5,
+      "pivotY": 0.2125542163848877,
+      "pixelWidth": 288,
+      "pixelHeight": 384,
+      "layer": "world",
+      "sha256": "f52afe7b68bc4612717334a6326b8c848a8b30738e46280fc6bbb9962d56ae21",
+      "asset": "sirs",
+      "feet": {
+        "left": {
+          "phase": 0,
+          "stance": true,
+          "anchorWorld": [
+            0.2150000035762787,
+            -0.054999999701976776,
+            0.006000000052154064
+          ],
+          "localPixels": [
+            32.8344612121582,
+            -4.37574577331543
+          ],
+          "screenCells": [
+            0.17101281881332397,
+            -0.022790342569351196
+          ],
+          "rootPixels": [
+            0.0,
+            0.0
+          ],
+          "rootPlusLocalPixels": [
+            32.8344612121582,
+            -4.37574577331543
+          ],
+          "liftWorld": 0
+        },
+        "right": {
+          "phase": 0.5,
+          "stance": true,
+          "anchorWorld": [
+            -0.2150000035762787,
+            -0.054999999701976776,
+            0.006000000052154064
+          ],
+          "localPixels": [
+            -32.83446979522705,
+            -4.37574577331543
+          ],
+          "screenCells": [
+            -0.17101286351680756,
+            -0.022790342569351196
+          ],
+          "rootPixels": [
+            0.0,
+            0.0
+          ],
+          "rootPlusLocalPixels": [
+            -32.83446979522705,
+            -4.37574577331543
+          ],
+          "liftWorld": 0
+        }
+      }
+    },
+    {
+      "name": "machine.sirs.idle.west",
+      "path": "art/production/station/review/iterations/benchmark-room-motion04/regions/machine.sirs.idle.west.png",
+      "widthCells": 1.5,
+      "heightCells": 2.0,
+      "pivotX": 0.5,
+      "pivotY": 0.2125542163848877,
+      "pixelWidth": 288,
+      "pixelHeight": 384,
+      "layer": "world",
+      "sha256": "6eb711ba5bda31b7e87dc394511c87510eb650346ec3bdbed1b138e48ade24e5",
+      "asset": "sirs",
+      "feet": {
+        "left": {
+          "phase": 0,
+          "stance": true,
+          "anchorWorld": [
+            -0.05500001087784767,
+            -0.2150000035762787,
+            0.006000000052154064
+          ],
+          "localPixels": [
+            -8.399519920349121,
+            -19.222366333007812
+          ],
+          "screenCells": [
+            -0.04374749958515167,
+            -0.10011649131774902
+          ],
+          "rootPixels": [
+            0.0,
+            0.0
+          ],
+          "rootPlusLocalPixels": [
+            -8.399519920349121,
+            -19.222366333007812
+          ],
+          "liftWorld": 0
+        },
+        "right": {
+          "phase": 0.5,
+          "stance": true,
+          "anchorWorld": [
+            -0.05499998852610588,
+            0.2150000035762787,
+            0.006000000052154064
+          ],
+          "localPixels": [
+            -8.399511337280273,
+            20.67791748046875
+          ],
+          "screenCells": [
+            -0.04374745488166809,
+            0.1076974868774414
+          ],
+          "rootPixels": [
+            0.0,
+            0.0
+          ],
+          "rootPlusLocalPixels": [
+            -8.399511337280273,
+            20.67791748046875
+          ],
+          "liftWorld": 0
+        }
+      }
+    },
+    {
+      "name": "machine.sirs.walk.south.00",
+      "path": "art/production/station/review/iterations/benchmark-room-motion04/regions/machine.sirs.walk.south.00.png",
+      "widthCells": 1.5,
+      "heightCells": 2.0,
+      "pivotX": 0.5,
+      "pivotY": 0.2125542163848877,
+      "pixelWidth": 288,
+      "pixelHeight": 384,
+      "layer": "world",
+      "sha256": "78f8f542d55135a1f389a89d2873a4edef4c01e4d7e4459bc5e12d4fa12d0775",
+      "asset": "sirs",
+      "feet": {
+        "left": {
+          "phase": 0.0,
+          "stance": true,
+          "anchorWorld": [
+            0.2150000035762787,
+            -0.5722895264625549,
+            0.006000000052154064
+          ],
+          "localPixels": [
+            32.8344612121582,
+            -52.37573432922363
+          ],
+          "screenCells": [
+            0.17101281881332397,
+            -0.2727902829647064
+          ],
+          "rootPixels": [
+            0.0,
+            -0.0
+          ],
+          "rootPlusLocalPixels": [
+            32.8344612121582,
+            -52.37573432922363
+          ],
+          "liftWorld": 0
+        },
+        "right": {
+          "phase": 0.5,
+          "stance": false,
+          "anchorWorld": [
+            -0.2150000035762787,
+            0.4622895419597626,
+            0.006000000052154064
+          ],
+          "localPixels": [
+            -32.83446979522705,
+            43.62424850463867
+          ],
+          "screenCells": [
+            -0.17101286351680756,
+            0.22720962762832642
+          ],
+          "rootPixels": [
+            0.0,
+            -0.0
+          ],
+          "rootPlusLocalPixels": [
+            -32.83446979522705,
+            43.62424850463867
+          ],
+          "liftWorld": 0.0
+        }
+      }
+    },
+    {
+      "name": "machine.sirs.walk.south.01",
+      "path": "art/production/station/review/iterations/benchmark-room-motion04/regions/machine.sirs.walk.south.01.png",
+      "widthCells": 1.5,
+      "heightCells": 2.0,
+      "pivotX": 0.5,
+      "pivotY": 0.2125542163848877,
+      "pixelWidth": 288,
+      "pixelHeight": 384,
+      "layer": "world",
+      "sha256": "30f1f23bbd0533f3457ef41b37934bf9d35ae665f0d19618d78abb775b2ae9c6",
+      "asset": "sirs",
+      "feet": {
+        "left": {
+          "phase": 0.041666666666666664,
+          "stance": true,
+          "anchorWorld": [
+            0.2150000035762787,
+            -0.48607462644577026,
+            0.006000000052154064
+          ],
+          "localPixels": [
+            32.8344612121582,
+            -44.37574768066406
+          ],
+          "screenCells": [
+            0.17101281881332397,
+            -0.231123685836792
+          ],
+          "rootPixels": [
+            0.0,
+            -8.0
+          ],
+          "rootPlusLocalPixels": [
+            32.8344612121582,
+            -52.37574768066406
+          ],
+          "liftWorld": 0
+        },
+        "right": {
+          "phase": 0.5416666666666666,
+          "stance": false,
+          "anchorWorld": [
+            -0.2150000035762787,
+            0.4419332444667816,
+            0.02023504674434662
+          ],
+          "localPixels": [
+            -32.83446979522705,
+            43.46201705932617
+          ],
+          "screenCells": [
+            -0.17101286351680756,
+            0.22636467218399048
+          ],
+          "rootPixels": [
+            0.0,
+            -8.0
+          ],
+          "rootPlusLocalPixels": [
+            -32.83446979522705,
+            35.46201705932617
+          ],
+          "liftWorld": 0.014235047480638629
+        }
+      }
+    },
+    {
+      "name": "machine.sirs.walk.south.02",
+      "path": "art/production/station/review/iterations/benchmark-room-motion04/regions/machine.sirs.walk.south.02.png",
+      "widthCells": 1.5,
+      "heightCells": 2.0,
+      "pivotX": 0.5,
+      "pivotY": 0.2125542163848877,
+      "pixelWidth": 288,
+      "pixelHeight": 384,
+      "layer": "world",
+      "sha256": "0bb9b4240204775bed736b232161af3bdb22758c549709153ecd976e880ba32d",
+      "asset": "sirs",
+      "feet": {
+        "left": {
+          "phase": 0.08333333333333333,
+          "stance": true,
+          "anchorWorld": [
+            0.2150000035762787,
+            -0.3998596966266632,
+            0.006000000052154064
+          ],
+          "localPixels": [
+            32.8344612121582,
+            -36.37574100494385
+          ],
+          "screenCells": [
+            0.17101281881332397,
+            -0.1894569844007492
+          ],
+          "rootPixels": [
+            0.0,
+            -16.0
+          ],
+          "rootPlusLocalPixels": [
+            32.8344612121582,
+            -52.37574100494385
+          ],
+          "liftWorld": 0
+        },
+        "right": {
+          "phase": 0.5833333333333334,
+          "stance": false,
+          "anchorWorld": [
+            -0.2150000035762787,
+            0.3856540620326996,
+            0.03350000083446503
+          ],
+          "localPixels": [
+            -32.83446979522705,
+            39.84877395629883
+          ],
+          "screenCells": [
+            -0.17101286351680756,
+            0.2075456976890564
+          ],
+          "rootPixels": [
+            0.0,
+            -16.0
+          ],
+          "rootPlusLocalPixels": [
+            -32.83446979522705,
+            23.848773956298828
+          ],
+          "liftWorld": 0.027500000000000007
+        }
+      }
+    },
+    {
+      "name": "machine.sirs.walk.south.03",
+      "path": "art/production/station/review/iterations/benchmark-room-motion04/regions/machine.sirs.walk.south.03.png",
+      "widthCells": 1.5,
+      "heightCells": 2.0,
+      "pivotX": 0.5,
+      "pivotY": 0.2125542163848877,
+      "pixelWidth": 288,
+      "pixelHeight": 384,
+      "layer": "world",
+      "sha256": "e1a8d4f6b425e7e342ee1c3abab5c949cc706285869e4e3f63509236a415cda7",
+      "asset": "sirs",
+      "feet": {
+        "left": {
+          "phase": 0.125,
+          "stance": true,
+          "anchorWorld": [
+            0.2150000035762787,
+            -0.31364476680755615,
+            0.006000000052154064
+          ],
+          "localPixels": [
+            32.8344612121582,
+            -28.37574577331543
+          ],
+          "screenCells": [
+            0.17101281881332397,
+            -0.1477903425693512
+          ],
+          "rootPixels": [
+            0.0,
+            -24.0
+          ],
+          "rootPlusLocalPixels": [
+            32.8344612121582,
+            -52.37574577331543
+          ],
+          "liftWorld": 0
+        },
+        "right": {
+          "phase": 0.625,
+          "stance": false,
+          "anchorWorld": [
+            -0.2150000035762787,
+            0.30063655972480774,
+            0.0448908731341362
+          ],
+          "localPixels": [
+            -32.83446979522705,
+            33.341548919677734
+          ],
+          "screenCells": [
+            -0.17101286351680756,
+            0.17365390062332153
+          ],
+          "rootPixels": [
+            0.0,
+            -24.0
+          ],
+          "rootPlusLocalPixels": [
+            -32.83446979522705,
+            9.341548919677734
+          ],
+          "liftWorld": 0.038890872965260115
+        }
+      }
+    },
+    {
+      "name": "machine.sirs.walk.south.04",
+      "path": "art/production/station/review/iterations/benchmark-room-motion04/regions/machine.sirs.walk.south.04.png",
+      "widthCells": 1.5,
+      "heightCells": 2.0,
+      "pivotX": 0.5,
+      "pivotY": 0.2125542163848877,
+      "pixelWidth": 288,
+      "pixelHeight": 384,
+      "layer": "world",
+      "sha256": "922bd50d01f6a2f663889776bf2df105e2fa23cf2a01035289d9ff99fd43ffc6",
+      "asset": "sirs",
+      "feet": {
+        "left": {
+          "phase": 0.16666666666666666,
+          "stance": true,
+          "anchorWorld": [
+            0.2150000035762787,
+            -0.2274298518896103,
+            0.006000000052154064
+          ],
+          "localPixels": [
+            32.8344612121582,
+            -20.375747680664062
+          ],
+          "screenCells": [
+            0.17101281881332397,
+            -0.10612368583679199
+          ],
+          "rootPixels": [
+            0.0,
+            -32.0
+          ],
+          "rootPlusLocalPixels": [
+            32.8344612121582,
+            -52.37574768066406
+          ],
+          "liftWorld": 0
+        },
+        "right": {
+          "phase": 0.6666666666666666,
+          "stance": false,
+          "anchorWorld": [
+            -0.2150000035762787,
+            0.19406533241271973,
+            0.05363139882683754
+          ],
+          "localPixels": [
+            -32.83446979522705,
+            24.51284408569336
+          ],
+          "screenCells": [
+            -0.17101286351680756,
+            0.12767106294631958
+          ],
+          "rootPixels": [
+            0.0,
+            -32.0
+          ],
+          "rootPlusLocalPixels": [
+            -32.83446979522705,
+            -7.487155914306641
+          ],
+          "liftWorld": 0.04763139720814412
+        }
+      }
+    },
+    {
+      "name": "machine.sirs.walk.south.05",
+      "path": "art/production/station/review/iterations/benchmark-room-motion04/regions/machine.sirs.walk.south.05.png",
+      "widthCells": 1.5,
+      "heightCells": 2.0,
+      "pivotX": 0.5,
+      "pivotY": 0.2125542163848877,
+      "pixelWidth": 288,
+      "pixelHeight": 384,
+      "layer": "world",
+      "sha256": "5b78950ff1fc9e2e8797ccecc30b80a633dfe119c8cd1ce55c896572484d5bc8",
+      "asset": "sirs",
+      "feet": {
+        "left": {
+          "phase": 0.20833333333333334,
+          "stance": true,
+          "anchorWorld": [
+            0.2150000035762787,
+            -0.14121492207050323,
+            0.006000000052154064
+          ],
+          "localPixels": [
+            32.8344612121582,
+            -12.375749588012695
+          ],
+          "screenCells": [
+            0.17101281881332397,
+            -0.06445702910423279
+          ],
+          "rootPixels": [
+            0.0,
+            -40.0
+          ],
+          "rootPlusLocalPixels": [
+            32.8344612121582,
+            -52.375749588012695
+          ],
+          "liftWorld": 0
+        },
+        "right": {
+          "phase": 0.7083333333333334,
+          "stance": false,
+          "anchorWorld": [
+            -0.2150000035762787,
+            0.0731249526143074,
+            0.05912591889500618
+          ],
+          "localPixels": [
+            -32.83446979522705,
+            13.957094192504883
+          ],
+          "screenCells": [
+            -0.17101286351680756,
+            0.07269319891929626
+          ],
+          "rootPixels": [
+            0.0,
+            -40.0
+          ],
+          "rootPlusLocalPixels": [
+            -32.83446979522705,
+            -26.042905807495117
+          ],
+          "liftWorld": 0.053125920445898756
+        }
+      }
+    },
+    {
+      "name": "machine.sirs.walk.south.06",
+      "path": "art/production/station/review/iterations/benchmark-room-motion04/regions/machine.sirs.walk.south.06.png",
+      "widthCells": 1.5,
+      "heightCells": 2.0,
+      "pivotX": 0.5,
+      "pivotY": 0.2125542163848877,
+      "pixelWidth": 288,
+      "pixelHeight": 384,
+      "layer": "world",
+      "sha256": "2cb5ffd782a9e74df4f80efcc528f771d963e68d3c2b768fe24b32e13874c6cc",
+      "asset": "sirs",
+      "feet": {
+        "left": {
+          "phase": 0.25,
+          "stance": true,
+          "anchorWorld": [
+            0.2150000035762787,
+            -0.054999999701976776,
+            0.006000000052154064
+          ],
+          "localPixels": [
+            32.8344612121582,
+            -4.37574577331543
+          ],
+          "screenCells": [
+            0.17101281881332397,
+            -0.022790342569351196
+          ],
+          "rootPixels": [
+            0.0,
+            -48.0
+          ],
+          "rootPlusLocalPixels": [
+            32.8344612121582,
+            -52.37574577331543
+          ],
+          "liftWorld": 0
+        },
+        "right": {
+          "phase": 0.75,
+          "stance": false,
+          "anchorWorld": [
+            -0.2150000035762787,
+            -0.054999999701976776,
+            0.061000000685453415
+          ],
+          "localPixels": [
+            -32.83446979522705,
+            2.2955245971679688
+          ],
+          "screenCells": [
+            -0.17101286351680756,
+            0.011955857276916504
+          ],
+          "rootPixels": [
+            0.0,
+            -48.0
+          ],
+          "rootPlusLocalPixels": [
+            -32.83446979522705,
+            -45.70447540283203
+          ],
+          "liftWorld": 0.055
+        }
+      }
+    },
+    {
+      "name": "machine.sirs.walk.south.07",
+      "path": "art/production/station/review/iterations/benchmark-room-motion04/regions/machine.sirs.walk.south.07.png",
+      "widthCells": 1.5,
+      "heightCells": 2.0,
+      "pivotX": 0.5,
+      "pivotY": 0.2125542163848877,
+      "pixelWidth": 288,
+      "pixelHeight": 384,
+      "layer": "world",
+      "sha256": "26aa250b7877092de690f36e3c691fefd89cd54892e789134b0e79a5195b6357",
+      "asset": "sirs",
+      "feet": {
+        "left": {
+          "phase": 0.2916666666666667,
+          "stance": true,
+          "anchorWorld": [
+            0.2150000035762787,
+            0.031214922666549683,
+            0.006000000052154064
+          ],
+          "localPixels": [
+            32.8344612121582,
+            3.6242523193359375
+          ],
+          "screenCells": [
+            0.17101281881332397,
+            0.018876314163208008
+          ],
+          "rootPixels": [
+            0.0,
+            -56.0
+          ],
+          "rootPlusLocalPixels": [
+            32.8344612121582,
+            -52.37574768066406
+          ],
+          "liftWorld": 0
+        },
+        "right": {
+          "phase": 0.7916666666666667,
+          "stance": false,
+          "anchorWorld": [
+            -0.2150000035762787,
+            -0.18312495946884155,
+            0.05912591889500618
+          ],
+          "localPixels": [
+            -32.83446979522705,
+            -9.8206787109375
+          ],
+          "screenCells": [
+            -0.17101286351680756,
+            -0.05114936828613281
+          ],
+          "rootPixels": [
+            0.0,
+            -56.0
+          ],
+          "rootPlusLocalPixels": [
+            -32.83446979522705,
+            -65.8206787109375
+          ],
+          "liftWorld": 0.05312592044589875
+        }
+      }
+    },
+    {
+      "name": "machine.sirs.walk.south.08",
+      "path": "art/production/station/review/iterations/benchmark-room-motion04/regions/machine.sirs.walk.south.08.png",
+      "widthCells": 1.5,
+      "heightCells": 2.0,
+      "pivotX": 0.5,
+      "pivotY": 0.2125542163848877,
+      "pixelWidth": 288,
+      "pixelHeight": 384,
+      "layer": "world",
+      "sha256": "f08aa11967e74986b0bbe652ff0f663ce9a27c6abcb6fccb2b98751100f320ae",
+      "asset": "sirs",
+      "feet": {
+        "left": {
+          "phase": 0.3333333333333333,
+          "stance": true,
+          "anchorWorld": [
+            0.2150000035762787,
+            0.11742984503507614,
+            0.006000000052154064
+          ],
+          "localPixels": [
+            32.8344612121582,
+            11.624250411987305
+          ],
+          "screenCells": [
+            0.17101281881332397,
+            0.06054297089576721
+          ],
+          "rootPixels": [
+            0.0,
+            -64.0
+          ],
+          "rootPlusLocalPixels": [
+            32.8344612121582,
+            -52.375749588012695
+          ],
+          "liftWorld": 0
+        },
+        "right": {
+          "phase": 0.8333333333333333,
+          "stance": false,
+          "anchorWorld": [
+            -0.2150000035762787,
+            -0.3040653467178345,
+            0.05363139882683754
+          ],
+          "localPixels": [
+            -32.83446979522705,
+            -21.709367752075195
+          ],
+          "screenCells": [
+            -0.17101286351680756,
+            -0.11306962370872498
+          ],
+          "rootPixels": [
+            0.0,
+            -64.0
+          ],
+          "rootPlusLocalPixels": [
+            -32.83446979522705,
+            -85.7093677520752
+          ],
+          "liftWorld": 0.04763139720814415
+        }
+      }
+    },
+    {
+      "name": "machine.sirs.walk.south.09",
+      "path": "art/production/station/review/iterations/benchmark-room-motion04/regions/machine.sirs.walk.south.09.png",
+      "widthCells": 1.5,
+      "heightCells": 2.0,
+      "pivotX": 0.5,
+      "pivotY": 0.2125542163848877,
+      "pixelWidth": 288,
+      "pixelHeight": 384,
+      "layer": "world",
+      "sha256": "3dbf2ae8b3fac9f755796ac85d092d53233fc9f38a56fdc0da3beee68ae95a9c",
+      "asset": "sirs",
+      "feet": {
+        "left": {
+          "phase": 0.375,
+          "stance": true,
+          "anchorWorld": [
+            0.2150000035762787,
+            0.2036447674036026,
+            0.006000000052154064
+          ],
+          "localPixels": [
+            32.8344612121582,
+            19.624248504638672
+          ],
+          "screenCells": [
+            0.17101281881332397,
+            0.10220962762832642
+          ],
+          "rootPixels": [
+            0.0,
+            -72.0
+          ],
+          "rootPlusLocalPixels": [
+            32.8344612121582,
+            -52.37575149536133
+          ],
+          "liftWorld": 0
+        },
+        "right": {
+          "phase": 0.875,
+          "stance": false,
+          "anchorWorld": [
+            -0.2150000035762787,
+            -0.4106365740299225,
+            0.0448908731341362
+          ],
+          "localPixels": [
+            -32.83446979522705,
+            -32.65843963623047
+          ],
+          "screenCells": [
+            -0.17101286351680756,
+            -0.1700960397720337
+          ],
+          "rootPixels": [
+            0.0,
+            -72.0
+          ],
+          "rootPlusLocalPixels": [
+            -32.83446979522705,
+            -104.65843963623047
+          ],
+          "liftWorld": 0.038890872965260115
+        }
+      }
+    },
+    {
+      "name": "machine.sirs.walk.south.10",
+      "path": "art/production/station/review/iterations/benchmark-room-motion04/regions/machine.sirs.walk.south.10.png",
+      "widthCells": 1.5,
+      "heightCells": 2.0,
+      "pivotX": 0.5,
+      "pivotY": 0.2125542163848877,
+      "pixelWidth": 288,
+      "pixelHeight": 384,
+      "layer": "world",
+      "sha256": "6d6039822673a04acd034ed8283e72a6548bb6f92b7e1eb01ee017f10ef1f62b",
+      "asset": "sirs",
+      "feet": {
+        "left": {
+          "phase": 0.4166666666666667,
+          "stance": true,
+          "anchorWorld": [
+            0.2150000035762787,
+            0.28985968232154846,
+            0.006000000052154064
+          ],
+          "localPixels": [
+            32.8344612121582,
+            27.624252319335938
+          ],
+          "screenCells": [
+            0.17101281881332397,
+            0.143876314163208
+          ],
+          "rootPixels": [
+            0.0,
+            -80.0
+          ],
+          "rootPlusLocalPixels": [
+            32.8344612121582,
+            -52.37574768066406
+          ],
+          "liftWorld": 0
+        },
+        "right": {
+          "phase": 0.9166666666666667,
+          "stance": false,
+          "anchorWorld": [
+            -0.2150000035762787,
+            -0.49565404653549194,
+            0.03350000083446503
+          ],
+          "localPixels": [
+            -32.83446979522705,
+            -41.92899799346924
+          ],
+          "screenCells": [
+            -0.17101286351680756,
+            -0.21838019788265228
+          ],
+          "rootPixels": [
+            0.0,
+            -80.0
+          ],
+          "rootPlusLocalPixels": [
+            -32.83446979522705,
+            -121.92899799346924
+          ],
+          "liftWorld": 0.027499999999999976
+        }
+      }
+    },
+    {
+      "name": "machine.sirs.walk.south.11",
+      "path": "art/production/station/review/iterations/benchmark-room-motion04/regions/machine.sirs.walk.south.11.png",
+      "widthCells": 1.5,
+      "heightCells": 2.0,
+      "pivotX": 0.5,
+      "pivotY": 0.2125542163848877,
+      "pixelWidth": 288,
+      "pixelHeight": 384,
+      "layer": "world",
+      "sha256": "ba1326336081709c07285e2c79d5fc6dc502ab6a032467fba091c6eb2eb8595c",
+      "asset": "sirs",
+      "feet": {
+        "left": {
+          "phase": 0.4583333333333333,
+          "stance": true,
+          "anchorWorld": [
+            0.2150000035762787,
+            0.3760746121406555,
+            0.006000000052154064
+          ],
+          "localPixels": [
+            32.8344612121582,
+            35.624244689941406
+          ],
+          "screenCells": [
+            0.17101281881332397,
+            0.18554294109344482
+          ],
+          "rootPixels": [
+            0.0,
+            -88.0
+          ],
+          "rootPlusLocalPixels": [
+            32.8344612121582,
+            -52.375755310058594
+          ],
+          "liftWorld": 0
+        },
+        "right": {
+          "phase": 0.9583333333333333,
+          "stance": false,
+          "anchorWorld": [
+            -0.2150000035762787,
+            -0.551933228969574,
+            0.02023504674434662
+          ],
+          "localPixels": [
+            -32.83446979522705,
+            -48.76020526885986
+          ],
+          "screenCells": [
+            -0.17101286351680756,
+            -0.25395940244197845
+          ],
+          "rootPixels": [
+            0.0,
+            -88.0
+          ],
+          "rootPlusLocalPixels": [
+            -32.83446979522705,
+            -136.76020526885986
+          ],
+          "liftWorld": 0.01423504748063868
+        }
+      }
+    },
+    {
+      "name": "machine.sirs.walk.south.12",
+      "path": "art/production/station/review/iterations/benchmark-room-motion04/regions/machine.sirs.walk.south.12.png",
+      "widthCells": 1.5,
+      "heightCells": 2.0,
+      "pivotX": 0.5,
+      "pivotY": 0.2125542163848877,
+      "pixelWidth": 288,
+      "pixelHeight": 384,
+      "layer": "world",
+      "sha256": "daacd5f31a4e8ca667c7a203a2a1435f143335d675a58b351b1567763f3e018d",
+      "asset": "sirs",
+      "feet": {
+        "left": {
+          "phase": 0.5,
+          "stance": false,
+          "anchorWorld": [
+            0.2150000035762787,
+            0.4622895419597626,
+            0.006000000052154064
+          ],
+          "localPixels": [
+            32.8344612121582,
+            43.62424850463867
+          ],
+          "screenCells": [
+            0.17101281881332397,
+            0.22720962762832642
+          ],
+          "rootPixels": [
+            0.0,
+            -96.0
+          ],
+          "rootPlusLocalPixels": [
+            32.8344612121582,
+            -52.37575149536133
+          ],
+          "liftWorld": 0.0
+        },
+        "right": {
+          "phase": 0.0,
+          "stance": true,
+          "anchorWorld": [
+            -0.2150000035762787,
+            -0.5722895264625549,
+            0.006000000052154064
+          ],
+          "localPixels": [
+            -32.83446979522705,
+            -52.37573432922363
+          ],
+          "screenCells": [
+            -0.17101286351680756,
+            -0.2727902829647064
+          ],
+          "rootPixels": [
+            0.0,
+            -96.0
+          ],
+          "rootPlusLocalPixels": [
+            -32.83446979522705,
+            -148.37573432922363
+          ],
+          "liftWorld": 0
+        }
+      }
+    },
+    {
+      "name": "machine.sirs.walk.south.13",
+      "path": "art/production/station/review/iterations/benchmark-room-motion04/regions/machine.sirs.walk.south.13.png",
+      "widthCells": 1.5,
+      "heightCells": 2.0,
+      "pivotX": 0.5,
+      "pivotY": 0.2125542163848877,
+      "pixelWidth": 288,
+      "pixelHeight": 384,
+      "layer": "world",
+      "sha256": "a45bbbf9b05606290a57202266ba33141f6635bc0f482eb986bbd020af8f2206",
+      "asset": "sirs",
+      "feet": {
+        "left": {
+          "phase": 0.5416666666666666,
+          "stance": false,
+          "anchorWorld": [
+            0.2150000035762787,
+            0.4419332444667816,
+            0.02023504674434662
+          ],
+          "localPixels": [
+            32.8344612121582,
+            43.46201705932617
+          ],
+          "screenCells": [
+            0.17101281881332397,
+            0.22636467218399048
+          ],
+          "rootPixels": [
+            0.0,
+            -104.0
+          ],
+          "rootPlusLocalPixels": [
+            32.8344612121582,
+            -60.53798294067383
+          ],
+          "liftWorld": 0.014235047480638629
+        },
+        "right": {
+          "phase": 0.04166666666666652,
+          "stance": true,
+          "anchorWorld": [
+            -0.2150000035762787,
+            -0.48607462644577026,
+            0.006000000052154064
+          ],
+          "localPixels": [
+            -32.83446979522705,
+            -44.37574768066406
+          ],
+          "screenCells": [
+            -0.17101286351680756,
+            -0.231123685836792
+          ],
+          "rootPixels": [
+            0.0,
+            -104.0
+          ],
+          "rootPlusLocalPixels": [
+            -32.83446979522705,
+            -148.37574768066406
+          ],
+          "liftWorld": 0
+        }
+      }
+    },
+    {
+      "name": "machine.sirs.walk.south.14",
+      "path": "art/production/station/review/iterations/benchmark-room-motion04/regions/machine.sirs.walk.south.14.png",
+      "widthCells": 1.5,
+      "heightCells": 2.0,
+      "pivotX": 0.5,
+      "pivotY": 0.2125542163848877,
+      "pixelWidth": 288,
+      "pixelHeight": 384,
+      "layer": "world",
+      "sha256": "a8306c06955f2fbadb7e485cf8ce681f57d025dc97266ec438c70bbe6868bcd8",
+      "asset": "sirs",
+      "feet": {
+        "left": {
+          "phase": 0.5833333333333334,
+          "stance": false,
+          "anchorWorld": [
+            0.2150000035762787,
+            0.3856540620326996,
+            0.03350000083446503
+          ],
+          "localPixels": [
+            32.8344612121582,
+            39.84877395629883
+          ],
+          "screenCells": [
+            0.17101281881332397,
+            0.2075456976890564
+          ],
+          "rootPixels": [
+            0.0,
+            -112.0
+          ],
+          "rootPlusLocalPixels": [
+            32.8344612121582,
+            -72.15122604370117
+          ],
+          "liftWorld": 0.027500000000000007
+        },
+        "right": {
+          "phase": 0.08333333333333348,
+          "stance": true,
+          "anchorWorld": [
+            -0.2150000035762787,
+            -0.3998596966266632,
+            0.006000000052154064
+          ],
+          "localPixels": [
+            -32.83446979522705,
+            -36.37574100494385
+          ],
+          "screenCells": [
+            -0.17101286351680756,
+            -0.1894569844007492
+          ],
+          "rootPixels": [
+            0.0,
+            -112.0
+          ],
+          "rootPlusLocalPixels": [
+            -32.83446979522705,
+            -148.37574100494385
+          ],
+          "liftWorld": 0
+        }
+      }
+    },
+    {
+      "name": "machine.sirs.walk.south.15",
+      "path": "art/production/station/review/iterations/benchmark-room-motion04/regions/machine.sirs.walk.south.15.png",
+      "widthCells": 1.5,
+      "heightCells": 2.0,
+      "pivotX": 0.5,
+      "pivotY": 0.2125542163848877,
+      "pixelWidth": 288,
+      "pixelHeight": 384,
+      "layer": "world",
+      "sha256": "67faea9209827955d2cd975509563b76025f7b06f62f2abb7051656a1b5d571f",
+      "asset": "sirs",
+      "feet": {
+        "left": {
+          "phase": 0.625,
+          "stance": false,
+          "anchorWorld": [
+            0.2150000035762787,
+            0.30063655972480774,
+            0.0448908731341362
+          ],
+          "localPixels": [
+            32.8344612121582,
+            33.341548919677734
+          ],
+          "screenCells": [
+            0.17101281881332397,
+            0.17365390062332153
+          ],
+          "rootPixels": [
+            0.0,
+            -120.0
+          ],
+          "rootPlusLocalPixels": [
+            32.8344612121582,
+            -86.65845108032227
+          ],
+          "liftWorld": 0.038890872965260115
+        },
+        "right": {
+          "phase": 0.125,
+          "stance": true,
+          "anchorWorld": [
+            -0.2150000035762787,
+            -0.31364476680755615,
+            0.006000000052154064
+          ],
+          "localPixels": [
+            -32.83446979522705,
+            -28.37574577331543
+          ],
+          "screenCells": [
+            -0.17101286351680756,
+            -0.1477903425693512
+          ],
+          "rootPixels": [
+            0.0,
+            -120.0
+          ],
+          "rootPlusLocalPixels": [
+            -32.83446979522705,
+            -148.37574577331543
+          ],
+          "liftWorld": 0
+        }
+      }
+    },
+    {
+      "name": "machine.sirs.walk.south.16",
+      "path": "art/production/station/review/iterations/benchmark-room-motion04/regions/machine.sirs.walk.south.16.png",
+      "widthCells": 1.5,
+      "heightCells": 2.0,
+      "pivotX": 0.5,
+      "pivotY": 0.2125542163848877,
+      "pixelWidth": 288,
+      "pixelHeight": 384,
+      "layer": "world",
+      "sha256": "8d309fa699e316005d69f008ab65e7ab2b769cb05f4938eaed094959841e4b8d",
+      "asset": "sirs",
+      "feet": {
+        "left": {
+          "phase": 0.6666666666666666,
+          "stance": false,
+          "anchorWorld": [
+            0.2150000035762787,
+            0.19406533241271973,
+            0.05363139882683754
+          ],
+          "localPixels": [
+            32.8344612121582,
+            24.51284408569336
+          ],
+          "screenCells": [
+            0.17101281881332397,
+            0.12767106294631958
+          ],
+          "rootPixels": [
+            0.0,
+            -128.0
+          ],
+          "rootPlusLocalPixels": [
+            32.8344612121582,
+            -103.48715591430664
+          ],
+          "liftWorld": 0.04763139720814412
+        },
+        "right": {
+          "phase": 0.16666666666666652,
+          "stance": true,
+          "anchorWorld": [
+            -0.2150000035762787,
+            -0.2274298518896103,
+            0.006000000052154064
+          ],
+          "localPixels": [
+            -32.83446979522705,
+            -20.375747680664062
+          ],
+          "screenCells": [
+            -0.17101286351680756,
+            -0.10612368583679199
+          ],
+          "rootPixels": [
+            0.0,
+            -128.0
+          ],
+          "rootPlusLocalPixels": [
+            -32.83446979522705,
+            -148.37574768066406
+          ],
+          "liftWorld": 0
+        }
+      }
+    },
+    {
+      "name": "machine.sirs.walk.south.17",
+      "path": "art/production/station/review/iterations/benchmark-room-motion04/regions/machine.sirs.walk.south.17.png",
+      "widthCells": 1.5,
+      "heightCells": 2.0,
+      "pivotX": 0.5,
+      "pivotY": 0.2125542163848877,
+      "pixelWidth": 288,
+      "pixelHeight": 384,
+      "layer": "world",
+      "sha256": "65ebc3419dc68946a2a63cc7a1f7b4f3e24da24d366423f528a3cf32f14053df",
+      "asset": "sirs",
+      "feet": {
+        "left": {
+          "phase": 0.7083333333333334,
+          "stance": false,
+          "anchorWorld": [
+            0.2150000035762787,
+            0.0731249526143074,
+            0.05912591889500618
+          ],
+          "localPixels": [
+            32.8344612121582,
+            13.957094192504883
+          ],
+          "screenCells": [
+            0.17101281881332397,
+            0.07269319891929626
+          ],
+          "rootPixels": [
+            0.0,
+            -136.0
+          ],
+          "rootPlusLocalPixels": [
+            32.8344612121582,
+            -122.04290580749512
+          ],
+          "liftWorld": 0.053125920445898756
+        },
+        "right": {
+          "phase": 0.20833333333333348,
+          "stance": true,
+          "anchorWorld": [
+            -0.2150000035762787,
+            -0.14121492207050323,
+            0.006000000052154064
+          ],
+          "localPixels": [
+            -32.83446979522705,
+            -12.375749588012695
+          ],
+          "screenCells": [
+            -0.17101286351680756,
+            -0.06445702910423279
+          ],
+          "rootPixels": [
+            0.0,
+            -136.0
+          ],
+          "rootPlusLocalPixels": [
+            -32.83446979522705,
+            -148.3757495880127
+          ],
+          "liftWorld": 0
+        }
+      }
+    },
+    {
+      "name": "machine.sirs.walk.south.18",
+      "path": "art/production/station/review/iterations/benchmark-room-motion04/regions/machine.sirs.walk.south.18.png",
+      "widthCells": 1.5,
+      "heightCells": 2.0,
+      "pivotX": 0.5,
+      "pivotY": 0.2125542163848877,
+      "pixelWidth": 288,
+      "pixelHeight": 384,
+      "layer": "world",
+      "sha256": "added9eba9a6c76129dde635422a893e87808e663d956488e67b2622d21400e2",
+      "asset": "sirs",
+      "feet": {
+        "left": {
+          "phase": 0.75,
+          "stance": false,
+          "anchorWorld": [
+            0.2150000035762787,
+            -0.054999999701976776,
+            0.061000000685453415
+          ],
+          "localPixels": [
+            32.8344612121582,
+            2.2955245971679688
+          ],
+          "screenCells": [
+            0.17101281881332397,
+            0.011955857276916504
+          ],
+          "rootPixels": [
+            0.0,
+            -144.0
+          ],
+          "rootPlusLocalPixels": [
+            32.8344612121582,
+            -141.70447540283203
+          ],
+          "liftWorld": 0.055
+        },
+        "right": {
+          "phase": 0.25,
+          "stance": true,
+          "anchorWorld": [
+            -0.2150000035762787,
+            -0.054999999701976776,
+            0.006000000052154064
+          ],
+          "localPixels": [
+            -32.83446979522705,
+            -4.37574577331543
+          ],
+          "screenCells": [
+            -0.17101286351680756,
+            -0.022790342569351196
+          ],
+          "rootPixels": [
+            0.0,
+            -144.0
+          ],
+          "rootPlusLocalPixels": [
+            -32.83446979522705,
+            -148.37574577331543
+          ],
+          "liftWorld": 0
+        }
+      }
+    },
+    {
+      "name": "machine.sirs.walk.south.19",
+      "path": "art/production/station/review/iterations/benchmark-room-motion04/regions/machine.sirs.walk.south.19.png",
+      "widthCells": 1.5,
+      "heightCells": 2.0,
+      "pivotX": 0.5,
+      "pivotY": 0.2125542163848877,
+      "pixelWidth": 288,
+      "pixelHeight": 384,
+      "layer": "world",
+      "sha256": "366f5908e914229d0fe1e9e777965ef22e2482077b12c7b12fb4834d5b0746d2",
+      "asset": "sirs",
+      "feet": {
+        "left": {
+          "phase": 0.7916666666666666,
+          "stance": false,
+          "anchorWorld": [
+            0.2150000035762787,
+            -0.18312495946884155,
+            0.05912591889500618
+          ],
+          "localPixels": [
+            32.8344612121582,
+            -9.8206787109375
+          ],
+          "screenCells": [
+            0.17101281881332397,
+            -0.05114936828613281
+          ],
+          "rootPixels": [
+            0.0,
+            -152.0
+          ],
+          "rootPlusLocalPixels": [
+            32.8344612121582,
+            -161.8206787109375
+          ],
+          "liftWorld": 0.05312592044589876
+        },
+        "right": {
+          "phase": 0.2916666666666665,
+          "stance": true,
+          "anchorWorld": [
+            -0.2150000035762787,
+            0.031214922666549683,
+            0.006000000052154064
+          ],
+          "localPixels": [
+            -32.83446979522705,
+            3.6242523193359375
+          ],
+          "screenCells": [
+            -0.17101286351680756,
+            0.018876314163208008
+          ],
+          "rootPixels": [
+            0.0,
+            -152.0
+          ],
+          "rootPlusLocalPixels": [
+            -32.83446979522705,
+            -148.37574768066406
+          ],
+          "liftWorld": 0
+        }
+      }
+    },
+    {
+      "name": "machine.sirs.walk.south.20",
+      "path": "art/production/station/review/iterations/benchmark-room-motion04/regions/machine.sirs.walk.south.20.png",
+      "widthCells": 1.5,
+      "heightCells": 2.0,
+      "pivotX": 0.5,
+      "pivotY": 0.2125542163848877,
+      "pixelWidth": 288,
+      "pixelHeight": 384,
+      "layer": "world",
+      "sha256": "f6926ddfe68ed2c624cb108549260db832695f3bba77c29c93e66116f4e55a7d",
+      "asset": "sirs",
+      "feet": {
+        "left": {
+          "phase": 0.8333333333333334,
+          "stance": false,
+          "anchorWorld": [
+            0.2150000035762787,
+            -0.3040653467178345,
+            0.05363139882683754
+          ],
+          "localPixels": [
+            32.8344612121582,
+            -21.709367752075195
+          ],
+          "screenCells": [
+            0.17101281881332397,
+            -0.11306962370872498
+          ],
+          "rootPixels": [
+            0.0,
+            -160.0
+          ],
+          "rootPlusLocalPixels": [
+            32.8344612121582,
+            -181.7093677520752
+          ],
+          "liftWorld": 0.047631397208144126
+        },
+        "right": {
+          "phase": 0.3333333333333335,
+          "stance": true,
+          "anchorWorld": [
+            -0.2150000035762787,
+            0.11742984503507614,
+            0.006000000052154064
+          ],
+          "localPixels": [
+            -32.83446979522705,
+            11.624250411987305
+          ],
+          "screenCells": [
+            -0.17101286351680756,
+            0.06054297089576721
+          ],
+          "rootPixels": [
+            0.0,
+            -160.0
+          ],
+          "rootPlusLocalPixels": [
+            -32.83446979522705,
+            -148.3757495880127
+          ],
+          "liftWorld": 0
+        }
+      }
+    },
+    {
+      "name": "machine.sirs.walk.south.21",
+      "path": "art/production/station/review/iterations/benchmark-room-motion04/regions/machine.sirs.walk.south.21.png",
+      "widthCells": 1.5,
+      "heightCells": 2.0,
+      "pivotX": 0.5,
+      "pivotY": 0.2125542163848877,
+      "pixelWidth": 288,
+      "pixelHeight": 384,
+      "layer": "world",
+      "sha256": "96e0d5f5e22ff17396483b8e34c2074e09b38a79868627e0235242e41ed63ef9",
+      "asset": "sirs",
+      "feet": {
+        "left": {
+          "phase": 0.875,
+          "stance": false,
+          "anchorWorld": [
+            0.2150000035762787,
+            -0.4106365740299225,
+            0.0448908731341362
+          ],
+          "localPixels": [
+            32.8344612121582,
+            -32.65843963623047
+          ],
+          "screenCells": [
+            0.17101281881332397,
+            -0.1700960397720337
+          ],
+          "rootPixels": [
+            0.0,
+            -168.0
+          ],
+          "rootPlusLocalPixels": [
+            32.8344612121582,
+            -200.65843963623047
+          ],
+          "liftWorld": 0.038890872965260115
+        },
+        "right": {
+          "phase": 0.375,
+          "stance": true,
+          "anchorWorld": [
+            -0.2150000035762787,
+            0.2036447674036026,
+            0.006000000052154064
+          ],
+          "localPixels": [
+            -32.83446979522705,
+            19.624248504638672
+          ],
+          "screenCells": [
+            -0.17101286351680756,
+            0.10220962762832642
+          ],
+          "rootPixels": [
+            0.0,
+            -168.0
+          ],
+          "rootPlusLocalPixels": [
+            -32.83446979522705,
+            -148.37575149536133
+          ],
+          "liftWorld": 0
+        }
+      }
+    },
+    {
+      "name": "machine.sirs.walk.south.22",
+      "path": "art/production/station/review/iterations/benchmark-room-motion04/regions/machine.sirs.walk.south.22.png",
+      "widthCells": 1.5,
+      "heightCells": 2.0,
+      "pivotX": 0.5,
+      "pivotY": 0.2125542163848877,
+      "pixelWidth": 288,
+      "pixelHeight": 384,
+      "layer": "world",
+      "sha256": "3339db57599872b2c5c69a49bcd781ac04d921b671d9a21e71e78fba65e3a752",
+      "asset": "sirs",
+      "feet": {
+        "left": {
+          "phase": 0.9166666666666666,
+          "stance": false,
+          "anchorWorld": [
+            0.2150000035762787,
+            -0.49565404653549194,
+            0.03350000083446503
+          ],
+          "localPixels": [
+            32.8344612121582,
+            -41.92899799346924
+          ],
+          "screenCells": [
+            0.17101281881332397,
+            -0.21838019788265228
+          ],
+          "rootPixels": [
+            0.0,
+            -176.0
+          ],
+          "rootPlusLocalPixels": [
+            32.8344612121582,
+            -217.92899799346924
+          ],
+          "liftWorld": 0.027500000000000017
+        },
+        "right": {
+          "phase": 0.4166666666666665,
+          "stance": true,
+          "anchorWorld": [
+            -0.2150000035762787,
+            0.28985968232154846,
+            0.006000000052154064
+          ],
+          "localPixels": [
+            -32.83446979522705,
+            27.624252319335938
+          ],
+          "screenCells": [
+            -0.17101286351680756,
+            0.143876314163208
+          ],
+          "rootPixels": [
+            0.0,
+            -176.0
+          ],
+          "rootPlusLocalPixels": [
+            -32.83446979522705,
+            -148.37574768066406
+          ],
+          "liftWorld": 0
+        }
+      }
+    },
+    {
+      "name": "machine.sirs.walk.south.23",
+      "path": "art/production/station/review/iterations/benchmark-room-motion04/regions/machine.sirs.walk.south.23.png",
+      "widthCells": 1.5,
+      "heightCells": 2.0,
+      "pivotX": 0.5,
+      "pivotY": 0.2125542163848877,
+      "pixelWidth": 288,
+      "pixelHeight": 384,
+      "layer": "world",
+      "sha256": "330a484488664bf93851a904c55136f62930bc74d89660f8ba4f75fd636bb698",
+      "asset": "sirs",
+      "feet": {
+        "left": {
+          "phase": 0.9583333333333334,
+          "stance": false,
+          "anchorWorld": [
+            0.2150000035762787,
+            -0.551933228969574,
+            0.02023504674434662
+          ],
+          "localPixels": [
+            32.8344612121582,
+            -48.76020526885986
+          ],
+          "screenCells": [
+            0.17101281881332397,
+            -0.25395940244197845
+          ],
+          "rootPixels": [
+            0.0,
+            -184.0
+          ],
+          "rootPlusLocalPixels": [
+            32.8344612121582,
+            -232.76020526885986
+          ],
+          "liftWorld": 0.014235047480638632
+        },
+        "right": {
+          "phase": 0.4583333333333335,
+          "stance": true,
+          "anchorWorld": [
+            -0.2150000035762787,
+            0.3760746121406555,
+            0.006000000052154064
+          ],
+          "localPixels": [
+            -32.83446979522705,
+            35.624244689941406
+          ],
+          "screenCells": [
+            -0.17101286351680756,
+            0.18554294109344482
+          ],
+          "rootPixels": [
+            0.0,
+            -184.0
+          ],
+          "rootPlusLocalPixels": [
+            -32.83446979522705,
+            -148.3757553100586
+          ],
+          "liftWorld": 0
+        }
+      }
+    },
+    {
+      "name": "machine.sirs.start.south.00",
+      "path": "art/production/station/review/iterations/benchmark-room-motion04/regions/machine.sirs.start.south.00.png",
+      "widthCells": 1.5,
+      "heightCells": 2.0,
+      "pivotX": 0.5,
+      "pivotY": 0.2125542163848877,
+      "pixelWidth": 288,
+      "pixelHeight": 384,
+      "layer": "world",
+      "sha256": "2888d78124729ef5b5deaefac59f6781ff9f2015c3d2aee4230f9c8c610c24a5",
+      "asset": "sirs",
+      "feet": {
+        "left": {
+          "phase": 0.0,
+          "stance": true,
+          "anchorWorld": [
+            0.2150000035762787,
+            -0.054999999701976776,
+            0.006000000052154064
+          ],
+          "localPixels": [
+            32.8344612121582,
+            -4.37574577331543
+          ],
+          "screenCells": [
+            0.17101281881332397,
+            -0.022790342569351196
+          ],
+          "rootPixels": [
+            0.0,
+            0.0
+          ],
+          "rootPlusLocalPixels": [
+            32.8344612121582,
+            -4.37574577331543
+          ],
+          "liftWorld": 0.0
+        },
+        "right": {
+          "phase": 0.5,
+          "stance": true,
+          "anchorWorld": [
+            -0.2150000035762787,
+            -0.054999999701976776,
+            0.006000000052154064
+          ],
+          "localPixels": [
+            -32.83446979522705,
+            -4.37574577331543
+          ],
+          "screenCells": [
+            -0.17101286351680756,
+            -0.022790342569351196
+          ],
+          "rootPixels": [
+            0.0,
+            0.0
+          ],
+          "rootPlusLocalPixels": [
+            -32.83446979522705,
+            -4.37574577331543
+          ],
+          "liftWorld": 0.0
+        }
+      }
+    },
+    {
+      "name": "machine.sirs.start.south.01",
+      "path": "art/production/station/review/iterations/benchmark-room-motion04/regions/machine.sirs.start.south.01.png",
+      "widthCells": 1.5,
+      "heightCells": 2.0,
+      "pivotX": 0.5,
+      "pivotY": 0.2125542163848877,
+      "pixelWidth": 288,
+      "pixelHeight": 384,
+      "layer": "world",
+      "sha256": "cf64258668e2eb7557907843107b8d5dfca05b8ebf1bba7f7363064c5807efb2",
+      "asset": "sirs",
+      "feet": {
+        "left": {
+          "phase": 0.2,
+          "stance": false,
+          "anchorWorld": [
+            0.2150000035762787,
+            -0.23708592355251312,
+            0.036433808505535126
+          ],
+          "localPixels": [
+            32.8344612121582,
+            -17.58025360107422
+          ],
+          "screenCells": [
+            0.17101281881332397,
+            -0.09156382083892822
+          ],
+          "rootPixels": [
+            0.0,
+            0.0
+          ],
+          "rootPlusLocalPixels": [
+            32.8344612121582,
+            -17.58025360107422
+          ],
+          "liftWorld": 0.030433808521444915
+        },
+        "right": {
+          "phase": 0.7,
+          "stance": true,
+          "anchorWorld": [
+            -0.2150000035762787,
+            -0.054999999701976776,
+            0.006000000052154064
+          ],
+          "localPixels": [
+            -32.83446979522705,
+            -4.37574577331543
+          ],
+          "screenCells": [
+            -0.17101286351680756,
+            -0.022790342569351196
+          ],
+          "rootPixels": [
+            0.0,
+            0.0
+          ],
+          "rootPlusLocalPixels": [
+            -32.83446979522705,
+            -4.37574577331543
+          ],
+          "liftWorld": 0.0
+        }
+      }
+    },
+    {
+      "name": "machine.sirs.start.south.02",
+      "path": "art/production/station/review/iterations/benchmark-room-motion04/regions/machine.sirs.start.south.02.png",
+      "widthCells": 1.5,
+      "heightCells": 2.0,
+      "pivotX": 0.5,
+      "pivotY": 0.2125542163848877,
+      "pixelWidth": 288,
+      "pixelHeight": 384,
+      "layer": "world",
+      "sha256": "a5853cb5ca198473e8bb9906baa8c0324ffc7cb9216b17958ec600adf416ff80",
+      "asset": "sirs",
+      "feet": {
+        "left": {
+          "phase": 0.4,
+          "stance": false,
+          "anchorWorld": [
+            0.2150000035762787,
+            -0.5184914469718933,
+            0.024809127673506737
+          ],
+          "localPixels": [
+            32.8344612121582,
+            -45.10227298736572
+          ],
+          "screenCells": [
+            0.17101281881332397,
+            -0.23490767180919647
+          ],
+          "rootPixels": [
+            0.0,
+            0.0
+          ],
+          "rootPlusLocalPixels": [
+            32.8344612121582,
+            -45.10227298736572
+          ],
+          "liftWorld": 0.018809128073359143
+        },
+        "right": {
+          "phase": 0.9,
+          "stance": true,
+          "anchorWorld": [
+            -0.2150000035762787,
+            -0.054999999701976776,
+            0.006000000052154064
+          ],
+          "localPixels": [
+            -32.83446979522705,
+            -4.37574577331543
+          ],
+          "screenCells": [
+            -0.17101286351680756,
+            -0.022790342569351196
+          ],
+          "rootPixels": [
+            0.0,
+            0.0
+          ],
+          "rootPlusLocalPixels": [
+            -32.83446979522705,
+            -4.37574577331543
+          ],
+          "liftWorld": 0.0
+        }
+      }
+    },
+    {
+      "name": "machine.sirs.start.south.03",
+      "path": "art/production/station/review/iterations/benchmark-room-motion04/regions/machine.sirs.start.south.03.png",
+      "widthCells": 1.5,
+      "heightCells": 2.0,
+      "pivotX": 0.5,
+      "pivotY": 0.2125542163848877,
+      "pixelWidth": 288,
+      "pixelHeight": 384,
+      "layer": "world",
+      "sha256": "794ad9c2400129a191cc82d66dd42048ce224c4f43cfa3e1d5d99d6ebf8453f9",
+      "asset": "sirs",
+      "feet": {
+        "left": {
+          "phase": 0.6,
+          "stance": true,
+          "anchorWorld": [
+            0.2150000035762787,
+            -0.5722895264625549,
+            0.006000000052154064
+          ],
+          "localPixels": [
+            32.8344612121582,
+            -52.37573432922363
+          ],
+          "screenCells": [
+            0.17101281881332397,
+            -0.2727902829647064
+          ],
+          "rootPixels": [
+            0.0,
+            0.0
+          ],
+          "rootPlusLocalPixels": [
+            32.8344612121582,
+            -52.37573432922363
+          ],
+          "liftWorld": 3.91886975727153e-18
+        },
+        "right": {
+          "phase": 0.10000000000000009,
+          "stance": false,
+          "anchorWorld": [
+            -0.2150000035762787,
+            -0.0012018877314403653,
+            0.024809127673506737
+          ],
+          "localPixels": [
+            -32.83446979522705,
+            2.8977184295654297
+          ],
+          "screenCells": [
+            -0.17101286351680756,
+            0.015092283487319946
+          ],
+          "rootPixels": [
+            0.0,
+            0.0
+          ],
+          "rootPlusLocalPixels": [
+            -32.83446979522705,
+            2.8977184295654297
+          ],
+          "liftWorld": 0.018809128073359136
+        }
+      }
+    },
+    {
+      "name": "machine.sirs.start.south.04",
+      "path": "art/production/station/review/iterations/benchmark-room-motion04/regions/machine.sirs.start.south.04.png",
+      "widthCells": 1.5,
+      "heightCells": 2.0,
+      "pivotX": 0.5,
+      "pivotY": 0.2125542163848877,
+      "pixelWidth": 288,
+      "pixelHeight": 384,
+      "layer": "world",
+      "sha256": "97c46466489e2bc42af797a14bd0aa404e213f8a240a6d6fedbfb700315456b8",
+      "asset": "sirs",
+      "feet": {
+        "left": {
+          "phase": 0.8,
+          "stance": true,
+          "anchorWorld": [
+            0.2150000035762787,
+            -0.5722895264625549,
+            0.006000000052154064
+          ],
+          "localPixels": [
+            32.8344612121582,
+            -52.37573432922363
+          ],
+          "screenCells": [
+            0.17101281881332397,
+            -0.2727902829647064
+          ],
+          "rootPixels": [
+            0.0,
+            0.0
+          ],
+          "rootPlusLocalPixels": [
+            32.8344612121582,
+            -52.37573432922363
+          ],
+          "liftWorld": 3.91886975727153e-18
+        },
+        "right": {
+          "phase": 0.30000000000000004,
+          "stance": false,
+          "anchorWorld": [
+            -0.2150000035762787,
+            0.28020361065864563,
+            0.036433808505535126
+          ],
+          "localPixels": [
+            -32.83446979522705,
+            30.41974639892578
+          ],
+          "screenCells": [
+            -0.17101286351680756,
+            0.15843617916107178
+          ],
+          "rootPixels": [
+            0.0,
+            0.0
+          ],
+          "rootPlusLocalPixels": [
+            -32.83446979522705,
+            30.41974639892578
+          ],
+          "liftWorld": 0.030433808521444915
+        }
+      }
+    },
+    {
+      "name": "machine.sirs.start.south.05",
+      "path": "art/production/station/review/iterations/benchmark-room-motion04/regions/machine.sirs.start.south.05.png",
+      "widthCells": 1.5,
+      "heightCells": 2.0,
+      "pivotX": 0.5,
+      "pivotY": 0.2125542163848877,
+      "pixelWidth": 288,
+      "pixelHeight": 384,
+      "layer": "world",
+      "sha256": "2f7bbea708727b8a1c859d6b48d7b2a07b2d8b54c8463fc42b9deb305ca3fc90",
+      "asset": "sirs",
+      "feet": {
+        "left": {
+          "phase": 0.0,
+          "stance": true,
+          "anchorWorld": [
+            0.2150000035762787,
+            -0.5722895264625549,
+            0.006000000052154064
+          ],
+          "localPixels": [
+            32.8344612121582,
+            -52.37573432922363
+          ],
+          "screenCells": [
+            0.17101281881332397,
+            -0.2727902829647064
+          ],
+          "rootPixels": [
+            0.0,
+            0.0
+          ],
+          "rootPlusLocalPixels": [
+            32.8344612121582,
+            -52.37573432922363
+          ],
+          "liftWorld": 3.91886975727153e-18
+        },
+        "right": {
+          "phase": 0.5,
+          "stance": true,
+          "anchorWorld": [
+            -0.2150000035762787,
+            0.4622895419597626,
+            0.006000000052154064
+          ],
+          "localPixels": [
+            -32.83446979522705,
+            43.62424850463867
+          ],
+          "screenCells": [
+            -0.17101286351680756,
+            0.22720962762832642
+          ],
+          "rootPixels": [
+            0.0,
+            0.0
+          ],
+          "rootPlusLocalPixels": [
+            -32.83446979522705,
+            43.62424850463867
+          ],
+          "liftWorld": 3.91886975727153e-18
+        }
+      }
+    },
+    {
+      "name": "machine.sirs.stop.south.00",
+      "path": "art/production/station/review/iterations/benchmark-room-motion04/regions/machine.sirs.stop.south.00.png",
+      "widthCells": 1.5,
+      "heightCells": 2.0,
+      "pivotX": 0.5,
+      "pivotY": 0.2125542163848877,
+      "pixelWidth": 288,
+      "pixelHeight": 384,
+      "layer": "world",
+      "sha256": "5fd5a740a6cae2db6f5cf117415b556f7a2455aa36b23bf81ac36562f7df3fb1",
+      "asset": "sirs",
+      "feet": {
+        "left": {
+          "phase": 0.0,
+          "stance": true,
+          "anchorWorld": [
+            0.2150000035762787,
+            -0.5722895264625549,
+            0.006000000052154064
+          ],
+          "localPixels": [
+            32.8344612121582,
+            -52.37573432922363
+          ],
+          "screenCells": [
+            0.17101281881332397,
+            -0.2727902829647064
+          ],
+          "rootPixels": [
+            0.0,
+            0.0
+          ],
+          "rootPlusLocalPixels": [
+            32.8344612121582,
+            -52.37573432922363
+          ],
+          "liftWorld": 0.0
+        },
+        "right": {
+          "phase": 0.5,
+          "stance": true,
+          "anchorWorld": [
+            -0.2150000035762787,
+            0.4622895419597626,
+            0.006000000052154064
+          ],
+          "localPixels": [
+            -32.83446979522705,
+            43.62424850463867
+          ],
+          "screenCells": [
+            -0.17101286351680756,
+            0.22720962762832642
+          ],
+          "rootPixels": [
+            0.0,
+            0.0
+          ],
+          "rootPlusLocalPixels": [
+            -32.83446979522705,
+            43.62424850463867
+          ],
+          "liftWorld": 0.0
+        }
+      }
+    },
+    {
+      "name": "machine.sirs.stop.south.01",
+      "path": "art/production/station/review/iterations/benchmark-room-motion04/regions/machine.sirs.stop.south.01.png",
+      "widthCells": 1.5,
+      "heightCells": 2.0,
+      "pivotX": 0.5,
+      "pivotY": 0.2125542163848877,
+      "pixelWidth": 288,
+      "pixelHeight": 384,
+      "layer": "world",
+      "sha256": "008ada719aa7e5f1405d17a9573357940a55f0c0c28027324e9f9fbf35850c69",
+      "asset": "sirs",
+      "feet": {
+        "left": {
+          "phase": 0.2,
+          "stance": true,
+          "anchorWorld": [
+            0.2150000035762787,
+            -0.5722895264625549,
+            0.006000000052154064
+          ],
+          "localPixels": [
+            32.8344612121582,
+            -52.37573432922363
+          ],
+          "screenCells": [
+            0.17101281881332397,
+            -0.2727902829647064
+          ],
+          "rootPixels": [
+            0.0,
+            0.0
+          ],
+          "rootPlusLocalPixels": [
+            32.8344612121582,
+            -52.37573432922363
+          ],
+          "liftWorld": 0.0
+        },
+        "right": {
+          "phase": 0.7,
+          "stance": false,
+          "anchorWorld": [
+            -0.2150000035762787,
+            0.28020361065864563,
+            0.036433808505535126
+          ],
+          "localPixels": [
+            -32.83446979522705,
+            30.41974639892578
+          ],
+          "screenCells": [
+            -0.17101286351680756,
+            0.15843617916107178
+          ],
+          "rootPixels": [
+            0.0,
+            0.0
+          ],
+          "rootPlusLocalPixels": [
+            -32.83446979522705,
+            30.41974639892578
+          ],
+          "liftWorld": 0.030433808521444915
+        }
+      }
+    },
+    {
+      "name": "machine.sirs.stop.south.02",
+      "path": "art/production/station/review/iterations/benchmark-room-motion04/regions/machine.sirs.stop.south.02.png",
+      "widthCells": 1.5,
+      "heightCells": 2.0,
+      "pivotX": 0.5,
+      "pivotY": 0.2125542163848877,
+      "pixelWidth": 288,
+      "pixelHeight": 384,
+      "layer": "world",
+      "sha256": "eff9be4190132533b7ba40af3978467b098b0dc0cc09109214bc61148ddb522a",
+      "asset": "sirs",
+      "feet": {
+        "left": {
+          "phase": 0.4,
+          "stance": true,
+          "anchorWorld": [
+            0.2150000035762787,
+            -0.5722895264625549,
+            0.006000000052154064
+          ],
+          "localPixels": [
+            32.8344612121582,
+            -52.37573432922363
+          ],
+          "screenCells": [
+            0.17101281881332397,
+            -0.2727902829647064
+          ],
+          "rootPixels": [
+            0.0,
+            0.0
+          ],
+          "rootPlusLocalPixels": [
+            32.8344612121582,
+            -52.37573432922363
+          ],
+          "liftWorld": 0.0
+        },
+        "right": {
+          "phase": 0.9,
+          "stance": false,
+          "anchorWorld": [
+            -0.2150000035762787,
+            -0.0012018877314403653,
+            0.024809127673506737
+          ],
+          "localPixels": [
+            -32.83446979522705,
+            2.8977184295654297
+          ],
+          "screenCells": [
+            -0.17101286351680756,
+            0.015092283487319946
+          ],
+          "rootPixels": [
+            0.0,
+            0.0
+          ],
+          "rootPlusLocalPixels": [
+            -32.83446979522705,
+            2.8977184295654297
+          ],
+          "liftWorld": 0.018809128073359143
+        }
+      }
+    },
+    {
+      "name": "machine.sirs.stop.south.03",
+      "path": "art/production/station/review/iterations/benchmark-room-motion04/regions/machine.sirs.stop.south.03.png",
+      "widthCells": 1.5,
+      "heightCells": 2.0,
+      "pivotX": 0.5,
+      "pivotY": 0.2125542163848877,
+      "pixelWidth": 288,
+      "pixelHeight": 384,
+      "layer": "world",
+      "sha256": "e859e910bf1f7dd1992e41415a398bffd5d21ee9de4a5b0d4ce15e22f771196a",
+      "asset": "sirs",
+      "feet": {
+        "left": {
+          "phase": 0.6,
+          "stance": false,
+          "anchorWorld": [
+            0.2150000035762787,
+            -0.5184914469718933,
+            0.024809127673506737
+          ],
+          "localPixels": [
+            32.8344612121582,
+            -45.10227298736572
+          ],
+          "screenCells": [
+            0.17101281881332397,
+            -0.23490767180919647
+          ],
+          "rootPixels": [
+            0.0,
+            0.0
+          ],
+          "rootPlusLocalPixels": [
+            32.8344612121582,
+            -45.10227298736572
+          ],
+          "liftWorld": 0.018809128073359136
+        },
+        "right": {
+          "phase": 0.10000000000000009,
+          "stance": true,
+          "anchorWorld": [
+            -0.2150000035762787,
+            -0.054999999701976776,
+            0.006000000052154064
+          ],
+          "localPixels": [
+            -32.83446979522705,
+            -4.37574577331543
+          ],
+          "screenCells": [
+            -0.17101286351680756,
+            -0.022790342569351196
+          ],
+          "rootPixels": [
+            0.0,
+            0.0
+          ],
+          "rootPlusLocalPixels": [
+            -32.83446979522705,
+            -4.37574577331543
+          ],
+          "liftWorld": 3.91886975727153e-18
+        }
+      }
+    },
+    {
+      "name": "machine.sirs.stop.south.04",
+      "path": "art/production/station/review/iterations/benchmark-room-motion04/regions/machine.sirs.stop.south.04.png",
+      "widthCells": 1.5,
+      "heightCells": 2.0,
+      "pivotX": 0.5,
+      "pivotY": 0.2125542163848877,
+      "pixelWidth": 288,
+      "pixelHeight": 384,
+      "layer": "world",
+      "sha256": "3e1a91c01c11035857924b62807b5d328a7d7bc485b9b0d20933cc931ec9308a",
+      "asset": "sirs",
+      "feet": {
+        "left": {
+          "phase": 0.8,
+          "stance": false,
+          "anchorWorld": [
+            0.2150000035762787,
+            -0.23708592355251312,
+            0.036433808505535126
+          ],
+          "localPixels": [
+            32.8344612121582,
+            -17.58025360107422
+          ],
+          "screenCells": [
+            0.17101281881332397,
+            -0.09156382083892822
+          ],
+          "rootPixels": [
+            0.0,
+            0.0
+          ],
+          "rootPlusLocalPixels": [
+            32.8344612121582,
+            -17.58025360107422
+          ],
+          "liftWorld": 0.030433808521444915
+        },
+        "right": {
+          "phase": 0.30000000000000004,
+          "stance": true,
+          "anchorWorld": [
+            -0.2150000035762787,
+            -0.054999999701976776,
+            0.006000000052154064
+          ],
+          "localPixels": [
+            -32.83446979522705,
+            -4.37574577331543
+          ],
+          "screenCells": [
+            -0.17101286351680756,
+            -0.022790342569351196
+          ],
+          "rootPixels": [
+            0.0,
+            0.0
+          ],
+          "rootPlusLocalPixels": [
+            -32.83446979522705,
+            -4.37574577331543
+          ],
+          "liftWorld": 3.91886975727153e-18
+        }
+      }
+    },
+    {
+      "name": "machine.sirs.stop.south.05",
+      "path": "art/production/station/review/iterations/benchmark-room-motion04/regions/machine.sirs.stop.south.05.png",
+      "widthCells": 1.5,
+      "heightCells": 2.0,
+      "pivotX": 0.5,
+      "pivotY": 0.2125542163848877,
+      "pixelWidth": 288,
+      "pixelHeight": 384,
+      "layer": "world",
+      "sha256": "c090b169798747b76cea61412d231092969b698f1c975f009dd0b87285675b7c",
+      "asset": "sirs",
+      "feet": {
+        "left": {
+          "phase": 0.0,
+          "stance": true,
+          "anchorWorld": [
+            0.2150000035762787,
+            -0.054999999701976776,
+            0.006000000052154064
+          ],
+          "localPixels": [
+            32.8344612121582,
+            -4.37574577331543
+          ],
+          "screenCells": [
+            0.17101281881332397,
+            -0.022790342569351196
+          ],
+          "rootPixels": [
+            0.0,
+            0.0
+          ],
+          "rootPlusLocalPixels": [
+            32.8344612121582,
+            -4.37574577331543
+          ],
+          "liftWorld": 3.91886975727153e-18
+        },
+        "right": {
+          "phase": 0.5,
+          "stance": true,
+          "anchorWorld": [
+            -0.2150000035762787,
+            -0.054999999701976776,
+            0.006000000052154064
+          ],
+          "localPixels": [
+            -32.83446979522705,
+            -4.37574577331543
+          ],
+          "screenCells": [
+            -0.17101286351680756,
+            -0.022790342569351196
+          ],
+          "rootPixels": [
+            0.0,
+            0.0
+          ],
+          "rootPlusLocalPixels": [
+            -32.83446979522705,
+            -4.37574577331543
+          ],
+          "liftWorld": 3.91886975727153e-18
+        }
+      }
+    },
+    {
+      "name": "machine.sirs.walk.east.00",
+      "path": "art/production/station/review/iterations/benchmark-room-motion04/regions/machine.sirs.walk.east.00.png",
+      "widthCells": 1.5,
+      "heightCells": 2.0,
+      "pivotX": 0.5,
+      "pivotY": 0.2125542163848877,
+      "pixelWidth": 288,
+      "pixelHeight": 384,
+      "layer": "world",
+      "sha256": "c55fc7176627e27d910d7aeb37d43cb09214dfd289bb18d936bc5824aca274a2",
+      "asset": "sirs",
+      "feet": {
+        "left": {
+          "phase": 0.0,
+          "stance": true,
+          "anchorWorld": [
+            0.3693039119243622,
+            0.2149999737739563,
+            0.006000000052154064
+          ],
+          "localPixels": [
+            56.39951705932617,
+            20.67791748046875
+          ],
+          "screenCells": [
+            0.2937474846839905,
+            0.1076974868774414
+          ],
+          "rootPixels": [
+            0.0,
+            -0.0
+          ],
+          "rootPlusLocalPixels": [
+            56.39951705932617,
+            20.67791748046875
+          ],
+          "liftWorld": 0
+        },
+        "right": {
+          "phase": 0.5,
+          "stance": false,
+          "anchorWorld": [
+            -0.2593039274215698,
+            -0.2149999886751175,
+            0.006000000052154064
+          ],
+          "localPixels": [
+            -39.600494384765625,
+            -19.222360610961914
+          ],
+          "screenCells": [
+            -0.2062525749206543,
+            -0.10011646151542664
+          ],
+          "rootPixels": [
+            0.0,
+            -0.0
+          ],
+          "rootPlusLocalPixels": [
+            -39.600494384765625,
+            -19.222360610961914
+          ],
+          "liftWorld": 0.0
+        }
+      }
+    },
+    {
+      "name": "machine.sirs.walk.east.01",
+      "path": "art/production/station/review/iterations/benchmark-room-motion04/regions/machine.sirs.walk.east.01.png",
+      "widthCells": 1.5,
+      "heightCells": 2.0,
+      "pivotX": 0.5,
+      "pivotY": 0.2125542163848877,
+      "pixelWidth": 288,
+      "pixelHeight": 384,
+      "layer": "world",
+      "sha256": "1c15d4d64a60cca6c69f157a7c0cdc443247bc368156f1c526f1814c8fae529a",
+      "asset": "sirs",
+      "feet": {
+        "left": {
+          "phase": 0.041666666666666664,
+          "stance": true,
+          "anchorWorld": [
+            0.3169199228286743,
+            0.2149999737739563,
+            0.006000000052154064
+          ],
+          "localPixels": [
+            48.399513244628906,
+            20.67791748046875
+          ],
+          "screenCells": [
+            0.2520807981491089,
+            0.1076974868774414
+          ],
+          "rootPixels": [
+            7.999999999999994,
+            -2.9974354691484805e-07
+          ],
+          "rootPlusLocalPixels": [
+            56.3995132446289,
+            20.677917180725203
+          ],
+          "liftWorld": 0
+        },
+        "right": {
+          "phase": 0.5416666666666666,
+          "stance": false,
+          "anchorWorld": [
+            -0.24693545699119568,
+            -0.2149999886751175,
+            0.02023504674434662
+          ],
+          "localPixels": [
+            -37.71160125732422,
+            -17.495710372924805
+          ],
+          "screenCells": [
+            -0.19641458988189697,
+            -0.09112349152565002
+          ],
+          "rootPixels": [
+            7.999999999999994,
+            -2.9974354691484805e-07
+          ],
+          "rootPlusLocalPixels": [
+            -29.711601257324226,
+            -17.495710672668352
+          ],
+          "liftWorld": 0.014235047480638629
+        }
+      }
+    },
+    {
+      "name": "machine.sirs.walk.east.02",
+      "path": "art/production/station/review/iterations/benchmark-room-motion04/regions/machine.sirs.walk.east.02.png",
+      "widthCells": 1.5,
+      "heightCells": 2.0,
+      "pivotX": 0.5,
+      "pivotY": 0.2125542163848877,
+      "pixelWidth": 288,
+      "pixelHeight": 384,
+      "layer": "world",
+      "sha256": "83242e439abffc2d5b1679b9ddef815765b0ee6ebe29fddcccb91687a15983ce",
+      "asset": "sirs",
+      "feet": {
+        "left": {
+          "phase": 0.08333333333333333,
+          "stance": true,
+          "anchorWorld": [
+            0.26453596353530884,
+            0.2149999886751175,
+            0.006000000052154064
+          ],
+          "localPixels": [
+            40.399526596069336,
+            20.67791748046875
+          ],
+          "screenCells": [
+            0.21041420102119446,
+            0.1076974868774414
+          ],
+          "rootPixels": [
+            15.999999999999988,
+            -5.994870938296961e-07
+          ],
+          "rootPlusLocalPixels": [
+            56.39952659606932,
+            20.677916880981655
+          ],
+          "liftWorld": 0
+        },
+        "right": {
+          "phase": 0.5833333333333334,
+          "stance": false,
+          "anchorWorld": [
+            -0.21274036169052124,
+            -0.2149999886751175,
+            0.03350000083446503
+          ],
+          "localPixels": [
+            -32.489378929138184,
+            -15.886728286743164
+          ],
+          "screenCells": [
+            -0.16921551525592804,
+            -0.08274337649345398
+          ],
+          "rootPixels": [
+            15.999999999999988,
+            -5.994870938296961e-07
+          ],
+          "rootPlusLocalPixels": [
+            -16.489378929138198,
+            -15.886728886230259
+          ],
+          "liftWorld": 0.027500000000000007
+        }
+      }
+    },
+    {
+      "name": "machine.sirs.walk.east.03",
+      "path": "art/production/station/review/iterations/benchmark-room-motion04/regions/machine.sirs.walk.east.03.png",
+      "widthCells": 1.5,
+      "heightCells": 2.0,
+      "pivotX": 0.5,
+      "pivotY": 0.2125542163848877,
+      "pixelWidth": 288,
+      "pixelHeight": 384,
+      "layer": "world",
+      "sha256": "84cd4a3d18efd20ae54c3af651b4a36c4ac2fe69c01ffdbdd15c68e951aa0f18",
+      "asset": "sirs",
+      "feet": {
+        "left": {
+          "phase": 0.125,
+          "stance": true,
+          "anchorWorld": [
+            0.21215195953845978,
+            0.2149999886751175,
+            0.006000000052154064
+          ],
+          "localPixels": [
+            32.39952278137207,
+            20.67791748046875
+          ],
+          "screenCells": [
+            0.16874751448631287,
+            0.1076974868774414
+          ],
+          "rootPixels": [
+            23.999999999999982,
+            -8.992306407445443e-07
+          ],
+          "rootPlusLocalPixels": [
+            56.399522781372056,
+            20.677916581238108
+          ],
+          "liftWorld": 0
+        },
+        "right": {
+          "phase": 0.625,
+          "stance": false,
+          "anchorWorld": [
+            -0.16108393669128418,
+            -0.2149999886751175,
+            0.0448908731341362
+          ],
+          "localPixels": [
+            -24.600491523742676,
+            -14.505060195922852
+          ],
+          "screenCells": [
+            -0.1281275600194931,
+            -0.07554718852043152
+          ],
+          "rootPixels": [
+            23.999999999999982,
+            -8.992306407445443e-07
+          ],
+          "rootPlusLocalPixels": [
+            -0.6004915237426935,
+            -14.505061095153492
+          ],
+          "liftWorld": 0.038890872965260115
+        }
+      }
+    },
+    {
+      "name": "machine.sirs.walk.east.04",
+      "path": "art/production/station/review/iterations/benchmark-room-motion04/regions/machine.sirs.walk.east.04.png",
+      "widthCells": 1.5,
+      "heightCells": 2.0,
+      "pivotX": 0.5,
+      "pivotY": 0.2125542163848877,
+      "pixelWidth": 288,
+      "pixelHeight": 384,
+      "layer": "world",
+      "sha256": "cce3ad0d5b0b4d5b9fda6444f5f29d280f86324861725fa81b4ae2f47c359a8f",
+      "asset": "sirs",
+      "feet": {
+        "left": {
+          "phase": 0.16666666666666666,
+          "stance": true,
+          "anchorWorld": [
+            0.1597679853439331,
+            0.2149999886751175,
+            0.006000000052154064
+          ],
+          "localPixels": [
+            24.399518966674805,
+            20.67791748046875
+          ],
+          "screenCells": [
+            0.12708082795143127,
+            0.1076974868774414
+          ],
+          "rootPixels": [
+            31.999999999999975,
+            -1.1989741876593922e-06
+          ],
+          "rootPlusLocalPixels": [
+            56.399518966674776,
+            20.67791628149456
+          ],
+          "liftWorld": 0
+        },
+        "right": {
+          "phase": 0.6666666666666666,
+          "stance": false,
+          "anchorWorld": [
+            -0.09633151441812515,
+            -0.2150000035762787,
+            0.05363139882683754
+          ],
+          "localPixels": [
+            -14.711603164672852,
+            -13.444873809814453
+          ],
+          "screenCells": [
+            -0.07662293314933777,
+            -0.07002538442611694
+          ],
+          "rootPixels": [
+            31.999999999999975,
+            -1.1989741876593922e-06
+          ],
+          "rootPlusLocalPixels": [
+            17.288396835327124,
+            -13.44487500878864
+          ],
+          "liftWorld": 0.04763139720814412
+        }
+      }
+    },
+    {
+      "name": "machine.sirs.walk.east.05",
+      "path": "art/production/station/review/iterations/benchmark-room-motion04/regions/machine.sirs.walk.east.05.png",
+      "widthCells": 1.5,
+      "heightCells": 2.0,
+      "pivotX": 0.5,
+      "pivotY": 0.2125542163848877,
+      "pixelWidth": 288,
+      "pixelHeight": 384,
+      "layer": "world",
+      "sha256": "d7535bf8b196e61a4f190cb4bf8fbff1c375bb710e97d9d118e590df7066bbc1",
+      "asset": "sirs",
+      "feet": {
+        "left": {
+          "phase": 0.20833333333333334,
+          "stance": true,
+          "anchorWorld": [
+            0.10738399624824524,
+            0.2149999886751175,
+            0.006000000052154064
+          ],
+          "localPixels": [
+            16.39951515197754,
+            20.67791748046875
+          ],
+          "screenCells": [
+            0.08541414141654968,
+            0.1076974868774414
+          ],
+          "rootPixels": [
+            39.99999999999997,
+            -1.4987177345742406e-06
+          ],
+          "rootPlusLocalPixels": [
+            56.39951515197751,
+            20.677915981751017
+          ],
+          "liftWorld": 0
+        },
+        "right": {
+          "phase": 0.7083333333333334,
+          "stance": false,
+          "anchorWorld": [
+            -0.02284843474626541,
+            -0.2150000035762787,
+            0.05912591889500618
+          ],
+          "localPixels": [
+            -3.489377975463867,
+            -12.778409957885742
+          ],
+          "screenCells": [
+            -0.01817384362220764,
+            -0.06655421853065491
+          ],
+          "rootPixels": [
+            39.99999999999997,
+            -1.4987177345742406e-06
+          ],
+          "rootPlusLocalPixels": [
+            36.510622024536104,
+            -12.778411456603477
+          ],
+          "liftWorld": 0.053125920445898756
+        }
+      }
+    },
+    {
+      "name": "machine.sirs.walk.east.06",
+      "path": "art/production/station/review/iterations/benchmark-room-motion04/regions/machine.sirs.walk.east.06.png",
+      "widthCells": 1.5,
+      "heightCells": 2.0,
+      "pivotX": 0.5,
+      "pivotY": 0.2125542163848877,
+      "pixelWidth": 288,
+      "pixelHeight": 384,
+      "layer": "world",
+      "sha256": "46ff77079d17a4c6d12db2f4337271603e1ba0fe8cd08bbf50a2f42f5c75e52c",
+      "asset": "sirs",
+      "feet": {
+        "left": {
+          "phase": 0.25,
+          "stance": true,
+          "anchorWorld": [
+            0.05500001460313797,
+            0.2150000035762787,
+            0.006000000052154064
+          ],
+          "localPixels": [
+            8.399511337280273,
+            20.67791748046875
+          ],
+          "screenCells": [
+            0.04374745488166809,
+            0.1076974868774414
+          ],
+          "rootPixels": [
+            47.999999999999964,
+            -1.7984612814890885e-06
+          ],
+          "rootPlusLocalPixels": [
+            56.39951133728024,
+            20.67791568200747
+          ],
+          "liftWorld": 0
+        },
+        "right": {
+          "phase": 0.75,
+          "stance": false,
+          "anchorWorld": [
+            0.05499998480081558,
+            -0.2150000035762787,
+            0.061000000685453415
+          ],
+          "localPixels": [
+            8.399511337280273,
+            -12.551095962524414
+          ],
+          "screenCells": [
+            0.04374745488166809,
+            -0.06537029147148132
+          ],
+          "rootPixels": [
+            47.999999999999964,
+            -1.7984612814890885e-06
+          ],
+          "rootPlusLocalPixels": [
+            56.39951133728024,
+            -12.551097760985696
+          ],
+          "liftWorld": 0.055
+        }
+      }
+    },
+    {
+      "name": "machine.sirs.walk.east.07",
+      "path": "art/production/station/review/iterations/benchmark-room-motion04/regions/machine.sirs.walk.east.07.png",
+      "widthCells": 1.5,
+      "heightCells": 2.0,
+      "pivotX": 0.5,
+      "pivotY": 0.2125542163848877,
+      "pixelWidth": 288,
+      "pixelHeight": 384,
+      "layer": "world",
+      "sha256": "980b54a9c0f2d0a4c2462aca3c3d817da93a2d530fafb1265393a400db38a4fb",
+      "asset": "sirs",
+      "feet": {
+        "left": {
+          "phase": 0.2916666666666667,
+          "stance": true,
+          "anchorWorld": [
+            0.00261603482067585,
+            0.2150000035762787,
+            0.006000000052154064
+          ],
+          "localPixels": [
+            0.3995246887207031,
+            20.67791748046875
+          ],
+          "screenCells": [
+            0.002080857753753662,
+            0.1076974868774414
+          ],
+          "rootPixels": [
+            55.999999999999964,
+            -2.0982048284039367e-06
+          ],
+          "rootPlusLocalPixels": [
+            56.39952468872067,
+            20.677915382263922
+          ],
+          "liftWorld": 0
+        },
+        "right": {
+          "phase": 0.7916666666666667,
+          "stance": false,
+          "anchorWorld": [
+            0.13284839689731598,
+            -0.21500001847743988,
+            0.05912591889500618
+          ],
+          "localPixels": [
+            20.288400650024414,
+            -12.778409957885742
+          ],
+          "screenCells": [
+            0.10566875338554382,
+            -0.06655421853065491
+          ],
+          "rootPixels": [
+            55.999999999999964,
+            -2.0982048284039367e-06
+          ],
+          "rootPlusLocalPixels": [
+            76.28840065002439,
+            -12.77841205609057
+          ],
+          "liftWorld": 0.05312592044589875
+        }
+      }
+    },
+    {
+      "name": "machine.sirs.walk.east.08",
+      "path": "art/production/station/review/iterations/benchmark-room-motion04/regions/machine.sirs.walk.east.08.png",
+      "widthCells": 1.5,
+      "heightCells": 2.0,
+      "pivotX": 0.5,
+      "pivotY": 0.2125542163848877,
+      "pixelWidth": 288,
+      "pixelHeight": 384,
+      "layer": "world",
+      "sha256": "d9e3f6e1bc98f8cc95ffc5c6b2a7ac7217a253d39609cdea1275e78cdf2c7d8b",
+      "asset": "sirs",
+      "feet": {
+        "left": {
+          "phase": 0.3333333333333333,
+          "stance": true,
+          "anchorWorld": [
+            -0.04976794868707657,
+            0.2150000035762787,
+            0.006000000052154064
+          ],
+          "localPixels": [
+            -7.60048770904541,
+            20.67791748046875
+          ],
+          "screenCells": [
+            -0.03958587348461151,
+            0.1076974868774414
+          ],
+          "rootPixels": [
+            63.99999999999995,
+            -2.3979483753187844e-06
+          ],
+          "rootPlusLocalPixels": [
+            56.39951229095454,
+            20.677915082520375
+          ],
+          "liftWorld": 0
+        },
+        "right": {
+          "phase": 0.8333333333333333,
+          "stance": false,
+          "anchorWorld": [
+            0.20633149147033691,
+            -0.21500001847743988,
+            0.05363139882683754
+          ],
+          "localPixels": [
+            31.5106258392334,
+            -13.444873809814453
+          ],
+          "screenCells": [
+            0.16411784291267395,
+            -0.07002538442611694
+          ],
+          "rootPixels": [
+            63.99999999999995,
+            -2.3979483753187844e-06
+          ],
+          "rootPlusLocalPixels": [
+            95.51062583923334,
+            -13.444876207762828
+          ],
+          "liftWorld": 0.04763139720814415
+        }
+      }
+    },
+    {
+      "name": "machine.sirs.walk.east.09",
+      "path": "art/production/station/review/iterations/benchmark-room-motion04/regions/machine.sirs.walk.east.09.png",
+      "widthCells": 1.5,
+      "heightCells": 2.0,
+      "pivotX": 0.5,
+      "pivotY": 0.2125542163848877,
+      "pixelWidth": 288,
+      "pixelHeight": 384,
+      "layer": "world",
+      "sha256": "84bcfd8a77558883de590efef56ea66c2df16feca3b9f90ad36d99c8d13ce35a",
+      "asset": "sirs",
+      "feet": {
+        "left": {
+          "phase": 0.375,
+          "stance": true,
+          "anchorWorld": [
+            -0.10215193033218384,
+            0.21500001847743988,
+            0.006000000052154064
+          ],
+          "localPixels": [
+            -15.600482940673828,
+            20.67791748046875
+          ],
+          "screenCells": [
+            -0.08125251531600952,
+            0.1076974868774414
+          ],
+          "rootPixels": [
+            71.99999999999994,
+            -2.6976919222336326e-06
+          ],
+          "rootPlusLocalPixels": [
+            56.399517059326115,
+            20.677914782776828
+          ],
+          "liftWorld": 0
+        },
+        "right": {
+          "phase": 0.875,
+          "stance": false,
+          "anchorWorld": [
+            0.27108389139175415,
+            -0.21500001847743988,
+            0.0448908731341362
+          ],
+          "localPixels": [
+            41.399505615234375,
+            -14.505060195922852
+          ],
+          "screenCells": [
+            0.2156224250793457,
+            -0.07554718852043152
+          ],
+          "rootPixels": [
+            71.99999999999994,
+            -2.6976919222336326e-06
+          ],
+          "rootPlusLocalPixels": [
+            113.39950561523432,
+            -14.505062893614774
+          ],
+          "liftWorld": 0.038890872965260115
+        }
+      }
+    },
+    {
+      "name": "machine.sirs.walk.east.10",
+      "path": "art/production/station/review/iterations/benchmark-room-motion04/regions/machine.sirs.walk.east.10.png",
+      "widthCells": 1.5,
+      "heightCells": 2.0,
+      "pivotX": 0.5,
+      "pivotY": 0.2125542163848877,
+      "pixelWidth": 288,
+      "pixelHeight": 384,
+      "layer": "world",
+      "sha256": "a38e6e58e7db622f81782e3f2e8ed0a2bef89e97045024be7dc98f63c56fecb8",
+      "asset": "sirs",
+      "feet": {
+        "left": {
+          "phase": 0.4166666666666667,
+          "stance": true,
+          "anchorWorld": [
+            -0.1545359045267105,
+            0.21500001847743988,
+            0.006000000052154064
+          ],
+          "localPixels": [
+            -23.600486755371094,
+            20.67791748046875
+          ],
+          "screenCells": [
+            -0.12291920185089111,
+            0.1076974868774414
+          ],
+          "rootPixels": [
+            79.99999999999994,
+            -2.997435469148481e-06
+          ],
+          "rootPlusLocalPixels": [
+            56.39951324462885,
+            20.67791448303328
+          ],
+          "liftWorld": 0
+        },
+        "right": {
+          "phase": 0.9166666666666667,
+          "stance": false,
+          "anchorWorld": [
+            0.3227403163909912,
+            -0.21500003337860107,
+            0.03350000083446503
+          ],
+          "localPixels": [
+            49.28839302062988,
+            -15.886728286743164
+          ],
+          "screenCells": [
+            0.25671038031578064,
+            -0.08274337649345398
+          ],
+          "rootPixels": [
+            79.99999999999994,
+            -2.997435469148481e-06
+          ],
+          "rootPlusLocalPixels": [
+            129.28839302062983,
+            -15.886731284178634
+          ],
+          "liftWorld": 0.027499999999999976
+        }
+      }
+    },
+    {
+      "name": "machine.sirs.walk.east.11",
+      "path": "art/production/station/review/iterations/benchmark-room-motion04/regions/machine.sirs.walk.east.11.png",
+      "widthCells": 1.5,
+      "heightCells": 2.0,
+      "pivotX": 0.5,
+      "pivotY": 0.2125542163848877,
+      "pixelWidth": 288,
+      "pixelHeight": 384,
+      "layer": "world",
+      "sha256": "796274d3364186777e9565e62e8faf216cc6ab7389efda4ca97184045f325847",
+      "asset": "sirs",
+      "feet": {
+        "left": {
+          "phase": 0.4583333333333333,
+          "stance": true,
+          "anchorWorld": [
+            -0.20691989362239838,
+            0.21500001847743988,
+            0.006000000052154064
+          ],
+          "localPixels": [
+            -31.60048198699951,
+            20.67791748046875
+          ],
+          "screenCells": [
+            -0.16458584368228912,
+            0.1076974868774414
+          ],
+          "rootPixels": [
+            87.99999999999993,
+            -3.297179016063329e-06
+          ],
+          "rootPlusLocalPixels": [
+            56.39951801300042,
+            20.677914183289733
+          ],
+          "liftWorld": 0
+        },
+        "right": {
+          "phase": 0.9583333333333333,
+          "stance": false,
+          "anchorWorld": [
+            0.35693541169166565,
+            -0.21500003337860107,
+            0.02023504674434662
+          ],
+          "localPixels": [
+            54.510623931884766,
+            -17.495716094970703
+          ],
+          "screenCells": [
+            0.28390949964523315,
+            -0.09112352132797241
+          ],
+          "rootPixels": [
+            87.99999999999993,
+            -3.297179016063329e-06
+          ],
+          "rootPlusLocalPixels": [
+            142.5106239318847,
+            -17.49571939214972
+          ],
+          "liftWorld": 0.01423504748063868
+        }
+      }
+    },
+    {
+      "name": "machine.sirs.walk.east.12",
+      "path": "art/production/station/review/iterations/benchmark-room-motion04/regions/machine.sirs.walk.east.12.png",
+      "widthCells": 1.5,
+      "heightCells": 2.0,
+      "pivotX": 0.5,
+      "pivotY": 0.2125542163848877,
+      "pixelWidth": 288,
+      "pixelHeight": 384,
+      "layer": "world",
+      "sha256": "120087a1034335461e5b5073659cd86ad0f43e4c6af71ca627af479f132114a0",
+      "asset": "sirs",
+      "feet": {
+        "left": {
+          "phase": 0.5,
+          "stance": false,
+          "anchorWorld": [
+            -0.25930386781692505,
+            0.21500001847743988,
+            0.006000000052154064
+          ],
+          "localPixels": [
+            -39.60048580169678,
+            20.67791748046875
+          ],
+          "screenCells": [
+            -0.20625253021717072,
+            0.1076974868774414
+          ],
+          "rootPixels": [
+            95.99999999999993,
+            -3.596922562978177e-06
+          ],
+          "rootPlusLocalPixels": [
+            56.39951419830315,
+            20.677913883546186
+          ],
+          "liftWorld": 0.0
+        },
+        "right": {
+          "phase": 0.0,
+          "stance": true,
+          "anchorWorld": [
+            0.3693038523197174,
+            -0.21500003337860107,
+            0.006000000052154064
+          ],
+          "localPixels": [
+            56.39951705932617,
+            -19.222366333007812
+          ],
+          "screenCells": [
+            0.2937474846839905,
+            -0.10011649131774902
+          ],
+          "rootPixels": [
+            95.99999999999993,
+            -3.596922562978177e-06
+          ],
+          "rootPlusLocalPixels": [
+            152.39951705932612,
+            -19.222369929930377
+          ],
+          "liftWorld": 0
+        }
+      }
+    },
+    {
+      "name": "machine.sirs.walk.east.13",
+      "path": "art/production/station/review/iterations/benchmark-room-motion04/regions/machine.sirs.walk.east.13.png",
+      "widthCells": 1.5,
+      "heightCells": 2.0,
+      "pivotX": 0.5,
+      "pivotY": 0.2125542163848877,
+      "pixelWidth": 288,
+      "pixelHeight": 384,
+      "layer": "world",
+      "sha256": "378b3a8b0e24f4417dea646f6feb1d240378d4c8abceb934b430e57169e0db80",
+      "asset": "sirs",
+      "feet": {
+        "left": {
+          "phase": 0.5416666666666666,
+          "stance": false,
+          "anchorWorld": [
+            -0.2469354271888733,
+            0.21500001847743988,
+            0.02023504674434662
+          ],
+          "localPixels": [
+            -37.71159267425537,
+            22.40456771850586
+          ],
+          "screenCells": [
+            -0.1964145451784134,
+            0.11669045686721802
+          ],
+          "rootPixels": [
+            103.99999999999991,
+            -3.896666109893025e-06
+          ],
+          "rootPlusLocalPixels": [
+            66.28840732574454,
+            22.404563821839748
+          ],
+          "liftWorld": 0.014235047480638629
+        },
+        "right": {
+          "phase": 0.04166666666666652,
+          "stance": true,
+          "anchorWorld": [
+            0.31691986322402954,
+            -0.21500003337860107,
+            0.006000000052154064
+          ],
+          "localPixels": [
+            48.399513244628906,
+            -19.222366333007812
+          ],
+          "screenCells": [
+            0.2520807981491089,
+            -0.10011649131774902
+          ],
+          "rootPixels": [
+            103.99999999999991,
+            -3.896666109893025e-06
+          ],
+          "rootPlusLocalPixels": [
+            152.39951324462882,
+            -19.222370229673924
+          ],
+          "liftWorld": 0
+        }
+      }
+    },
+    {
+      "name": "machine.sirs.walk.east.14",
+      "path": "art/production/station/review/iterations/benchmark-room-motion04/regions/machine.sirs.walk.east.14.png",
+      "widthCells": 1.5,
+      "heightCells": 2.0,
+      "pivotX": 0.5,
+      "pivotY": 0.2125542163848877,
+      "pixelWidth": 288,
+      "pixelHeight": 384,
+      "layer": "world",
+      "sha256": "e13c94d97f41a26ed42ed90ed1bef6e0cfecd44fd80eef156683f18b72c277fc",
+      "asset": "sirs",
+      "feet": {
+        "left": {
+          "phase": 0.5833333333333334,
+          "stance": false,
+          "anchorWorld": [
+            -0.21274033188819885,
+            0.21500001847743988,
+            0.03350000083446503
+          ],
+          "localPixels": [
+            -32.489370346069336,
+            24.0135498046875
+          ],
+          "screenCells": [
+            -0.16921547055244446,
+            0.12507057189941406
+          ],
+          "rootPixels": [
+            111.99999999999993,
+            -4.196409656807873e-06
+          ],
+          "rootPlusLocalPixels": [
+            79.5106296539306,
+            24.013545608277845
+          ],
+          "liftWorld": 0.027500000000000007
+        },
+        "right": {
+          "phase": 0.08333333333333348,
+          "stance": true,
+          "anchorWorld": [
+            0.26453590393066406,
+            -0.21500001847743988,
+            0.006000000052154064
+          ],
+          "localPixels": [
+            40.39950942993164,
+            -19.222366333007812
+          ],
+          "screenCells": [
+            0.2104141116142273,
+            -0.10011649131774902
+          ],
+          "rootPixels": [
+            111.99999999999993,
+            -4.196409656807873e-06
+          ],
+          "rootPlusLocalPixels": [
+            152.39950942993158,
+            -19.222370529417468
+          ],
+          "liftWorld": 0
+        }
+      }
+    },
+    {
+      "name": "machine.sirs.walk.east.15",
+      "path": "art/production/station/review/iterations/benchmark-room-motion04/regions/machine.sirs.walk.east.15.png",
+      "widthCells": 1.5,
+      "heightCells": 2.0,
+      "pivotX": 0.5,
+      "pivotY": 0.2125542163848877,
+      "pixelWidth": 288,
+      "pixelHeight": 384,
+      "layer": "world",
+      "sha256": "e7c5df5ed84a23ba931499e90a72d9a7e13c714d40db4eb26f74ef834d4245b6",
+      "asset": "sirs",
+      "feet": {
+        "left": {
+          "phase": 0.625,
+          "stance": false,
+          "anchorWorld": [
+            -0.1610839068889618,
+            0.21500001847743988,
+            0.0448908731341362
+          ],
+          "localPixels": [
+            -24.600482940673828,
+            25.395217895507812
+          ],
+          "screenCells": [
+            -0.12812751531600952,
+            0.13226675987243652
+          ],
+          "rootPixels": [
+            119.99999999999991,
+            -4.4961532037227216e-06
+          ],
+          "rootPlusLocalPixels": [
+            95.39951705932609,
+            25.39521339935461
+          ],
+          "liftWorld": 0.038890872965260115
+        },
+        "right": {
+          "phase": 0.125,
+          "stance": true,
+          "anchorWorld": [
+            0.2121519297361374,
+            -0.21500001847743988,
+            0.006000000052154064
+          ],
+          "localPixels": [
+            32.399505615234375,
+            -19.222366333007812
+          ],
+          "screenCells": [
+            0.1687474250793457,
+            -0.10011649131774902
+          ],
+          "rootPixels": [
+            119.99999999999991,
+            -4.4961532037227216e-06
+          ],
+          "rootPlusLocalPixels": [
+            152.3995056152343,
+            -19.222370829161015
+          ],
+          "liftWorld": 0
+        }
+      }
+    },
+    {
+      "name": "machine.sirs.walk.east.16",
+      "path": "art/production/station/review/iterations/benchmark-room-motion04/regions/machine.sirs.walk.east.16.png",
+      "widthCells": 1.5,
+      "heightCells": 2.0,
+      "pivotX": 0.5,
+      "pivotY": 0.2125542163848877,
+      "pixelWidth": 288,
+      "pixelHeight": 384,
+      "layer": "world",
+      "sha256": "6f186c18cbc32f95a72dacbd0aa8039be65a1a58d8c94ca78788ada444a4cd98",
+      "asset": "sirs",
+      "feet": {
+        "left": {
+          "phase": 0.6666666666666666,
+          "stance": false,
+          "anchorWorld": [
+            -0.09633148461580276,
+            0.2150000035762787,
+            0.05363139882683754
+          ],
+          "localPixels": [
+            -14.711594581604004,
+            26.45541000366211
+          ],
+          "screenCells": [
+            -0.07662288844585419,
+            0.1377885937690735
+          ],
+          "rootPixels": [
+            127.9999999999999,
+            -4.795896750637569e-06
+          ],
+          "rootPlusLocalPixels": [
+            113.2884054183959,
+            26.45540520776536
+          ],
+          "liftWorld": 0.04763139720814412
+        },
+        "right": {
+          "phase": 0.16666666666666652,
+          "stance": true,
+          "anchorWorld": [
+            0.15976795554161072,
+            -0.21500001847743988,
+            0.006000000052154064
+          ],
+          "localPixels": [
+            24.399518966674805,
+            -19.222366333007812
+          ],
+          "screenCells": [
+            0.12708082795143127,
+            -0.10011649131774902
+          ],
+          "rootPixels": [
+            127.9999999999999,
+            -4.795896750637569e-06
+          ],
+          "rootPlusLocalPixels": [
+            152.3995189666747,
+            -19.222371128904562
+          ],
+          "liftWorld": 0
+        }
+      }
+    },
+    {
+      "name": "machine.sirs.walk.east.17",
+      "path": "art/production/station/review/iterations/benchmark-room-motion04/regions/machine.sirs.walk.east.17.png",
+      "widthCells": 1.5,
+      "heightCells": 2.0,
+      "pivotX": 0.5,
+      "pivotY": 0.2125542163848877,
+      "pixelWidth": 288,
+      "pixelHeight": 384,
+      "layer": "world",
+      "sha256": "2e3f772ce7b0036d3217504a1174dab8e0147fb8bbf5fa5e5fa1d9ebfacd37ab",
+      "asset": "sirs",
+      "feet": {
+        "left": {
+          "phase": 0.7083333333333334,
+          "stance": false,
+          "anchorWorld": [
+            -0.022848401218652725,
+            0.2150000035762787,
+            0.05912591889500618
+          ],
+          "localPixels": [
+            -3.4893693923950195,
+            27.121868133544922
+          ],
+          "screenCells": [
+            -0.01817379891872406,
+            0.14125972986221313
+          ],
+          "rootPixels": [
+            135.99999999999991,
+            -5.095640297552418e-06
+          ],
+          "rootPlusLocalPixels": [
+            132.5106306076049,
+            27.121863037904625
+          ],
+          "liftWorld": 0.053125920445898756
+        },
+        "right": {
+          "phase": 0.20833333333333348,
+          "stance": true,
+          "anchorWorld": [
+            0.10738396644592285,
+            -0.21500001847743988,
+            0.006000000052154064
+          ],
+          "localPixels": [
+            16.39951515197754,
+            -19.222366333007812
+          ],
+          "screenCells": [
+            0.08541414141654968,
+            -0.10011649131774902
+          ],
+          "rootPixels": [
+            135.99999999999991,
+            -5.095640297552418e-06
+          ],
+          "rootPlusLocalPixels": [
+            152.39951515197745,
+            -19.22237142864811
+          ],
+          "liftWorld": 0
+        }
+      }
+    },
+    {
+      "name": "machine.sirs.walk.east.18",
+      "path": "art/production/station/review/iterations/benchmark-room-motion04/regions/machine.sirs.walk.east.18.png",
+      "widthCells": 1.5,
+      "heightCells": 2.0,
+      "pivotX": 0.5,
+      "pivotY": 0.2125542163848877,
+      "pixelWidth": 288,
+      "pixelHeight": 384,
+      "layer": "world",
+      "sha256": "6f0f59973737282f84c15a1d1313e4da9d91062aae09f199069714bd4f10b816",
+      "asset": "sirs",
+      "feet": {
+        "left": {
+          "phase": 0.75,
+          "stance": false,
+          "anchorWorld": [
+            0.05500001460313797,
+            0.2150000035762787,
+            0.061000000685453415
+          ],
+          "localPixels": [
+            8.399511337280273,
+            27.34918212890625
+          ],
+          "screenCells": [
+            0.04374745488166809,
+            0.14244365692138672
+          ],
+          "rootPixels": [
+            143.9999999999999,
+            -5.395383844467265e-06
+          ],
+          "rootPlusLocalPixels": [
+            152.39951133728016,
+            27.349176733522405
+          ],
+          "liftWorld": 0.055
+        },
+        "right": {
+          "phase": 0.25,
+          "stance": true,
+          "anchorWorld": [
+            0.05499998480081558,
+            -0.2150000035762787,
+            0.006000000052154064
+          ],
+          "localPixels": [
+            8.399511337280273,
+            -19.222366333007812
+          ],
+          "screenCells": [
+            0.04374745488166809,
+            -0.10011649131774902
+          ],
+          "rootPixels": [
+            143.9999999999999,
+            -5.395383844467265e-06
+          ],
+          "rootPlusLocalPixels": [
+            152.39951133728016,
+            -19.222371728391657
+          ],
+          "liftWorld": 0
+        }
+      }
+    },
+    {
+      "name": "machine.sirs.walk.east.19",
+      "path": "art/production/station/review/iterations/benchmark-room-motion04/regions/machine.sirs.walk.east.19.png",
+      "widthCells": 1.5,
+      "heightCells": 2.0,
+      "pivotX": 0.5,
+      "pivotY": 0.2125542163848877,
+      "pixelWidth": 288,
+      "pixelHeight": 384,
+      "layer": "world",
+      "sha256": "37fbebef0c787d735e56d5b7ca5d5151487fb2158adf35a5ccd0505e3a79baa8",
+      "asset": "sirs",
+      "feet": {
+        "left": {
+          "phase": 0.7916666666666666,
+          "stance": false,
+          "anchorWorld": [
+            0.13284842669963837,
+            0.2149999886751175,
+            0.05912591889500618
+          ],
+          "localPixels": [
+            20.288400650024414,
+            27.121868133544922
+          ],
+          "screenCells": [
+            0.10566875338554382,
+            0.14125972986221313
+          ],
+          "rootPixels": [
+            151.9999999999999,
+            -5.695127391382113e-06
+          ],
+          "rootPlusLocalPixels": [
+            172.2884006500243,
+            27.12186243841753
+          ],
+          "liftWorld": 0.05312592044589876
+        },
+        "right": {
+          "phase": 0.2916666666666665,
+          "stance": true,
+          "anchorWorld": [
+            0.0026160022243857384,
+            -0.2150000035762787,
+            0.006000000052154064
+          ],
+          "localPixels": [
+            0.3995075225830078,
+            -19.222366333007812
+          ],
+          "screenCells": [
+            0.002080768346786499,
+            -0.10011649131774902
+          ],
+          "rootPixels": [
+            151.9999999999999,
+            -5.695127391382113e-06
+          ],
+          "rootPlusLocalPixels": [
+            152.3995075225829,
+            -19.222372028135204
+          ],
+          "liftWorld": 0
+        }
+      }
+    },
+    {
+      "name": "machine.sirs.walk.east.20",
+      "path": "art/production/station/review/iterations/benchmark-room-motion04/regions/machine.sirs.walk.east.20.png",
+      "widthCells": 1.5,
+      "heightCells": 2.0,
+      "pivotX": 0.5,
+      "pivotY": 0.2125542163848877,
+      "pixelWidth": 288,
+      "pixelHeight": 384,
+      "layer": "world",
+      "sha256": "b6aab9e0f30b328fe0663cde2c78729e0011a6ab19fc349953e8a01962d85928",
+      "asset": "sirs",
+      "feet": {
+        "left": {
+          "phase": 0.8333333333333334,
+          "stance": false,
+          "anchorWorld": [
+            0.2063315212726593,
+            0.2149999886751175,
+            0.05363139882683754
+          ],
+          "localPixels": [
+            31.5106258392334,
+            26.45541000366211
+          ],
+          "screenCells": [
+            0.16411784291267395,
+            0.1377885937690735
+          ],
+          "rootPixels": [
+            159.9999999999999,
+            -5.994870938296962e-06
+          ],
+          "rootPlusLocalPixels": [
+            191.51062583923328,
+            26.45540400879117
+          ],
+          "liftWorld": 0.047631397208144126
+        },
+        "right": {
+          "phase": 0.3333333333333335,
+          "stance": true,
+          "anchorWorld": [
+            -0.049767978489398956,
+            -0.2150000035762787,
+            0.006000000052154064
+          ],
+          "localPixels": [
+            -7.60048770904541,
+            -19.222366333007812
+          ],
+          "screenCells": [
+            -0.03958587348461151,
+            -0.10011649131774902
+          ],
+          "rootPixels": [
+            159.9999999999999,
+            -5.994870938296962e-06
+          ],
+          "rootPlusLocalPixels": [
+            152.39951229095448,
+            -19.22237232787875
+          ],
+          "liftWorld": 0
+        }
+      }
+    },
+    {
+      "name": "machine.sirs.walk.east.21",
+      "path": "art/production/station/review/iterations/benchmark-room-motion04/regions/machine.sirs.walk.east.21.png",
+      "widthCells": 1.5,
+      "heightCells": 2.0,
+      "pivotX": 0.5,
+      "pivotY": 0.2125542163848877,
+      "pixelWidth": 288,
+      "pixelHeight": 384,
+      "layer": "world",
+      "sha256": "d320cc819da43a9b422c35de1a842ad88a954235bddf4ef72634120e1a14f17c",
+      "asset": "sirs",
+      "feet": {
+        "left": {
+          "phase": 0.875,
+          "stance": false,
+          "anchorWorld": [
+            0.2710839509963989,
+            0.2149999886751175,
+            0.0448908731341362
+          ],
+          "localPixels": [
+            41.39952278137207,
+            25.395217895507812
+          ],
+          "screenCells": [
+            0.21562251448631287,
+            0.13226675987243652
+          ],
+          "rootPixels": [
+            167.9999999999999,
+            -6.29461448521181e-06
+          ],
+          "rootPlusLocalPixels": [
+            209.39952278137196,
+            25.395211600893326
+          ],
+          "liftWorld": 0.038890872965260115
+        },
+        "right": {
+          "phase": 0.375,
+          "stance": true,
+          "anchorWorld": [
+            -0.10215196013450623,
+            -0.2149999886751175,
+            0.006000000052154064
+          ],
+          "localPixels": [
+            -15.600491523742676,
+            -19.222360610961914
+          ],
+          "screenCells": [
+            -0.0812525600194931,
+            -0.10011646151542664
+          ],
+          "rootPixels": [
+            167.9999999999999,
+            -6.29461448521181e-06
+          ],
+          "rootPlusLocalPixels": [
+            152.3995084762572,
+            -19.2223669055764
+          ],
+          "liftWorld": 0
+        }
+      }
+    },
+    {
+      "name": "machine.sirs.walk.east.22",
+      "path": "art/production/station/review/iterations/benchmark-room-motion04/regions/machine.sirs.walk.east.22.png",
+      "widthCells": 1.5,
+      "heightCells": 2.0,
+      "pivotX": 0.5,
+      "pivotY": 0.2125542163848877,
+      "pixelWidth": 288,
+      "pixelHeight": 384,
+      "layer": "world",
+      "sha256": "6de7c07ca6994c7fd518cddb668ea5a36ce94f6f5dfd1f8593fd69a92f121682",
+      "asset": "sirs",
+      "feet": {
+        "left": {
+          "phase": 0.9166666666666666,
+          "stance": false,
+          "anchorWorld": [
+            0.322740375995636,
+            0.2149999737739563,
+            0.03350000083446503
+          ],
+          "localPixels": [
+            49.28841018676758,
+            24.0135498046875
+          ],
+          "screenCells": [
+            0.2567104697227478,
+            0.12507057189941406
+          ],
+          "rootPixels": [
+            175.99999999999986,
+            -6.594358032126658e-06
+          ],
+          "rootPlusLocalPixels": [
+            225.28841018676744,
+            24.013543210329466
+          ],
+          "liftWorld": 0.027500000000000017
+        },
+        "right": {
+          "phase": 0.4166666666666665,
+          "stance": true,
+          "anchorWorld": [
+            -0.1545359343290329,
+            -0.2149999886751175,
+            0.006000000052154064
+          ],
+          "localPixels": [
+            -23.600486755371094,
+            -19.222360610961914
+          ],
+          "screenCells": [
+            -0.12291920185089111,
+            -0.10011646151542664
+          ],
+          "rootPixels": [
+            175.99999999999986,
+            -6.594358032126658e-06
+          ],
+          "rootPlusLocalPixels": [
+            152.39951324462876,
+            -19.222367205319948
+          ],
+          "liftWorld": 0
+        }
+      }
+    },
+    {
+      "name": "machine.sirs.walk.east.23",
+      "path": "art/production/station/review/iterations/benchmark-room-motion04/regions/machine.sirs.walk.east.23.png",
+      "widthCells": 1.5,
+      "heightCells": 2.0,
+      "pivotX": 0.5,
+      "pivotY": 0.2125542163848877,
+      "pixelWidth": 288,
+      "pixelHeight": 384,
+      "layer": "world",
+      "sha256": "583ba695a9152cda26647ce3577fbcb383bc115ea1b4050ba214b1ad5aded5ba",
+      "asset": "sirs",
+      "feet": {
+        "left": {
+          "phase": 0.9583333333333334,
+          "stance": false,
+          "anchorWorld": [
+            0.3569354712963104,
+            0.2149999737739563,
+            0.02023504674434662
+          ],
+          "localPixels": [
+            54.510623931884766,
+            22.40456771850586
+          ],
+          "screenCells": [
+            0.28390949964523315,
+            0.11669045686721802
+          ],
+          "rootPixels": [
+            183.99999999999986,
+            -6.894101579041506e-06
+          ],
+          "rootPlusLocalPixels": [
+            238.51062393188462,
+            22.40456082440428
+          ],
+          "liftWorld": 0.014235047480638632
+        },
+        "right": {
+          "phase": 0.4583333333333335,
+          "stance": true,
+          "anchorWorld": [
+            -0.20691992342472076,
+            -0.2149999886751175,
+            0.006000000052154064
+          ],
+          "localPixels": [
+            -31.60049057006836,
+            -19.222360610961914
+          ],
+          "screenCells": [
+            -0.1645858883857727,
+            -0.10011646151542664
+          ],
+          "rootPixels": [
+            183.99999999999986,
+            -6.894101579041506e-06
+          ],
+          "rootPlusLocalPixels": [
+            152.3995094299315,
+            -19.22236750506349
+          ],
+          "liftWorld": 0
+        }
+      }
+    },
+    {
+      "name": "machine.sirs.start.east.00",
+      "path": "art/production/station/review/iterations/benchmark-room-motion04/regions/machine.sirs.start.east.00.png",
+      "widthCells": 1.5,
+      "heightCells": 2.0,
+      "pivotX": 0.5,
+      "pivotY": 0.2125542163848877,
+      "pixelWidth": 288,
+      "pixelHeight": 384,
+      "layer": "world",
+      "sha256": "0179bcd1a2160a97f1f8bc36ddff7cb658ec74cdd858317929b6a1fa69ee0275",
+      "asset": "sirs",
+      "feet": {
+        "left": {
+          "phase": 0.0,
+          "stance": true,
+          "anchorWorld": [
+            0.05500001460313797,
+            0.2150000035762787,
+            0.006000000052154064
+          ],
+          "localPixels": [
+            8.399511337280273,
+            20.67791748046875
+          ],
+          "screenCells": [
+            0.04374745488166809,
+            0.1076974868774414
+          ],
+          "rootPixels": [
+            0.0,
+            0.0
+          ],
+          "rootPlusLocalPixels": [
+            8.399511337280273,
+            20.67791748046875
+          ],
+          "liftWorld": 0.0
+        },
+        "right": {
+          "phase": 0.5,
+          "stance": true,
+          "anchorWorld": [
+            0.05499998480081558,
+            -0.2150000035762787,
+            0.006000000052154064
+          ],
+          "localPixels": [
+            8.399511337280273,
+            -19.222366333007812
+          ],
+          "screenCells": [
+            0.04374745488166809,
+            -0.10011649131774902
+          ],
+          "rootPixels": [
+            0.0,
+            0.0
+          ],
+          "rootPlusLocalPixels": [
+            8.399511337280273,
+            -19.222366333007812
+          ],
+          "liftWorld": 0.0
+        }
+      }
+    },
+    {
+      "name": "machine.sirs.start.east.01",
+      "path": "art/production/station/review/iterations/benchmark-room-motion04/regions/machine.sirs.start.east.01.png",
+      "widthCells": 1.5,
+      "heightCells": 2.0,
+      "pivotX": 0.5,
+      "pivotY": 0.2125542163848877,
+      "pixelWidth": 288,
+      "pixelHeight": 384,
+      "layer": "world",
+      "sha256": "c54a197477fd606cd0bbb275dfe4108880bd2519c137f45c1a00d7ee6b6935f9",
+      "asset": "sirs",
+      "feet": {
+        "left": {
+          "phase": 0.2,
+          "stance": false,
+          "anchorWorld": [
+            0.16563498973846436,
+            0.2149999886751175,
+            0.036433808505535126
+          ],
+          "localPixels": [
+            25.295522689819336,
+            24.369403839111328
+          ],
+          "screenCells": [
+            0.1317475140094757,
+            0.12692397832870483
+          ],
+          "rootPixels": [
+            0.0,
+            0.0
+          ],
+          "rootPlusLocalPixels": [
+            25.295522689819336,
+            24.369403839111328
+          ],
+          "liftWorld": 0.030433808521444915
+        },
+        "right": {
+          "phase": 0.7,
+          "stance": true,
+          "anchorWorld": [
+            0.05499998480081558,
+            -0.2150000035762787,
+            0.006000000052154064
+          ],
+          "localPixels": [
+            8.399511337280273,
+            -19.222366333007812
+          ],
+          "screenCells": [
+            0.04374745488166809,
+            -0.10011649131774902
+          ],
+          "rootPixels": [
+            0.0,
+            0.0
+          ],
+          "rootPlusLocalPixels": [
+            8.399511337280273,
+            -19.222366333007812
+          ],
+          "liftWorld": 0.0
+        }
+      }
+    },
+    {
+      "name": "machine.sirs.start.east.02",
+      "path": "art/production/station/review/iterations/benchmark-room-motion04/regions/machine.sirs.start.east.02.png",
+      "widthCells": 1.5,
+      "heightCells": 2.0,
+      "pivotX": 0.5,
+      "pivotY": 0.2125542163848877,
+      "pixelWidth": 288,
+      "pixelHeight": 384,
+      "layer": "world",
+      "sha256": "1bb775d5615bf5daef530678cdbf60d5933b886973c8e901ad475e3b0acb40d2",
+      "asset": "sirs",
+      "feet": {
+        "left": {
+          "phase": 0.4,
+          "stance": false,
+          "anchorWorld": [
+            0.33661630749702454,
+            0.2149999737739563,
+            0.024809127673506737
+          ],
+          "localPixels": [
+            51.40751838684082,
+            22.959388732910156
+          ],
+          "screenCells": [
+            0.2677474915981293,
+            0.11958014965057373
+          ],
+          "rootPixels": [
+            0.0,
+            0.0
+          ],
+          "rootPlusLocalPixels": [
+            51.40751838684082,
+            22.959388732910156
+          ],
+          "liftWorld": 0.018809128073359143
+        },
+        "right": {
+          "phase": 0.9,
+          "stance": true,
+          "anchorWorld": [
+            0.05499998480081558,
+            -0.2150000035762787,
+            0.006000000052154064
+          ],
+          "localPixels": [
+            8.399511337280273,
+            -19.222366333007812
+          ],
+          "screenCells": [
+            0.04374745488166809,
+            -0.10011649131774902
+          ],
+          "rootPixels": [
+            0.0,
+            0.0
+          ],
+          "rootPlusLocalPixels": [
+            8.399511337280273,
+            -19.222366333007812
+          ],
+          "liftWorld": 0.0
+        }
+      }
+    },
+    {
+      "name": "machine.sirs.start.east.03",
+      "path": "art/production/station/review/iterations/benchmark-room-motion04/regions/machine.sirs.start.east.03.png",
+      "widthCells": 1.5,
+      "heightCells": 2.0,
+      "pivotX": 0.5,
+      "pivotY": 0.2125542163848877,
+      "pixelWidth": 288,
+      "pixelHeight": 384,
+      "layer": "world",
+      "sha256": "94179f15520aa756abb486bf1a8a1995031f108f9cfbced9877f3a523164fe96",
+      "asset": "sirs",
+      "feet": {
+        "left": {
+          "phase": 0.6,
+          "stance": true,
+          "anchorWorld": [
+            0.3693039119243622,
+            0.2149999737739563,
+            0.006000000052154064
+          ],
+          "localPixels": [
+            56.39951705932617,
+            20.67791748046875
+          ],
+          "screenCells": [
+            0.2937474846839905,
+            0.1076974868774414
+          ],
+          "rootPixels": [
+            0.0,
+            0.0
+          ],
+          "rootPlusLocalPixels": [
+            56.39951705932617,
+            20.67791748046875
+          ],
+          "liftWorld": 3.91886975727153e-18
+        },
+        "right": {
+          "phase": 0.10000000000000009,
+          "stance": false,
+          "anchorWorld": [
+            0.022312378510832787,
+            -0.2150000035762787,
+            0.024809127673506737
+          ],
+          "localPixels": [
+            3.407512664794922,
+            -16.940895080566406
+          ],
+          "screenCells": [
+            0.017747461795806885,
+            -0.0882338285446167
+          ],
+          "rootPixels": [
+            0.0,
+            0.0
+          ],
+          "rootPlusLocalPixels": [
+            3.407512664794922,
+            -16.940895080566406
+          ],
+          "liftWorld": 0.018809128073359136
+        }
+      }
+    },
+    {
+      "name": "machine.sirs.start.east.04",
+      "path": "art/production/station/review/iterations/benchmark-room-motion04/regions/machine.sirs.start.east.04.png",
+      "widthCells": 1.5,
+      "heightCells": 2.0,
+      "pivotX": 0.5,
+      "pivotY": 0.2125542163848877,
+      "pixelWidth": 288,
+      "pixelHeight": 384,
+      "layer": "world",
+      "sha256": "b4a788ff32349ef724179d65aba56d0cd56bfd07b3061dc706124a7d0ffffcdb",
+      "asset": "sirs",
+      "feet": {
+        "left": {
+          "phase": 0.8,
+          "stance": true,
+          "anchorWorld": [
+            0.3693039119243622,
+            0.2149999737739563,
+            0.006000000052154064
+          ],
+          "localPixels": [
+            56.39951705932617,
+            20.67791748046875
+          ],
+          "screenCells": [
+            0.2937474846839905,
+            0.1076974868774414
+          ],
+          "rootPixels": [
+            0.0,
+            0.0
+          ],
+          "rootPlusLocalPixels": [
+            56.39951705932617,
+            20.67791748046875
+          ],
+          "liftWorld": 3.91886975727153e-18
+        },
+        "right": {
+          "phase": 0.30000000000000004,
+          "stance": false,
+          "anchorWorld": [
+            -0.14866892993450165,
+            -0.2149999886751175,
+            0.036433808505535126
+          ],
+          "localPixels": [
+            -22.70449161529541,
+            -15.530868530273438
+          ],
+          "screenCells": [
+            -0.11825256049633026,
+            -0.08088994026184082
+          ],
+          "rootPixels": [
+            0.0,
+            0.0
+          ],
+          "rootPlusLocalPixels": [
+            -22.70449161529541,
+            -15.530868530273438
+          ],
+          "liftWorld": 0.030433808521444915
+        }
+      }
+    },
+    {
+      "name": "machine.sirs.start.east.05",
+      "path": "art/production/station/review/iterations/benchmark-room-motion04/regions/machine.sirs.start.east.05.png",
+      "widthCells": 1.5,
+      "heightCells": 2.0,
+      "pivotX": 0.5,
+      "pivotY": 0.2125542163848877,
+      "pixelWidth": 288,
+      "pixelHeight": 384,
+      "layer": "world",
+      "sha256": "6822f084e7032f11c4034096c1fc2629a73d1af642441e5e17122147f36eab12",
+      "asset": "sirs",
+      "feet": {
+        "left": {
+          "phase": 0.0,
+          "stance": true,
+          "anchorWorld": [
+            0.3693039119243622,
+            0.2149999737739563,
+            0.006000000052154064
+          ],
+          "localPixels": [
+            56.39951705932617,
+            20.67791748046875
+          ],
+          "screenCells": [
+            0.2937474846839905,
+            0.1076974868774414
+          ],
+          "rootPixels": [
+            0.0,
+            0.0
+          ],
+          "rootPlusLocalPixels": [
+            56.39951705932617,
+            20.67791748046875
+          ],
+          "liftWorld": 3.91886975727153e-18
+        },
+        "right": {
+          "phase": 0.5,
+          "stance": true,
+          "anchorWorld": [
+            -0.2593039274215698,
+            -0.2149999886751175,
+            0.006000000052154064
+          ],
+          "localPixels": [
+            -39.600494384765625,
+            -19.222360610961914
+          ],
+          "screenCells": [
+            -0.2062525749206543,
+            -0.10011646151542664
+          ],
+          "rootPixels": [
+            0.0,
+            0.0
+          ],
+          "rootPlusLocalPixels": [
+            -39.600494384765625,
+            -19.222360610961914
+          ],
+          "liftWorld": 3.91886975727153e-18
+        }
+      }
+    },
+    {
+      "name": "machine.sirs.stop.east.00",
+      "path": "art/production/station/review/iterations/benchmark-room-motion04/regions/machine.sirs.stop.east.00.png",
+      "widthCells": 1.5,
+      "heightCells": 2.0,
+      "pivotX": 0.5,
+      "pivotY": 0.2125542163848877,
+      "pixelWidth": 288,
+      "pixelHeight": 384,
+      "layer": "world",
+      "sha256": "515bcdad33ad2d5fc5dd697b9df8da5d8e4b4b24795f21602817a80865ec02c0",
+      "asset": "sirs",
+      "feet": {
+        "left": {
+          "phase": 0.0,
+          "stance": true,
+          "anchorWorld": [
+            0.3693039119243622,
+            0.2149999737739563,
+            0.006000000052154064
+          ],
+          "localPixels": [
+            56.39951705932617,
+            20.67791748046875
+          ],
+          "screenCells": [
+            0.2937474846839905,
+            0.1076974868774414
+          ],
+          "rootPixels": [
+            0.0,
+            0.0
+          ],
+          "rootPlusLocalPixels": [
+            56.39951705932617,
+            20.67791748046875
+          ],
+          "liftWorld": 0.0
+        },
+        "right": {
+          "phase": 0.5,
+          "stance": true,
+          "anchorWorld": [
+            -0.2593039274215698,
+            -0.2149999886751175,
+            0.006000000052154064
+          ],
+          "localPixels": [
+            -39.600494384765625,
+            -19.222360610961914
+          ],
+          "screenCells": [
+            -0.2062525749206543,
+            -0.10011646151542664
+          ],
+          "rootPixels": [
+            0.0,
+            0.0
+          ],
+          "rootPlusLocalPixels": [
+            -39.600494384765625,
+            -19.222360610961914
+          ],
+          "liftWorld": 0.0
+        }
+      }
+    },
+    {
+      "name": "machine.sirs.stop.east.01",
+      "path": "art/production/station/review/iterations/benchmark-room-motion04/regions/machine.sirs.stop.east.01.png",
+      "widthCells": 1.5,
+      "heightCells": 2.0,
+      "pivotX": 0.5,
+      "pivotY": 0.2125542163848877,
+      "pixelWidth": 288,
+      "pixelHeight": 384,
+      "layer": "world",
+      "sha256": "eeb89dac8152c089ac569472de810e41cae4f81caefa54f9f06577d72223e8c1",
+      "asset": "sirs",
+      "feet": {
+        "left": {
+          "phase": 0.2,
+          "stance": true,
+          "anchorWorld": [
+            0.3693039119243622,
+            0.2149999737739563,
+            0.006000000052154064
+          ],
+          "localPixels": [
+            56.39951705932617,
+            20.67791748046875
+          ],
+          "screenCells": [
+            0.2937474846839905,
+            0.1076974868774414
+          ],
+          "rootPixels": [
+            0.0,
+            0.0
+          ],
+          "rootPlusLocalPixels": [
+            56.39951705932617,
+            20.67791748046875
+          ],
+          "liftWorld": 0.0
+        },
+        "right": {
+          "phase": 0.7,
+          "stance": false,
+          "anchorWorld": [
+            -0.14866892993450165,
+            -0.2149999886751175,
+            0.036433808505535126
+          ],
+          "localPixels": [
+            -22.70449161529541,
+            -15.530868530273438
+          ],
+          "screenCells": [
+            -0.11825256049633026,
+            -0.08088994026184082
+          ],
+          "rootPixels": [
+            0.0,
+            0.0
+          ],
+          "rootPlusLocalPixels": [
+            -22.70449161529541,
+            -15.530868530273438
+          ],
+          "liftWorld": 0.030433808521444915
+        }
+      }
+    },
+    {
+      "name": "machine.sirs.stop.east.02",
+      "path": "art/production/station/review/iterations/benchmark-room-motion04/regions/machine.sirs.stop.east.02.png",
+      "widthCells": 1.5,
+      "heightCells": 2.0,
+      "pivotX": 0.5,
+      "pivotY": 0.2125542163848877,
+      "pixelWidth": 288,
+      "pixelHeight": 384,
+      "layer": "world",
+      "sha256": "3c4ae25ee620de06826e490c687ac997e667646c70d7d46aee5abd2d7b4f0933",
+      "asset": "sirs",
+      "feet": {
+        "left": {
+          "phase": 0.4,
+          "stance": true,
+          "anchorWorld": [
+            0.3693039119243622,
+            0.2149999737739563,
+            0.006000000052154064
+          ],
+          "localPixels": [
+            56.39951705932617,
+            20.67791748046875
+          ],
+          "screenCells": [
+            0.2937474846839905,
+            0.1076974868774414
+          ],
+          "rootPixels": [
+            0.0,
+            0.0
+          ],
+          "rootPlusLocalPixels": [
+            56.39951705932617,
+            20.67791748046875
+          ],
+          "liftWorld": 0.0
+        },
+        "right": {
+          "phase": 0.9,
+          "stance": false,
+          "anchorWorld": [
+            0.022312378510832787,
+            -0.2150000035762787,
+            0.024809127673506737
+          ],
+          "localPixels": [
+            3.407512664794922,
+            -16.940895080566406
+          ],
+          "screenCells": [
+            0.017747461795806885,
+            -0.0882338285446167
+          ],
+          "rootPixels": [
+            0.0,
+            0.0
+          ],
+          "rootPlusLocalPixels": [
+            3.407512664794922,
+            -16.940895080566406
+          ],
+          "liftWorld": 0.018809128073359143
+        }
+      }
+    },
+    {
+      "name": "machine.sirs.stop.east.03",
+      "path": "art/production/station/review/iterations/benchmark-room-motion04/regions/machine.sirs.stop.east.03.png",
+      "widthCells": 1.5,
+      "heightCells": 2.0,
+      "pivotX": 0.5,
+      "pivotY": 0.2125542163848877,
+      "pixelWidth": 288,
+      "pixelHeight": 384,
+      "layer": "world",
+      "sha256": "9e89bad478b3c9d6c6c6643c65b425689e5c79c9d234c7852d24ea79cc0b7e25",
+      "asset": "sirs",
+      "feet": {
+        "left": {
+          "phase": 0.6,
+          "stance": false,
+          "anchorWorld": [
+            0.33661630749702454,
+            0.2149999737739563,
+            0.024809127673506737
+          ],
+          "localPixels": [
+            51.40751838684082,
+            22.959388732910156
+          ],
+          "screenCells": [
+            0.2677474915981293,
+            0.11958014965057373
+          ],
+          "rootPixels": [
+            0.0,
+            0.0
+          ],
+          "rootPlusLocalPixels": [
+            51.40751838684082,
+            22.959388732910156
+          ],
+          "liftWorld": 0.018809128073359136
+        },
+        "right": {
+          "phase": 0.10000000000000009,
+          "stance": true,
+          "anchorWorld": [
+            0.05499998480081558,
+            -0.2150000035762787,
+            0.006000000052154064
+          ],
+          "localPixels": [
+            8.399511337280273,
+            -19.222366333007812
+          ],
+          "screenCells": [
+            0.04374745488166809,
+            -0.10011649131774902
+          ],
+          "rootPixels": [
+            0.0,
+            0.0
+          ],
+          "rootPlusLocalPixels": [
+            8.399511337280273,
+            -19.222366333007812
+          ],
+          "liftWorld": 3.91886975727153e-18
+        }
+      }
+    },
+    {
+      "name": "machine.sirs.stop.east.04",
+      "path": "art/production/station/review/iterations/benchmark-room-motion04/regions/machine.sirs.stop.east.04.png",
+      "widthCells": 1.5,
+      "heightCells": 2.0,
+      "pivotX": 0.5,
+      "pivotY": 0.2125542163848877,
+      "pixelWidth": 288,
+      "pixelHeight": 384,
+      "layer": "world",
+      "sha256": "2eb0a52662748821ccb04758664ba6a94e4d5dd5966bab2ac425c01751312ef0",
+      "asset": "sirs",
+      "feet": {
+        "left": {
+          "phase": 0.8,
+          "stance": false,
+          "anchorWorld": [
+            0.16563498973846436,
+            0.2149999886751175,
+            0.036433808505535126
+          ],
+          "localPixels": [
+            25.295522689819336,
+            24.369403839111328
+          ],
+          "screenCells": [
+            0.1317475140094757,
+            0.12692397832870483
+          ],
+          "rootPixels": [
+            0.0,
+            0.0
+          ],
+          "rootPlusLocalPixels": [
+            25.295522689819336,
+            24.369403839111328
+          ],
+          "liftWorld": 0.030433808521444915
+        },
+        "right": {
+          "phase": 0.30000000000000004,
+          "stance": true,
+          "anchorWorld": [
+            0.05499998480081558,
+            -0.2150000035762787,
+            0.006000000052154064
+          ],
+          "localPixels": [
+            8.399511337280273,
+            -19.222366333007812
+          ],
+          "screenCells": [
+            0.04374745488166809,
+            -0.10011649131774902
+          ],
+          "rootPixels": [
+            0.0,
+            0.0
+          ],
+          "rootPlusLocalPixels": [
+            8.399511337280273,
+            -19.222366333007812
+          ],
+          "liftWorld": 3.91886975727153e-18
+        }
+      }
+    },
+    {
+      "name": "machine.sirs.stop.east.05",
+      "path": "art/production/station/review/iterations/benchmark-room-motion04/regions/machine.sirs.stop.east.05.png",
+      "widthCells": 1.5,
+      "heightCells": 2.0,
+      "pivotX": 0.5,
+      "pivotY": 0.2125542163848877,
+      "pixelWidth": 288,
+      "pixelHeight": 384,
+      "layer": "world",
+      "sha256": "6147dfb860d1611f6053b6e3c2f2550f6200ecfb1221cc85d4ae59cd463b4a4a",
+      "asset": "sirs",
+      "feet": {
+        "left": {
+          "phase": 0.0,
+          "stance": true,
+          "anchorWorld": [
+            0.05500001460313797,
+            0.2150000035762787,
+            0.006000000052154064
+          ],
+          "localPixels": [
+            8.399511337280273,
+            20.67791748046875
+          ],
+          "screenCells": [
+            0.04374745488166809,
+            0.1076974868774414
+          ],
+          "rootPixels": [
+            0.0,
+            0.0
+          ],
+          "rootPlusLocalPixels": [
+            8.399511337280273,
+            20.67791748046875
+          ],
+          "liftWorld": 3.91886975727153e-18
+        },
+        "right": {
+          "phase": 0.5,
+          "stance": true,
+          "anchorWorld": [
+            0.05499998480081558,
+            -0.2150000035762787,
+            0.006000000052154064
+          ],
+          "localPixels": [
+            8.399511337280273,
+            -19.222366333007812
+          ],
+          "screenCells": [
+            0.04374745488166809,
+            -0.10011649131774902
+          ],
+          "rootPixels": [
+            0.0,
+            0.0
+          ],
+          "rootPlusLocalPixels": [
+            8.399511337280273,
+            -19.222366333007812
+          ],
+          "liftWorld": 3.91886975727153e-18
+        }
+      }
+    },
+    {
+      "name": "door.closed",
+      "path": "art/production/station/review/iterations/benchmark-room-motion04/regions/door.closed.png",
+      "widthCells": 1.5,
+      "heightCells": 2.5,
+      "pivotX": 0.5,
+      "pivotY": 0.17630767822265625,
+      "pixelWidth": 288,
+      "pixelHeight": 480,
+      "layer": "world",
+      "sha256": "3a68a94a63c938f8a4995e4c3fd4eb7d8af5011c787d1ed7bd9b8d326b63401d",
+      "asset": "door"
+    },
+    {
+      "name": "door.open",
+      "path": "art/production/station/review/iterations/benchmark-room-motion04/regions/door.open.png",
+      "widthCells": 1.5,
+      "heightCells": 2.5,
+      "pivotX": 0.5,
+      "pivotY": 0.17630767822265625,
+      "pixelWidth": 288,
+      "pixelHeight": 480,
+      "layer": "world",
+      "sha256": "df378e0584fd0772bbfb8759452adae6c70034147c74999d67d45707d0069c19",
+      "asset": "door"
+    }
+  ]
+}

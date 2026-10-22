@@ -12,11 +12,14 @@ from bpy_extras.object_utils import world_to_camera_view
 bpy.context.preferences.filepaths.save_version=0
 
 ROOT=Path(__file__).resolve().parents[3]
-START=time.perf_counter();FULL='--full' in sys.argv;MOTION_PILOT='--motion-pilot' in sys.argv
+START=time.perf_counter();BENCHMARK_PILOT='--benchmark-pilot' in sys.argv;FULL='--full' in sys.argv or BENCHMARK_PILOT;MOTION_PILOT='--motion-pilot' in sys.argv
 REUSE_NON_DOOR='--door-cutaway-only' in sys.argv
+REUSE_COLLAPSE='--collapse-only' in sys.argv
 OUT=ROOT/'assets/art/production/station'
+if BENCHMARK_PILOT:OUT=OUT/('review/iterations/benchmark-room-pilot03' if '--pilot03' in sys.argv else 'review/iterations/benchmark-room-pilot02' if '--pilot02' in sys.argv else 'review/iterations/benchmark-room-pilot01')
+elif MOTION_PILOT:OUT=OUT/'review/iterations/benchmark-room-motion04'
 SOURCE=OUT/'source'; REGIONS=OUT/'regions'; MASTERS=SOURCE/'masters-256'
-PREVIOUS_REGIONS={r['name']:r for r in json.loads((OUT/'regions.json').read_text())['regions']} if REUSE_NON_DOOR else {}
+PREVIOUS_REGIONS={r['name']:r for r in json.loads((OUT/'regions.json').read_text())['regions']} if REUSE_NON_DOOR or REUSE_COLLAPSE else {}
 for folder in [SOURCE,REGIONS,MASTERS,OUT/'review']:folder.mkdir(parents=True,exist_ok=True)
 bpy.ops.object.select_all(action='SELECT');bpy.ops.object.delete(use_global=False)
 scene=bpy.context.scene;scene.render.engine='BLENDER_EEVEE_NEXT'
@@ -33,25 +36,32 @@ def material(name,color):
     n=m.node_tree.nodes;n.clear();out=n.new('ShaderNodeOutputMaterial')
     diffuse=n.new('ShaderNodeBsdfDiffuse');diffuse.inputs['Color'].default_value=(1,1,1,1);diffuse.inputs['Roughness'].default_value=1
     rgb=n.new('ShaderNodeShaderToRGB');ramp=n.new('ShaderNodeValToRGB');ramp.color_ramp.interpolation='LINEAR'
-    for i,(position,factor) in enumerate([(.12,.36),(.43,.80),(.76,1.08),(.98,1.23)]):
+    for i,(position,factor) in enumerate([(.10,.24),(.40,.56),(.68,1.02),(.93,1.26)]):
         e=ramp.color_ramp.elements[i] if i<2 else ramp.color_ramp.elements.new(position)
         def linear(c):return c/12.92 if c<=.04045 else ((c+.055)/1.055)**2.4
         e.position=position;e.color=(*[linear(min(.92,c*factor)) for c in color],1)
     emission=n.new('ShaderNodeEmission');emission.inputs['Strength'].default_value=1
+    # Broad designed shadow planes and selected modeled edge wear carry the
+    # finish. Deliberately no uniform procedural grain/noise treatment.
     links=m.node_tree.links;links.new(diffuse.outputs['BSDF'],rgb.inputs['Shader']);links.new(rgb.outputs['Color'],ramp.inputs['Fac']);links.new(ramp.outputs['Color'],emission.inputs['Color']);links.new(emission.outputs['Emission'],out.inputs['Surface'])
     return m
 
-graphite=material('graphite structural steel',(.14,.17,.16))
-sage=material('worn mineral sage enamel',(.37,.39,.30))
-cream=material('aged institutional ivory',(.61,.59,.47))
-steel=material('dull exposed steel',(.27,.30,.28))
-edge=material('selected rubbed edge metal',(.51,.49,.39))
+graphite=material('graphite structural steel',(.16,.19,.19))
+sage=material('worn mineral sage enamel',(.32,.39,.36))
+cream=material('aged institutional ivory',(.69,.66,.55))
+steel=material('dull exposed steel',(.30,.34,.33))
+edge=material('selected rubbed edge metal',(.57,.56,.48))
 dark=material('rubber seals and black recess',(.035,.046,.043))
 black=material('deep aperture',(.012,.018,.017))
 copper=material('old hydraulic copper',(.39,.25,.13))
 amber=material('diffuse amber sensor glass',(.59,.29,.07))
 muted=material('unpowered instrument glass',(.05,.085,.074))
 warning=material('dull physical safety yellow',(.57,.43,.12))
+paper=material('dry warm inspection paper',(.74,.69,.55))
+rust=material('localized dark oxide at worn joints',(.25,.18,.12))
+sage_shadow=material('designed cool enamel shadow plane',(.19,.27,.26))
+ivory_shadow=material('designed warm ivory shadow plane',(.46,.45,.37))
+glass_reflection=material('restrained unpowered glass surface reflection',(.12,.19,.18))
 
 def finish(ob,name,mat,bone=None,bevel=0):
     ob.name=name;ob.data.materials.append(mat)
@@ -103,6 +113,14 @@ plate('ivory chest serial plate',[(-.205,-.262,1.26),(-.215,-.265,1.15),(.20,-.2
 for x in [-.177,.177]:
     for z in [1.18,1.24]:bolt('chest captive screw',x,-.28,z,'torso')
 for z in [1.02,1.05,1.08]:box('front chassis cooling slot',(0,-.244,z),(.28,.018,.012),dark,'torso',.001)
+box('front recessed service number field',(.02,-.285,1.205),(.22,.009,.052),graphite,'torso',.001)
+for x in [-.065,-.035,.025,.060]:box('physical serial stencil mark',(x,-.292,1.205),(.013,.004,.031),cream,'torso',.001)
+for x,z,w in [(-.22,1.285,.06),(.19,1.135,.05),(-.16,.98,.08)]:
+    box('selected armor contact chip',(x,-.277,z),(w,.005,.011),edge,'torso',.001)
+plate('chest deliberately painted broad cool plane',[(-.239,-.279,1.128),(-.045,-.279,1.128),(.15,-.279,.979),(-.19,-.279,.979)],.005,sage_shadow,'torso')
+box('chest recessed cooling vent surround',(0,-.286,1.052),(.24,.014,.097),graphite,'torso',.007)
+for z in [1.025,1.052,1.079]:box('chest dark cooling louvre',(0,-.299,z),(.195,.010,.012),dark,'torso',.001)
+plate('chest rubbed top shoulder arris',[(-.205,-.282,1.274),(-.17,-.282,1.274),(-.145,-.282,1.264),(-.204,-.282,1.265)],.003,edge,'torso')
 box('waist mechanical swivel',(0,0,.86),(.31,.27,.16),steel,'pelvis',.02)
 cylinder('waist rotation bearing',(0,0,.80),(0,0,.90),.175,dark,'pelvis')
 box('pelvic transmission case',(0,0,.745),(.44,.33,.14),graphite,'pelvis',.025)
@@ -114,6 +132,9 @@ for x in [-.20,.20]:
     box('rear cabinet protection rail',(x,.43,1.16),(.025,.026,.58),edge,'torso',.005)
     for z in [.95,1.37]:bolt('rear access fastener',x,.435,z,'torso')
 for z in [1.03,1.08,1.13,1.18]:box('rear passive cooling louvre',(0,.442,z),(.25,.012,.016),dark,'torso',.001)
+box('rear warm maintenance rating strip',(-.08,.451,1.315),(.20,.012,.045),cream,'torso',.002)
+for x in [-.14,-.10,-.03]:box('rear maintenance printed mark',(x,.460,1.315),(.013,.006,.027),graphite,'torso',.001)
+plate('rear cabinet broad lower shadow',[(-.19,.452,1.01),(-.19,.452,.91),(.19,.452,.91),(.19,.452,1.09)],.007,sage_shadow,'torso')
 cylinder('rear power cable gland',(.17,.32,1.48),(.17,.32,1.57),.036,steel,'torso')
 hose('protected arm power loom',[(.14,.31,1.48),(.31,.24,1.43),(.38,.10,1.28)],.022,dark,'torso')
 cylinder('rear flexible antenna',(-.18,.29,1.49),(-.18,.29,1.83),.010,dark,'torso',8)
@@ -134,12 +155,15 @@ for side,sgn in [('R',-1),('L',1)]:
     cylinder('shoulder exposed rotary bearing '+side,(x-sgn*.075,0,1.285),(x+sgn*.075,0,1.285),.145,steel,'upperarm.'+side)
     cylinder('shoulder dark seal '+side,(x+sgn*.077,0,1.285),(x+sgn*.094,0,1.285),.116,dark,'upperarm.'+side)
     box('shoulder chamfered load cap '+side,(x,-.01,1.405),(.24,.30,.075),sage,'upperarm.'+side,.022)
+    box('shoulder selected rubbed load edge '+side,(x,-.166,1.423),(.15,.008,.016),edge,'upperarm.'+side,.002)
+    for dx in [-.045,.015]:box('shoulder physical caution stripe '+side,(x+dx,-.174,1.406),(.018,.006,.027),warning,'upperarm.'+side,.002)
     box('upper arm rigid box beam '+side,(sgn*.425,0,1.115),(.14,.16,.30),graphite,'upperarm.'+side,.014)
     cylinder('upper arm piston housing '+side,(sgn*.43,-.115,1.25),(sgn*.43,-.115,1.10),.041,copper,'upperarm.'+side)
     cylinder('upper arm exposed piston '+side,(sgn*.43,-.115,1.10),(sgn*.43,-.115,.98),.024,edge,'upperarm.'+side)
     cylinder('elbow hinge '+side,(sgn*.39,-.015,.98),(sgn*.49,-.015,.98),.086,steel,'forearm.'+side)
     cylinder('forearm rigid spar '+side,(sgn*.455,-.02,.97),(sgn*.47,-.10,.74),.058,graphite,'forearm.'+side)
     plate('forearm ivory guard '+side,[(sgn*.47-.075,-.101,.935),(sgn*.47+.075,-.101,.935),(sgn*.47+.055,-.15,.77),(sgn*.47-.055,-.15,.77)],.035,cream,'forearm.'+side)
+    plate('forearm broad shaded bevel '+side,[(sgn*.47-.074,-.111,.931),(sgn*.47-.026,-.111,.931),(sgn*.47-.011,-.162,.774),(sgn*.47-.054,-.162,.774)],.004,ivory_shadow,'forearm.'+side)
     if side=='L':
         box('left service manipulator',(.47,-.12,.70),(.115,.11,.10),steel,'forearm.L',.01)
         for dx in [-.038,.038]:
@@ -157,11 +181,13 @@ for side,sgn in [('R',-1),('L',1)]:
     cylinder('hip rotary pivot '+side,(sgn*.12,0,.70),(sgn*.23,0,.70),.10,steel,'thigh.'+side)
     box('thigh transmission beam '+side,(sgn*.20,0,.56),(.19,.22,.28),graphite,'thigh.'+side,.025)
     plate('sloped sage thigh armor '+side,[(sgn*.20-.085,-.13,.68),(sgn*.20+.085,-.13,.68),(sgn*.20+.065,-.15,.46),(sgn*.20-.065,-.15,.46)],.025,sage,'thigh.'+side)
+    plate('thigh broad cool shadow plane '+side,[(sgn*.20-.082,-.138,.677),(sgn*.20-.024,-.138,.677),(sgn*.20+.022,-.158,.465),(sgn*.20-.062,-.158,.465)],.004,sage_shadow,'thigh.'+side)
     cylinder('outer thigh hydraulic '+side,(sgn*.30,0,.65),(sgn*.30,0,.44),.034,copper,'thigh.'+side)
     cylinder('knee trunnion '+side,(sgn*.16,-.02,.415),(sgn*.27,-.02,.415),.094,steel,'shin.'+side)
     cylinder('knee dark center '+side,(sgn*.27,-.02,.415),(sgn*.28,-.02,.415),.060,dark,'shin.'+side)
     box('shin structural beam '+side,(sgn*.215,.015,.26),(.135,.17,.25),graphite,'shin.'+side,.014)
     plate('shin pale replaceable protection '+side,[(sgn*.215-.057,-.10,.365),(sgn*.215+.057,-.10,.365),(sgn*.215+.073,-.12,.17),(sgn*.215-.073,-.12,.17)],.022,cream,'shin.'+side)
+    box('shin purposeful lower rub '+side,(sgn*.215+.025,-.128,.184),(.070,.008,.014),edge,'shin.'+side,.002)
     cylinder('ankle pivot '+side,(sgn*.16,0,.13),(sgn*.27,0,.13),.06,steel,'foot.'+side)
     box('grounded rubber tread '+side,(sgn*.215,-.055,.038),(.235,.345,.065),dark,'foot.'+side,.018)
     box('reinforced mechanical foot '+side,(sgn*.215,-.055,.096),(.215,.32,.075),graphite,'foot.'+side,.018)
@@ -174,6 +200,12 @@ pn=flashmat.node_tree.nodes.get('Principled BSDF');pn.inputs['Base Color'].defau
 verts=[(-.54,-.67,.695),(-.40,-.67,.695),(-.47,-.67,.765),(-.47,-.67,.625),(-.47,-.88,.625),(-.47,-.63,.71)]
 faces=[(0,2,4),(2,1,4),(1,3,4),(3,0,4),(0,5,2),(2,5,1),(1,5,3),(3,5,0)]
 mesh=bpy.data.meshes.new('release flash authored volume');mesh.from_pydata(verts,[],faces);mesh.update();flash=bpy.data.objects.new('release-only muzzle flash',mesh);bpy.context.collection.objects.link(flash);finish(flash,flash.name,flashmat,'forearm.R');flash.hide_render=True
+flashcore=bpy.data.materials.new('release white-hot core');flashcore.use_nodes=True
+pn=flashcore.node_tree.nodes.get('Principled BSDF');pn.inputs['Base Color'].default_value=(1,.91,.65,1);pn.inputs['Emission Color'].default_value=(1,.84,.42,1);pn.inputs['Emission Strength'].default_value=3
+flash_parts=[flash,cylinder('release-only muzzle core',(-.47,-.66,.695),(-.47,-.77,.658),.030,flashcore,'forearm.R',8)]
+for i,(dx,dy,dz) in enumerate([(-.11,-.13,.06),(.08,-.17,-.07),(.045,-.21,.055)]):
+    flash_parts.append(cylinder('release-only hot fragment '+str(i),(-.47+dx*.6,-.68+dy*.6,.69+dz*.6),(-.47+dx,-.68+dy,.69+dz),.007,flashmat,'forearm.R',6))
+for ob in flash_parts:ob.hide_render=True
 
 # Real rigid mechanical armature, with editable weighted parts and no runtime 3D.
 arm=bpy.data.armatures.new('SIRS mechanical armature');rig=bpy.data.objects.new('SIRS mechanical rig',arm);bpy.context.collection.objects.link(rig)
@@ -210,7 +242,9 @@ for i in range(9):
 for s in [-1,1]:
     for k in range(3):
         x=s*(1.45/12+1.45/6*k);start=len(objects)
-        box('telescoping pressure leaf',(x,.015,.86),(1.45/6,.10,1.48),sage,bevel=.010)
+        # A pressure-rated leaf has visible depth at the side-on bearing.
+        box('telescoping pressure leaf',(x,.015,.86),(1.45/6,.34,1.48),sage,bevel=.018)
+        box('leaf broad lower reinforcement',(x,-.170,.28),(1.45/6-.035,.018,.19),graphite,bevel=.006)
         box('leaf structural seam',(x+s*.105,-.043,.86),(.018,.018,1.36),steel,bevel=.002)
         if k==0:box('central thick pressure seal',(x-s*.110,-.047,.86),(.024,.022,1.44),dark,bevel=.002)
         for z in [.24,1.46]:bolt('leaf captive flush screw',x,-.052,z)
@@ -230,10 +264,12 @@ door_extra={}
 for state in ['locked','braced','damaged']:
     start=len(objects)
     if state=='locked':
-        box('physical captive lock block',(0,-.092,1.55),(.23,.08,.22),graphite,bevel=.014)
-        box('lock brass mechanical slot',(0,-.137,1.56),(.06,.016,.10),copper,bevel=.005)
+        box('physical captive lock block',(0,-.22,1.55),(.32,.22,.25),graphite,bevel=.014)
+        box('lock brass mechanical slot',(0,-.338,1.56),(.09,.016,.13),warning,bevel=.005)
+        box('captive locked cross-axis yoke',(0,0,1.55),(.15,.62,.11),warning,bevel=.008)
     elif state=='braced':
-        cylinder('actual diagonal door brace',(-.69,-.26,.20),(.69,-.26,2.47),.045,edge)
+        cylinder('actual diagonal door brace',(-.69,-.31,.20),(.69,-.31,2.47),.065,edge)
+        box('brace projecting mechanical keeper',(-.55,-.36,.45),(.24,.42,.16),warning,bevel=.014)
         for x,z in [(-.69,.20),(.69,2.47)]:box('brace wedge contact',(x,-.25,z),(.18,.14,.12),warning,bevel=.015)
     else:
         box('broken open release housing',(.84,-.19,1.88),(.13,.07,.24),graphite,bevel=.007)
@@ -244,11 +280,18 @@ for state in ['locked','braced','damaged']:
 door_east_cutaway=[]
 for ob in asset_objects['door']:
     center=sum((v.co.x for v in ob.data.vertices))/max(1,len(ob.data.vertices))
-    if ob.name.startswith(('door header heavy beam','door upper guide rail','pressure door side structural housing','sage jamb raised service strip','jamb maintenance fastener','door jamb pressure vent','unpowered door status recess')):door_east_cutaway.append(ob)
+    # Retain the far full-height jamb: the near jamb/header are cut away, not the
+    # entire doorway. This is a physical drawing cutaway along the same passage.
+    if ob.name.startswith(('door header heavy beam','door upper guide rail')) or (center<0 and ob.name.startswith(('pressure door side structural housing','sage jamb raised service strip','jamb maintenance fastener','door jamb pressure vent','unpowered door status recess'))):door_east_cutaway.append(ob)
 start=len(objects)
 for s in [-1,1]:
-    box('east door cutaway low jamb',(s*.845,.03,.13),(.24,.30,.26),graphite,bevel=.016)
-    box('east door cutaway cap',(s*.845,.03,.272),(.25,.31,.025),sage,bevel=.005)
+    box('east door cutaway low jamb',(s*.845,.03,.13),(.24,.68,.26),graphite,bevel=.016)
+    box('east door cutaway cap',(s*.845,.03,.272),(.25,.69,.025),sage,bevel=.005)
+    box('east doorway base worn arris',(s*.845,-.323,.20),(.20,.018,.025),edge,bevel=.003)
+# Exposed guides and a pressure-rated sill describe the passage in plan. Nothing
+# crosses the open aperture above floor height.
+for y in [-.31,.31]:box('east threshold guide channel',(0,y,.046),(1.44,.045,.036),dark,bevel=.004)
+for x in [-.55,-.28,0,.28,.55]:box('east threshold broad safety inset',(x,-.21,.099),(.11,.14,.013),warning,bevel=.002)
 door_east_base=objects[start:]
 for ob in door_east_base:ob.parent=door_root;ob.hide_render=True
 start=len(objects)
@@ -295,7 +338,7 @@ for kind in ['inspection-desk','maintenance-bench']:
     box(kind+' rubbed work edge',(0,-.35,.725),(.95,.025,.05),edge,bevel=.006)
     if kind=='inspection-desk':
         box('inspection blotter',(0,-.055,.782),(.39,.32,.012),dark,bevel=.003)
-        box('inspection paper record',(-.035,-.065,.791),(.23,.23,.008),cream,bevel=.001)
+        box('inspection paper record',(-.035,-.065,.791),(.23,.23,.008),paper,bevel=.001)
         for i in range(4):box('printed inspection lines',(-.04,-.13+i*.04,.797),(.15,.009,.002),sage,bevel=0)
         box('compact desk instrument',(.28,.11,.83),(.17,.23,.13),sage,bevel=.016)
         box('dark unpowered desk display',(.28,-.012,.85),(.12,.014,.055),dark,bevel=.002)
@@ -308,6 +351,82 @@ for kind in ['inspection-desk','maintenance-bench']:
         cylinder('vise crosshandle',(.16,-.39,.83),(.36,-.39,.83),.013,steel)
         box('bench loose maintenance part',(-.18,-.06,.82),(.23,.20,.08),copper,bevel=.012)
         for x in [-.32,-.22,-.12]:cylinder('bench resting tool',(x,.18,.80),(x,.02,.80),.014,edge)
+    # Deliberate wear follows work/contact edges instead of random scratches.
+    for x,w in [(-.33,.09),(-.10,.13),(.23,.06)]:
+        box(kind+' rubbed front edge patch',(x,-.365,.741),(w,.009,.014),cream,bevel=.002)
+    for x in [-.34,.34]:
+        box(kind+' foot contact shoe',(x,0,.035),(.26,.57,.07),dark,bevel=.01)
+        box(kind+' access-door lower grime seam',(x,-.294,.18),(.13,.008,.018),rust,bevel=.002)
+
+# Bounded receiving kit. One cell of occupied cover, or one existing wall recess.
+# These original objects establish inspection rather than generic storage.
+current='inspection-terminal'
+box('inspection terminal grounded cabinet',(0,.02,.37),(.78,.62,.72),graphite,bevel=.025)
+box('inspection terminal ivory drawer',(-.04,-.30,.48),(.61,.025,.28),cream,bevel=.008)
+box('inspection terminal recessed drawer pull',(-.04,-.320,.55),(.25,.012,.04),dark,bevel=.003)
+box('inspection terminal dark boot clearance',(0,-.27,.13),(.60,.10,.16),dark,bevel=.008)
+box('inspection terminal substantial sloped console',(0,-.015,.80),(.88,.72,.15),sage,bevel=.025)
+plate('inspection terminal face shoulder',[(-.39,-.36,.85),(.39,-.36,.85),(.39,.28,1.00),(-.39,.28,1.00)],.035,graphite)
+box('inspection terminal cathode screen housing',(-.10,.18,1.14),(.52,.27,.41),graphite,bevel=.035)
+box('inspection terminal screen ivory bezel',(-.10,.027,1.14),(.45,.038,.34),cream,bevel=.017)
+box('inspection terminal honest dark glass',(-.10,.003,1.14),(.365,.012,.255),muted,bevel=.01)
+plate('inspection terminal glass controlled reflection',[(-.265,-.006,1.245),(-.14,-.006,1.245),(-.265,-.006,1.158)],.003,glass_reflection)
+box('inspection terminal recessed input pad',(-.08,-.20,.891),(.41,.20,.014),dark,bevel=.005)
+for row in range(3):
+    for col in range(7):box('inspection terminal physical key',(-.25+col*.056,-.26+row*.057,.902),(.043,.038,.016),steel,bevel=.002)
+cylinder('inspection terminal release pushbutton',(.29,-.20,.897),(.29,-.20,.930),.049,warning,vertices=16)
+box('inspection terminal physical paper slot',(.29,.05,.926),(.15,.19,.015),dark,bevel=.004)
+box('inspection terminal retained paper tongue',(.29,-.015,.937),(.12,.12,.006),paper,bevel=.001)
+for x in [-.34,.34]:
+    box('inspection terminal anchored shoe',(x,.015,.035),(.18,.68,.07),dark,bevel=.01)
+    bolt('inspection terminal captive face screw',x,-.323,.60)
+for x,w in [(-.34,.075),(.22,.08)]:box('inspection terminal rubbed front lip',(x,-.383,.849),(w,.012,.016),edge,bevel=.002)
+plate('inspection terminal left structural gusset',[(-.433,-.33,.73),(-.433,-.25,.73),(-.433,.22,1.01),(-.433,.22,.73)],.05,graphite)
+box('inspection terminal cool cabinet shadow panel',(.25,-.328,.39),(.12,.015,.38),sage_shadow,bevel=.006)
+for z in [.25,.29,.33,.37]:box('inspection terminal cabinet pressure vent',(.24,-.342,z),(.09,.012,.011),dark,bevel=.001)
+box('inspection terminal maintenance access hatch',(-.23,-.327,.34),(.19,.014,.16),sage,bevel=.006)
+for x in [-.30,-.16]:bolt('inspection terminal maintenance captive screw',x,-.344,.35)
+plate('inspection terminal worn drawer corner',[(-.34,-.337,.61),(-.29,-.337,.61),(-.34,-.337,.584)],.003,edge)
+plate('inspection terminal drawer broad warm plane',[(-.335,-.337,.37),(.20,-.337,.37),(.20,-.337,.413),(-.335,-.337,.52)],.002,ivory_shadow)
+for x,w in [(-.18,.10),(.01,.055)]:box('inspection terminal front working scar',(x,-.379,.846),(w,.005,.007),ivory_shadow,bevel=.001)
+
+current='receiving-bulkhead'
+box('receiving bulkhead deep structural backing',(0,.08,.66),(.98,.31,1.32),graphite,bevel=.018)
+box('receiving bulkhead dark recessed service face',(0,-.091,.66),(.68,.035,1.08),dark,bevel=.008)
+for x in [-.39,.39]:
+    box('receiving bulkhead substantial vertical rib',(x,-.09,.67),(.17,.18,1.34),sage,bevel=.018)
+    box('receiving bulkhead rib selected front plane',(x,-.189,.67),(.085,.018,1.20),steel,bevel=.004)
+    for z in [.15,1.19]:bolt('receiving bulkhead structural fastener',x,-.211,z)
+for z in [.06,1.28]:box('receiving bulkhead crossbeam',(0,-.075,z),(.98,.24,.12),graphite,bevel=.018)
+for z in [.35,.67,.99]:
+    box('receiving bulkhead removable insulated panel',(0,-.12,z),(.57,.045,.25),sage,bevel=.007)
+    box('receiving bulkhead panel raised pale index',(-.19,-.149,z),(.055,.012,.15),cream,bevel=.002)
+    box('receiving bulkhead panel seam',(0,-.151,z-.085),(.43,.010,.012),dark,bevel=.001)
+    plate('receiving bulkhead selected broad shadow panel',[(-.27,-.154,z+.11),(-.18,-.154,z+.11),(.12,-.154,z-.10),(-.27,-.154,z-.10)],.004,sage_shadow)
+cylinder('receiving bulkhead exposed vertical service pipe',(.21,-.19,.14),(.21,-.19,1.18),.032,copper)
+for z in [.30,1.04]:cylinder('receiving bulkhead pipe clamp',(.21,-.19,z-.025),(.21,-.19,z+.025),.045,steel)
+box('receiving bulkhead lower accumulated oxide',(0,-.20,.075),(.63,.014,.025),rust,bevel=.002)
+for x,z,w in [(-.39,.22,.08),(.39,1.14,.065),(-.14,1.30,.12)]:box('receiving bulkhead selective contact wear',(x,-.217,z),(w,.006,.015),edge,bevel=.002)
+cylinder('receiving bulkhead overhead service conduit',(-.30,-.21,1.20),(.29,-.21,1.20),.025,dark)
+
+current='cargo-cradle'
+box('receiving cargo restrained pallet',(0,0,.085),(.90,.72,.17),graphite,bevel=.025)
+for x in [-.37,.37]:
+    box('receiving cargo steel side rail',(x,.04,.41),(.095,.65,.70),sage,bevel=.018)
+    box('receiving cargo lower grounded shoe',(x,0,.035),(.16,.75,.07),dark,bevel=.012)
+box('receiving cargo rear crossbar',(0,.31,.63),(.79,.08,.12),steel,bevel=.012)
+for x,z in [(-.17,.56),(.16,.50)]:
+    cylinder('receiving cargo unmarked pressure housing',(x,.05,.18),(x,.05,z+.26),.133,cream,vertices=16)
+    cylinder('receiving cargo dark neck',(x,.05,z+.25),(x,.05,z+.32),.055,graphite,vertices=12)
+    box('receiving cargo protective collar',(x,.05,z+.32),(.19,.18,.04),sage,bevel=.01)
+    box('receiving cargo solid retention band',(x,-.09,.43),(.24,.035,.08),graphite,bevel=.004)
+    cylinder('receiving cargo worn protective cylinder base',(x,.05,.18),(x,.05,.23),.139,sage,vertices=16)
+    cylinder('receiving cargo steel valve spindle',(x,.05,z+.32),(x,.05,z+.37),.018,copper,vertices=8)
+    box('receiving cargo valve butterfly',(x,.05,z+.38),(.11,.032,.025),steel,bevel=.004)
+    box('receiving cargo physical inspection label',(x,-.087,.59),(.10,.008,.10),paper,bevel=.001)
+    for zz in [.57,.59,.61]:box('receiving cargo inspection label ink',(x,-.094,zz),(.065,.004,.007),graphite,bevel=.001)
+box('receiving cargo positive lock bar',(0,-.13,.43),(.69,.06,.10),sage,bevel=.008)
+box('receiving cargo unpowered latch block',(.31,-.17,.43),(.12,.08,.17),warning,bevel=.007)
 
 current='mechanism';mechanism_handles=[];mechanism_lights=[]
 box('circuit release wall case',(0,0,.50),(.52,.24,.82),graphite,bevel=.028)
@@ -330,10 +449,44 @@ box('department physical amber index stripe',(-.26,-.025,.60),(.055,.009,.23),wa
 mechanism_pivot=bpy.data.objects.new('mechanism actual throw lever',None);bpy.context.collection.objects.link(mechanism_pivot);mechanism_pivot.location=(0,-.20,.42);bpy.context.view_layer.update()
 for ob in mechanism_handles:ob.parent=mechanism_pivot;ob.matrix_parent_inverse=mechanism_pivot.matrix_world.inverted()
 
+# Three bounded original material responses. These are offline physical shard
+# constructions, selected only when the engine reports an observed real event.
+effect_parts={}
+for kind in ['metal-impact','suit-impact','sparks']:
+    current='effect-'+kind;parts=[]
+    if kind!='suit-impact':
+        core=sphere(kind+' brief contact core',(0,0,.52),(.045,.025,.045),flashcore)
+        parts.append((core,(0,0,0),'core'))
+        directions=([(-.38,0,.66),(-.17,0,.72),(.12,0,.79),(.39,0,.51),(.24,0,.28),(-.23,0,.22),(.02,0,.59)] if kind=='sparks' else [(-.42,0,.30),(-.18,0,.52),(.15,0,.58),(.40,0,.25),(.31,0,-.11),(-.28,0,-.13),(.06,0,.39)])
+        for i,(x,y,z) in enumerate(directions):
+            a=Vector((x*.13,0,.52+z*.13));b=a+Vector((x,0,z))*.20
+            ob=cylinder(kind+' hot tapered fragment '+str(i),a,b,.007 if i%2 else .010,flashcore if i%3==0 else flashmat,vertices=5)
+            parts.append((ob,(x,y,z),'spark'))
+        for i,(x,z) in enumerate([(-.20,.12),(.22,.09),(.08,.27)]):
+            ob=sphere(kind+' dull displaced metal chip '+str(i),(x*.15,.025,.52+z*.15),(.025,.013,.018),steel)
+            parts.append((ob,(x,0,z),'chip'))
+    else:
+        for i,(x,z) in enumerate([(-.23,.31),(.26,.17),(.09,.39),(-.32,-.05),(.22,-.09)]):
+            ob=plate('suit actual pressure textile fragment '+str(i),[(x*.15-.040,0,.52+z*.15-.030),(x*.15+.056,0,.52+z*.15),(x*.15,0,.52+z*.15+.048)],.008,cream if i%2 else sage_shadow)
+            parts.append((ob,(x,0,z),'cloth'))
+        for i,(x,z) in enumerate([(-.18,.09),(.11,.20),(.24,.08),(-.09,.31)]):
+            ob=sphere('suit nonemissive seam debris '+str(i),(x*.1,.03,.52+z*.1),(.045,.019,.039),ivory_shadow if i%2 else graphite)
+            parts.append((ob,(x,0,z),'dust'))
+    effect_parts[kind]=[(ob,velocity,role,sum((v.co for v in ob.data.vertices),Vector())/len(ob.data.vertices)) for ob,velocity,role in parts]
+
+def effect_pose(kind,index):
+    t=index/6
+    for ob,velocity,role,center in effect_parts[kind]:
+        ob.hide_render=role=='core' and index>1
+        shrink=(1-t*.80) if role not in ['dust'] else (.65+.3*t)
+        ob.location=Vector(velocity)*(t*(.75+.25*t))+center*(1-shrink)
+        ob.location.z-=.16*t*t
+        ob.scale=(shrink,shrink,shrink)
+
 def light(name,location,power,size,color):
     data=bpy.data.lights.new(name,'AREA');data.energy=power;data.shape='DISK';data.size=size;data.color=color
     ob=bpy.data.objects.new(name,data);bpy.context.collection.objects.link(ob);ob.location=location;ob.rotation_euler=(Vector((0,0,.9))-ob.location).to_track_quat('-Z','Y').to_euler()
-light('broad painted form key',(-3,-4,6),400,4,(1,.93,.79));light('quiet neutral fill',(4,-1,3),130,4,(.78,.88,.86));light('restrained structural rim',(0,4,5),180,4,(.86,.91,.86))
+light('broad painted form key',(-3,-4,6),470,2.6,(1,.93,.79));light('quiet neutral fill',(4,-1,3),55,4,(.78,.88,.86));light('restrained structural rim',(0,4,5),125,3,(.86,.91,.86))
 camera_data=bpy.data.cameras.new('orthographic station sprite camera');camera=bpy.data.objects.new('orthographic station sprite camera',camera_data);bpy.context.collection.objects.link(camera);scene.camera=camera
 camera.location=(0,-6,5.5);target=Vector((0,0,.91));camera.rotation_euler=(target-camera.location).to_track_quat('-Z','Y').to_euler();camera_data.type='ORTHO';camera_data.ortho_scale=2.6
 
@@ -364,7 +517,7 @@ clips=[];regions=[];bindings=[]
 def sha(path):return hashlib.sha256(path.read_bytes()).hexdigest()
 def write(path,data):path.write_text(json.dumps(data,indent=2)+'\n',encoding='utf-8',newline='\n')
 def render(name,asset='sirs',height_cells=2.0,metadata=None):
-    if REUSE_NON_DOOR and asset!='door':
+    if (REUSE_NON_DOOR and asset!='door') or (REUSE_COLLAPSE and not name.startswith('machine.sirs.destroyed.')):
         # Narrow correction mode: untouched models retain exact full05 raster bytes.
         entry=PREVIOUS_REGIONS[name].copy();assert sha(ROOT/'assets'/entry['path'])==entry['sha256']
         if metadata:entry.update(metadata)
@@ -400,6 +553,17 @@ def camera_aim(target_z=.91,ortho=None,height_cells=2):
 DIRECTIONS={'north':math.pi,'east':math.pi/2,'south':0,'west':-math.pi/2}
 exec(Path(__file__).with_name('motion.py').read_text(),globals())
 metrics=[]
+if FULL and not BENCHMARK_PILOT:
+    endpoint_checks=[]
+    def rig_snapshot(action,phase,facing):
+        pose(phase,facing,action);bpy.context.view_layer.update()
+        return np.array([[v for row in b.matrix for v in row] for b in rig.pose.bones])
+    for facing in DIRECTIONS:
+        idle=rig_snapshot('idle',0,facing);start=rig_snapshot('start',1,facing);walk=rig_snapshot('walk',0,facing);stop=rig_snapshot('stop',0,facing);stopped=rig_snapshot('stop',1,facing)
+        for label,a,b in [('start-end/walk0',start,walk),('walk0/stop-start',walk,stop),('stop-end/idle',stopped,idle)]:
+            error=float(np.max(np.abs(a-b)));assert error<1e-5,(facing,label,error)
+            endpoint_checks.append(dict(facing=facing,transition=label,maxBoneMatrixDelta=error))
+    write(OUT/'review/source-rig-transition-checks.json',dict(scope='authored phase0 bridges only; arbitrary interruption/native acceptance not inferred',checks=endpoint_checks))
 for facing,angle in DIRECTIONS.items():
     select_asset('sirs');camera_data.ortho_scale=SIRS_SCALE;rig.rotation_euler.z=angle;bpy.context.view_layer.update()
     feet=pose(0,facing,'idle');name='machine.sirs.idle.'+facing;entry=render(name,metadata={'feet':feet});regions.append(entry)
@@ -411,9 +575,11 @@ def export_sirs(action,facing,n,seconds):
     cid='machine.sirs.'+action+'.'+facing
     for i in range(n):
         phase=i/n if action=='walk' else i/(n-1) if n>1 else 0
-        feet=pose(phase,facing,action,i);entry=render(cid+'.'+f'{i:02}',metadata={'feet':feet});regions.append(entry);frames.append(entry);footframes.append(feet)
+        feet=pose(phase,facing,action,i);metadata={'feet':feet}
+        if action=='destroyed':metadata['sensorDark']=i>=4
+        entry=render(cid+'.'+f'{i:02}',metadata=metadata);regions.append(entry);frames.append(entry);footframes.append(feet)
     markers=[dict(kind='contact',frame=0,foot='left'),dict(kind='contact',frame=n//2,foot='right')] if action=='walk' else [dict(kind='release',frame=2),dict(kind='recovery',frame=6)] if action=='fire' else []
-    clips.append(dict(id=cid,frameSeconds=seconds/n,loop=action=='walk',frames=frames,markers=markers,cycleCells=.5 if action=='walk' else 0))
+    clips.append(dict(id=cid,frameSeconds=seconds/n,loop=action=='walk',frames=frames,markers=markers,cycleCells=1 if action=='walk' else 0))
     bindings.append(dict(actor='sirs',action=action,facing=facing,clip=cid))
     if action=='walk':
         residual=[]
@@ -424,12 +590,11 @@ def export_sirs(action,facing,n,seconds):
                 elif run:
                     residual.append(float(np.max(np.linalg.norm(np.array(run)-run[0],axis=1))));run=[]
             if run:residual.append(float(np.max(np.linalg.norm(np.array(run)-run[0],axis=1))))
-        metrics.append(dict(clip=cid,cycleCells=.5,nativeSecondsPerCell=.5,seconds=seconds,sampledStanceResidualSourcePixels=max(residual,default=0),heldFrameTravelAt47pxCell=47*.5/n))
-if FULL or MOTION_PILOT:
+        metrics.append(dict(clip=cid,cycleCells=1,nativeSecondsPerCell=.5,seconds=seconds,sampledStanceResidualSourcePixels=max(residual,default=0),heldFrameTravelAt47pxCell=47/n))
+if (FULL and not BENCHMARK_PILOT) or MOTION_PILOT:
     for facing in (DIRECTIONS if FULL else ['south','east']):
-        export_sirs('walk',facing,12,.25)
-        if FULL:
-            for action,n,seconds in [('start',6,.15),('stop',6,.15),('anticipate',6,.30),('fire',8,.40),('hit',5,.20),('destroyed',10,.70)]:export_sirs(action,facing,n,seconds)
+        export_sirs('walk',facing,24,.5)
+        for action,n,seconds in [('start',6,.15),('stop',6,.15)]+([('anticipate',6,.30),('fire',8,.40),('hit',5,.20),('destroyed',10,.70)] if FULL else []):export_sirs(action,facing,n,seconds)
 
 select_asset('door');rig.rotation_euler.z=0;camera_aim(1.35,3.3125,2.5)
 for state,opening in [('closed',0),('open',1)]:
@@ -440,6 +605,9 @@ for state,opening in [('closed',0),('open',1)]:
 if FULL:
     def door_state(state,orientation,opening):
         select_asset('door');camera_aim(1.35,3.3125,2.5);door_root.rotation_euler.z=0 if orientation=='north' else math.pi/2
+        # A deep side-on bulkhead gives the shutter a visible obstructing surface
+        # and the threshold a visible passage. Axis/camera/footprint stay exact.
+        door_root.scale.y=1 if orientation=='north' else 2.2
         for ob in door_extra.get(state,[]):ob.hide_render=False
         if orientation=='east':
             for ob in door_east_cutaway:ob.hide_render=True
@@ -466,7 +634,7 @@ if FULL:
             clips.append(dict(id=cid,frameSeconds=.035 if transition else .5,loop=False,frames=frames,markers=[dict(kind='clearance',frame=6)] if state=='opening' else [],cycleCells=0))
             bindings.append(dict(actor='door',action=state,facing=orientation,clip=cid))
 
-    for facing,angle in DIRECTIONS.items():
+    for facing,angle in ([] if BENCHMARK_PILOT else DIRECTIONS.items()):
         for state in ['on','off','aim','disabled']:
             select_asset('camera');camera_aim(.91,2.65);camera_root.rotation_euler.z=angle
             camera_lamp.data.materials[0]=dark if state in ['off','disabled'] else amber
@@ -477,29 +645,40 @@ if FULL:
                 entry=render(name,'camera',metadata={'powered':state in ['on','aim'],'disabled':state=='disabled','tacticalScan':False});regions.append(entry);frames.append(entry)
             cid=f'machine.camera.{state}.{facing}';clips.append(dict(id=cid,frameSeconds=.06,loop=False,frames=frames,markers=[],cycleCells=0));bindings.append(dict(actor='camera',action=state,facing=facing,clip=cid))
 
-    for asset,name in [('inspection-desk','prop.inspection-desk'),('maintenance-bench','prop.maintenance-bench'),('placard','placard.department')]:
-        select_asset(asset);camera_aim(.91,2.65);entry=render(name,asset,metadata={'footprintCells':[1,1] if asset!='placard' else [0,0],'poweredIndicators':False});regions.append(entry)
+    for asset,name in [('inspection-desk','prop.inspection-desk'),('maintenance-bench','prop.maintenance-bench'),('inspection-terminal','prop.inspection-terminal'),('receiving-bulkhead','prop.receiving-bulkhead'),('cargo-cradle','prop.cargo-cradle'),('placard','placard.department')]:
+        select_asset(asset);camera_aim(.91,2.65);entry=render(name,asset,metadata={'footprintCells':[0,0] if asset in ['placard','receiving-bulkhead'] else [1,1],'poweredIndicators':False,'contactWorld':[0,-.20,.92] if asset=='inspection-terminal' else None});regions.append(entry)
     for state,powered,released in [('unpowered',False,False),('powered',True,False),('released',True,True),('released-unpowered',False,True)]:
         select_asset('mechanism');camera_aim(.91,2.65);mechanism_pivot.rotation_euler.x=math.radians(115) if released else 0
         for ob in mechanism_lights:ob.data.materials[0]=amber if powered else dark
         bpy.context.view_layer.update();entry=render('control.switch.'+state,'mechanism',metadata={'powered':powered,'released':released,'footprintCells':[0,0]});regions.append(entry)
 
+    for kind in effect_parts:
+        frames=[];select_asset('effect-'+kind);camera_aim(.52,2.65)
+        for index in range(7):
+            effect_pose(kind,index);bpy.context.view_layer.update()
+            name=f'effect.{kind}.{index:02}'
+            entry=render(name,'effect-'+kind,metadata={'footprintCells':[0,0],'effectContactWorld':[0,0,.52],'materialResponse':kind,'emissive':kind!='suit-impact'});regions.append(entry);frames.append(entry)
+        cid='effect.'+kind;clips.append(dict(id=cid,frameSeconds=.035,loop=False,frames=frames,markers=[dict(kind='contact',frame=0)],cycleCells=0))
+        bindings.append(dict(actor='effect',action=kind,facing='north',clip=cid))
+
 write(OUT/'regions.json',dict(version=1,referenceCellPixels=192,editableReferenceCellPixels=256,pivotOrigin='bottom-left',pathRoot='assets',regions=regions))
 write(OUT/'clips.json',dict(version=1,referenceCellPixels=192,editableReferenceCellPixels=256,pivotOrigin='bottom-left',clips=clips,bindings=bindings,footCalibration=metrics,status='opening-slice development candidate; no native or artistic acceptance',missing=[] if FULL else ['SIRS remaining action coverage','all camera and mechanism states','door motion/locked/braced/damaged']))
-select_asset('sirs');set_door(0);door_root.rotation_euler.z=0;camera_aim(.91,SIRS_SCALE);pose(0,'south','idle')
+select_asset('sirs');set_door(0);door_root.rotation_euler.z=0;door_root.scale.y=1;camera_aim(.91,SIRS_SCALE);pose(0,'south','idle')
 if FULL:
     # Named editable source actions retain authored rig keys; runtime still consumes PNGs.
-    for action,n in [('walk',12),('anticipate',6),('fire',8),('hit',5),('destroyed',10)]:
+    for action,n,seconds in [('walk',24,.5),('start',6,.15),('stop',6,.15),('anticipate',6,.30),('fire',8,.40),('hit',5,.20),('destroyed',10,.70)]:
         rig.animation_data_create();source_action=bpy.data.actions.new('SIRS authored '+action);rig.animation_data.action=source_action
+        source_action['presentationFrameSeconds']=seconds/n;source_action['presentationFrameCount']=n;source_action['cycleCells']=1 if action=='walk' else 0
         for i in range(n):
             scene.frame_set(i+1);pose(i/n if action=='walk' else i/(n-1),'south',action,i)
             for bone in rig.pose.bones:
-                bone.rotation_mode='QUATERNION';bone.keyframe_insert('location',frame=i+1);bone.keyframe_insert('rotation_quaternion',frame=i+1);bone.keyframe_insert('scale',frame=i+1)
+                frame=1+i*seconds/n*60
+                bone.rotation_mode='QUATERNION';bone.keyframe_insert('location',frame=frame);bone.keyframe_insert('rotation_quaternion',frame=frame);bone.keyframe_insert('scale',frame=frame)
         source_action.use_fake_user=True;rig.animation_data.action=None
     pose(0,'south','idle');scene.frame_set(1)
 scene.render.resolution_x=384;scene.render.resolution_y=512
 scene['runtimeRasterPixelsPerCell']=192;scene['authoringReferencePixelsPerCell']=256;scene['authority']='Core owns position, facing, aiming, circuit and door state. No presentation scanning or runtime3D.'
 bpy.ops.wm.save_as_mainfile(filepath=str(SOURCE/'origin-war-opening-station.blend'))
-write(SOURCE/'PROVENANCE.json',dict(task='AR-STATION',base='d80aa83b32706b7058e80176befe73468592765f',tool=bpy.app.version_string,medium='original Blender mechanical meshes/materials/armature; offline rendered candidate, not hand-painted brushwork',externalAssets=[],rights='Original authored construction from project visual identity references; no outside model/texture/animation',sourceBlend=dict(path='origin-war-opening-station.blend',sha256=sha(SOURCE/'origin-war-opening-station.blend')),scriptSha256=sha(Path(__file__)),motionScriptSha256=sha(Path(__file__).with_name('motion.py')),referencePaths=['art/survival/regions/machine.sirs.png','art/survival/regions/machine.camera.png','art/survival/regions/door.closed.png','art/survival/regions/door.open.png','art/survival/regions/hatch.closed.png','art/survival/regions/control.switch.png'],limitations='Opening hardware development candidate only; source contact calibration is not native or commercial acceptance.'))
+write(SOURCE/'PROVENANCE.json',dict(task='BM-ROOM',base='c3ad573',tool=bpy.app.version_string,medium='original Blender mechanical meshes/materials/armature; offline rendered candidate, not hand-painted brushwork',externalAssets=[],rights='Original authored construction from project visual identity references; no outside model/texture/animation',sourceBlend=dict(path='origin-war-opening-station.blend',sha256=sha(SOURCE/'origin-war-opening-station.blend')),scriptSha256=sha(Path(__file__)),motionScriptSha256=sha(Path(__file__).with_name('motion.py')),referencePaths=['art/survival/regions/machine.sirs.png','art/survival/regions/machine.camera.png','art/survival/regions/door.closed.png','art/survival/regions/door.open.png','art/survival/regions/hatch.closed.png','art/survival/regions/control.switch.png'],limitations='Bounded receiving benchmark candidate; source boards/contact calibration are not native-play or commercial acceptance.'))
 write(OUT/'review/timing.json',dict(totalSeconds=time.perf_counter()-START,mode='full' if FULL else 'motion-pilot' if MOTION_PILOT else 'look-pilot',status='development candidate'))
 print('STATION_PILOT_DONE',json.dumps(dict(regions=len(regions),clips=len(clips),sirsOrthoScale=SIRS_SCALE)))

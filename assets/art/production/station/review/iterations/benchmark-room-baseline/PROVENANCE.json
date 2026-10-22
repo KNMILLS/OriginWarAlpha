@@ -1,0 +1,24 @@
+{
+  "task": "AR-STATION",
+  "base": "d80aa83b32706b7058e80176befe73468592765f",
+  "tool": "4.5.3 LTS",
+  "medium": "original Blender mechanical meshes/materials/armature; offline rendered candidate, not hand-painted brushwork",
+  "externalAssets": [],
+  "rights": "Original authored construction from project visual identity references; no outside model/texture/animation",
+  "sourceBlend": {
+    "path": "origin-war-opening-station.blend",
+    "sha256": "2c55135e720962cefc4cff0d707376b04596ba10d0852cf3ebb988d077a20e40"
+  },
+  "scriptSha256": "4ada79f8835bab58fc6b11c765285b693a4eedf53536caef343f757e109ed4e7",
+  "motionScriptSha256": "6a2f2fa37215fd69f359abccfc14a3704aabbb11234323331a610ff6aae78014",
+  "referencePaths": [
+    "art/survival/regions/machine.sirs.png",
+    "art/survival/regions/machine.camera.png",
+    "art/survival/regions/door.closed.png",
+    "art/survival/regions/door.open.png",
+    "art/survival/regions/hatch.closed.png",
+    "art/survival/regions/control.switch.png"
+  ],
+  "limitations": "Opening hardware development candidate only; source contact calibration is not native or commercial acceptance.",
+  "backupPolicy": "Exporter disables automatic backup rotation for its own Blender process; existing backups are not saved over by future exports. Final source/master hashes are unchanged by this text guard."
+}

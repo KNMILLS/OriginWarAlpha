@@ -1,0 +1,2151 @@
+{
+  "version": 1,
+  "referenceCellPixels": 192,
+  "editableReferenceCellPixels": 256,
+  "pivotOrigin": "bottom-left",
+  "clips": [
+    {
+      "id": "machine.sirs.idle.north",
+      "frameSeconds": 0.5,
+      "loop": false,
+      "frames": [
+        {
+          "name": "machine.sirs.idle.north",
+          "path": "art/production/station/review/iterations/benchmark-room-pilot03/regions/machine.sirs.idle.north.png",
+          "widthCells": 1.5,
+          "heightCells": 2.0,
+          "pivotX": 0.5,
+          "pivotY": 0.2125542163848877,
+          "pixelWidth": 288,
+          "pixelHeight": 384,
+          "layer": "world",
+          "sha256": "1e6623be4678c1a62488ae837b9f0d617c487c3031c39cefd66d67584cf3aa39",
+          "asset": "sirs",
+          "feet": {
+            "left": {
+              "phase": 0,
+              "stance": true,
+              "anchorWorld": [
+                -0.2150000035762787,
+                0.05500001832842827,
+                0.006000000052154064
+              ],
+              "localPixels": [
+                -32.83446979522705,
+                5.831302642822266
+              ],
+              "screenCells": [
+                -0.17101286351680756,
+                0.030371367931365967
+              ],
+              "rootPixels": [
+                0.0,
+                0.0
+              ],
+              "rootPlusLocalPixels": [
+                -32.83446979522705,
+                5.831302642822266
+              ],
+              "liftWorld": 0
+            },
+            "right": {
+              "phase": 0.5,
+              "stance": true,
+              "anchorWorld": [
+                0.2150000035762787,
+                0.054999981075525284,
+                0.006000000052154064
+              ],
+              "localPixels": [
+                32.8344612121582,
+                5.831302642822266
+              ],
+              "screenCells": [
+                0.17101281881332397,
+                0.030371367931365967
+              ],
+              "rootPixels": [
+                0.0,
+                0.0
+              ],
+              "rootPlusLocalPixels": [
+                32.8344612121582,
+                5.831302642822266
+              ],
+              "liftWorld": 0
+            }
+          }
+        }
+      ],
+      "markers": [],
+      "cycleCells": 0
+    },
+    {
+      "id": "machine.sirs.idle.east",
+      "frameSeconds": 0.5,
+      "loop": false,
+      "frames": [
+        {
+          "name": "machine.sirs.idle.east",
+          "path": "art/production/station/review/iterations/benchmark-room-pilot03/regions/machine.sirs.idle.east.png",
+          "widthCells": 1.5,
+          "heightCells": 2.0,
+          "pivotX": 0.5,
+          "pivotY": 0.2125542163848877,
+          "pixelWidth": 288,
+          "pixelHeight": 384,
+          "layer": "world",
+          "sha256": "d07f33fbbdf4ab97f2c04e901100cb77303fa27b5c7f6cc2deebc1544e39a275",
+          "asset": "sirs",
+          "feet": {
+            "left": {
+              "phase": 0,
+              "stance": true,
+              "anchorWorld": [
+                0.05500001460313797,
+                0.2150000035762787,
+                0.006000000052154064
+              ],
+              "localPixels": [
+                8.399511337280273,
+                20.67791748046875
+              ],
+              "screenCells": [
+                0.04374745488166809,
+                0.1076974868774414
+              ],
+              "rootPixels": [
+                0.0,
+                0.0
+              ],
+              "rootPlusLocalPixels": [
+                8.399511337280273,
+                20.67791748046875
+              ],
+              "liftWorld": 0
+            },
+            "right": {
+              "phase": 0.5,
+              "stance": true,
+              "anchorWorld": [
+                0.05499998480081558,
+                -0.2150000035762787,
+                0.006000000052154064
+              ],
+              "localPixels": [
+                8.399511337280273,
+                -19.222366333007812
+              ],
+              "screenCells": [
+                0.04374745488166809,
+                -0.10011649131774902
+              ],
+              "rootPixels": [
+                0.0,
+                0.0
+              ],
+              "rootPlusLocalPixels": [
+                8.399511337280273,
+                -19.222366333007812
+              ],
+              "liftWorld": 0
+            }
+          }
+        }
+      ],
+      "markers": [],
+      "cycleCells": 0
+    },
+    {
+      "id": "machine.sirs.idle.south",
+      "frameSeconds": 0.5,
+      "loop": false,
+      "frames": [
+        {
+          "name": "machine.sirs.idle.south",
+          "path": "art/production/station/review/iterations/benchmark-room-pilot03/regions/machine.sirs.idle.south.png",
+          "widthCells": 1.5,
+          "heightCells": 2.0,
+          "pivotX": 0.5,
+          "pivotY": 0.2125542163848877,
+          "pixelWidth": 288,
+          "pixelHeight": 384,
+          "layer": "world",
+          "sha256": "fa5199e3c7d72fd535fa8428932d00723277d9eaaee218ad988ca56591927336",
+          "asset": "sirs",
+          "feet": {
+            "left": {
+              "phase": 0,
+              "stance": true,
+              "anchorWorld": [
+                0.2150000035762787,
+                -0.054999999701976776,
+                0.006000000052154064
+              ],
+              "localPixels": [
+                32.8344612121582,
+                -4.37574577331543
+              ],
+              "screenCells": [
+                0.17101281881332397,
+                -0.022790342569351196
+              ],
+              "rootPixels": [
+                0.0,
+                0.0
+              ],
+              "rootPlusLocalPixels": [
+                32.8344612121582,
+                -4.37574577331543
+              ],
+              "liftWorld": 0
+            },
+            "right": {
+              "phase": 0.5,
+              "stance": true,
+              "anchorWorld": [
+                -0.2150000035762787,
+                -0.054999999701976776,
+                0.006000000052154064
+              ],
+              "localPixels": [
+                -32.83446979522705,
+                -4.37574577331543
+              ],
+              "screenCells": [
+                -0.17101286351680756,
+                -0.022790342569351196
+              ],
+              "rootPixels": [
+                0.0,
+                0.0
+              ],
+              "rootPlusLocalPixels": [
+                -32.83446979522705,
+                -4.37574577331543
+              ],
+              "liftWorld": 0
+            }
+          }
+        }
+      ],
+      "markers": [],
+      "cycleCells": 0
+    },
+    {
+      "id": "machine.sirs.idle.west",
+      "frameSeconds": 0.5,
+      "loop": false,
+      "frames": [
+        {
+          "name": "machine.sirs.idle.west",
+          "path": "art/production/station/review/iterations/benchmark-room-pilot03/regions/machine.sirs.idle.west.png",
+          "widthCells": 1.5,
+          "heightCells": 2.0,
+          "pivotX": 0.5,
+          "pivotY": 0.2125542163848877,
+          "pixelWidth": 288,
+          "pixelHeight": 384,
+          "layer": "world",
+          "sha256": "cf1a743a71b265c47bad95c52f739fcc5694f8bdc204f9610d0b61946a948760",
+          "asset": "sirs",
+          "feet": {
+            "left": {
+              "phase": 0,
+              "stance": true,
+              "anchorWorld": [
+                -0.05500001087784767,
+                -0.2150000035762787,
+                0.006000000052154064
+              ],
+              "localPixels": [
+                -8.399519920349121,
+                -19.222366333007812
+              ],
+              "screenCells": [
+                -0.04374749958515167,
+                -0.10011649131774902
+              ],
+              "rootPixels": [
+                0.0,
+                0.0
+              ],
+              "rootPlusLocalPixels": [
+                -8.399519920349121,
+                -19.222366333007812
+              ],
+              "liftWorld": 0
+            },
+            "right": {
+              "phase": 0.5,
+              "stance": true,
+              "anchorWorld": [
+                -0.05499998852610588,
+                0.2150000035762787,
+                0.006000000052154064
+              ],
+              "localPixels": [
+                -8.399511337280273,
+                20.67791748046875
+              ],
+              "screenCells": [
+                -0.04374745488166809,
+                0.1076974868774414
+              ],
+              "rootPixels": [
+                0.0,
+                0.0
+              ],
+              "rootPlusLocalPixels": [
+                -8.399511337280273,
+                20.67791748046875
+              ],
+              "liftWorld": 0
+            }
+          }
+        }
+      ],
+      "markers": [],
+      "cycleCells": 0
+    },
+    {
+      "id": "door.closed.north",
+      "frameSeconds": 0.5,
+      "loop": false,
+      "frames": [
+        {
+          "name": "door.closed",
+          "path": "art/production/station/review/iterations/benchmark-room-pilot03/regions/door.closed.png",
+          "widthCells": 1.5,
+          "heightCells": 2.5,
+          "pivotX": 0.5,
+          "pivotY": 0.17630767822265625,
+          "pixelWidth": 288,
+          "pixelHeight": 480,
+          "layer": "world",
+          "sha256": "20326afaf652eb85fdc447d9c50ad75bd101dc5014de9a2c349fd6bcece1b3dc",
+          "asset": "door"
+        }
+      ],
+      "markers": [],
+      "cycleCells": 0
+    },
+    {
+      "id": "door.open.north",
+      "frameSeconds": 0.5,
+      "loop": false,
+      "frames": [
+        {
+          "name": "door.open",
+          "path": "art/production/station/review/iterations/benchmark-room-pilot03/regions/door.open.png",
+          "widthCells": 1.5,
+          "heightCells": 2.5,
+          "pivotX": 0.5,
+          "pivotY": 0.17630767822265625,
+          "pixelWidth": 288,
+          "pixelHeight": 480,
+          "layer": "world",
+          "sha256": "8686c1c82e7ebbb94205f2549a224344e65ca6ce10cd8d1647aefc51eed6e366",
+          "asset": "door"
+        }
+      ],
+      "markers": [],
+      "cycleCells": 0
+    },
+    {
+      "id": "door.opening.north",
+      "frameSeconds": 0.035,
+      "loop": false,
+      "frames": [
+        {
+          "name": "door.opening.north.00",
+          "path": "art/production/station/review/iterations/benchmark-room-pilot03/regions/door.opening.north.00.png",
+          "widthCells": 1.5,
+          "heightCells": 2.5,
+          "pivotX": 0.5,
+          "pivotY": 0.17630767822265625,
+          "pixelWidth": 288,
+          "pixelHeight": 480,
+          "layer": "world",
+          "sha256": "20326afaf652eb85fdc447d9c50ad75bd101dc5014de9a2c349fd6bcece1b3dc",
+          "asset": "door",
+          "physicalState": "opening",
+          "passageOpen": false,
+          "forcedOpen": false,
+          "hasPhysicalBrace": false,
+          "poweredIndicators": false,
+          "orientationDegrees": 0,
+          "sameCamera": true,
+          "foregroundCutaway": false,
+          "footprintCells": [
+            1,
+            1
+          ]
+        },
+        {
+          "name": "door.opening.north.01",
+          "path": "art/production/station/review/iterations/benchmark-room-pilot03/regions/door.opening.north.01.png",
+          "widthCells": 1.5,
+          "heightCells": 2.5,
+          "pivotX": 0.5,
+          "pivotY": 0.17630767822265625,
+          "pixelWidth": 288,
+          "pixelHeight": 480,
+          "layer": "world",
+          "sha256": "e1a070f822e255da5f5f72c082a55a51b13c3c810295fb23a327c224f8333a03",
+          "asset": "door",
+          "physicalState": "opening",
+          "passageOpen": false,
+          "forcedOpen": false,
+          "hasPhysicalBrace": false,
+          "poweredIndicators": false,
+          "orientationDegrees": 0,
+          "sameCamera": true,
+          "foregroundCutaway": false,
+          "footprintCells": [
+            1,
+            1
+          ]
+        },
+        {
+          "name": "door.opening.north.02",
+          "path": "art/production/station/review/iterations/benchmark-room-pilot03/regions/door.opening.north.02.png",
+          "widthCells": 1.5,
+          "heightCells": 2.5,
+          "pivotX": 0.5,
+          "pivotY": 0.17630767822265625,
+          "pixelWidth": 288,
+          "pixelHeight": 480,
+          "layer": "world",
+          "sha256": "f2d730ed0b4329edba6959e5a4db8168adfb8446ef125f4f45632672538891bd",
+          "asset": "door",
+          "physicalState": "opening",
+          "passageOpen": false,
+          "forcedOpen": false,
+          "hasPhysicalBrace": false,
+          "poweredIndicators": false,
+          "orientationDegrees": 0,
+          "sameCamera": true,
+          "foregroundCutaway": false,
+          "footprintCells": [
+            1,
+            1
+          ]
+        },
+        {
+          "name": "door.opening.north.03",
+          "path": "art/production/station/review/iterations/benchmark-room-pilot03/regions/door.opening.north.03.png",
+          "widthCells": 1.5,
+          "heightCells": 2.5,
+          "pivotX": 0.5,
+          "pivotY": 0.17630767822265625,
+          "pixelWidth": 288,
+          "pixelHeight": 480,
+          "layer": "world",
+          "sha256": "9dfdbca9bf640be0e5cac137e256f9425b3c22e422d11b5ad726f0bffb9de71b",
+          "asset": "door",
+          "physicalState": "opening",
+          "passageOpen": false,
+          "forcedOpen": false,
+          "hasPhysicalBrace": false,
+          "poweredIndicators": false,
+          "orientationDegrees": 0,
+          "sameCamera": true,
+          "foregroundCutaway": false,
+          "footprintCells": [
+            1,
+            1
+          ]
+        },
+        {
+          "name": "door.opening.north.04",
+          "path": "art/production/station/review/iterations/benchmark-room-pilot03/regions/door.opening.north.04.png",
+          "widthCells": 1.5,
+          "heightCells": 2.5,
+          "pivotX": 0.5,
+          "pivotY": 0.17630767822265625,
+          "pixelWidth": 288,
+          "pixelHeight": 480,
+          "layer": "world",
+          "sha256": "2e0c716dd81e50836267f12c1b307262ff72b1d35ab325dea83b77ea4ccf1c80",
+          "asset": "door",
+          "physicalState": "opening",
+          "passageOpen": false,
+          "forcedOpen": false,
+          "hasPhysicalBrace": false,
+          "poweredIndicators": false,
+          "orientationDegrees": 0,
+          "sameCamera": true,
+          "foregroundCutaway": false,
+          "footprintCells": [
+            1,
+            1
+          ]
+        },
+        {
+          "name": "door.opening.north.05",
+          "path": "art/production/station/review/iterations/benchmark-room-pilot03/regions/door.opening.north.05.png",
+          "widthCells": 1.5,
+          "heightCells": 2.5,
+          "pivotX": 0.5,
+          "pivotY": 0.17630767822265625,
+          "pixelWidth": 288,
+          "pixelHeight": 480,
+          "layer": "world",
+          "sha256": "9245c78bfa886668d48ee836265fea342eb4ab78eff0ef31a758497d5462ab5b",
+          "asset": "door",
+          "physicalState": "opening",
+          "passageOpen": false,
+          "forcedOpen": false,
+          "hasPhysicalBrace": false,
+          "poweredIndicators": false,
+          "orientationDegrees": 0,
+          "sameCamera": true,
+          "foregroundCutaway": false,
+          "footprintCells": [
+            1,
+            1
+          ]
+        },
+        {
+          "name": "door.opening.north.06",
+          "path": "art/production/station/review/iterations/benchmark-room-pilot03/regions/door.opening.north.06.png",
+          "widthCells": 1.5,
+          "heightCells": 2.5,
+          "pivotX": 0.5,
+          "pivotY": 0.17630767822265625,
+          "pixelWidth": 288,
+          "pixelHeight": 480,
+          "layer": "world",
+          "sha256": "bafb08bbb7c1ecd4f4895a60f409f0b4cb3d63ef0c63c37d19ff49886b137d5a",
+          "asset": "door",
+          "physicalState": "opening",
+          "passageOpen": false,
+          "forcedOpen": false,
+          "hasPhysicalBrace": false,
+          "poweredIndicators": false,
+          "orientationDegrees": 0,
+          "sameCamera": true,
+          "foregroundCutaway": false,
+          "footprintCells": [
+            1,
+            1
+          ]
+        },
+        {
+          "name": "door.opening.north.07",
+          "path": "art/production/station/review/iterations/benchmark-room-pilot03/regions/door.opening.north.07.png",
+          "widthCells": 1.5,
+          "heightCells": 2.5,
+          "pivotX": 0.5,
+          "pivotY": 0.17630767822265625,
+          "pixelWidth": 288,
+          "pixelHeight": 480,
+          "layer": "world",
+          "sha256": "31f7431e12877930a817b51dc1d9b7ef4ac1e298e3309d305da1e56ad3f97eeb",
+          "asset": "door",
+          "physicalState": "opening",
+          "passageOpen": false,
+          "forcedOpen": false,
+          "hasPhysicalBrace": false,
+          "poweredIndicators": false,
+          "orientationDegrees": 0,
+          "sameCamera": true,
+          "foregroundCutaway": false,
+          "footprintCells": [
+            1,
+            1
+          ]
+        }
+      ],
+      "markers": [
+        {
+          "kind": "clearance",
+          "frame": 6
+        }
+      ],
+      "cycleCells": 0
+    },
+    {
+      "id": "door.closing.north",
+      "frameSeconds": 0.035,
+      "loop": false,
+      "frames": [
+        {
+          "name": "door.closing.north.00",
+          "path": "art/production/station/review/iterations/benchmark-room-pilot03/regions/door.closing.north.00.png",
+          "widthCells": 1.5,
+          "heightCells": 2.5,
+          "pivotX": 0.5,
+          "pivotY": 0.17630767822265625,
+          "pixelWidth": 288,
+          "pixelHeight": 480,
+          "layer": "world",
+          "sha256": "31f7431e12877930a817b51dc1d9b7ef4ac1e298e3309d305da1e56ad3f97eeb",
+          "asset": "door",
+          "physicalState": "closing",
+          "passageOpen": false,
+          "forcedOpen": false,
+          "hasPhysicalBrace": false,
+          "poweredIndicators": false,
+          "orientationDegrees": 0,
+          "sameCamera": true,
+          "foregroundCutaway": false,
+          "footprintCells": [
+            1,
+            1
+          ]
+        },
+        {
+          "name": "door.closing.north.01",
+          "path": "art/production/station/review/iterations/benchmark-room-pilot03/regions/door.closing.north.01.png",
+          "widthCells": 1.5,
+          "heightCells": 2.5,
+          "pivotX": 0.5,
+          "pivotY": 0.17630767822265625,
+          "pixelWidth": 288,
+          "pixelHeight": 480,
+          "layer": "world",
+          "sha256": "7b04d1a150843a7ee2b458aea23c8d12ef7d84401636f9ad7df99a27bfbcfc68",
+          "asset": "door",
+          "physicalState": "closing",
+          "passageOpen": false,
+          "forcedOpen": false,
+          "hasPhysicalBrace": false,
+          "poweredIndicators": false,
+          "orientationDegrees": 0,
+          "sameCamera": true,
+          "foregroundCutaway": false,
+          "footprintCells": [
+            1,
+            1
+          ]
+        },
+        {
+          "name": "door.closing.north.02",
+          "path": "art/production/station/review/iterations/benchmark-room-pilot03/regions/door.closing.north.02.png",
+          "widthCells": 1.5,
+          "heightCells": 2.5,
+          "pivotX": 0.5,
+          "pivotY": 0.17630767822265625,
+          "pixelWidth": 288,
+          "pixelHeight": 480,
+          "layer": "world",
+          "sha256": "464ffca1b3b2f69db62ed239a39055fb2f4ae78ce423577716dc8eb049f18f09",
+          "asset": "door",
+          "physicalState": "closing",
+          "passageOpen": false,
+          "forcedOpen": false,
+          "hasPhysicalBrace": false,
+          "poweredIndicators": false,
+          "orientationDegrees": 0,
+          "sameCamera": true,
+          "foregroundCutaway": false,
+          "footprintCells": [
+            1,
+            1
+          ]
+        },
+        {
+          "name": "door.closing.north.03",
+          "path": "art/production/station/review/iterations/benchmark-room-pilot03/regions/door.closing.north.03.png",
+          "widthCells": 1.5,
+          "heightCells": 2.5,
+          "pivotX": 0.5,
+          "pivotY": 0.17630767822265625,
+          "pixelWidth": 288,
+          "pixelHeight": 480,
+          "layer": "world",
+          "sha256": "2d75079982e9910f60775e9813e8d3ef71eb530829c55048b32f896ed9b7bb4b",
+          "asset": "door",
+          "physicalState": "closing",
+          "passageOpen": false,
+          "forcedOpen": false,
+          "hasPhysicalBrace": false,
+          "poweredIndicators": false,
+          "orientationDegrees": 0,
+          "sameCamera": true,
+          "foregroundCutaway": false,
+          "footprintCells": [
+            1,
+            1
+          ]
+        },
+        {
+          "name": "door.closing.north.04",
+          "path": "art/production/station/review/iterations/benchmark-room-pilot03/regions/door.closing.north.04.png",
+          "widthCells": 1.5,
+          "heightCells": 2.5,
+          "pivotX": 0.5,
+          "pivotY": 0.17630767822265625,
+          "pixelWidth": 288,
+          "pixelHeight": 480,
+          "layer": "world",
+          "sha256": "671ca6f9a98c9010c3ef6e84c85c15ccd61ed0d95832e520c7a9748b8b019a5d",
+          "asset": "door",
+          "physicalState": "closing",
+          "passageOpen": false,
+          "forcedOpen": false,
+          "hasPhysicalBrace": false,
+          "poweredIndicators": false,
+          "orientationDegrees": 0,
+          "sameCamera": true,
+          "foregroundCutaway": false,
+          "footprintCells": [
+            1,
+            1
+          ]
+        },
+        {
+          "name": "door.closing.north.05",
+          "path": "art/production/station/review/iterations/benchmark-room-pilot03/regions/door.closing.north.05.png",
+          "widthCells": 1.5,
+          "heightCells": 2.5,
+          "pivotX": 0.5,
+          "pivotY": 0.17630767822265625,
+          "pixelWidth": 288,
+          "pixelHeight": 480,
+          "layer": "world",
+          "sha256": "02463e30cab73a2712c30b21b00956cc8cf2a45921126652c8770e78318fa35e",
+          "asset": "door",
+          "physicalState": "closing",
+          "passageOpen": false,
+          "forcedOpen": false,
+          "hasPhysicalBrace": false,
+          "poweredIndicators": false,
+          "orientationDegrees": 0,
+          "sameCamera": true,
+          "foregroundCutaway": false,
+          "footprintCells": [
+            1,
+            1
+          ]
+        },
+        {
+          "name": "door.closing.north.06",
+          "path": "art/production/station/review/iterations/benchmark-room-pilot03/regions/door.closing.north.06.png",
+          "widthCells": 1.5,
+          "heightCells": 2.5,
+          "pivotX": 0.5,
+          "pivotY": 0.17630767822265625,
+          "pixelWidth": 288,
+          "pixelHeight": 480,
+          "layer": "world",
+          "sha256": "9bc0a83f969dbb6b0b6ebcc557e0fe5ab00648dfba4ba2cacbd4f82ee9498bc3",
+          "asset": "door",
+          "physicalState": "closing",
+          "passageOpen": false,
+          "forcedOpen": false,
+          "hasPhysicalBrace": false,
+          "poweredIndicators": false,
+          "orientationDegrees": 0,
+          "sameCamera": true,
+          "foregroundCutaway": false,
+          "footprintCells": [
+            1,
+            1
+          ]
+        },
+        {
+          "name": "door.closing.north.07",
+          "path": "art/production/station/review/iterations/benchmark-room-pilot03/regions/door.closing.north.07.png",
+          "widthCells": 1.5,
+          "heightCells": 2.5,
+          "pivotX": 0.5,
+          "pivotY": 0.17630767822265625,
+          "pixelWidth": 288,
+          "pixelHeight": 480,
+          "layer": "world",
+          "sha256": "1ea868c39399c1eda229655815cc7b86e41895f40d4b23c496c93d111584af25",
+          "asset": "door",
+          "physicalState": "closing",
+          "passageOpen": false,
+          "forcedOpen": false,
+          "hasPhysicalBrace": false,
+          "poweredIndicators": false,
+          "orientationDegrees": 0,
+          "sameCamera": true,
+          "foregroundCutaway": false,
+          "footprintCells": [
+            1,
+            1
+          ]
+        }
+      ],
+      "markers": [],
+      "cycleCells": 0
+    },
+    {
+      "id": "door.locked.north",
+      "frameSeconds": 0.5,
+      "loop": false,
+      "frames": [
+        {
+          "name": "door.locked.north",
+          "path": "art/production/station/review/iterations/benchmark-room-pilot03/regions/door.locked.north.png",
+          "widthCells": 1.5,
+          "heightCells": 2.5,
+          "pivotX": 0.5,
+          "pivotY": 0.17630767822265625,
+          "pixelWidth": 288,
+          "pixelHeight": 480,
+          "layer": "world",
+          "sha256": "1d31255b7f84035add6112b02427d616ac734615b28469e63869ec75c1c0df93",
+          "asset": "door",
+          "physicalState": "locked",
+          "passageOpen": false,
+          "forcedOpen": false,
+          "hasPhysicalBrace": false,
+          "poweredIndicators": false,
+          "orientationDegrees": 0,
+          "sameCamera": true,
+          "foregroundCutaway": false,
+          "footprintCells": [
+            1,
+            1
+          ]
+        }
+      ],
+      "markers": [],
+      "cycleCells": 0
+    },
+    {
+      "id": "door.braced.north",
+      "frameSeconds": 0.5,
+      "loop": false,
+      "frames": [
+        {
+          "name": "door.braced.north",
+          "path": "art/production/station/review/iterations/benchmark-room-pilot03/regions/door.braced.north.png",
+          "widthCells": 1.5,
+          "heightCells": 2.5,
+          "pivotX": 0.5,
+          "pivotY": 0.17630767822265625,
+          "pixelWidth": 288,
+          "pixelHeight": 480,
+          "layer": "world",
+          "sha256": "535b65a308462ca0043b1dfa7668e000eb042f7fdfad167fb3c58e41ba769fe9",
+          "asset": "door",
+          "physicalState": "braced",
+          "passageOpen": false,
+          "forcedOpen": false,
+          "hasPhysicalBrace": true,
+          "poweredIndicators": false,
+          "orientationDegrees": 0,
+          "sameCamera": true,
+          "foregroundCutaway": false,
+          "footprintCells": [
+            1,
+            1
+          ]
+        }
+      ],
+      "markers": [],
+      "cycleCells": 0
+    },
+    {
+      "id": "door.damaged.north",
+      "frameSeconds": 0.5,
+      "loop": false,
+      "frames": [
+        {
+          "name": "door.damaged.north",
+          "path": "art/production/station/review/iterations/benchmark-room-pilot03/regions/door.damaged.north.png",
+          "widthCells": 1.5,
+          "heightCells": 2.5,
+          "pivotX": 0.5,
+          "pivotY": 0.17630767822265625,
+          "pixelWidth": 288,
+          "pixelHeight": 480,
+          "layer": "world",
+          "sha256": "f8773fa1375f09f788c5f15d8ea5c9d370e1e1f86869aa98f54c6fb5e1ad2324",
+          "asset": "door",
+          "physicalState": "damaged",
+          "passageOpen": true,
+          "forcedOpen": true,
+          "hasPhysicalBrace": false,
+          "poweredIndicators": false,
+          "orientationDegrees": 0,
+          "sameCamera": true,
+          "foregroundCutaway": false,
+          "footprintCells": [
+            1,
+            1
+          ]
+        }
+      ],
+      "markers": [],
+      "cycleCells": 0
+    },
+    {
+      "id": "door.closed.east",
+      "frameSeconds": 0.5,
+      "loop": false,
+      "frames": [
+        {
+          "name": "door.closed.east",
+          "path": "art/production/station/review/iterations/benchmark-room-pilot03/regions/door.closed.east.png",
+          "widthCells": 1.5,
+          "heightCells": 3.0,
+          "pivotX": 0.5,
+          "pivotY": 0.23025639355182648,
+          "pixelWidth": 288,
+          "pixelHeight": 576,
+          "layer": "world",
+          "sha256": "5ffd922aabda4ca546cc3fead38c157f5188cd725189a744095847391cf775c0",
+          "asset": "door",
+          "physicalState": "closed",
+          "passageOpen": false,
+          "forcedOpen": false,
+          "hasPhysicalBrace": false,
+          "poweredIndicators": false,
+          "orientationDegrees": 90,
+          "sameCamera": true,
+          "foregroundCutaway": true,
+          "footprintCells": [
+            1,
+            1
+          ]
+        }
+      ],
+      "markers": [],
+      "cycleCells": 0
+    },
+    {
+      "id": "door.open.east",
+      "frameSeconds": 0.5,
+      "loop": false,
+      "frames": [
+        {
+          "name": "door.open.east",
+          "path": "art/production/station/review/iterations/benchmark-room-pilot03/regions/door.open.east.png",
+          "widthCells": 1.5,
+          "heightCells": 3.0,
+          "pivotX": 0.5,
+          "pivotY": 0.23025639355182648,
+          "pixelWidth": 288,
+          "pixelHeight": 576,
+          "layer": "world",
+          "sha256": "d15ea0df6191436e8d14af01d343a2e2ddfbba9e54e8230c8cdabc4b6f449ce5",
+          "asset": "door",
+          "physicalState": "open",
+          "passageOpen": true,
+          "forcedOpen": false,
+          "hasPhysicalBrace": false,
+          "poweredIndicators": false,
+          "orientationDegrees": 90,
+          "sameCamera": true,
+          "foregroundCutaway": true,
+          "footprintCells": [
+            1,
+            1
+          ]
+        }
+      ],
+      "markers": [],
+      "cycleCells": 0
+    },
+    {
+      "id": "door.opening.east",
+      "frameSeconds": 0.035,
+      "loop": false,
+      "frames": [
+        {
+          "name": "door.opening.east.00",
+          "path": "art/production/station/review/iterations/benchmark-room-pilot03/regions/door.opening.east.00.png",
+          "widthCells": 1.5,
+          "heightCells": 3.0,
+          "pivotX": 0.5,
+          "pivotY": 0.23025639355182648,
+          "pixelWidth": 288,
+          "pixelHeight": 576,
+          "layer": "world",
+          "sha256": "e731aeade2e491f01c45ed15ce4db25794f864c798a27b288b8c1c12d4572d9d",
+          "asset": "door",
+          "physicalState": "opening",
+          "passageOpen": false,
+          "forcedOpen": false,
+          "hasPhysicalBrace": false,
+          "poweredIndicators": false,
+          "orientationDegrees": 90,
+          "sameCamera": true,
+          "foregroundCutaway": true,
+          "footprintCells": [
+            1,
+            1
+          ]
+        },
+        {
+          "name": "door.opening.east.01",
+          "path": "art/production/station/review/iterations/benchmark-room-pilot03/regions/door.opening.east.01.png",
+          "widthCells": 1.5,
+          "heightCells": 3.0,
+          "pivotX": 0.5,
+          "pivotY": 0.23025639355182648,
+          "pixelWidth": 288,
+          "pixelHeight": 576,
+          "layer": "world",
+          "sha256": "ceb9bfae32fd6054f3b0d2f8ba209a8d7624549f85a33c11d19b10a5a80295f6",
+          "asset": "door",
+          "physicalState": "opening",
+          "passageOpen": false,
+          "forcedOpen": false,
+          "hasPhysicalBrace": false,
+          "poweredIndicators": false,
+          "orientationDegrees": 90,
+          "sameCamera": true,
+          "foregroundCutaway": true,
+          "footprintCells": [
+            1,
+            1
+          ]
+        },
+        {
+          "name": "door.opening.east.02",
+          "path": "art/production/station/review/iterations/benchmark-room-pilot03/regions/door.opening.east.02.png",
+          "widthCells": 1.5,
+          "heightCells": 3.0,
+          "pivotX": 0.5,
+          "pivotY": 0.23025639355182648,
+          "pixelWidth": 288,
+          "pixelHeight": 576,
+          "layer": "world",
+          "sha256": "99ff30d037d408131ae12f05b0524d88b98d63c64a84c441c67e4779ae86c6e8",
+          "asset": "door",
+          "physicalState": "opening",
+          "passageOpen": false,
+          "forcedOpen": false,
+          "hasPhysicalBrace": false,
+          "poweredIndicators": false,
+          "orientationDegrees": 90,
+          "sameCamera": true,
+          "foregroundCutaway": true,
+          "footprintCells": [
+            1,
+            1
+          ]
+        },
+        {
+          "name": "door.opening.east.03",
+          "path": "art/production/station/review/iterations/benchmark-room-pilot03/regions/door.opening.east.03.png",
+          "widthCells": 1.5,
+          "heightCells": 3.0,
+          "pivotX": 0.5,
+          "pivotY": 0.23025639355182648,
+          "pixelWidth": 288,
+          "pixelHeight": 576,
+          "layer": "world",
+          "sha256": "8f62349152658af3c85449f1219a65026ced35766af46e7dd061aabdf9057d5a",
+          "asset": "door",
+          "physicalState": "opening",
+          "passageOpen": false,
+          "forcedOpen": false,
+          "hasPhysicalBrace": false,
+          "poweredIndicators": false,
+          "orientationDegrees": 90,
+          "sameCamera": true,
+          "foregroundCutaway": true,
+          "footprintCells": [
+            1,
+            1
+          ]
+        },
+        {
+          "name": "door.opening.east.04",
+          "path": "art/production/station/review/iterations/benchmark-room-pilot03/regions/door.opening.east.04.png",
+          "widthCells": 1.5,
+          "heightCells": 3.0,
+          "pivotX": 0.5,
+          "pivotY": 0.23025639355182648,
+          "pixelWidth": 288,
+          "pixelHeight": 576,
+          "layer": "world",
+          "sha256": "24c4b4177d8db498d93071599a0d86d319d973fc817a911d231b20310264b6fe",
+          "asset": "door",
+          "physicalState": "opening",
+          "passageOpen": false,
+          "forcedOpen": false,
+          "hasPhysicalBrace": false,
+          "poweredIndicators": false,
+          "orientationDegrees": 90,
+          "sameCamera": true,
+          "foregroundCutaway": true,
+          "footprintCells": [
+            1,
+            1
+          ]
+        },
+        {
+          "name": "door.opening.east.05",
+          "path": "art/production/station/review/iterations/benchmark-room-pilot03/regions/door.opening.east.05.png",
+          "widthCells": 1.5,
+          "heightCells": 3.0,
+          "pivotX": 0.5,
+          "pivotY": 0.23025639355182648,
+          "pixelWidth": 288,
+          "pixelHeight": 576,
+          "layer": "world",
+          "sha256": "2f41e0ba99b6c7be55790e5f95c96990499b5dd372b5770678f970fc5975ed57",
+          "asset": "door",
+          "physicalState": "opening",
+          "passageOpen": false,
+          "forcedOpen": false,
+          "hasPhysicalBrace": false,
+          "poweredIndicators": false,
+          "orientationDegrees": 90,
+          "sameCamera": true,
+          "foregroundCutaway": true,
+          "footprintCells": [
+            1,
+            1
+          ]
+        },
+        {
+          "name": "door.opening.east.06",
+          "path": "art/production/station/review/iterations/benchmark-room-pilot03/regions/door.opening.east.06.png",
+          "widthCells": 1.5,
+          "heightCells": 3.0,
+          "pivotX": 0.5,
+          "pivotY": 0.23025639355182648,
+          "pixelWidth": 288,
+          "pixelHeight": 576,
+          "layer": "world",
+          "sha256": "21827a3db4a7ab5a7dffc7b77eb84c715c1519b711b2a368536b3d10ce862169",
+          "asset": "door",
+          "physicalState": "opening",
+          "passageOpen": false,
+          "forcedOpen": false,
+          "hasPhysicalBrace": false,
+          "poweredIndicators": false,
+          "orientationDegrees": 90,
+          "sameCamera": true,
+          "foregroundCutaway": true,
+          "footprintCells": [
+            1,
+            1
+          ]
+        },
+        {
+          "name": "door.opening.east.07",
+          "path": "art/production/station/review/iterations/benchmark-room-pilot03/regions/door.opening.east.07.png",
+          "widthCells": 1.5,
+          "heightCells": 3.0,
+          "pivotX": 0.5,
+          "pivotY": 0.23025639355182648,
+          "pixelWidth": 288,
+          "pixelHeight": 576,
+          "layer": "world",
+          "sha256": "9a5838611b205c45893642b82540f1b114455a7078af2d4571aec31963e10fea",
+          "asset": "door",
+          "physicalState": "opening",
+          "passageOpen": false,
+          "forcedOpen": false,
+          "hasPhysicalBrace": false,
+          "poweredIndicators": false,
+          "orientationDegrees": 90,
+          "sameCamera": true,
+          "foregroundCutaway": true,
+          "footprintCells": [
+            1,
+            1
+          ]
+        }
+      ],
+      "markers": [
+        {
+          "kind": "clearance",
+          "frame": 6
+        }
+      ],
+      "cycleCells": 0
+    },
+    {
+      "id": "door.closing.east",
+      "frameSeconds": 0.035,
+      "loop": false,
+      "frames": [
+        {
+          "name": "door.closing.east.00",
+          "path": "art/production/station/review/iterations/benchmark-room-pilot03/regions/door.closing.east.00.png",
+          "widthCells": 1.5,
+          "heightCells": 3.0,
+          "pivotX": 0.5,
+          "pivotY": 0.23025639355182648,
+          "pixelWidth": 288,
+          "pixelHeight": 576,
+          "layer": "world",
+          "sha256": "9a5838611b205c45893642b82540f1b114455a7078af2d4571aec31963e10fea",
+          "asset": "door",
+          "physicalState": "closing",
+          "passageOpen": false,
+          "forcedOpen": false,
+          "hasPhysicalBrace": false,
+          "poweredIndicators": false,
+          "orientationDegrees": 90,
+          "sameCamera": true,
+          "foregroundCutaway": true,
+          "footprintCells": [
+            1,
+            1
+          ]
+        },
+        {
+          "name": "door.closing.east.01",
+          "path": "art/production/station/review/iterations/benchmark-room-pilot03/regions/door.closing.east.01.png",
+          "widthCells": 1.5,
+          "heightCells": 3.0,
+          "pivotX": 0.5,
+          "pivotY": 0.23025639355182648,
+          "pixelWidth": 288,
+          "pixelHeight": 576,
+          "layer": "world",
+          "sha256": "7c359100c3064208d35145238e9f799965fecc691e071deb8c89b0665aac24fc",
+          "asset": "door",
+          "physicalState": "closing",
+          "passageOpen": false,
+          "forcedOpen": false,
+          "hasPhysicalBrace": false,
+          "poweredIndicators": false,
+          "orientationDegrees": 90,
+          "sameCamera": true,
+          "foregroundCutaway": true,
+          "footprintCells": [
+            1,
+            1
+          ]
+        },
+        {
+          "name": "door.closing.east.02",
+          "path": "art/production/station/review/iterations/benchmark-room-pilot03/regions/door.closing.east.02.png",
+          "widthCells": 1.5,
+          "heightCells": 3.0,
+          "pivotX": 0.5,
+          "pivotY": 0.23025639355182648,
+          "pixelWidth": 288,
+          "pixelHeight": 576,
+          "layer": "world",
+          "sha256": "0a5933e24764a8dc61709d99ca2b1b4d79a722ac226a47e5d39ca6a42be0d17e",
+          "asset": "door",
+          "physicalState": "closing",
+          "passageOpen": false,
+          "forcedOpen": false,
+          "hasPhysicalBrace": false,
+          "poweredIndicators": false,
+          "orientationDegrees": 90,
+          "sameCamera": true,
+          "foregroundCutaway": true,
+          "footprintCells": [
+            1,
+            1
+          ]
+        },
+        {
+          "name": "door.closing.east.03",
+          "path": "art/production/station/review/iterations/benchmark-room-pilot03/regions/door.closing.east.03.png",
+          "widthCells": 1.5,
+          "heightCells": 3.0,
+          "pivotX": 0.5,
+          "pivotY": 0.23025639355182648,
+          "pixelWidth": 288,
+          "pixelHeight": 576,
+          "layer": "world",
+          "sha256": "14da79a1d11570742335f54b13ed13ca17f9a2e9bae7d5d7dabd7eebcb110b3a",
+          "asset": "door",
+          "physicalState": "closing",
+          "passageOpen": false,
+          "forcedOpen": false,
+          "hasPhysicalBrace": false,
+          "poweredIndicators": false,
+          "orientationDegrees": 90,
+          "sameCamera": true,
+          "foregroundCutaway": true,
+          "footprintCells": [
+            1,
+            1
+          ]
+        },
+        {
+          "name": "door.closing.east.04",
+          "path": "art/production/station/review/iterations/benchmark-room-pilot03/regions/door.closing.east.04.png",
+          "widthCells": 1.5,
+          "heightCells": 3.0,
+          "pivotX": 0.5,
+          "pivotY": 0.23025639355182648,
+          "pixelWidth": 288,
+          "pixelHeight": 576,
+          "layer": "world",
+          "sha256": "cba453ecd82863eb553d8a3cfd464322cd89ccbcd5530f86591cbcaf5bd08bc9",
+          "asset": "door",
+          "physicalState": "closing",
+          "passageOpen": false,
+          "forcedOpen": false,
+          "hasPhysicalBrace": false,
+          "poweredIndicators": false,
+          "orientationDegrees": 90,
+          "sameCamera": true,
+          "foregroundCutaway": true,
+          "footprintCells": [
+            1,
+            1
+          ]
+        },
+        {
+          "name": "door.closing.east.05",
+          "path": "art/production/station/review/iterations/benchmark-room-pilot03/regions/door.closing.east.05.png",
+          "widthCells": 1.5,
+          "heightCells": 3.0,
+          "pivotX": 0.5,
+          "pivotY": 0.23025639355182648,
+          "pixelWidth": 288,
+          "pixelHeight": 576,
+          "layer": "world",
+          "sha256": "53b2eab9fb6b504e256fd942983af6a3ae81b1a56436cff4bddd0b346a3dba28",
+          "asset": "door",
+          "physicalState": "closing",
+          "passageOpen": false,
+          "forcedOpen": false,
+          "hasPhysicalBrace": false,
+          "poweredIndicators": false,
+          "orientationDegrees": 90,
+          "sameCamera": true,
+          "foregroundCutaway": true,
+          "footprintCells": [
+            1,
+            1
+          ]
+        },
+        {
+          "name": "door.closing.east.06",
+          "path": "art/production/station/review/iterations/benchmark-room-pilot03/regions/door.closing.east.06.png",
+          "widthCells": 1.5,
+          "heightCells": 3.0,
+          "pivotX": 0.5,
+          "pivotY": 0.23025639355182648,
+          "pixelWidth": 288,
+          "pixelHeight": 576,
+          "layer": "world",
+          "sha256": "d0806d32fe33af2a062ece31e9a7a2fe3e7fd336478a6daff8b4696debf0a1c6",
+          "asset": "door",
+          "physicalState": "closing",
+          "passageOpen": false,
+          "forcedOpen": false,
+          "hasPhysicalBrace": false,
+          "poweredIndicators": false,
+          "orientationDegrees": 90,
+          "sameCamera": true,
+          "foregroundCutaway": true,
+          "footprintCells": [
+            1,
+            1
+          ]
+        },
+        {
+          "name": "door.closing.east.07",
+          "path": "art/production/station/review/iterations/benchmark-room-pilot03/regions/door.closing.east.07.png",
+          "widthCells": 1.5,
+          "heightCells": 3.0,
+          "pivotX": 0.5,
+          "pivotY": 0.23025639355182648,
+          "pixelWidth": 288,
+          "pixelHeight": 576,
+          "layer": "world",
+          "sha256": "7e971866344862514a43f0c1a7ce2be69a17cf0bd004b9573bd7f91914c1bf7c",
+          "asset": "door",
+          "physicalState": "closing",
+          "passageOpen": false,
+          "forcedOpen": false,
+          "hasPhysicalBrace": false,
+          "poweredIndicators": false,
+          "orientationDegrees": 90,
+          "sameCamera": true,
+          "foregroundCutaway": true,
+          "footprintCells": [
+            1,
+            1
+          ]
+        }
+      ],
+      "markers": [],
+      "cycleCells": 0
+    },
+    {
+      "id": "door.locked.east",
+      "frameSeconds": 0.5,
+      "loop": false,
+      "frames": [
+        {
+          "name": "door.locked.east",
+          "path": "art/production/station/review/iterations/benchmark-room-pilot03/regions/door.locked.east.png",
+          "widthCells": 1.5,
+          "heightCells": 3.0,
+          "pivotX": 0.5,
+          "pivotY": 0.23025639355182648,
+          "pixelWidth": 288,
+          "pixelHeight": 576,
+          "layer": "world",
+          "sha256": "543af4502266d74b38aac4ceec4d19b2bc2dabfa148a25e6d18265fea1de769e",
+          "asset": "door",
+          "physicalState": "locked",
+          "passageOpen": false,
+          "forcedOpen": false,
+          "hasPhysicalBrace": false,
+          "poweredIndicators": false,
+          "orientationDegrees": 90,
+          "sameCamera": true,
+          "foregroundCutaway": true,
+          "footprintCells": [
+            1,
+            1
+          ]
+        }
+      ],
+      "markers": [],
+      "cycleCells": 0
+    },
+    {
+      "id": "door.braced.east",
+      "frameSeconds": 0.5,
+      "loop": false,
+      "frames": [
+        {
+          "name": "door.braced.east",
+          "path": "art/production/station/review/iterations/benchmark-room-pilot03/regions/door.braced.east.png",
+          "widthCells": 2.0,
+          "heightCells": 3.0,
+          "pivotX": 0.5,
+          "pivotY": 0.23025639355182648,
+          "pixelWidth": 384,
+          "pixelHeight": 576,
+          "layer": "world",
+          "sha256": "b47f0ecaf662b675b79977e56f374e503d130cad82a8530a1f6f456ef8120d4e",
+          "asset": "door",
+          "physicalState": "braced",
+          "passageOpen": false,
+          "forcedOpen": false,
+          "hasPhysicalBrace": true,
+          "poweredIndicators": false,
+          "orientationDegrees": 90,
+          "sameCamera": true,
+          "foregroundCutaway": true,
+          "footprintCells": [
+            1,
+            1
+          ]
+        }
+      ],
+      "markers": [],
+      "cycleCells": 0
+    },
+    {
+      "id": "door.damaged.east",
+      "frameSeconds": 0.5,
+      "loop": false,
+      "frames": [
+        {
+          "name": "door.damaged.east",
+          "path": "art/production/station/review/iterations/benchmark-room-pilot03/regions/door.damaged.east.png",
+          "widthCells": 1.5,
+          "heightCells": 3.0,
+          "pivotX": 0.5,
+          "pivotY": 0.23025639355182648,
+          "pixelWidth": 288,
+          "pixelHeight": 576,
+          "layer": "world",
+          "sha256": "8ccf2600493325ba4579bf64b7c7b0cbb03588bc4350e2312cf1fabc1a37aa5f",
+          "asset": "door",
+          "physicalState": "damaged",
+          "passageOpen": true,
+          "forcedOpen": true,
+          "hasPhysicalBrace": false,
+          "poweredIndicators": false,
+          "orientationDegrees": 90,
+          "sameCamera": true,
+          "foregroundCutaway": true,
+          "footprintCells": [
+            1,
+            1
+          ]
+        }
+      ],
+      "markers": [],
+      "cycleCells": 0
+    },
+    {
+      "id": "effect.metal-impact",
+      "frameSeconds": 0.035,
+      "loop": false,
+      "frames": [
+        {
+          "name": "effect.metal-impact.00",
+          "path": "art/production/station/review/iterations/benchmark-room-pilot03/regions/effect.metal-impact.00.png",
+          "widthCells": 1.5,
+          "heightCells": 2.0,
+          "pivotX": 0.5,
+          "pivotY": 0.3441482186317444,
+          "pixelWidth": 288,
+          "pixelHeight": 384,
+          "layer": "world",
+          "sha256": "f68fe989e1d3f61a71603066a227b4440ea08df29a82ade832afadce79f12889",
+          "asset": "effect-metal-impact",
+          "footprintCells": [
+            0,
+            0
+          ],
+          "effectContactWorld": [
+            0,
+            0,
+            0.52
+          ],
+          "materialResponse": "metal-impact",
+          "emissive": true
+        },
+        {
+          "name": "effect.metal-impact.01",
+          "path": "art/production/station/review/iterations/benchmark-room-pilot03/regions/effect.metal-impact.01.png",
+          "widthCells": 1.5,
+          "heightCells": 2.0,
+          "pivotX": 0.5,
+          "pivotY": 0.3441482186317444,
+          "pixelWidth": 288,
+          "pixelHeight": 384,
+          "layer": "world",
+          "sha256": "fd381f0b911ba608302823c10ad6b2d05f2c7864db97a86bb9fc4c6e0f07886c",
+          "asset": "effect-metal-impact",
+          "footprintCells": [
+            0,
+            0
+          ],
+          "effectContactWorld": [
+            0,
+            0,
+            0.52
+          ],
+          "materialResponse": "metal-impact",
+          "emissive": true
+        },
+        {
+          "name": "effect.metal-impact.02",
+          "path": "art/production/station/review/iterations/benchmark-room-pilot03/regions/effect.metal-impact.02.png",
+          "widthCells": 1.5,
+          "heightCells": 2.0,
+          "pivotX": 0.5,
+          "pivotY": 0.3441482186317444,
+          "pixelWidth": 288,
+          "pixelHeight": 384,
+          "layer": "world",
+          "sha256": "c1cfd4e9eab8c93aafd8c83a52d0fb5b7728d77da270b432e886e53a7218d8ef",
+          "asset": "effect-metal-impact",
+          "footprintCells": [
+            0,
+            0
+          ],
+          "effectContactWorld": [
+            0,
+            0,
+            0.52
+          ],
+          "materialResponse": "metal-impact",
+          "emissive": true
+        },
+        {
+          "name": "effect.metal-impact.03",
+          "path": "art/production/station/review/iterations/benchmark-room-pilot03/regions/effect.metal-impact.03.png",
+          "widthCells": 1.5,
+          "heightCells": 2.0,
+          "pivotX": 0.5,
+          "pivotY": 0.3441482186317444,
+          "pixelWidth": 288,
+          "pixelHeight": 384,
+          "layer": "world",
+          "sha256": "044cca291ca5c60772004463a0482e8554c07d9919cc6cff0d374918a45480b8",
+          "asset": "effect-metal-impact",
+          "footprintCells": [
+            0,
+            0
+          ],
+          "effectContactWorld": [
+            0,
+            0,
+            0.52
+          ],
+          "materialResponse": "metal-impact",
+          "emissive": true
+        },
+        {
+          "name": "effect.metal-impact.04",
+          "path": "art/production/station/review/iterations/benchmark-room-pilot03/regions/effect.metal-impact.04.png",
+          "widthCells": 1.5,
+          "heightCells": 2.0,
+          "pivotX": 0.5,
+          "pivotY": 0.3441482186317444,
+          "pixelWidth": 288,
+          "pixelHeight": 384,
+          "layer": "world",
+          "sha256": "aadb916d7bf994e64872a4251a66864c838853bc5777216ba40e7e2164bfb1fb",
+          "asset": "effect-metal-impact",
+          "footprintCells": [
+            0,
+            0
+          ],
+          "effectContactWorld": [
+            0,
+            0,
+            0.52
+          ],
+          "materialResponse": "metal-impact",
+          "emissive": true
+        },
+        {
+          "name": "effect.metal-impact.05",
+          "path": "art/production/station/review/iterations/benchmark-room-pilot03/regions/effect.metal-impact.05.png",
+          "widthCells": 1.5,
+          "heightCells": 2.0,
+          "pivotX": 0.5,
+          "pivotY": 0.3441482186317444,
+          "pixelWidth": 288,
+          "pixelHeight": 384,
+          "layer": "world",
+          "sha256": "00ddd86e3ab658898eee3784698342ca249c5aba3ea25a990447232257200b54",
+          "asset": "effect-metal-impact",
+          "footprintCells": [
+            0,
+            0
+          ],
+          "effectContactWorld": [
+            0,
+            0,
+            0.52
+          ],
+          "materialResponse": "metal-impact",
+          "emissive": true
+        },
+        {
+          "name": "effect.metal-impact.06",
+          "path": "art/production/station/review/iterations/benchmark-room-pilot03/regions/effect.metal-impact.06.png",
+          "widthCells": 1.5,
+          "heightCells": 2.0,
+          "pivotX": 0.5,
+          "pivotY": 0.3441482186317444,
+          "pixelWidth": 288,
+          "pixelHeight": 384,
+          "layer": "world",
+          "sha256": "91959755156484daab366cae822502f048dfc1bc92439c6b69180210c7bf9ebf",
+          "asset": "effect-metal-impact",
+          "footprintCells": [
+            0,
+            0
+          ],
+          "effectContactWorld": [
+            0,
+            0,
+            0.52
+          ],
+          "materialResponse": "metal-impact",
+          "emissive": true
+        }
+      ],
+      "markers": [
+        {
+          "kind": "contact",
+          "frame": 0
+        }
+      ],
+      "cycleCells": 0
+    },
+    {
+      "id": "effect.suit-impact",
+      "frameSeconds": 0.035,
+      "loop": false,
+      "frames": [
+        {
+          "name": "effect.suit-impact.00",
+          "path": "art/production/station/review/iterations/benchmark-room-pilot03/regions/effect.suit-impact.00.png",
+          "widthCells": 1.5,
+          "heightCells": 2.0,
+          "pivotX": 0.5,
+          "pivotY": 0.3441482186317444,
+          "pixelWidth": 288,
+          "pixelHeight": 384,
+          "layer": "world",
+          "sha256": "079f997288ef09cf7005f377952c12bf4dbafcc82c30da677921cd3869108446",
+          "asset": "effect-suit-impact",
+          "footprintCells": [
+            0,
+            0
+          ],
+          "effectContactWorld": [
+            0,
+            0,
+            0.52
+          ],
+          "materialResponse": "suit-impact",
+          "emissive": false
+        },
+        {
+          "name": "effect.suit-impact.01",
+          "path": "art/production/station/review/iterations/benchmark-room-pilot03/regions/effect.suit-impact.01.png",
+          "widthCells": 1.5,
+          "heightCells": 2.0,
+          "pivotX": 0.5,
+          "pivotY": 0.3441482186317444,
+          "pixelWidth": 288,
+          "pixelHeight": 384,
+          "layer": "world",
+          "sha256": "84d8b1026b48139b9b73ed794ca5f1b0b9dde805c51d3bc63cd7ef852df60a8b",
+          "asset": "effect-suit-impact",
+          "footprintCells": [
+            0,
+            0
+          ],
+          "effectContactWorld": [
+            0,
+            0,
+            0.52
+          ],
+          "materialResponse": "suit-impact",
+          "emissive": false
+        },
+        {
+          "name": "effect.suit-impact.02",
+          "path": "art/production/station/review/iterations/benchmark-room-pilot03/regions/effect.suit-impact.02.png",
+          "widthCells": 1.5,
+          "heightCells": 2.0,
+          "pivotX": 0.5,
+          "pivotY": 0.3441482186317444,
+          "pixelWidth": 288,
+          "pixelHeight": 384,
+          "layer": "world",
+          "sha256": "3338be7709c6e94269a6f2991409f0e5a6634b632409b3d3bc88f0f36f5738dc",
+          "asset": "effect-suit-impact",
+          "footprintCells": [
+            0,
+            0
+          ],
+          "effectContactWorld": [
+            0,
+            0,
+            0.52
+          ],
+          "materialResponse": "suit-impact",
+          "emissive": false
+        },
+        {
+          "name": "effect.suit-impact.03",
+          "path": "art/production/station/review/iterations/benchmark-room-pilot03/regions/effect.suit-impact.03.png",
+          "widthCells": 1.5,
+          "heightCells": 2.0,
+          "pivotX": 0.5,
+          "pivotY": 0.3441482186317444,
+          "pixelWidth": 288,
+          "pixelHeight": 384,
+          "layer": "world",
+          "sha256": "2f6b0138c14f2d0f013d85cd2defab72a5da135146bcdf4b2c3e682cdc71ffa3",
+          "asset": "effect-suit-impact",
+          "footprintCells": [
+            0,
+            0
+          ],
+          "effectContactWorld": [
+            0,
+            0,
+            0.52
+          ],
+          "materialResponse": "suit-impact",
+          "emissive": false
+        },
+        {
+          "name": "effect.suit-impact.04",
+          "path": "art/production/station/review/iterations/benchmark-room-pilot03/regions/effect.suit-impact.04.png",
+          "widthCells": 1.5,
+          "heightCells": 2.0,
+          "pivotX": 0.5,
+          "pivotY": 0.3441482186317444,
+          "pixelWidth": 288,
+          "pixelHeight": 384,
+          "layer": "world",
+          "sha256": "6856602094b4112b9aa921ea1bd5cf4d97c803b1f8e58af09333f997d6e8baa8",
+          "asset": "effect-suit-impact",
+          "footprintCells": [
+            0,
+            0
+          ],
+          "effectContactWorld": [
+            0,
+            0,
+            0.52
+          ],
+          "materialResponse": "suit-impact",
+          "emissive": false
+        },
+        {
+          "name": "effect.suit-impact.05",
+          "path": "art/production/station/review/iterations/benchmark-room-pilot03/regions/effect.suit-impact.05.png",
+          "widthCells": 1.5,
+          "heightCells": 2.0,
+          "pivotX": 0.5,
+          "pivotY": 0.3441482186317444,
+          "pixelWidth": 288,
+          "pixelHeight": 384,
+          "layer": "world",
+          "sha256": "a314a538de069c4f3465c90dbf37e8660c31809ed184c23c70a92d59fa53d275",
+          "asset": "effect-suit-impact",
+          "footprintCells": [
+            0,
+            0
+          ],
+          "effectContactWorld": [
+            0,
+            0,
+            0.52
+          ],
+          "materialResponse": "suit-impact",
+          "emissive": false
+        },
+        {
+          "name": "effect.suit-impact.06",
+          "path": "art/production/station/review/iterations/benchmark-room-pilot03/regions/effect.suit-impact.06.png",
+          "widthCells": 1.5,
+          "heightCells": 2.0,
+          "pivotX": 0.5,
+          "pivotY": 0.3441482186317444,
+          "pixelWidth": 288,
+          "pixelHeight": 384,
+          "layer": "world",
+          "sha256": "862f01f2bdb1ddda3504e089fdaa76a918a2e01dca860c937428b1916c2cd1fc",
+          "asset": "effect-suit-impact",
+          "footprintCells": [
+            0,
+            0
+          ],
+          "effectContactWorld": [
+            0,
+            0,
+            0.52
+          ],
+          "materialResponse": "suit-impact",
+          "emissive": false
+        }
+      ],
+      "markers": [
+        {
+          "kind": "contact",
+          "frame": 0
+        }
+      ],
+      "cycleCells": 0
+    },
+    {
+      "id": "effect.sparks",
+      "frameSeconds": 0.035,
+      "loop": false,
+      "frames": [
+        {
+          "name": "effect.sparks.00",
+          "path": "art/production/station/review/iterations/benchmark-room-pilot03/regions/effect.sparks.00.png",
+          "widthCells": 1.5,
+          "heightCells": 2.0,
+          "pivotX": 0.5,
+          "pivotY": 0.3441482186317444,
+          "pixelWidth": 288,
+          "pixelHeight": 384,
+          "layer": "world",
+          "sha256": "175ec08a7247e980e55ba1720a1762def39f9d781818146d821060e67809b4ca",
+          "asset": "effect-sparks",
+          "footprintCells": [
+            0,
+            0
+          ],
+          "effectContactWorld": [
+            0,
+            0,
+            0.52
+          ],
+          "materialResponse": "sparks",
+          "emissive": true
+        },
+        {
+          "name": "effect.sparks.01",
+          "path": "art/production/station/review/iterations/benchmark-room-pilot03/regions/effect.sparks.01.png",
+          "widthCells": 1.5,
+          "heightCells": 2.0,
+          "pivotX": 0.5,
+          "pivotY": 0.3441482186317444,
+          "pixelWidth": 288,
+          "pixelHeight": 384,
+          "layer": "world",
+          "sha256": "06d40dcbb6ff428d0ea8c9578266424211611c765c16cb0f4755eb9fd4113bab",
+          "asset": "effect-sparks",
+          "footprintCells": [
+            0,
+            0
+          ],
+          "effectContactWorld": [
+            0,
+            0,
+            0.52
+          ],
+          "materialResponse": "sparks",
+          "emissive": true
+        },
+        {
+          "name": "effect.sparks.02",
+          "path": "art/production/station/review/iterations/benchmark-room-pilot03/regions/effect.sparks.02.png",
+          "widthCells": 1.5,
+          "heightCells": 2.0,
+          "pivotX": 0.5,
+          "pivotY": 0.3441482186317444,
+          "pixelWidth": 288,
+          "pixelHeight": 384,
+          "layer": "world",
+          "sha256": "687c1ca44877044b4fff494d037e65fc0cbb5abd2d080b0f324ce23121df9cdc",
+          "asset": "effect-sparks",
+          "footprintCells": [
+            0,
+            0
+          ],
+          "effectContactWorld": [
+            0,
+            0,
+            0.52
+          ],
+          "materialResponse": "sparks",
+          "emissive": true
+        },
+        {
+          "name": "effect.sparks.03",
+          "path": "art/production/station/review/iterations/benchmark-room-pilot03/regions/effect.sparks.03.png",
+          "widthCells": 1.5,
+          "heightCells": 2.0,
+          "pivotX": 0.5,
+          "pivotY": 0.3441482186317444,
+          "pixelWidth": 288,
+          "pixelHeight": 384,
+          "layer": "world",
+          "sha256": "b091232b0deb210248c459b0b2e1307ad984b391c2e6555be8c13f352f99401d",
+          "asset": "effect-sparks",
+          "footprintCells": [
+            0,
+            0
+          ],
+          "effectContactWorld": [
+            0,
+            0,
+            0.52
+          ],
+          "materialResponse": "sparks",
+          "emissive": true
+        },
+        {
+          "name": "effect.sparks.04",
+          "path": "art/production/station/review/iterations/benchmark-room-pilot03/regions/effect.sparks.04.png",
+          "widthCells": 1.5,
+          "heightCells": 2.0,
+          "pivotX": 0.5,
+          "pivotY": 0.3441482186317444,
+          "pixelWidth": 288,
+          "pixelHeight": 384,
+          "layer": "world",
+          "sha256": "59323d198bef2be7c18ad90537a74267a411d8c1a7940f719217cd9c8ba9f53d",
+          "asset": "effect-sparks",
+          "footprintCells": [
+            0,
+            0
+          ],
+          "effectContactWorld": [
+            0,
+            0,
+            0.52
+          ],
+          "materialResponse": "sparks",
+          "emissive": true
+        },
+        {
+          "name": "effect.sparks.05",
+          "path": "art/production/station/review/iterations/benchmark-room-pilot03/regions/effect.sparks.05.png",
+          "widthCells": 1.5,
+          "heightCells": 2.0,
+          "pivotX": 0.5,
+          "pivotY": 0.3441482186317444,
+          "pixelWidth": 288,
+          "pixelHeight": 384,
+          "layer": "world",
+          "sha256": "5c009ca6352009f98fea00a093765d9d154a069b27afbb4b280a082a153bc4e6",
+          "asset": "effect-sparks",
+          "footprintCells": [
+            0,
+            0
+          ],
+          "effectContactWorld": [
+            0,
+            0,
+            0.52
+          ],
+          "materialResponse": "sparks",
+          "emissive": true
+        },
+        {
+          "name": "effect.sparks.06",
+          "path": "art/production/station/review/iterations/benchmark-room-pilot03/regions/effect.sparks.06.png",
+          "widthCells": 1.5,
+          "heightCells": 2.0,
+          "pivotX": 0.5,
+          "pivotY": 0.3441482186317444,
+          "pixelWidth": 288,
+          "pixelHeight": 384,
+          "layer": "world",
+          "sha256": "15681e3c1a3aa8caa880b89b6adc03cf2ff83824fe8b7286f08cfd1cd30e1cd6",
+          "asset": "effect-sparks",
+          "footprintCells": [
+            0,
+            0
+          ],
+          "effectContactWorld": [
+            0,
+            0,
+            0.52
+          ],
+          "materialResponse": "sparks",
+          "emissive": true
+        }
+      ],
+      "markers": [
+        {
+          "kind": "contact",
+          "frame": 0
+        }
+      ],
+      "cycleCells": 0
+    }
+  ],
+  "bindings": [
+    {
+      "actor": "sirs",
+      "action": "idle",
+      "facing": "north",
+      "clip": "machine.sirs.idle.north"
+    },
+    {
+      "actor": "sirs",
+      "action": "idle",
+      "facing": "east",
+      "clip": "machine.sirs.idle.east"
+    },
+    {
+      "actor": "sirs",
+      "action": "idle",
+      "facing": "south",
+      "clip": "machine.sirs.idle.south"
+    },
+    {
+      "actor": "sirs",
+      "action": "idle",
+      "facing": "west",
+      "clip": "machine.sirs.idle.west"
+    },
+    {
+      "actor": "door",
+      "action": "closed",
+      "facing": "north",
+      "clip": "door.closed.north"
+    },
+    {
+      "actor": "door",
+      "action": "open",
+      "facing": "north",
+      "clip": "door.open.north"
+    },
+    {
+      "actor": "door",
+      "action": "opening",
+      "facing": "north",
+      "clip": "door.opening.north"
+    },
+    {
+      "actor": "door",
+      "action": "closing",
+      "facing": "north",
+      "clip": "door.closing.north"
+    },
+    {
+      "actor": "door",
+      "action": "locked",
+      "facing": "north",
+      "clip": "door.locked.north"
+    },
+    {
+      "actor": "door",
+      "action": "braced",
+      "facing": "north",
+      "clip": "door.braced.north"
+    },
+    {
+      "actor": "door",
+      "action": "damaged",
+      "facing": "north",
+      "clip": "door.damaged.north"
+    },
+    {
+      "actor": "door",
+      "action": "closed",
+      "facing": "east",
+      "clip": "door.closed.east"
+    },
+    {
+      "actor": "door",
+      "action": "open",
+      "facing": "east",
+      "clip": "door.open.east"
+    },
+    {
+      "actor": "door",
+      "action": "opening",
+      "facing": "east",
+      "clip": "door.opening.east"
+    },
+    {
+      "actor": "door",
+      "action": "closing",
+      "facing": "east",
+      "clip": "door.closing.east"
+    },
+    {
+      "actor": "door",
+      "action": "locked",
+      "facing": "east",
+      "clip": "door.locked.east"
+    },
+    {
+      "actor": "door",
+      "action": "braced",
+      "facing": "east",
+      "clip": "door.braced.east"
+    },
+    {
+      "actor": "door",
+      "action": "damaged",
+      "facing": "east",
+      "clip": "door.damaged.east"
+    },
+    {
+      "actor": "effect",
+      "action": "metal-impact",
+      "facing": "north",
+      "clip": "effect.metal-impact"
+    },
+    {
+      "actor": "effect",
+      "action": "suit-impact",
+      "facing": "north",
+      "clip": "effect.suit-impact"
+    },
+    {
+      "actor": "effect",
+      "action": "sparks",
+      "facing": "north",
+      "clip": "effect.sparks"
+    }
+  ],
+  "footCalibration": [],
+  "status": "opening-slice development candidate; no native or artistic acceptance",
+  "missing": []
+}

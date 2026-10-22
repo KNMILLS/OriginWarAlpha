@@ -1,0 +1,41 @@
+{
+  "scope": "source foot anchors and exact phase0 endpoint rasters; arbitrary interrupted phase/native acceptance not inferred",
+  "checks": [
+    {
+      "facing": "east",
+      "transition": "start-end/walk0",
+      "footAnchorMaximumWorldError": 0.0,
+      "identicalRaster": false
+    },
+    {
+      "facing": "east",
+      "transition": "walk0/stop-start",
+      "footAnchorMaximumWorldError": 0.0,
+      "identicalRaster": false
+    },
+    {
+      "facing": "east",
+      "transition": "stop-end/idle",
+      "footAnchorMaximumWorldError": 0.0,
+      "identicalRaster": false
+    },
+    {
+      "facing": "south",
+      "transition": "start-end/walk0",
+      "footAnchorMaximumWorldError": 0.0,
+      "identicalRaster": false
+    },
+    {
+      "facing": "south",
+      "transition": "walk0/stop-start",
+      "footAnchorMaximumWorldError": 0.0,
+      "identicalRaster": false
+    },
+    {
+      "facing": "south",
+      "transition": "stop-end/idle",
+      "footAnchorMaximumWorldError": 0.0,
+      "identicalRaster": false
+    }
+  ]
+}

@@ -63,9 +63,23 @@ if not clips.get('missing'):
     for clip in clips['clips']:
         if '.fire.' in clip['id']:assert any(m['kind']=='release' for m in clip['markers']),clip['id']
         if '.damaged.' in clip['id']:assert all(f['forcedOpen'] and f['passageOpen'] for f in clip['frames']),clip['id']
+        if clip['id'].startswith('machine.sirs.destroyed.'):
+            assert all(f['sensorDark']==(i>=4) for i,f in enumerate(clip['frames'])),clip['id']
         if '.braced.' in clip['id']:assert all(f['hasPhysicalBrace'] and not f['passageOpen'] for f in clip['frames']),clip['id']
         if clip['id'].startswith('machine.camera.off.') or clip['id'].startswith('machine.camera.disabled.'):
             assert all(not f['powered'] for f in clip['frames']),clip['id']
+    for name,footprint in [('prop.inspection-terminal',[1,1]),('prop.cargo-cradle',[1,1]),('prop.receiving-bulkhead',[0,0])]:
+        region=next(r for r in manifest['regions'] if r['name']==name)
+        assert region['footprintCells']==footprint and not region['poweredIndicators'],name
+    for response in ['metal-impact','suit-impact','sparks']:
+        clip=next(c for c in clips['clips'] if c['id']=='effect.'+response)
+        assert not clip['loop'] and .18<=len(clip['frames'])*clip['frameSeconds']<=.30,clip['id']
+        assert any(m['kind']=='contact' and m['frame']==0 for m in clip['markers']),clip['id']
+        assert all(f['materialResponse']==response and f['footprintCells']==[0,0] for f in clip['frames']),clip['id']
+        if response=='suit-impact':assert all(not f['emissive'] for f in clip['frames'])
+    transitions=json.loads((OUT/'review/source-rig-transition-checks.json').read_text())['checks']
+    assert {(t['facing'],t['transition']) for t in transitions}=={(f,t) for f in ['north','east','south','west'] for t in ['start-end/walk0','walk0/stop-start','stop-end/idle']}
+    assert all(t['maxBoneMatrixDelta']<1e-5 for t in transitions)
 report = dict(scope='package truth only; not visual, native-play or owner acceptance',regions=len(names),clips=len(clip_ids),bindings=len(clips['bindings']),checks=['192 px/cell actual raster','256 px/cell separately rendered masters','source hashes','true alpha','four distinct SIRS bearings','open/closed physical aperture','valid named clips and explicit bindings'])
 (OUT/'source/MASTER_HASHES.json').write_text(json.dumps(dict(masters=masters),indent=2)+'\n',encoding='utf-8',newline='\n')
 provenance=json.loads((OUT/'source/PROVENANCE.json').read_text(encoding='utf-8'))

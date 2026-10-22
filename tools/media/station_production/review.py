@@ -1,10 +1,11 @@
 """Export-only contact boards; never creates or repairs production artwork."""
 from pathlib import Path
 from PIL import Image, ImageDraw, ImageFont
-import json
+import json,sys
 
 ROOT = Path(__file__).resolve().parents[3]
 OUT = ROOT / 'assets/art/production/station'
+if '--motion-pilot' in sys.argv:OUT=OUT/'review/iterations/benchmark-room-motion04'
 REGIONS = OUT / 'regions'
 REVIEW = OUT / 'review'
 FONT = ImageFont.truetype('C:/Windows/Fonts/arial.ttf', 16)
@@ -49,27 +50,39 @@ for facing in ['south','east']:
     frames=[];cell=47;axis=(0,1) if facing=='south' else (1,0)
     for i in range(4*len(clip['frames'])):
         entry=clip['frames'][i%len(clip['frames'])]
-        frame=Image.new('RGBA',(420,310),'#232924');d=ImageDraw.Draw(frame)
-        for x in range(22,420,cell):d.line((x,65,x,295),fill='#343d33')
-        for y in range(65,310,cell):d.line((22,y,415,y),fill='#343d33')
+        frame=Image.new('RGBA',(480,460),'#232924');d=ImageDraw.Draw(frame)
+        for x in range(22,480,cell):d.line((x,65,x,450),fill='#343d33')
+        for y in range(65,460,cell):d.line((22,y,475,y),fill='#343d33')
         d.text((14,12),'SOURCE MOTION PILOT — '+facing.upper(),font=FONT,fill='#ddd8c5')
-        d.text((14,35),'.5 seconds/cell; .5-cell cycle/.25s; 12 actual poses; 47px cell',font=SMALL,fill='#aeb6a9')
+        d.text((14,35),f'.5 seconds/cell; {clip["cycleCells"]}-cell cycle; {len(clip["frames"])} actual poses; 47px cell',font=SMALL,fill='#aeb6a9')
         distance=(i/len(clip['frames']))*clip['cycleCells']
         anchor=(125+axis[0]*cell*distance,160+axis[1]*cell*distance)
         art=Image.open(ROOT/'assets'/entry['path']).convert('RGBA')
         art=art.resize((round(entry['widthCells']*cell),round(entry['heightCells']*cell)),Image.Resampling.LANCZOS)
         frame.alpha_composite(art,(round(anchor[0]-entry['pivotX']*art.width),round(anchor[1]-(1-entry['pivotY'])*art.height)))
         frames.append(frame.convert('RGB'))
-    durations=[20]*len(frames)
-    for i in range(len(clip['frames'])-1,len(frames),len(clip['frames'])):durations[i]=30
+    step=clip['frameSeconds']*1000
+    durations=[round((i+1)*step/10)*10-round(i*step/10)*10 for i in range(len(frames))]
     frames[0].save(REVIEW/f'sirs-native-cadence-{facing}.gif',save_all=True,append_images=frames[1:],duration=durations,loop=0,disposal=2)
     # Full unambiguous poses are also inspectable when animated preview is unavailable.
-    strip=Image.new('RGBA',(12*130,220),'#232924')
+    strip=Image.new('RGBA',(len(clip['frames'])*90,220),'#232924')
     sd=ImageDraw.Draw(strip)
     for i,entry in enumerate(clip['frames']):
-        composite(strip,ROOT/'assets'/entry['path'],65+i*130,180,120)
-        sd.text((i*130+12,190),f'{i:02} / {i/12:.3f}',font=SMALL,fill='#ddd8c5')
+        composite(strip,ROOT/'assets'/entry['path'],45+i*90,180,120)
+        sd.text((i*90+8,190),f'{i:02} / {i/len(clip["frames"]):.2f}',font=SMALL,fill='#ddd8c5')
     strip.convert('RGB').save(REVIEW/f'sirs-walk-{facing}-poses.jpg',quality=95)
+
+endpoints=[]
+for facing in ['north','east','south','west']:
+    mapping={c['id']:c for c in clips['clips']}
+    def get(action,index):return mapping[f'machine.sirs.{action}.{facing}']['frames'][index]
+    if f'machine.sirs.start.{facing}' not in mapping:continue
+    for label,a,b in [('start-end/walk0',get('start',-1),get('walk',0)),('walk0/stop-start',get('walk',0),get('stop',0)),('stop-end/idle',get('stop',-1),get('idle',0))]:
+        error=max(abs(a['feet'][side]['anchorWorld'][i]-b['feet'][side]['anchorWorld'][i]) for side in ['left','right'] for i in range(3))
+        assert error<1e-6,(facing,label,error)
+        ia=Image.open(ROOT/'assets'/a['path']).convert('RGBA');ib=Image.open(ROOT/'assets'/b['path']).convert('RGBA')
+        endpoints.append(dict(facing=facing,transition=label,footAnchorMaximumWorldError=error,identicalRGBAPixels=ia.size==ib.size and ia.tobytes()==ib.tobytes()))
+(REVIEW/'sirs-phase0-transition-checks.json').write_text(json.dumps(dict(scope='source foot anchors and exact phase0 endpoint rasters; arbitrary interrupted phase/native acceptance not inferred',checks=endpoints),indent=2)+'\n')
 
 manifest=json.loads((OUT/'regions.json').read_text(encoding='utf-8'))
 by_name={r['name']:r for r in manifest['regions']}

@@ -1,8 +1,8 @@
 {
   "scope": "package truth only; not visual, native-play or owner acceptance",
-  "regions": 297,
-  "clips": 62,
-  "bindings": 62,
+  "regions": 369,
+  "clips": 65,
+  "bindings": 65,
   "checks": [
     "192 px/cell actual raster",
     "256 px/cell separately rendered masters",
