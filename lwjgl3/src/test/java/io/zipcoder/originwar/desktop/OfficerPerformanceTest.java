@@ -7,6 +7,12 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.*;
 
 class OfficerPerformanceTest {
+ @Test void distinctHandlingActionsAndLongerReachHoldAtTheFinalTicksContact(){
+  var s=new RunEngine(2115).saveState();var p=new OfficerPerformance();p.workTiming(.75f,.25f);p.accept(s,s,PlayerAction.of(PlayerAction.Type.CIRCUIT),accepted(3),1.75f,.3f,.8f);
+  assertEquals("breaker",p.pose(1.25f).action());assertEquals(1f/3,p.pose(1.25f).progress(),.0001);assertEquals(1,p.pose(1.75f).progress());
+  p.workTiming(1,.4166667f);p.accept(s,s,PlayerAction.of(PlayerAction.Type.PICKUP),accepted(1),1,.3f,.8f);assertEquals("pickup",p.pose(.42f).action());assertEquals(1,p.seconds());
+  assertEquals("drop",OfficerPerformance.workAction(PlayerAction.Type.DROP));assertEquals("equip",OfficerPerformance.workAction(PlayerAction.Type.EQUIP));assertEquals("supply",OfficerPerformance.workAction(PlayerAction.Type.USE));
+ }
  @Test void longMaintenanceReachesAndHoldsItsToolThenRecoversOnTheFinalTick(){
   var s=new RunEngine(2115).saveState();var p=new OfficerPerformance();p.workTiming(.5f,1f/6);p.accept(s,s,PlayerAction.of(PlayerAction.Type.HACK),accepted(3),1.5f,.3f,.8f);
   assertEquals(.2f,p.pose(.1f).progress(),.0001);assertEquals(1f/3,p.pose(.8f).progress(),.0001);assertEquals(1f/3,p.pose(1+1f/6).progress(),.0001);assertEquals(.8f,p.pose(1.4f).progress(),.0001);assertEquals(1,p.pose(1.5f).progress());assertEquals(0,s.tick);
@@ -19,7 +25,7 @@ class OfficerPerformanceTest {
  private TurnResult accepted(int cost){return new TurnResult(true,cost,List.of(),"",1,true);}
  @Test void actualWorkAndPaidTurnsAreDistinctFromFreeInspectionAndBlockedMoves(){
   var before=new RunEngine(2115).saveState();var after=before.copy();var p=new OfficerPerformance();
-  p.accept(before,after,PlayerAction.of(PlayerAction.Type.CIRCUIT),accepted(1),.5f,.3f,.8f);assertEquals("work",p.pose(.2f).action());
+  p.accept(before,after,PlayerAction.of(PlayerAction.Type.CIRCUIT),accepted(1),.5f,.3f,.8f);assertEquals("breaker",p.pose(.2f).action());
   p.accept(before,after,PlayerAction.move(1,0),accepted(1),.5f,.3f,.8f);assertEquals("idle",p.pose(.2f).action());
   after.facing=(before.facing+1)%4;p.accept(before,after,new PlayerAction(PlayerAction.Type.TURN,after.facing,0,""),accepted(1),.5f,.3f,.8f);assertTrue(p.pose(.2f).action().startsWith("turn_from_"));
   p.accept(before,after,PlayerAction.of(PlayerAction.Type.WAIT),new TurnResult(false,0,List.of(),"blocked",0,false),0,.3f,.8f);assertEquals(0,p.seconds());

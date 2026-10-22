@@ -1,0 +1,18 @@
+DROP	0	0	starter-pistol
+# Explicit staged diagnostic; ordinary costs, free target cursor and bounded real-time holds.
+HOLD	60
+MOVE	1	0
+MOVE	1	0
+MOVE	0	-1
+MOVE	0	-1
+MOVE	-1	0
+MOVE	-1	0
+MOVE	0	1
+MOVE	0	1
+HOLD	30
+HOLD	30
+HOLD	60
+HOLD	20
+HOLD	20
+HOLD	20
+HOLD	120

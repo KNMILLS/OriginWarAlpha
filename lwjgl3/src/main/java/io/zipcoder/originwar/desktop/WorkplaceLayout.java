@@ -12,7 +12,7 @@ public final class WorkplaceLayout {
   for(var f:state.fixtures){if(f.kind.startsWith("art-furniture:"))furniture.put(f.y*width+f.x,f.kind.substring("art-furniture:".length()));else if(f.kind.startsWith("art-recess:"))recesses.add(new Recess(f.x,f.y,f.kind.substring("art-recess:".length())));else if(f.kind.startsWith("art-room:"))roomCount++;}
  }
  public String furniture(GameState.Fixture fixture){return fixture.kind.equals("cargo")?furniture.getOrDefault(fixture.y*width+fixture.x,""):"";}
- public String fallback(String region){return Set.of("prop.inspection-desk","prop.maintenance-bench").contains(region)?"prop.workbench":region;}
+ public String fallback(String region){return Set.of("prop.inspection-desk","prop.maintenance-bench","prop.inspection-terminal").contains(region)?"prop.workbench":region.equals("prop.receiving-bulkhead")?"prop.equipment-rack":region.equals("prop.cargo-cradle")?"prop.cargo":region;}
  public int roomCount(){return roomCount;}
  public List<Recess> recesses(){return List.copyOf(recesses);}
 }

@@ -19,8 +19,10 @@ public final class IllustratedArt implements AutoCloseable {
  private final Map<String,Motion> motionReferences=new HashMap<>();
  private final Map<String,Float> durationReferences=new HashMap<>();
  private final Map<String,Float> markerReferences=new HashMap<>();
+ private final Map<String,JsonValue> staticOfficers=new HashMap<>();private String staticOfficer="";
  private final Texture white,shadow;
- private boolean proofLoaded,stationLoaded;
+ private boolean proofLoaded,stationLoaded,officerTimingsLoaded;
+ private String officerLoadout="pistol-suit";
  public IllustratedArt(){
   var p=new Pixmap(1,1,Pixmap.Format.RGBA8888);p.setColor(Color.WHITE);p.fill();white=new Texture(p);p.dispose();
   var s=new Pixmap(64,24,Pixmap.Format.RGBA8888);s.setBlending(Pixmap.Blending.None);
@@ -33,7 +35,7 @@ public final class IllustratedArt implements AutoCloseable {
  }
  private Texture texture(String path){return textures.computeIfAbsent(path,key->{var t=new Texture(Gdx.files.internal(key));t.setFilter(Texture.TextureFilter.Linear,Texture.TextureFilter.Linear);return t;});}
  private Region region(JsonValue value){var t=texture(value.getString("path"));int x=value.getInt("x",0),y=value.getInt("y",0),w=value.getInt("pixelWidth",t.getWidth()),h=value.getInt("pixelHeight",t.getHeight());return new Region(new TextureRegion(t,x,y,w,h),value.getFloat("widthCells"),value.getFloat("heightCells"),value.getFloat("pivotX",.5f),value.getFloat("pivotY",0),value.getString("layer","world"));}
- private void loadRegions(JsonValue root,String prefix){var values=root.get("regions");if(values!=null)for(var v:values)regions.put(prefix+v.getString("name"),region(v));}
+ private void loadRegions(JsonValue root,String prefix){var values=root.get("regions");if(values!=null)for(var v:values){String name=v.getString("name");regions.put(prefix+name,region(v));if(prefix.isEmpty()&&name.startsWith("officer."))staticOfficers.put(name,v);}}
  private void loadMotion(JsonValue root,String prefix){
   loadRegions(root,prefix);var definitions=root.get("clips");if(definitions==null)return;
   for(var clip:definitions){var frames=new ArrayList<AnimationClip.Frame>();var starts=new ArrayList<Float>();String id=prefix+clip.getString("id");float elapsed=0,step=clip.getFloat("frameSeconds",1f/24);int index=0;
@@ -44,10 +46,13 @@ public final class IllustratedArt implements AutoCloseable {
  }
  /** Load just the selected candidate. Switching frees its predecessor's GPU pages. */
  public void loadProof(String style){
+  clearStaticOfficer();
+  if(style.equals("illustrated"))preloadOfficerTimings();
   if(proofStyles.contains(style))return;
   if(!proofLoaded){proofLoaded=true;var environment=Gdx.files.internal("art/proof/environment/atlas.json");if(environment.exists())loadRegions(new JsonReader().parse(environment),"proof.environment.");}
   discardReplacedBaseline();
-  String folder=style.equals("illustrated")?"art/production/officer/":"art/proof/"+style+"/";
+  String selected="art/production/officer/loadouts/"+officerLoadout+"/";
+  String folder=style.equals("illustrated")?(Gdx.files.internal(selected+"atlas.json").exists()?selected:"art/production/officer/"):"art/proof/"+style+"/";
   var pack=Gdx.files.internal(folder+"atlas.json");if(!pack.exists())throw new GdxRuntimeException("Missing candidate atlas "+pack);
   for(String old:List.copyOf(proofStyles)){
    String prefix="proof."+old+".",oldFolder=old.equals("illustrated")?"art/production/officer/":"art/proof/"+old+"/";
@@ -64,6 +69,50 @@ public final class IllustratedArt implements AutoCloseable {
    String weapon=b.getString("weapon","pistol"),armor=b.getString("armor","suit"),face=b.getString("facing"),walk=prefix+b.getString("clip");float seconds=clipSeconds(walk,.5f),cells=cycleCells(walk,1);
    motionReferences.put(proofKey(style,weapon,armor,"walk",face),new Motion(seconds/cells,cells,clipSeconds(proofClip(style,weapon,armor,"start",face),0),clipSeconds(proofClip(style,weapon,armor,"stop",face),0),markers(walk).stream().filter(m->m.kind().equals("contact")).map(m->m.seconds()/seconds).toList()));
   }
+ }
+ private void preloadOfficerTimings(){
+  if(officerTimingsLoaded)return;officerTimingsLoaded=true;
+  var file=Gdx.files.internal("art/production/officer/loadouts/index.json");if(!file.exists())return;
+  for(var set:new JsonReader().parse(file).get("sets")){
+   if(!set.name.matches("[a-z]+-[a-z]+"))throw new GdxRuntimeException("Invalid officer loadout name");
+   var root=new JsonReader().parse(Gdx.files.internal("art/production/officer/loadouts/"+set.name+"/atlas.json"));
+   var definitions=new HashMap<String,AnimationClip>();
+   for(var c:root.get("clips")){
+    var frames=new ArrayList<AnimationClip.Frame>();var starts=new ArrayList<Float>();float span=0;
+    for(var f:c.get("frames")){starts.add(span);float seconds=f.getFloat("seconds",f.getFloat("durationSeconds",c.getFloat("frameSeconds",1f/24)))*f.getInt("hold",1);frames.add(new AnimationClip.Frame(c.getString("id")+":"+frames.size(),seconds));span+=seconds;}
+    var marks=new ArrayList<AnimationClip.Marker>();if(c.get("markers")!=null)for(var m:c.get("markers")){int frame=m.getInt("frame",0);marks.add(new AnimationClip.Marker(m.getString("kind"),m.getFloat("seconds",frame==starts.size()?span:starts.get(frame))));}
+    definitions.put(c.getString("id"),new AnimationClip(frames,marks,c.getBoolean("loop",false),c.getFloat("cycleCells",0)));
+   }
+   for(var b:root.get("bindings")){
+    String key=proofKey("illustrated",b.getString("weapon"),b.getString("armor"),b.getString("action"),b.getString("facing"));var c=definitions.get(b.getString("clip"));
+    if(c==null)throw new GdxRuntimeException("Missing officer timing clip");durationReferences.put(key,c.seconds());for(var m:c.markers())markerReferences.put(key+":"+m.kind(),m.seconds());
+   }
+   for(var b:root.get("bindings"))if(b.getString("action").equals("walk")){
+    var c=definitions.get(b.getString("clip"));String w=b.getString("weapon"),a=b.getString("armor"),f=b.getString("facing");float cells=c.cycleCells();
+    motionReferences.put(proofKey("illustrated",w,a,"walk",f),new Motion(c.seconds()/cells,cells,proofReferenceSeconds("illustrated",w,a,"start",f,0),proofReferenceSeconds("illustrated",w,a,"stop",f,0),c.markers().stream().filter(m->m.kind().equals("contact")).map(m->m.seconds()/c.seconds()).toList()));
+   }
+  }
+ }
+ /** Equipment sets replace one another, including when the handling contact changes gear. */
+ public void officerEquipment(String style,String weapon,String armor){
+  if(!style.equals("illustrated"))return;String selected=weapon+"-"+armor;
+  if(!Gdx.files.internal("art/production/officer/loadouts/"+selected+"/atlas.json").exists())selected="pistol-suit";
+  if(selected.equals(officerLoadout))return;clearStaticOfficer();officerLoadout=selected;
+  proofStyles.remove("illustrated");
+  String prefix="proof.illustrated.";regions.keySet().removeIf(k->k.startsWith(prefix));clips.keySet().removeIf(k->k.startsWith(prefix));proofBindings.keySet().removeIf(k->k.startsWith("illustrated:"));
+  for(String path:List.copyOf(textures.keySet()))if(path.startsWith("art/production/officer/"))textures.remove(path).dispose();
+  loadProof("illustrated");
+ }
+ /** A legal uncovered loadout remains visible with its exact weapon silhouette.
+  * Armor and motion coverage stay explicitly unavailable; this never borrows a gun. */
+ public String staticOfficer(String weapon,String facing){
+  String key="officer."+(weapon.equals("pistol")?"":weapon+".")+facing,name="static."+key;
+  if(name.equals(staticOfficer))return name;clearStaticOfficer();var definition=staticOfficers.get(key);if(definition==null)return "";
+  regions.put(name,region(definition));staticOfficer=name;return name;
+ }
+ private void clearStaticOfficer(){
+  if(staticOfficer.isEmpty())return;var old=regions.remove(staticOfficer);staticOfficer="";
+  if(old!=null&&regions.values().stream().noneMatch(r->r.texture.getTexture()==old.texture.getTexture()))for(String path:List.copyOf(textures.keySet()))if(textures.get(path)==old.texture.getTexture())textures.remove(path).dispose();
  }
  private void loadStation(){
   if(stationLoaded)return;var file=Gdx.files.internal("art/production/station/atlas.json");if(!file.exists())return;

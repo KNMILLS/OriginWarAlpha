@@ -24,6 +24,7 @@ public final class OriginWarApp extends ApplicationAdapter {
  private final ArrayDeque<Float> intervals=new ArrayDeque<>();
  private final SurvivalTimeline timeline=new SurvivalTimeline();private final OfficerPerformance officerPerformance=new OfficerPerformance();private final StationPerformance stationPerformance=new StationPerformance();private final GlyphLayout glyph=new GlyphLayout();
  private final WorkplaceLayout workplace=new WorkplaceLayout();
+ private final MovementIntent movementIntent=new MovementIntent();
  private GameState handlingBefore;private boolean handlingItems,handlingWork;
  private SpriteBatch batch;private BitmapFont font;private IllustratedArt art;private SurvivalAudio audio;
  private ProfileLease lease;private SaveStore store;private SaveCoordinator writer;private SettingsStore settings;
@@ -32,7 +33,7 @@ public final class OriginWarApp extends ApplicationAdapter {
  private String proofStyle="",comparisonStyle="rendered",proofCoverage="";private boolean artLab,offlineReview,reviewOverlay;
  private int proofAimX=-2,proofAimY=-2;private float proofAimSince;
  private String confirmTitle="",confirmText="";private Runnable confirmation;
- private boolean exitAfterReplay;private int replayTailFrames=60,replayDrainedFrames;
+ private boolean exitAfterReplay,continuousReplay;private int replayTailFrames=60,replayDrainedFrames,replayHold;
  private boolean focused=true,seedEditing,closing,returnToTitle,captureRequested,disposed,careful,settingsDirty,reportedSaveFailure;
  private int selectedItem,selectedButton,page,journalEntry,settingsPage,targetX=-1,targetY=-1,hoverX=-1,hoverY=-1;
  private int frame,maxFrames,captureFrame=90,replayEvery=3,replayDelay=6,sequenceStart=1,sequenceCount,saveFailures;
@@ -48,6 +49,7 @@ public final class OriginWarApp extends ApplicationAdapter {
    if(a.startsWith("--art-proof="))proofStyle=a.substring(12);if(a.equals("--art-lab"))artLab=true;
    if(a.equals("--offline-art-review"))offlineReview=true;
    if(a.equals("--art-review-overlay"))reviewOverlay=true;
+   if(a.equals("--continuous-replay"))continuousReplay=true;
    if(a.startsWith("--capture="))capture=a.substring(10);if(a.startsWith("--diagnostics="))diagnostics=a.substring(14);
    if(a.startsWith("--frames="))maxFrames=Integer.parseInt(a.substring(9));if(a.startsWith("--capture-frame="))captureFrame=Integer.parseInt(a.substring(16));
    if(a.startsWith("--capture-sequence="))sequenceDirectory=a.substring(19);if(a.startsWith("--sequence-start="))sequenceStart=Integer.parseInt(a.substring(17));if(a.startsWith("--sequence-count="))sequenceCount=Integer.parseInt(a.substring(17));
@@ -65,6 +67,7 @@ public final class OriginWarApp extends ApplicationAdapter {
   if(!proofStyle.isEmpty()){art.loadProof(proofStyle);timeline.locomotionTiming(.5f,1);}
   Gdx.input.setInputProcessor(new InputAdapter(){
    public boolean keyDown(int code){return key(code);}
+   public boolean keyUp(int code){movementIntent.release(code);return false;}
    public boolean keyTyped(char c){if(screen!=Screen.TITLE||!seedEditing)return false;if(c=='\b'&&!seedText.isEmpty())seedText=seedText.substring(0,seedText.length()-1);else if((Character.isDigit(c)||c=='-')&&seedText.length()<19)seedText+=c;return true;}
    public boolean touchDown(int x,int y,int p,int b){return click(x,Gdx.graphics.getHeight()-y,b);}
    public boolean mouseMoved(int x,int y){hover(x,Gdx.graphics.getHeight()-y);return false;}
@@ -77,8 +80,9 @@ public final class OriginWarApp extends ApplicationAdapter {
  private void startNew(){if(!ready())return;try{engine=artLab?new RunEngine(ArtProofScenario.create()):new RunEngine(Long.parseLong(seedText));state=engine.saveState();resetRun();writer.begin(state);screen=Screen.PLAY;notice(artLab?"STAGED ART COMPARISON / F6 switches methods; ordinary actions commit real time.":"Boarded. Time moves when you commit an action.");}catch(Exception e){notice("Cannot begin: "+e.getMessage());}}
  private void askNew(){if(store!=null&&store.exists())confirm("BEGIN A NEW DESCENT?","The current expedition will be replaced as the active run. Its files remain preserved. Activation waits for a durable first snapshot.",this::startNew);else startNew();}
  private void resumeRun(){if(ready()){writer.load();notice("Reading expedition…");}}
- private void resetRun(){timeline.reset();officerPerformance.reset();stationPerformance.reset();handlingBefore=null;handlingItems=false;audio.reset();navigation.clear();selectedItem=page=journalEntry=0;targetX=targetY=-1;proofAimX=proofAimY=-2;walkTo="";cameraX=state.playerX;cameraY=state.playerY;previewAction=null;}
+ private void resetRun(){timeline.reset();officerPerformance.reset();stationPerformance.reset();movementIntent.clear();handlingBefore=null;handlingItems=false;audio.reset();navigation.clear();selectedItem=page=journalEntry=0;targetX=targetY=-1;proofAimX=proofAimY=-2;walkTo="";cameraX=state.playerX;cameraY=state.playerY;previewAction=null;}
  private boolean act(PlayerAction a){
+  if(a.type()!=PlayerAction.Type.MOVE&&a.type()!=PlayerAction.Type.CAREFUL_MOVE)movementIntent.clear();
   boolean speechAcknowledgment=a.type()==PlayerAction.Type.EXCHANGE&&a.id().startsWith("complete:");
   if(engine==null||state==null||!focused||!ready()||timeline.busy()||((state.dead||state.victory)&&!speechAcknowledgment))return false;
   boolean departing=a.type()==PlayerAction.Type.ADVANCE||(a.type()==PlayerAction.Type.INTERACT&&state.playerX==state.hatchX&&state.playerY==state.hatchY&&((a.x()==0&&a.y()==0)||(a.x()==state.hatchX&&a.y()==state.hatchY)));
@@ -86,8 +90,8 @@ public final class OriginWarApp extends ApplicationAdapter {
    var f=engine.forecast(a);if(!f.available()){notice(f.explanation());return false;}
    confirm(state.deck==10?"SEAL THE EVACUATION POD?":"LEAVE THIS DECK?","Supplies and installed equipment left above cannot be recovered. Descent is one way. "+f.explanation(),()->act(new PlayerAction(a.type(),a.x(),a.y(),"confirm")));return false;
   }
-  var before=state;var result=engine.submit(a);if(!result.accepted()){notice(result.reason());walkTo="";return false;}
-  state=engine.saveState();handlingBefore=before;handlingWork=OfficerPerformance.workCommand(a.type());handlingItems=Set.of(PlayerAction.Type.PICKUP,PlayerAction.Type.DROP,PlayerAction.Type.EQUIP,PlayerAction.Type.USE,PlayerAction.Type.BRACE).contains(a.type());configureTimeline(before,a,result);
+  var before=state;var result=engine.submit(a);if(!result.accepted()){timeline.cancelContinuation();notice(result.reason());walkTo="";return false;}
+  state=engine.saveState();if(state.hp<before.hp||state.dead||state.victory)movementIntent.clear();handlingBefore=before;handlingWork=OfficerPerformance.workCommand(a.type());handlingItems=Set.of(PlayerAction.Type.PICKUP,PlayerAction.Type.DROP,PlayerAction.Type.EQUIP,PlayerAction.Type.USE,PlayerAction.Type.BRACE).contains(a.type());configureTimeline(before,a,result);
   if(state.deck!=before.deck){timeline.reset();for(var e:result.events())audio.event(e,state);cameraX=state.playerX;cameraY=state.playerY;targetX=targetY=-1;walkTo="";}
   if(result.stateChanged())writer.save(state);
   configureOfficerPerformance(before,a,result);
@@ -111,7 +115,7 @@ public final class OriginWarApp extends ApplicationAdapter {
   }
   String oldFacing=new String[]{"north","east","south","west"}[before.facing];
   timeline.officerTurnSeconds(comparisonStyle.equals("illustrated")&&before.facing!=state.facing?art.proofReferenceSeconds("illustrated",state.weapon,state.armor,"turn_from_"+oldFacing,facing,0):0);
-  timeline.officerWorkContact(comparisonStyle.equals("illustrated")&&OfficerPerformance.workCommand(command.type())?art.proofReferenceMarker("illustrated",state.weapon,state.armor,"work",facing,"work_contact",1f/6):-1);
+  timeline.officerWorkContact(comparisonStyle.equals("illustrated")&&OfficerPerformance.workCommand(command.type())?art.proofReferenceMarker("illustrated",state.weapon,state.armor,OfficerPerformance.workAction(command.type()),facing,"work_contact",1f/6):-1);
   boolean originalPistol=proofStyle.isEmpty()&&state.weapon.equals("pistol");
   var machineReleases=new HashMap<String,Float>();if(comparisonStyle.equals("illustrated"))for(var actor:state.actors)if(state.visible[actor.x][actor.y]){String clip=art.stationClip(actor.kind.name().toLowerCase(Locale.ROOT),"fire",actor.facing);if(!clip.isEmpty())machineReleases.put(actor.id,art.markerSeconds(clip,"release",.08f));}timeline.machineReleaseTimings(machineReleases);
   var machineMotions=new HashMap<String,SurvivalTimeline.MachineMotion>();if(comparisonStyle.equals("illustrated"))for(var actor:state.actors)if(state.visible[actor.x][actor.y]){String kind=actor.kind.name().toLowerCase(Locale.ROOT),clip=art.stationClip(kind,"walk",actor.facing);if(!clip.isEmpty()){float span=art.clipSeconds(clip,.5f);machineMotions.put(actor.id,new SurvivalTimeline.MachineMotion(art.cycleCells(clip,2),art.markers(clip).stream().filter(m->m.kind().equals("contact")).map(m->m.seconds()/span).toList(),art.clipSeconds(art.stationClip(kind,"start",actor.facing),0),art.clipSeconds(art.stationClip(kind,"stop",actor.facing),0)));}}timeline.machineMotionTiming(machineMotions);
@@ -121,14 +125,14 @@ public final class OriginWarApp extends ApplicationAdapter {
  private void configureOfficerPerformance(GameState before,PlayerAction command,TurnResult result){
   if(!comparisonStyle.equals("illustrated"))return;
   String face=new String[]{"north","east","south","west"}[state.facing];
-  float primarySpan=timeline.duration();if(OfficerPerformance.workCommand(command.type()))primarySpan=result.cost()*.5f;
+  float primarySpan=timeline.duration();if(OfficerPerformance.workCommand(command.type()))primarySpan=Math.max(0,result.cost()-1)*.5f+art.proofReferenceSeconds("illustrated",state.weapon,state.armor,OfficerPerformance.workAction(command.type()),face,.5f);
   if(command.type()==PlayerAction.Type.TURN&&before.facing!=state.facing)primarySpan=art.proofReferenceSeconds("illustrated",state.weapon,state.armor,"turn_from_"+new String[]{"north","east","south","west"}[before.facing],face,primarySpan);
-  officerPerformance.workTiming(art.proofReferenceSeconds("illustrated",state.weapon,state.armor,"work",face,.5f),art.proofReferenceMarker("illustrated",state.weapon,state.armor,"work",face,"work_contact",1f/6));
+  String workAction=OfficerPerformance.workAction(command.type());officerPerformance.workTiming(art.proofReferenceSeconds("illustrated",state.weapon,state.armor,workAction,face,.5f),art.proofReferenceMarker("illustrated",state.weapon,state.armor,workAction,face,"work_contact",1f/6));
   officerPerformance.accept(before,state,command,result,primarySpan,art.proofReferenceSeconds("illustrated",state.weapon,state.armor,"hit",face,.3f),art.proofReferenceSeconds("illustrated",state.weapon,state.armor,"death",face,.8f),timeline.cueTime("hit","officer",timeline.duration()),timeline.cueTime("death","officer",timeline.duration()));
   timeline.holdUntil(officerPerformance.seconds());
  }
  private void persistSpeechReceipts(){if(state==null||engine==null||writer==null||writer.status()!=SaveCoordinator.Status.READY)return;boolean changed=false;String token;while((token=audio.takeCompleted())!=null){var result=engine.submit(PlayerAction.item(PlayerAction.Type.EXCHANGE,token));if(!result.accepted()){notice("Speech history could not be recorded: "+result.reason());continue;}changed|=result.stateChanged();}if(changed){state=engine.saveState();writer.save(state);}}
- private void open(Screen next){walkTo="";navigation.push(screen);screen=next;page=selectedButton=0;seedEditing=false;}
+ private void open(Screen next){movementIntent.clear();walkTo="";navigation.push(screen);screen=next;page=selectedButton=0;seedEditing=false;}
  private void back(){if(screen==Screen.PLAY){open(Screen.PAUSE);return;}screen=navigation.isEmpty()?(state==null?Screen.TITLE:Screen.PLAY):navigation.pop();page=selectedButton=0;if(settingsDirty)saveSettings();}
  private void confirm(String title,String text,Runnable action){confirmTitle=title;confirmText=text;confirmation=action;open(Screen.CONFIRM);}
  private void acceptConfirmation(){var action=confirmation;confirmation=null;back();if(action!=null)action.run();}
@@ -136,8 +140,35 @@ public final class OriginWarApp extends ApplicationAdapter {
  private int direction(int dx,int dy){return Math.abs(dx)>=Math.abs(dy)?(dx>=0?1:3):(dy>0?2:0);}
  private int[] aim(){return new int[]{targetX>=0?targetX:state.playerX+new int[]{0,1,0,-1}[state.facing],targetY>=0?targetY:state.playerY+new int[]{-1,0,1,0}[state.facing]};}
  private PlayerAction targeted(PlayerAction.Type t){var p=aim();return targetX<0?PlayerAction.of(t):PlayerAction.at(t,p[0],p[1]);}
- private void step(int dx,int dy){walkTo="";PlayerAction a=Gdx.input.isKeyPressed(Input.Keys.ALT_LEFT)||Gdx.input.isKeyPressed(Input.Keys.ALT_RIGHT)?new PlayerAction(PlayerAction.Type.TURN,direction(dx,dy),0,""):new PlayerAction(careful||Gdx.input.isKeyPressed(Input.Keys.SHIFT_LEFT)||Gdx.input.isKeyPressed(Input.Keys.SHIFT_RIGHT)?PlayerAction.Type.CAREFUL_MOVE:PlayerAction.Type.MOVE,dx,dy,"");previewAction=a;act(a);}
+ private void step(int code,int dx,int dy){
+  walkTo="";PlayerAction a=Gdx.input.isKeyPressed(Input.Keys.ALT_LEFT)||Gdx.input.isKeyPressed(Input.Keys.ALT_RIGHT)?new PlayerAction(PlayerAction.Type.TURN,direction(dx,dy),0,""):new PlayerAction(careful||Gdx.input.isKeyPressed(Input.Keys.SHIFT_LEFT)||Gdx.input.isKeyPressed(Input.Keys.SHIFT_RIGHT)?PlayerAction.Type.CAREFUL_MOVE:PlayerAction.Type.MOVE,dx,dy,"");previewAction=a;
+  if(a.type()==PlayerAction.Type.TURN){act(a);return;}
+  if(!movementIntent.press(code,a,clock))return;
+  if(!timeline.busy()&&ready()){int x=state.playerX,y=state.playerY;boolean accepted=act(a);movementIntent.consumed();if(!accepted||state.playerX==x&&state.playerY==y)movementIntent.clear();}
+ }
+ private void bufferedMovement(){
+  if(!focused||screen!=Screen.PLAY||state==null||state.dead||state.victory){movementIntent.clear();return;}
+  if(!ready())return;var next=movementIntent.peek(clock);if(next==null)return;
+  // Holding is a convenience only outside visible danger. A fresh key press still
+  // commits its explicit single action under the ordinary controls.
+  if(knownThreat()){movementIntent.clear();return;}
+  if(!movementReady(next))return;
+  int x=state.playerX,y=state.playerY;boolean accepted=act(next);movementIntent.consumed();if(!accepted||state.playerX==x&&state.playerY==y)movementIntent.clear();
+ }
+ private boolean movementReady(PlayerAction next){
+  if(!timeline.busy())return true;
+  if(!comparisonStyle.equals("illustrated")||next.type()!=PlayerAction.Type.MOVE||direction(next.x(),next.y())!=state.facing)return false;
+  var forecast=engine.forecast(next);if(!forecast.available()||forecast.ticks()!=1)return false;
+  int nx=state.playerX+next.x(),ny=state.playerY+next.y();if(!inside(nx,ny))return false;var known=StationSystems.knownTile(state,nx,ny);if(known==null||known.blocksMovement)return false;
+  return timeline.continueOfficer(next.x(),next.y());
+ }
+ private void replayContinuation(){
+  if(!continuousReplay||!ready()||!focused||screen!=Screen.PLAY||replay.isEmpty()||knownThreat()||!timeline.busy()||!replay.peek().startsWith("MOVE\t"))return;
+  String[] p=replay.peek().split("\t",-1);var next=PlayerAction.move(Integer.parseInt(p[1]),Integer.parseInt(p[2]));
+  if(movementReady(next)){replayCommand(replay.removeFirst());replayDelay=replayEvery;}
+ }
  private boolean key(int code){
+  if(Set.of(Input.Keys.ALT_LEFT,Input.Keys.ALT_RIGHT,Input.Keys.CONTROL_LEFT,Input.Keys.CONTROL_RIGHT,Input.Keys.SHIFT_LEFT,Input.Keys.SHIFT_RIGHT,Input.Keys.F6).contains(code))movementIntent.clear();
   if(writer!=null&&writer.status()==SaveCoordinator.Status.FAILED&&(code==Input.Keys.F5||code==Input.Keys.R)){writer.retry();return true;}
   if(code==Input.Keys.F12){captureRequested=true;return true;}if(code==Input.Keys.F11){fullscreen();return true;}
   if(code==Input.Keys.F6&&!proofStyle.isEmpty()){proofStyle=proofStyle.equals("painted")?comparisonStyle:"painted";art.loadProof(proofStyle);notice("ART COMPARISON / "+proofStyle.toUpperCase(Locale.ROOT)+" / appearance only; world unchanged");return true;}
@@ -151,31 +182,31 @@ public final class OriginWarApp extends ApplicationAdapter {
    return menuKey(code);
   }
   switch(code){
-   case Input.Keys.UP,Input.Keys.W->step(0,-1);case Input.Keys.DOWN,Input.Keys.S->step(0,1);case Input.Keys.LEFT,Input.Keys.A->step(-1,0);case Input.Keys.RIGHT,Input.Keys.D->step(1,0);
+   case Input.Keys.UP,Input.Keys.W->step(code,0,-1);case Input.Keys.DOWN,Input.Keys.S->step(code,0,1);case Input.Keys.LEFT,Input.Keys.A->step(code,-1,0);case Input.Keys.RIGHT,Input.Keys.D->step(code,1,0);
    case Input.Keys.SPACE,Input.Keys.PERIOD->act(PlayerAction.of(PlayerAction.Type.WAIT));case Input.Keys.E,Input.Keys.ENTER->act(targeted(PlayerAction.Type.INTERACT));
    case Input.Keys.G->act(PlayerAction.of(PlayerAction.Type.PICKUP));case Input.Keys.R->act(PlayerAction.of(PlayerAction.Type.USE));case Input.Keys.L->act(PlayerAction.of(PlayerAction.Type.LAMP));case Input.Keys.N->act(PlayerAction.of(PlayerAction.Type.LISTEN));
    case Input.Keys.H->act(targeted(PlayerAction.Type.HACK));case Input.Keys.O->act(targeted(PlayerAction.Type.FORCE));case Input.Keys.B->act(targeted(PlayerAction.Type.BRACE));case Input.Keys.P->act(targeted(PlayerAction.Type.CIRCUIT));
    case Input.Keys.V->act(PlayerAction.of(PlayerAction.Type.ANALYZE));case Input.Keys.T->act(PlayerAction.of(PlayerAction.Type.RADIO));
    case Input.Keys.F->{var p=aim();act(PlayerAction.at(PlayerAction.Type.SHOOT,p[0],p[1]));}case Input.Keys.M->{var p=aim();act(PlayerAction.at(PlayerAction.Type.MELEE,p[0],p[1]));}
    case Input.Keys.TAB,Input.Keys.I->open(Screen.INVENTORY);case Input.Keys.J->{journalEntry=Math.max(0,state.journal.size()-1);open(Screen.JOURNAL);}case Input.Keys.K->open(Screen.MAP);case Input.Keys.C->open(Screen.SUIT);case Input.Keys.F1->open(Screen.HELP);
-   case Input.Keys.Q->careful=!careful;case Input.Keys.BACKSLASH->open(Screen.ACTIONS);default->{return false;}
+   case Input.Keys.Q->{movementIntent.clear();careful=!careful;}case Input.Keys.BACKSLASH->open(Screen.ACTIONS);default->{return false;}
   }return true;
  }
  private boolean menuKey(int code){if(code==Input.Keys.UP||code==Input.Keys.TAB){selectedButton=Math.floorMod(selectedButton+(code==Input.Keys.UP?-1:1),Math.max(1,buttons.size()));return true;}if(code==Input.Keys.DOWN){selectedButton=(selectedButton+1)%Math.max(1,buttons.size());return true;}if(code==Input.Keys.ENTER||code==Input.Keys.SPACE){activate();return true;}return false;}
  private void activate(){if(!buttons.isEmpty())buttons.get(Math.floorMod(selectedButton,buttons.size())).action.run();}
  private void hover(float x,float y){for(int n=0;n<buttons.size();n++)if(buttons.get(n).bounds.contains(x,y)){selectedButton=n;break;}hoverX=hoverY=-1;if(state==null||screen!=Screen.PLAY||x<mapX||y<mapY||x>mapX+mapW||y>mapY+mapH)return;hoverX=(int)Math.floor((x-originX)/cell);hoverY=(int)Math.floor((originY-y)/cell);if(!inside(hoverX,hoverY))hoverX=hoverY=-1;}
- private boolean click(float x,float y,int button){for(var b:List.copyOf(buttons))if(b.bounds.contains(x,y)){b.action.run();return true;}seedEditing=false;if(screen!=Screen.PLAY||state==null)return false;hover(x,y);if(hoverX<0)return false;if(button==Input.Buttons.RIGHT){if(targetX==hoverX&&targetY==hoverY){targetX=targetY=-1;previewAction=null;}else{targetX=hoverX;targetY=hoverY;previewAction=PlayerAction.at(PlayerAction.Type.SHOOT,targetX,targetY);}}else if(button==Input.Buttons.LEFT){targetX=targetY=-1;int dx=hoverX-state.playerX,dy=hoverY-state.playerY;if(Math.abs(dx)+Math.abs(dy)==1){previewAction=new PlayerAction(careful?PlayerAction.Type.CAREFUL_MOVE:PlayerAction.Type.MOVE,dx,dy,"");act(previewAction);}else{walkX=hoverX;walkY=hoverY;walkTo=walkX+":"+walkY;}}return true;}
+ private boolean click(float x,float y,int button){movementIntent.clear();for(var b:List.copyOf(buttons))if(b.bounds.contains(x,y)){b.action.run();return true;}seedEditing=false;if(screen!=Screen.PLAY||state==null)return false;hover(x,y);if(hoverX<0)return false;if(button==Input.Buttons.RIGHT){if(targetX==hoverX&&targetY==hoverY){targetX=targetY=-1;previewAction=null;}else{targetX=hoverX;targetY=hoverY;previewAction=PlayerAction.at(PlayerAction.Type.SHOOT,targetX,targetY);}}else if(button==Input.Buttons.LEFT){targetX=targetY=-1;int dx=hoverX-state.playerX,dy=hoverY-state.playerY;if(Math.abs(dx)+Math.abs(dy)==1){previewAction=new PlayerAction(careful?PlayerAction.Type.CAREFUL_MOVE:PlayerAction.Type.MOVE,dx,dy,"");act(previewAction);}else{walkX=hoverX;walkY=hoverY;walkTo=walkX+":"+walkY;}}return true;}
  private boolean inside(int x,int y){return state!=null&&x>=0&&y>=0&&x<state.width&&y<state.height;}
  private boolean knownThreat(){return state.actors.stream().anyMatch(a->RunEngine.isThreat(state,a)&&state.visible[a.x][a.y]);}
- private void walk(){if(walkTo.isEmpty()||!ready()||timeline.busy()||screen!=Screen.PLAY)return;if(knownThreat()){walkTo="";notice("Visible machine: automatic movement stopped. Choose each commitment.");return;}if(state.playerX==walkX&&state.playerY==walkY){walkTo="";return;}var route=engine.pathTo(walkX,walkY);if(route.isEmpty()){walkTo="";return;}var next=route.getFirst();if(careful&&next.type()==PlayerAction.Type.MOVE)next=new PlayerAction(PlayerAction.Type.CAREFUL_MOVE,next.x(),next.y(),"");int ox=state.playerX,oy=state.playerY;boolean accepted=act(next);if(!accepted||(next.type()==PlayerAction.Type.MOVE||next.type()==PlayerAction.Type.CAREFUL_MOVE)&&state.playerX==ox&&state.playerY==oy)walkTo="";}
+ private void walk(){if(walkTo.isEmpty()||!ready()||screen!=Screen.PLAY)return;if(knownThreat()){walkTo="";notice("Visible machine: automatic movement stopped. Choose each commitment.");return;}if(state.playerX==walkX&&state.playerY==walkY){walkTo="";return;}var route=engine.pathTo(walkX,walkY);if(route.isEmpty()){walkTo="";return;}var next=route.getFirst();if(careful&&next.type()==PlayerAction.Type.MOVE)next=new PlayerAction(PlayerAction.Type.CAREFUL_MOVE,next.x(),next.y(),"");if(!movementReady(next))return;int ox=state.playerX,oy=state.playerY;boolean accepted=act(next);if(!accepted||(next.type()==PlayerAction.Type.MOVE||next.type()==PlayerAction.Type.CAREFUL_MOVE)&&state.playerX==ox&&state.playerY==oy)walkTo="";}
  @Override public void render(){
   float actual=Gdx.graphics.getDeltaTime(),dt=offlineReview?1f/60:Math.min(.05f,actual);if(frame>120&&focused&&screen==Screen.PLAY){if(intervals.size()==8192)intervals.removeFirst();intervals.add(actual*1000);}
   boolean freeze=!focused||screen==Screen.PAUSE||screen==Screen.SETTINGS||screen==Screen.TITLE;noticeTime-=dt;if(!freeze)clock+=dt;
   if(writer!=null){writer.poll();savingSeconds=writer.status()==SaveCoordinator.Status.WRITING?savingSeconds+actual:0;if(writer.status()==SaveCoordinator.Status.FAILED&&writer.operation()==SaveCoordinator.Operation.LOAD){notice(writer.error());writer.dismissFailedLoad();}var loaded=writer.takeLoaded();if(loaded!=null){engine=new RunEngine(loaded);state=engine.saveState();resetRun();audio.resumeEssential(state);screen=state.dead?Screen.DEAD:state.victory?Screen.VICTORY:Screen.PLAY;notice(store.usedBackup()?"Recovered last good backup.":"Expedition resumed.");}if(viewAfterLoad>=0&&state!=null&&writer.status()==SaveCoordinator.Status.READY){open(Screen.values()[viewAfterLoad]);viewAfterLoad=-1;}}
-  if(!freeze)timeline.advance(dt,e->audio.event(e,state));audio.update(dt,state,freeze);
+  if(!freeze)timeline.advance(dt,e->audio.event(e,state));audio.update(dt,state,freeze);bufferedMovement();replayContinuation();
   if(state!=null&&state.dead&&screen==Screen.PLAY&&!officerPerformance.deathPending(timeline.elapsed()))screen=Screen.DEAD;
   persistSpeechReceipts();if(state!=null&&ready()&&!timeline.busy()&&!freeze&&screen==Screen.PLAY&&!audio.speaking()&&(!exitAfterReplay||!replay.isEmpty())){String id=ConversationCatalog.next(state,audio.quietMillis(),settings.conversationFrequency);if(!id.isEmpty())act(PlayerAction.item(PlayerAction.Type.EXCHANGE,id));}
-  if(ready()&&!timeline.busy()&&focused&&screen==Screen.PLAY&&!replay.isEmpty()&&--replayDelay<=0){replayCommand(replay.removeFirst());replayDelay=replayEvery;}
+  if(ready()&&!timeline.busy()&&focused&&screen==Screen.PLAY&&!replay.isEmpty()&&--replayDelay<=0){replayCommand(replay.removeFirst());replayDelay=Math.max(replayEvery,replayHold);replayHold=0;}
   walk();if((closing||returnToTitle)&&writer!=null&&writer.status()==SaveCoordinator.Status.READY){if(closing){Gdx.app.exit();return;}returnToTitle=false;screen=Screen.TITLE;engine=null;state=null;audio.reset();}
   ScreenUtils.clear(.018f,.027f,.033f,1);batch.setProjectionMatrix(new Matrix4().setToOrtho2D(0,0,width(),height()));scale=settings.uiScale;buttons.clear();batch.begin();
   if(state!=null&&screen!=Screen.TITLE){world();if(screen==Screen.PLAY)hud();}
@@ -244,7 +275,12 @@ public final class OriginWarApp extends ApplicationAdapter {
   objects.sort(Comparator.comparingDouble(WorldObject::depth));for(var o:objects){float sx=originX+o.x*cell,sy=originY-o.y*cell;if(proofStyle.isEmpty())art.rect(batch,sx-cell*.18f,sy-cell*.015f,cell*.36f,cell*.055f,new Color(0,0,0,.25f*o.alpha));else art.contactShadow(batch,sx,sy,cell*o.artScale,o.alpha);art.draw(batch,art.environment(o.region,!proofStyle.isEmpty()),sx,sy,cell*o.artScale,tint(o.light,o.alpha));}
   if(!proofStyle.isEmpty()&&player.isEmpty()){float sx=originX+(pp.x()+.5f)*cell,sy=originY-(pp.y()+1)*cell;outline(sx-cell*.22f,sy,cell*.44f,cell*.23f,amber);text("ART?",sx-cell*.2f,sy+cell*.4f,amber,.45f);}
   for(var a:state.actors)if(!a.dead&&state.visible[a.x][a.y]&&(a.fuse>=0||a.aiming)){float sx=originX+(a.x+.5f)*cell,sy=originY-(a.y+.05f)*cell;text(a.fuse>=0?"FUSE "+a.fuse:"AIM",sx-cell*.4f,sy,red,.65f);}
-  for(var e:timeline.effects())if(e.visible()&&inside(e.x(),e.y())&&state.visible[e.x()][e.y()]&&(!e.type().equals("gun")||timeline.effectAge(e)<.05f)&&!authoredGun(e)){float sx=originX+(e.x()+.5f)*cell,sy=originY-(e.y()+.4f)*cell;float size=e.type().equals("explosion")?cell*.8f:cell*.10f;art.rect(batch,sx-size/2,sy-size/2,size,size,new Color(.98f,.69f,.32f,.65f));}
+  for(var e:timeline.effects())if(e.visible()&&inside(e.x(),e.y())&&state.visible[e.x()][e.y()]&&!authoredGun(e)){
+   float age=timeline.effectAge(e);String action=e.sourceId().equals("officer")&&Set.of("hit","death").contains(e.type())?"suit-impact":Set.of("explosion","death","gun").contains(e.type())?"sparks":"metal-impact";
+   String clip=comparisonStyle.equals("illustrated")?art.stationClip("effect",action,0):"";
+   if(!clip.isEmpty()){float span=art.clipSeconds(clip,.245f);if(age<span)art.draw(batch,art.frame(clip,age/span,""),originX+(e.x()+.5f)*cell,originY-(e.y()+.88f)*cell,cell,Color.WHITE);}
+   else if(age<.05f){float sx=originX+(e.x()+.5f)*cell,sy=originY-(e.y()+.4f)*cell,size=e.type().equals("explosion")?cell*.8f:cell*.10f;art.rect(batch,sx-size/2,sy-size/2,size,size,new Color(.98f,.69f,.32f,.65f));}
+  }
   int ix=targetX>=0?targetX:hoverX,iy=targetY>=0?targetY:hoverY;if(inside(ix,iy)&&state.explored[ix][iy])outline(originX+ix*cell,originY-(iy+1)*cell,cell,cell,new Color(.63f,.77f,.71f,.5f));
   var perception=PerceptionModel.sample(state,clock,settings.reducedDistortion);if(perception.intensity()>0){float v=perception.vignette();art.rect(batch,0,mapY,width(),18,new Color(.18f,.03f,.02f,v));art.rect(batch,0,height()-18,width(),18,new Color(.18f,.03f,.02f,v));}
  }
@@ -255,6 +291,7 @@ public final class OriginWarApp extends ApplicationAdapter {
   String action=timeline.moving("officer")&&!settings.reducedDistortion?"walk":timeline.officerFiring()&&!settings.reducedDistortion?"fire":targetX>=0?"aim":"idle";
   var pose=officerPerformance.pose(timeline.elapsed());
   var equipment=beforeHandlingContact()?handlingBefore:state;String weapon=equipment.weapon,armor=equipment.armor;
+  art.officerEquipment(proofStyle,weapon,armor);
   if(comparisonStyle.equals("illustrated")&&timeline.busy()&&!settings.reducedDistortion&&!pose.action().equals("idle")){action=pose.action();if(action.equals("walk")){var locomotion=timeline.locomotionPose();action=locomotion.action();pose=new OfficerPerformance.Pose(action,locomotion.progress());}}
   if(comparisonStyle.equals("illustrated")&&state.dead&&(settings.reducedDistortion||!officerPerformance.deathPending(timeline.elapsed()))){action="death";pose=new OfficerPerformance.Pose("death",1);}
   if(targetX!=proofAimX||targetY!=proofAimY){proofAimX=targetX;proofAimY=targetY;proofAimSince=clock;}
@@ -267,9 +304,9 @@ public final class OriginWarApp extends ApplicationAdapter {
   String clip=art.proofClip(proofStyle,weapon,armor,action,dir);
   if(clip.isEmpty()&&action.equals("aim")&&weapon.equals("unarmed")){String guarded=art.proofClip(proofStyle,weapon,armor,"ready",dir);if(!guarded.isEmpty()){proofCoverage=weapon+" / "+armor+" / guarded ready / "+dir;return art.frame(guarded,1,"");}}
   if(clip.isEmpty()&&action.equals("idle"))clip=art.proofClip(proofStyle,weapon,armor,"walk",dir);
-  if(clip.isEmpty()){String held=art.proofClip(proofStyle,weapon,armor,"idle",dir);proofCoverage=(held.isEmpty()?"UNAVAILABLE: ":"STATIC ONLY / motion unavailable: ")+weapon+" / "+armor+" / "+action+" / "+dir;return art.timedFrame(held,0,"");}
+  if(clip.isEmpty()){String held=art.proofClip(proofStyle,weapon,armor,"idle",dir);proofCoverage="STATIC ONLY / authored equipment or motion unavailable: "+weapon+" / "+armor+" / "+action+" / "+dir;return held.isEmpty()?art.staticOfficer(weapon,dir):art.timedFrame(held,0,"");}
   proofCoverage=weapon+" / "+armor+" / "+action+" / "+dir;
-  return action.equals("walk")?art.frame(clip,timeline.gaitPhase(),""):action.equals("fire")?art.proofFireFrame(clip,timeline.elapsed()):(comparisonStyle.equals("illustrated")&&Set.of("start","stop","work","hit","death","melee").contains(action)||action.startsWith("turn_from_"))?art.frame(clip,pose.progress(),""):art.timedFrame(clip,0,"");
+  return action.equals("walk")?art.frame(clip,timeline.gaitPhase(),""):action.equals("fire")?art.proofFireFrame(clip,timeline.elapsed()):(comparisonStyle.equals("illustrated")&&Set.of("start","stop","stop_phase_1","stop_phase_2","work","terminal","breaker","pickup","drop","equip","supply","hit","death","melee").contains(action)||action.startsWith("turn_from_"))?art.frame(clip,pose.progress(),""):art.timedFrame(clip,0,"");
  }
  private boolean beforeWorkContact(){return comparisonStyle.equals("illustrated")&&handlingWork&&handlingBefore!=null&&handlingBefore.deck==state.deck&&timeline.busy()&&timeline.elapsed()<timeline.workContactAt();}
  private boolean beforeHandlingContact(){return handlingItems&&beforeWorkContact();}
@@ -358,13 +395,13 @@ public final class OriginWarApp extends ApplicationAdapter {
  private List<String> wrap(String value,float w,float relative){font.getData().setScale(relative*scale*.4f);var lines=new ArrayList<String>();for(String paragraph:value.split("\n",-1)){if(paragraph.isBlank()){lines.add("");continue;}String line="";for(String word:paragraph.split("\\s+")){String next=line.isEmpty()?word:line+" "+word;glyph.setText(font,next);if(glyph.width>w&&!line.isEmpty()){lines.add(line);line=word;}else line=next;}lines.add(line);}return lines;}
  private void wrapped(String text,float x,float y,float w,Color c,float relative,int max){var lines=wrap(text,w,relative);for(int i=0;i<Math.min(max,lines.size());i++)text(lines.get(i),x,y-i*25*relative*scale,c,relative);}
  private String help(){return "WASD / arrows: commit a cardinal step. Hold Shift for careful movement; Q toggles careful mode. Alt + arrow turns your body and helmet beam for one tick. Ctrl + arrows move the free inspection/target cursor; Backspace clears it. Mouse inspection and aiming are free; they never move the lamp. Left-click requests a path, which stops before known threats and recalculates each step. Right-click selects a visible target.\n\nE / Enter: operate a nearby mechanism. G: collect underfoot. R: refill oxygen. N: listen. L: switch lamp. P: local circuit. B: brace or recover a closed door. H: local service probe. O: force a lock. V: medical analysis. T: radio query. F: shoot. M: emergency melee. Space: wait.\n\nTab: physical pack. J: journal. K: map. C: suit telemetry. Backslash: all actions. Escape: pause/back. F11: fullscreen. F12: screenshot.\n\nPack: Up/Down selects a physical item, including floor items underfoot. U uses, Q equips, X drops, G collects. Browsing is free. Equipment operations cost world time.\n\nReading: Page Up/Down changes page. Up/Down changes journal entry. Menus: arrows or Tab select, Enter activates. Buttons accept pointer input.\n\nTime advances only on committed actions. A long commitment lets machines act before its final result. Lighting and sound obey geometry. Darkness is concealment, never immunity. A newly armed R.O.V.E.R. reserves another decision before detonation.\n\nYour pack holds twelve bulk. Equipped weapons occupy space. Worn armor has its own mount. Power and oxygen transfers preserve remainder. Descent is permanent; supplies above cannot be reclaimed.\n\nALICE offers information and company. She cannot operate ordinary equipment for you. Optional speech requires no response, and completing a speech never unlocks the station.";}
- private void replayCommand(String line){String[] p=line.split("\t",-1);if(p[0].equals("CAPTURE")){captureFile(screenshotDirectory.resolve(p[1]+".png"));Gdx.app.log("Replay","Captured "+p[1]+" at tick="+state.tick);return;}var a=new PlayerAction(PlayerAction.Type.valueOf(p[0]),p.length>1&&!p[1].isEmpty()?Integer.parseInt(p[1]):0,p.length>2&&!p[2].isEmpty()?Integer.parseInt(p[2]):0,p.length>3?p[3]:"");if(!act(a))throw new IllegalStateException("Replay rejected "+line+" at tick "+state.tick);}
+ private void replayCommand(String line){String[] p=line.split("\t",-1);if(p[0].equals("HOLD")){replayHold=Math.max(1,Math.min(3600,Integer.parseInt(p[1])));return;}if(p[0].equals("AIM")){targetX=Integer.parseInt(p[1]);targetY=Integer.parseInt(p[2]);return;}if(p[0].equals("CAPTURE")){captureFile(screenshotDirectory.resolve(p[1]+".png"));Gdx.app.log("Replay","Captured "+p[1]+" at tick="+state.tick);return;}var a=new PlayerAction(PlayerAction.Type.valueOf(p[0]),p.length>1&&!p[1].isEmpty()?Integer.parseInt(p[1]):0,p.length>2&&!p[2].isEmpty()?Integer.parseInt(p[2]):0,p.length>3?p[3]:"");if(!act(a))throw new IllegalStateException("Replay rejected "+line+" at tick "+state.tick);}
  private void captures(){if(captureRequested){captureFile(screenshotDirectory.resolve("survival-"+System.currentTimeMillis()+".png"));captureRequested=false;}if(!capture.isEmpty()&&frame==captureFrame)captureFile(Path.of(capture));if(!sequenceDirectory.isEmpty()&&frame>=sequenceStart&&frame<sequenceStart+sequenceCount)captureFile(Path.of(sequenceDirectory,String.format("frame-%04d.png",frame-sequenceStart)));}
  private void captureFile(Path path){var f=Gdx.files.absolute(path.toAbsolutePath().toString());f.parent().mkdirs();var p=Pixmap.createFromFrameBuffer(0,0,Gdx.graphics.getWidth(),Gdx.graphics.getHeight());PixmapIO.writePNG(f,p,6,true);p.dispose();}
  private void fullscreen(){if(Gdx.graphics.isFullscreen())Gdx.graphics.setWindowedMode(1280,720);else Gdx.graphics.setFullscreenMode(Gdx.graphics.getDisplayMode());}
  /** Native close requests wait for the pending immutable snapshot. */
  public boolean requestClose(){if(disposed)return true;if(writer==null){Gdx.app.exit();return false;}if(writer.status()==SaveCoordinator.Status.FAILED){notice("Close is held until the committed snapshot can be retried.");return false;}if(!closing){closing=true;walkTo="";if(state!=null&&writer.status()==SaveCoordinator.Status.READY)writer.save(state);}return false;}
- @Override public void pause(){focused=false;walkTo="";}
+ @Override public void pause(){focused=false;walkTo="";movementIntent.clear();}
  @Override public void resume(){focused=true;}
- @Override public void dispose(){if(disposed)return;disposed=true;var report=new StringBuilder("Origin War survival runtime\nframes="+frame+" replayRemaining="+replay.size()+" saveFailures="+saveFailures+"\n");if(state!=null)report.append("seed=").append(state.seed).append(" deck=").append(state.deck).append(" tick=").append(state.tick).append(" hp=").append(state.hp).append(" reserve=").append(state.reserve).append(" oxygenation=").append(state.oxygenation).append(" revision=").append(state.revision).append(" victory=").append(state.victory).append(" dead=").append(state.dead).append('\n');if(!intervals.isEmpty()){var sorted=new ArrayList<>(intervals);sorted.sort(Float::compare);report.append(String.format(Locale.ROOT,"Active foreground frame intervals: n=%d mean=%.2fms p95=%.2fms p99=%.2fms max=%.2fms%n",sorted.size(),sorted.stream().mapToDouble(Float::doubleValue).average().orElse(0),sorted.get((int)((sorted.size()-1)*.95)),sorted.get((int)((sorted.size()-1)*.99)),sorted.getLast()));}report.append("artProof=").append(proofStyle).append(" staged=").append(artLab).append(" offlineReview=").append(offlineReview).append("\n");if(art!=null)report.append("artTextures=").append(art.textureCount()).append(" estimatedRGBABytes=").append(art.textureBytes()).append("\n");if(audio!=null)report.append(audio.summary()).append('\n');Gdx.app.log("Diagnostics",report.toString());if(!diagnostics.isEmpty())try{var f=Gdx.files.absolute(diagnostics);f.parent().mkdirs();f.writeString(report.toString(),false,"UTF-8");}catch(Exception e){Gdx.app.error("Diagnostics","Cannot write report",e);}if(settingsDirty&&lease!=null)saveSettings();if(audio!=null)audio.close();if(writer!=null)try{writer.close();}catch(Exception e){Gdx.app.error("Snapshot",e.getMessage(),e);}if(lease!=null)try{lease.close();}catch(Exception e){Gdx.app.error("Profile",e.getMessage(),e);}if(art!=null)art.close();if(font!=null)font.dispose();if(batch!=null)batch.dispose();}
+ @Override public void dispose(){if(disposed)return;disposed=true;var report=new StringBuilder("Origin War survival runtime\nframes="+frame+" replayRemaining="+replay.size()+" saveFailures="+saveFailures+"\n");if(state!=null)report.append("seed=").append(state.seed).append(" deck=").append(state.deck).append(" tick=").append(state.tick).append(" hp=").append(state.hp).append(" reserve=").append(state.reserve).append(" oxygenation=").append(state.oxygenation).append(" revision=").append(state.revision).append(" victory=").append(state.victory).append(" dead=").append(state.dead).append('\n');if(!intervals.isEmpty()){var sorted=new ArrayList<>(intervals);sorted.sort(Float::compare);report.append(String.format(Locale.ROOT,"Active foreground frame intervals: n=%d mean=%.2fms p95=%.2fms p99=%.2fms max=%.2fms%n",sorted.size(),sorted.stream().mapToDouble(Float::doubleValue).average().orElse(0),sorted.get((int)((sorted.size()-1)*.95)),sorted.get((int)((sorted.size()-1)*.99)),sorted.getLast()));}report.append("continuedOfficerSteps=").append(timeline.officerContinuations()).append('\n');report.append("artProof=").append(proofStyle).append(" staged=").append(artLab).append(" offlineReview=").append(offlineReview).append("\n");if(art!=null)report.append("artTextures=").append(art.textureCount()).append(" estimatedRGBABytes=").append(art.textureBytes()).append("\n");if(audio!=null)report.append(audio.summary()).append('\n');Gdx.app.log("Diagnostics",report.toString());if(!diagnostics.isEmpty())try{var f=Gdx.files.absolute(diagnostics);f.parent().mkdirs();f.writeString(report.toString(),false,"UTF-8");}catch(Exception e){Gdx.app.error("Diagnostics","Cannot write report",e);}if(settingsDirty&&lease!=null)saveSettings();if(audio!=null)audio.close();if(writer!=null)try{writer.close();}catch(Exception e){Gdx.app.error("Snapshot",e.getMessage(),e);}if(lease!=null)try{lease.close();}catch(Exception e){Gdx.app.error("Profile",e.getMessage(),e);}if(art!=null)art.close();if(font!=null)font.dispose();if(batch!=null)batch.dispose();}
 }

@@ -1,5 +1,18 @@
 # Implementation task ledger
 
+## Finished-room benchmark (owner direction 22 October 2026)
+
+Exact preserved baseline: `c3ad57376f083b5a05f3d81b11764f857c502bec` and the illustrated-opening delivery. The owner's new production plan gates expansion on an in-game finished room and continuous motion sequence. Lead owns briefs, sourcing, integration, comparison, packaging and assessment. No paid commitment or external outreach is implied; proposals need price, bounded deliverables, revisions, editable source and commercial rights before commitment. Owner and experienced-animator acceptance remain separate from automated verification.
+
+| ID | Exclusive owner / paths | Acceptance | State |
+| --- | --- | --- | --- |
+| BM-LEAD | lead; runtime/timeline/input, scene composition, atlas/registries/build, benchmark documentation and captures | bounded continuous input; identical tactical outcomes; actual 720/1080 lamp on/off review; reproducible playable candidate and honest assessment | in progress; expansion gated |
+| BM-OFFICER | officer craft worker; `worktrees/benchmark-officer`, `codex/benchmark-officer-20261022`, base `c3ad573`; `tools/media/officer_production/**`, officer source/exports except root atlas/coverage, OFFICER_PRODUCTION.md | inspected material/motion pilot before full export; pale human proportions; task-specific contacts; primary four directions and bounded rifle/heavy sample | exclusive lease active |
+| BM-ROOM | room craft worker; `worktrees/benchmark-room`, `codex/benchmark-room-20261022`, base `c3ad573`; station source/exports/tools except root atlas/coverage, STATION_PRODUCTION.md | readable side-on door states; coherent inspection equipment and SIRS; viewed gameplay-size pilot | exclusive lease active |
+| BM-REF | independent research/review; read-only repository, private reference evidence | actual official gameplay references and specific matched-size observations; no generated reference substitute | in progress |
+
+Two writing workers maximum, isolated worktrees, no redelegation or worker publication. Root serializes commits and owns integration. Preserve rejected pilots and change approach after two similar failures. Rendering duration is not authoring labor. Campaign expansion, 15–20-minute human pacing and artistic acceptance cannot be inferred from this benchmark revision.
+
 ## Illustrated rig production (owner direction 22 October 2026)
 
 Owner supplied a production review selecting Blender-driven animation with an illustrated finish as the working foundation, conditional on appearance. Painted officer identity and painted environments remain the targets. This selects the development method; it does not accept either proof's artistic quality or authorize campaign-wide expansion.

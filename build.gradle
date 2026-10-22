@@ -84,8 +84,15 @@ tasks.register('verifyAssets') {
                 (catalog.bindings?:[]).each { binding -> if(!ids.contains(binding.clip))throw new GradleException('Missing proof binding: '+binding.clip) }
             }
         }
-        ['officer','station'].each { kind ->
-        def productionAtlas=file('assets/art/production/'+kind+'/atlas.json')
+        def productionPacks=['officer','station']
+        def loadoutIndex=file('assets/art/production/officer/loadouts/index.json')
+        if(loadoutIndex.isFile())new groovy.json.JsonSlurper().parse(loadoutIndex).sets.keySet().each{ name ->
+            if(!(name==~ /[a-z]+-[a-z]+/))throw new GradleException('Invalid officer loadout name')
+            productionPacks.add('officer/loadouts/'+name)
+        }
+        productionPacks.each { packName ->
+        def kind=packName.startsWith('officer')?'officer':'station'
+        def productionAtlas=file('assets/art/production/'+packName+'/atlas.json')
         if(productionAtlas.isFile()){
             def production=new groovy.json.JsonSlurper().parse(productionAtlas)
             check(production.sourceManifest.path,production.sourceManifest.sha256)

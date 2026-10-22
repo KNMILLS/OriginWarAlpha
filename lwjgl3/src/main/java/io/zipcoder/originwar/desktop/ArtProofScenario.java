@@ -16,6 +16,10 @@ final class ArtProofScenario {
   s.tiles[19][6]=Tile.COVER;s.fixtures.add(new GameState.Fixture("cargo",19,6,1));
   cover(s,"locker",10,5,1);cover(s,"service-cart",9,11,2);cover(s,"life-support",3,10,2);cover(s,"equipment-rack",3,8,2);
   s.fixtures.add(new GameState.Fixture("light",5,7,0));s.fixtures.add(new GameState.Fixture("light",10,10,0));s.fixtures.add(new GameState.Fixture("light",16,7,1));s.fixtures.add(new GameState.Fixture("light",18,17,2));s.fixtures.add(new GameState.Fixture("breaker",8,6,0));
+  s.fixtures.add(new GameState.Fixture("art-room:receiving",7,8,0));
+  s.fixtures.add(new GameState.Fixture("art-recess:prop.receiving-bulkhead",7,3,0));
+  s.fixtures.add(new GameState.Fixture("art-recess:prop.inspection-terminal",5,3,0));
+  s.fixtures.add(new GameState.Fixture("art-furniture:prop.cargo-cradle",19,6,1));
   for(int x=0;x<s.width;x++)s.blueprintTiles[x]=s.tiles[x].clone();
   gear(s,GameState.ItemType.RIFLE,"proof-rifle","Service rifle",7,9);gear(s,GameState.ItemType.ARMOR_HEAVY,"proof-heavy","Heavy pressure shell",7,9);
   var machine=new GameState.Actor();machine.id="proof-sirs";machine.kind=GameState.ActorKind.SIRS;machine.x=machine.homeX=18;machine.y=machine.homeY=16;machine.facing=2;s.actors.add(machine);

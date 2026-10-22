@@ -28,7 +28,16 @@ final class WorkplaceDressing {
   for(int id=0;id<rooms.size();id++){
    var room=rooms.get(id);String role=id==receiving?"receiving":id==security?"security":"service";add(state,"art-room:"+role,room.x+room.w/2,room.y+room.h/2);
    var slots=new ArrayList<Integer>();for(int x=room.x;x<room.x+room.w;x++)if(source[x][room.y-1]==Tile.WALL&&(x==0||!door(source[x-1][room.y-1]))&&(x==state.width-1||!door(source[x+1][room.y-1])))slots.add(x);
-   if(slots.isEmpty())continue;String[] kit=id==receiving?new String[]{"prop.locker","prop.inspection-desk","prop.life-support"}:id==security?new String[]{"prop.equipment-rack","prop.inspection-desk","prop.locker"}:new String[]{"prop.maintenance-bench","prop.equipment-rack"};
+   if(slots.isEmpty())continue;
+   if(id==receiving){
+    // A designed inspection group mounted entirely within existing wall mass.
+    // The receiving equipment's central service bulkhead follows the terminal,
+    // rather than scattering unrelated furniture to the room's far extremes.
+    var used=new HashSet<Integer>();String[] group={"prop.receiving-bulkhead","prop.inspection-terminal","prop.life-support"};int[] offsets={0,-3,3};
+    for(int n=0;n<group.length;n++){int desired=state.terminalX+offsets[n];int chosen=slots.stream().filter(x->!used.contains(x)).min(Comparator.comparingInt(x->Math.abs(x-desired))).orElse(-1);if(chosen>=0){add(state,"art-recess:"+group[n],chosen,room.y-1);used.add(chosen);}}
+    continue;
+   }
+   String[] kit=id==security?new String[]{"prop.equipment-rack","prop.inspection-desk","prop.locker"}:new String[]{"prop.maintenance-bench","prop.equipment-rack"};
    int count=Math.min(kit.length,slots.size());for(int n=0;n<count;n++){int index=count==1?slots.size()/2:n*(slots.size()-1)/(count-1);add(state,"art-recess:"+kit[n],slots.get(index),room.y-1);}
   }
  }

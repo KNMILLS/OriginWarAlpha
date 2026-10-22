@@ -7,6 +7,36 @@ import java.util.*;
 import static org.junit.jupiter.api.Assertions.*;
 
 final class SurvivalTimelineTest {
+    @Test void finalTickResponsesFollowFloorContactWhileEarlierWorkCanStillBeInterrupted(){
+        var a=new RunEngine(2115).saveState();var b=a.copy();b.tick++;
+        var gun=new GameEvent("gun",10,9,"Incoming","sirs",10,9,0,b.tick,1,true,true,"contact");var hit=new GameEvent("hit",b.playerX,b.playerY,"Injury","officer",0,0,0,b.tick,1,true,true,"contact");
+        var t=new SurvivalTimeline();t.locomotionTiming(.5f,.75f);t.officerWorkContact(10f/24);t.orderedOfficerResponses(true);t.machineReleaseTimings(Map.of("sirs",.18f));t.accept(a,b,new TurnResult(true,1,List.of(gun,hit),"",1,true));
+        assertEquals(10f/24,t.cueTime(gun,0),.0001);assertTrue(t.cueTime(hit,0)>t.cueTime(gun,0));
+        b.tick=a.tick+3;t.accept(a,b,new TurnResult(true,3,List.of(gun,hit),"",2,true));assertEquals(.18f,t.cueTime(gun,0),.0001);
+    }
+    @Test void fractionalStrideStopsAtItsActualPoseAndSoundsOnlyAtFootContacts(){
+        var a=new RunEngine(2115).saveState();a.facing=1;var t=new SurvivalTimeline();t.locomotionTiming(.5f,.75f);t.officerMovementSeconds(1.2f);t.locomotionTransitions(.15f,.15f);t.locomotionContacts(List.of(0f,.5f));var heard=new ArrayList<GameEvent>();
+        var b=a.copy();b.playerX++;b.tick++;var step=new GameEvent("step",b.playerX,b.playerY,"FLOOR","officer",a.playerX,a.playerY,1,b.tick,1,true,true,"contact");
+        t.accept(a,b,new TurnResult(true,1,List.of(step),"",1,true));t.advance(1.35f,heard::add);assertEquals("stop_phase_1",t.locomotionPose().action());assertEquals(2,heard.size());assertTrue(t.continueOfficer(1,0));
+        var c=b.copy();c.playerX++;c.tick++;t.accept(b,c,new TurnResult(true,1,List.of(step),"",2,true));assertEquals(1f/3,t.gaitPhase(),.0001);t.advance(1.2f,heard::add);assertEquals("stop_phase_2",t.locomotionPose().action());assertEquals(5,heard.size());
+        t.advance(.2f,e->{});var d=c.copy();d.playerX++;t.accept(c,d,new TurnResult(true,1,List.of(),"",3,true));assertEquals(0,t.gaitPhase(),.0001);assertEquals("start",t.locomotionPose().action());
+    }
+    @Test void readyStraightContinuationPreservesPositionGaitAndPaidStepsWithoutRestart(){
+        var a=new RunEngine(2115).saveState();a.facing=1;var b=a.copy();b.playerX++;b.tick++;
+        var t=new SurvivalTimeline();t.locomotionTiming(.5f,.5f);t.officerMovementSeconds(1.2f);t.locomotionTransitions(.15f,.15f);
+        t.accept(a,b,new TurnResult(true,1,List.of(),"",1,true));t.advance(1.35f,e->{});
+        assertEquals(b.playerX,t.position("officer",b.playerX,b.playerY).x());assertTrue(t.continueOfficer(1,0));assertFalse(t.busy());float phase=t.gaitPhase();
+        var c=b.copy();c.playerX++;c.tick++;t.accept(b,c,new TurnResult(true,1,List.of(),"",2,true));
+        assertEquals("walk",t.locomotionPose().action());assertEquals(phase,t.gaitPhase(),.0001);assertEquals(b.playerX,t.position("officer",c.playerX,c.playerY).x());assertEquals(1.35f,t.duration(),.0001);assertEquals(2,c.tick);
+    }
+    @Test void continuationCannotSkipCornersLateSettleOrPendingConsequences(){
+        var a=new RunEngine(2115).saveState();var b=a.copy();b.playerX++;b.tick++;
+        var t=new SurvivalTimeline();t.locomotionTiming(.5f,.5f);t.officerMovementSeconds(1.2f);t.locomotionTransitions(.15f,.15f);
+        t.accept(a,b,new TurnResult(true,1,List.of(),"",1,true));t.advance(1.35f,e->{});assertFalse(t.continueOfficer(0,1));
+        t.advance(.08f,e->{});assertFalse(t.continueOfficer(1,0));
+        t.orderedOfficerResponses(true);var gun=new GameEvent("gun",10,9,"Incoming","sirs",10,9,0,b.tick,1,true,true,"contact");
+        t.accept(a,b,new TurnResult(true,1,List.of(gun),"",1,true));t.advance(1.35f,e->{});assertFalse(t.continueOfficer(1,0));
+    }
     @Test void flashAgeUsesScheduledReleaseAndCannotRestartAfterTheClip(){
         var s=new RunEngine(2115).saveState();var gun=new GameEvent("gun",s.playerX,s.playerY,"Shot","sirs",0,0,0,1,1,true,true,"contact");
         var t=new SurvivalTimeline();t.machineReleaseTimings(Map.of("sirs",.18f));t.accept(s,s,new TurnResult(true,1,List.of(gun),"",1,true));

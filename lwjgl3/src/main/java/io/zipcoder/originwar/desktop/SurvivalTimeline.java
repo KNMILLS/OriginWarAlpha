@@ -15,7 +15,7 @@ public final class SurvivalTimeline {
     private final ArrayDeque<Cue> cues=new ArrayDeque<>();
     private final ArrayList<GameEvent> effects=new ArrayList<>();
     private final Map<GameEvent,Float> effectStarts=new IdentityHashMap<>();
-    private float elapsed,duration,gaitStart;private int plantedSteps;
+    private float elapsed,duration,gaitStart,activeStartSeconds,settleDuration;private int plantedSteps,continuations;private boolean continueStride;
     private boolean officerFiring,orderedOfficerResponses;private float releaseSeconds=.08f,fireSeconds=.25f;
     private float stepSeconds=.25f,movementSeconds=.25f,cycleCells=2,startSeconds,stopSeconds,turnSeconds;private String turnAction="";private List<Float> contactPhases=List.of();
     private final Map<String,Integer> machineSteps=new HashMap<>();private final Map<String,Float> machineGaits=new HashMap<>();
@@ -25,7 +25,7 @@ public final class SurvivalTimeline {
     private static final Set<String> WORK_EVENTS=Set.of("door","switch","circuit","hack","brace_place","brace_recover","pickup","drop","oxygen","medicine","analyze");
     private float machineStart(String id){var value=machineMotions.get(id);return value==null?0:value.startSeconds;}
     private float machineStop(String id){var value=machineMotions.get(id);return value==null?0:value.stopSeconds;}
-    public void reset(){tracks.clear();cues.clear();effects.clear();effectStarts.clear();machineSteps.clear();machineGaits.clear();elapsed=duration=gaitStart=0;plantedSteps=0;officerFiring=false;}
+    public void reset(){tracks.clear();cues.clear();effects.clear();effectStarts.clear();machineSteps.clear();machineGaits.clear();elapsed=duration=gaitStart=0;plantedSteps=continuations=0;officerFiring=continueStride=false;}
     public void officerFireTiming(float release,float span){releaseSeconds=release;fireSeconds=span;}
     public void orderedOfficerResponses(boolean enabled){orderedOfficerResponses=enabled;}
     public void machineReleaseTimings(Map<String,Float> values){if(values.values().stream().anyMatch(v->!Float.isFinite(v)||v<0||v>1))throw new IllegalArgumentException("Invalid machine release");machineReleases=Map.copyOf(values);}
@@ -38,10 +38,13 @@ public final class SurvivalTimeline {
     public void locomotionTransitions(float start,float stop){if(!Float.isFinite(start)||!Float.isFinite(stop)||start<0||stop<0||start>.5f||stop>.5f)throw new IllegalArgumentException("Invalid movement transition");startSeconds=start;stopSeconds=stop;}
     public void officerTurnSeconds(float seconds){if(!Float.isFinite(seconds)||seconds<0||seconds>1)throw new IllegalArgumentException("Invalid planted turn");turnSeconds=seconds;}
     public void accept(GameState before,GameState after,TurnResult result){
+        boolean continued=continueStride&&result.cost()==1&&before.facing==after.facing;float carriedPhase=gaitPhase();
+        float startSeconds=continued?0:this.startSeconds;
+        activeStartSeconds=startSeconds;if(continued)continuations++;continueStride=false;
         tracks.clear();cues.clear();effects.clear();effectStarts.clear();elapsed=0;duration=result.cost()*stepSeconds;workContactAt=workContact<0?0:Math.max(0,duration-stepSeconds)+workContact;gaitStart=(plantedSteps/cycleCells)%1;turnAction=before.facing!=after.facing&&turnSeconds>0?"turn_from_"+new String[]{"north","east","south","west"}[before.facing]:"";
         officerFiring=result.events().stream().anyMatch(e->e.type().equals("gun")&&e.sourceId().equals("officer"));if(officerFiring)duration=Math.max(duration,fireSeconds);
         if(before.deck==after.deck){
-            if(before.playerX!=after.playerX||before.playerY!=after.playerY){gaitStart=(plantedSteps++/cycleCells)%1;tracks.put("officer",List.of(new Track(before.playerX,before.playerY,after.playerX,after.playerY,Math.max(0,duration-stepSeconds)+startSeconds+(turnAction.isEmpty()?0:turnSeconds),movementSeconds)));}
+            if(before.playerX!=after.playerX||before.playerY!=after.playerY){gaitStart=this.startSeconds>0&&Math.abs(cycleCells-.75f)<.001f?(continued?carriedPhase:0):(plantedSteps/cycleCells)%1;plantedSteps++;tracks.put("officer",List.of(new Track(before.playerX,before.playerY,after.playerX,after.playerY,Math.max(0,duration-stepSeconds)+startSeconds+(turnAction.isEmpty()?0:turnSeconds),movementSeconds)));}
             for(var a:after.actors)if(!a.dead&&after.visible[a.x][a.y]){
                 var old=before.actors.stream().filter(o->o.id.equals(a.id)&&!o.dead&&before.visible[o.x][o.y]).findFirst().orElse(null);
                 if(old!=null&&Math.abs(a.x-old.x)+Math.abs(a.y-old.y)<=result.cost()&&old.x==a.x&&old.y==a.y)continue;
@@ -52,9 +55,10 @@ public final class SurvivalTimeline {
         float primaryEnd=duration+(tracks.containsKey("officer")?movementSeconds-stepSeconds+startSeconds+stopSeconds+(turnAction.isEmpty()?0:turnSeconds):0);
         var incomingReleases=new HashMap<Integer,Float>();
         for(var e:result.events()){
+            boolean emit=true;
             float slot=Math.max(0,Math.min(duration-stepSeconds,(e.tick()-before.tick-1)*stepSeconds));
             float at=duration==0?0:slot+.12f;
-            if(e.type().equals("step")){at=duration;if(tracks.containsKey("officer")){var track=tracks.get("officer").getFirst();at=track.start+track.span;for(float phase:contactPhases)for(int loop=0;loop<Math.ceil(1/cycleCells)+1;loop++){float contact=phase+loop,travel=1/cycleCells;if(contact>gaitStart+.001f&&contact<gaitStart+travel-.001f)cues.add(new Cue(track.start+(contact-gaitStart)/travel*track.span,e));}}}
+            if(e.type().equals("step")){at=duration;if(tracks.containsKey("officer")){var track=tracks.get("officer").getFirst();at=track.start+track.span;for(float phase:contactPhases)for(int loop=0;loop<Math.ceil(1/cycleCells)+1;loop++){float contact=phase+loop,travel=1/cycleCells;if(contact>gaitStart+.001f&&contact<gaitStart+travel-.001f)cues.add(new Cue(track.start+(contact-gaitStart)/travel*track.span,e));}if(!contactPhases.isEmpty()){float endpoint=(gaitStart+1/cycleCells)%1;emit=contactPhases.stream().anyMatch(p->Math.min(Math.abs(endpoint-p),1-Math.abs(endpoint-p))<.001f);}}}
             if(e.type().equals("robot_step")){at=slot+stepSeconds+machineStart(e.sourceId());var motion=machineMotions.get(e.sourceId());var segments=tracks.get(e.sourceId());if(motion!=null&&segments!=null){for(int n=0;n<segments.size();n++){var t=segments.get(n);if(t.toX!=e.x()||t.toY!=e.y()||Math.abs(t.start-slot-machineStart(e.sourceId()))>.001f)continue;float phase=(machineSteps.getOrDefault(e.sourceId(),0)+n)/motion.cycleCells%1,travel=1/motion.cycleCells;at=t.start+t.span;for(float contact:motion.contacts)for(int loop=0;loop<Math.ceil(travel)+1;loop++){float value=contact+loop;if(value>phase+.001f&&value<phase+travel-.001f)cues.add(new Cue(t.start+(value-phase)/travel*t.span,e));}}}}
             if(e.marker().equals("release"))at=slot+(e.sourceId().equals("officer")?releaseSeconds:.08f);
             if(e.type().equals("gun")&&!e.sourceId().equals("officer")&&machineReleases.containsKey(e.sourceId()))at=slot+machineReleases.get(e.sourceId());
@@ -67,9 +71,13 @@ public final class SurvivalTimeline {
                 if((e.type().equals("gun")&&!e.sourceId().equals("officer"))||e.type().equals("explosion"))at=Math.max(at,primaryEnd);
                 if(e.sourceId().equals("officer")&&Set.of("hit","death").contains(e.type()))at=Math.max(at,primaryEnd+.08f);
             }
+            if(orderedOfficerResponses&&workContact>=0&&!tracks.containsKey("officer")&&e.tick()==after.tick){
+                if((e.type().equals("gun")&&!e.sourceId().equals("officer"))||e.type().equals("explosion"))at=Math.max(at,workContactAt);
+                if(e.sourceId().equals("officer")&&Set.of("hit","death").contains(e.type()))at=Math.max(at,workContactAt+.08f);
+            }
             if((e.type().equals("gun")&&!e.sourceId().equals("officer"))||e.type().equals("explosion"))incomingReleases.merge(e.tick(),at,Math::max);
             if(e.sourceId().equals("officer")&&Set.of("hit","death").contains(e.type())&&incomingReleases.containsKey(e.tick()))at=Math.max(at,incomingReleases.get(e.tick())+.015f);
-            cues.add(new Cue(at,e));
+            if(emit)cues.add(new Cue(at,e));
         }
         var ordered=new ArrayList<>(cues);ordered.sort(Comparator.comparingDouble(Cue::at));cues.clear();cues.addAll(ordered);
         if(tracks.containsKey("officer"))duration=primaryEnd;
@@ -92,7 +100,18 @@ public final class SurvivalTimeline {
             if(endsRun&&stop>0&&elapsed>=t.start+t.span&&elapsed<t.start+t.span+stop)return new LocomotionPose("stop",(elapsed-t.start-t.span)/stop);
         }return new LocomotionPose("idle",0);
     }
-    public LocomotionPose locomotionPose(){var list=tracks.get("officer");if(list==null)return new LocomotionPose("idle",0);var t=list.getFirst();float turnStart=t.start-startSeconds-turnSeconds;if(!turnAction.isEmpty()&&elapsed<turnStart+turnSeconds)return new LocomotionPose(turnAction,Math.max(0,(elapsed-turnStart)/turnSeconds));if(startSeconds>0&&elapsed>=t.start-startSeconds&&elapsed<t.start)return new LocomotionPose("start",(elapsed-t.start+startSeconds)/startSeconds);if(moving("officer"))return new LocomotionPose("walk",gaitPhase());if(stopSeconds>0&&elapsed>=t.start+t.span&&elapsed<t.start+t.span+stopSeconds)return new LocomotionPose("stop",(elapsed-t.start-t.span)/stopSeconds);return new LocomotionPose("idle",0);}
+    public LocomotionPose locomotionPose(){var list=tracks.get("officer");if(list==null)return new LocomotionPose("idle",0);var t=list.getFirst();float turnStart=t.start-activeStartSeconds-turnSeconds;if(!turnAction.isEmpty()&&elapsed<turnStart+turnSeconds)return new LocomotionPose(turnAction,Math.max(0,(elapsed-turnStart)/turnSeconds));if(activeStartSeconds>0&&elapsed>=t.start-activeStartSeconds&&elapsed<t.start)return new LocomotionPose("start",(elapsed-t.start+activeStartSeconds)/activeStartSeconds);if(moving("officer"))return new LocomotionPose("walk",gaitPhase());if(stopSeconds>0&&elapsed>=t.start+t.span&&elapsed<t.start+t.span+stopSeconds){int phase=Math.round(gaitPhase()*3)%3;String stop=Math.abs(cycleCells-.75f)<.001f&&phase>0?"stop_phase_"+phase:"stop";return new LocomotionPose(stop,(elapsed-t.start-t.span)/stopSeconds);}return new LocomotionPose("idle",0);}
+    /** Omit only an unstarted settle when another straight step is ready to commit.
+     * Consequences and machine tails must finish first; no event is discarded. */
+    public boolean continueOfficer(int dx,int dy){
+        var list=tracks.get("officer");if(list==null||list.size()!=1||stopSeconds<=0||!cues.isEmpty())return false;
+        var t=list.getFirst();float end=t.start+t.span;
+        if(t.toX-t.fromX!=dx||t.toY-t.fromY!=dy||elapsed<end||elapsed>end+.05f||duration>end+stopSeconds+.0001f)return false;
+        for(var entry:tracks.entrySet())if(!entry.getKey().equals("officer"))for(var machine:entry.getValue())if(machine.start+machine.span+machineStop(entry.getKey())>elapsed)return false;
+        settleDuration=duration;duration=elapsed;continueStride=true;return true;
+    }
+    public void cancelContinuation(){if(continueStride)duration=settleDuration;continueStride=false;}
+    public int officerContinuations(){return continuations;}
     public float gaitPhase(){var list=tracks.get("officer");if(list==null)return gaitStart;var t=list.getFirst();float f=Math.max(0,Math.min(1,(elapsed-t.start)/t.span));return (gaitStart+f/cycleCells)%1;}
     public float progress(){return duration==0?1:Math.min(1,elapsed/duration);}
     public float elapsed(){return elapsed;}

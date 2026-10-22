@@ -17,6 +17,8 @@ sourceSets.main.resources {
     include 'art/survival/equipment-motion/regions.json','art/survival/equipment-motion/clips.json','art/survival/equipment-motion/regions/*.png'
     include 'art/proof/catalog.json','art/proof/**/atlas.json','art/proof/**/regions.json','art/proof/**/clips.json','art/proof/**/atlases/*.png'
     include 'art/production/officer/atlas.json','art/production/officer/coverage.json','art/production/officer/atlases/*.png'
+    include 'art/production/officer/loadouts/**/atlas.json','art/production/officer/loadouts/**/atlases/*.png'
+    include 'art/production/officer/loadouts/index.json'
     include 'art/production/station/atlas.json','art/production/station/coverage.json','art/production/station/atlases/*.png'
 }
 run { workingDir rootProject.projectDir }
