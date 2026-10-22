@@ -37,7 +37,7 @@ for c in m['clips']:
         bg=Image.new('RGBA',(480,360),(*back,255));dd=ImageDraw.Draw(bg)
         for gx in range(-1,8):dd.line((gx*cell,0,gx*cell,360),fill=(37,48,44))
         for gy in range(-1,7):dd.line((0,gy*cell,480,gy*cell),fill=(37,48,44))
-        im=frame(f);im=im.resize((round(384*scale),round(448*scale)),Image.Resampling.LANCZOS)
+        im=frame(f);im=im.resize((round(f['widthCells']*cell),round(f['heightCells']*cell)),Image.Resampling.LANCZOS)
         progress=i/n;cycle=c.get('cycleCells',1);anchor=(240+axis[0]*cell*cycle*(progress-.5),180+axis[1]*cell*cycle*(progress-.5))
         xx=round(anchor[0]-f['pivotX']*im.width);yy=round(anchor[1]-(1-f['pivotY'])*im.height);bg.alpha_composite(im,(xx,yy))
         dd=ImageDraw.Draw(bg);dd.text((12,12),c['id'],font=font,fill=(205,216,201))
@@ -47,6 +47,7 @@ for c in m['clips']:
     # A500ms cycle is represented accurately by alternating10/20ms GIF exposures for60Hz.
     if n==30:durations=[20,10,20]*10
     elif n==36:durations=[20,10,20]*12
+    elif n==54:durations=[20,10,20]*18
     elif n==12:durations=[40,40,50]*4
     preview[0].save(REVIEW/(c['id']+'.gif'),save_all=True,append_images=preview[1:],duration=durations,loop=0,disposal=2)
     checks.append({'clip':c['id'],'distinctRenders':len({f['sha256'] for f in c['frames']}),'count':n})
@@ -56,17 +57,18 @@ for direction in ([] if CHECKS_ONLY else ['south','east']):
     start=named.get('start');stop=named.get('stop');walk=named.get('walk')
     if not all([start,stop,walk]):continue
     sequence=[(f,0) for f in start['frames']]
-    for cycle in range(2):sequence.extend((f,(cycle+i/len(walk['frames']))*.5) for i,f in enumerate(walk['frames']))
-    sequence.extend((f,1) for f in stop['frames'])
+    cycle_cells=walk['cycleCells'];distance_cells=2*cycle_cells
+    for cycle in range(2):sequence.extend((f,(cycle+i/len(walk['frames']))*cycle_cells) for i,f in enumerate(walk['frames']))
+    sequence.extend((f,distance_cells) for f in stop['frames'])
     preview=[]
     for f,distance in sequence:
         bg=Image.new('RGBA',(480,360),(*back,255));dd=ImageDraw.Draw(bg)
         for gx in range(-1,8):dd.line((gx*cell,0,gx*cell,360),fill=(37,48,44))
         for gy in range(-1,7):dd.line((0,gy*cell,480,gy*cell),fill=(37,48,44))
-        im=frame(f).resize((round(384*scale),round(448*scale)),Image.Resampling.LANCZOS)
+        im=frame(f).resize((round(f['widthCells']*cell),round(f['heightCells']*cell)),Image.Resampling.LANCZOS)
         anchor=(205+axis[0]*cell*distance,165+axis[1]*cell*distance)
         bg.alpha_composite(im,(round(anchor[0]-f['pivotX']*im.width),round(anchor[1]-(1-f['pivotY'])*im.height)))
-        dd=ImageDraw.Draw(bg);dd.text((12,12),'Start / one-cell walk / stop / '+direction,font=font,fill=(205,216,201));dd.text((12,335),'Source preview; root1.2s +two0.167s transitions',font=font,fill=(165,181,166))
+        dd=ImageDraw.Draw(bg);dd.text((12,12),f'Start / {distance_cells}cell walk / stop / '+direction,font=font,fill=(205,216,201));dd.text((12,335),f'Source preview; root{2*len(walk["frames"])*walk["frameSeconds"]:.1f}s +two0.167s transitions',font=font,fill=(165,181,166))
         preview.append(bg.convert('RGB'))
     durations=([20,10,20]*((len(preview)+2)//3))[:len(preview)]
     preview[0].save(REVIEW/f'planted-start-walk-stop-{direction}.gif',save_all=True,append_images=preview[1:],duration=durations,loop=0,disposal=2)

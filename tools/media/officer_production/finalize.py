@@ -1,4 +1,8 @@
-"""Record exact original/CC0 authoring source and prepare bounded delivery file list."""
+"""Compatibility entrypoint; V3 implementation below retained as historical source."""
+import runpy
+from pathlib import Path as _BenchmarkPath
+runpy.run_path(str(_BenchmarkPath(__file__).with_name('finalize_benchmark.py')),run_name='__main__')
+raise SystemExit(0)
 from pathlib import Path
 import json,hashlib,time,datetime,ast
 ROOT=Path(__file__).resolve().parents[3];OUT=ROOT/'assets/art/production/officer';SRC=OUT/'source';TOOLS=Path(__file__).parent

@@ -4,7 +4,7 @@ Blender --background --factory-startup --python tools/media/officer_production/b
 Every image is a real scene render; no frame filtering or image-based pose repair.
 """
 from pathlib import Path
-import bpy, math, json, hashlib, sys, time
+import bpy, math, json, hashlib, sys, time, shutil
 import numpy as np
 from mathutils import Vector, Matrix
 from bpy_extras.object_utils import world_to_camera_view
@@ -22,8 +22,22 @@ DEATH_ONLY='--death-only' in sys.argv
 METADATA_ONLY='--metadata-only' in sys.argv
 WORK_ENDPOINTS_ONLY='--work-endpoints-only' in sys.argv
 WORK_ONLY='--work-only' in sys.argv or WORK_ENDPOINTS_ONLY
+BENCHMARK_LOOK='--benchmark-look' in sys.argv
+BENCHMARK_MOTION='--benchmark-motion' in sys.argv
+BENCHMARK=BENCHMARK_LOOK or BENCHMARK_MOTION
+RIFLE_SAMPLE='--rifle-heavy-sample' in sys.argv
+RIFLE_LOOK='--rifle-look' in sys.argv
+RIFLE_SAMPLE=RIFLE_SAMPLE or RIFLE_LOOK
+FLOOR_ONLY='--floor-only' in sys.argv
+PRIMARY_PISTOL='--primary-pistol' in sys.argv
+PRIMARY_UNARMED='--primary-unarmed' in sys.argv
+RESUME_EXISTING='--resume-existing' in sys.argv
 RUNTIME_SCALE=1 if '--master' in sys.argv else .75
+if PILOT_V2 or BODY_LOOK or BODY_MOTION:
+    raise SystemExit('Historical V2/V3 pilots are immutable. Reproduce them from their preserved Git source; use --benchmark-look or --benchmark-motion for the V4 candidate.')
 ROOT=Path(__file__).resolve().parents[3]
+if shutil.disk_usage(ROOT).free<512*1024*1024:
+    raise SystemExit('Less than512MiB disk space is free; preserve current sources and release reproducible caches before rendering.')
 OUT=ROOT/'assets/art/production/officer'; SRC=OUT/'source'; FRAMES=OUT/'regions'; REVIEW=OUT/'review'
 for p in [OUT,SRC,FRAMES,REVIEW]:p.mkdir(parents=True,exist_ok=True)
 EXPORT_OUT=OUT
@@ -35,6 +49,13 @@ if BODY_LOOK:
     REVIEW=EXPORT_OUT;FRAMES=EXPORT_OUT/'regions';FRAMES.mkdir(exist_ok=True)
 if BODY_MOTION:
     EXPORT_OUT=OUT/'review/iterations/v3-motion';EXPORT_OUT.mkdir(parents=True,exist_ok=True)
+    REVIEW=EXPORT_OUT;FRAMES=EXPORT_OUT/'regions';FRAMES.mkdir(exist_ok=True)
+if BENCHMARK or LOOK_ONLY:
+    EXPORT_OUT=OUT/('review/iterations/v4-motion' if BENCHMARK_MOTION else 'review/iterations/v4-look')
+    EXPORT_OUT.mkdir(parents=True,exist_ok=True);REVIEW=EXPORT_OUT
+    FRAMES=EXPORT_OUT/'regions';FRAMES.mkdir(exist_ok=True)
+if RIFLE_SAMPLE:
+    EXPORT_OUT=OUT/'samples/rifle-heavy';EXPORT_OUT.mkdir(parents=True,exist_ok=True)
     REVIEW=EXPORT_OUT;FRAMES=EXPORT_OUT/'regions';FRAMES.mkdir(exist_ok=True)
 bpy.ops.object.select_all(action='SELECT');bpy.ops.object.delete(use_global=False)
 scene=bpy.context.scene;scene.render.engine='BLENDER_EEVEE_NEXT'
@@ -149,11 +170,12 @@ def plate(name,points,depth,mat,bone,outline=False):
 
 exec((Path(__file__).with_name('model.py')).read_text(),globals())
 if not PILOT_V2:exec((Path(__file__).with_name('anatomical_suit.py')).read_text(),globals())
+if not PILOT_V2:exec((Path(__file__).with_name('craft.py')).read_text(),globals())
 
 def area(name,loc,power,size):
     d=bpy.data.lights.new(name,'AREA');d.energy=power;d.size=size;ob=bpy.data.objects.new(name,d);bpy.context.collection.objects.link(ob);ob.location=loc
     ob.rotation_euler=(Vector((0,0,1))-ob.location).to_track_quat('-Z','Y').to_euler()
-area('broad neutral illustrated key',(-3,-4,5),330,5);area('diffuse quiet fill',(3,-1,4),110,5);area('back neutral wash',(0,4,4),140,5)
+area('broad neutral illustrated key',(-3,-4,5),330,4);area('diffuse quiet fill',(3,-1,4),80,5);area('back neutral wash',(0,4,4),120,5)
 cd=bpy.data.cameras.new('fixed orthographic painted pilot');cam=bpy.data.objects.new('fixed orthographic painted pilot',cd);bpy.context.collection.objects.link(cam);scene.camera=cam
 cam.location=(0,-6,6.6);target=Vector((0,0,1.0));cam.rotation_euler=(target-cam.location).to_track_quat('-Z','Y').to_euler();cd.type='ORTHO';cd.ortho_scale=2.25
 directions={'south':0,'east':math.pi/2,'north':math.pi,'west':-math.pi/2}
@@ -175,8 +197,10 @@ MODEL_SECONDS=time.perf_counter()-START
 normal_camera_location=cam.location.copy();normal_camera_scale=cd.ortho_scale
 normal_density=float(np.linalg.norm(project((1,0,0))-project((0,0,0))))
 def set_canvas(action):
-    cam.location=normal_camera_location;cd.ortho_scale=normal_camera_scale
-    scene.render.resolution_x=384;scene.render.resolution_y=448
+    cam.location=normal_camera_location;cd.ortho_scale=normal_camera_scale*(512/448)
+    # The longer physically authored stride needs lower ground margin. Expanding
+    # transparent bounds preserves the exact sprite density and standing height.
+    scene.render.resolution_x=384;scene.render.resolution_y=512
     if action=='death':
         # A floor-length body needs wider bounds, while preserving source pixel density.
         scene.render.resolution_x=1024;scene.render.resolution_y=1024
@@ -186,13 +210,20 @@ def set_canvas(action):
         cd.ortho_scale*=density/normal_density
     bpy.context.view_layer.update()
 clips=[];bindings=[];metrics=[]
-if DEATH_ONLY or WORK_ONLY:
+if PRIMARY_UNARMED or RESUME_EXISTING:
     previous=json.loads((OUT/'clips.json').read_text())
-    replaced_action='death' if DEATH_ONLY else 'work'
-    clips=[c for c in previous['clips'] if f'.{replaced_action}.' not in c['id']]
-    bindings=[b for b in previous['bindings'] if b['action']!=replaced_action];metrics=previous['footCalibration']
+    clips=[c for c in previous['clips'] if RESUME_EXISTING or c['equipment']!='unarmed']
+    bindings=[b for b in previous['bindings'] if RESUME_EXISTING or b['weapon']!='unarmed']
+    metrics=[v for v in previous['footCalibration'] if RESUME_EXISTING or '.unarmed.' not in v['clip']]
+if DEATH_ONLY or WORK_ONLY or FLOOR_ONLY:
+    previous=json.loads((OUT/'clips.json').read_text())
+    replaced_actions=['pickup','drop'] if FLOOR_ONLY else ['death'] if DEATH_ONLY else ['work']
+    clips=[c for c in previous['clips'] if not any(f'.{action}.' in c['id'] for action in replaced_actions)]
+    bindings=[b for b in previous['bindings'] if b['action'] not in replaced_actions];metrics=previous['footCalibration']
 def export(direction,n=30,fps=60,action='walk',clip_action=None,weapon='pistol',exposures=None):
-    clip_action=clip_action or action;clipid=f'officer.{weapon}.suit.{clip_action}.{direction}'
+    armor='heavy' if weapon=='rifle' else 'suit'
+    clip_action=clip_action or action;clipid=f'officer.{weapon}.{armor}.{clip_action}.{direction}'
+    if RESUME_EXISTING and any(c['id']==clipid for c in clips):return
     set_canvas(action)
     rig.rotation_euler.z=directions[direction];bpy.context.view_layer.update()
     frames=[];feet=[]
@@ -202,7 +233,7 @@ def export(direction,n=30,fps=60,action='walk',clip_action=None,weapon='pistol',
         target=FRAMES/f'{clipid}.{i:02}.png';scene.render.filepath=str(target)
         if not METADATA_ONLY and (not WORK_ENDPOINTS_ONLY or i==n-1):bpy.ops.render.render(write_still=True)
         w,h=scene.render.resolution_x,scene.render.resolution_y
-        anchor=project((0,0,0));frames.append({'path':target.relative_to(ROOT/'assets').as_posix(),'widthCells':w/256,'heightCells':h/256,'pivotX':float(anchor[0]/w),'pivotY':float(anchor[1]/h),'pixelWidth':round(w*RUNTIME_SCALE),'pixelHeight':round(h*RUNTIME_SCALE),'sha256':hashlib.sha256(target.read_bytes()).hexdigest(),'feet':foot})
+        anchor=project((0,0,0));frames.append({'path':target.relative_to(ROOT/'assets').as_posix(),'widthCells':w/256,'heightCells':h/256,'pivotX':float(anchor[0]/w),'pivotY':float(anchor[1]/h),'pixelWidth':round(w*RUNTIME_SCALE),'pixelHeight':round(h*RUNTIME_SCALE),'sha256':hashlib.sha256(target.read_bytes()).hexdigest(),'feet':foot,'hands':json.loads(json.dumps(hand_state))})
         if exposures:frames[-1]['seconds']=exposures[i]
         feet.append(foot)
     if action=='work':
@@ -220,29 +251,35 @@ def export(direction,n=30,fps=60,action='walk',clip_action=None,weapon='pistol',
         marker=[{'kind':'contact','frame':math.ceil((step+1)*(n-1)/steps),'foot':'right' if step%2==0 else 'left'} for step in range(steps)]
     elif action=='death':marker=[{'kind':'floor_impact','frame':n-3},{'kind':'settled','frame':n-1}]
     elif action=='work':marker=[{'kind':'work_contact','frame':4,'seconds':1/6},{'kind':'recovery','frame':7,'seconds':7/24}]
-    clips.append({'id':clipid,'frameSeconds':1/fps,'cycleCells':.5 if action=='walk' else 0,'cycleDistanceCells':.5 if action=='walk' else 0,'loop':action=='walk','equipment':weapon,'armor':'suit','frames':frames,'markers':marker})
-    bindings.append({'actor':'officer','weapon':weapon,'armor':'suit','action':clip_action,'facing':direction,'clip':clipid})
+    elif action in ['terminal','breaker','pickup','drop','supply','equip']:
+        marker=[{'kind':'work_contact','frame':INTERACTION_CONTACT[action],'seconds':INTERACTION_CONTACT[action]/fps},{'kind':'recovery','frame':INTERACTION_RECOVERY[action],'seconds':INTERACTION_RECOVERY[action]/fps}]
+    clips.append({'id':clipid,'frameSeconds':1/fps,'cycleCells':WALK_CELLS if action=='walk' else 0,'cycleDistanceCells':WALK_CELLS if action=='walk' else 0,'loop':action=='walk','equipment':weapon,'armor':armor,'frames':frames,'markers':marker})
+    bindings.append({'actor':'officer','weapon':weapon,'armor':armor,'action':clip_action,'facing':direction,'clip':clipid})
     if action=='walk':
         residual=[]
         for side in ['left','right']:
             runs=[];run=[]
+            patch=None
             for f in feet:
+                if f[side]['contactPatch']!=patch and run:runs.append(run);run=[]
+                patch=f[side]['contactPatch']
                 if f[side]['stance']:run.append(f[side]['rootPlusLocalPixels'])
                 elif run:runs.append(run);run=[]
             if run:runs.append(run)
             for run in runs:
                 arr=np.array(run);residual.append(float(np.max(np.linalg.norm(arr-arr[0],axis=1))))
-        metrics.append({'clip':clipid,'sampledStanceResidualPixels':max(residual,default=0),'maximumHeldPoseRootTravelPixels':128/n,'maximumHeldPoseRootTravelAt720p47pxCell':47*.5/n})
+        metrics.append({'clip':clipid,'sampledStanceResidualPixels':max(residual,default=0),'residualScope':'Each contiguous heel, flat-sole or toe support patch separately; patch positions differ during roll','maximumHeldPoseRootTravelPixels':256*WALK_CELLS/n,'maximumHeldPoseRootTravelAt720p47pxCell':47*WALK_CELLS/n})
     (EXPORT_OUT/'clips.json').write_text(json.dumps({'version':1,'referenceCellPixels':256,'runtimeReferenceCellPixels':round(256*RUNTIME_SCALE),'pivotOrigin':'bottom-left','clips':clips,'bindings':bindings,'footCalibration':metrics},indent=2)+'\n',newline='\n')
 
 # True editable keyframes; source action retained even though export samples explicit poses.
-for i in range(37):
-    scene.frame_set(i+1);pose(i/36,'south')
+set_canvas('walk')
+for i in range(WALK_FRAMES+1):
+    scene.frame_set(i+1);pose(i/WALK_FRAMES,'south',weapon='rifle' if RIFLE_SAMPLE else 'pistol')
     for bone in rig.pose.bones:
         bone.rotation_mode='QUATERNION';bone.keyframe_insert('location',frame=i+1);bone.keyframe_insert('rotation_quaternion',frame=i+1);bone.keyframe_insert('scale',frame=i+1)
-scene.frame_start=1;scene.frame_end=36;scene.frame_set(1)
-scene['masterReferenceCellPixels']=256;scene['masterCanvasPixels']=[384,448];scene['runtimeReferenceCellPixels']=round(256*RUNTIME_SCALE)
-bpy.ops.wm.save_as_mainfile(filepath=str((EXPORT_OUT if PILOT_V2 or BODY_LOOK or BODY_MOTION else SRC)/'officer-illustrated-pilot.blend'))
+scene.frame_start=1;scene.frame_end=WALK_FRAMES;scene.frame_set(1)
+scene['masterReferenceCellPixels']=256;scene['masterCanvasPixels']=[384,512];scene['runtimeReferenceCellPixels']=round(256*RUNTIME_SCALE)
+bpy.ops.wm.save_as_mainfile(filepath=str((EXPORT_OUT if PILOT_V2 or BODY_LOOK or BODY_MOTION or BENCHMARK or RIFLE_SAMPLE else SRC)/'officer-illustrated-pilot.blend'))
 rig.animation_data.action=None
 if PILOT_V2:
     for d in directions:export(d,1,60,'idle')
@@ -255,19 +292,45 @@ if BODY_MOTION:
     for d in ['south','east']:export(d,1,60,'idle')
     export('south',6,36,'start');export('south',36,60,'walk');export('south',6,36,'stop')
     export('east',8,20,'turn','turn_from_south');export('south',12,12,'death')
+if BENCHMARK_LOOK:
+    for d in directions:export(d,1,60,'idle')
+if BENCHMARK_MOTION:
+    for d in directions:export(d,1,60,'idle')
+    export('east',6,36,'start');export('east',WALK_FRAMES,60,'walk');export('east',6,36,'stop')
+    export('east',6,36,'stop_phase_1');export('east',6,36,'stop_phase_2')
+    export('south',12,24,'terminal');export('east',INTERACTION_FRAMES['breaker'],24,'breaker')
+    export('south',INTERACTION_FRAMES['pickup'],24,'pickup');export('east',12,24,'supply')
 if DEATH_ONLY:
     for weapon in ['pistol','unarmed']:
         for d in directions:export(d,12,12,'death',weapon=weapon)
 if WORK_ONLY:
     for weapon in ['pistol','unarmed']:
         for d in directions:export(d,12,24,'work',weapon=weapon)
-for weapon in ([] if PILOT_V2 or BODY_LOOK or BODY_MOTION or DEATH_ONLY or WORK_ONLY else ['pistol'] if LOOK_ONLY else ['pistol','unarmed']):
+if FLOOR_ONLY:
+    for weapon in ['pistol','unarmed']:
+        for d in directions:
+            for action in ['pickup','drop']:export(d,INTERACTION_FRAMES[action],24,action,weapon=weapon)
+if RIFLE_SAMPLE:
+    for d in directions:
+        export(d,1,60,'idle',weapon='rifle')
+        if not RIFLE_LOOK:
+            export(d,6,36,'start',weapon='rifle');export(d,WALK_FRAMES,60,'walk',weapon='rifle')
+            for action in ['stop','stop_phase_1','stop_phase_2']:export(d,6,36,action,weapon='rifle')
+            export(d,6,12,'ready',weapon='rifle')
+        export(d,1,60,'aim',weapon='rifle')
+        export(d,8,16,'fire',weapon='rifle',exposures=[.07,.07,.04,.04,.06,.07,.07,.08])
+    for source in ([] if RIFLE_LOOK else directions):
+        for destination in directions:
+            if source!=destination:export(destination,8,20,'turn','turn_from_'+source,'rifle')
+for weapon in ([] if PILOT_V2 or BODY_LOOK or BODY_MOTION or BENCHMARK or RIFLE_SAMPLE or FLOOR_ONLY or DEATH_ONLY or WORK_ONLY else ['pistol'] if LOOK_ONLY or PRIMARY_PISTOL else ['unarmed'] if PRIMARY_UNARMED else ['pistol','unarmed']):
     for d in directions:export(d,1,60,'idle',weapon=weapon)
     if not LOOK_ONLY:
         for d in directions:
             export(d,6,36,'start',weapon=weapon);export(d,6,36,'stop',weapon=weapon)
-            export(d,36,60,'walk',weapon=weapon)
+            export(d,6,36,'stop_phase_1',weapon=weapon);export(d,6,36,'stop_phase_2',weapon=weapon)
+            export(d,WALK_FRAMES,60,'walk',weapon=weapon)
             export(d,6,12,'ready',weapon=weapon);export(d,12,24,'work',weapon=weapon)
+            for interaction in ['terminal','breaker','pickup','drop','supply','equip']:export(d,INTERACTION_FRAMES[interaction],24,interaction,weapon=weapon)
             export(d,5,20,'hit',weapon=weapon);export(d,12,12,'death',weapon=weapon)
             if weapon=='pistol':
                 export(d,1,60,'aim',weapon=weapon)

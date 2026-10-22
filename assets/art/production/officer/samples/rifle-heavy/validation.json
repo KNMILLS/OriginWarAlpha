@@ -1,0 +1,996 @@
+{
+  "scope": "Raw source sprites, rig contacts and source projection only; native/human/animator gates OPEN",
+  "artisticAcceptance": "OPEN",
+  "clips": 48,
+  "frameExposures": 472,
+  "rawReferencedPNGs": 408,
+  "endpointChecks": [
+    {
+      "clip": "officer.rifle.heavy.start.south",
+      "frame": 0,
+      "expected": "idle",
+      "authoredRawPath": "art/production/officer/samples/rifle-heavy/regions/officer.rifle.heavy.start.south.00.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.rifle.heavy.start.south",
+      "frame": -1,
+      "expected": "walk phase0",
+      "authoredRawPath": "art/production/officer/samples/rifle-heavy/regions/officer.rifle.heavy.start.south.05.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.rifle.heavy.stop.south",
+      "frame": 0,
+      "expected": "walk phase0/3",
+      "authoredRawPath": "art/production/officer/samples/rifle-heavy/regions/officer.rifle.heavy.stop.south.00.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.rifle.heavy.stop.south",
+      "frame": -1,
+      "expected": "idle",
+      "authoredRawPath": "art/production/officer/samples/rifle-heavy/regions/officer.rifle.heavy.stop.south.05.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.rifle.heavy.stop_phase_1.south",
+      "frame": 0,
+      "expected": "walk phase1/3",
+      "authoredRawPath": "art/production/officer/samples/rifle-heavy/regions/officer.rifle.heavy.stop_phase_1.south.00.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.rifle.heavy.stop_phase_1.south",
+      "frame": -1,
+      "expected": "idle",
+      "authoredRawPath": "art/production/officer/samples/rifle-heavy/regions/officer.rifle.heavy.stop_phase_1.south.05.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.rifle.heavy.stop_phase_2.south",
+      "frame": 0,
+      "expected": "walk phase2/3",
+      "authoredRawPath": "art/production/officer/samples/rifle-heavy/regions/officer.rifle.heavy.stop_phase_2.south.00.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.rifle.heavy.stop_phase_2.south",
+      "frame": -1,
+      "expected": "idle",
+      "authoredRawPath": "art/production/officer/samples/rifle-heavy/regions/officer.rifle.heavy.stop_phase_2.south.05.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.rifle.heavy.fire.south",
+      "frame": 0,
+      "expected": "idle",
+      "authoredRawPath": "art/production/officer/samples/rifle-heavy/regions/officer.rifle.heavy.fire.south.00.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.rifle.heavy.fire.south",
+      "frame": -1,
+      "expected": "idle",
+      "authoredRawPath": "art/production/officer/samples/rifle-heavy/regions/officer.rifle.heavy.fire.south.07.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.rifle.heavy.start.east",
+      "frame": 0,
+      "expected": "idle",
+      "authoredRawPath": "art/production/officer/samples/rifle-heavy/regions/officer.rifle.heavy.start.east.00.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.rifle.heavy.start.east",
+      "frame": -1,
+      "expected": "walk phase0",
+      "authoredRawPath": "art/production/officer/samples/rifle-heavy/regions/officer.rifle.heavy.start.east.05.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.rifle.heavy.stop.east",
+      "frame": 0,
+      "expected": "walk phase0/3",
+      "authoredRawPath": "art/production/officer/samples/rifle-heavy/regions/officer.rifle.heavy.stop.east.00.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.rifle.heavy.stop.east",
+      "frame": -1,
+      "expected": "idle",
+      "authoredRawPath": "art/production/officer/samples/rifle-heavy/regions/officer.rifle.heavy.stop.east.05.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.rifle.heavy.stop_phase_1.east",
+      "frame": 0,
+      "expected": "walk phase1/3",
+      "authoredRawPath": "art/production/officer/samples/rifle-heavy/regions/officer.rifle.heavy.stop_phase_1.east.00.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.rifle.heavy.stop_phase_1.east",
+      "frame": -1,
+      "expected": "idle",
+      "authoredRawPath": "art/production/officer/samples/rifle-heavy/regions/officer.rifle.heavy.stop_phase_1.east.05.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.rifle.heavy.stop_phase_2.east",
+      "frame": 0,
+      "expected": "walk phase2/3",
+      "authoredRawPath": "art/production/officer/samples/rifle-heavy/regions/officer.rifle.heavy.stop_phase_2.east.00.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.rifle.heavy.stop_phase_2.east",
+      "frame": -1,
+      "expected": "idle",
+      "authoredRawPath": "art/production/officer/samples/rifle-heavy/regions/officer.rifle.heavy.stop_phase_2.east.05.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.rifle.heavy.fire.east",
+      "frame": 0,
+      "expected": "idle",
+      "authoredRawPath": "art/production/officer/samples/rifle-heavy/regions/officer.rifle.heavy.fire.east.00.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.rifle.heavy.fire.east",
+      "frame": -1,
+      "expected": "idle",
+      "authoredRawPath": "art/production/officer/samples/rifle-heavy/regions/officer.rifle.heavy.fire.east.07.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.rifle.heavy.start.north",
+      "frame": 0,
+      "expected": "idle",
+      "authoredRawPath": "art/production/officer/samples/rifle-heavy/regions/officer.rifle.heavy.start.north.00.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.rifle.heavy.start.north",
+      "frame": -1,
+      "expected": "walk phase0",
+      "authoredRawPath": "art/production/officer/samples/rifle-heavy/regions/officer.rifle.heavy.start.north.05.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.rifle.heavy.stop.north",
+      "frame": 0,
+      "expected": "walk phase0/3",
+      "authoredRawPath": "art/production/officer/samples/rifle-heavy/regions/officer.rifle.heavy.stop.north.00.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.rifle.heavy.stop.north",
+      "frame": -1,
+      "expected": "idle",
+      "authoredRawPath": "art/production/officer/samples/rifle-heavy/regions/officer.rifle.heavy.stop.north.05.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.rifle.heavy.stop_phase_1.north",
+      "frame": 0,
+      "expected": "walk phase1/3",
+      "authoredRawPath": "art/production/officer/samples/rifle-heavy/regions/officer.rifle.heavy.stop_phase_1.north.00.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.rifle.heavy.stop_phase_1.north",
+      "frame": -1,
+      "expected": "idle",
+      "authoredRawPath": "art/production/officer/samples/rifle-heavy/regions/officer.rifle.heavy.stop_phase_1.north.05.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.rifle.heavy.stop_phase_2.north",
+      "frame": 0,
+      "expected": "walk phase2/3",
+      "authoredRawPath": "art/production/officer/samples/rifle-heavy/regions/officer.rifle.heavy.stop_phase_2.north.00.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.rifle.heavy.stop_phase_2.north",
+      "frame": -1,
+      "expected": "idle",
+      "authoredRawPath": "art/production/officer/samples/rifle-heavy/regions/officer.rifle.heavy.stop_phase_2.north.05.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.rifle.heavy.fire.north",
+      "frame": 0,
+      "expected": "idle",
+      "authoredRawPath": "art/production/officer/samples/rifle-heavy/regions/officer.rifle.heavy.fire.north.00.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.rifle.heavy.fire.north",
+      "frame": -1,
+      "expected": "idle",
+      "authoredRawPath": "art/production/officer/samples/rifle-heavy/regions/officer.rifle.heavy.fire.north.07.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.rifle.heavy.start.west",
+      "frame": 0,
+      "expected": "idle",
+      "authoredRawPath": "art/production/officer/samples/rifle-heavy/regions/officer.rifle.heavy.start.west.00.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.rifle.heavy.start.west",
+      "frame": -1,
+      "expected": "walk phase0",
+      "authoredRawPath": "art/production/officer/samples/rifle-heavy/regions/officer.rifle.heavy.start.west.05.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.rifle.heavy.stop.west",
+      "frame": 0,
+      "expected": "walk phase0/3",
+      "authoredRawPath": "art/production/officer/samples/rifle-heavy/regions/officer.rifle.heavy.stop.west.00.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.rifle.heavy.stop.west",
+      "frame": -1,
+      "expected": "idle",
+      "authoredRawPath": "art/production/officer/samples/rifle-heavy/regions/officer.rifle.heavy.stop.west.05.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.rifle.heavy.stop_phase_1.west",
+      "frame": 0,
+      "expected": "walk phase1/3",
+      "authoredRawPath": "art/production/officer/samples/rifle-heavy/regions/officer.rifle.heavy.stop_phase_1.west.00.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.rifle.heavy.stop_phase_1.west",
+      "frame": -1,
+      "expected": "idle",
+      "authoredRawPath": "art/production/officer/samples/rifle-heavy/regions/officer.rifle.heavy.stop_phase_1.west.05.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.rifle.heavy.stop_phase_2.west",
+      "frame": 0,
+      "expected": "walk phase2/3",
+      "authoredRawPath": "art/production/officer/samples/rifle-heavy/regions/officer.rifle.heavy.stop_phase_2.west.00.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.rifle.heavy.stop_phase_2.west",
+      "frame": -1,
+      "expected": "idle",
+      "authoredRawPath": "art/production/officer/samples/rifle-heavy/regions/officer.rifle.heavy.stop_phase_2.west.05.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.rifle.heavy.fire.west",
+      "frame": 0,
+      "expected": "idle",
+      "authoredRawPath": "art/production/officer/samples/rifle-heavy/regions/officer.rifle.heavy.fire.west.00.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.rifle.heavy.fire.west",
+      "frame": -1,
+      "expected": "idle",
+      "authoredRawPath": "art/production/officer/samples/rifle-heavy/regions/officer.rifle.heavy.fire.west.07.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.rifle.heavy.turn_from_south.east",
+      "frame": 0,
+      "expected": "source idle",
+      "authoredRawPath": "art/production/officer/samples/rifle-heavy/regions/officer.rifle.heavy.turn_from_south.east.00.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.rifle.heavy.turn_from_south.east",
+      "frame": -1,
+      "expected": "destination idle",
+      "authoredRawPath": "art/production/officer/samples/rifle-heavy/regions/officer.rifle.heavy.turn_from_south.east.07.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.rifle.heavy.turn_from_south.north",
+      "frame": 0,
+      "expected": "source idle",
+      "authoredRawPath": "art/production/officer/samples/rifle-heavy/regions/officer.rifle.heavy.turn_from_south.north.00.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.rifle.heavy.turn_from_south.north",
+      "frame": -1,
+      "expected": "destination idle",
+      "authoredRawPath": "art/production/officer/samples/rifle-heavy/regions/officer.rifle.heavy.turn_from_south.north.07.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.rifle.heavy.turn_from_south.west",
+      "frame": 0,
+      "expected": "source idle",
+      "authoredRawPath": "art/production/officer/samples/rifle-heavy/regions/officer.rifle.heavy.turn_from_south.west.00.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.rifle.heavy.turn_from_south.west",
+      "frame": -1,
+      "expected": "destination idle",
+      "authoredRawPath": "art/production/officer/samples/rifle-heavy/regions/officer.rifle.heavy.turn_from_south.west.07.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.rifle.heavy.turn_from_east.south",
+      "frame": 0,
+      "expected": "source idle",
+      "authoredRawPath": "art/production/officer/samples/rifle-heavy/regions/officer.rifle.heavy.turn_from_east.south.00.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.rifle.heavy.turn_from_east.south",
+      "frame": -1,
+      "expected": "destination idle",
+      "authoredRawPath": "art/production/officer/samples/rifle-heavy/regions/officer.rifle.heavy.turn_from_east.south.07.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.rifle.heavy.turn_from_east.north",
+      "frame": 0,
+      "expected": "source idle",
+      "authoredRawPath": "art/production/officer/samples/rifle-heavy/regions/officer.rifle.heavy.turn_from_east.north.00.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.rifle.heavy.turn_from_east.north",
+      "frame": -1,
+      "expected": "destination idle",
+      "authoredRawPath": "art/production/officer/samples/rifle-heavy/regions/officer.rifle.heavy.turn_from_east.north.07.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.rifle.heavy.turn_from_east.west",
+      "frame": 0,
+      "expected": "source idle",
+      "authoredRawPath": "art/production/officer/samples/rifle-heavy/regions/officer.rifle.heavy.turn_from_east.west.00.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.rifle.heavy.turn_from_east.west",
+      "frame": -1,
+      "expected": "destination idle",
+      "authoredRawPath": "art/production/officer/samples/rifle-heavy/regions/officer.rifle.heavy.turn_from_east.west.07.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.rifle.heavy.turn_from_north.south",
+      "frame": 0,
+      "expected": "source idle",
+      "authoredRawPath": "art/production/officer/samples/rifle-heavy/regions/officer.rifle.heavy.turn_from_north.south.00.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.rifle.heavy.turn_from_north.south",
+      "frame": -1,
+      "expected": "destination idle",
+      "authoredRawPath": "art/production/officer/samples/rifle-heavy/regions/officer.rifle.heavy.turn_from_north.south.07.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.rifle.heavy.turn_from_north.east",
+      "frame": 0,
+      "expected": "source idle",
+      "authoredRawPath": "art/production/officer/samples/rifle-heavy/regions/officer.rifle.heavy.turn_from_north.east.00.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.rifle.heavy.turn_from_north.east",
+      "frame": -1,
+      "expected": "destination idle",
+      "authoredRawPath": "art/production/officer/samples/rifle-heavy/regions/officer.rifle.heavy.turn_from_north.east.07.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.rifle.heavy.turn_from_north.west",
+      "frame": 0,
+      "expected": "source idle",
+      "authoredRawPath": "art/production/officer/samples/rifle-heavy/regions/officer.rifle.heavy.turn_from_north.west.00.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.rifle.heavy.turn_from_north.west",
+      "frame": -1,
+      "expected": "destination idle",
+      "authoredRawPath": "art/production/officer/samples/rifle-heavy/regions/officer.rifle.heavy.turn_from_north.west.07.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.rifle.heavy.turn_from_west.south",
+      "frame": 0,
+      "expected": "source idle",
+      "authoredRawPath": "art/production/officer/samples/rifle-heavy/regions/officer.rifle.heavy.turn_from_west.south.00.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.rifle.heavy.turn_from_west.south",
+      "frame": -1,
+      "expected": "destination idle",
+      "authoredRawPath": "art/production/officer/samples/rifle-heavy/regions/officer.rifle.heavy.turn_from_west.south.07.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.rifle.heavy.turn_from_west.east",
+      "frame": 0,
+      "expected": "source idle",
+      "authoredRawPath": "art/production/officer/samples/rifle-heavy/regions/officer.rifle.heavy.turn_from_west.east.00.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.rifle.heavy.turn_from_west.east",
+      "frame": -1,
+      "expected": "destination idle",
+      "authoredRawPath": "art/production/officer/samples/rifle-heavy/regions/officer.rifle.heavy.turn_from_west.east.07.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.rifle.heavy.turn_from_west.north",
+      "frame": 0,
+      "expected": "source idle",
+      "authoredRawPath": "art/production/officer/samples/rifle-heavy/regions/officer.rifle.heavy.turn_from_west.north.00.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.rifle.heavy.turn_from_west.north",
+      "frame": -1,
+      "expected": "destination idle",
+      "authoredRawPath": "art/production/officer/samples/rifle-heavy/regions/officer.rifle.heavy.turn_from_west.north.07.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    }
+  ],
+  "bounds": [
+    {
+      "clip": "officer.rifle.heavy.idle.south",
+      "lastOpaqueBounds": [
+        86,
+        80,
+        194,
+        332
+      ]
+    },
+    {
+      "clip": "officer.rifle.heavy.start.south",
+      "lastOpaqueBounds": [
+        86,
+        85,
+        194,
+        362
+      ]
+    },
+    {
+      "clip": "officer.rifle.heavy.walk.south",
+      "lastOpaqueBounds": [
+        86,
+        85,
+        193,
+        361
+      ]
+    },
+    {
+      "clip": "officer.rifle.heavy.stop.south",
+      "lastOpaqueBounds": [
+        86,
+        80,
+        194,
+        332
+      ]
+    },
+    {
+      "clip": "officer.rifle.heavy.stop_phase_1.south",
+      "lastOpaqueBounds": [
+        86,
+        80,
+        194,
+        332
+      ]
+    },
+    {
+      "clip": "officer.rifle.heavy.stop_phase_2.south",
+      "lastOpaqueBounds": [
+        86,
+        80,
+        194,
+        332
+      ]
+    },
+    {
+      "clip": "officer.rifle.heavy.ready.south",
+      "lastOpaqueBounds": [
+        83,
+        80,
+        195,
+        332
+      ]
+    },
+    {
+      "clip": "officer.rifle.heavy.aim.south",
+      "lastOpaqueBounds": [
+        83,
+        80,
+        195,
+        332
+      ]
+    },
+    {
+      "clip": "officer.rifle.heavy.fire.south",
+      "lastOpaqueBounds": [
+        86,
+        80,
+        194,
+        332
+      ]
+    },
+    {
+      "clip": "officer.rifle.heavy.idle.east",
+      "lastOpaqueBounds": [
+        104,
+        83,
+        244,
+        335
+      ]
+    },
+    {
+      "clip": "officer.rifle.heavy.start.east",
+      "lastOpaqueBounds": [
+        98,
+        88,
+        243,
+        334
+      ]
+    },
+    {
+      "clip": "officer.rifle.heavy.walk.east",
+      "lastOpaqueBounds": [
+        100,
+        88,
+        243,
+        334
+      ]
+    },
+    {
+      "clip": "officer.rifle.heavy.stop.east",
+      "lastOpaqueBounds": [
+        104,
+        83,
+        244,
+        335
+      ]
+    },
+    {
+      "clip": "officer.rifle.heavy.stop_phase_1.east",
+      "lastOpaqueBounds": [
+        104,
+        83,
+        244,
+        335
+      ]
+    },
+    {
+      "clip": "officer.rifle.heavy.stop_phase_2.east",
+      "lastOpaqueBounds": [
+        104,
+        83,
+        244,
+        335
+      ]
+    },
+    {
+      "clip": "officer.rifle.heavy.ready.east",
+      "lastOpaqueBounds": [
+        104,
+        83,
+        255,
+        335
+      ]
+    },
+    {
+      "clip": "officer.rifle.heavy.aim.east",
+      "lastOpaqueBounds": [
+        104,
+        83,
+        255,
+        335
+      ]
+    },
+    {
+      "clip": "officer.rifle.heavy.fire.east",
+      "lastOpaqueBounds": [
+        104,
+        83,
+        244,
+        335
+      ]
+    },
+    {
+      "clip": "officer.rifle.heavy.idle.north",
+      "lastOpaqueBounds": [
+        94,
+        82,
+        202,
+        319
+      ]
+    },
+    {
+      "clip": "officer.rifle.heavy.start.north",
+      "lastOpaqueBounds": [
+        94,
+        87,
+        202,
+        348
+      ]
+    },
+    {
+      "clip": "officer.rifle.heavy.walk.north",
+      "lastOpaqueBounds": [
+        95,
+        87,
+        202,
+        345
+      ]
+    },
+    {
+      "clip": "officer.rifle.heavy.stop.north",
+      "lastOpaqueBounds": [
+        94,
+        82,
+        202,
+        319
+      ]
+    },
+    {
+      "clip": "officer.rifle.heavy.stop_phase_1.north",
+      "lastOpaqueBounds": [
+        94,
+        82,
+        202,
+        319
+      ]
+    },
+    {
+      "clip": "officer.rifle.heavy.stop_phase_2.north",
+      "lastOpaqueBounds": [
+        94,
+        82,
+        202,
+        319
+      ]
+    },
+    {
+      "clip": "officer.rifle.heavy.ready.north",
+      "lastOpaqueBounds": [
+        93,
+        73,
+        205,
+        319
+      ]
+    },
+    {
+      "clip": "officer.rifle.heavy.aim.north",
+      "lastOpaqueBounds": [
+        93,
+        73,
+        205,
+        319
+      ]
+    },
+    {
+      "clip": "officer.rifle.heavy.fire.north",
+      "lastOpaqueBounds": [
+        94,
+        82,
+        202,
+        319
+      ]
+    },
+    {
+      "clip": "officer.rifle.heavy.idle.west",
+      "lastOpaqueBounds": [
+        44,
+        81,
+        184,
+        335
+      ]
+    },
+    {
+      "clip": "officer.rifle.heavy.start.west",
+      "lastOpaqueBounds": [
+        45,
+        85,
+        190,
+        333
+      ]
+    },
+    {
+      "clip": "officer.rifle.heavy.walk.west",
+      "lastOpaqueBounds": [
+        45,
+        85,
+        188,
+        332
+      ]
+    },
+    {
+      "clip": "officer.rifle.heavy.stop.west",
+      "lastOpaqueBounds": [
+        44,
+        81,
+        184,
+        335
+      ]
+    },
+    {
+      "clip": "officer.rifle.heavy.stop_phase_1.west",
+      "lastOpaqueBounds": [
+        44,
+        81,
+        184,
+        335
+      ]
+    },
+    {
+      "clip": "officer.rifle.heavy.stop_phase_2.west",
+      "lastOpaqueBounds": [
+        44,
+        81,
+        184,
+        335
+      ]
+    },
+    {
+      "clip": "officer.rifle.heavy.ready.west",
+      "lastOpaqueBounds": [
+        33,
+        81,
+        184,
+        335
+      ]
+    },
+    {
+      "clip": "officer.rifle.heavy.aim.west",
+      "lastOpaqueBounds": [
+        33,
+        81,
+        184,
+        335
+      ]
+    },
+    {
+      "clip": "officer.rifle.heavy.fire.west",
+      "lastOpaqueBounds": [
+        44,
+        81,
+        184,
+        335
+      ]
+    },
+    {
+      "clip": "officer.rifle.heavy.turn_from_south.east",
+      "lastOpaqueBounds": [
+        104,
+        83,
+        244,
+        335
+      ]
+    },
+    {
+      "clip": "officer.rifle.heavy.turn_from_south.north",
+      "lastOpaqueBounds": [
+        94,
+        82,
+        202,
+        319
+      ]
+    },
+    {
+      "clip": "officer.rifle.heavy.turn_from_south.west",
+      "lastOpaqueBounds": [
+        44,
+        81,
+        184,
+        335
+      ]
+    },
+    {
+      "clip": "officer.rifle.heavy.turn_from_east.south",
+      "lastOpaqueBounds": [
+        86,
+        80,
+        194,
+        332
+      ]
+    },
+    {
+      "clip": "officer.rifle.heavy.turn_from_east.north",
+      "lastOpaqueBounds": [
+        94,
+        82,
+        202,
+        319
+      ]
+    },
+    {
+      "clip": "officer.rifle.heavy.turn_from_east.west",
+      "lastOpaqueBounds": [
+        44,
+        81,
+        184,
+        335
+      ]
+    },
+    {
+      "clip": "officer.rifle.heavy.turn_from_north.south",
+      "lastOpaqueBounds": [
+        86,
+        80,
+        194,
+        332
+      ]
+    },
+    {
+      "clip": "officer.rifle.heavy.turn_from_north.east",
+      "lastOpaqueBounds": [
+        104,
+        83,
+        244,
+        335
+      ]
+    },
+    {
+      "clip": "officer.rifle.heavy.turn_from_north.west",
+      "lastOpaqueBounds": [
+        44,
+        81,
+        184,
+        335
+      ]
+    },
+    {
+      "clip": "officer.rifle.heavy.turn_from_west.south",
+      "lastOpaqueBounds": [
+        86,
+        80,
+        194,
+        332
+      ]
+    },
+    {
+      "clip": "officer.rifle.heavy.turn_from_west.east",
+      "lastOpaqueBounds": [
+        104,
+        83,
+        244,
+        335
+      ]
+    },
+    {
+      "clip": "officer.rifle.heavy.turn_from_west.north",
+      "lastOpaqueBounds": [
+        94,
+        82,
+        202,
+        319
+      ]
+    }
+  ],
+  "footCalibration": [
+    {
+      "clip": "officer.rifle.heavy.walk.south",
+      "sampledStanceResidualPixels": 1.2715657561557236e-05,
+      "residualScope": "Each contiguous heel, flat-sole or toe support patch separately; patch positions differ during roll",
+      "maximumHeldPoseRootTravelPixels": 3.5555555555555554,
+      "maximumHeldPoseRootTravelAt720p47pxCell": 0.6527777777777778
+    },
+    {
+      "clip": "officer.rifle.heavy.walk.east",
+      "sampledStanceResidualPixels": 1.8651299583250627e-05,
+      "residualScope": "Each contiguous heel, flat-sole or toe support patch separately; patch positions differ during roll",
+      "maximumHeldPoseRootTravelPixels": 3.5555555555555554,
+      "maximumHeldPoseRootTravelAt720p47pxCell": 0.6527777777777778
+    },
+    {
+      "clip": "officer.rifle.heavy.walk.north",
+      "sampledStanceResidualPixels": 2.0246839403660965e-05,
+      "residualScope": "Each contiguous heel, flat-sole or toe support patch separately; patch positions differ during roll",
+      "maximumHeldPoseRootTravelPixels": 3.5555555555555554,
+      "maximumHeldPoseRootTravelAt720p47pxCell": 0.6527777777777778
+    },
+    {
+      "clip": "officer.rifle.heavy.walk.west",
+      "sampledStanceResidualPixels": 1.1356770063897374e-05,
+      "residualScope": "Each contiguous heel, flat-sole or toe support patch separately; patch positions differ during roll",
+      "maximumHeldPoseRootTravelPixels": 3.5555555555555554,
+      "maximumHeldPoseRootTravelAt720p47pxCell": 0.6527777777777778
+    }
+  ],
+  "residencyByEquipment": {
+    "rifle": {
+      "exposures": 472,
+      "uniqueExactRGBACrops": 380,
+      "deduplicatedPaddedRGBABytes": 49166496,
+      "minimum2048PagesByArea": 3,
+      "scope": "Exact-crop area lower bound; actual allocated packing is lead-owned"
+    }
+  },
+  "interactionContacts": [],
+  "canonicalSharing": "Only after original endpoint verified within2 channel values; original paths/hashes retained"
+}
