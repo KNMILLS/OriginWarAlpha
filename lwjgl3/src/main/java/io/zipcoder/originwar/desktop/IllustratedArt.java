@@ -138,6 +138,7 @@ public final class IllustratedArt implements AutoCloseable {
  public float regionWidth(String name){var value=regions.get(name);return value==null?1:value.width;}
  public String frame(String clip,float progress,String fallback){var c=clips.get(clip);return c==null?fallback:c.phase(progress);}
  public String timedFrame(String clip,float seconds,String fallback){var c=clips.get(clip);return c==null?fallback:c.at(seconds);}
+ public String proofAimedFireFrame(String clip,float seconds,String aimed){var c=clips.get(clip);return c==null?"":c.aimedFire(seconds,.5f,.14f,aimed);}
  public String proofFireFrame(String clip,float seconds){var c=clips.get(clip);return c==null?"":c.retimedFire(seconds,.5f,.14f);}
  public boolean hasClip(String id){return clips.containsKey(id);}
  public float clipSeconds(String id,float fallback){var c=clips.get(id);return c==null?fallback:c.seconds();}

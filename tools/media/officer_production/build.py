@@ -244,7 +244,7 @@ def export(direction,n=30,fps=60,action='walk',clip_action=None,weapon='pistol',
             for index in [0,-1]:
                 authored=frames[index]
                 frames[index]=dict(idle['frames'][0],canonicalNeutral=True,authoredSourceRender={'path':authored['path'],'sha256':authored['sha256']})
-    marker=([{'kind':'contact','frame':0,'foot':'left'},{'kind':'contact','frame':n//2,'foot':'right'}] if action=='walk' else [{'kind':'release','frame':2,'seconds':.14},{'kind':'recovery','frame':6,'seconds':.35}] if action=='fire' else [{'kind':'contact','frame':3}] if action=='melee' else [{'kind':'work_contact','frame':2}] if action=='work' else [])
+    marker=([{'kind':'contact','frame':0,'foot':'left'},{'kind':'contact','frame':n//2,'foot':'right'}] if action=='walk' else [{'kind':'release','frame':2,'seconds':.14},{'kind':'recovery','frame':6,'seconds':.35},{'kind':'aim_return','frame':4}] if action=='fire' else [{'kind':'contact','frame':3}] if action=='melee' else [{'kind':'work_contact','frame':2}] if action=='work' else [])
     if action=='turn':
         delta=(directions[direction]-directions[clip_action.removeprefix('turn_from_')]+math.pi)%math.tau-math.pi
         steps=3 if abs(abs(delta)-math.pi)<.01 else 2

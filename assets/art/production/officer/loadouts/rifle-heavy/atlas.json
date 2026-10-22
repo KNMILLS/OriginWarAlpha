@@ -17480,6 +17480,10 @@
           "kind": "recovery",
           "frame": 6,
           "seconds": 0.35
+        },
+        {
+          "kind": "aim_return",
+          "frame": 4
         }
       ]
     },
@@ -34962,6 +34966,10 @@
           "kind": "recovery",
           "frame": 6,
           "seconds": 0.35
+        },
+        {
+          "kind": "aim_return",
+          "frame": 4
         }
       ]
     },
@@ -52444,6 +52452,10 @@
           "kind": "recovery",
           "frame": 6,
           "seconds": 0.35
+        },
+        {
+          "kind": "aim_return",
+          "frame": 4
         }
       ]
     },
@@ -69926,6 +69938,10 @@
           "kind": "recovery",
           "frame": 6,
           "seconds": 0.35
+        },
+        {
+          "kind": "aim_return",
+          "frame": 4
         }
       ]
     },
@@ -88573,7 +88589,7 @@
   ],
   "sourceManifest": {
     "path": "art/production/officer/loadouts/rifle-heavy/clips.json",
-    "sha256": "66a70f38c1f3182e1331bbb76bac48b22030f6ed8d296e53e1b85dac8cf4555e"
+    "sha256": "b8a9e3cfc2ebef63f1436d72bd4026e164fa44f1444ab70796b9fdd0b37390ca"
   },
   "memoryBudget": {
     "maxPages": 8,

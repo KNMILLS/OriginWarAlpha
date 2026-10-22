@@ -31,7 +31,7 @@ public final class OriginWarApp extends ApplicationAdapter {
  private RunEngine engine;private GameState state;private Screen screen=Screen.TITLE;
  private String seedText="2016",notice="",capture="",diagnostics="",sequenceDirectory="",fatal="";
  private String proofStyle="",comparisonStyle="rendered",proofCoverage="";private boolean artLab,offlineReview,reviewOverlay;
- private int proofAimX=-2,proofAimY=-2;private float proofAimSince;
+ private int proofAimX=-2,proofAimY=-2;private float proofAimSince;private boolean firingFromAim,proofAimDisplayed,wasAiming;
  private String confirmTitle="",confirmText="";private Runnable confirmation;
  private boolean exitAfterReplay,continuousReplay;private int replayTailFrames=60,replayDrainedFrames,replayHold;
  private boolean focused=true,seedEditing,closing,returnToTitle,captureRequested,disposed,careful,settingsDirty,reportedSaveFailure;
@@ -80,7 +80,7 @@ public final class OriginWarApp extends ApplicationAdapter {
  private void startNew(){if(!ready())return;try{engine=artLab?new RunEngine(ArtProofScenario.create()):new RunEngine(Long.parseLong(seedText));state=engine.saveState();resetRun();writer.begin(state);screen=Screen.PLAY;notice(artLab?"STAGED ART COMPARISON / F6 switches methods; ordinary actions commit real time.":"Boarded. Time moves when you commit an action.");}catch(Exception e){notice("Cannot begin: "+e.getMessage());}}
  private void askNew(){if(store!=null&&store.exists())confirm("BEGIN A NEW DESCENT?","The current expedition will be replaced as the active run. Its files remain preserved. Activation waits for a durable first snapshot.",this::startNew);else startNew();}
  private void resumeRun(){if(ready()){writer.load();notice("Reading expedition…");}}
- private void resetRun(){timeline.reset();officerPerformance.reset();stationPerformance.reset();movementIntent.clear();handlingBefore=null;handlingItems=false;audio.reset();navigation.clear();selectedItem=page=journalEntry=0;targetX=targetY=-1;proofAimX=proofAimY=-2;walkTo="";cameraX=state.playerX;cameraY=state.playerY;previewAction=null;}
+ private void resetRun(){timeline.reset();firingFromAim=proofAimDisplayed=wasAiming=false;officerPerformance.reset();stationPerformance.reset();movementIntent.clear();handlingBefore=null;handlingItems=false;audio.reset();navigation.clear();selectedItem=page=journalEntry=0;targetX=targetY=-1;proofAimX=proofAimY=-2;walkTo="";cameraX=state.playerX;cameraY=state.playerY;previewAction=null;}
  private boolean act(PlayerAction a){
   if(a.type()!=PlayerAction.Type.MOVE&&a.type()!=PlayerAction.Type.CAREFUL_MOVE)movementIntent.clear();
   boolean speechAcknowledgment=a.type()==PlayerAction.Type.EXCHANGE&&a.id().startsWith("complete:");
@@ -91,7 +91,7 @@ public final class OriginWarApp extends ApplicationAdapter {
    confirm(state.deck==10?"SEAL THE EVACUATION POD?":"LEAVE THIS DECK?","Supplies and installed equipment left above cannot be recovered. Descent is one way. "+f.explanation(),()->act(new PlayerAction(a.type(),a.x(),a.y(),"confirm")));return false;
   }
   var before=state;var result=engine.submit(a);if(!result.accepted()){timeline.cancelContinuation();notice(result.reason());walkTo="";return false;}
-  state=engine.saveState();if(state.hp<before.hp||state.dead||state.victory)movementIntent.clear();handlingBefore=before;handlingWork=OfficerPerformance.workCommand(a.type());handlingItems=Set.of(PlayerAction.Type.PICKUP,PlayerAction.Type.DROP,PlayerAction.Type.EQUIP,PlayerAction.Type.USE,PlayerAction.Type.BRACE).contains(a.type());configureTimeline(before,a,result);
+  state=engine.saveState();firingFromAim=comparisonStyle.equals("illustrated")&&proofAimDisplayed&&a.type()==PlayerAction.Type.SHOOT&&before.facing==state.facing&&targetX==a.x()&&targetY==a.y()&&proofAimX==targetX&&proofAimY==targetY&&clock-proofAimSince>=.28f;if(state.hp<before.hp||state.dead||state.victory)movementIntent.clear();handlingBefore=before;handlingWork=OfficerPerformance.workCommand(a.type());handlingItems=Set.of(PlayerAction.Type.PICKUP,PlayerAction.Type.DROP,PlayerAction.Type.EQUIP,PlayerAction.Type.USE,PlayerAction.Type.BRACE).contains(a.type());configureTimeline(before,a,result);
   if(state.deck!=before.deck){timeline.reset();for(var e:result.events())audio.event(e,state);cameraX=state.playerX;cameraY=state.playerY;targetX=targetY=-1;walkTo="";}
   if(result.stateChanged())writer.save(state);
   configureOfficerPerformance(before,a,result);
@@ -294,18 +294,21 @@ public final class OriginWarApp extends ApplicationAdapter {
   art.officerEquipment(proofStyle,weapon,armor);
   if(comparisonStyle.equals("illustrated")&&timeline.busy()&&!settings.reducedDistortion&&!pose.action().equals("idle")){action=pose.action();if(action.equals("walk")){var locomotion=timeline.locomotionPose();action=locomotion.action();pose=new OfficerPerformance.Pose(action,locomotion.progress());}}
   if(comparisonStyle.equals("illustrated")&&state.dead&&(settings.reducedDistortion||!officerPerformance.deathPending(timeline.elapsed()))){action="death";pose=new OfficerPerformance.Pose("death",1);}
-  if(targetX!=proofAimX||targetY!=proofAimY){proofAimX=targetX;proofAimY=targetY;proofAimSince=clock;}
+  if(targetX!=proofAimX||targetY!=proofAimY||(action.equals("aim")&&!wasAiming)){proofAimX=targetX;proofAimY=targetY;proofAimSince=clock;}
+  proofAimDisplayed=false;wasAiming=action.equals("aim")||(action.equals("fire")&&firingFromAim);
   if(action.equals("aim")&&!settings.reducedDistortion&&clock-proofAimSince<.28f){
    float progress=Math.max(0,(clock-proofAimSince)/.28f);String ready=art.proofClip(proofStyle,weapon,armor,"ready",dir);
    if(!ready.isEmpty()){proofCoverage=weapon+" / "+armor+" / ready / "+dir;return art.timedFrame(ready,progress*art.clipSeconds(ready,.28f),"");}
    String preparation=art.proofClip(proofStyle,weapon,armor,"fire",dir);float release=art.markerSeconds(preparation,"release",0);
    if(release>0){proofCoverage=weapon+" / "+armor+" / ready (authored preparation) / "+dir;return art.timedFrame(preparation,Math.min(release-.0001f,progress*release),"");}
   }
+  proofAimDisplayed=action.equals("aim")&&!settings.reducedDistortion;
   String clip=art.proofClip(proofStyle,weapon,armor,action,dir);
   if(clip.isEmpty()&&action.equals("aim")&&weapon.equals("unarmed")){String guarded=art.proofClip(proofStyle,weapon,armor,"ready",dir);if(!guarded.isEmpty()){proofCoverage=weapon+" / "+armor+" / guarded ready / "+dir;return art.frame(guarded,1,"");}}
   if(clip.isEmpty()&&action.equals("idle"))clip=art.proofClip(proofStyle,weapon,armor,"walk",dir);
   if(clip.isEmpty()){String held=art.proofClip(proofStyle,weapon,armor,"idle",dir);proofCoverage="STATIC ONLY / authored equipment or motion unavailable: "+weapon+" / "+armor+" / "+action+" / "+dir;return held.isEmpty()?art.staticOfficer(weapon,dir):art.timedFrame(held,0,"");}
   proofCoverage=weapon+" / "+armor+" / "+action+" / "+dir;
+  if(action.equals("fire")&&firingFromAim){String aimed=art.proofClip(proofStyle,weapon,armor,"aim",dir);if(!aimed.isEmpty()){String guard=art.timedFrame(aimed,0,""),shown=art.proofAimedFireFrame(clip,timeline.elapsed(),guard);proofAimDisplayed=shown.equals(guard);return shown;}}
   return action.equals("walk")?art.frame(clip,timeline.gaitPhase(),""):action.equals("fire")?art.proofFireFrame(clip,timeline.elapsed()):(comparisonStyle.equals("illustrated")&&Set.of("start","stop","stop_phase_1","stop_phase_2","work","terminal","breaker","pickup","drop","equip","supply","hit","death","melee").contains(action)||action.startsWith("turn_from_"))?art.frame(clip,pose.progress(),""):art.timedFrame(clip,0,"");
  }
  private boolean beforeWorkContact(){return comparisonStyle.equals("illustrated")&&handlingWork&&handlingBefore!=null&&handlingBefore.deck==state.deck&&timeline.busy()&&timeline.elapsed()<timeline.workContactAt();}

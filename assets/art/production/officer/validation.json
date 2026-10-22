@@ -3691,17 +3691,17 @@
     }
   ],
   "residencyByEquipment": {
-    "unarmed": {
-      "exposures": 992,
-      "uniqueExactRGBACrops": 732,
-      "deduplicatedPaddedRGBABytes": 78196872,
-      "minimum2048PagesByArea": 5,
-      "scope": "Exact-crop area lower bound; actual allocated packing is lead-owned"
-    },
     "pistol": {
       "exposures": 1028,
       "uniqueExactRGBACrops": 752,
       "deduplicatedPaddedRGBABytes": 80997256,
+      "minimum2048PagesByArea": 5,
+      "scope": "Exact-crop area lower bound; actual allocated packing is lead-owned"
+    },
+    "unarmed": {
+      "exposures": 992,
+      "uniqueExactRGBACrops": 732,
+      "deduplicatedPaddedRGBABytes": 78196872,
       "minimum2048PagesByArea": 5,
       "scope": "Exact-crop area lower bound; actual allocated packing is lead-owned"
     }

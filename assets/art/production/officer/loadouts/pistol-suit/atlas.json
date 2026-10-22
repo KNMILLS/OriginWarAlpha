@@ -42512,6 +42512,10 @@
           "kind": "recovery",
           "frame": 6,
           "seconds": 0.35
+        },
+        {
+          "kind": "aim_return",
+          "frame": 4
         }
       ]
     },
@@ -85741,6 +85745,10 @@
           "kind": "recovery",
           "frame": 6,
           "seconds": 0.35
+        },
+        {
+          "kind": "aim_return",
+          "frame": 4
         }
       ]
     },
@@ -128970,6 +128978,10 @@
           "kind": "recovery",
           "frame": 6,
           "seconds": 0.35
+        },
+        {
+          "kind": "aim_return",
+          "frame": 4
         }
       ]
     },
@@ -172199,6 +172211,10 @@
           "kind": "recovery",
           "frame": 6,
           "seconds": 0.35
+        },
+        {
+          "kind": "aim_return",
+          "frame": 4
         }
       ]
     },
@@ -192677,7 +192693,7 @@
   ],
   "sourceManifest": {
     "path": "art/production/officer/loadouts/pistol-suit/clips.json",
-    "sha256": "d740e6727c5073bafaf7451f5698dd13ecf95c37a7a432173aaf36d857342ef9"
+    "sha256": "3e4b7701c46ca422563a8c8ae65388fd25b7488e6d17a649caa987e8768ffb13"
   },
   "memoryBudget": {
     "maxPages": 8,

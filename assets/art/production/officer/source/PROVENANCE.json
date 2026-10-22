@@ -202,7 +202,7 @@
     "tools/media/officer_production/anatomical_head.py": "99d3459036ac3e48b4e86b8b9a7b08f053dfdad827570a360f162ef7b2e60b25",
     "tools/media/officer_production/anatomical_suit.py": "f3ff5c28b9f08d6c783c13d1e51da8fd23957e38b0223db35e3d81d851d1c0a8",
     "tools/media/officer_production/benchmark_review.py": "6d48af0d1a76dae0cc8b7f478210e2ccd68338edec6795677bab1baa9f93e766",
-    "tools/media/officer_production/build.py": "4b3d17942a308e3995e89fe3e48a800f907b7c235a1436b4037435e0b0444e62",
+    "tools/media/officer_production/build.py": "4971e516d70f9a121bebe0ec402fe6050938f3d24bdc65995a2414b311ba13c7",
     "tools/media/officer_production/craft.py": "aa7523b7f299f1d9c51a4b91d708f10537fad94c3ef6e22be667330beca65027",
     "tools/media/officer_production/finalize.py": "1deff1fbecce7a101c0e7e071f4152575a1819fc54474de6038ba12806b89240",
     "tools/media/officer_production/finalize_benchmark.py": "0f3af1d5325733bfd2b2c700e17a720afed13a66e7a1900c7c947ecf49ff591d",
