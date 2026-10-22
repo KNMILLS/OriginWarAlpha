@@ -1,0 +1,109 @@
+{
+  "scope": "Physical source projection only. Current prop renders expose their south interface; other cardinal object orientations are not authored here. Root must animate actual reach/advance without moving collision or faking an interface.",
+  "basis": {
+    "cameraDelta": [
+      0,
+      -6,
+      4.59
+    ],
+    "orthoScale": 2.65,
+    "logicalCanvasHeight": 2,
+    "pivotOrigin": "bottom-left",
+    "xPositive": "right",
+    "yPositive": "up",
+    "formula": "screenCells=[2*x/2.65,2*(y*sin(atan2(4.59,6))+z*cos(atan2(4.59,6)))/2.65]"
+  },
+  "sourceScriptSha256": "89d27e1b998a78007b6306983ace92d7e7c2c4ad4de0dd31a8ee23fd5b7b1119",
+  "contacts": [
+    {
+      "id": "terminal.keyboard-key-top",
+      "worldPoint": [
+        -0.026,
+        -0.203,
+        0.91
+      ],
+      "screenCells": [
+        -0.019622641509433963,
+        0.4523930168946168
+      ],
+      "description": "Top of actual central-right physical key, not the console origin",
+      "propFacing": "south",
+      "requiredFrontApproachOfficerFacing": "north"
+    },
+    {
+      "id": "terminal.keyboard-row-center",
+      "worldPoint": [
+        -0.08,
+        -0.203,
+        0.91
+      ],
+      "screenCells": [
+        -0.060377358490566045,
+        0.4523930168946168
+      ],
+      "description": "Keyboard middle row top; includes the authored left offset",
+      "propFacing": "south",
+      "requiredFrontApproachOfficerFacing": "north"
+    },
+    {
+      "id": "terminal.release-button-top",
+      "worldPoint": [
+        0.29,
+        -0.2,
+        0.93
+      ],
+      "screenCells": [
+        0.2188679245283019,
+        0.46575731461579994
+      ],
+      "description": "Top of physical amber release button; no powered-light implication",
+      "propFacing": "south",
+      "requiredFrontApproachOfficerFacing": "north"
+    },
+    {
+      "id": "switch.closed-grip-center",
+      "worldPoint": [
+        0,
+        -0.3,
+        0.66
+      ],
+      "screenCells": [
+        0.0,
+        0.25805472836821347
+      ],
+      "description": "Center of physical insulated lever grip",
+      "propFacing": "south",
+      "requiredFrontApproachOfficerFacing": "north"
+    },
+    {
+      "id": "switch.closed-grip-front",
+      "worldPoint": [
+        0,
+        -0.335,
+        0.66
+      ],
+      "screenCells": [
+        0.0,
+        0.24200498306726356
+      ],
+      "description": "Front contact face of physical insulated lever grip",
+      "propFacing": "south",
+      "requiredFrontApproachOfficerFacing": "north"
+    },
+    {
+      "id": "switch.released-grip-center",
+      "worldPoint": [
+        0,
+        -0.3752520427147261,
+        0.22794083847856714
+      ],
+      "screenCells": [
+        0.0,
+        -0.03544249771417059
+      ],
+      "description": "Physical grip after115degree source throw around[0,-.20,.42]",
+      "propFacing": "south",
+      "requiredFrontApproachOfficerFacing": "north"
+    }
+  ]
+}

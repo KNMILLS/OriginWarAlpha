@@ -1,0 +1,52 @@
+{
+  "files": [
+    {
+      "path": "GENERATION.json",
+      "sha256": "be303cd437ab7ef7424588b5e7e57bd2aa715ca0c8cb31de583f62f8770030b8"
+    },
+    {
+      "path": "officer-fire-north-prompt.txt",
+      "sha256": "2764b3e341abbbc7251ea26a625e643d75d0bd8d8cbb6c8df6745612b58b2f3c"
+    },
+    {
+      "path": "officer-fire-north-v1.png",
+      "sha256": "2ca8d82844077074d2c8e80cea052618508eb58fe7f599102e88248d1563bb65"
+    },
+    {
+      "path": "officer-rifle-prompt.txt",
+      "sha256": "10e604c8d559511e70b16d2c2b771fc8b10e475625fed7437d0caa7118aa9348"
+    },
+    {
+      "path": "officer-rifle-turnaround-v1.png",
+      "sha256": "05649a05b1738d72222ea86ffb3e3bb0a4b195578ca7d46d4d4766e30d6cae3d"
+    },
+    {
+      "path": "officer-scattergun-prompt.txt",
+      "sha256": "3a360959e2f54b1db1a257cd01c81925f133ea60c7c709a8c655679573c7170f"
+    },
+    {
+      "path": "officer-scattergun-turnaround-v1.png",
+      "sha256": "dd472265e6c86f04fe06bc33ea11d15198f77a9e182428f45a9bfe51a30a78a9"
+    },
+    {
+      "path": "officer-unarmed-prompt.txt",
+      "sha256": "3bbc68400e7b09d96dacf0dd75e0ff2ae66bb2f2350a148f8b44e32918857f0d"
+    },
+    {
+      "path": "officer-unarmed-turnaround-v1.png",
+      "sha256": "7372247b38cf039ffb6a728f2beeccff9bfe5b5590060965b69ade386a3c7ddf"
+    },
+    {
+      "path": "references/item.rifle.png",
+      "sha256": "6caf11de18cae6a86a7b7a00cd3fe92a3f523a873952b87aefb8afcd07115783"
+    },
+    {
+      "path": "references/item.scattergun.png",
+      "sha256": "8c5a2277fd0423023a28c351b260686a7f6e9b07a5660fee289c7fe9f467f849"
+    },
+    {
+      "path": "references/officer-turnaround.png",
+      "sha256": "9313e02cfcc98e3c0992697635348c67dc6e4396de26988cc01234b65c9882de"
+    }
+  ]
+}

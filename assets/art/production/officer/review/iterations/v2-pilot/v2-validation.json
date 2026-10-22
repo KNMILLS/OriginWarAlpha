@@ -1,0 +1,82 @@
+{
+  "scope": "Source renders and analytical geometry; not native movement or artistic acceptance",
+  "clips": 8,
+  "frames": 44,
+  "turnSupportChecks": [
+    {
+      "clip": "officer.pistol.suit.turn_from_south.east",
+      "sampledSupportResidualWorld": 0.0,
+      "supportRuns": 2
+    },
+    {
+      "clip": "officer.pistol.suit.turn_from_south.north",
+      "sampledSupportResidualWorld": 0.0,
+      "supportRuns": 3
+    }
+  ],
+  "turnEndpointChecks": [
+    {
+      "clip": "officer.pistol.suit.turn_from_south.east",
+      "frame": 0,
+      "maximumPixelChannelDifference": 0
+    },
+    {
+      "clip": "officer.pistol.suit.turn_from_south.east",
+      "frame": -1,
+      "maximumPixelChannelDifference": 0
+    },
+    {
+      "clip": "officer.pistol.suit.turn_from_south.north",
+      "frame": 0,
+      "maximumPixelChannelDifference": 0
+    },
+    {
+      "clip": "officer.pistol.suit.turn_from_south.north",
+      "frame": -1,
+      "maximumPixelChannelDifference": 0
+    }
+  ],
+  "reviewedClips": [
+    {
+      "clip": "officer.pistol.suit.turn_from_south.east",
+      "frames": 8,
+      "opaqueBoundsFinal": [
+        104,
+        59,
+        178,
+        307
+      ]
+    },
+    {
+      "clip": "officer.pistol.suit.turn_from_south.north",
+      "frames": 8,
+      "opaqueBoundsFinal": [
+        87,
+        59,
+        201,
+        295
+      ]
+    },
+    {
+      "clip": "officer.pistol.suit.death.south",
+      "frames": 12,
+      "opaqueBoundsFinal": [
+        329,
+        336,
+        459,
+        568
+      ]
+    },
+    {
+      "clip": "officer.pistol.suit.death.east",
+      "frames": 12,
+      "opaqueBoundsFinal": [
+        385,
+        297,
+        674,
+        414
+      ]
+    }
+  ],
+  "artisticAcceptance": "OPEN"
+}

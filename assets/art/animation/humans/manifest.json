@@ -1,0 +1,295 @@
+{
+  "task": "M5-HUMAN-IDLES",
+  "baseline": "874e205cc79152a833cc7b0c8b308538ae42e907",
+  "status": "Original idle export candidate; static visual review and runtime integration are separate",
+  "atlas": {
+    "path": "assets/art/animation/humans/humans.png",
+    "size": [
+      1024,
+      128
+    ],
+    "native": "assets/art/animation/humans/humans-native.png",
+    "native_size": [
+      256,
+      32
+    ],
+    "columns": 8,
+    "rows": 1,
+    "native_cell_pixels": 32,
+    "nearest_scale": 4,
+    "mode": "RGBA"
+  },
+  "layout": "WEST2, CARMACK2, SURVIVOR2, OPERATOR2; columns row-major",
+  "palette": "Existing project navy/teal/steel/amber; Carmack lab-coat white, brown hair and human skin tones. No palette recolor of previous atlases.",
+  "provenance": "Original built-in OpenAI image_gen human idle art from the existing original station identities; no external pack, legacy raster or stock artwork. Operator native pair reused from existing original project actor atlas. Owner controls project release licensing.",
+  "source_prompt": "source/prompt.txt",
+  "generation_attempts": 1,
+  "first_failures": [],
+  "selection": "First generated six-cell sheet selected; source raster remains unchanged.",
+  "export_source": "tools/media/pack_humans.py",
+  "reference_station_sha256": "4567134f6aa2598ef424f2d39b825aadf704fdb537f93adc8da9b9ad55430c7f",
+  "reference_actors_sha256": "1ac2fa0ce473b1ec621821ced8f9d08763fdb3b966d4dd5dc824cdfc08fe92b3",
+  "source_files": [
+    {
+      "path": "assets/art/animation/humans/source/.gitattributes",
+      "sha256": "705fd4d6451a31d36b3df7de96f83f30ac976c9b4a6d1e51671d8e2f33e2d0da"
+    },
+    {
+      "path": "assets/art/animation/humans/source/humans-generated.png",
+      "sha256": "2dd2c35a570e35aa185d8450879e6cad3391ac0fe4fe5ebc3a14dd000017dc50"
+    },
+    {
+      "path": "assets/art/animation/humans/source/prompt.txt",
+      "sha256": "ba4a58676754d556c77e8b3acc7e4d111183b9006859483548cbed7f6fb0aebb"
+    },
+    {
+      "path": "assets/art/animation/humans/source/station-humans-reference.png",
+      "sha256": "0969e267d304bb0dec612a8c7f12b9313f410089648ee9281f01d6faf2e9d50a"
+    }
+  ],
+  "cleanup": "Shared scale within each pair; foot/leg anchor at16,30; new frame alpha below32 cleared. Operator copied without raster processing. Native32 source reduction followed by nearest4 export.",
+  "manual_review": [
+    "West keeps navy officer cap/coat with amber insignia; Carmack keeps white coat/teal shirt/brown hair; survivor keeps amber safety helmet and steel/amber workwear.",
+    "Two arms/two legs and subtle body/head/hand differences inspected; no walk, gun or invented spawn.",
+    "Source and native/4x contact sheets checked for silhouette, alignment, alpha and cell separation."
+  ],
+  "limitations": [
+    "Quiet front/down idle pairs only; no new walking or directional dialogue animation.",
+    "Animated radio/dialogue portrait and world consumption/timing are lead-owned; West remains usable offstage without an invented NPC spawn.",
+    "Static review and export metrics do not prove actual game readability, timing or human acceptance."
+  ],
+  "slots": [
+    {
+      "id": 0,
+      "family": "west",
+      "phase": 0,
+      "source": "source/humans-generated.png",
+      "source_cell_box": [
+        0,
+        0,
+        512,
+        512
+      ],
+      "source_solid_bbox": [
+        149,
+        106,
+        400,
+        499
+      ],
+      "source_foot_anchor": [
+        273.0,
+        499.0
+      ],
+      "pair_scale": 0.071246819,
+      "native_anchor": [
+        16,
+        30
+      ],
+      "native_position": [
+        7,
+        2
+      ],
+      "native_size": [
+        18,
+        28
+      ],
+      "alpha_cutoff": 32
+    },
+    {
+      "id": 1,
+      "family": "west",
+      "phase": 1,
+      "source": "source/humans-generated.png",
+      "source_cell_box": [
+        0,
+        512,
+        512,
+        1024
+      ],
+      "source_solid_bbox": [
+        142,
+        40,
+        405,
+        426
+      ],
+      "source_foot_anchor": [
+        273.0,
+        426.0
+      ],
+      "pair_scale": 0.071246819,
+      "native_anchor": [
+        16,
+        30
+      ],
+      "native_position": [
+        7,
+        2
+      ],
+      "native_size": [
+        19,
+        28
+      ],
+      "alpha_cutoff": 32
+    },
+    {
+      "id": 2,
+      "family": "carmack",
+      "phase": 0,
+      "source": "source/humans-generated.png",
+      "source_cell_box": [
+        512,
+        0,
+        1024,
+        512
+      ],
+      "source_solid_bbox": [
+        144,
+        110,
+        368,
+        499
+      ],
+      "source_foot_anchor": [
+        256.0,
+        499.0
+      ],
+      "pair_scale": 0.071979434,
+      "native_anchor": [
+        16,
+        30
+      ],
+      "native_position": [
+        8,
+        2
+      ],
+      "native_size": [
+        16,
+        28
+      ],
+      "alpha_cutoff": 32
+    },
+    {
+      "id": 3,
+      "family": "carmack",
+      "phase": 1,
+      "source": "source/humans-generated.png",
+      "source_cell_box": [
+        512,
+        512,
+        1024,
+        1024
+      ],
+      "source_solid_bbox": [
+        136,
+        40,
+        376,
+        426
+      ],
+      "source_foot_anchor": [
+        256.0,
+        426.0
+      ],
+      "pair_scale": 0.071979434,
+      "native_anchor": [
+        16,
+        30
+      ],
+      "native_position": [
+        7,
+        2
+      ],
+      "native_size": [
+        17,
+        28
+      ],
+      "alpha_cutoff": 32
+    },
+    {
+      "id": 4,
+      "family": "survivor",
+      "phase": 0,
+      "source": "source/humans-generated.png",
+      "source_cell_box": [
+        1024,
+        0,
+        1536,
+        512
+      ],
+      "source_solid_bbox": [
+        114,
+        110,
+        361,
+        499
+      ],
+      "source_foot_anchor": [
+        238.0,
+        499.0
+      ],
+      "pair_scale": 0.071979434,
+      "native_anchor": [
+        16,
+        30
+      ],
+      "native_position": [
+        7,
+        2
+      ],
+      "native_size": [
+        18,
+        28
+      ],
+      "alpha_cutoff": 32
+    },
+    {
+      "id": 5,
+      "family": "survivor",
+      "phase": 1,
+      "source": "source/humans-generated.png",
+      "source_cell_box": [
+        1024,
+        512,
+        1536,
+        1024
+      ],
+      "source_solid_bbox": [
+        107,
+        44,
+        369,
+        426
+      ],
+      "source_foot_anchor": [
+        239.0,
+        426.0
+      ],
+      "pair_scale": 0.071979434,
+      "native_anchor": [
+        16,
+        30
+      ],
+      "native_position": [
+        6,
+        3
+      ],
+      "native_size": [
+        19,
+        27
+      ],
+      "alpha_cutoff": 32
+    },
+    {
+      "id": 6,
+      "family": "operator",
+      "phase": 0,
+      "source": "assets/art/animation/actors-native.png",
+      "source_slot": 60,
+      "reuse": "exact native RGBA pixels"
+    },
+    {
+      "id": 7,
+      "family": "operator",
+      "phase": 1,
+      "source": "assets/art/animation/actors-native.png",
+      "source_slot": 61,
+      "reuse": "exact native RGBA pixels"
+    }
+  ]
+}

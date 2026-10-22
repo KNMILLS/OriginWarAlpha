@@ -1,0 +1,27 @@
+ORIGIN WAR - ILLUSTRATED OPENING REVIEW - 22 OCTOBER 2026
+
+Play the new art: double-click IllustratedOfficer.cmd.
+Explore the controlled review room: double-click OfficerReviewRoom.cmd.
+Watch the supplied recordings: open Review/index.html.
+
+The new officer uses an offline Blender rig with continuous pressure clothing.
+The painted environments and painted officer reference are retained. F6 compares
+the officer appearances. Each launcher uses a separate review profile and starts
+a new run; it does not replace your ordinary game profile. ESC pauses. F12 saves
+a screenshot. Movement and equipment handling commit real game time.
+
+This is an integrated DEVELOPMENT CANDIDATE. It does not establish Hades or
+Crown Trick quality, a finished 15-20-minute slice, or approval for campaign-wide
+art production. Ordinary rooms still need richer composition; side-on doors need
+clearer small-scale reading; illustrated finish and acting remain review items.
+The supplied footage is normal speed. Synthetic reaction tests are labeled.
+
+Begin with the short officer movie, then the ordinary two-deck opening. Judge
+weight, foot placement, turns, attached equipment, darkness, readable machinery,
+and whether the person and workplace belong to the same game. The videos contain
+the game's audio; hearing/listening approval remains yours.
+
+No money was spent. Purchases will be proposed only for a demonstrated benefit.
+Editable sources, export scripts, license records and coverage ledgers accompany
+the build. BUILD_ID.txt and the companion delivery receipt identify the source
+and verification limits. The source archive is under Source/.

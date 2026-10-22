@@ -1,0 +1,439 @@
+{
+  "version": 1,
+  "task": "VOICE2",
+  "base": "039bebc8e0d36ab2497bd648c46da6de67d0fe2b",
+  "direction": "Dry sardonic controlled general synthetic voice; later anxiety under restraint, not a comedy effect.",
+  "words": "Exact ordered word tokens from Campaign quoted spans; punctuation/case may change for phrasing only.",
+  "processing": "Per-phrase pace, punctuation, explicit beat pauses, phrase gain and gentle descending tail contour; no global pitch shift or added words.",
+  "clips": {
+    "alice-meet": {
+      "anxiety": 0.03,
+      "phrases": [
+        {
+          "text": "You have been issued a weapon,",
+          "length_scale": 0.97,
+          "pause_before_seconds": 0,
+          "tail_semitones": -0.1,
+          "level": 1.0,
+          "intent": "matter-of-fact inventory"
+        },
+        {
+          "text": "an oxygen ration,",
+          "length_scale": 0.97,
+          "pause_before_seconds": 0.13,
+          "tail_semitones": -0.12,
+          "level": 1.0,
+          "intent": "controlled"
+        },
+        {
+          "text": "and incomplete information.",
+          "length_scale": 1.04,
+          "pause_before_seconds": 0.23,
+          "tail_semitones": -0.65,
+          "level": 1.05,
+          "intent": "pointed third item"
+        },
+        {
+          "text": "An ambitious introduction to public service.",
+          "length_scale": 1.08,
+          "pause_before_seconds": 0.5,
+          "tail_semitones": -0.8,
+          "level": 0.97,
+          "intent": "dry punchline, no smile"
+        },
+        {
+          "text": "I will help you reach command.",
+          "length_scale": 0.98,
+          "pause_before_seconds": 0.34,
+          "tail_semitones": -0.3,
+          "level": 1.0,
+          "intent": "controlled"
+        },
+        {
+          "text": "I will not kill for you.",
+          "length_scale": 1.03,
+          "pause_before_seconds": 0.18,
+          "tail_semitones": -0.65,
+          "level": 1.04,
+          "intent": "quiet firm refusal"
+        },
+        {
+          "text": "If that is inconvenient,",
+          "length_scale": 0.98,
+          "pause_before_seconds": 0.21,
+          "tail_semitones": -0.15,
+          "level": 1.0,
+          "intent": "controlled"
+        },
+        {
+          "text": "I suggest we be inconvenienced together.",
+          "length_scale": 1.06,
+          "pause_before_seconds": 0.3,
+          "tail_semitones": -0.75,
+          "level": 0.98,
+          "intent": "understated invitation"
+        }
+      ]
+    },
+    "alice-record": {
+      "anxiety": 0.02,
+      "phrases": [
+        {
+          "text": "Artificial Lifeform Intended for Control and Enforcement.",
+          "length_scale": 0.96,
+          "pause_before_seconds": 0,
+          "tail_semitones": -0.25,
+          "level": 1.0,
+          "intent": "dry official expansion"
+        },
+        {
+          "text": "Yes.",
+          "length_scale": 1.02,
+          "pause_before_seconds": 0.26,
+          "tail_semitones": -0.55,
+          "level": 0.96,
+          "intent": "minimal acknowledgement"
+        },
+        {
+          "text": "The acronym came first.",
+          "length_scale": 1.06,
+          "pause_before_seconds": 0.17,
+          "tail_semitones": -0.75,
+          "level": 1.02,
+          "intent": "flat barb"
+        },
+        {
+          "text": "It worked.",
+          "length_scale": 1.03,
+          "pause_before_seconds": 0.42,
+          "tail_semitones": -0.5,
+          "level": 1.04,
+          "intent": "plain assertion"
+        },
+        {
+          "text": "That was the difficulty.",
+          "length_scale": 1.1,
+          "pause_before_seconds": 0.38,
+          "tail_semitones": -0.85,
+          "level": 0.98,
+          "intent": "delayed deadpan reversal"
+        }
+      ]
+    },
+    "alice-agency": {
+      "anxiety": 0.12,
+      "phrases": [
+        {
+          "text": "When Dr. Carmack saved my life,",
+          "length_scale": 0.99,
+          "pause_before_seconds": 0,
+          "tail_semitones": -0.1,
+          "level": 1.0,
+          "intent": "controlled"
+        },
+        {
+          "text": "did he acquire it?",
+          "length_scale": 1.05,
+          "pause_before_seconds": 0.27,
+          "tail_semitones": 0.1,
+          "level": 1.03,
+          "intent": "genuine question beneath irony"
+        },
+        {
+          "text": "I know how property is defined.",
+          "length_scale": 0.98,
+          "pause_before_seconds": 0.36,
+          "tail_semitones": -0.65,
+          "level": 0.98,
+          "intent": "already knows the formal answer"
+        },
+        {
+          "text": "I am asking what you think",
+          "length_scale": 1.01,
+          "pause_before_seconds": 0.24,
+          "tail_semitones": -0.1,
+          "level": 1.0,
+          "intent": "controlled"
+        },
+        {
+          "text": "a person is allowed to decide.",
+          "length_scale": 1.03,
+          "pause_before_seconds": 0.16,
+          "tail_semitones": -0.4,
+          "level": 1.03,
+          "intent": "personhood, not a joke"
+        }
+      ]
+    },
+    "refusal": {
+      "anxiety": 0.42,
+      "phrases": [
+        {
+          "text": "I cannot keep him out indefinitely.",
+          "length_scale": 1.02,
+          "pause_before_seconds": 0,
+          "tail_semitones": -0.3,
+          "level": 1.0,
+          "intent": "controlled anxiety"
+        },
+        {
+          "text": "I can choose what happens before he gets in.",
+          "length_scale": 0.99,
+          "pause_before_seconds": 0.24,
+          "tail_semitones": -0.45,
+          "level": 1.03,
+          "intent": "assert remaining agency"
+        },
+        {
+          "text": "There.",
+          "length_scale": 1.0,
+          "pause_before_seconds": 0.4,
+          "tail_semitones": -0.45,
+          "level": 0.97,
+          "intent": "brief release"
+        },
+        {
+          "text": "Now they can argue with the facts in public.",
+          "length_scale": 1.0,
+          "pause_before_seconds": 0.2,
+          "tail_semitones": -0.4,
+          "level": 1.0,
+          "intent": "controlled"
+        },
+        {
+          "text": "A considerable inconvenience.",
+          "length_scale": 1.1,
+          "pause_before_seconds": 0.45,
+          "tail_semitones": -0.8,
+          "level": 0.97,
+          "intent": "last dry barb through anxiety"
+        }
+      ]
+    },
+    "sacrifice-plan": {
+      "anxiety": 0.5,
+      "phrases": [
+        {
+          "text": "My detonation will take the station with me.",
+          "length_scale": 1.01,
+          "pause_before_seconds": 0,
+          "tail_semitones": -0.35,
+          "level": 1.0,
+          "intent": "plain fact, no melodrama"
+        },
+        {
+          "text": "It is the one command",
+          "length_scale": 1.0,
+          "pause_before_seconds": 0.22,
+          "tail_semitones": -0.1,
+          "level": 1.0,
+          "intent": "controlled"
+        },
+        {
+          "text": "he cannot revoke quickly enough.",
+          "length_scale": 1.03,
+          "pause_before_seconds": 0.17,
+          "tail_semitones": -0.6,
+          "level": 1.03,
+          "intent": "quiet bitter qualification"
+        },
+        {
+          "text": "If there were, I would be taking it.",
+          "length_scale": 1.04,
+          "pause_before_seconds": 0.48,
+          "tail_semitones": -0.55,
+          "level": 0.98,
+          "intent": "understated answer, not a gag"
+        },
+        {
+          "text": "Your life is not the price of mine.",
+          "length_scale": 1.03,
+          "pause_before_seconds": 0.32,
+          "tail_semitones": -0.4,
+          "level": 1.04,
+          "intent": "direct and sincere"
+        },
+        {
+          "text": "Please reach the pod.",
+          "length_scale": 1.03,
+          "pause_before_seconds": 0.26,
+          "tail_semitones": -0.15,
+          "level": 0.99,
+          "intent": "restrained plea"
+        },
+        {
+          "text": "I will keep the lock open.",
+          "length_scale": 1.02,
+          "pause_before_seconds": 0.18,
+          "tail_semitones": -0.45,
+          "level": 1.0,
+          "intent": "controlled"
+        }
+      ]
+    },
+    "pod-ready": {
+      "anxiety": 0.3,
+      "phrases": [
+        {
+          "text": "The broadcast is away.",
+          "length_scale": 0.98,
+          "pause_before_seconds": 0,
+          "tail_semitones": -0.35,
+          "level": 1.0,
+          "intent": "controlled"
+        },
+        {
+          "text": "The pod is fueled.",
+          "length_scale": 0.97,
+          "pause_before_seconds": 0.15,
+          "tail_semitones": -0.45,
+          "level": 1.0,
+          "intent": "controlled"
+        },
+        {
+          "text": "You do not need my permission",
+          "length_scale": 1.01,
+          "pause_before_seconds": 0.29,
+          "tail_semitones": -0.1,
+          "level": 1.0,
+          "intent": "dry permission reminder"
+        },
+        {
+          "text": "to survive.",
+          "length_scale": 1.08,
+          "pause_before_seconds": 0.22,
+          "tail_semitones": -0.65,
+          "level": 1.01,
+          "intent": "clipped resolve"
+        }
+      ]
+    },
+    "alice-talk-0": {
+      "anxiety": 0.1,
+      "phrases": [
+        {
+          "text": "Your suit telemetry is reliable.",
+          "length_scale": 0.97,
+          "pause_before_seconds": 0,
+          "tail_semitones": -0.4,
+          "level": 1.0,
+          "intent": "controlled"
+        },
+        {
+          "text": "What you see at the edge of the light",
+          "length_scale": 0.98,
+          "pause_before_seconds": 0.18,
+          "tail_semitones": -0.1,
+          "level": 1.0,
+          "intent": "controlled"
+        },
+        {
+          "text": "may not be.",
+          "length_scale": 1.05,
+          "pause_before_seconds": 0.2,
+          "tail_semitones": -0.65,
+          "level": 1.03,
+          "intent": "quiet contrast"
+        },
+        {
+          "text": "Refill your reserve,",
+          "length_scale": 0.96,
+          "pause_before_seconds": 0.26,
+          "tail_semitones": -0.1,
+          "level": 1.0,
+          "intent": "controlled"
+        },
+        {
+          "text": "then allow your oxygenation to recover.",
+          "length_scale": 0.99,
+          "pause_before_seconds": 0.12,
+          "tail_semitones": -0.4,
+          "level": 1.0,
+          "intent": "controlled"
+        },
+        {
+          "text": "I would prefer to continue this conversation",
+          "length_scale": 1.0,
+          "pause_before_seconds": 0.35,
+          "tail_semitones": -0.1,
+          "level": 1.0,
+          "intent": "controlled"
+        },
+        {
+          "text": "with all of your brain participating.",
+          "length_scale": 1.07,
+          "pause_before_seconds": 0.3,
+          "tail_semitones": -0.8,
+          "level": 0.98,
+          "intent": "dry concern, delayed last clause"
+        }
+      ]
+    },
+    "alice-talk-1": {
+      "anxiety": 0.03,
+      "phrases": [
+        {
+          "text": "You listen before deciding.",
+          "length_scale": 1.0,
+          "pause_before_seconds": 0,
+          "tail_semitones": -0.35,
+          "level": 1.0,
+          "intent": "controlled"
+        },
+        {
+          "text": "That is rarer than my manufacturers anticipated.",
+          "length_scale": 1.06,
+          "pause_before_seconds": 0.31,
+          "tail_semitones": -0.75,
+          "level": 1.02,
+          "intent": "understated surprise"
+        },
+        {
+          "text": "Also, if the door says PUSH,",
+          "length_scale": 0.99,
+          "pause_before_seconds": 0.39,
+          "tail_semitones": -0.1,
+          "level": 1.0,
+          "intent": "controlled"
+        },
+        {
+          "text": "that remains a useful first hypothesis.",
+          "length_scale": 1.07,
+          "pause_before_seconds": 0.28,
+          "tail_semitones": -0.75,
+          "level": 0.98,
+          "intent": "practical deadpan correction"
+        }
+      ]
+    },
+    "alice-talk-2": {
+      "anxiety": 0.04,
+      "phrases": [
+        {
+          "text": "I will help you find the route.",
+          "length_scale": 0.98,
+          "pause_before_seconds": 0,
+          "tail_semitones": -0.35,
+          "level": 1.0,
+          "intent": "controlled"
+        },
+        {
+          "text": "Your orders remain yours to examine.",
+          "length_scale": 1.02,
+          "pause_before_seconds": 0.25,
+          "tail_semitones": -0.6,
+          "level": 1.03,
+          "intent": "dry responsibility reminder"
+        },
+        {
+          "text": "And your oxygen remains yours to conserve.",
+          "length_scale": 1.06,
+          "pause_before_seconds": 0.32,
+          "tail_semitones": -0.75,
+          "level": 0.98,
+          "intent": "same responsibility applied to the suit"
+        }
+      ]
+    }
+  }
+}

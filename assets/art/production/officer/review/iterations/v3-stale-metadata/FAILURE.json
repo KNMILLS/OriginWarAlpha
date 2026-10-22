@@ -1,0 +1,7 @@
+{
+  "scope": "Metadata only; actual PNGs and endpoint poses unaffected",
+  "failure": "Pose-bone matrix fetched before dependency update returned stale contact coordinates",
+  "maximumStanceResidualReferencePixels": 33.18060154385046,
+  "correction": "Exact analytical rigid-sole mapping including small authored foot yaw; regenerate all metadata",
+  "acceptance": "Rejected source contact metadata; never delivered as passing runtime proof"
+}

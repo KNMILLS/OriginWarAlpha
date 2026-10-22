@@ -1,0 +1,11 @@
+Use case: identity-preserve
+Asset type: focused COMPACT NORTH-facing attack animation for Origin War native32px sprites.
+Three attached reference boards identify PLAYER, SIRS, ADD respectively. Each board's FIRST column shows the required REAR/back view; its last column shows a south weapon pose for identity only. Preserve those same actors, materials and camera.
+Create EXACTLY THREE columns by TWO rows of SIX equal square cells, true transparent alpha, clean crisp pixel art. Every single actor faces NORTH/UP, showing BACK of head/armor only, no front face or front optical eye at the bottom.
+COLUMN0 human PLAYER with short brown hair, teal/steel uniform, amber shoulder detail, compact pistol.
+COLUMN1 angular dark-steel SIRS biped robot with squared shoulders/gray dorsal strip, compact blaster.
+COLUMN2 broad heavy rounded dark-steel ADD biped with cyan dorsal armor panel, chunky short arm cannon.
+TOP ROW phaseA: full-height rear body in braced aiming stance, arms hold a SHORT weapon aiming UP close to the head.
+BOTTOM ROW phaseB: SAME actor rear view, slight real recoil change in shoulders/elbows/knee stance, with a SMALL SHORT amber muzzle flash directly ABOVE the barrel.
+CRITICAL NATIVE-SCALE GEOMETRY: inside each32x32 logical cell, the rear actor body occupies roughly24–26px in height, the short barrel extends at most2–3px above the head, and the flash extends ONLY1–2 additional pixels, SMALLER than the head. Keep both feet intact near the same bottom anchor. Do NOT use a long gun stalk above the head, huge flame or broad aura that would shrink the actor when fitted to a32px cell. Keep body/head size constant between phases and families consistent with the supplied reference sprites. The flash must fit within the safe top margin without crossing cells.
+True high top-down game camera, not side-view platformer. No floor/shadow blob, labels, arrows, direction letters, grid lines, checker, background, detached speckles, extra guns/limbs, front-facing characters or giant effects. This is a precise native32px production correction, not a new design.

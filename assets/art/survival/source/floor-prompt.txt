@@ -1,0 +1,11 @@
+Use case: stylized-concept.
+Asset type: ORIGINAL 2D PAINTED GAME FLOOR TEXTURE MASTER SHEET, production surfaces to be cropped into six separate ground tiles.
+Create a precise 3 columns by 2 rows rectangular contact sheet, 6 equally sized SQUARE panels touching edge-to-edge with absolutely no gutters or borders around the sheet. Each panel is a flat top-down orthographic material surface that fills every pixel of its square. Uniform diffuse light; no perspective, objects, drop shadows or rims. These are the walking surfaces of an aging institutional orbital research station for restrained survival horror.
+Order left to right:
+TOP LEFT: matte graphite anti-slip docking floor, broad quiet steel plates, fine flush seams, restrained threshold wear, one small flush service fastener near a corner.
+TOP MIDDLE: faded warm sage-gray institutional linoleum, subtle straight seams, scuffs where feet pass; no decorative patterns.
+TOP RIGHT: pale mineral medical floor panels, desaturated warm gray-green, precise narrow joints, restrained stains and repair patches.
+BOTTOM LEFT: dark warm brown-gray industrial rubber grating with fine shallow drainage channels, broad quiet value masses, not a high contrast grille.
+BOTTOM MIDDLE: quiet blue-gray command composite panels, dull satin surface, a few repaired seams, no luminous stripes.
+BOTTOM RIGHT: matching graphite floor with a low-gravity foothold/anchor pattern: small recessed strap sockets and fine white technical chevrons; no thick edge frame.
+All SIX panels: identical top-down plan projection; their internal seams form a usable repeating surface, avoid dramatic unique center motif. Dark-mid values with broad material separation and subtle illustrative paint texture, never photographed texture. Hand-painted detailed 2D commercial game illustration. Clear brush-finished edges and material readability at a 60-screen-pixel cell. No pixel art, no 3D render, no fantasy, no sci-fi glowing decoration, no logos, no words, no writing, no numbers. Correct six-square panel layout, touching edge to edge, opaque full canvas, landscape aspect ratio 3:2.

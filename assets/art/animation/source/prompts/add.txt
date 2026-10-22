@@ -1,0 +1,8 @@
+Use case: identity-preserve
+Asset type: Original Origin War top-down pixel-art directional animation.
+Reference role: exact actor identity/palette/silhouette reference, currently south-facing. ONE heavier A.D.D. defense droid, wide rounded dark steel shoulder/body armor, central AMBER forward optical sensor, thick armored biped legs. Preserve the broad distinctive reference silhouette; NOT a human in a mech.
+Create EXACTLY4 columns and2 rows of equal square cells;8 complete sprites total on TRUE transparent alpha, no background/grid/text/labels/noise pixels. Intended native32px crisp illustrated sprites; same costume/body scale and high top-down camera.
+Read strict cell layout:
+TOP ROW: col0 NORTH/back view walkA; col1 NORTH/back view walkB; col2 EAST/right-facing walkA; col3 EAST/right-facing walkB.
+BOTTOM ROW: col0 SOUTH/front view walkA; col1 SOUTH/front view walkB; col2 WEST/left-facing walkA; col3 WEST/left-facing walkB.
+NORTH means walking UP the image, showing only the BACK/rear of head/body: no frontal face/sensor! EAST BOTH frames face RIGHT. WEST BOTH face LEFT. SOUTH BOTH face DOWN. Every pair has two genuinely different alternating limb phases, NOT opposite directions and NOT two copies. Same actor/head size/materials in all cells. All limbs complete within margins. Top-down game camera, never side-on platformer/isometric. True transparent empty space; no checker, frames, text, symbols, extra characters, detached speckles or hard rectangle shadow. Preserve four-legged anatomy for robot dog.

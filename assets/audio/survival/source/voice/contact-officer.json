@@ -1,0 +1,43 @@
+{
+  "speaker": "officer",
+  "text": "Station, this is the boarding officer. Can anyone hear me?",
+  "text_sha256": "c80dfe318e1ab41a29b47c1510cc2dff2f7a8ff92fe29b36abf3536861a0e8cf",
+  "source_key": "contact-officer",
+  "engine": "Qwen3-TTS-VoiceDesign",
+  "model_revision": "5ecdb67327fd37bb2e042aab12ff7391903235d3",
+  "instruct": "An adult man with a quiet, low middle American voice. Natural clear diction, close and understated. He is alone in a dangerous place and keeping himself composed. Restrained conversational speech, not a trailer announcer, not a heroic performance.",
+  "seed": 21151021,
+  "language": "English",
+  "generation": {
+    "non_streaming_mode": true,
+    "max_new_tokens": 512,
+    "do_sample": true,
+    "temperature": 0.9,
+    "top_p": 1.0,
+    "top_k": 50,
+    "repetition_penalty": 1.05,
+    "subtalker_dosample": true,
+    "subtalker_temperature": 0.9,
+    "subtalker_top_k": 50,
+    "subtalker_top_p": 1.0
+  },
+  "source_wav": "contact-officer-dry.wav",
+  "source_rate": 24000,
+  "source_subtype": "PCM_24",
+  "seconds": 4.88,
+  "finite": true,
+  "peak_linear": 0.4921875,
+  "sha256": "84f68b6ff09289f6fbfe18959f1c16eed6535f1e11d7f0000cc744c1258dfa43",
+  "elapsed_seconds": 19.188000000081956,
+  "versions": {
+    "qwen-tts": "0.1.1",
+    "torch": "2.6.0+cu124",
+    "transformers": "4.57.3",
+    "accelerate": "1.12.0",
+    "numpy": "2.5.4",
+    "soundfile": "0.14.0"
+  },
+  "plan_sha256": "36491130765dcdd43ced6d81ad1a65091f0caaee49fe243484a993f4665eafd3",
+  "generator_sha256": "e59f6674b3c302944f1d18792b6d3752ae63b313c36bd7a1439b387710f97550",
+  "quality_scope": "Generated candidate. Exact input/hash/header is not proof of output words, voice consistency or acting quality."
+}

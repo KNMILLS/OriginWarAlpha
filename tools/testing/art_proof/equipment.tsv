@@ -1,0 +1,11 @@
+# Staged room: physical rifle/heavy shell underfoot. Both equips spend time.
+EQUIP	0	0	proof-rifle
+EQUIP	0	0	proof-heavy
+MOVE	1	0
+MOVE	1	0
+MOVE	0	-1
+MOVE	0	-1
+MOVE	-1	0
+MOVE	-1	0
+MOVE	0	1
+MOVE	0	1

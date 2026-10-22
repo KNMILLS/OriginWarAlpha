@@ -1,0 +1,271 @@
+{
+  "native_sha256": "1ac2fa0ce473b1ec621821ced8f9d08763fdb3b966d4dd5dc824cdfc08fe92b3",
+  "atlas_sha256": "3e896e121b92b6cad0b82f246eff061452cf396c59a4feb4a2091d891268b143",
+  "columns": 8,
+  "rows": 8,
+  "native_cell_pixels": 32,
+  "nearest_scale": 4,
+  "occupied_slots": 64,
+  "frame_pairs": [
+    {
+      "slots": [
+        0,
+        1
+      ],
+      "changed_native_pixels": 375,
+      "manual_review_priority": false
+    },
+    {
+      "slots": [
+        2,
+        3
+      ],
+      "changed_native_pixels": 300,
+      "manual_review_priority": false
+    },
+    {
+      "slots": [
+        4,
+        5
+      ],
+      "changed_native_pixels": 376,
+      "manual_review_priority": false
+    },
+    {
+      "slots": [
+        6,
+        7
+      ],
+      "changed_native_pixels": 320,
+      "manual_review_priority": false
+    },
+    {
+      "slots": [
+        8,
+        9
+      ],
+      "changed_native_pixels": 262,
+      "manual_review_priority": false
+    },
+    {
+      "slots": [
+        10,
+        11
+      ],
+      "changed_native_pixels": 328,
+      "manual_review_priority": false
+    },
+    {
+      "slots": [
+        12,
+        13
+      ],
+      "changed_native_pixels": 292,
+      "manual_review_priority": false
+    },
+    {
+      "slots": [
+        14,
+        15
+      ],
+      "changed_native_pixels": 316,
+      "manual_review_priority": false
+    },
+    {
+      "slots": [
+        16,
+        17
+      ],
+      "changed_native_pixels": 442,
+      "manual_review_priority": false
+    },
+    {
+      "slots": [
+        18,
+        19
+      ],
+      "changed_native_pixels": 385,
+      "manual_review_priority": false
+    },
+    {
+      "slots": [
+        20,
+        21
+      ],
+      "changed_native_pixels": 433,
+      "manual_review_priority": false
+    },
+    {
+      "slots": [
+        22,
+        23
+      ],
+      "changed_native_pixels": 379,
+      "manual_review_priority": false
+    },
+    {
+      "slots": [
+        24,
+        25
+      ],
+      "changed_native_pixels": 578,
+      "manual_review_priority": false
+    },
+    {
+      "slots": [
+        26,
+        27
+      ],
+      "changed_native_pixels": 612,
+      "manual_review_priority": false
+    },
+    {
+      "slots": [
+        28,
+        29
+      ],
+      "changed_native_pixels": 623,
+      "manual_review_priority": false
+    },
+    {
+      "slots": [
+        30,
+        31
+      ],
+      "changed_native_pixels": 570,
+      "manual_review_priority": false
+    },
+    {
+      "slots": [
+        32,
+        33
+      ],
+      "changed_native_pixels": 229,
+      "manual_review_priority": false
+    },
+    {
+      "slots": [
+        34,
+        35
+      ],
+      "changed_native_pixels": 378,
+      "manual_review_priority": false
+    },
+    {
+      "slots": [
+        36,
+        37
+      ],
+      "changed_native_pixels": 311,
+      "manual_review_priority": false
+    },
+    {
+      "slots": [
+        38,
+        39
+      ],
+      "changed_native_pixels": 345,
+      "manual_review_priority": false
+    },
+    {
+      "slots": [
+        40,
+        41
+      ],
+      "changed_native_pixels": 375,
+      "manual_review_priority": false
+    },
+    {
+      "slots": [
+        42,
+        43
+      ],
+      "changed_native_pixels": 366,
+      "manual_review_priority": false
+    },
+    {
+      "slots": [
+        44,
+        45
+      ],
+      "changed_native_pixels": 301,
+      "manual_review_priority": false
+    },
+    {
+      "slots": [
+        46,
+        47
+      ],
+      "changed_native_pixels": 390,
+      "manual_review_priority": false
+    },
+    {
+      "slots": [
+        48,
+        49
+      ],
+      "changed_native_pixels": 576,
+      "manual_review_priority": false
+    },
+    {
+      "slots": [
+        50,
+        51
+      ],
+      "changed_native_pixels": 471,
+      "manual_review_priority": false
+    },
+    {
+      "slots": [
+        52,
+        53
+      ],
+      "changed_native_pixels": 470,
+      "manual_review_priority": false
+    },
+    {
+      "slots": [
+        54,
+        55
+      ],
+      "changed_native_pixels": 717,
+      "manual_review_priority": false
+    },
+    {
+      "slots": [
+        56,
+        57
+      ],
+      "changed_native_pixels": 422,
+      "manual_review_priority": false
+    },
+    {
+      "slots": [
+        58,
+        59
+      ],
+      "changed_native_pixels": 457,
+      "manual_review_priority": false
+    },
+    {
+      "slots": [
+        60,
+        61
+      ],
+      "changed_native_pixels": 380,
+      "manual_review_priority": false
+    },
+    {
+      "slots": [
+        62,
+        63
+      ],
+      "changed_native_pixels": 494,
+      "manual_review_priority": false
+    }
+  ],
+  "source_hashes_verified": true,
+  "reference_station_unchanged": true,
+  "packing_repeatability": "PASS",
+  "scope": "Static source/export/cell/alpha/frame-difference verification only; not anatomy proof, actual animation timing or gameplay acceptance."
+}

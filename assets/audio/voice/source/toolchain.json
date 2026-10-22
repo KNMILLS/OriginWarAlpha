@@ -1,0 +1,53 @@
+{
+  "piper_release": "2023.11.14-2",
+  "piper_license": "MIT; tool only, not redistributed in runtime",
+  "voice_repository_revision": "5041a7a49ae5b3a0f30e6837769eb03fdbb231bd",
+  "voice": "en_US-ljspeech-high",
+  "model_license": "Public domain per author; repository MIT metadata",
+  "dataset_license": "Public domain LJ Speech (Keith Ito / Linda Johnson)",
+  "output_use": "Original game dialogue synthesized with a published general voice; no targeted actor/character impersonation. Source terms impose no output restriction.",
+  "downloads": {
+    "piper_windows_amd64.zip": {
+      "url": "https://github.com/rhasspy/piper/releases/download/2023.11.14-2/piper_windows_amd64.zip",
+      "sha256": "f3c58906402b24f3a96d92145f58acba6d86c9b5db896d207f78dc80811efcea",
+      "bytes": 22477236
+    },
+    "en_US-ljspeech-high.onnx": {
+      "url": "https://huggingface.co/rhasspy/piper-voices/resolve/5041a7a49ae5b3a0f30e6837769eb03fdbb231bd/en/en_US/ljspeech/high/en_US-ljspeech-high.onnx",
+      "sha256": "5d4f08ba6a2a48c44592eed3ce56bf85e9de3dd4e20df90541ae68a8310c029a",
+      "bytes": 114199011
+    },
+    "en_US-ljspeech-high.onnx.json": {
+      "url": "https://huggingface.co/rhasspy/piper-voices/resolve/5041a7a49ae5b3a0f30e6837769eb03fdbb231bd/en/en_US/ljspeech/high/en_US-ljspeech-high.onnx.json",
+      "sha256": "7e1f4634af596d83cca997fb7a931ba80b70f8a316a2655ee69c55365e0ace14",
+      "bytes": 4970
+    }
+  },
+  "evidence": {
+    "MODEL_CARD.md": {
+      "url": "https://huggingface.co/rhasspy/piper-voices/resolve/5041a7a49ae5b3a0f30e6837769eb03fdbb231bd/en/en_US/ljspeech/high/MODEL_CARD",
+      "sha256": "289f7421072d689a3d91f6c632f486af46f9b8b04417536104a4ea667b8a394b",
+      "bytes": 513
+    },
+    "VOICE_REPOSITORY_README.md": {
+      "url": "https://huggingface.co/rhasspy/piper-voices/resolve/5041a7a49ae5b3a0f30e6837769eb03fdbb231bd/README.md",
+      "sha256": "33e93643fce5180886300f9f0070eeeab8af148efb8e84361f8904def80fd9fb",
+      "bytes": 497
+    },
+    "PIPER_MIT_LICENSE.txt": {
+      "url": "https://raw.githubusercontent.com/rhasspy/piper/2023.11.14-2/LICENSE.md",
+      "sha256": "4cd71dece7037f1d6d93cce7570c57ab75ea9ac566fd4990be2f3ab08d15b47f",
+      "bytes": 1071
+    },
+    "AUTHOR_MODEL_LICENSE.txt": {
+      "url": "https://brycebeattie.com/files/tts/",
+      "sha256": "dc65a260afc4056261774f5612eadd50fbd1e251cf0f30d8620faddbce325dd1",
+      "bytes": 141
+    },
+    "LJ_SPEECH_DATASET_LICENSE.txt": {
+      "url": "https://keithito.com/LJ-Speech-Dataset/",
+      "sha256": "7cb6e2aff5440d50054be7c455a7c10cf51679e90ec58d6d1eaf5fca52b8ed3d",
+      "bytes": 163
+    }
+  }
+}

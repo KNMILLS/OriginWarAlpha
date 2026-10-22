@@ -1,0 +1,73 @@
+{
+  "version": 1,
+  "created": "2026-10-21",
+  "task": "SH-EQUIPMENT",
+  "base": "ee8d8a3",
+  "tool": "Built-in OpenAI image_gen",
+  "model": "Tool-selected; explicit identifier not exposed",
+  "transparent_background": true,
+  "method": "Original generated source master bytes preserved. Component isolation, copied antialias fringe, constant scale/canvas placement, packaging and annotated technical previews only; no painted pixels, composited weapons, mirroring, mesh warping or frame synthesis.",
+  "generations": [
+    {
+      "source": "officer-unarmed-turnaround-v1.png",
+      "prompt": "officer-unarmed-prompt.txt",
+      "output": "exec-fdbee4ad-e513-4edf-a708-b3cae4ca4a96.png",
+      "references": [
+        "references/officer-turnaround.png"
+      ],
+      "requestPrompt": "Use case: precise-object-edit. Asset type: ORIGINAL painted 2D space survival game character equipment turnaround, transparent sprite sheet. Reference image is the edit target. Preserve the same adult white-suited officer, helmet/face identity, body proportions, white worn enamel suit, charcoal fabric joints, gloves, boots, belt, backpack, orthographic three-quarter overhead view, and hand-painted style. Change ONLY the carried-equipment state to genuinely UNARMED: completely remove every pistol, firearm, holster weapon and weapon-shaped object from all four views; both hands are visibly empty, relaxed but guarded, anatomically complete. Four separate full-body figures in one horizontal row in exactly this order: BACK facing NORTH, RIGHT facing EAST, FRONT facing SOUTH, LEFT facing WEST. Keep the first officer's back facing camera (no visible face), side facings correct. All four same apparent height, ground baseline and scale, generous empty transparent separation. Both empty gloved hands must remain readable where anatomically visible; do not hide a weapon behind the body. No gun, no tool, no drawn frame, no labels, no lettering, no ground shadow, no floor, no checkerboard. Genuinely transparent alpha. Preserve the original's restrained utilitarian science-fiction identity; no pixel art, no fantasy trim, no giant head or child proportions. This is a bounded static turnaround, not a walking cycle.",
+      "status": "candidate for native review",
+      "mode": "edit",
+      "originalReferenceRoot": "C:/OriginWarReboot/OriginWarAlpha/assets/art/survival",
+      "generatedDirectory": "C:/Users/KenGM/.codex/generated_images/01a15f6b-00db-7fb0-959e-a5556356322b"
+    },
+    {
+      "source": "officer-rifle-turnaround-v1.png",
+      "prompt": "officer-rifle-prompt.txt",
+      "output": "exec-8f914c14-f46b-4621-9de4-ef9fe9502373.png",
+      "references": [
+        "references/officer-turnaround.png",
+        "references/item.rifle.png"
+      ],
+      "requestPrompt": "Use case: precise-object-edit. Asset type: ORIGINAL painted 2D space survival game equipment turnaround, genuinely transparent sprite sheet. Image1 is the character edit target; Image2 is the exact held rifle design reference. Preserve the same mature adult officer, enclosed white helmet and face, suit panels, charcoal flexible joints, gloves, boots, belt/backpack, proportions, diffuse hand-painted style and four directions of Image1. Replace EVERY pistol with the rifle from Image2. Officer carries ONE and the same long slender utilitarian rifle in a calm two-handed LOW READY: right hand actually wraps the trigger grip, left hand actually supports the forward handguard, stock close to shoulder/upper torso, muzzle safely angled below waist level, never pointed at own body. Correct anatomical shoulder/elbow/wrist connections and weapon-hand occlusion. Long narrow barrel and perforated handguard silhouette must remain unmistakably a rifle, matching reference. No pistol, no extra gun, no strap pretending to be a rifle. Exactly FOUR complete figures in one horizontal row: BACK/NORTH, RIGHT/EAST, FRONT/SOUTH, LEFT/WEST. From BACK show the backpack/back helmet with no face; rifle may partly hide in front of torso but its supported long barrel must visibly project at the side. Keep all heights, perspective (orthographic elevated game view), foot baselines and character scale consistent, generous transparent spacing. Every view is a genuine correctly oriented drawing, not a pasted or mirrored weapon. Retain adult restrained space-horror identity, no fantasy, no huge head. No ground, cast shadow, labels, text, frames, checkerboard or props. Transparent alpha. Static equipment turnaround only.",
+      "status": "candidate for native review",
+      "mode": "edit",
+      "originalReferenceRoot": "C:/OriginWarReboot/OriginWarAlpha/assets/art/survival",
+      "generatedDirectory": "C:/Users/KenGM/.codex/generated_images/01a15f6b-00db-7fb0-959e-a5556356322b"
+    },
+    {
+      "source": "officer-scattergun-turnaround-v1.png",
+      "prompt": "officer-scattergun-prompt.txt",
+      "output": "exec-0892f27c-0f0a-4515-8e29-2a0bd95d8a13.png",
+      "references": [
+        "references/officer-turnaround.png",
+        "references/item.scattergun.png"
+      ],
+      "requestPrompt": "Use case: precise-object-edit. Asset type: ORIGINAL painted 2D space survival game equipment turnaround, transparent sprites. Image1 is character edit target; Image2 is the exact SHORT HEAVY SCATTERGUN design reference. Preserve the same mature adult officer, enclosed white helmet and face, suit panels, charcoal joints, gloves, boots, belt/backpack, proportions, diffuse hand-painted style and four cardinal directions of Image1. Replace EVERY pistol with ONE scattergun matching Image2: very short chunky broad industrial barrel, thick cylindrical front shroud and compact squared receiver/stock, unmistakably different from a long slender rifle. Officer holds it in a calm two-handed LOW READY: right hand genuinely around trigger grip, left hand supporting under front shroud, stock near upper torso, muzzle angled below waist, never at own body. Correct connected shoulders/elbows/wrists, glove overlaps and weapon perspective. Exactly FOUR complete figures in ONE horizontal row in this order: BACK/NORTH, RIGHT/EAST, FRONT/SOUTH, LEFT/WEST. No face on north/back figure; its short broad gun may be partly hidden in front but a real chunky barrel must project to the side. Same anatomical handedness in all views; do not mirror/paste a gun. Same apparent figure height, ground baseline, scale and elevated orthographic game camera as reference, generous transparent gaps around full silhouettes. No pistol, no long rifle, no additional gun, no extraneous tool. No scenery/floor/shadow, labels/text, border or checkerboard. Genuinely transparent alpha. Retain restrained original industrial space horror, adult proportions, no cute/fantasy styling. Static equipment turnaround only, not a walk cycle.",
+      "status": "candidate for native review",
+      "mode": "edit",
+      "originalReferenceRoot": "C:/OriginWarReboot/OriginWarAlpha/assets/art/survival",
+      "generatedDirectory": "C:/Users/KenGM/.codex/generated_images/01a15f6b-00db-7fb0-959e-a5556356322b"
+    },
+    {
+      "source": "officer-fire-north-v1.png",
+      "prompt": "officer-fire-north-prompt.txt",
+      "output": "exec-20159369-5b64-45a5-a414-5f6ba6c02e2e.png",
+      "references": [
+        "references/officer-turnaround.png"
+      ],
+      "requestPrompt": "Use case: identity-preserve. Original illustrated game animation sheet for a science-fiction survival game. Reference fixes SAME ADULT officer aged about thirty, enclosed white pressure suit, helmet, black joint fabric, belt and oxygen pack; keep mature proportions and painting. Create exactly FOUR full-body NORTH-FACING handgun-action frames arranged in ONE horizontal row. NORTH means officer's BACK faces viewer throughout; back of helmet and oxygen pack visible, no face. Camera fixed elevated orthographic game view like first/back figure of reference. Officer stands with fixed feet and baseline in all four cells. Right hand uses same compact black service pistol and left hand supports the right wrist. Frame1 raises pistol toward NORTH/away from camera, not toward viewer. Frame2 settles steady aim toward north, both elbows properly connected, small gun visibly projects above the right shoulder line. Frame3 brief gunshot: small restrained amber muzzle flash at correctly oriented pistol muzzle away from camera, right forearm recoils backward slightly with credible shoulder/wrist continuity. Frame4 controlled recovery to steady aim. This is clearly a game sprite equipment action, no target, no victim, no blood. Four genuinely painted sequential poses, no duplicating, no mirroring, no warping. Keep scale, costume and lighting identical with room between complete figures. Feet don't step; backpack remains correct. No text, labels, grid, floor, ground shadow, checkerboard or background. True transparent alpha. Do not use east, south or west facing; all four frames must be honest back/north views. Original restrained industrial space-horror character, no photorealism, no fantasy, no child/chibi proportions.",
+      "status": "candidate for native review",
+      "mode": "edit",
+      "originalReferenceRoot": "C:/OriginWarReboot/OriginWarAlpha/assets/art/survival",
+      "generatedDirectory": "C:/Users/KenGM/.codex/generated_images/01a15f6b-00db-7fb0-959e-a5556356322b"
+    }
+  ],
+  "rejections": [],
+  "acceptance": {
+    "staticSource": "Inspected: cardinal direction, empty hands, rifle/scattergun distinction and glove/weapon overlap",
+    "northFire": "Inspected: four rear-facing drawings, right-hand pistol, frame3 flash; starts already raised",
+    "native": "NOT_TESTED by worker",
+    "commercial": "NOT_ACCEPTED"
+  }
+}

@@ -1,0 +1,8 @@
+# Preserve exact upstream notice/release bytes and their recorded SHA256 on every platform.
+licenses/** -text
+/gradlew text eol=lf
+/assets/ui/** -text
+# Asset contracts and producer-script hashes address exact bytes, including newlines.
+# A source archive must preserve the same bytes validated before packaging.
+/assets/** -text
+/tools/media/** -text

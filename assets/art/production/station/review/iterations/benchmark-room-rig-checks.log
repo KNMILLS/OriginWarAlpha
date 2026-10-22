@@ -1,0 +1,8 @@
+Blender 4.5.3 LTS (hash 67807e1800cc built 2025-09-09 01:33:33)
+Traceback (most recent call last):
+  File "C:\OriginWarReboot\worktrees\benchmark-room\tools\media\station_production\pose_checks.py", line 22, in <module>
+    assert error<1e-5,(facing,label,error)
+           ^^^^^^^^^^
+AssertionError: ('north', 'stop-end/idle', 0.02552323043346405)
+
+Blender quit

@@ -1,0 +1,7 @@
+Use case: precise-object-edit. Edit this EXISTING game animation sheet. Preserve its exact 4-column3-row cell layout, all 12 character positions, scale, costume, white suit shading, helmet/backpack design, right-hand pistol, neutral light and genuine alpha transparency. All NORTH/back facing. Do not add a floor or background.
+Change ONLY THE LEG POSES to make a single twelve-phase TWO STEP walk cycle, read row-major:
+Frames1,2,3 = LEFT contact,down,toeoff; keep torso almost unchanged.
+Frames4,5,6 = RIGHT leg swings CLOSE past left supporting leg and then reaches away from camera; left boot stays ground. Frame4 knees near together, frame5 right shin occluded by hips, frame6 rightlegreaching.
+Frames7,8,9 = RIGHT contact,down,toeoff (opposite frames1–3).
+Frames10,11,12 = LEFT swings CLOSE past right support then reaches away; right boot grounded. Frame10 narrow passing silhouette, frame11 left shin occluded, frame12 reaches.
+Each successive pose should be a different phase, not contact→contact. Include subtle knee bending and planted heel/toe changes. NO HIGH MARCH, no running, no change of upper body/scale. This is a quiet economical adult walk. Helmet size and head position stay consistent to within a few pixels. Preserve same small pistol, both hands, and compact tank/harness in every pose. Correct twelve-frame choreography while preserving the illustrated original identity. NO TEXT.

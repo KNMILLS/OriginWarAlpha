@@ -1,0 +1,29 @@
+{
+  "status": "preserved superseded alias",
+  "region": {
+    "name": "terminal.console",
+    "path": "art/proof/environment/regions/prop.workbench.png",
+    "widthCells": 1.69921875,
+    "heightCells": 1.24609375,
+    "pivotX": 0.5,
+    "pivotY": 0,
+    "layer": "world",
+    "pixelWidth": 435,
+    "pixelHeight": 319,
+    "source": "environment-master.png",
+    "sourceCrop": [
+      20,
+      492,
+      625,
+      962
+    ],
+    "alphaTrim": [
+      16,
+      17,
+      588,
+      436
+    ],
+    "sha256": "d85a9f1c8b87e8295be27fc8e6e001fbddbbcc50b5ebf35eef1fdccc02306da0",
+    "aliasOf": "prop.workbench"
+  }
+}

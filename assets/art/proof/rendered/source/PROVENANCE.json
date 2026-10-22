@@ -1,0 +1,43 @@
+{
+  "task": "AP-RENDERED",
+  "sourceBase": "604c910",
+  "tool": {
+    "name": "Blender",
+    "version": "4.5.3 LTS",
+    "buildHash": "67807e1800cc",
+    "archiveUrl": "https://download.blender.org/release/Blender4.5/blender-4.5.3-windows-x64.zip",
+    "publisherChecksums": "https://download.blender.org/release/Blender4.5/blender-4.5.3.sha256",
+    "archiveSha256": "6b657c8bdd3a7b65b07b9e1ae17eb4be7dd4aa23121da7f3d3354fc2551330a7",
+    "runtimeDependency": false
+  },
+  "authorship": "Original procedural mesh modeling, material nodes and authored rig pose rules. No third-party model, texture, motion capture or generative image source was imported.",
+  "identityReferences": [
+    {
+      "path": "assets/art/survival/source/owner-player-reference.png",
+      "sha256": "5ca47c3532a5a7d80247753fef399c29ba719382f30f0464c625587db2d5930e",
+      "role": "Owner/project identity guidance viewed, not imported as geometry or texture"
+    },
+    {
+      "path": "assets/art/survival/source/officer-turnaround.png",
+      "sha256": "9313e02cfcc98e3c0992697635348c67dc6e4396de26988cc01234b65c9882de",
+      "role": "Owner/project identity guidance viewed, not imported as geometry or texture"
+    }
+  ],
+  "sources": {
+    "tools/media/art_proof_rendered/build.py": "5ec1d373dcc242b3ce3db72f6df1cea119bd433e0de23721471b03e8bf4c39c7",
+    "tools/media/art_proof_rendered/review.py": "3b05a6105854e4f0d598546951f8f5bcb74910cd36497c8db5a2fafa8a4587b1",
+    "assets/art/proof/rendered/source/origin-war-officer.blend": "ec1942068558b4b056d5d6228e830f83b11ebac952b3b1504919e351c70bf1fa"
+  },
+  "commercialArtAcceptance": "OPEN",
+  "nativeRuntimeAcceptance": "Lead-owned; not established by source export checks",
+  "purchaseSpend": 0,
+  "sourceHashPolicy": "Binary masters hash exact bytes; Python source text is canonical LF. Normalize CRLF to LF before comparing script hashes.",
+  "heavyRifleExtension": {
+    "newClips": 12,
+    "newFrames": 56,
+    "previousFrameCount": 196,
+    "previousFrameHashesPreserved": true,
+    "previousCommit": "ecd6eb0896340108839c5445a678ce05dc646cc3",
+    "editableModelResaved": false
+  }
+}

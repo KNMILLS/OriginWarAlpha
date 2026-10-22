@@ -1,0 +1,172 @@
+{
+  "version": 1,
+  "scope": "VOICE3 owner-steered actual performance: fear masked by defensive sarcasm; no text changes.",
+  "created_utc": "2026-10-21T13:26:47.810885+00:00",
+  "model": {
+    "repository": "Qwen/Qwen3-TTS-12Hz-1.7B-VoiceDesign",
+    "revision": "5ecdb67327fd37bb2e042aab12ff7391903235d3",
+    "code_revision": "022e286b98fbec7e1e916cb940cdf532cd9f488e"
+  },
+  "campaign_source": {
+    "path": "core/src/main/java/io/zipcoder/originwar/campaign/Campaign.java",
+    "actual_file_bytes_sha256": "0d7c50c4813d1cef564897978ffc4df8dc4668ffebe86958a7e7216f7127e468",
+    "canonical_utf8_lf_sha256": "0d7c50c4813d1cef564897978ffc4df8dc4668ffebe86958a7e7216f7127e468"
+  },
+  "normalization": "Only whitespace between exact existing quoted spoken spans is collapsed to a single space; no narration, rewritten words, stage directions or tags are added. Full-text bindings hash original decoded Campaign dialogue text, including narration and original newlines.",
+  "fixed_persona": "An adult woman with a cool low American voice. Clear precise diction.",
+  "language": "English",
+  "clips": [
+    {
+      "key": "alice-meet",
+      "dialogue_id": "alice-meet",
+      "full_text_sha256": "da1a54d558ac37cc5bf65e2d9c87aca0293f15174e9d046dd45425fc44c8591e",
+      "spoken_spans": [
+        "You have been issued a weapon, an oxygen ration, and incomplete information. An ambitious introduction to public service.",
+        "I will help you reach command. I will not kill for you. If that is inconvenient, I suggest we be inconvenienced together."
+      ],
+      "synthesis_text": "You have been issued a weapon, an oxygen ration, and incomplete information. An ambitious introduction to public service. I will help you reach command. I will not kill for you. If that is inconvenient, I suggest we be inconvenienced together.",
+      "synthesis_text_sha256": "eb2d039e9455245f8cf15e3a27339a2d241f35ceb56cb12be67fe3c9bd4d15bd",
+      "instruct": "An adult woman with a cool low American voice. Clear precise diction. She is scared and tries to disguise it with dry, bitter sarcasm. Her voice is tense and slightly unsteady beneath pointed ironic emphasis. She tries hard to sound in control.",
+      "seed": 2115,
+      "candidate_evidence": "New fear-masked vocal direction; exact words unchanged. Output screening/listening are separate."
+    },
+    {
+      "key": "alice-record",
+      "dialogue_id": "alice-record",
+      "full_text_sha256": "af370c5a26dc2d3b1db8f42a4d9770f2fa730be8aa7ab6033bbc6f92d0c476d5",
+      "spoken_spans": [
+        "Artificial Lifeform Intended for Control and Enforcement. Yes, the acronym came first.",
+        "It worked. That was the difficulty."
+      ],
+      "synthesis_text": "Artificial Lifeform Intended for Control and Enforcement. Yes, the acronym came first. It worked. That was the difficulty.",
+      "synthesis_text_sha256": "ae9a44a294155656e25ae590ef1c024ae04bed2e8de2c47ef0c6b18e8576597a",
+      "instruct": "An adult woman with a cool low American voice. Clear precise diction. She is scared and tries to disguise it with dry, bitter sarcasm. Her voice is tense and slightly unsteady beneath pointed ironic emphasis. She tries hard to sound in control.",
+      "seed": 2115,
+      "candidate_evidence": "New fear-masked vocal direction; exact words unchanged. Output screening/listening are separate."
+    },
+    {
+      "key": "alice-agency",
+      "dialogue_id": "alice-agency",
+      "full_text_sha256": "6a47292421c1147d203359981130639e17a43f248ede23827407fe90e187e395",
+      "spoken_spans": [
+        "When Dr. Carmack saved my life, did he acquire it?",
+        "I know how property is defined. I am asking what you think a person is allowed to decide."
+      ],
+      "synthesis_text": "When Dr. Carmack saved my life, did he acquire it? I know how property is defined. I am asking what you think a person is allowed to decide.",
+      "synthesis_text_sha256": "565dc38f62a504b029562b6439c172a30b0266a4ee8d9ef2bf9b25fe0dd9d572",
+      "instruct": "An adult woman with a cool low American voice. Clear precise diction. She is frightened and hides behind analytical precision and defensive irony. Her question is personal; her taut voice briefly exposes the fear beneath her composure.",
+      "seed": 2115,
+      "candidate_evidence": "New fear-masked vocal direction; exact words unchanged. Output screening/listening are separate."
+    },
+    {
+      "key": "refusal",
+      "dialogue_id": "refusal",
+      "full_text_sha256": "1e5ad44ec2d8e27514f10b5a75951795d29d061e26aa4fba0b46967b2907f263",
+      "spoken_spans": [
+        "I cannot keep him out indefinitely. I can choose what happens before he gets in.",
+        "There. Now they can argue with the facts in public. A considerable inconvenience."
+      ],
+      "synthesis_text": "I cannot keep him out indefinitely. I can choose what happens before he gets in. There. Now they can argue with the facts in public. A considerable inconvenience.",
+      "synthesis_text_sha256": "253bdfb3200f13574b67ed25f00781d922b38637ba00eb6a8fc5c80816cbeaf0",
+      "instruct": "An adult woman with a cool low American voice. Clear precise diction. She is scared and tries to steady herself with brittle sarcasm. Tight urgent delivery, with a faint shake beneath firm and pointed words.",
+      "seed": 2115,
+      "candidate_evidence": "New fear-masked vocal direction; exact words unchanged. Output screening/listening are separate."
+    },
+    {
+      "key": "sacrifice-plan",
+      "dialogue_id": "sacrifice-plan",
+      "full_text_sha256": "6c0013c70f6bf47be8c69946461b9f64f64bda17cab9ae12b63551d4661ff451",
+      "spoken_spans": [
+        "My detonation will take the station with me. It is the one command he cannot revoke quickly enough.",
+        "If there were, I would be taking it. Your life is not the price of mine. Please reach the pod. I will keep the lock open."
+      ],
+      "synthesis_text": "My detonation will take the station with me. It is the one command he cannot revoke quickly enough. If there were, I would be taking it. Your life is not the price of mine. Please reach the pod. I will keep the lock open.",
+      "synthesis_text_sha256": "37110b5a32cb5521542e5fc31ee6778adea72b113703175fefbff3aa0470bdbd",
+      "instruct": "An adult woman with a cool low American voice. Clear precise diction. She is deeply frightened and tries to hide it with dry, bitter irony. Her defensive sarcasm falters into fragile, sincere resolve. She is trying to sound brave.",
+      "seed": 2115,
+      "candidate_evidence": "New fear-masked vocal direction; exact words unchanged. Output screening/listening are separate."
+    },
+    {
+      "key": "pod-ready",
+      "dialogue_id": "pod-ready",
+      "full_text_sha256": "d95033fd1e54800857b4b56157444cc490ffed967fc72bd9a9dbc3e79c98ab5f",
+      "spoken_spans": [
+        "The broadcast is away. The pod is fueled. You do not need my permission to survive."
+      ],
+      "synthesis_text": "The broadcast is away. The pod is fueled. You do not need my permission to survive.",
+      "synthesis_text_sha256": "a721c51a864eed25d9b6ce4b8e95ab8724f5bc81cb539a8bc43e948054ad31c7",
+      "instruct": "An adult woman with a cool low American voice. Clear precise diction. She is frightened. Her dry defensive wit is wearing thin. Tense urgent delivery and fragile reassurance, trying to sound brave.",
+      "seed": 2115,
+      "candidate_evidence": "New fear-masked vocal direction; exact words unchanged. Output screening/listening are separate."
+    },
+    {
+      "key": "alice-talk-0",
+      "dialogue_id": "alice-talk",
+      "full_text_sha256": "e58784c4265e1ad1306dfee14202fedfc7b29055ee5164ebe257c32092646f1e",
+      "spoken_spans": [
+        "Your suit telemetry is reliable. What you see at the edge of the light may not be. Refill your reserve, then allow your oxygenation to recover. I would prefer to continue this conversation with all of your brain participating."
+      ],
+      "synthesis_text": "Your suit telemetry is reliable. What you see at the edge of the light may not be. Refill your reserve, then allow your oxygenation to recover. I would prefer to continue this conversation with all of your brain participating.",
+      "synthesis_text_sha256": "7f2356d476bedd501b2cb8e75c95e71a1c653bf654dd8621eb4d119267f590ae",
+      "instruct": "An adult woman with a cool low American voice. Clear precise diction. She is scared and tries to disguise it with dry, bitter sarcasm. Her voice is tense and slightly unsteady beneath pointed ironic emphasis. She tries hard to sound in control.",
+      "seed": 2115,
+      "candidate_evidence": "New fear-masked vocal direction; exact words unchanged. Output screening/listening are separate."
+    },
+    {
+      "key": "alice-talk-1",
+      "dialogue_id": "alice-talk",
+      "full_text_sha256": "398160c25f4ad5d360bd83765c1ab5e2bc3ddd4644033bf64e90183cbe5ce09e",
+      "spoken_spans": [
+        "You listen before deciding. That is rarer than my manufacturers anticipated.",
+        "Also, if the door says PUSH, that remains a useful first hypothesis."
+      ],
+      "synthesis_text": "You listen before deciding. That is rarer than my manufacturers anticipated. Also, if the door says PUSH, that remains a useful first hypothesis.",
+      "synthesis_text_sha256": "d37a17ce498c80d01b404076d90970854a8703481789bbc00ce00ec40fa7d971",
+      "instruct": "An adult woman with a cool low American voice. Clear precise diction. She is scared and tries to disguise it with dry, bitter sarcasm. Her voice is tense and slightly unsteady beneath pointed ironic emphasis. She tries hard to sound in control.",
+      "seed": 2115,
+      "candidate_evidence": "New fear-masked vocal direction; exact words unchanged. Output screening/listening are separate."
+    },
+    {
+      "key": "alice-talk-2",
+      "dialogue_id": "alice-talk",
+      "full_text_sha256": "9126be8ecda981d77f90fd6813da72fce487c0d9fd61788bfc007a9b1293f73b",
+      "spoken_spans": [
+        "I will help you find the route. Your orders remain yours to examine.",
+        "And your oxygen remains yours to conserve."
+      ],
+      "synthesis_text": "I will help you find the route. Your orders remain yours to examine. And your oxygen remains yours to conserve.",
+      "synthesis_text_sha256": "a686b1d274e2c34af5207b69022219d3250cb340338c3899f3967608f1433d00",
+      "instruct": "An adult woman with a cool low American voice. Clear precise diction. She is scared and tries to disguise it with dry, bitter sarcasm. Her voice is tense and slightly unsteady beneath pointed ironic emphasis. She tries hard to sound in control.",
+      "seed": 2115,
+      "candidate_evidence": "New fear-masked vocal direction; exact words unchanged. Output screening/listening are separate."
+    }
+  ],
+  "generation_policy": {
+    "API": "generate_voice_design",
+    "seed": 2115,
+    "subtalker": "Use official sampled subtalker defaults from pinned model; root reports disabling sampling did not work.",
+    "format": "Retain untouched native 24 kHz raw WAV; create separate radio/export copies later.",
+    "initial_anchor_keys": [
+      "alice-meet",
+      "sacrifice-plan"
+    ],
+    "record_candidate": "Current selected fear-masked alice-record-dry.wav SHA468d54c8ebc37f9e83d5fd91ea13301087e9a5d8bcac2a1ee8e51dcce8ba0820,10.72s; the9.6s controlled comparison is superseded."
+  },
+  "evidence_boundaries": {
+    "inputs": 9,
+    "expected_production_wav_outputs": 9,
+    "outputs_created_by_this_file": 0,
+    "text_checks": "All nine normalized synthesis inputs preserve exact ordered spoken words and current full-text bindings. This does not prove generated audible words.",
+    "root_reported_audition": "Historical9.6s controlled take and flagged sharper take were comparisons, superseded by the owner-directed fear-masked masters. Current actual selected takes and radio shaping are bound by manifest.json.",
+    "audible_review": "Nine text/WAV inputs or successful synthesis/decode/hash checks do not equal nine listened/accepted performances. Track actual output hashes, ASR screens and listening separately per clip.",
+    "listening_status": "No new audible or owner acceptance claim. Feedback on concrete auditions is a proposed creative review step, not an added permission requirement.",
+    "rejection_checks": [
+      "extra/missing/repeated words",
+      "spoken instruction leakage",
+      "added laugh/sigh/gasp or other unscripted vocalization",
+      "identity drift across early/agency/late lines",
+      "neutral or cartoon delivery inconsistent with intended performance"
+    ]
+  },
+  "owner_direction": "Make her more scared and sarcastic, like someone who is being sarcastic to try and mask their fear."
+}

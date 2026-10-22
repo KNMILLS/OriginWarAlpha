@@ -1,0 +1,12 @@
+Use case: identity-preserve. Original painted game animation sheet of A.D.D. robot: the center TOP quadruped turret robot in reference, boxy chipped gray chassis, amber horizontal sensor, large long barrel projecting LEFT, squat four jointed piston legs and rectangular footpads, dorsal electronics box. Preserve this exact machine identity, geometry, palette and right-facing-to-camera orthographic three-quarter angle with barrel pointing screenLEFT. Do NOT include other robots.
+8 sequential FULL-BODY WALK poses in STRICT4columns2rows equalcells, transparentalpha, samecamera/scale/height/baseline, gaps, no clipping.
+A slow heavy alternating-diagonal quadruped step, one gaitcycle:
+1 front-left/rear-right feet reach forward, other diagonal supports;
+2 advancing pair contacts and accepts weight, chassis eases onto them;
+3 opposite diagonal heel lift, elbows/knees change actual piston angles;
+4 opposite diagonal feet pass CLOSE under body;
+5 front-right/rear-left feet extend forward, other pair supports;
+6 that diagonal contacts/accepts;
+7 first pair lifts;
+8 first pair passes close under belly ready for1.
+Keep barrel and turret rigid and aimed left the whole time, chassis almost level, slight authentic weighttransfer. Every frame has FOUR legs, no leg count changes, footpads grounded while bearing weight. Preserve weapon length/panel details, original hand-painted industrial illustration neutral diffuse light. NO firing/laser/flashes, no glow sweeps, no rubberlegs, no warped duplicate sprites. No floor/castshadow/background/text/labels/grid.

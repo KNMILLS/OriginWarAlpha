@@ -1,0 +1,1266 @@
+{
+  "task": "M1-MEDIA",
+  "status": "representative illustrated candidate; in-engine acceptance pending",
+  "generation_method": "OpenAI built-in image_gen: transparent original atlas, focused transparency-edge cleanup, and separate opaque floor sheet; no external artwork or legacy assets.",
+  "authoring_prompts": [
+    "tools/media/prompts/station_atlas.txt",
+    "tools/media/prompts/station_cleanup.txt",
+    "tools/media/prompts/station_floors.txt"
+  ],
+  "export_source": "tools/media/pack_art.py",
+  "runtime_atlas": {
+    "path": "assets/art/station.png",
+    "width": 1024,
+    "height": 1024,
+    "columns": 8,
+    "rows": 8,
+    "cell_pixels": 128,
+    "native_cell_pixels": 64,
+    "nearest_neighbor_scale": 2,
+    "alpha": "RGBA; slot63 intentionally empty"
+  },
+  "source_rasters": [
+    {
+      "path": "assets/art/source/station-cleaned-generated.png",
+      "size": [
+        1254,
+        1254
+      ],
+      "sha256": "4da7d6f14b28a56b9b2a7b5b000a25da2f5f20f090ee306c288a231d7838f28c"
+    },
+    {
+      "path": "assets/art/source/station-generated.png",
+      "role": "initial edit target retained as authoring source",
+      "sha256": "cc57f713bab93c1d1297b866731b68d664fd4d13eae348ee55b94c79496de199"
+    },
+    {
+      "path": "assets/art/source/station-floors-generated.png",
+      "size": [
+        1774,
+        887
+      ],
+      "sha256": "0a073ee2df87552d713e51751b7c869b7e4e195b38dd8bd194e5bfa0dee51bf3"
+    }
+  ],
+  "export_notes": [
+    "Generated source dimensions differ from requested dimensions; equal normalized source regions are cropped and exported deterministically.",
+    "Floor sheet replaces slots 0-4 and 11-13; initial furniture-like generated floor cells are not runtime art.",
+    "Actor groups share fixed per-group scale and bottom-center anchor. No renderer, animation timing or model behavior is changed.",
+    "Native 32px export is upscaled 4x with nearest-neighbor sampling; artwork is generated raster reduced into that grid.",
+    "Lead-authorized alpha cleanup: clear alpha below 32 on isolated object/actor slots only (5-10,14-55); all alpha>=32 pixels and all floor/effect alpha remain unchanged."
+  ],
+  "animation_groups": {
+    "player": [
+      32,
+      33,
+      34,
+      35
+    ],
+    "alice": [
+      36,
+      37,
+      38,
+      39
+    ],
+    "sirs": [
+      40,
+      41,
+      42,
+      43
+    ],
+    "add": [
+      44,
+      45,
+      46,
+      47
+    ],
+    "rover": [
+      48,
+      49,
+      50,
+      51
+    ]
+  },
+  "limitations": [
+    "Only south-facing four-frame cycles; other facings require a later authored production pass.",
+    "Generated fine detail is reduced at native scale; weapon/prop readability requires actual game inspection.",
+    "Some props use shallow illustrated depth rather than pure plan view; review consistency in-engine.",
+    "Floor texture repetition/seams, animation cadence, effects and all sector coverage still require running-game acceptance.",
+    "Production art/UI/animation completion is not claimed."
+  ],
+  "slots": [
+    {
+      "id": 0,
+      "name": "docking_floor",
+      "column": 0,
+      "row": 0,
+      "region_pixels": [
+        0,
+        0,
+        128,
+        128
+      ],
+      "source": "station-floors-generated.png"
+    },
+    {
+      "id": 1,
+      "name": "habitation_floor",
+      "column": 1,
+      "row": 0,
+      "region_pixels": [
+        128,
+        0,
+        128,
+        128
+      ],
+      "source": "station-floors-generated.png"
+    },
+    {
+      "id": 2,
+      "name": "medical_floor",
+      "column": 2,
+      "row": 0,
+      "region_pixels": [
+        256,
+        0,
+        128,
+        128
+      ],
+      "source": "station-floors-generated.png"
+    },
+    {
+      "id": 3,
+      "name": "industrial_floor",
+      "column": 3,
+      "row": 0,
+      "region_pixels": [
+        384,
+        0,
+        128,
+        128
+      ],
+      "source": "station-floors-generated.png"
+    },
+    {
+      "id": 4,
+      "name": "command_floor",
+      "column": 4,
+      "row": 0,
+      "region_pixels": [
+        512,
+        0,
+        128,
+        128
+      ],
+      "source": "station-floors-generated.png"
+    },
+    {
+      "id": 5,
+      "name": "wall",
+      "column": 5,
+      "row": 0,
+      "region_pixels": [
+        640,
+        0,
+        128,
+        128
+      ],
+      "source": "station-cleaned-generated.png"
+    },
+    {
+      "id": 6,
+      "name": "wall_corner",
+      "column": 6,
+      "row": 0,
+      "region_pixels": [
+        768,
+        0,
+        128,
+        128
+      ],
+      "source": "station-cleaned-generated.png"
+    },
+    {
+      "id": 7,
+      "name": "glass_window",
+      "column": 7,
+      "row": 0,
+      "region_pixels": [
+        896,
+        0,
+        128,
+        128
+      ],
+      "source": "station-cleaned-generated.png"
+    },
+    {
+      "id": 8,
+      "name": "door_closed",
+      "column": 0,
+      "row": 1,
+      "region_pixels": [
+        0,
+        128,
+        128,
+        128
+      ],
+      "source": "station-cleaned-generated.png"
+    },
+    {
+      "id": 9,
+      "name": "door_open",
+      "column": 1,
+      "row": 1,
+      "region_pixels": [
+        128,
+        128,
+        128,
+        128
+      ],
+      "source": "station-cleaned-generated.png"
+    },
+    {
+      "id": 10,
+      "name": "door_locked",
+      "column": 2,
+      "row": 1,
+      "region_pixels": [
+        256,
+        128,
+        128,
+        128
+      ],
+      "source": "station-cleaned-generated.png"
+    },
+    {
+      "id": 11,
+      "name": "floor_low_gravity",
+      "column": 3,
+      "row": 1,
+      "region_pixels": [
+        384,
+        128,
+        128,
+        128
+      ],
+      "source": "station-floors-generated.png"
+    },
+    {
+      "id": 12,
+      "name": "floor_no_gravity",
+      "column": 4,
+      "row": 1,
+      "region_pixels": [
+        512,
+        128,
+        128,
+        128
+      ],
+      "source": "station-floors-generated.png"
+    },
+    {
+      "id": 13,
+      "name": "hazard",
+      "column": 5,
+      "row": 1,
+      "region_pixels": [
+        640,
+        128,
+        128,
+        128
+      ],
+      "source": "station-floors-generated.png"
+    },
+    {
+      "id": 14,
+      "name": "cover",
+      "column": 6,
+      "row": 1,
+      "region_pixels": [
+        768,
+        128,
+        128,
+        128
+      ],
+      "source": "station-cleaned-generated.png"
+    },
+    {
+      "id": 15,
+      "name": "switch_off",
+      "column": 7,
+      "row": 1,
+      "region_pixels": [
+        896,
+        128,
+        128,
+        128
+      ],
+      "source": "station-cleaned-generated.png"
+    },
+    {
+      "id": 16,
+      "name": "switch_on",
+      "column": 0,
+      "row": 2,
+      "region_pixels": [
+        0,
+        256,
+        128,
+        128
+      ],
+      "source": "station-cleaned-generated.png"
+    },
+    {
+      "id": 17,
+      "name": "hatch_off",
+      "column": 1,
+      "row": 2,
+      "region_pixels": [
+        128,
+        256,
+        128,
+        128
+      ],
+      "source": "station-cleaned-generated.png"
+    },
+    {
+      "id": 18,
+      "name": "hatch_on",
+      "column": 2,
+      "row": 2,
+      "region_pixels": [
+        256,
+        256,
+        128,
+        128
+      ],
+      "source": "station-cleaned-generated.png"
+    },
+    {
+      "id": 19,
+      "name": "terminal",
+      "column": 3,
+      "row": 2,
+      "region_pixels": [
+        384,
+        256,
+        128,
+        128
+      ],
+      "source": "station-cleaned-generated.png"
+    },
+    {
+      "id": 20,
+      "name": "oxygen_tank",
+      "column": 4,
+      "row": 2,
+      "region_pixels": [
+        512,
+        256,
+        128,
+        128
+      ],
+      "source": "station-cleaned-generated.png"
+    },
+    {
+      "id": 21,
+      "name": "battery",
+      "column": 5,
+      "row": 2,
+      "region_pixels": [
+        640,
+        256,
+        128,
+        128
+      ],
+      "source": "station-cleaned-generated.png"
+    },
+    {
+      "id": 22,
+      "name": "medicine",
+      "column": 6,
+      "row": 2,
+      "region_pixels": [
+        768,
+        256,
+        128,
+        128
+      ],
+      "source": "station-cleaned-generated.png"
+    },
+    {
+      "id": 23,
+      "name": "pistol",
+      "column": 7,
+      "row": 2,
+      "region_pixels": [
+        896,
+        256,
+        128,
+        128
+      ],
+      "source": "station-cleaned-generated.png"
+    },
+    {
+      "id": 24,
+      "name": "rifle",
+      "column": 0,
+      "row": 3,
+      "region_pixels": [
+        0,
+        384,
+        128,
+        128
+      ],
+      "source": "station-cleaned-generated.png"
+    },
+    {
+      "id": 25,
+      "name": "scattergun",
+      "column": 1,
+      "row": 3,
+      "region_pixels": [
+        128,
+        384,
+        128,
+        128
+      ],
+      "source": "station-cleaned-generated.png"
+    },
+    {
+      "id": 26,
+      "name": "armor_light",
+      "column": 2,
+      "row": 3,
+      "region_pixels": [
+        256,
+        384,
+        128,
+        128
+      ],
+      "source": "station-cleaned-generated.png"
+    },
+    {
+      "id": 27,
+      "name": "armor_heavy",
+      "column": 3,
+      "row": 3,
+      "region_pixels": [
+        384,
+        384,
+        128,
+        128
+      ],
+      "source": "station-cleaned-generated.png"
+    },
+    {
+      "id": 28,
+      "name": "pipes",
+      "column": 4,
+      "row": 3,
+      "region_pixels": [
+        512,
+        384,
+        128,
+        128
+      ],
+      "source": "station-cleaned-generated.png"
+    },
+    {
+      "id": 29,
+      "name": "console",
+      "column": 5,
+      "row": 3,
+      "region_pixels": [
+        640,
+        384,
+        128,
+        128
+      ],
+      "source": "station-cleaned-generated.png"
+    },
+    {
+      "id": 30,
+      "name": "debris",
+      "column": 6,
+      "row": 3,
+      "region_pixels": [
+        768,
+        384,
+        128,
+        128
+      ],
+      "source": "station-cleaned-generated.png"
+    },
+    {
+      "id": 31,
+      "name": "alarm",
+      "column": 7,
+      "row": 3,
+      "region_pixels": [
+        896,
+        384,
+        128,
+        128
+      ],
+      "source": "station-cleaned-generated.png"
+    },
+    {
+      "id": 32,
+      "name": "player_walk_0",
+      "column": 0,
+      "row": 4,
+      "region_pixels": [
+        0,
+        512,
+        128,
+        128
+      ],
+      "source": "station-cleaned-generated.png",
+      "foot_anchor_native": [
+        16,
+        30
+      ],
+      "bounds": [
+        34,
+        9,
+        126,
+        146
+      ],
+      "export_size_native": [
+        18,
+        27
+      ]
+    },
+    {
+      "id": 33,
+      "name": "player_walk_1",
+      "column": 1,
+      "row": 4,
+      "region_pixels": [
+        128,
+        512,
+        128,
+        128
+      ],
+      "source": "station-cleaned-generated.png",
+      "foot_anchor_native": [
+        16,
+        30
+      ],
+      "bounds": [
+        34,
+        10,
+        122,
+        146
+      ],
+      "export_size_native": [
+        18,
+        27
+      ]
+    },
+    {
+      "id": 34,
+      "name": "player_walk_2",
+      "column": 2,
+      "row": 4,
+      "region_pixels": [
+        256,
+        512,
+        128,
+        128
+      ],
+      "source": "station-cleaned-generated.png",
+      "foot_anchor_native": [
+        16,
+        30
+      ],
+      "bounds": [
+        35,
+        9,
+        119,
+        149
+      ],
+      "export_size_native": [
+        17,
+        28
+      ]
+    },
+    {
+      "id": 35,
+      "name": "player_walk_3",
+      "column": 3,
+      "row": 4,
+      "region_pixels": [
+        384,
+        512,
+        128,
+        128
+      ],
+      "source": "station-cleaned-generated.png",
+      "foot_anchor_native": [
+        16,
+        30
+      ],
+      "bounds": [
+        33,
+        10,
+        124,
+        147
+      ],
+      "export_size_native": [
+        18,
+        27
+      ]
+    },
+    {
+      "id": 36,
+      "name": "alice_walk_0",
+      "column": 4,
+      "row": 4,
+      "region_pixels": [
+        512,
+        512,
+        128,
+        128
+      ],
+      "source": "station-cleaned-generated.png",
+      "foot_anchor_native": [
+        16,
+        30
+      ],
+      "bounds": [
+        41,
+        13,
+        117,
+        150
+      ],
+      "export_size_native": [
+        15,
+        28
+      ]
+    },
+    {
+      "id": 37,
+      "name": "alice_walk_1",
+      "column": 5,
+      "row": 4,
+      "region_pixels": [
+        640,
+        512,
+        128,
+        128
+      ],
+      "source": "station-cleaned-generated.png",
+      "foot_anchor_native": [
+        16,
+        30
+      ],
+      "bounds": [
+        40,
+        13,
+        116,
+        151
+      ],
+      "export_size_native": [
+        15,
+        28
+      ]
+    },
+    {
+      "id": 38,
+      "name": "alice_walk_2",
+      "column": 6,
+      "row": 4,
+      "region_pixels": [
+        768,
+        512,
+        128,
+        128
+      ],
+      "source": "station-cleaned-generated.png",
+      "foot_anchor_native": [
+        16,
+        30
+      ],
+      "bounds": [
+        39,
+        13,
+        117,
+        150
+      ],
+      "export_size_native": [
+        16,
+        28
+      ]
+    },
+    {
+      "id": 39,
+      "name": "alice_walk_3",
+      "column": 7,
+      "row": 4,
+      "region_pixels": [
+        896,
+        512,
+        128,
+        128
+      ],
+      "source": "station-cleaned-generated.png",
+      "foot_anchor_native": [
+        16,
+        30
+      ],
+      "bounds": [
+        41,
+        12,
+        118,
+        150
+      ],
+      "export_size_native": [
+        16,
+        28
+      ]
+    },
+    {
+      "id": 40,
+      "name": "sirs_walk_0",
+      "column": 0,
+      "row": 5,
+      "region_pixels": [
+        0,
+        640,
+        128,
+        128
+      ],
+      "source": "station-cleaned-generated.png",
+      "foot_anchor_native": [
+        16,
+        30
+      ],
+      "bounds": [
+        31,
+        7,
+        133,
+        153
+      ],
+      "export_size_native": [
+        20,
+        28
+      ]
+    },
+    {
+      "id": 41,
+      "name": "sirs_walk_1",
+      "column": 1,
+      "row": 5,
+      "region_pixels": [
+        128,
+        640,
+        128,
+        128
+      ],
+      "source": "station-cleaned-generated.png",
+      "foot_anchor_native": [
+        16,
+        30
+      ],
+      "bounds": [
+        31,
+        9,
+        132,
+        153
+      ],
+      "export_size_native": [
+        19,
+        28
+      ]
+    },
+    {
+      "id": 42,
+      "name": "sirs_walk_2",
+      "column": 2,
+      "row": 5,
+      "region_pixels": [
+        256,
+        640,
+        128,
+        128
+      ],
+      "source": "station-cleaned-generated.png",
+      "foot_anchor_native": [
+        16,
+        30
+      ],
+      "bounds": [
+        27,
+        10,
+        126,
+        153
+      ],
+      "export_size_native": [
+        19,
+        27
+      ]
+    },
+    {
+      "id": 43,
+      "name": "sirs_walk_3",
+      "column": 3,
+      "row": 5,
+      "region_pixels": [
+        384,
+        640,
+        128,
+        128
+      ],
+      "source": "station-cleaned-generated.png",
+      "foot_anchor_native": [
+        16,
+        30
+      ],
+      "bounds": [
+        26,
+        9,
+        129,
+        153
+      ],
+      "export_size_native": [
+        20,
+        28
+      ]
+    },
+    {
+      "id": 44,
+      "name": "add_walk_0",
+      "column": 4,
+      "row": 5,
+      "region_pixels": [
+        512,
+        640,
+        128,
+        128
+      ],
+      "source": "station-cleaned-generated.png",
+      "foot_anchor_native": [
+        16,
+        30
+      ],
+      "bounds": [
+        13,
+        8,
+        146,
+        148
+      ],
+      "export_size_native": [
+        26,
+        27
+      ]
+    },
+    {
+      "id": 45,
+      "name": "add_walk_1",
+      "column": 5,
+      "row": 5,
+      "region_pixels": [
+        640,
+        640,
+        128,
+        128
+      ],
+      "source": "station-cleaned-generated.png",
+      "foot_anchor_native": [
+        16,
+        30
+      ],
+      "bounds": [
+        10,
+        10,
+        146,
+        155
+      ],
+      "export_size_native": [
+        26,
+        28
+      ]
+    },
+    {
+      "id": 46,
+      "name": "add_walk_2",
+      "column": 6,
+      "row": 5,
+      "region_pixels": [
+        768,
+        640,
+        128,
+        128
+      ],
+      "source": "station-cleaned-generated.png",
+      "foot_anchor_native": [
+        16,
+        30
+      ],
+      "bounds": [
+        12,
+        9,
+        144,
+        148
+      ],
+      "export_size_native": [
+        25,
+        27
+      ]
+    },
+    {
+      "id": 47,
+      "name": "add_walk_3",
+      "column": 7,
+      "row": 5,
+      "region_pixels": [
+        896,
+        640,
+        128,
+        128
+      ],
+      "source": "station-cleaned-generated.png",
+      "foot_anchor_native": [
+        16,
+        30
+      ],
+      "bounds": [
+        8,
+        12,
+        144,
+        141
+      ],
+      "export_size_native": [
+        26,
+        25
+      ]
+    },
+    {
+      "id": 48,
+      "name": "rover_walk_0",
+      "column": 0,
+      "row": 6,
+      "region_pixels": [
+        0,
+        768,
+        128,
+        128
+      ],
+      "source": "station-cleaned-generated.png",
+      "foot_anchor_native": [
+        16,
+        30
+      ],
+      "bounds": [
+        40,
+        26,
+        125,
+        140
+      ],
+      "export_size_native": [
+        17,
+        23
+      ]
+    },
+    {
+      "id": 49,
+      "name": "rover_walk_1",
+      "column": 1,
+      "row": 6,
+      "region_pixels": [
+        128,
+        768,
+        128,
+        128
+      ],
+      "source": "station-cleaned-generated.png",
+      "foot_anchor_native": [
+        16,
+        30
+      ],
+      "bounds": [
+        39,
+        28,
+        119,
+        150
+      ],
+      "export_size_native": [
+        16,
+        25
+      ]
+    },
+    {
+      "id": 50,
+      "name": "rover_walk_2",
+      "column": 2,
+      "row": 6,
+      "region_pixels": [
+        256,
+        768,
+        128,
+        128
+      ],
+      "source": "station-cleaned-generated.png",
+      "foot_anchor_native": [
+        16,
+        30
+      ],
+      "bounds": [
+        38,
+        26,
+        117,
+        146
+      ],
+      "export_size_native": [
+        16,
+        24
+      ]
+    },
+    {
+      "id": 51,
+      "name": "rover_walk_3",
+      "column": 3,
+      "row": 6,
+      "region_pixels": [
+        384,
+        768,
+        128,
+        128
+      ],
+      "source": "station-cleaned-generated.png",
+      "foot_anchor_native": [
+        16,
+        30
+      ],
+      "bounds": [
+        27,
+        26,
+        115,
+        149
+      ],
+      "export_size_native": [
+        18,
+        25
+      ]
+    },
+    {
+      "id": 52,
+      "name": "west",
+      "column": 4,
+      "row": 6,
+      "region_pixels": [
+        512,
+        768,
+        128,
+        128
+      ],
+      "source": "station-cleaned-generated.png",
+      "foot_anchor_native": [
+        16,
+        30
+      ],
+      "bounds": [
+        34,
+        5,
+        122,
+        147
+      ],
+      "export_size_native": [
+        17,
+        28
+      ]
+    },
+    {
+      "id": 53,
+      "name": "carmack",
+      "column": 5,
+      "row": 6,
+      "region_pixels": [
+        640,
+        768,
+        128,
+        128
+      ],
+      "source": "station-cleaned-generated.png",
+      "foot_anchor_native": [
+        16,
+        30
+      ],
+      "bounds": [
+        39,
+        12,
+        117,
+        146
+      ],
+      "export_size_native": [
+        16,
+        28
+      ]
+    },
+    {
+      "id": 54,
+      "name": "operator",
+      "column": 6,
+      "row": 6,
+      "region_pixels": [
+        768,
+        768,
+        128,
+        128
+      ],
+      "source": "station-cleaned-generated.png",
+      "foot_anchor_native": [
+        16,
+        30
+      ],
+      "bounds": [
+        33,
+        10,
+        157,
+        147
+      ],
+      "export_size_native": [
+        25,
+        28
+      ]
+    },
+    {
+      "id": 55,
+      "name": "constructor",
+      "column": 7,
+      "row": 6,
+      "region_pixels": [
+        896,
+        768,
+        128,
+        128
+      ],
+      "source": "station-cleaned-generated.png",
+      "foot_anchor_native": [
+        16,
+        30
+      ],
+      "bounds": [
+        0,
+        1,
+        142,
+        149
+      ],
+      "export_size_native": [
+        27,
+        28
+      ]
+    },
+    {
+      "id": 56,
+      "name": "hacking",
+      "column": 0,
+      "row": 7,
+      "region_pixels": [
+        0,
+        896,
+        128,
+        128
+      ],
+      "source": "station-cleaned-generated.png"
+    },
+    {
+      "id": 57,
+      "name": "impact",
+      "column": 1,
+      "row": 7,
+      "region_pixels": [
+        128,
+        896,
+        128,
+        128
+      ],
+      "source": "station-cleaned-generated.png"
+    },
+    {
+      "id": 58,
+      "name": "explosion",
+      "column": 2,
+      "row": 7,
+      "region_pixels": [
+        256,
+        896,
+        128,
+        128
+      ],
+      "source": "station-cleaned-generated.png"
+    },
+    {
+      "id": 59,
+      "name": "phantom",
+      "column": 3,
+      "row": 7,
+      "region_pixels": [
+        384,
+        896,
+        128,
+        128
+      ],
+      "source": "station-cleaned-generated.png"
+    },
+    {
+      "id": 60,
+      "name": "selection",
+      "column": 4,
+      "row": 7,
+      "region_pixels": [
+        512,
+        896,
+        128,
+        128
+      ],
+      "source": "station-cleaned-generated.png"
+    },
+    {
+      "id": 61,
+      "name": "shadow",
+      "column": 5,
+      "row": 7,
+      "region_pixels": [
+        640,
+        896,
+        128,
+        128
+      ],
+      "source": "station-cleaned-generated.png"
+    },
+    {
+      "id": 62,
+      "name": "beam",
+      "column": 6,
+      "row": 7,
+      "region_pixels": [
+        768,
+        896,
+        128,
+        128
+      ],
+      "source": "station-cleaned-generated.png"
+    },
+    {
+      "id": 63,
+      "name": "blank",
+      "column": 7,
+      "row": 7,
+      "region_pixels": [
+        896,
+        896,
+        128,
+        128
+      ],
+      "source": "station-cleaned-generated.png"
+    }
+  ],
+  "atmosphere_override": "assets/art/atmosphere/manifest.json",
+  "atmosphere_note": "Historical source/layout entries below describe the preserved prior pass. The ATM-ART override identifies current64px native crops and changed slots; runtime128px cells are unchanged.",
+  "current_export": "tools/media/pack_atmosphere.py then tools/media/pack_material_separation.py",
+  "current_reference_station_sha256": "6c02073664d4b56b05959899cdf07f2cd3c49cda2d66abde205c5a253f2b0c5d",
+  "material_separation_override": "assets/art/material-separation/manifest.json"
+}

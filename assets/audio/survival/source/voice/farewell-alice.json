@@ -1,0 +1,43 @@
+{
+  "speaker": "alice",
+  "text": "The pod is sealed. Destination Mars. Please decide for yourself when you get there.",
+  "text_sha256": "df3473cde20226ec8115a0fae76893a079d3ca37633339d54a042d0022ebdb48",
+  "source_key": "farewell-alice",
+  "engine": "Qwen3-TTS-VoiceDesign",
+  "model_revision": "5ecdb67327fd37bb2e042aab12ff7391903235d3",
+  "instruct": "An adult woman with a cool low American voice. Clear precise diction. She is deeply frightened and trying to remain composed. Her dry irony gives way to sincere quiet resolve. Restrained, intimate, deliberate speech; no shouting or melodrama.",
+  "seed": 2115,
+  "language": "English",
+  "generation": {
+    "non_streaming_mode": true,
+    "max_new_tokens": 512,
+    "do_sample": true,
+    "temperature": 0.9,
+    "top_p": 1.0,
+    "top_k": 50,
+    "repetition_penalty": 1.05,
+    "subtalker_dosample": true,
+    "subtalker_temperature": 0.9,
+    "subtalker_top_k": 50,
+    "subtalker_top_p": 1.0
+  },
+  "source_wav": "farewell-alice-dry.wav",
+  "source_rate": 24000,
+  "source_subtype": "PCM_24",
+  "seconds": 7.44,
+  "finite": true,
+  "peak_linear": 0.41015625,
+  "sha256": "8ea2456fbe1d4d07f85d26d3f175756117d55621e26013c17d92c6425b7592b1",
+  "elapsed_seconds": 25.31299999996554,
+  "versions": {
+    "qwen-tts": "0.1.1",
+    "torch": "2.6.0+cu124",
+    "transformers": "4.57.3",
+    "accelerate": "1.12.0",
+    "numpy": "2.5.4",
+    "soundfile": "0.14.0"
+  },
+  "plan_sha256": "36491130765dcdd43ced6d81ad1a65091f0caaee49fe243484a993f4665eafd3",
+  "generator_sha256": "e59f6674b3c302944f1d18792b6d3752ae63b313c36bd7a1439b387710f97550",
+  "quality_scope": "Generated candidate. Exact input/hash/header is not proof of output words, voice consistency or acting quality."
+}

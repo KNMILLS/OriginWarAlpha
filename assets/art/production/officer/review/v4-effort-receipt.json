@@ -1,0 +1,38 @@
+{
+  "status": "Source candidate complete; native object registration and art gates HOLD",
+  "firstSavedLookArtifactUtc": "2026-10-22T20:34:01.899242+00:00",
+  "receiptUtc": "2026-10-22T21:11:24.138243+00:00",
+  "primaryProcessSegments": [
+    {
+      "kind": "pistol completed batch plus first unarmed idle",
+      "processWindowSeconds": 306.9118522,
+      "method": "Process StartTime to exact boundary stop"
+    },
+    {
+      "kind": "unarmed interrupted after west drop",
+      "processWindowSeconds": 255.1025538444519,
+      "method": "Observed log creation to last-write window, not separate render instrumentation"
+    },
+    {
+      "kind": "unarmed remaining145exposures",
+      "processWindowSeconds": 51.33020409999881,
+      "method": "Authored exporter perf_counter"
+    }
+  ],
+  "rifleProcess": {
+    "modelAndCalibrationSeconds": 6.969333800021559,
+    "totalProcessSeconds": 126.32967639993876,
+    "renderSeconds": 119.3603438999271,
+    "geometryIterations": 3,
+    "boundedLookCorrections": 5,
+    "status": "Development candidate for native evaluation; artistic finish OPEN"
+  },
+  "knownUnmeasuredCosts": [
+    "Initial code/model authoring and inspection",
+    "Intermediate correction effort and rejected/aborted renders",
+    "Lead integration and native review",
+    "Owner and experienced animator assessment"
+  ],
+  "purchaseSpend": 0,
+  "billingOrCampaignEstimate": "Not supplied; rendering speed cannot establish actual authoring/correction/integration effort"
+}

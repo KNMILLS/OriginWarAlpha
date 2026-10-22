@@ -1,0 +1,81 @@
+{
+  "task": "SH-ART",
+  "date": "2026-10-21",
+  "baseCommit": "96a1c6e",
+  "generationDirectory": "C:/Users/KenGM/.codex/generated_images/01a15f6a-dcbb-73f2-9e69-d9593be473cb",
+  "sources": [
+    {
+      "path": "officer-turnaround.png",
+      "sha256": "9313e02cfcc98e3c0992697635348c67dc6e4396de26988cc01234b65c9882de",
+      "prompt": "officer-prompt.txt",
+      "promptSha256": "c682a27ec9702dfb79a42ede71922fc53c46bd902ba28104c727df2003c3afa4",
+      "tool": "built-in image_gen",
+      "originalOutput": "exec-baf44c29-5e85-41e6-b0a9-75f0a12a8595.png",
+      "selection": "SELECTED first generation; no rejected alternate",
+      "transparentBackground": true
+    },
+    {
+      "path": "floor-master.png",
+      "sha256": "e772079463c9f591e0c9e58e6e3718a223f62c90abeeebf5d447912b1d51478b",
+      "prompt": "floor-prompt.txt",
+      "promptSha256": "e0681e813dd4acb10673dd45dc5bd5017489ea5cebfd3bfda340acc1d27ba9e3",
+      "tool": "built-in image_gen",
+      "originalOutput": "exec-c1c3fd7b-c65d-440e-a2c1-7c5272e053c2.png",
+      "selection": "SELECTED first generation; no rejected alternate",
+      "transparentBackground": false
+    },
+    {
+      "path": "structure-master.png",
+      "sha256": "5f04ffc3724a8109cf4b86149d7be95eec0e5cfd6f27aae82c672bbc6dfc56b2",
+      "prompt": "structure-prompt.txt",
+      "promptSha256": "093b64c3d4477d9ae6b08e640295641313a7b469900d0361380c6ec01576ab62",
+      "tool": "built-in image_gen",
+      "originalOutput": "exec-073ec44d-8b9b-408f-86f4-31afb42c33a9.png",
+      "selection": "SELECTED first generation; no rejected alternate",
+      "transparentBackground": true
+    },
+    {
+      "path": "machine-initial.png",
+      "sha256": "d7be321e256e86c673af55e9b79a6409566ce9c20473f8357010ee0a97f6029d",
+      "prompt": "machine-initial-prompt.txt",
+      "promptSha256": "3f45e86f19691dba4bb2744e0279b810f87ebf8b3d2368ab6c864e78c5e6ea74",
+      "tool": "built-in image_gen",
+      "originalOutput": "exec-abf8d85d-26cc-422c-8f27-c4a248b768fa.png",
+      "selection": "SELECTED first generation; no rejected alternate",
+      "transparentBackground": true
+    },
+    {
+      "path": "item-master.png",
+      "sha256": "f74b5de51b9ed3b360be96641dab5295519295d7e8761a17cff278bd6b531bb0",
+      "prompt": "item-prompt.txt",
+      "promptSha256": "084281587c8f031ab7df103e49edfa3ac4407536d8d3ef22439cefcf669f73de",
+      "tool": "built-in image_gen",
+      "originalOutput": "exec-26d96dd8-411e-4fb5-a7e6-df8702b0da2b.png",
+      "selection": "SELECTED first generation; no rejected alternate",
+      "transparentBackground": true
+    },
+    {
+      "path": "alice-master.png",
+      "sha256": "9d3475ec3a50ccd14056bd092cbbf9c57ca5939240ca68ea674f902e4afe3e2f",
+      "prompt": "alice-prompt.txt",
+      "promptSha256": "647e6aad66e1b47f7ec8ec1a346e666fac5d28c233b98f7c11f41e83bf713b9b",
+      "tool": "built-in image_gen",
+      "originalOutput": "exec-aec93f9d-e2de-494b-aa5c-c4742c515110.png",
+      "selection": "SELECTED first generation; no rejected alternate",
+      "transparentBackground": true
+    },
+    {
+      "path": "owner-player-reference.png",
+      "sha256": "5ca47c3532a5a7d80247753fef399c29ba719382f30f0464c625587db2d5930e",
+      "role": "unchanged original owner helmet identity reference; copied from retained atmosphere source, not new third-party grant"
+    }
+  ],
+  "externalAssetsImported": false,
+  "productionCodePainting": false,
+  "rights": "Original project-created image_gen outputs; owner reference retains its own authorship/rights. Release-license selection remains owner-controlled.",
+  "limitations": [
+    "Flattened generated masters; editable per-asset catalog is not reconstructed brushstroke layers.",
+    "Static officer sidearm poses; animation and equipment variants remain separate.",
+    "No native runtime, lighting, motion or owner artistic acceptance claimed."
+  ]
+}

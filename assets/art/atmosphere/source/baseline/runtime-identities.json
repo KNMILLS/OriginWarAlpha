@@ -1,0 +1,11 @@
+{
+  "baseline": "374e27c764d55adaae7a9a3b4003a5ff883de157",
+  "sha256": {
+    "assets/art/station.png": "4c256eb65f22457d3ffa6591fd124982f76b54b6f5706f3a5d8899b8d5d78794",
+    "assets/art/animation/actors.png": "3e896e121b92b6cad0b82f246eff061452cf396c59a4feb4a2091d891268b143",
+    "assets/art/sectors/sectors.png": "f4f5195ece8c3856a04333d92e0ec9f62d7028dd0f6924a08bbd0322d46e6ad1",
+    "assets/art/animation/directional-actions/attack.png": "558653f8113d6d1e29a6f21a92b0db203cb166442d5a92b6f2a57215070fe68f",
+    "assets/art/animation/humans/humans.png": "f42694c33c46c32fc3ca2f2612e8bae0f7b40e5f94a60183688daceb27103044",
+    "assets/art/finale/finale.png": "7ee807f12d49e09597c684dc7caa1488864c3160b8cf9315eb4a47fba07e0737"
+  }
+}

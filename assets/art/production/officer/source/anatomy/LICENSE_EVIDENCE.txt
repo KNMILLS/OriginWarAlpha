@@ -1,0 +1,37 @@
+OFFICIAL BLENDER HUMAN BASE MESHES: SELECTED HEAD LICENSE EVIDENCE
+
+Official listing: https://www.blender.org/download/demo-files/
+Saved listing: demo-files.html. Its Human Base Meshes v1.4.1 card explicitly
+states CC0, credits Blender Studio/community contributions, and links the bundle.
+Official download index:
+https://download.blender.org/demo/asset-bundles/human-base-meshes/
+Official archive:
+https://download.blender.org/demo/asset-bundles/human-base-meshes/human-base-meshes-bundle-v1.4.1.zip
+
+Actual upstream .blend embedded README states:
+"All provided assets are public domain under the CC0 license."
+The full README is preserved separately as upstream-embedded-README.txt.
+
+SELECTED COLLECTION: Head (Animation) - Realistic
+Embedded asset author: Dan Ulrich
+Embedded asset license: CC0
+Embedded description: Realistic scan data model with multiresolution details.
+Topology optimized for rigging and animation.
+The exact collection metadata is recorded in asset-license-inspection.json.
+
+Declared license reference: https://creativecommons.org/publicdomain/zero/1.0/
+The CC0 declaration supports modification and commercial use of this collection.
+This is source/license evidence, not legal advice or character approval.
+
+SCOPE NUANCE
+The upstream .blend also contains an unrelated text datablock called License,
+which identifies the Rain Rig as Creative Commons Attribution 4.0. That text
+was preserved in the upstream inspection rather than silently relabeled CC0.
+The chosen head collection independently and explicitly declares CC0.
+Only its five mesh objects were appended to the clean derivative. No armature,
+Rain Rig, body collection, or unrelated License text was imported. A clean
+reload finds zero linked objects, zero library records and zero armatures.
+
+The derived head is an editable anatomy foundation for review. Geometry,
+materials, modifiers and transforms are unchanged; no Origin War costume,
+rigging, animation, render, engine integration or owner acceptance is claimed.

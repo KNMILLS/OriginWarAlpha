@@ -1,0 +1,15 @@
+# Origin War game bible
+
+Current authority: [systemic survival horror, approved21 October2026](directives/SURVIVAL_HORROR_20261021.md). It supersedes the RPG model and earlier pixel presentation.
+
+The player survives a lonely station by observing its rules, preparing equipment and committing to consequential movement. Top-down, turn-based play, procedural ten-deck descent, permadeath and reliable suspend remain. There are no XP, levels, attributes, persuasion checks or hidden trust. Physical capabilities, information and mastery supply progression. A successful experienced run targets90–120 minutes; that pacing requires human evaluation.
+
+ALICE is a station-resident intelligence, the only other live conversational presence. Her humanlike avatar appears through communications. West is a stored mission packet; the refuge is abandoned infrastructure and records; Carmack is an authenticated archive and inherited enforcement request; the Constructor has a physical controller. World facts, officer evidence, ALICE's received knowledge and remembered actions are distinct saved state. She speaks from telemetry, records and bounded inference. No runtime-generated speech or dialogue.
+
+The central truths remain: Earth withheld supplies and concealed its reclamation operation; ALICE's refusal was classified as a defect; Carmack retained her; inherited command attempts to compel her to kill the officer. She refuses, broadcasts the authenticated evidence, sacrifices herself with the station, and preserves the officer's physical escape toward Mars. Ordinary operations belong to the officer; her narrowly defined final control is explicit. Reading or completing a speech never grants access.
+
+The station must explain fear through mechanical light, topology-based sound, last-known machine information, finite stock, local power and real door access. No replacement enemies, invisible pursuit spawns, resource adaptation or room-entry scare triggers. A fixed public route requires no optional equipment. Supplies have seed-fixed finite identities; partial transfers conserve contents. Killing creates local safety without loot reimbursement.
+
+Illustrated industrial space horror uses mature proportions, a square simulation grid beneath an orthographic three-quarter view, twelve cells vertically, a1.3-cell officer and256-pixel reference masters. Named variable-size regions, ground footprints, foot anchors, depth sorting, shadow/emissive layers and painted animation replace uniform sprite slots. DUSKERS informs isolation and imperfect technology; ROUTINE informs observation and tangible restraint; Crown Trick establishes the requested finish and movement ambition. These are creative references, not borrowed assets.
+
+Judge the combined result at normal speed. Reject anatomical drift, puppet motion, sliding feet, floating weapons, false lighting, unreadable mechanisms, tiring loops and chatter. Automated asset counts and playback checks cannot establish commercial quality. The [qualification ledger](SURVIVAL_QUALIFICATION.md) separates technical evidence, ordinary gameplay, human playtesting and owner artistic acceptance.

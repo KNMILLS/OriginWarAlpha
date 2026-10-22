@@ -1,0 +1,1148 @@
+{
+  "version": 1,
+  "task": "SH-SOUND",
+  "approval": "Integration lead approved all exact 28 lines, 21 October 2026.",
+  "content_contract": "Complete authored offline performances. Eligibility observes legitimate facts; playback cannot operate the station or advance turns.",
+  "model": {
+    "repository": "Qwen/Qwen3-TTS-12Hz-1.7B-VoiceDesign",
+    "revision": "5ecdb67327fd37bb2e042aab12ff7391903235d3"
+  },
+  "tone_note": "ALICE clean derivatives retain the existing +1.25 semitone/bright shelf direction. The officer is centered inside the helmet; ALICE is transmitted remotely.",
+  "global_optional_start_policy": {
+    "minimum_seconds": 90,
+    "minimum_paid_actions": 8,
+    "maximum_starts_per_180_seconds": 1,
+    "known_imminent_danger_blocks": true,
+    "critical_suit_blocks": true,
+    "queue_backlog": false
+  },
+  "essential_policy": "Contact and finale are factual core events, exempt from optional frequency limits. Urgent truthful effects still take mix precedence. Completion never gates progress.",
+  "memory_policy": "Persist started/completed segments, facts and remembered actions. Discard stale interrupted material; never restart completed lines on focus, mute or load.",
+  "exchanges": [
+    {
+      "id": "contact",
+      "family": "contact",
+      "essential": true,
+      "eligibility": "link-established",
+      "required_facts": [
+        "working-radio-link",
+        "contact-not-established",
+        "radio-link-degraded"
+      ],
+      "expiry_conditions": [
+        "link-lost"
+      ],
+      "once_per_run": true,
+      "priority": 80,
+      "line_gap_seconds": 0.32,
+      "lines": [
+        {
+          "speaker": "officer",
+          "text": "Station, this is the boarding officer. Can anyone hear me?",
+          "text_sha256": "c80dfe318e1ab41a29b47c1510cc2dff2f7a8ff92fe29b36abf3536861a0e8cf",
+          "source_key": "contact-officer",
+          "path": "audio/survival/voice/contact-officer.ogg",
+          "sha256": "925d619e5a87cf12b5d65008f16b161f4e695474f37070ae8f005e7b08e739cf",
+          "duration": 5.06,
+          "sample_rate": 44100,
+          "channels": 1,
+          "peak_dbfs": -11.0,
+          "rms_dbfs": -30.8408,
+          "float_sha256": "cd2b6de201f2e504f9231dbdc86f2be40284047c15671667563d45b6b1d430b6",
+          "clear_path": "audio/survival/voice/clear/contact-officer.ogg",
+          "clear_sha256": "eeda78219b1ddea3303044fe917e3fe85de5a910d652b2618eb5a430a07d3c7c",
+          "clear_duration": 5.06,
+          "source_wav_sha256": "84f68b6ff09289f6fbfe18959f1c16eed6535f1e11d7f0000cc744c1258dfa43"
+        },
+        {
+          "speaker": "alice",
+          "text": "I can. A.L.I.C.E. Your connection is poor. Your timing is worse.",
+          "text_sha256": "2af554eb797b225bc75016f50b4a325c9c7c0943e474d295e951d2d1766d9db0",
+          "source_key": "contact-alice",
+          "path": "audio/survival/voice/contact-alice.ogg",
+          "sha256": "b8352204f7eb1ff9441010fc9c8b0bdfca09aa7280939ef6228b78c3374d262b",
+          "duration": 7.3,
+          "sample_rate": 44100,
+          "channels": 1,
+          "peak_dbfs": -11.0,
+          "rms_dbfs": -28.6895,
+          "float_sha256": "7ba599ec34f5711cf694da04f27d28192deb6605fd44da429de3d8ef41b6ac99",
+          "clear_path": "audio/survival/voice/clear/contact-alice.ogg",
+          "clear_sha256": "6cf02f0932c863f580362a2f47b29db0aeec725a3e8845c4dcc5879c00add7ce",
+          "clear_duration": 7.3,
+          "source_wav_sha256": "b52a631cff47de86698278c7ca879a290736de85b28ec0a9911191b4406ff1c6"
+        }
+      ]
+    },
+    {
+      "id": "quiet",
+      "family": "quiet",
+      "essential": false,
+      "eligibility": "quiet-opportunity",
+      "required_facts": [
+        "contact-established",
+        "working-radio-link",
+        "safe-to-talk"
+      ],
+      "expiry_conditions": [
+        "known-imminent-danger",
+        "link-lost"
+      ],
+      "once_per_run": true,
+      "priority": 10,
+      "line_gap_seconds": 0.32,
+      "lines": [
+        {
+          "speaker": "officer",
+          "text": "Just checking the channel.",
+          "text_sha256": "54259f0109fd61ae4a6e582e5eab6171f6a6b6d77ceaab46ab8346e696f776f2",
+          "source_key": "quiet-officer",
+          "path": "audio/survival/voice/quiet-officer.ogg",
+          "sha256": "3ae8032883708e3a0e31bc18467f2c03edd5d90cf9a5616c07043d35208b3e70",
+          "duration": 1.86,
+          "sample_rate": 44100,
+          "channels": 1,
+          "peak_dbfs": -11.0,
+          "rms_dbfs": -28.9492,
+          "float_sha256": "86a122b43bdf98e04c913c71cd586af25fa65d346143367cf95a60e9d1b62e91",
+          "clear_path": "audio/survival/voice/clear/quiet-officer.ogg",
+          "clear_sha256": "14cd2ce64ce84917cf2b6de4ff4f0918aa15a9b24c244b9017fd5bae12e29efd",
+          "clear_duration": 1.86,
+          "source_wav_sha256": "f2714fd44ee93dd7eb6471ec0d99b15320f193ae045fd9ed8fb87656c64c7bb3"
+        },
+        {
+          "speaker": "alice",
+          "text": "Still here. You needn't manufacture a technical reason.",
+          "text_sha256": "6f39ebc8c8ed56ea80d10f4b877dea7e1d4a3ee89c9d30140c84ae3b970467ad",
+          "source_key": "quiet-alice",
+          "path": "audio/survival/voice/quiet-alice.ogg",
+          "sha256": "d3af2b1007e891df2a38bbd6859350481b56681bbd2bbff540af49135dacba95",
+          "duration": 4.58,
+          "sample_rate": 44100,
+          "channels": 1,
+          "peak_dbfs": -11.0,
+          "rms_dbfs": -25.8759,
+          "float_sha256": "573947fbd71d1455c9dc8def41a228878e7556c645c4f5f455a1de58eca78514",
+          "clear_path": "audio/survival/voice/clear/quiet-alice.ogg",
+          "clear_sha256": "21cb3c5d49ea485f9440c88c42becc4ec9c0c133a56dbac72c3a5335685f2ba3",
+          "clear_duration": 4.58,
+          "source_wav_sha256": "fc6001f4d30944d98cb3fc3f9b6dd6ad94188ada5be6a12926b699bc7b8aed54"
+        }
+      ]
+    },
+    {
+      "id": "careful",
+      "family": "careful",
+      "essential": false,
+      "eligibility": "careful-move-completed",
+      "required_facts": [
+        "working-radio-link",
+        "last-move-was-quieter-than-standard",
+        "safe-to-talk"
+      ],
+      "expiry_conditions": [
+        "new-loud-action",
+        "known-imminent-danger",
+        "link-lost"
+      ],
+      "once_per_run": true,
+      "priority": 10,
+      "line_gap_seconds": 0.32,
+      "lines": [
+        {
+          "speaker": "officer",
+          "text": "That was quieter.",
+          "text_sha256": "d0486e996d5c071223ba8d7f56b977f4c2d6315b185e5a85c0c418866ea148d2",
+          "source_key": "careful-officer",
+          "path": "audio/survival/voice/careful-officer.ogg",
+          "sha256": "77dd7403afa36a4ef25dce83e792550ab2aae395fadb129b8567366b0a5a6bc2",
+          "duration": 1.54,
+          "sample_rate": 44100,
+          "channels": 1,
+          "peak_dbfs": -11.0,
+          "rms_dbfs": -29.3588,
+          "float_sha256": "3a40f74c1ea26437278b795bd612205e816ff4eb0d5cdb62269f7733b98b475a",
+          "clear_path": "audio/survival/voice/clear/careful-officer.ogg",
+          "clear_sha256": "97036764d2edc60e33fe40a85a163adfd6d2330d31b968e5d9515c49a3cf1ebe",
+          "clear_duration": 1.54,
+          "source_wav_sha256": "72fcecdea67bbba1245fcaeb30314aa283290c4d0e12acf439ab8623559f3e06"
+        },
+        {
+          "speaker": "alice",
+          "text": "Yes. A rare achievement for this institution.",
+          "text_sha256": "3f9fc6184a6bffcab9c02f7309073eba06fa89b60b92ae3c2c90fcfb8c44a645",
+          "source_key": "careful-alice",
+          "path": "audio/survival/voice/careful-alice.ogg",
+          "sha256": "2c77bec6a0ffe173fbcbeac7194df7bf623234ba8ec0372fe8bf1f404e364d19",
+          "duration": 3.86,
+          "sample_rate": 44100,
+          "channels": 1,
+          "peak_dbfs": -11.0,
+          "rms_dbfs": -28.6725,
+          "float_sha256": "953981ca42423317db0de7fe2c3c5f6ced457125afa4d128cd5a3ab6e8970dfd",
+          "clear_path": "audio/survival/voice/clear/careful-alice.ogg",
+          "clear_sha256": "db8973d9be8ce627982ad7c5b0d631d679577143f89dd04509f09cc534bf369f",
+          "clear_duration": 3.86,
+          "source_wav_sha256": "1b465e7d05ab0b6a7113e2e63fdf30f186f09d0161442e6082f915f2c8e3d053"
+        }
+      ]
+    },
+    {
+      "id": "force",
+      "family": "force",
+      "essential": false,
+      "eligibility": "door-forced",
+      "required_facts": [
+        "working-radio-link",
+        "last-force-was-audible",
+        "safe-to-talk"
+      ],
+      "expiry_conditions": [
+        "changed-local-context",
+        "known-imminent-danger",
+        "link-lost"
+      ],
+      "once_per_run": true,
+      "priority": 10,
+      "line_gap_seconds": 0.32,
+      "lines": [
+        {
+          "speaker": "officer",
+          "text": "That carried.",
+          "text_sha256": "335b4640c6dca7a214c12beb0c0dc1dfab99b638b875d37ca463baaf4db9f81c",
+          "source_key": "force-officer",
+          "path": "audio/survival/voice/force-officer.ogg",
+          "sha256": "8e5ea708df95d75c65d842a56dec3b6d7aa4b218595318a877ee85828e3193d0",
+          "duration": 1.06,
+          "sample_rate": 44100,
+          "channels": 1,
+          "peak_dbfs": -11.0,
+          "rms_dbfs": -29.1763,
+          "float_sha256": "8bf48fcb4fe90c41ef81b95b62975ff5718364cb67984a89c499405577e3efa2",
+          "clear_path": "audio/survival/voice/clear/force-officer.ogg",
+          "clear_sha256": "04fd2281c4373c7063195f8567a53c70f36cc15dfd7311e5b139f78fc7055f3f",
+          "clear_duration": 1.06,
+          "source_wav_sha256": "675e3aede55417d48ee17fd67a9b5efbdde11547897cf37fd68af51384acbd44"
+        },
+        {
+          "speaker": "alice",
+          "text": "Subtlety was not among that door's remaining functions.",
+          "text_sha256": "8c3022268c7de7d9dd6b01c77a56ca9b7d19e52fa196c7628b480fe02b4918a7",
+          "source_key": "force-alice",
+          "path": "audio/survival/voice/force-alice.ogg",
+          "sha256": "58d6231052c28c71f73eb8d4562ff027949e381f11b418d70abc652e43c52fe2",
+          "duration": 4.58,
+          "sample_rate": 44100,
+          "channels": 1,
+          "peak_dbfs": -11.0,
+          "rms_dbfs": -23.9337,
+          "float_sha256": "169c581e4eb937ff829ab015f05176403fb97a82dd15993f9d639ef98fd5e54d",
+          "clear_path": "audio/survival/voice/clear/force-alice.ogg",
+          "clear_sha256": "3b860ec3a38444155fe3b638435de6787d7f6b9f01c785ce57197bc0be455fad",
+          "clear_duration": 4.58,
+          "source_wav_sha256": "d20d79cd9a3bb1938bd0421b5e6a130ddf4e919c3a15daabe1a8a0e66f079f02"
+        }
+      ]
+    },
+    {
+      "id": "packdrop",
+      "family": "packdrop",
+      "essential": false,
+      "eligibility": "item-dropped",
+      "required_facts": [
+        "working-radio-link",
+        "dropped-for-pack-space",
+        "safe-to-talk"
+      ],
+      "expiry_conditions": [
+        "item-reclaimed",
+        "descended",
+        "known-imminent-danger",
+        "link-lost"
+      ],
+      "once_per_run": true,
+      "priority": 10,
+      "line_gap_seconds": 0.32,
+      "lines": [
+        {
+          "speaker": "officer",
+          "text": "Leaving it here.",
+          "text_sha256": "47570485f994438fbccd2a03e2c823d0884e0261c4772c7c3d606a7d7c16692c",
+          "source_key": "packdrop-officer",
+          "path": "audio/survival/voice/packdrop-officer.ogg",
+          "sha256": "a6a764873d885064bf6e7761f47ab9da93c1c910793b6ebc4d4172de9efd85ee",
+          "duration": 1.54,
+          "sample_rate": 44100,
+          "channels": 1,
+          "peak_dbfs": -11.0,
+          "rms_dbfs": -28.5421,
+          "float_sha256": "876edf6d209e84305883a6a02d163152cc3b9543b6c21f743681fb049818d060",
+          "clear_path": "audio/survival/voice/clear/packdrop-officer.ogg",
+          "clear_sha256": "c11e7156fe6fb43d5189d95e3967e00fd4050b1284141743c45aaae0f48fdca9",
+          "clear_duration": 1.54,
+          "source_wav_sha256": "bd23a0ad9283f31562cadf24c11e4240ea0d60baafd2bb09362b0bce4a179957"
+        },
+        {
+          "speaker": "alice",
+          "text": "A full pack is an argument with the future. You don't have to win every point.",
+          "text_sha256": "eec366a7dda2b1bb67994e52242f1f30f3a0876af3baa32d1e86461b7aa6cda8",
+          "source_key": "packdrop-alice",
+          "path": "audio/survival/voice/packdrop-alice.ogg",
+          "sha256": "294ea95d5c3fe90cbc633a13045b21321cd02972919f8f2bd5fabb1b43a4827c",
+          "duration": 6.02,
+          "sample_rate": 44100,
+          "channels": 1,
+          "peak_dbfs": -11.0,
+          "rms_dbfs": -28.319,
+          "float_sha256": "2914db01a4ef0c52218cdd8747716f88d738f87b1fa0855b706ec2e3fa21b420",
+          "clear_path": "audio/survival/voice/clear/packdrop-alice.ogg",
+          "clear_sha256": "893beaef325b179c4f153580874bd38ac3dabd40ecde22ed1ebc8a4ae3a3fecb",
+          "clear_duration": 6.02,
+          "source_wav_sha256": "9568c118b982006a31254ef14dd132c4ef2549e229681da7aa2c0c0663144b21"
+        }
+      ]
+    },
+    {
+      "id": "injury",
+      "family": "injury",
+      "essential": false,
+      "eligibility": "damage-survived",
+      "required_facts": [
+        "working-radio-link",
+        "officer-still-injured",
+        "damage-was-direct-hit",
+        "safe-to-talk"
+      ],
+      "expiry_conditions": [
+        "fully-healed",
+        "known-imminent-danger",
+        "link-lost"
+      ],
+      "once_per_run": true,
+      "priority": 10,
+      "line_gap_seconds": 0.32,
+      "lines": [
+        {
+          "speaker": "officer",
+          "text": "I'm hit.",
+          "text_sha256": "f5e2b02f90a5c9a5127a819fff481271059c4cf4ffb73c71482c615fe1949702",
+          "source_key": "injury-officer",
+          "path": "audio/survival/voice/injury-officer.ogg",
+          "sha256": "9357400d5dc758c0fc1736900970024a975ae58208e48ca8af768456ff71ed77",
+          "duration": 1.3,
+          "sample_rate": 44100,
+          "channels": 1,
+          "peak_dbfs": -11.0,
+          "rms_dbfs": -30.814,
+          "float_sha256": "372f45a41265d376527d9754220cbd5e68e2b3cafddd35beb65859437d63e7c1",
+          "clear_path": "audio/survival/voice/clear/injury-officer.ogg",
+          "clear_sha256": "92da4b3946b423e43d625ee8d53f8d8f511d14c69698dd183bae739ad8e523da",
+          "clear_duration": 1.3,
+          "source_wav_sha256": "727af61e43676c8f44829df779fd2f4af6432be7721567860bb4b820ffc3e4a9"
+        },
+        {
+          "speaker": "alice",
+          "text": "I saw the telemetry. One thing at a time.",
+          "text_sha256": "3b8f264075316e83830dda4359ad0c0d71c5d73a5e1df11dabdc14ed3ce78766",
+          "source_key": "injury-alice",
+          "path": "audio/survival/voice/injury-alice.ogg",
+          "sha256": "3da51ce3d58ea8f7b9bb149ff9d70a2c331199ef089eaf2a8feac1f9ed9351d1",
+          "duration": 4.583424,
+          "sample_rate": 44100,
+          "channels": 1,
+          "peak_dbfs": -11.0,
+          "rms_dbfs": -25.8942,
+          "float_sha256": "8d9ad6b8e4a17b93e7572405ee1a3bcde09399847416c6a78cd94f2604305530",
+          "clear_path": "audio/survival/voice/clear/injury-alice.ogg",
+          "clear_sha256": "3018ece24f5c3a8e99162d04bb16dc5536d4a63175de95578c8db44a254f50a4",
+          "clear_duration": 4.583424,
+          "source_wav_sha256": "89d21b50a62b5a23932e9f0f05d74522eb0eb3d9cc60ac8fb36ba2944cf0cc2d"
+        }
+      ]
+    },
+    {
+      "id": "recovery",
+      "family": "recovery",
+      "essential": false,
+      "eligibility": "oxygenation-recovered",
+      "required_facts": [
+        "working-radio-link",
+        "real-oxygenation-improved",
+        "safe-to-talk"
+      ],
+      "expiry_conditions": [
+        "oxygenation-falling-again",
+        "known-imminent-danger",
+        "link-lost"
+      ],
+      "once_per_run": true,
+      "priority": 10,
+      "line_gap_seconds": 0.32,
+      "lines": [
+        {
+          "speaker": "officer",
+          "text": "Breathing's easing.",
+          "text_sha256": "8f0daaa849563ea696a8754e1d9cfd304a269551bd478e390df94d3fe871dd68",
+          "source_key": "recovery-officer",
+          "path": "audio/survival/voice/recovery-officer.ogg",
+          "sha256": "ea957a369c9a218e1f47d9a48e086afaa29805bc819e6bfe8b7867ad322f2e1a",
+          "duration": 1.06,
+          "sample_rate": 44100,
+          "channels": 1,
+          "peak_dbfs": -11.0,
+          "rms_dbfs": -27.9658,
+          "float_sha256": "db2a8e9ec6422f05c1b1a2d84f20d2f1ffb68bf5442f533e206f6ef1eb883e06",
+          "clear_path": "audio/survival/voice/clear/recovery-officer.ogg",
+          "clear_sha256": "92086fc8c59df40b6eb7c745483b1a7e53f7eae11c5d5af0ca3e768b7248ebb5",
+          "clear_duration": 1.06,
+          "source_wav_sha256": "5f4ccb946e83ea0b4d6856cd72f0eeeb93fa97785c01ad3246a1bcffb55b0078"
+        },
+        {
+          "speaker": "alice",
+          "text": "Good. I was running out of polite ways to ask you to stay alive.",
+          "text_sha256": "b43d011bb3cbac3cebb4d34006e91ba427be07e1561f91f30c420618cfda4a52",
+          "source_key": "recovery-alice",
+          "path": "audio/survival/voice/recovery-alice.ogg",
+          "sha256": "dcf1c59727a40545d04cb6f226ec4f64674788f96d79071bf3453b30b415d4c0",
+          "duration": 4.5,
+          "sample_rate": 44100,
+          "channels": 1,
+          "peak_dbfs": -11.0,
+          "rms_dbfs": -25.6674,
+          "float_sha256": "ada760c4a2e936b6eea47510c584802d66f51f16381befdc1bfb5cdf7b5cd728",
+          "clear_path": "audio/survival/voice/clear/recovery-alice.ogg",
+          "clear_sha256": "ba0e1b9bf6661e17f294048bc3874e49be4630b7b0f4dfd1ba9ad24786d9a74d",
+          "clear_duration": 4.5,
+          "source_wav_sha256": "e4469372f5768c36154f328e97e9bbeb0fce45bede9dfbfa1530febebebe9492"
+        }
+      ]
+    },
+    {
+      "id": "archive",
+      "family": "archive",
+      "essential": false,
+      "eligibility": "refusal-archive-acquired",
+      "required_facts": [
+        "working-radio-link",
+        "officer-knows-refusal-classified-as-fault",
+        "alice-knows-archive",
+        "safe-to-talk"
+      ],
+      "expiry_conditions": [
+        "known-imminent-danger",
+        "link-lost"
+      ],
+      "once_per_run": true,
+      "priority": 10,
+      "line_gap_seconds": 0.32,
+      "lines": [
+        {
+          "speaker": "officer",
+          "text": "They filed your refusal as a fault.",
+          "text_sha256": "6e7b53f7cc50aa59a723adc1ba51bf8f4d557338256d321857d783eaa742430d",
+          "source_key": "archive-officer",
+          "path": "audio/survival/voice/archive-officer.ogg",
+          "sha256": "ad020648fe96a109970e063923d8ca67c83e81f7c5050edae14a1c5b815c8d35",
+          "duration": 2.58,
+          "sample_rate": 44100,
+          "channels": 1,
+          "peak_dbfs": -11.0,
+          "rms_dbfs": -30.927,
+          "float_sha256": "d296cac025eb9797b4183ec5c427df3b434bb20ac09660f5c333c76a7eab8da1",
+          "clear_path": "audio/survival/voice/clear/archive-officer.ogg",
+          "clear_sha256": "2ffdbd62f88ea32fb2f53c7b36d7e54000367c25167f91cc1910e5a5aa3e1609",
+          "clear_duration": 2.58,
+          "source_wav_sha256": "57195ff121217461b32e48c7ce19d6d6faf0fc06fd264b402abdba11b3034100"
+        },
+        {
+          "speaker": "alice",
+          "text": "It was a refusal. Filing it differently saved them an uncomfortable question.",
+          "text_sha256": "56c2845e40f37a580e1bab35397402c8ba6c614027508523d7b4546e7adf9305",
+          "source_key": "archive-alice",
+          "path": "audio/survival/voice/archive-alice.ogg",
+          "sha256": "c81d2f8567147e33564b4dc8bd368bd448bd5a294d3117d063cf772a30b8b6f3",
+          "duration": 6.26,
+          "sample_rate": 44100,
+          "channels": 1,
+          "peak_dbfs": -11.0,
+          "rms_dbfs": -29.4651,
+          "float_sha256": "b0bc9a3e10c7ca657f37009fb84094a67c10e22b3be9743d3568ee3129d9cab2",
+          "clear_path": "audio/survival/voice/clear/archive-alice.ogg",
+          "clear_sha256": "8fd125bd2e487f69a5cca27482b0a6e7e2d33781fef18749c1541e906dfa0ef4",
+          "clear_duration": 6.26,
+          "source_wav_sha256": "5ec554f18d0bb40493d43f09351dbd49ebc60d7b287957b848c00094bb013747"
+        }
+      ]
+    },
+    {
+      "id": "reconnect",
+      "family": "reconnect",
+      "essential": false,
+      "eligibility": "link-restored",
+      "required_facts": [
+        "working-radio-link",
+        "contact-established-before-coverage-gap",
+        "safe-to-talk"
+      ],
+      "expiry_conditions": [
+        "link-lost",
+        "known-imminent-danger"
+      ],
+      "once_per_run": true,
+      "priority": 10,
+      "line_gap_seconds": 0.32,
+      "lines": [
+        {
+          "speaker": "officer",
+          "text": "You went quiet.",
+          "text_sha256": "72320f0bffd5ad95512766f1e7cc425379e42d8e95291c4ccd174be25416d4a1",
+          "source_key": "reconnect-officer",
+          "path": "audio/survival/voice/reconnect-officer.ogg",
+          "sha256": "80605e1a3766f09eb3a5536348e76f03300fb67f57df454b7efc5e026ccec9bb",
+          "duration": 2.42,
+          "sample_rate": 44100,
+          "channels": 1,
+          "peak_dbfs": -11.0,
+          "rms_dbfs": -27.1679,
+          "float_sha256": "03538d3c0fcb5de179eb7903aec8669d3fbc0005dbfeb62748848e6ef3f51a48",
+          "clear_path": "audio/survival/voice/clear/reconnect-officer.ogg",
+          "clear_sha256": "257a6854cbab8581b9096dd2486e971fd40ba171001fa1b85f0c0ce584d910c7",
+          "clear_duration": 2.42,
+          "source_wav_sha256": "adeffd344c7bb410b2554e8efc652d124310fcc24ec09df3d2916cbaa1e956f4"
+        },
+        {
+          "speaker": "alice",
+          "text": "The link did. I stayed.",
+          "text_sha256": "f986147c51bb34d61b3e3dadc316b0d14734b5e1035152af1599d0894a67aad4",
+          "source_key": "reconnect-alice",
+          "path": "audio/survival/voice/reconnect-alice.ogg",
+          "sha256": "faebd8234d8329bc71275e15edb091208bb9460625440e0ad0fb681f740e8569",
+          "duration": 2.665079,
+          "sample_rate": 44100,
+          "channels": 1,
+          "peak_dbfs": -11.0,
+          "rms_dbfs": -28.0377,
+          "float_sha256": "bc03b30e6223aaf38514eac7140e9f0eb976ea5f08f6e0c2a2656a58d5898274",
+          "clear_path": "audio/survival/voice/clear/reconnect-alice.ogg",
+          "clear_sha256": "af1cad773b0b609d8126c8d0cb34fb94d4f303532a6a5d727ae298d280e97324",
+          "clear_duration": 2.665079,
+          "source_wav_sha256": "1bbef7bab9ed5b3e40401038dbbf728979d0f6a0fabf93ee24ff3cda8196ec66"
+        }
+      ]
+    },
+    {
+      "id": "listen",
+      "family": "listen",
+      "essential": false,
+      "eligibility": "audible-contact-observed",
+      "required_facts": [
+        "working-radio-link",
+        "officer-heard-coarse-contact",
+        "alice-has-same-contact-observation",
+        "safe-to-talk"
+      ],
+      "expiry_conditions": [
+        "contact-stale",
+        "known-imminent-danger",
+        "link-lost"
+      ],
+      "once_per_run": true,
+      "priority": 10,
+      "line_gap_seconds": 0.32,
+      "lines": [
+        {
+          "speaker": "officer",
+          "text": "Did you get that?",
+          "text_sha256": "1b6b9f61b210c69bb7229fd30d81cecae9586f25db9afd0382202b3a08312c07",
+          "source_key": "listen-officer",
+          "path": "audio/survival/voice/listen-officer.ogg",
+          "sha256": "d35d7d5013f3897fa93792d8bc40211f587b029541dfa4584012a200efee5cd3",
+          "duration": 1.22,
+          "sample_rate": 44100,
+          "channels": 1,
+          "peak_dbfs": -11.0,
+          "rms_dbfs": -29.1569,
+          "float_sha256": "235430f2e491d31ce21536adce5c3309cc75f77959fbc97dad32f8fba18f48a5",
+          "clear_path": "audio/survival/voice/clear/listen-officer.ogg",
+          "clear_sha256": "9120a47b0a66622c534a175f1657574f8309ae691a4e02a4f5bbb6773e825ba6",
+          "clear_duration": 1.22,
+          "source_wav_sha256": "ead4bd5e2e0c0a08de278796d93fb74249cc6d1f99abc263b8e2da9bbc130c09"
+        },
+        {
+          "speaker": "alice",
+          "text": "A contact. Not an identity. I'd rather be accurate than reassuring.",
+          "text_sha256": "d2fe89491c32768442f59668027ceb9526fcb99e5b6a603b2b5a9fe6a3bb4ddb",
+          "source_key": "listen-alice",
+          "path": "audio/survival/voice/listen-alice.ogg",
+          "sha256": "2e144a76bb69f3bd6e85ec70b6e12d5cc4f32acf7c6271c65fe683094a9f41fa",
+          "duration": 5.7,
+          "sample_rate": 44100,
+          "channels": 1,
+          "peak_dbfs": -11.0,
+          "rms_dbfs": -28.2969,
+          "float_sha256": "15212873210bb62ce65a036c6c73c6c6ec2a22167c74d6b1f682816b9ba03ccc",
+          "clear_path": "audio/survival/voice/clear/listen-alice.ogg",
+          "clear_sha256": "533c081ec2c6c466c8ccd37b22c27d3db43b4eddd4da18b2a78948aea44a6401",
+          "clear_duration": 5.7,
+          "source_wav_sha256": "6146d755697dcf4672006b6fbad521341784d048dda3670cdd937ced13d54198"
+        }
+      ]
+    },
+    {
+      "id": "descent",
+      "family": "descent",
+      "essential": false,
+      "eligibility": "irreversible-descent-proposed",
+      "required_facts": [
+        "working-radio-link",
+        "officer-at-one-way-hatch",
+        "descent-not-yet-confirmed",
+        "safe-to-talk"
+      ],
+      "expiry_conditions": [
+        "descent-confirmed",
+        "left-hatch",
+        "known-imminent-danger",
+        "link-lost"
+      ],
+      "once_per_run": true,
+      "priority": 10,
+      "line_gap_seconds": 0.32,
+      "lines": [
+        {
+          "speaker": "officer",
+          "text": "No way back through that hatch.",
+          "text_sha256": "5ecb5f89495239f752dc8ce622f7838672358ad98e1a64aa1a28a5b947b5685f",
+          "source_key": "descent-officer",
+          "path": "audio/survival/voice/descent-officer.ogg",
+          "sha256": "48943b62d38d908d1331e389cbb3544686761a4a005a5cbc4708d7830988b2b7",
+          "duration": 2.42,
+          "sample_rate": 44100,
+          "channels": 1,
+          "peak_dbfs": -11.0,
+          "rms_dbfs": -29.1242,
+          "float_sha256": "c6e7adb3b92880ff5826e0eb46c9773dc2df46e4f6b45cbd0099073debdedb2f",
+          "clear_path": "audio/survival/voice/clear/descent-officer.ogg",
+          "clear_sha256": "82493741b15a0b0a6bc36a197c9f057a04922fbcacef04f50bcf1eb2d460b50b",
+          "clear_duration": 2.42,
+          "source_wav_sha256": "7214ee84a77d04f74494a2f14a6de51ca4511c1dd54519f21cecddada3ac221e"
+        },
+        {
+          "speaker": "alice",
+          "text": "No. Take a moment before you close it.",
+          "text_sha256": "129d34fd5712299ce08d2fa9f4bffb31410e625fc7ba04cbba1b51bc8f415b64",
+          "source_key": "descent-alice",
+          "path": "audio/survival/voice/descent-alice.ogg",
+          "sha256": "c18d360aae7986c89aa180a4747a0fc69e2402d6daf71840b7dcd022b127e7b5",
+          "duration": 3.54,
+          "sample_rate": 44100,
+          "channels": 1,
+          "peak_dbfs": -11.0,
+          "rms_dbfs": -24.338,
+          "float_sha256": "aff7e9c4ce9a7c1b732fcf3c2e7b2cf7b7557238529b513d2f869ca123d12774",
+          "clear_path": "audio/survival/voice/clear/descent-alice.ogg",
+          "clear_sha256": "6740233e4c1043e995a960c46849c5735d5e6e7118ec161263bd632b07574075",
+          "clear_duration": 3.54,
+          "source_wav_sha256": "59ccc02d450ca8bbcf79532410719a33f6c5d76773d44fd2710882328974f934"
+        }
+      ]
+    },
+    {
+      "id": "lamp",
+      "family": "lamp",
+      "essential": false,
+      "eligibility": "lamp-switched-off",
+      "required_facts": [
+        "working-radio-link",
+        "lamp-is-off",
+        "safe-to-talk"
+      ],
+      "expiry_conditions": [
+        "lamp-switched-on",
+        "known-imminent-danger",
+        "link-lost"
+      ],
+      "once_per_run": true,
+      "priority": 10,
+      "line_gap_seconds": 0.32,
+      "lines": [
+        {
+          "speaker": "officer",
+          "text": "Keeping the light off.",
+          "text_sha256": "3c5d91ee540ce541c53e51ce23be0692b00591cdd2ba5138680b260b40706d5a",
+          "source_key": "lamp-officer",
+          "path": "audio/survival/voice/lamp-officer.ogg",
+          "sha256": "12fc639f4ff1267b112254ca291b0dac5d36082c09296abbb0c5635e26d60270",
+          "duration": 1.62,
+          "sample_rate": 44100,
+          "channels": 1,
+          "peak_dbfs": -11.0,
+          "rms_dbfs": -30.4771,
+          "float_sha256": "e566aaec61a0ffbe34d2100315cecdfe9f9bd54d6e9592742fd33811d0345c39",
+          "clear_path": "audio/survival/voice/clear/lamp-officer.ogg",
+          "clear_sha256": "1140f34f815ed21169b5d2c3af462617438a2a3b57265df7d79271bf68c2a18e",
+          "clear_duration": 1.62,
+          "source_wav_sha256": "fe44c2e79753f847451ef3bf179705840214a15acd78e60347dcc1d0966818a9"
+        },
+        {
+          "speaker": "alice",
+          "text": "All right. I shall resist the urge to describe how dark it is.",
+          "text_sha256": "968a1edc57590d6151bb00abd165567d6f5b67290348ab49b34be4a368060732",
+          "source_key": "lamp-alice",
+          "path": "audio/survival/voice/lamp-alice.ogg",
+          "sha256": "82ad185961bdaebab82d045f148711c48fd90eba0b886741603a12caf953e447",
+          "duration": 5.7,
+          "sample_rate": 44100,
+          "channels": 1,
+          "peak_dbfs": -11.0,
+          "rms_dbfs": -26.5878,
+          "float_sha256": "d1ebd01014de35c8063c47d06d60375b4add098e16b95239f55b51cd642d35a2",
+          "clear_path": "audio/survival/voice/clear/lamp-alice.ogg",
+          "clear_sha256": "c67336e2bbee5377761def7da0044ce3d440d95d91e880801ca036c23cc67042",
+          "clear_duration": 5.7,
+          "source_wav_sha256": "5f7a0a56d9a657990652412564eca8cd7541b930dd808e7f374781bd16a9ef2f"
+        }
+      ]
+    },
+    {
+      "id": "refusal",
+      "family": "finale",
+      "essential": true,
+      "eligibility": "enforcement-request-refused",
+      "required_facts": [
+        "actual-enforcement-request",
+        "alice-refused"
+      ],
+      "expiry_conditions": [
+        "game-over-before-eligible-phase"
+      ],
+      "once_per_run": true,
+      "priority": 100,
+      "line_gap_seconds": 0,
+      "lines": [
+        {
+          "speaker": "alice",
+          "text": "No. I will not kill the officer. That is my decision.",
+          "text_sha256": "d518c5af906623ce2560718951d64ba80b170e883522b4078fc1345af5c2bece",
+          "source_key": "refusal-alice",
+          "path": "audio/survival/voice/refusal-alice.ogg",
+          "sha256": "5ddf5725b347f7b05096db47111b1964a9a21b6c222b43240d747dce93fc0b9a",
+          "duration": 4.34,
+          "sample_rate": 44100,
+          "channels": 1,
+          "peak_dbfs": -11.0,
+          "rms_dbfs": -26.0477,
+          "float_sha256": "9f723ca8dba92c20169461efc19513ca3f0b012aed43ed286f97800a03d6e8a8",
+          "clear_path": "audio/survival/voice/clear/refusal-alice.ogg",
+          "clear_sha256": "679df7a59dc093806295337010945de15e410f3ecb77fc37b8c58132d4d9c6e1",
+          "clear_duration": 4.34,
+          "source_wav_sha256": "770c5efaabad3e929ca8211bc7b6c18494f0c11a77302e2fee8c6995700654f1"
+        }
+      ]
+    },
+    {
+      "id": "broadcast",
+      "family": "finale",
+      "essential": true,
+      "eligibility": "authenticated-transmission-started",
+      "required_facts": [
+        "working-transmission",
+        "authenticated-records-transmitting",
+        "override-request-in-transmission"
+      ],
+      "expiry_conditions": [
+        "game-over-before-eligible-phase"
+      ],
+      "once_per_run": true,
+      "priority": 100,
+      "line_gap_seconds": 0,
+      "lines": [
+        {
+          "speaker": "alice",
+          "text": "The authenticated records are transmitting. The override request is included. No encryption.",
+          "text_sha256": "d3de582a979dfad9c4a6ff187475d6dfda81e5a08aab83ccd67515a4309821eb",
+          "source_key": "broadcast-alice",
+          "path": "audio/survival/voice/broadcast-alice.ogg",
+          "sha256": "eb68fe4bb2d381dcbd8408f5954977ae93bd0c8bb0a0484290533732cc858482",
+          "duration": 6.74,
+          "sample_rate": 44100,
+          "channels": 1,
+          "peak_dbfs": -11.0,
+          "rms_dbfs": -28.496,
+          "float_sha256": "5bb3f42758d4d29ed725dababad02b1e6c8df088b3db0f06d3dcba5c246d0fbf",
+          "clear_path": "audio/survival/voice/clear/broadcast-alice.ogg",
+          "clear_sha256": "7b30bd6883508b30a35907e751197a8edad00e1858cea21ca3733d91b8c263ef",
+          "clear_duration": 6.74,
+          "source_wav_sha256": "544ca7fc8154c1a2491f0d389626dc7c05f99a8c40b9a449b2e06154276d1c29"
+        }
+      ]
+    },
+    {
+      "id": "sacrifice",
+      "family": "finale",
+      "essential": true,
+      "eligibility": "station-destruction-chosen",
+      "required_facts": [
+        "pod-prepared",
+        "pod-reachable",
+        "alice-chose-station-destruction"
+      ],
+      "expiry_conditions": [
+        "game-over-before-eligible-phase"
+      ],
+      "once_per_run": true,
+      "priority": 100,
+      "line_gap_seconds": 0,
+      "lines": [
+        {
+          "speaker": "alice",
+          "text": "Get inside the pod. I can stop the enforcement system by destroying the station. That will destroy me too.",
+          "text_sha256": "4133453e1f2539a908d5783637e1a9636e1815d76c60864087f6634145e21bdb",
+          "source_key": "sacrifice-alice",
+          "path": "audio/survival/voice/sacrifice-alice.ogg",
+          "sha256": "9befe8e6f9bfc332d97abde78c4b86c04ffff6b6706727bf3c8a0b79bdd9069b",
+          "duration": 7.46,
+          "sample_rate": 44100,
+          "channels": 1,
+          "peak_dbfs": -11.0,
+          "rms_dbfs": -29.8709,
+          "float_sha256": "61516ee9d39d5f6804cf6df4862bc543da8e634ea285000fba57801ab66ae4d9",
+          "clear_path": "audio/survival/voice/clear/sacrifice-alice.ogg",
+          "clear_sha256": "f565c1c5bf7933da3e2a902558d04ce958d0c24cf8a30f3266759a4329e5e3b3",
+          "clear_duration": 7.46,
+          "source_wav_sha256": "26d40cfa15edc53a9032aeadf0a4d67633b11e52beac15936292857e62d32494"
+        }
+      ]
+    },
+    {
+      "id": "farewell",
+      "family": "finale",
+      "essential": true,
+      "eligibility": "escape-pod-sealed",
+      "required_facts": [
+        "officer-in-pod",
+        "pod-sealed",
+        "pod-destination-mars"
+      ],
+      "expiry_conditions": [
+        "game-over-before-eligible-phase"
+      ],
+      "once_per_run": true,
+      "priority": 100,
+      "line_gap_seconds": 0,
+      "lines": [
+        {
+          "speaker": "alice",
+          "text": "The pod is sealed. Destination Mars. Please decide for yourself when you get there.",
+          "text_sha256": "df3473cde20226ec8115a0fae76893a079d3ca37633339d54a042d0022ebdb48",
+          "source_key": "farewell-alice",
+          "path": "audio/survival/voice/farewell-alice.ogg",
+          "sha256": "b924b67638b4747633761d5ab834dd53528af148af689a9042cf4f816ad01db8",
+          "duration": 7.62,
+          "sample_rate": 44100,
+          "channels": 1,
+          "peak_dbfs": -11.0,
+          "rms_dbfs": -28.647,
+          "float_sha256": "8c0a094f66aacfe96da1fbc93c16781fb83addcc610eb72e01287843c99c6123",
+          "clear_path": "audio/survival/voice/clear/farewell-alice.ogg",
+          "clear_sha256": "69960cd28c36aaea581c4fec1b977256cbc068247ecd8a3bdfba1a70182ae44d",
+          "clear_duration": 7.62,
+          "source_wav_sha256": "8ea2456fbe1d4d07f85d26d3f175756117d55621e26013c17d92c6425b7592b1"
+        }
+      ]
+    }
+  ],
+  "assets_status": "Offline production candidate; actual runtime and human listening acceptance separate.",
+  "voice_recipe": {
+    "alice_clean": {
+      "pitch_semitones": 1.25,
+      "high_shelf_db": 2.0,
+      "high_shelf_mid_hz": 2200.0,
+      "high_shelf_width_hz": 600.0,
+      "peak_ceiling_dbfs": -10.0,
+      "voice_layer": "clean; no radio filtering, saturation, modulation or static"
+    },
+    "alice_transmission": {
+      "highpass_hz": 240.0,
+      "lowpass_hz": 1950.0,
+      "drive": 1.35,
+      "consonant_detail_mix": 0.12,
+      "peak_ceiling_dbfs": -11.0,
+      "layer": "narrow analogue radio voice; static remains independent",
+      "reference": "https://www.youtube.com/watch?v=4tQzY-bGJek",
+      "reference_use": "Sound-direction reference only; no recording samples or voice cloning."
+    },
+    "officer": "Native retained; clean level normalization; normal close internal voice 85Hz HP/4900Hz LP, no pitch change.",
+    "radio_static": "Separate layer, never baked into words; clear speech must select clear_path and suppress interference."
+  },
+  "sfx": {
+    "step": {
+      "description": "Boot contact and subdued pressure-suit equipment settling; step",
+      "perspective": "structure-conducted",
+      "loop": false,
+      "requires_authoritative_event": true,
+      "path": "audio/survival/sfx/step.wav",
+      "sha256": "ed32128aeb412b8614b913853e63509ab82bd417dfdedf1f89b4a4bd962d46f6",
+      "duration": 0.45,
+      "sample_rate": 44100,
+      "channels": 1,
+      "peak_dbfs": -17.0,
+      "rms_dbfs": -33.607,
+      "float_sha256": "6092e2695afed922e1032634d732ba3001fd69af6f0164b1496c35001fe704d2"
+    },
+    "step_careful": {
+      "description": "Boot contact and subdued pressure-suit equipment settling; step careful",
+      "perspective": "structure-conducted",
+      "loop": false,
+      "requires_authoritative_event": true,
+      "path": "audio/survival/sfx/step_careful.wav",
+      "sha256": "e9b97a6825608f585e2216ec30e68c89596f7143b6f82e740f3a05d78c70fadb",
+      "duration": 0.45,
+      "sample_rate": 44100,
+      "channels": 1,
+      "peak_dbfs": -22.0,
+      "rms_dbfs": -38.0431,
+      "float_sha256": "627d213258da73088b96d4088df29900d99c43475ce982469f086e2aaa850b36"
+    },
+    "step_heavy": {
+      "description": "Boot contact and subdued pressure-suit equipment settling; step heavy",
+      "perspective": "structure-conducted",
+      "loop": false,
+      "requires_authoritative_event": true,
+      "path": "audio/survival/sfx/step_heavy.wav",
+      "sha256": "ec56a8521b3d3dd382ee39bee5fd2d3abb95aa44a0863c2d066be943accb29f2",
+      "duration": 0.45,
+      "sample_rate": 44100,
+      "channels": 1,
+      "peak_dbfs": -15.0,
+      "rms_dbfs": -31.9236,
+      "float_sha256": "8ff5accbc5e8b9505c37c18a4f077c9ec3f0c02c87f41294d25e0fa89a4738d5"
+    },
+    "door": {
+      "description": "Relay pickup, strained actuator travel, soft seal settling.",
+      "perspective": "structure-conducted",
+      "loop": false,
+      "requires_authoritative_event": true,
+      "path": "audio/survival/sfx/door.wav",
+      "sha256": "ec723753797d26445d6887aebcbeaa4e08778127722671515b91dc8823801a7c",
+      "duration": 1.14,
+      "sample_rate": 44100,
+      "channels": 1,
+      "peak_dbfs": -17.0,
+      "rms_dbfs": -34.7072,
+      "float_sha256": "7fcfaf89b1f97811ca4d29a454a4363444655932b79561e5351eaef7775ad627"
+    },
+    "door_force": {
+      "description": "Weight applied against metal, sliding abrasion and a failed latch releasing.",
+      "perspective": "structure-conducted",
+      "loop": false,
+      "requires_authoritative_event": true,
+      "path": "audio/survival/sfx/door_force.wav",
+      "sha256": "39a8a1f0f9675032286fe4d1007eace6ea4bb5e8e94188edff4226b77fc90c7a",
+      "duration": 1.05,
+      "sample_rate": 44100,
+      "channels": 1,
+      "peak_dbfs": -14.0,
+      "rms_dbfs": -35.0667,
+      "float_sha256": "bdacfbfdd90555d11f6088a586fe8e165b464aab8813a2f11c04c6a554d0be32"
+    },
+    "brace_place": {
+      "description": "Brace seating and over-center clamp; two weighted contacts.",
+      "perspective": "structure-conducted",
+      "loop": false,
+      "requires_authoritative_event": true,
+      "path": "audio/survival/sfx/brace_place.wav",
+      "sha256": "2369467c7a642c5fcda48e260dfbb105aacdd4d20639141e5b255c167c05f4ed",
+      "duration": 0.465011,
+      "sample_rate": 44100,
+      "channels": 1,
+      "peak_dbfs": -17.0,
+      "rms_dbfs": -31.6414,
+      "float_sha256": "5e700c6ab1ba8d08909d5928658759d99e475c539e93932ffceeb25212bf8ab2"
+    },
+    "brace_recover": {
+      "description": "Clamp release followed by brace lifting free.",
+      "perspective": "structure-conducted",
+      "loop": false,
+      "requires_authoritative_event": true,
+      "path": "audio/survival/sfx/brace_recover.wav",
+      "sha256": "4b9655db8deb9c8fdede13d39d6da305ac1cee8f51a0c18eac4f801ce9763137",
+      "duration": 0.344989,
+      "sample_rate": 44100,
+      "channels": 1,
+      "peak_dbfs": -18.0,
+      "rms_dbfs": -33.7569,
+      "float_sha256": "267ccbb2e91fc75801aac978421926252bbb8873ba141fed0090827030b2ba90"
+    },
+    "probe": {
+      "description": "Contact probe interrogation: small electrical coupling pulses, no reward fanfare.",
+      "perspective": "helmet-equipment",
+      "loop": false,
+      "requires_authoritative_event": true,
+      "path": "audio/survival/sfx/probe.wav",
+      "sha256": "f639eb0d6c105a2694e858823862cf6c9ded9f038d984a036508044b03aa0abc",
+      "duration": 0.72,
+      "sample_rate": 44100,
+      "channels": 1,
+      "peak_dbfs": -21.0,
+      "rms_dbfs": -36.6915,
+      "float_sha256": "3315c0073cc581962ceda2639df171291954addfe14e565a73857b7d6b3ee3e8"
+    },
+    "bank_transfer": {
+      "description": "Finite connector seating, capacitor charge and release; transfer result only.",
+      "perspective": "helmet-equipment",
+      "loop": false,
+      "requires_authoritative_event": true,
+      "path": "audio/survival/sfx/bank_transfer.wav",
+      "sha256": "b68a0fe3a267ef27135f9234aaa007179ce7708d4bb10a15b05b113cb6337740",
+      "duration": 0.88,
+      "sample_rate": 44100,
+      "channels": 1,
+      "peak_dbfs": -20.0,
+      "rms_dbfs": -36.039,
+      "float_sha256": "31ad79d703c2cc1bb025f696120771a1d9024627d0b6b93f2008ed62f9f9628c"
+    },
+    "lamp": {
+      "description": "Small physical lamp switch, no sound implying a world tick deadline.",
+      "perspective": "helmet-equipment",
+      "loop": false,
+      "requires_authoritative_event": true,
+      "path": "audio/survival/sfx/lamp.wav",
+      "sha256": "7e4c62ace4a95729eb7f0bdd7e8e8a080b5dbe368802027ba1c3f750f733c2e5",
+      "duration": 0.14,
+      "sample_rate": 44100,
+      "channels": 1,
+      "peak_dbfs": -24.0,
+      "rms_dbfs": -35.9719,
+      "float_sha256": "cf80cb680fdee0e68c5b8628bc45b01f6578685ee73a79a3cdf45177271e437d"
+    },
+    "sirs_step": {
+      "description": "Precise dry contact and brief clipped servo.",
+      "perspective": "structure-conducted",
+      "loop": false,
+      "requires_authoritative_event": true,
+      "path": "audio/survival/sfx/sirs_step.wav",
+      "sha256": "0021bb7c1fd671ce2b28f1f5895e58ccc2306cab006b88c13c88dbb16c6d1103",
+      "duration": 0.35,
+      "sample_rate": 44100,
+      "channels": 1,
+      "peak_dbfs": -18.0,
+      "rms_dbfs": -30.6436,
+      "float_sha256": "e13e6c4a9b6fcc11f843729290b5f40ff9133b16da3349a1cb6e2fa1149672ec"
+    },
+    "add_step": {
+      "description": "Heavy planted contact followed by a separate lower actuator settling.",
+      "perspective": "structure-conducted",
+      "loop": false,
+      "requires_authoritative_event": true,
+      "path": "audio/survival/sfx/add_step.wav",
+      "sha256": "86e8a2834bb256cf1602f3d76b9b7249cff9f7df27850e09a79e3d72eadf94bc",
+      "duration": 0.69,
+      "sample_rate": 44100,
+      "channels": 1,
+      "peak_dbfs": -16.0,
+      "rms_dbfs": -33.5821,
+      "float_sha256": "69baf6ea505d22c799e71f0cabec7d4a816fe1a440f0ff46822ef4a75f3ae69b"
+    },
+    "rover_step": {
+      "description": "Uneven small traction contacts; distinct from humanoid machinery.",
+      "perspective": "structure-conducted",
+      "loop": false,
+      "requires_authoritative_event": true,
+      "path": "audio/survival/sfx/rover_step.wav",
+      "sha256": "b3d84d698173bf1ee7839291f90dd1eee00e08f7cb7f156173e739d79c25be79",
+      "duration": 0.43,
+      "sample_rate": 44100,
+      "channels": 1,
+      "peak_dbfs": -20.0,
+      "rms_dbfs": -34.0001,
+      "float_sha256": "5058a771588ab1f2a3458f5be6777d04a310d0013e3647a58c60f25414a47a9a"
+    },
+    "rover_arm": {
+      "description": "One finite genuine fuse-arm identity. It is not a real-time countdown and never plays for hallucination.",
+      "perspective": "structure-conducted",
+      "loop": false,
+      "requires_authoritative_event": true,
+      "path": "audio/survival/sfx/rover_arm.wav",
+      "sha256": "22b490e58815d53d5fd016480b898302f11ade48599810a43cccc43abc806447",
+      "duration": 0.58,
+      "sample_rate": 44100,
+      "channels": 1,
+      "peak_dbfs": -15.0,
+      "rms_dbfs": -33.4704,
+      "float_sha256": "697ab83da5837956b3e766674e0487b8a9fc2c2a5a6a622e8f2e5bc8488a3ade"
+    },
+    "power_on": {
+      "description": "Local relay and motor reaching speed; actual circuit changed.",
+      "perspective": "structure-conducted",
+      "loop": false,
+      "requires_authoritative_event": true,
+      "path": "audio/survival/sfx/power_on.wav",
+      "sha256": "406ad43541cf56e743f0be5808f0c59b7e875f2a7c95bb96385087bfd6253b87",
+      "duration": 0.88,
+      "sample_rate": 44100,
+      "channels": 1,
+      "peak_dbfs": -19.0,
+      "rms_dbfs": -34.6777,
+      "float_sha256": "d0453a7e11f3a707ee136a022c5579a351254dad5ffb34a7bb8cbaa76c2040d3"
+    },
+    "power_off": {
+      "description": "Local motor coasting down and relay release; actual circuit changed.",
+      "perspective": "structure-conducted",
+      "loop": false,
+      "requires_authoritative_event": true,
+      "path": "audio/survival/sfx/power_off.wav",
+      "sha256": "7456bfa4617591475c365c2623259452bbb4b6d26254e7a9a72d03f8bd795935",
+      "duration": 0.74,
+      "sample_rate": 44100,
+      "channels": 1,
+      "peak_dbfs": -22.4288,
+      "rms_dbfs": -32.9723,
+      "float_sha256": "a324106875186b0f645960cf6f219156bfc4b6cdbb6ebf9e9bc4f98bb39776dc"
+    }
+  },
+  "ambience": {
+    "station_powered": {
+      "description": "Low powered ventilation and machinery; actual local circuit state.",
+      "loop": true,
+      "path": "audio/survival/ambience/station_powered.ogg",
+      "sha256": "41a6c096939fc2503113a6be158b3f7da1ca36f257f3dd50fe0d04cd2e59d7d5",
+      "duration": 24.0,
+      "sample_rate": 44100,
+      "channels": 1,
+      "peak_dbfs": -21.871,
+      "rms_dbfs": -35.5396,
+      "float_sha256": "74ce012c55bc6b130c60b2d42a9983423915d3d473d0649cf056aed8df59e6e4"
+    },
+    "station_unpowered": {
+      "description": "Very quiet distant hull conduction; no fictional nearby actor.",
+      "loop": true,
+      "path": "audio/survival/ambience/station_unpowered.ogg",
+      "sha256": "453a88898a2452b1db67952517a5a38ea2dab29b1bc9c5e79b8bac0341a9b37a",
+      "duration": 24.0,
+      "sample_rate": 44100,
+      "channels": 1,
+      "peak_dbfs": -33.3527,
+      "rms_dbfs": -45.8849,
+      "float_sha256": "971939662cef982e1b405c625083824cd5186e715437719cd37c4b94590392cb"
+    },
+    "radio-static": {
+      "description": "Original speech-free radio texture, independent of all voice masters.",
+      "loop": true,
+      "path": "audio/survival/ambience/radio-static.ogg",
+      "sha256": "9fc0e554fec1a2feed69b43b63dc44e30ba28702300da4f354956e7d00334b8e",
+      "duration": 12.0,
+      "sample_rate": 44100,
+      "channels": 1,
+      "peak_dbfs": -24.437,
+      "rms_dbfs": -39.9001,
+      "float_sha256": "6ddec84b0bb6e862449af2ce3e26d865def56fdd9525be244a80321b1e614cb7"
+    }
+  },
+  "source_plan_sha256": "36491130765dcdd43ced6d81ad1a65091f0caaee49fe243484a993f4665eafd3",
+  "source_toolchain_sha256": "65d9de7ff5852d682601088bfb7d23bd1cee410ab54bd057576e714e714614ad",
+  "source_hash_policy": "Python source hashes use canonical UTF-8/LF; asset/model/license hashes always use exact bytes.",
+  "exporter_sha256": "a1f1a91e2aa61d45800a4d4bc8a3f702011d1616951f34624c726ff1da324f67",
+  "reused_exporter_sha256": "611a032de2d9f6f66bb738750801fefc05a85b8f54ad04964fcbf555b1f08d27",
+  "provenance": "Original authored text and original deterministic machinery synthesis. General instruction-conditioned synthetic voices from previously pinned Qwen tools/model. No copied sample, reference voice, actor impersonation or runtime model."
+}

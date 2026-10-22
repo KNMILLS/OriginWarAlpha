@@ -1,0 +1,371 @@
+{
+  "scope": "Source renders and analytical geometry; not native movement or artistic acceptance",
+  "clips": 104,
+  "frames": 964,
+  "turnSupportChecks": [
+    {
+      "clip": "officer.pistol.suit.turn_from_south.east",
+      "sampledSupportResidualWorld": 0.0,
+      "supportRuns": 2
+    },
+    {
+      "clip": "officer.pistol.suit.turn_from_south.north",
+      "sampledSupportResidualWorld": 0.0,
+      "supportRuns": 3
+    },
+    {
+      "clip": "officer.pistol.suit.turn_from_south.west",
+      "sampledSupportResidualWorld": 0.0,
+      "supportRuns": 2
+    },
+    {
+      "clip": "officer.pistol.suit.turn_from_east.south",
+      "sampledSupportResidualWorld": 0.0,
+      "supportRuns": 2
+    },
+    {
+      "clip": "officer.pistol.suit.turn_from_east.north",
+      "sampledSupportResidualWorld": 0.0,
+      "supportRuns": 2
+    },
+    {
+      "clip": "officer.pistol.suit.turn_from_east.west",
+      "sampledSupportResidualWorld": 0.0,
+      "supportRuns": 3
+    },
+    {
+      "clip": "officer.pistol.suit.turn_from_north.south",
+      "sampledSupportResidualWorld": 0.0,
+      "supportRuns": 3
+    },
+    {
+      "clip": "officer.pistol.suit.turn_from_north.east",
+      "sampledSupportResidualWorld": 0.0,
+      "supportRuns": 2
+    },
+    {
+      "clip": "officer.pistol.suit.turn_from_north.west",
+      "sampledSupportResidualWorld": 0.0,
+      "supportRuns": 2
+    },
+    {
+      "clip": "officer.pistol.suit.turn_from_west.south",
+      "sampledSupportResidualWorld": 0.0,
+      "supportRuns": 2
+    },
+    {
+      "clip": "officer.pistol.suit.turn_from_west.east",
+      "sampledSupportResidualWorld": 0.0,
+      "supportRuns": 3
+    },
+    {
+      "clip": "officer.pistol.suit.turn_from_west.north",
+      "sampledSupportResidualWorld": 0.0,
+      "supportRuns": 2
+    },
+    {
+      "clip": "officer.unarmed.suit.turn_from_south.east",
+      "sampledSupportResidualWorld": 0.0,
+      "supportRuns": 2
+    },
+    {
+      "clip": "officer.unarmed.suit.turn_from_south.north",
+      "sampledSupportResidualWorld": 0.0,
+      "supportRuns": 3
+    },
+    {
+      "clip": "officer.unarmed.suit.turn_from_south.west",
+      "sampledSupportResidualWorld": 0.0,
+      "supportRuns": 2
+    },
+    {
+      "clip": "officer.unarmed.suit.turn_from_east.south",
+      "sampledSupportResidualWorld": 0.0,
+      "supportRuns": 2
+    },
+    {
+      "clip": "officer.unarmed.suit.turn_from_east.north",
+      "sampledSupportResidualWorld": 0.0,
+      "supportRuns": 2
+    },
+    {
+      "clip": "officer.unarmed.suit.turn_from_east.west",
+      "sampledSupportResidualWorld": 0.0,
+      "supportRuns": 3
+    },
+    {
+      "clip": "officer.unarmed.suit.turn_from_north.south",
+      "sampledSupportResidualWorld": 0.0,
+      "supportRuns": 3
+    },
+    {
+      "clip": "officer.unarmed.suit.turn_from_north.east",
+      "sampledSupportResidualWorld": 0.0,
+      "supportRuns": 2
+    },
+    {
+      "clip": "officer.unarmed.suit.turn_from_north.west",
+      "sampledSupportResidualWorld": 0.0,
+      "supportRuns": 2
+    },
+    {
+      "clip": "officer.unarmed.suit.turn_from_west.south",
+      "sampledSupportResidualWorld": 0.0,
+      "supportRuns": 2
+    },
+    {
+      "clip": "officer.unarmed.suit.turn_from_west.east",
+      "sampledSupportResidualWorld": 0.0,
+      "supportRuns": 3
+    },
+    {
+      "clip": "officer.unarmed.suit.turn_from_west.north",
+      "sampledSupportResidualWorld": 0.0,
+      "supportRuns": 2
+    }
+  ],
+  "turnEndpointChecks": [
+    {
+      "clip": "officer.pistol.suit.turn_from_south.east",
+      "frame": 0,
+      "maximumPixelChannelDifference": 0
+    },
+    {
+      "clip": "officer.pistol.suit.turn_from_south.east",
+      "frame": -1,
+      "maximumPixelChannelDifference": 0
+    },
+    {
+      "clip": "officer.pistol.suit.turn_from_south.north",
+      "frame": 0,
+      "maximumPixelChannelDifference": 0
+    },
+    {
+      "clip": "officer.pistol.suit.turn_from_south.north",
+      "frame": -1,
+      "maximumPixelChannelDifference": 0
+    },
+    {
+      "clip": "officer.pistol.suit.turn_from_south.west",
+      "frame": 0,
+      "maximumPixelChannelDifference": 0
+    },
+    {
+      "clip": "officer.pistol.suit.turn_from_south.west",
+      "frame": -1,
+      "maximumPixelChannelDifference": 0
+    },
+    {
+      "clip": "officer.pistol.suit.turn_from_east.south",
+      "frame": 0,
+      "maximumPixelChannelDifference": 0
+    },
+    {
+      "clip": "officer.pistol.suit.turn_from_east.south",
+      "frame": -1,
+      "maximumPixelChannelDifference": 0
+    },
+    {
+      "clip": "officer.pistol.suit.turn_from_east.north",
+      "frame": 0,
+      "maximumPixelChannelDifference": 0
+    },
+    {
+      "clip": "officer.pistol.suit.turn_from_east.north",
+      "frame": -1,
+      "maximumPixelChannelDifference": 0
+    },
+    {
+      "clip": "officer.pistol.suit.turn_from_east.west",
+      "frame": 0,
+      "maximumPixelChannelDifference": 0
+    },
+    {
+      "clip": "officer.pistol.suit.turn_from_east.west",
+      "frame": -1,
+      "maximumPixelChannelDifference": 0
+    },
+    {
+      "clip": "officer.pistol.suit.turn_from_north.south",
+      "frame": 0,
+      "maximumPixelChannelDifference": 0
+    },
+    {
+      "clip": "officer.pistol.suit.turn_from_north.south",
+      "frame": -1,
+      "maximumPixelChannelDifference": 0
+    },
+    {
+      "clip": "officer.pistol.suit.turn_from_north.east",
+      "frame": 0,
+      "maximumPixelChannelDifference": 0
+    },
+    {
+      "clip": "officer.pistol.suit.turn_from_north.east",
+      "frame": -1,
+      "maximumPixelChannelDifference": 0
+    },
+    {
+      "clip": "officer.pistol.suit.turn_from_north.west",
+      "frame": 0,
+      "maximumPixelChannelDifference": 0
+    },
+    {
+      "clip": "officer.pistol.suit.turn_from_north.west",
+      "frame": -1,
+      "maximumPixelChannelDifference": 0
+    },
+    {
+      "clip": "officer.pistol.suit.turn_from_west.south",
+      "frame": 0,
+      "maximumPixelChannelDifference": 0
+    },
+    {
+      "clip": "officer.pistol.suit.turn_from_west.south",
+      "frame": -1,
+      "maximumPixelChannelDifference": 0
+    },
+    {
+      "clip": "officer.pistol.suit.turn_from_west.east",
+      "frame": 0,
+      "maximumPixelChannelDifference": 0
+    },
+    {
+      "clip": "officer.pistol.suit.turn_from_west.east",
+      "frame": -1,
+      "maximumPixelChannelDifference": 0
+    },
+    {
+      "clip": "officer.pistol.suit.turn_from_west.north",
+      "frame": 0,
+      "maximumPixelChannelDifference": 0
+    },
+    {
+      "clip": "officer.pistol.suit.turn_from_west.north",
+      "frame": -1,
+      "maximumPixelChannelDifference": 0
+    },
+    {
+      "clip": "officer.unarmed.suit.turn_from_south.east",
+      "frame": 0,
+      "maximumPixelChannelDifference": 0
+    },
+    {
+      "clip": "officer.unarmed.suit.turn_from_south.east",
+      "frame": -1,
+      "maximumPixelChannelDifference": 0
+    },
+    {
+      "clip": "officer.unarmed.suit.turn_from_south.north",
+      "frame": 0,
+      "maximumPixelChannelDifference": 0
+    },
+    {
+      "clip": "officer.unarmed.suit.turn_from_south.north",
+      "frame": -1,
+      "maximumPixelChannelDifference": 0
+    },
+    {
+      "clip": "officer.unarmed.suit.turn_from_south.west",
+      "frame": 0,
+      "maximumPixelChannelDifference": 0
+    },
+    {
+      "clip": "officer.unarmed.suit.turn_from_south.west",
+      "frame": -1,
+      "maximumPixelChannelDifference": 0
+    },
+    {
+      "clip": "officer.unarmed.suit.turn_from_east.south",
+      "frame": 0,
+      "maximumPixelChannelDifference": 0
+    },
+    {
+      "clip": "officer.unarmed.suit.turn_from_east.south",
+      "frame": -1,
+      "maximumPixelChannelDifference": 0
+    },
+    {
+      "clip": "officer.unarmed.suit.turn_from_east.north",
+      "frame": 0,
+      "maximumPixelChannelDifference": 0
+    },
+    {
+      "clip": "officer.unarmed.suit.turn_from_east.north",
+      "frame": -1,
+      "maximumPixelChannelDifference": 0
+    },
+    {
+      "clip": "officer.unarmed.suit.turn_from_east.west",
+      "frame": 0,
+      "maximumPixelChannelDifference": 0
+    },
+    {
+      "clip": "officer.unarmed.suit.turn_from_east.west",
+      "frame": -1,
+      "maximumPixelChannelDifference": 0
+    },
+    {
+      "clip": "officer.unarmed.suit.turn_from_north.south",
+      "frame": 0,
+      "maximumPixelChannelDifference": 0
+    },
+    {
+      "clip": "officer.unarmed.suit.turn_from_north.south",
+      "frame": -1,
+      "maximumPixelChannelDifference": 0
+    },
+    {
+      "clip": "officer.unarmed.suit.turn_from_north.east",
+      "frame": 0,
+      "maximumPixelChannelDifference": 0
+    },
+    {
+      "clip": "officer.unarmed.suit.turn_from_north.east",
+      "frame": -1,
+      "maximumPixelChannelDifference": 0
+    },
+    {
+      "clip": "officer.unarmed.suit.turn_from_north.west",
+      "frame": 0,
+      "maximumPixelChannelDifference": 0
+    },
+    {
+      "clip": "officer.unarmed.suit.turn_from_north.west",
+      "frame": -1,
+      "maximumPixelChannelDifference": 0
+    },
+    {
+      "clip": "officer.unarmed.suit.turn_from_west.south",
+      "frame": 0,
+      "maximumPixelChannelDifference": 0
+    },
+    {
+      "clip": "officer.unarmed.suit.turn_from_west.south",
+      "frame": -1,
+      "maximumPixelChannelDifference": 0
+    },
+    {
+      "clip": "officer.unarmed.suit.turn_from_west.east",
+      "frame": 0,
+      "maximumPixelChannelDifference": 0
+    },
+    {
+      "clip": "officer.unarmed.suit.turn_from_west.east",
+      "frame": -1,
+      "maximumPixelChannelDifference": 0
+    },
+    {
+      "clip": "officer.unarmed.suit.turn_from_west.north",
+      "frame": 0,
+      "maximumPixelChannelDifference": 0
+    },
+    {
+      "clip": "officer.unarmed.suit.turn_from_west.north",
+      "frame": -1,
+      "maximumPixelChannelDifference": 0
+    }
+  ],
+  "reviewedClips": [],
+  "artisticAcceptance": "OPEN"
+}

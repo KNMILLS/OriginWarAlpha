@@ -1,0 +1,960 @@
+{
+  "task": "SH-SOUND",
+  "technical_status": "PASS",
+  "exchanges": 16,
+  "native_performances": 28,
+  "decoded_exports": 75,
+  "native_sources": {
+    "contact-officer-dry.wav": {
+      "sha256": "84f68b6ff09289f6fbfe18959f1c16eed6535f1e11d7f0000cc744c1258dfa43",
+      "seconds": 4.88,
+      "sample_rate": 24000,
+      "subtype": "PCM_24"
+    },
+    "contact-alice-dry.wav": {
+      "sha256": "b52a631cff47de86698278c7ca879a290736de85b28ec0a9911191b4406ff1c6",
+      "seconds": 7.12,
+      "sample_rate": 24000,
+      "subtype": "PCM_24"
+    },
+    "quiet-officer-dry.wav": {
+      "sha256": "f2714fd44ee93dd7eb6471ec0d99b15320f193ae045fd9ed8fb87656c64c7bb3",
+      "seconds": 1.68,
+      "sample_rate": 24000,
+      "subtype": "PCM_24"
+    },
+    "quiet-alice-dry.wav": {
+      "sha256": "fc6001f4d30944d98cb3fc3f9b6dd6ad94188ada5be6a12926b699bc7b8aed54",
+      "seconds": 4.4,
+      "sample_rate": 24000,
+      "subtype": "PCM_24"
+    },
+    "careful-officer-dry.wav": {
+      "sha256": "72fcecdea67bbba1245fcaeb30314aa283290c4d0e12acf439ab8623559f3e06",
+      "seconds": 1.36,
+      "sample_rate": 24000,
+      "subtype": "PCM_24"
+    },
+    "careful-alice-dry.wav": {
+      "sha256": "1b465e7d05ab0b6a7113e2e63fdf30f186f09d0161442e6082f915f2c8e3d053",
+      "seconds": 3.68,
+      "sample_rate": 24000,
+      "subtype": "PCM_24"
+    },
+    "force-officer-dry.wav": {
+      "sha256": "675e3aede55417d48ee17fd67a9b5efbdde11547897cf37fd68af51384acbd44",
+      "seconds": 0.88,
+      "sample_rate": 24000,
+      "subtype": "PCM_24"
+    },
+    "force-alice-dry.wav": {
+      "sha256": "d20d79cd9a3bb1938bd0421b5e6a130ddf4e919c3a15daabe1a8a0e66f079f02",
+      "seconds": 4.4,
+      "sample_rate": 24000,
+      "subtype": "PCM_24"
+    },
+    "packdrop-officer-dry.wav": {
+      "sha256": "bd23a0ad9283f31562cadf24c11e4240ea0d60baafd2bb09362b0bce4a179957",
+      "seconds": 1.36,
+      "sample_rate": 24000,
+      "subtype": "PCM_24"
+    },
+    "packdrop-alice-dry.wav": {
+      "sha256": "9568c118b982006a31254ef14dd132c4ef2549e229681da7aa2c0c0663144b21",
+      "seconds": 5.84,
+      "sample_rate": 24000,
+      "subtype": "PCM_24"
+    },
+    "injury-officer-dry.wav": {
+      "sha256": "727af61e43676c8f44829df779fd2f4af6432be7721567860bb4b820ffc3e4a9",
+      "seconds": 1.12,
+      "sample_rate": 24000,
+      "subtype": "PCM_24"
+    },
+    "injury-alice-dry.wav": {
+      "sha256": "89d21b50a62b5a23932e9f0f05d74522eb0eb3d9cc60ac8fb36ba2944cf0cc2d",
+      "seconds": 4.48,
+      "sample_rate": 24000,
+      "subtype": "PCM_24"
+    },
+    "recovery-officer-dry.wav": {
+      "sha256": "5f4ccb946e83ea0b4d6856cd72f0eeeb93fa97785c01ad3246a1bcffb55b0078",
+      "seconds": 0.88,
+      "sample_rate": 24000,
+      "subtype": "PCM_24"
+    },
+    "recovery-alice-dry.wav": {
+      "sha256": "24f68191fa67a68c0e6b634972fe6fb1516193e41534aa69b4e92c207c580cec",
+      "seconds": 4.88,
+      "sample_rate": 24000,
+      "subtype": "PCM_24"
+    },
+    "archive-officer-dry.wav": {
+      "sha256": "57195ff121217461b32e48c7ce19d6d6faf0fc06fd264b402abdba11b3034100",
+      "seconds": 2.4,
+      "sample_rate": 24000,
+      "subtype": "PCM_24"
+    },
+    "archive-alice-dry.wav": {
+      "sha256": "5ec554f18d0bb40493d43f09351dbd49ebc60d7b287957b848c00094bb013747",
+      "seconds": 6.08,
+      "sample_rate": 24000,
+      "subtype": "PCM_24"
+    },
+    "reconnect-officer-dry.wav": {
+      "sha256": "adeffd344c7bb410b2554e8efc652d124310fcc24ec09df3d2916cbaa1e956f4",
+      "seconds": 2.24,
+      "sample_rate": 24000,
+      "subtype": "PCM_24"
+    },
+    "reconnect-alice-dry.wav": {
+      "sha256": "1bbef7bab9ed5b3e40401038dbbf728979d0f6a0fabf93ee24ff3cda8196ec66",
+      "seconds": 2.56,
+      "sample_rate": 24000,
+      "subtype": "PCM_24"
+    },
+    "listen-officer-dry.wav": {
+      "sha256": "ead4bd5e2e0c0a08de278796d93fb74249cc6d1f99abc263b8e2da9bbc130c09",
+      "seconds": 1.04,
+      "sample_rate": 24000,
+      "subtype": "PCM_24"
+    },
+    "listen-alice-dry.wav": {
+      "sha256": "6146d755697dcf4672006b6fbad521341784d048dda3670cdd937ced13d54198",
+      "seconds": 5.52,
+      "sample_rate": 24000,
+      "subtype": "PCM_24"
+    },
+    "descent-officer-dry.wav": {
+      "sha256": "7214ee84a77d04f74494a2f14a6de51ca4511c1dd54519f21cecddada3ac221e",
+      "seconds": 2.24,
+      "sample_rate": 24000,
+      "subtype": "PCM_24"
+    },
+    "descent-alice-dry.wav": {
+      "sha256": "59ccc02d450ca8bbcf79532410719a33f6c5d76773d44fd2710882328974f934",
+      "seconds": 3.36,
+      "sample_rate": 24000,
+      "subtype": "PCM_24"
+    },
+    "lamp-officer-dry.wav": {
+      "sha256": "fe44c2e79753f847451ef3bf179705840214a15acd78e60347dcc1d0966818a9",
+      "seconds": 1.44,
+      "sample_rate": 24000,
+      "subtype": "PCM_24"
+    },
+    "lamp-alice-dry.wav": {
+      "sha256": "5f7a0a56d9a657990652412564eca8cd7541b930dd808e7f374781bd16a9ef2f",
+      "seconds": 5.52,
+      "sample_rate": 24000,
+      "subtype": "PCM_24"
+    },
+    "refusal-alice-dry.wav": {
+      "sha256": "770c5efaabad3e929ca8211bc7b6c18494f0c11a77302e2fee8c6995700654f1",
+      "seconds": 4.16,
+      "sample_rate": 24000,
+      "subtype": "PCM_24"
+    },
+    "broadcast-alice-dry.wav": {
+      "sha256": "544ca7fc8154c1a2491f0d389626dc7c05f99a8c40b9a449b2e06154276d1c29",
+      "seconds": 6.56,
+      "sample_rate": 24000,
+      "subtype": "PCM_24"
+    },
+    "sacrifice-alice-dry.wav": {
+      "sha256": "26d40cfa15edc53a9032aeadf0a4d67633b11e52beac15936292857e62d32494",
+      "seconds": 7.28,
+      "sample_rate": 24000,
+      "subtype": "PCM_24"
+    },
+    "farewell-alice-dry.wav": {
+      "sha256": "8ea2456fbe1d4d07f85d26d3f175756117d55621e26013c17d92c6425b7592b1",
+      "seconds": 7.44,
+      "sample_rate": 24000,
+      "subtype": "PCM_24"
+    }
+  },
+  "decoded": {
+    "assets/audio/survival/voice/contact-officer.ogg": {
+      "sha256": "925d619e5a87cf12b5d65008f16b161f4e695474f37070ae8f005e7b08e739cf",
+      "seconds": 5.06,
+      "sample_rate": 44100,
+      "channels": 1,
+      "sample_peak_dbfs": -10.698824987385473,
+      "estimated_4x_true_peak_dbfs": -10.688358282907462,
+      "finite": true,
+      "kind": "voice"
+    },
+    "assets/audio/survival/voice/clear/contact-officer.ogg": {
+      "sha256": "eeda78219b1ddea3303044fe917e3fe85de5a910d652b2618eb5a430a07d3c7c",
+      "seconds": 5.06,
+      "sample_rate": 44100,
+      "channels": 1,
+      "sample_peak_dbfs": -10.796627523564704,
+      "estimated_4x_true_peak_dbfs": -10.79109975619706,
+      "finite": true,
+      "kind": "voice"
+    },
+    "assets/audio/survival/voice/contact-alice.ogg": {
+      "sha256": "b8352204f7eb1ff9441010fc9c8b0bdfca09aa7280939ef6228b78c3374d262b",
+      "seconds": 7.3,
+      "sample_rate": 44100,
+      "channels": 1,
+      "sample_peak_dbfs": -10.909036909426666,
+      "estimated_4x_true_peak_dbfs": -10.90350982761645,
+      "finite": true,
+      "kind": "voice"
+    },
+    "assets/audio/survival/voice/clear/contact-alice.ogg": {
+      "sha256": "6cf02f0932c863f580362a2f47b29db0aeec725a3e8845c4dcc5879c00add7ce",
+      "seconds": 7.3,
+      "sample_rate": 44100,
+      "channels": 1,
+      "sample_peak_dbfs": -9.848241572511661,
+      "estimated_4x_true_peak_dbfs": -9.726800324699102,
+      "finite": true,
+      "kind": "voice"
+    },
+    "assets/audio/survival/voice/quiet-officer.ogg": {
+      "sha256": "3ae8032883708e3a0e31bc18467f2c03edd5d90cf9a5616c07043d35208b3e70",
+      "seconds": 1.86,
+      "sample_rate": 44100,
+      "channels": 1,
+      "sample_peak_dbfs": -11.149064318650643,
+      "estimated_4x_true_peak_dbfs": -11.143536492333837,
+      "finite": true,
+      "kind": "voice"
+    },
+    "assets/audio/survival/voice/clear/quiet-officer.ogg": {
+      "sha256": "14cd2ce64ce84917cf2b6de4ff4f0918aa15a9b24c244b9017fd5bae12e29efd",
+      "seconds": 1.86,
+      "sample_rate": 44100,
+      "channels": 1,
+      "sample_peak_dbfs": -11.113068692150918,
+      "estimated_4x_true_peak_dbfs": -11.097956517479446,
+      "finite": true,
+      "kind": "voice"
+    },
+    "assets/audio/survival/voice/quiet-alice.ogg": {
+      "sha256": "d3af2b1007e891df2a38bbd6859350481b56681bbd2bbff540af49135dacba95",
+      "seconds": 4.58,
+      "sample_rate": 44100,
+      "channels": 1,
+      "sample_peak_dbfs": -10.834083389506382,
+      "estimated_4x_true_peak_dbfs": -10.819623012783943,
+      "finite": true,
+      "kind": "voice"
+    },
+    "assets/audio/survival/voice/clear/quiet-alice.ogg": {
+      "sha256": "21cb3c5d49ea485f9440c88c42becc4ec9c0c133a56dbac72c3a5335685f2ba3",
+      "seconds": 4.58,
+      "sample_rate": 44100,
+      "channels": 1,
+      "sample_peak_dbfs": -10.19074199138453,
+      "estimated_4x_true_peak_dbfs": -10.185214432815862,
+      "finite": true,
+      "kind": "voice"
+    },
+    "assets/audio/survival/voice/careful-officer.ogg": {
+      "sha256": "77dd7403afa36a4ef25dce83e792550ab2aae395fadb129b8567366b0a5a6bc2",
+      "seconds": 1.54,
+      "sample_rate": 44100,
+      "channels": 1,
+      "sample_peak_dbfs": -11.297902518062248,
+      "estimated_4x_true_peak_dbfs": -11.28511988094245,
+      "finite": true,
+      "kind": "voice"
+    },
+    "assets/audio/survival/voice/clear/careful-officer.ogg": {
+      "sha256": "97036764d2edc60e33fe40a85a163adfd6d2330d31b968e5d9515c49a3cf1ebe",
+      "seconds": 1.54,
+      "sample_rate": 44100,
+      "channels": 1,
+      "sample_peak_dbfs": -11.090285452860309,
+      "estimated_4x_true_peak_dbfs": -11.084757797112314,
+      "finite": true,
+      "kind": "voice"
+    },
+    "assets/audio/survival/voice/careful-alice.ogg": {
+      "sha256": "2c77bec6a0ffe173fbcbeac7194df7bf623234ba8ec0372fe8bf1f404e364d19",
+      "seconds": 3.86,
+      "sample_rate": 44100,
+      "channels": 1,
+      "sample_peak_dbfs": -11.081081136207587,
+      "estimated_4x_true_peak_dbfs": -11.075553774117338,
+      "finite": true,
+      "kind": "voice"
+    },
+    "assets/audio/survival/voice/clear/careful-alice.ogg": {
+      "sha256": "db8973d9be8ce627982ad7c5b0d631d679577143f89dd04509f09cc534bf369f",
+      "seconds": 3.86,
+      "sample_rate": 44100,
+      "channels": 1,
+      "sample_peak_dbfs": -10.030882030207627,
+      "estimated_4x_true_peak_dbfs": -10.025354260954803,
+      "finite": true,
+      "kind": "voice"
+    },
+    "assets/audio/survival/voice/force-officer.ogg": {
+      "sha256": "8e5ea708df95d75c65d842a56dec3b6d7aa4b218595318a877ee85828e3193d0",
+      "seconds": 1.06,
+      "sample_rate": 44100,
+      "channels": 1,
+      "sample_peak_dbfs": -10.494186203876712,
+      "estimated_4x_true_peak_dbfs": -10.48865876082546,
+      "finite": true,
+      "kind": "voice"
+    },
+    "assets/audio/survival/voice/clear/force-officer.ogg": {
+      "sha256": "04fd2281c4373c7063195f8567a53c70f36cc15dfd7311e5b139f78fc7055f3f",
+      "seconds": 1.06,
+      "sample_rate": 44100,
+      "channels": 1,
+      "sample_peak_dbfs": -11.718249452201965,
+      "estimated_4x_true_peak_dbfs": -11.668207253191989,
+      "finite": true,
+      "kind": "voice"
+    },
+    "assets/audio/survival/voice/force-alice.ogg": {
+      "sha256": "58d6231052c28c71f73eb8d4562ff027949e381f11b418d70abc652e43c52fe2",
+      "seconds": 4.58,
+      "sample_rate": 44100,
+      "channels": 1,
+      "sample_peak_dbfs": -10.863572028360718,
+      "estimated_4x_true_peak_dbfs": -10.856225258120178,
+      "finite": true,
+      "kind": "voice"
+    },
+    "assets/audio/survival/voice/clear/force-alice.ogg": {
+      "sha256": "3b860ec3a38444155fe3b638435de6787d7f6b9f01c785ce57197bc0be455fad",
+      "seconds": 4.58,
+      "sample_rate": 44100,
+      "channels": 1,
+      "sample_peak_dbfs": -10.010075328404884,
+      "estimated_4x_true_peak_dbfs": -10.004547676409743,
+      "finite": true,
+      "kind": "voice"
+    },
+    "assets/audio/survival/voice/packdrop-officer.ogg": {
+      "sha256": "a6a764873d885064bf6e7761f47ab9da93c1c910793b6ebc4d4172de9efd85ee",
+      "seconds": 1.54,
+      "sample_rate": 44100,
+      "channels": 1,
+      "sample_peak_dbfs": -11.188059711675871,
+      "estimated_4x_true_peak_dbfs": -11.182532345555831,
+      "finite": true,
+      "kind": "voice"
+    },
+    "assets/audio/survival/voice/clear/packdrop-officer.ogg": {
+      "sha256": "c11e7156fe6fb43d5189d95e3967e00fd4050b1284141743c45aaae0f48fdca9",
+      "seconds": 1.54,
+      "sample_rate": 44100,
+      "channels": 1,
+      "sample_peak_dbfs": -10.923025236508783,
+      "estimated_4x_true_peak_dbfs": -10.916972506555622,
+      "finite": true,
+      "kind": "voice"
+    },
+    "assets/audio/survival/voice/packdrop-alice.ogg": {
+      "sha256": "294ea95d5c3fe90cbc633a13045b21321cd02972919f8f2bd5fabb1b43a4827c",
+      "seconds": 6.02,
+      "sample_rate": 44100,
+      "channels": 1,
+      "sample_peak_dbfs": -10.94938750287408,
+      "estimated_4x_true_peak_dbfs": -10.943860244718053,
+      "finite": true,
+      "kind": "voice"
+    },
+    "assets/audio/survival/voice/clear/packdrop-alice.ogg": {
+      "sha256": "893beaef325b179c4f153580874bd38ac3dabd40ecde22ed1ebc8a4ae3a3fecb",
+      "seconds": 6.02,
+      "sample_rate": 44100,
+      "channels": 1,
+      "sample_peak_dbfs": -10.108471719691464,
+      "estimated_4x_true_peak_dbfs": -10.089319360062184,
+      "finite": true,
+      "kind": "voice"
+    },
+    "assets/audio/survival/voice/injury-officer.ogg": {
+      "sha256": "9357400d5dc758c0fc1736900970024a975ae58208e48ca8af768456ff71ed77",
+      "seconds": 1.3,
+      "sample_rate": 44100,
+      "channels": 1,
+      "sample_peak_dbfs": -11.180599395201662,
+      "estimated_4x_true_peak_dbfs": -11.169742167045733,
+      "finite": true,
+      "kind": "voice"
+    },
+    "assets/audio/survival/voice/clear/injury-officer.ogg": {
+      "sha256": "92da4b3946b423e43d625ee8d53f8d8f511d14c69698dd183bae739ad8e523da",
+      "seconds": 1.3,
+      "sample_rate": 44100,
+      "channels": 1,
+      "sample_peak_dbfs": -11.291957173158602,
+      "estimated_4x_true_peak_dbfs": -11.286429763148204,
+      "finite": true,
+      "kind": "voice"
+    },
+    "assets/audio/survival/voice/injury-alice.ogg": {
+      "sha256": "3da51ce3d58ea8f7b9bb149ff9d70a2c331199ef089eaf2a8feac1f9ed9351d1",
+      "seconds": 4.583424036281179,
+      "sample_rate": 44100,
+      "channels": 1,
+      "sample_peak_dbfs": -11.12834609355681,
+      "estimated_4x_true_peak_dbfs": -11.122818391041957,
+      "finite": true,
+      "kind": "voice"
+    },
+    "assets/audio/survival/voice/clear/injury-alice.ogg": {
+      "sha256": "3018ece24f5c3a8e99162d04bb16dc5536d4a63175de95578c8db44a254f50a4",
+      "seconds": 4.583424036281179,
+      "sample_rate": 44100,
+      "channels": 1,
+      "sample_peak_dbfs": -9.835872150709625,
+      "estimated_4x_true_peak_dbfs": -9.823087183852067,
+      "finite": true,
+      "kind": "voice"
+    },
+    "assets/audio/survival/voice/recovery-officer.ogg": {
+      "sha256": "ea957a369c9a218e1f47d9a48e086afaa29805bc819e6bfe8b7867ad322f2e1a",
+      "seconds": 1.06,
+      "sample_rate": 44100,
+      "channels": 1,
+      "sample_peak_dbfs": -11.027408832602825,
+      "estimated_4x_true_peak_dbfs": -11.018673095301478,
+      "finite": true,
+      "kind": "voice"
+    },
+    "assets/audio/survival/voice/clear/recovery-officer.ogg": {
+      "sha256": "92086fc8c59df40b6eb7c745483b1a7e53f7eae11c5d5af0ca3e768b7248ebb5",
+      "seconds": 1.06,
+      "sample_rate": 44100,
+      "channels": 1,
+      "sample_peak_dbfs": -10.92519763966689,
+      "estimated_4x_true_peak_dbfs": -10.919670278171075,
+      "finite": true,
+      "kind": "voice"
+    },
+    "assets/audio/survival/voice/recovery-alice.ogg": {
+      "sha256": "0d008179e336357e79398567616614cde60501311ca3573482eea7eb8e38d129",
+      "seconds": 5.06,
+      "sample_rate": 44100,
+      "channels": 1,
+      "sample_peak_dbfs": -10.878837630493134,
+      "estimated_4x_true_peak_dbfs": -10.873309812153806,
+      "finite": true,
+      "kind": "voice"
+    },
+    "assets/audio/survival/voice/clear/recovery-alice.ogg": {
+      "sha256": "4181299c20304f97bd2751e55e9b5131966f07dff39328f2aba0d90daa2d2ea5",
+      "seconds": 5.06,
+      "sample_rate": 44100,
+      "channels": 1,
+      "sample_peak_dbfs": -9.93626116618303,
+      "estimated_4x_true_peak_dbfs": -9.922437636157541,
+      "finite": true,
+      "kind": "voice"
+    },
+    "assets/audio/survival/voice/archive-officer.ogg": {
+      "sha256": "ad020648fe96a109970e063923d8ca67c83e81f7c5050edae14a1c5b815c8d35",
+      "seconds": 2.58,
+      "sample_rate": 44100,
+      "channels": 1,
+      "sample_peak_dbfs": -11.279916474337742,
+      "estimated_4x_true_peak_dbfs": -11.265108010780436,
+      "finite": true,
+      "kind": "voice"
+    },
+    "assets/audio/survival/voice/clear/archive-officer.ogg": {
+      "sha256": "2ffdbd62f88ea32fb2f53c7b36d7e54000367c25167f91cc1910e5a5aa3e1609",
+      "seconds": 2.58,
+      "sample_rate": 44100,
+      "channels": 1,
+      "sample_peak_dbfs": -10.913588965977056,
+      "estimated_4x_true_peak_dbfs": -10.905902677739295,
+      "finite": true,
+      "kind": "voice"
+    },
+    "assets/audio/survival/voice/archive-alice.ogg": {
+      "sha256": "c81d2f8567147e33564b4dc8bd368bd448bd5a294d3117d063cf772a30b8b6f3",
+      "seconds": 6.26,
+      "sample_rate": 44100,
+      "channels": 1,
+      "sample_peak_dbfs": -11.047662986909437,
+      "estimated_4x_true_peak_dbfs": -11.030468325334331,
+      "finite": true,
+      "kind": "voice"
+    },
+    "assets/audio/survival/voice/clear/archive-alice.ogg": {
+      "sha256": "8fd125bd2e487f69a5cca27482b0a6e7e2d33781fef18749c1541e906dfa0ef4",
+      "seconds": 6.26,
+      "sample_rate": 44100,
+      "channels": 1,
+      "sample_peak_dbfs": -9.997442353129802,
+      "estimated_4x_true_peak_dbfs": -9.979077656537982,
+      "finite": true,
+      "kind": "voice"
+    },
+    "assets/audio/survival/voice/reconnect-officer.ogg": {
+      "sha256": "80605e1a3766f09eb3a5536348e76f03300fb67f57df454b7efc5e026ccec9bb",
+      "seconds": 2.42,
+      "sample_rate": 44100,
+      "channels": 1,
+      "sample_peak_dbfs": -11.231010584969834,
+      "estimated_4x_true_peak_dbfs": -11.225483163694127,
+      "finite": true,
+      "kind": "voice"
+    },
+    "assets/audio/survival/voice/clear/reconnect-officer.ogg": {
+      "sha256": "257a6854cbab8581b9096dd2486e971fd40ba171001fa1b85f0c0ce584d910c7",
+      "seconds": 2.42,
+      "sample_rate": 44100,
+      "channels": 1,
+      "sample_peak_dbfs": -11.430271176735193,
+      "estimated_4x_true_peak_dbfs": -11.403706581905645,
+      "finite": true,
+      "kind": "voice"
+    },
+    "assets/audio/survival/voice/reconnect-alice.ogg": {
+      "sha256": "faebd8234d8329bc71275e15edb091208bb9460625440e0ad0fb681f740e8569",
+      "seconds": 2.665079365079365,
+      "sample_rate": 44100,
+      "channels": 1,
+      "sample_peak_dbfs": -10.865117367173177,
+      "estimated_4x_true_peak_dbfs": -10.859590137260389,
+      "finite": true,
+      "kind": "voice"
+    },
+    "assets/audio/survival/voice/clear/reconnect-alice.ogg": {
+      "sha256": "af1cad773b0b609d8126c8d0cb34fb94d4f303532a6a5d727ae298d280e97324",
+      "seconds": 2.665079365079365,
+      "sample_rate": 44100,
+      "channels": 1,
+      "sample_peak_dbfs": -10.337514648038187,
+      "estimated_4x_true_peak_dbfs": -10.297730471374436,
+      "finite": true,
+      "kind": "voice"
+    },
+    "assets/audio/survival/voice/listen-officer.ogg": {
+      "sha256": "d35d7d5013f3897fa93792d8bc40211f587b029541dfa4584012a200efee5cd3",
+      "seconds": 1.22,
+      "sample_rate": 44100,
+      "channels": 1,
+      "sample_peak_dbfs": -11.068778195318876,
+      "estimated_4x_true_peak_dbfs": -11.051266396226557,
+      "finite": true,
+      "kind": "voice"
+    },
+    "assets/audio/survival/voice/clear/listen-officer.ogg": {
+      "sha256": "9120a47b0a66622c534a175f1657574f8309ae691a4e02a4f5bbb6773e825ba6",
+      "seconds": 1.22,
+      "sample_rate": 44100,
+      "channels": 1,
+      "sample_peak_dbfs": -10.814015867130689,
+      "estimated_4x_true_peak_dbfs": -10.802614000020064,
+      "finite": true,
+      "kind": "voice"
+    },
+    "assets/audio/survival/voice/listen-alice.ogg": {
+      "sha256": "2e144a76bb69f3bd6e85ec70b6e12d5cc4f32acf7c6271c65fe683094a9f41fa",
+      "seconds": 5.7,
+      "sample_rate": 44100,
+      "channels": 1,
+      "sample_peak_dbfs": -10.935357601756774,
+      "estimated_4x_true_peak_dbfs": -10.92066042950796,
+      "finite": true,
+      "kind": "voice"
+    },
+    "assets/audio/survival/voice/clear/listen-alice.ogg": {
+      "sha256": "533c081ec2c6c466c8ccd37b22c27d3db43b4eddd4da18b2a78948aea44a6401",
+      "seconds": 5.7,
+      "sample_rate": 44100,
+      "channels": 1,
+      "sample_peak_dbfs": -9.994038704111192,
+      "estimated_4x_true_peak_dbfs": -9.977834854719035,
+      "finite": true,
+      "kind": "voice"
+    },
+    "assets/audio/survival/voice/descent-officer.ogg": {
+      "sha256": "48943b62d38d908d1331e389cbb3544686761a4a005a5cbc4708d7830988b2b7",
+      "seconds": 2.42,
+      "sample_rate": 44100,
+      "channels": 1,
+      "sample_peak_dbfs": -11.067652531367916,
+      "estimated_4x_true_peak_dbfs": -11.04946866142027,
+      "finite": true,
+      "kind": "voice"
+    },
+    "assets/audio/survival/voice/clear/descent-officer.ogg": {
+      "sha256": "82493741b15a0b0a6bc36a197c9f057a04922fbcacef04f50bcf1eb2d460b50b",
+      "seconds": 2.42,
+      "sample_rate": 44100,
+      "channels": 1,
+      "sample_peak_dbfs": -11.19577913789252,
+      "estimated_4x_true_peak_dbfs": -11.151294939795102,
+      "finite": true,
+      "kind": "voice"
+    },
+    "assets/audio/survival/voice/descent-alice.ogg": {
+      "sha256": "c18d360aae7986c89aa180a4747a0fc69e2402d6daf71840b7dcd022b127e7b5",
+      "seconds": 3.54,
+      "sample_rate": 44100,
+      "channels": 1,
+      "sample_peak_dbfs": -10.833591407830042,
+      "estimated_4x_true_peak_dbfs": -10.821262224004828,
+      "finite": true,
+      "kind": "voice"
+    },
+    "assets/audio/survival/voice/clear/descent-alice.ogg": {
+      "sha256": "6740233e4c1043e995a960c46849c5735d5e6e7118ec161263bd632b07574075",
+      "seconds": 3.54,
+      "sample_rate": 44100,
+      "channels": 1,
+      "sample_peak_dbfs": -9.996875258427519,
+      "estimated_4x_true_peak_dbfs": -9.95151895841323,
+      "finite": true,
+      "kind": "voice"
+    },
+    "assets/audio/survival/voice/lamp-officer.ogg": {
+      "sha256": "12fc639f4ff1267b112254ca291b0dac5d36082c09296abbb0c5635e26d60270",
+      "seconds": 1.62,
+      "sample_rate": 44100,
+      "channels": 1,
+      "sample_peak_dbfs": -11.159651543721738,
+      "estimated_4x_true_peak_dbfs": -11.154124456871703,
+      "finite": true,
+      "kind": "voice"
+    },
+    "assets/audio/survival/voice/clear/lamp-officer.ogg": {
+      "sha256": "1140f34f815ed21169b5d2c3af462617438a2a3b57265df7d79271bf68c2a18e",
+      "seconds": 1.62,
+      "sample_rate": 44100,
+      "channels": 1,
+      "sample_peak_dbfs": -11.38204256393764,
+      "estimated_4x_true_peak_dbfs": -11.376515096093504,
+      "finite": true,
+      "kind": "voice"
+    },
+    "assets/audio/survival/voice/lamp-alice.ogg": {
+      "sha256": "82ad185961bdaebab82d045f148711c48fd90eba0b886741603a12caf953e447",
+      "seconds": 5.7,
+      "sample_rate": 44100,
+      "channels": 1,
+      "sample_peak_dbfs": -10.916161973966457,
+      "estimated_4x_true_peak_dbfs": -10.899580406608326,
+      "finite": true,
+      "kind": "voice"
+    },
+    "assets/audio/survival/voice/clear/lamp-alice.ogg": {
+      "sha256": "c67336e2bbee5377761def7da0044ce3d440d95d91e880801ca036c23cc67042",
+      "seconds": 5.7,
+      "sample_rate": 44100,
+      "channels": 1,
+      "sample_peak_dbfs": -9.919839402057054,
+      "estimated_4x_true_peak_dbfs": -9.912171721895758,
+      "finite": true,
+      "kind": "voice"
+    },
+    "assets/audio/survival/voice/refusal-alice.ogg": {
+      "sha256": "5ddf5725b347f7b05096db47111b1964a9a21b6c222b43240d747dce93fc0b9a",
+      "seconds": 4.34,
+      "sample_rate": 44100,
+      "channels": 1,
+      "sample_peak_dbfs": -11.504171601665467,
+      "estimated_4x_true_peak_dbfs": -11.498643709276326,
+      "finite": true,
+      "kind": "voice"
+    },
+    "assets/audio/survival/voice/clear/refusal-alice.ogg": {
+      "sha256": "679df7a59dc093806295337010945de15e410f3ecb77fc37b8c58132d4d9c6e1",
+      "seconds": 4.34,
+      "sample_rate": 44100,
+      "channels": 1,
+      "sample_peak_dbfs": -10.139755781058252,
+      "estimated_4x_true_peak_dbfs": -10.115099429679614,
+      "finite": true,
+      "kind": "voice"
+    },
+    "assets/audio/survival/voice/broadcast-alice.ogg": {
+      "sha256": "eb68fe4bb2d381dcbd8408f5954977ae93bd0c8bb0a0484290533732cc858482",
+      "seconds": 6.74,
+      "sample_rate": 44100,
+      "channels": 1,
+      "sample_peak_dbfs": -10.902672394961503,
+      "estimated_4x_true_peak_dbfs": -10.879353015105483,
+      "finite": true,
+      "kind": "voice"
+    },
+    "assets/audio/survival/voice/clear/broadcast-alice.ogg": {
+      "sha256": "7b30bd6883508b30a35907e751197a8edad00e1858cea21ca3733d91b8c263ef",
+      "seconds": 6.74,
+      "sample_rate": 44100,
+      "channels": 1,
+      "sample_peak_dbfs": -10.268120376423546,
+      "estimated_4x_true_peak_dbfs": -10.262593150244903,
+      "finite": true,
+      "kind": "voice"
+    },
+    "assets/audio/survival/voice/sacrifice-alice.ogg": {
+      "sha256": "9befe8e6f9bfc332d97abde78c4b86c04ffff6b6706727bf3c8a0b79bdd9069b",
+      "seconds": 7.46,
+      "sample_rate": 44100,
+      "channels": 1,
+      "sample_peak_dbfs": -10.908338902020722,
+      "estimated_4x_true_peak_dbfs": -10.900930575688161,
+      "finite": true,
+      "kind": "voice"
+    },
+    "assets/audio/survival/voice/clear/sacrifice-alice.ogg": {
+      "sha256": "f565c1c5bf7933da3e2a902558d04ce958d0c24cf8a30f3266759a4329e5e3b3",
+      "seconds": 7.46,
+      "sample_rate": 44100,
+      "channels": 1,
+      "sample_peak_dbfs": -10.214137516343794,
+      "estimated_4x_true_peak_dbfs": -10.159460010564063,
+      "finite": true,
+      "kind": "voice"
+    },
+    "assets/audio/survival/voice/farewell-alice.ogg": {
+      "sha256": "b924b67638b4747633761d5ab834dd53528af148af689a9042cf4f816ad01db8",
+      "seconds": 7.62,
+      "sample_rate": 44100,
+      "channels": 1,
+      "sample_peak_dbfs": -11.128015189721776,
+      "estimated_4x_true_peak_dbfs": -11.122487697723214,
+      "finite": true,
+      "kind": "voice"
+    },
+    "assets/audio/survival/voice/clear/farewell-alice.ogg": {
+      "sha256": "69960cd28c36aaea581c4fec1b977256cbc068247ecd8a3bdfba1a70182ae44d",
+      "seconds": 7.62,
+      "sample_rate": 44100,
+      "channels": 1,
+      "sample_peak_dbfs": -10.311483524384776,
+      "estimated_4x_true_peak_dbfs": -10.301745956586855,
+      "finite": true,
+      "kind": "voice"
+    },
+    "assets/audio/survival/sfx/step.wav": {
+      "sha256": "ed32128aeb412b8614b913853e63509ab82bd417dfdedf1f89b4a4bd962d46f6",
+      "seconds": 0.45,
+      "sample_rate": 44100,
+      "channels": 1,
+      "sample_peak_dbfs": -16.999255083538145,
+      "estimated_4x_true_peak_dbfs": -16.99372748808274,
+      "finite": true,
+      "kind": "sfx"
+    },
+    "assets/audio/survival/sfx/step_careful.wav": {
+      "sha256": "e9b97a6825608f585e2216ec30e68c89596f7143b6f82e740f3a05d78c70fadb",
+      "seconds": 0.45,
+      "sample_rate": 44100,
+      "channels": 1,
+      "sample_peak_dbfs": -22.00285285468301,
+      "estimated_4x_true_peak_dbfs": -21.997324973312654,
+      "finite": true,
+      "kind": "sfx"
+    },
+    "assets/audio/survival/sfx/step_heavy.wav": {
+      "sha256": "ec56a8521b3d3dd382ee39bee5fd2d3abb95aa44a0863c2d066be943accb29f2",
+      "seconds": 0.45,
+      "sample_rate": 44100,
+      "channels": 1,
+      "sample_peak_dbfs": -15.000098337391357,
+      "estimated_4x_true_peak_dbfs": -14.99457065268269,
+      "finite": true,
+      "kind": "sfx"
+    },
+    "assets/audio/survival/sfx/door.wav": {
+      "sha256": "ec723753797d26445d6887aebcbeaa4e08778127722671515b91dc8823801a7c",
+      "seconds": 1.14,
+      "sample_rate": 44100,
+      "channels": 1,
+      "sample_peak_dbfs": -17.00113169360012,
+      "estimated_4x_true_peak_dbfs": -16.995603819973137,
+      "finite": true,
+      "kind": "sfx"
+    },
+    "assets/audio/survival/sfx/door_force.wav": {
+      "sha256": "39a8a1f0f9675032286fe4d1007eace6ea4bb5e8e94188edff4226b77fc90c7a",
+      "seconds": 1.05,
+      "sample_rate": 44100,
+      "channels": 1,
+      "sample_peak_dbfs": -14.000100374307355,
+      "estimated_4x_true_peak_dbfs": -13.99457267157544,
+      "finite": true,
+      "kind": "sfx"
+    },
+    "assets/audio/survival/sfx/brace_place.wav": {
+      "sha256": "2369467c7a642c5fcda48e260dfbb105aacdd4d20639141e5b255c167c05f4ed",
+      "seconds": 0.4650113378684807,
+      "sample_rate": 44100,
+      "channels": 1,
+      "sample_peak_dbfs": -17.00113169360012,
+      "estimated_4x_true_peak_dbfs": -16.995603819973137,
+      "finite": true,
+      "kind": "sfx"
+    },
+    "assets/audio/survival/sfx/brace_recover.wav": {
+      "sha256": "4b9655db8deb9c8fdede13d39d6da305ac1cee8f51a0c18eac4f801ce9763137",
+      "seconds": 0.3449886621315193,
+      "sample_rate": 44100,
+      "channels": 1,
+      "sample_peak_dbfs": -18.00051964147548,
+      "estimated_4x_true_peak_dbfs": -17.994991960117183,
+      "finite": true,
+      "kind": "sfx"
+    },
+    "assets/audio/survival/sfx/probe.wav": {
+      "sha256": "f639eb0d6c105a2694e858823862cf6c9ded9f038d984a036508044b03aa0abc",
+      "seconds": 0.72,
+      "sample_rate": 44100,
+      "channels": 1,
+      "sample_peak_dbfs": -21.001341670225994,
+      "estimated_4x_true_peak_dbfs": -20.995813948400883,
+      "finite": true,
+      "kind": "sfx"
+    },
+    "assets/audio/survival/sfx/bank_transfer.wav": {
+      "sha256": "b68a0fe3a267ef27135f9234aaa007179ce7708d4bb10a15b05b113cb6337740",
+      "seconds": 0.88,
+      "sample_rate": 44100,
+      "channels": 1,
+      "sample_peak_dbfs": -20.00212083742674,
+      "estimated_4x_true_peak_dbfs": -19.996593298150202,
+      "finite": true,
+      "kind": "sfx"
+    },
+    "assets/audio/survival/sfx/lamp.wav": {
+      "sha256": "7e4c62ace4a95729eb7f0bdd7e8e8a080b5dbe368802027ba1c3f750f733c2e5",
+      "seconds": 0.14,
+      "sample_rate": 44100,
+      "channels": 1,
+      "sample_peak_dbfs": -23.99798801075626,
+      "estimated_4x_true_peak_dbfs": -23.983255927852298,
+      "finite": true,
+      "kind": "sfx"
+    },
+    "assets/audio/survival/sfx/sirs_step.wav": {
+      "sha256": "0021bb7c1fd671ce2b28f1f5895e58ccc2306cab006b88c13c88dbb16c6d1103",
+      "seconds": 0.35,
+      "sample_rate": 44100,
+      "channels": 1,
+      "sample_peak_dbfs": -17.998414226451704,
+      "estimated_4x_true_peak_dbfs": -17.992886857130244,
+      "finite": true,
+      "kind": "sfx"
+    },
+    "assets/audio/survival/sfx/add_step.wav": {
+      "sha256": "86e8a2834bb256cf1602f3d76b9b7249cff9f7df27850e09a79e3d72eadf94bc",
+      "seconds": 0.69,
+      "sample_rate": 44100,
+      "channels": 1,
+      "sample_peak_dbfs": -16.000632247293233,
+      "estimated_4x_true_peak_dbfs": -15.99510490309435,
+      "finite": true,
+      "kind": "sfx"
+    },
+    "assets/audio/survival/sfx/rover_step.wav": {
+      "sha256": "b3d84d698173bf1ee7839291f90dd1eee00e08f7cb7f156173e739d79c25be79",
+      "seconds": 0.43,
+      "sample_rate": 44100,
+      "channels": 1,
+      "sample_peak_dbfs": -20.00212083742674,
+      "estimated_4x_true_peak_dbfs": -19.996593298150202,
+      "finite": true,
+      "kind": "sfx"
+    },
+    "assets/audio/survival/sfx/rover_arm.wav": {
+      "sha256": "22b490e58815d53d5fd016480b898302f11ade48599810a43cccc43abc806447",
+      "seconds": 0.58,
+      "sample_rate": 44100,
+      "channels": 1,
+      "sample_peak_dbfs": -15.000098337391357,
+      "estimated_4x_true_peak_dbfs": -14.99457065268269,
+      "finite": true,
+      "kind": "sfx"
+    },
+    "assets/audio/survival/sfx/power_on.wav": {
+      "sha256": "406ad43541cf56e743f0be5808f0c59b7e875f2a7c95bb96385087bfd6253b87",
+      "seconds": 0.88,
+      "sample_rate": 44100,
+      "channels": 1,
+      "sample_peak_dbfs": -19.001488644912886,
+      "estimated_4x_true_peak_dbfs": -18.995961093669838,
+      "finite": true,
+      "kind": "sfx"
+    },
+    "assets/audio/survival/sfx/power_off.wav": {
+      "sha256": "7456bfa4617591475c365c2623259452bbb4b6d26254e7a9a72d03f8bd795935",
+      "seconds": 0.74,
+      "sample_rate": 44100,
+      "channels": 1,
+      "sample_peak_dbfs": -22.426972658393467,
+      "estimated_4x_true_peak_dbfs": -22.421445338403522,
+      "finite": true,
+      "kind": "sfx"
+    },
+    "assets/audio/survival/ambience/station_powered.ogg": {
+      "sha256": "41a6c096939fc2503113a6be158b3f7da1ca36f257f3dd50fe0d04cd2e59d7d5",
+      "seconds": 24.0,
+      "sample_rate": 44100,
+      "channels": 1,
+      "sample_peak_dbfs": -22.052165216961228,
+      "estimated_4x_true_peak_dbfs": -22.046637817785584,
+      "finite": true,
+      "kind": "ambience"
+    },
+    "assets/audio/survival/ambience/station_unpowered.ogg": {
+      "sha256": "453a88898a2452b1db67952517a5a38ea2dab29b1bc9c5e79b8bac0341a9b37a",
+      "seconds": 24.0,
+      "sample_rate": 44100,
+      "channels": 1,
+      "sample_peak_dbfs": -33.78713788168034,
+      "estimated_4x_true_peak_dbfs": -33.781610543558614,
+      "finite": true,
+      "kind": "ambience"
+    },
+    "assets/audio/survival/ambience/radio-static.ogg": {
+      "sha256": "9fc0e554fec1a2feed69b43b63dc44e30ba28702300da4f354956e7d00334b8e",
+      "seconds": 12.0,
+      "sample_rate": 44100,
+      "channels": 1,
+      "sample_peak_dbfs": -25.63723413032043,
+      "estimated_4x_true_peak_dbfs": -25.617780002462204,
+      "finite": true,
+      "kind": "ambience"
+    }
+  },
+  "sfx_ambience_float_repeatability": {
+    "step": "6092e2695afed922e1032634d732ba3001fd69af6f0164b1496c35001fe704d2",
+    "step_careful": "627d213258da73088b96d4088df29900d99c43475ce982469f086e2aaa850b36",
+    "step_heavy": "8ff5accbc5e8b9505c37c18a4f077c9ec3f0c02c87f41294d25e0fa89a4738d5",
+    "door": "7fcfaf89b1f97811ca4d29a454a4363444655932b79561e5351eaef7775ad627",
+    "door_force": "bdacfbfdd90555d11f6088a586fe8e165b464aab8813a2f11c04c6a554d0be32",
+    "brace_place": "5e700c6ab1ba8d08909d5928658759d99e475c539e93932ffceeb25212bf8ab2",
+    "brace_recover": "267ccbb2e91fc75801aac978421926252bbb8873ba141fed0090827030b2ba90",
+    "probe": "3315c0073cc581962ceda2639df171291954addfe14e565a73857b7d6b3ee3e8",
+    "bank_transfer": "31ad79d703c2cc1bb025f696120771a1d9024627d0b6b93f2008ed62f9f9628c",
+    "lamp": "cf80cb680fdee0e68c5b8628bc45b01f6578685ee73a79a3cdf45177271e437d",
+    "sirs_step": "e13e6c4a9b6fcc11f843729290b5f40ff9133b16da3349a1cb6e2fa1149672ec",
+    "add_step": "69baf6ea505d22c799e71f0cabec7d4a816fe1a440f0ff46822ef4a75f3ae69b",
+    "rover_step": "5058a771588ab1f2a3458f5be6777d04a310d0013e3647a58c60f25414a47a9a",
+    "rover_arm": "697ab83da5837956b3e766674e0487b8a9fc2c2a5a6a622e8f2e5bc8488a3ade",
+    "power_on": "d0453a7e11f3a707ee136a022c5579a351254dad5ffb34a7bb8cbaa76c2040d3",
+    "power_off": "a324106875186b0f645960cf6f219156bfc4b6cdbb6ebf9e9bc4f98bb39776dc",
+    "station_powered": "74ce012c55bc6b130c60b2d42a9983423915d3d473d0649cf056aed8df59e6e4",
+    "station_unpowered": "971939662cef982e1b405c625083824cd5186e715437719cd37c4b94590392cb",
+    "radio-static": "6ddec84b0bb6e862449af2ce3e26d865def56fdd9525be244a80321b1e614cb7"
+  },
+  "mix_bound": {
+    "estimated_linear_sum": 0.9912730370199276,
+    "conditions": "Master <=1; voice trim .86; maximum six SFX shared .65/sqrt(N); voice ducks existing suit to .60; breath/heart old maximum gains .90/.61; radio bounded .06*1.75; ambience <=.035 peak; score silent during speech. Integration must retain/recheck these assumptions."
+  },
+  "not_proven": [
+    "Native runtime playback",
+    "Human audibility, acting, identity consistency, fatigue, emotion or artistic acceptance",
+    "Exact heard words from text hashes",
+    "Scene headroom if integration changes the documented trims"
+  ]
+}

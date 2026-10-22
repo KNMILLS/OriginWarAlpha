@@ -1,0 +1,5 @@
+Origin War runtime diagnostics
+frames=2100 replayRemaining=0 saveFailures=0
+seed=1 deck=2 tick=197 hp=98 reserve=703 oxygenation=100 dialogue=alice-meet victory=false dead=false
+Active foreground frame intervals: n=1979 mean=16.87ms p95=18.77ms max=274.04ms heap=213.6MiB
+Playback summary: sounds=117, failed=0, musicLoops=0, ALICEclips=1, completedSpeech=1, breathLoops=2, heartLoops=2, boundedDrops=7, activeSFX=0

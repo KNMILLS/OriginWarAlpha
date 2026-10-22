@@ -1,0 +1,410 @@
+package io.zipcoder.originwar.desktop;
+
+import com.badlogic.gdx.*;
+import com.badlogic.gdx.graphics.*;
+import com.badlogic.gdx.graphics.g2d.*;
+import com.badlogic.gdx.math.*;
+import com.badlogic.gdx.utils.*;
+import io.zipcoder.originwar.engine.*;
+import io.zipcoder.originwar.campaign.*;
+import io.zipcoder.originwar.model.*;
+import io.zipcoder.originwar.perception.PerceptionModel;
+import java.nio.file.Path;
+import java.util.*;
+
+/** Illustrated survival client. Core alone owns rules and paid commitments. */
+public final class OriginWarApp extends ApplicationAdapter {
+ private enum Screen { TITLE,PLAY,PAUSE,INVENTORY,JOURNAL,MAP,RECORD,SETTINGS,HELP,CREDITS,SUIT,ACTIONS,CONFIRM,DEAD,VICTORY }
+ private record Button(Rectangle bounds,String label,Runnable action){}
+ private record WorldObject(float depth,String region,float x,float y,float light,float alpha,float artScale){WorldObject(float depth,String region,float x,float y,float light,float alpha){this(depth,region,x,y,light,alpha,1);}}
+ private final String[] args;
+ private final ArrayList<Button> buttons=new ArrayList<>();
+ private final ArrayDeque<Screen> navigation=new ArrayDeque<>();
+ private final ArrayDeque<String> replay=new ArrayDeque<>();
+ private final ArrayDeque<Float> intervals=new ArrayDeque<>();
+ private final SurvivalTimeline timeline=new SurvivalTimeline();private final OfficerPerformance officerPerformance=new OfficerPerformance();private final StationPerformance stationPerformance=new StationPerformance();private final GlyphLayout glyph=new GlyphLayout();
+ private final WorkplaceLayout workplace=new WorkplaceLayout();
+ private final MovementIntent movementIntent=new MovementIntent();
+ private GameState handlingBefore;private boolean handlingItems,handlingWork;
+ private SpriteBatch batch;private BitmapFont font;private IllustratedArt art;private SurvivalAudio audio;
+ private ProfileLease lease;private SaveStore store;private SaveCoordinator writer;private SettingsStore settings;
+ private RunEngine engine;private GameState state;private Screen screen=Screen.TITLE;
+ private String seedText="2016",notice="",capture="",diagnostics="",sequenceDirectory="",fatal="";
+ private String proofStyle="",comparisonStyle="rendered",proofCoverage="";private boolean artLab,offlineReview,reviewOverlay;
+ private int proofAimX=-2,proofAimY=-2;private float proofAimSince;private boolean firingFromAim,proofAimDisplayed,wasAiming;
+ private String confirmTitle="",confirmText="";private Runnable confirmation;
+ private boolean exitAfterReplay,continuousReplay;private int replayTailFrames=60,replayDrainedFrames,replayHold;
+ private boolean focused=true,seedEditing,closing,returnToTitle,captureRequested,disposed,careful,settingsDirty,reportedSaveFailure;
+ private int selectedItem,selectedButton,page,journalEntry,settingsPage,targetX=-1,targetY=-1,hoverX=-1,hoverY=-1;
+ private int frame,maxFrames,captureFrame=90,replayEvery=3,replayDelay=6,sequenceStart=1,sequenceCount,saveFailures;
+ private float savingSeconds;private float clock,noticeTime,mapX,mapY,mapW,mapH,cell,originX,originY,cameraX,cameraY;
+ private float scale=1;private Path profile,screenshotDirectory;
+ private PlayerAction previewAction;private String walkTo="";private int walkX,walkY,viewAfterLoad=-1;
+ private final Color ink=new Color(.87f,.91f,.88f,1),muted=new Color(.51f,.62f,.62f,1),amber=new Color(.94f,.68f,.36f,1),red=new Color(.91f,.37f,.29f,1);
+ public OriginWarApp(String[] args){this.args=args;}
+ @Override public void create(){
+  String local=System.getenv("LOCALAPPDATA");profile=Path.of(local==null?System.getProperty("user.home"):local,"OriginWar","survival-0.2");
+  for(String a:args){
+   if(a.startsWith("--user-data="))profile=Path.of(a.substring(12));if(a.startsWith("--seed="))seedText=a.substring(7);
+   if(a.startsWith("--art-proof="))proofStyle=a.substring(12);if(a.equals("--art-lab"))artLab=true;
+   if(a.equals("--offline-art-review"))offlineReview=true;
+   if(a.equals("--art-review-overlay"))reviewOverlay=true;
+   if(a.equals("--continuous-replay"))continuousReplay=true;
+   if(a.startsWith("--capture="))capture=a.substring(10);if(a.startsWith("--diagnostics="))diagnostics=a.substring(14);
+   if(a.startsWith("--frames="))maxFrames=Integer.parseInt(a.substring(9));if(a.startsWith("--capture-frame="))captureFrame=Integer.parseInt(a.substring(16));
+   if(a.startsWith("--capture-sequence="))sequenceDirectory=a.substring(19);if(a.startsWith("--sequence-start="))sequenceStart=Integer.parseInt(a.substring(17));if(a.startsWith("--sequence-count="))sequenceCount=Integer.parseInt(a.substring(17));
+   if(a.equals("--exit-after-replay"))exitAfterReplay=true;if(a.startsWith("--replay-tail-frames="))replayTailFrames=Math.max(1,Integer.parseInt(a.substring(21)));
+   if(a.startsWith("--replay-delay="))replayEvery=Math.max(1,Integer.parseInt(a.substring(15)));
+   if(a.startsWith("--replay-start-delay="))replayDelay=Math.max(1,Integer.parseInt(a.substring(21)));
+   if(a.startsWith("--replay="))for(String line:Gdx.files.absolute(a.substring(9)).readString("UTF-8").split("\\R"))if(!line.isBlank()&&!line.startsWith("#"))replay.add(line);
+  }
+  if(!proofStyle.isEmpty()&&!Set.of("painted","rendered","illustrated").contains(proofStyle))throw new IllegalArgumentException("Art proof must be painted, rendered or illustrated");
+  if(proofStyle.equals("illustrated"))comparisonStyle="illustrated";
+  if(offlineReview&&proofStyle.isEmpty()&&!artLab)throw new IllegalArgumentException("Offline review requires an explicit art preview");
+  if(artLab){profile=profile.resolve("art-comparison-lab");if(proofStyle.isEmpty())proofStyle="painted";}
+  try{lease=ProfileLease.acquire(profile);settings=new SettingsStore(profile);store=new SaveStore(profile);writer=new SaveCoordinator(store);}catch(Exception e){fatal=e.getMessage();settings=new SettingsStore(profile.resolve("unavailable-readonly"));}
+  screenshotDirectory=profile.resolve("screenshots");batch=new SpriteBatch();font=new BitmapFont(Gdx.files.internal("ui/ui.fnt"));font.getRegion().getTexture().setFilter(Texture.TextureFilter.Linear,Texture.TextureFilter.Linear);art=new IllustratedArt();audio=new SurvivalAudio();audio.settings(settings);
+  if(!proofStyle.isEmpty()){art.loadProof(proofStyle);timeline.locomotionTiming(.5f,1);}
+  Gdx.input.setInputProcessor(new InputAdapter(){
+   public boolean keyDown(int code){return key(code);}
+   public boolean keyUp(int code){movementIntent.release(code);return false;}
+   public boolean keyTyped(char c){if(screen!=Screen.TITLE||!seedEditing)return false;if(c=='\b'&&!seedText.isEmpty())seedText=seedText.substring(0,seedText.length()-1);else if((Character.isDigit(c)||c=='-')&&seedText.length()<19)seedText+=c;return true;}
+   public boolean touchDown(int x,int y,int p,int b){return click(x,Gdx.graphics.getHeight()-y,b);}
+   public boolean mouseMoved(int x,int y){hover(x,Gdx.graphics.getHeight()-y);return false;}
+   public boolean scrolled(float x,float y){if(screen==Screen.INVENTORY)selectedItem=MathUtils.clamp(selectedItem+(int)y,0,Math.max(0,items().size()-1));else page=Math.max(0,page+(int)y);return true;}
+  });
+  if(fatal.isEmpty())for(String a:args){if(a.equals("--play"))startNew();if(a.equals("--resume"))resumeRun();if(a.startsWith("--view="))try{String view=a.substring(7).toUpperCase(Locale.ROOT);if(view.equals("STATS"))view="SUIT";if(!Set.of("MAP","RECORD","INVENTORY","SUIT","HELP","SETTINGS","JOURNAL","PAUSE","CREDITS").contains(view))throw new IllegalArgumentException("Unsupported reading view");viewAfterLoad=Screen.valueOf(view).ordinal();}catch(Exception e){notice("Unknown view "+a);}}
+  Gdx.app.log("Survival","Illustrated regions="+art.count()+"; profile="+profile+"; display="+Gdx.graphics.getDisplayMode()+"; window="+Gdx.graphics.getWidth()+"x"+Gdx.graphics.getHeight());
+ }
+ private boolean ready(){return writer!=null&&writer.status()==SaveCoordinator.Status.READY&&!closing&&!returnToTitle;}
+ private void startNew(){if(!ready())return;try{engine=artLab?new RunEngine(ArtProofScenario.create()):new RunEngine(Long.parseLong(seedText));state=engine.saveState();resetRun();writer.begin(state);screen=Screen.PLAY;notice(artLab?"STAGED ART COMPARISON / F6 switches methods; ordinary actions commit real time.":"Boarded. Time moves when you commit an action.");}catch(Exception e){notice("Cannot begin: "+e.getMessage());}}
+ private void askNew(){if(store!=null&&store.exists())confirm("BEGIN A NEW DESCENT?","The current expedition will be replaced as the active run. Its files remain preserved. Activation waits for a durable first snapshot.",this::startNew);else startNew();}
+ private void resumeRun(){if(ready()){writer.load();notice("Reading expedition…");}}
+ private void resetRun(){timeline.reset();firingFromAim=proofAimDisplayed=wasAiming=false;officerPerformance.reset();stationPerformance.reset();movementIntent.clear();handlingBefore=null;handlingItems=false;audio.reset();navigation.clear();selectedItem=page=journalEntry=0;targetX=targetY=-1;proofAimX=proofAimY=-2;walkTo="";cameraX=state.playerX;cameraY=state.playerY;previewAction=null;}
+ private boolean act(PlayerAction a){
+  if(a.type()!=PlayerAction.Type.MOVE&&a.type()!=PlayerAction.Type.CAREFUL_MOVE)movementIntent.clear();
+  boolean speechAcknowledgment=a.type()==PlayerAction.Type.EXCHANGE&&a.id().startsWith("complete:");
+  if(engine==null||state==null||!focused||!ready()||timeline.busy()||((state.dead||state.victory)&&!speechAcknowledgment))return false;
+  boolean departing=a.type()==PlayerAction.Type.ADVANCE||(a.type()==PlayerAction.Type.INTERACT&&state.playerX==state.hatchX&&state.playerY==state.hatchY&&((a.x()==0&&a.y()==0)||(a.x()==state.hatchX&&a.y()==state.hatchY)));
+  if(departing&&!a.id().equals("confirm")){
+   var f=engine.forecast(a);if(!f.available()){notice(f.explanation());return false;}
+   confirm(state.deck==10?"SEAL THE EVACUATION POD?":"LEAVE THIS DECK?","Supplies and installed equipment left above cannot be recovered. Descent is one way. "+f.explanation(),()->act(new PlayerAction(a.type(),a.x(),a.y(),"confirm")));return false;
+  }
+  var before=state;var result=engine.submit(a);if(!result.accepted()){timeline.cancelContinuation();notice(result.reason());walkTo="";return false;}
+  state=engine.saveState();firingFromAim=comparisonStyle.equals("illustrated")&&proofAimDisplayed&&a.type()==PlayerAction.Type.SHOOT&&before.facing==state.facing&&targetX==a.x()&&targetY==a.y()&&proofAimX==targetX&&proofAimY==targetY&&clock-proofAimSince>=.28f;if(state.hp<before.hp||state.dead||state.victory)movementIntent.clear();handlingBefore=before;handlingWork=OfficerPerformance.workCommand(a.type());handlingItems=Set.of(PlayerAction.Type.PICKUP,PlayerAction.Type.DROP,PlayerAction.Type.EQUIP,PlayerAction.Type.USE,PlayerAction.Type.BRACE).contains(a.type());configureTimeline(before,a,result);
+  if(state.deck!=before.deck){timeline.reset();for(var e:result.events())audio.event(e,state);cameraX=state.playerX;cameraY=state.playerY;targetX=targetY=-1;walkTo="";}
+  if(result.stateChanged())writer.save(state);
+  configureOfficerPerformance(before,a,result);
+  if(comparisonStyle.equals("illustrated"))stationPerformance.accept(before,state,result,timeline,new StationPerformance.Timing(){
+   public float seconds(String actor,String action,int face,float fallback){return art.clipSeconds(art.stationClip(actor,action,face),fallback);}
+   public float marker(String actor,String action,int face,String marker,float fallback){return art.markerSeconds(art.stationClip(actor,action,face),marker,fallback);}
+  });
+  if(state.dead){walkTo="";if(!comparisonStyle.equals("illustrated"))screen=Screen.DEAD;}else if(state.victory){walkTo="";screen=Screen.VICTORY;}
+  return true;
+ }
+ private void configureTimeline(GameState before,PlayerAction command,TurnResult result){
+  String facing=new String[]{"north","east","south","west"}[state.facing],fireClip="officer.fire."+facing;
+  if(!proofStyle.isEmpty()){
+   fireClip=art.proofClip(proofStyle,state.weapon,state.armor,"fire",facing);
+   // Keep the production session's authored cadence when F6 changes appearance.
+   var motion=art.proofMotion(comparisonStyle.equals("illustrated")?"illustrated":proofStyle,state.weapon,state.armor,facing);
+   timeline.locomotionTiming(comparisonStyle.equals("illustrated")?.5f:motion.cellSeconds(),motion.cycleCells());
+   timeline.officerMovementSeconds(motion.cellSeconds());
+   timeline.locomotionTransitions(comparisonStyle.equals("illustrated")?motion.startSeconds():0,comparisonStyle.equals("illustrated")?motion.stopSeconds():0);
+   timeline.locomotionContacts(motion.contacts());
+  }
+  String oldFacing=new String[]{"north","east","south","west"}[before.facing];
+  timeline.officerTurnSeconds(comparisonStyle.equals("illustrated")&&before.facing!=state.facing?art.proofReferenceSeconds("illustrated",state.weapon,state.armor,"turn_from_"+oldFacing,facing,0):0);
+  timeline.officerWorkContact(comparisonStyle.equals("illustrated")&&OfficerPerformance.workCommand(command.type())?art.proofReferenceMarker("illustrated",state.weapon,state.armor,OfficerPerformance.workAction(command.type()),facing,"work_contact",1f/6):-1);
+  boolean originalPistol=proofStyle.isEmpty()&&state.weapon.equals("pistol");
+  var machineReleases=new HashMap<String,Float>();if(comparisonStyle.equals("illustrated"))for(var actor:state.actors)if(state.visible[actor.x][actor.y]){String clip=art.stationClip(actor.kind.name().toLowerCase(Locale.ROOT),"fire",actor.facing);if(!clip.isEmpty())machineReleases.put(actor.id,art.markerSeconds(clip,"release",.08f));}timeline.machineReleaseTimings(machineReleases);
+  var machineMotions=new HashMap<String,SurvivalTimeline.MachineMotion>();if(comparisonStyle.equals("illustrated"))for(var actor:state.actors)if(state.visible[actor.x][actor.y]){String kind=actor.kind.name().toLowerCase(Locale.ROOT),clip=art.stationClip(kind,"walk",actor.facing);if(!clip.isEmpty()){float span=art.clipSeconds(clip,.5f);machineMotions.put(actor.id,new SurvivalTimeline.MachineMotion(art.cycleCells(clip,2),art.markers(clip).stream().filter(m->m.kind().equals("contact")).map(m->m.seconds()/span).toList(),art.clipSeconds(art.stationClip(kind,"start",actor.facing),0),art.clipSeconds(art.stationClip(kind,"stop",actor.facing),0)));}}timeline.machineMotionTiming(machineMotions);
+  timeline.officerFireTiming(!proofStyle.isEmpty()?.14f:originalPistol?art.markerSeconds(fireClip,"release",.08f):.08f,!proofStyle.isEmpty()?.5f:originalPistol&&art.hasClip(fireClip)?.28f:.25f);
+  timeline.orderedOfficerResponses(comparisonStyle.equals("illustrated"));timeline.accept(before,state,result);
+ }
+ private void configureOfficerPerformance(GameState before,PlayerAction command,TurnResult result){
+  if(!comparisonStyle.equals("illustrated"))return;
+  String face=new String[]{"north","east","south","west"}[state.facing];
+  float primarySpan=timeline.duration();if(OfficerPerformance.workCommand(command.type()))primarySpan=Math.max(0,result.cost()-1)*.5f+art.proofReferenceSeconds("illustrated",state.weapon,state.armor,OfficerPerformance.workAction(command.type()),face,.5f);
+  if(command.type()==PlayerAction.Type.TURN&&before.facing!=state.facing)primarySpan=art.proofReferenceSeconds("illustrated",state.weapon,state.armor,"turn_from_"+new String[]{"north","east","south","west"}[before.facing],face,primarySpan);
+  String workAction=OfficerPerformance.workAction(command.type());officerPerformance.workTiming(art.proofReferenceSeconds("illustrated",state.weapon,state.armor,workAction,face,.5f),art.proofReferenceMarker("illustrated",state.weapon,state.armor,workAction,face,"work_contact",1f/6));
+  officerPerformance.accept(before,state,command,result,primarySpan,art.proofReferenceSeconds("illustrated",state.weapon,state.armor,"hit",face,.3f),art.proofReferenceSeconds("illustrated",state.weapon,state.armor,"death",face,.8f),timeline.cueTime("hit","officer",timeline.duration()),timeline.cueTime("death","officer",timeline.duration()));
+  timeline.holdUntil(officerPerformance.seconds());
+ }
+ private void persistSpeechReceipts(){if(state==null||engine==null||writer==null||writer.status()!=SaveCoordinator.Status.READY)return;boolean changed=false;String token;while((token=audio.takeCompleted())!=null){var result=engine.submit(PlayerAction.item(PlayerAction.Type.EXCHANGE,token));if(!result.accepted()){notice("Speech history could not be recorded: "+result.reason());continue;}changed|=result.stateChanged();}if(changed){state=engine.saveState();writer.save(state);}}
+ private void open(Screen next){movementIntent.clear();walkTo="";navigation.push(screen);screen=next;page=selectedButton=0;seedEditing=false;}
+ private void back(){if(screen==Screen.PLAY){open(Screen.PAUSE);return;}screen=navigation.isEmpty()?(state==null?Screen.TITLE:Screen.PLAY):navigation.pop();page=selectedButton=0;if(settingsDirty)saveSettings();}
+ private void confirm(String title,String text,Runnable action){confirmTitle=title;confirmText=text;confirmation=action;open(Screen.CONFIRM);}
+ private void acceptConfirmation(){var action=confirmation;confirmation=null;back();if(action!=null)action.run();}
+ private void notice(String text){notice=text;noticeTime=6;}
+ private int direction(int dx,int dy){return Math.abs(dx)>=Math.abs(dy)?(dx>=0?1:3):(dy>0?2:0);}
+ private int[] aim(){return new int[]{targetX>=0?targetX:state.playerX+new int[]{0,1,0,-1}[state.facing],targetY>=0?targetY:state.playerY+new int[]{-1,0,1,0}[state.facing]};}
+ private PlayerAction targeted(PlayerAction.Type t){var p=aim();return targetX<0?PlayerAction.of(t):PlayerAction.at(t,p[0],p[1]);}
+ private void step(int code,int dx,int dy){
+  walkTo="";PlayerAction a=Gdx.input.isKeyPressed(Input.Keys.ALT_LEFT)||Gdx.input.isKeyPressed(Input.Keys.ALT_RIGHT)?new PlayerAction(PlayerAction.Type.TURN,direction(dx,dy),0,""):new PlayerAction(careful||Gdx.input.isKeyPressed(Input.Keys.SHIFT_LEFT)||Gdx.input.isKeyPressed(Input.Keys.SHIFT_RIGHT)?PlayerAction.Type.CAREFUL_MOVE:PlayerAction.Type.MOVE,dx,dy,"");previewAction=a;
+  if(a.type()==PlayerAction.Type.TURN){act(a);return;}
+  if(!movementIntent.press(code,a,clock))return;
+  if(!timeline.busy()&&ready()){int x=state.playerX,y=state.playerY;boolean accepted=act(a);movementIntent.consumed();if(!accepted||state.playerX==x&&state.playerY==y)movementIntent.clear();}
+ }
+ private void bufferedMovement(){
+  if(!focused||screen!=Screen.PLAY||state==null||state.dead||state.victory){movementIntent.clear();return;}
+  if(!ready())return;var next=movementIntent.peek(clock);if(next==null)return;
+  // Holding is a convenience only outside visible danger. A fresh key press still
+  // commits its explicit single action under the ordinary controls.
+  if(knownThreat()){movementIntent.clear();return;}
+  if(!movementReady(next))return;
+  int x=state.playerX,y=state.playerY;boolean accepted=act(next);movementIntent.consumed();if(!accepted||state.playerX==x&&state.playerY==y)movementIntent.clear();
+ }
+ private boolean movementReady(PlayerAction next){
+  if(!timeline.busy())return true;
+  if(!comparisonStyle.equals("illustrated")||next.type()!=PlayerAction.Type.MOVE||direction(next.x(),next.y())!=state.facing)return false;
+  var forecast=engine.forecast(next);if(!forecast.available()||forecast.ticks()!=1)return false;
+  int nx=state.playerX+next.x(),ny=state.playerY+next.y();if(!inside(nx,ny))return false;var known=StationSystems.knownTile(state,nx,ny);if(known==null||known.blocksMovement)return false;
+  return timeline.continueOfficer(next.x(),next.y());
+ }
+ private void replayContinuation(){
+  if(!continuousReplay||!ready()||!focused||screen!=Screen.PLAY||replay.isEmpty()||knownThreat()||!timeline.busy()||!replay.peek().startsWith("MOVE\t"))return;
+  String[] p=replay.peek().split("\t",-1);var next=PlayerAction.move(Integer.parseInt(p[1]),Integer.parseInt(p[2]));
+  if(movementReady(next)){replayCommand(replay.removeFirst());replayDelay=replayEvery;}
+ }
+ private boolean key(int code){
+  if(Set.of(Input.Keys.ALT_LEFT,Input.Keys.ALT_RIGHT,Input.Keys.CONTROL_LEFT,Input.Keys.CONTROL_RIGHT,Input.Keys.SHIFT_LEFT,Input.Keys.SHIFT_RIGHT,Input.Keys.F6).contains(code))movementIntent.clear();
+  if(writer!=null&&writer.status()==SaveCoordinator.Status.FAILED&&(code==Input.Keys.F5||code==Input.Keys.R)){writer.retry();return true;}
+  if(code==Input.Keys.F12){captureRequested=true;return true;}if(code==Input.Keys.F11){fullscreen();return true;}
+  if(code==Input.Keys.F6&&!proofStyle.isEmpty()){proofStyle=proofStyle.equals("painted")?comparisonStyle:"painted";art.loadProof(proofStyle);notice("ART COMPARISON / "+proofStyle.toUpperCase(Locale.ROOT)+" / appearance only; world unchanged");return true;}
+  if(code==Input.Keys.ESCAPE){seedEditing=false;walkTo="";if(screen==Screen.DEAD||screen==Screen.VICTORY)saveTitle();else back();return true;}
+  if(screen==Screen.PLAY&&(Gdx.input.isKeyPressed(Input.Keys.CONTROL_LEFT)||Gdx.input.isKeyPressed(Input.Keys.CONTROL_RIGHT))){int dx=code==Input.Keys.LEFT?-1:code==Input.Keys.RIGHT?1:0,dy=code==Input.Keys.UP?-1:code==Input.Keys.DOWN?1:0;if(dx!=0||dy!=0){targetX=MathUtils.clamp((targetX<0?state.playerX:targetX)+dx,0,state.width-1);targetY=MathUtils.clamp((targetY<0?state.playerY:targetY)+dy,0,state.height-1);previewAction=PlayerAction.at(PlayerAction.Type.SHOOT,targetX,targetY);return true;}}if(screen==Screen.PLAY&&code==Input.Keys.BACKSPACE){targetX=targetY=-1;previewAction=null;return true;}if(screen==Screen.TITLE){if(code==Input.Keys.ENTER){if(seedEditing){seedEditing=false;return true;}activate();return true;}return menuKey(code);}
+  if(screen==Screen.CONFIRM){if(code==Input.Keys.Y){acceptConfirmation();return true;}if(code==Input.Keys.N){back();return true;}return menuKey(code);}
+  if(screen==Screen.INVENTORY){if(code==Input.Keys.UP)selectedItem=Math.max(0,selectedItem-1);else if(code==Input.Keys.DOWN)selectedItem=Math.min(Math.max(0,items().size()-1),selectedItem+1);else if(code==Input.Keys.U||code==Input.Keys.ENTER)inventoryAction(PlayerAction.Type.USE);else if(code==Input.Keys.Q)inventoryAction(PlayerAction.Type.EQUIP);else if(code==Input.Keys.X)inventoryAction(PlayerAction.Type.DROP);else if(code==Input.Keys.G)inventoryAction(PlayerAction.Type.PICKUP);else if(code==Input.Keys.TAB)back();else return menuKey(code);return true;}
+  if(screen!=Screen.PLAY){
+   if(code==Input.Keys.PAGE_DOWN||code==Input.Keys.RIGHT){page++;return true;}if(code==Input.Keys.PAGE_UP||code==Input.Keys.LEFT){page=Math.max(0,page-1);return true;}
+   if(screen==Screen.JOURNAL&&(code==Input.Keys.UP||code==Input.Keys.DOWN)){journalEntry=MathUtils.clamp(journalEntry+(code==Input.Keys.UP?-1:1),0,Math.max(0,state.journal.size()-1));page=0;return true;}
+   return menuKey(code);
+  }
+  switch(code){
+   case Input.Keys.UP,Input.Keys.W->step(code,0,-1);case Input.Keys.DOWN,Input.Keys.S->step(code,0,1);case Input.Keys.LEFT,Input.Keys.A->step(code,-1,0);case Input.Keys.RIGHT,Input.Keys.D->step(code,1,0);
+   case Input.Keys.SPACE,Input.Keys.PERIOD->act(PlayerAction.of(PlayerAction.Type.WAIT));case Input.Keys.E,Input.Keys.ENTER->act(targeted(PlayerAction.Type.INTERACT));
+   case Input.Keys.G->act(PlayerAction.of(PlayerAction.Type.PICKUP));case Input.Keys.R->act(PlayerAction.of(PlayerAction.Type.USE));case Input.Keys.L->act(PlayerAction.of(PlayerAction.Type.LAMP));case Input.Keys.N->act(PlayerAction.of(PlayerAction.Type.LISTEN));
+   case Input.Keys.H->act(targeted(PlayerAction.Type.HACK));case Input.Keys.O->act(targeted(PlayerAction.Type.FORCE));case Input.Keys.B->act(targeted(PlayerAction.Type.BRACE));case Input.Keys.P->act(targeted(PlayerAction.Type.CIRCUIT));
+   case Input.Keys.V->act(PlayerAction.of(PlayerAction.Type.ANALYZE));case Input.Keys.T->act(PlayerAction.of(PlayerAction.Type.RADIO));
+   case Input.Keys.F->{var p=aim();act(PlayerAction.at(PlayerAction.Type.SHOOT,p[0],p[1]));}case Input.Keys.M->{var p=aim();act(PlayerAction.at(PlayerAction.Type.MELEE,p[0],p[1]));}
+   case Input.Keys.TAB,Input.Keys.I->open(Screen.INVENTORY);case Input.Keys.J->{journalEntry=Math.max(0,state.journal.size()-1);open(Screen.JOURNAL);}case Input.Keys.K->open(Screen.MAP);case Input.Keys.C->open(Screen.SUIT);case Input.Keys.F1->open(Screen.HELP);
+   case Input.Keys.Q->{movementIntent.clear();careful=!careful;}case Input.Keys.BACKSLASH->open(Screen.ACTIONS);default->{return false;}
+  }return true;
+ }
+ private boolean menuKey(int code){if(code==Input.Keys.UP||code==Input.Keys.TAB){selectedButton=Math.floorMod(selectedButton+(code==Input.Keys.UP?-1:1),Math.max(1,buttons.size()));return true;}if(code==Input.Keys.DOWN){selectedButton=(selectedButton+1)%Math.max(1,buttons.size());return true;}if(code==Input.Keys.ENTER||code==Input.Keys.SPACE){activate();return true;}return false;}
+ private void activate(){if(!buttons.isEmpty())buttons.get(Math.floorMod(selectedButton,buttons.size())).action.run();}
+ private void hover(float x,float y){for(int n=0;n<buttons.size();n++)if(buttons.get(n).bounds.contains(x,y)){selectedButton=n;break;}hoverX=hoverY=-1;if(state==null||screen!=Screen.PLAY||x<mapX||y<mapY||x>mapX+mapW||y>mapY+mapH)return;hoverX=(int)Math.floor((x-originX)/cell);hoverY=(int)Math.floor((originY-y)/cell);if(!inside(hoverX,hoverY))hoverX=hoverY=-1;}
+ private boolean click(float x,float y,int button){movementIntent.clear();for(var b:List.copyOf(buttons))if(b.bounds.contains(x,y)){b.action.run();return true;}seedEditing=false;if(screen!=Screen.PLAY||state==null)return false;hover(x,y);if(hoverX<0)return false;if(button==Input.Buttons.RIGHT){if(targetX==hoverX&&targetY==hoverY){targetX=targetY=-1;previewAction=null;}else{targetX=hoverX;targetY=hoverY;previewAction=PlayerAction.at(PlayerAction.Type.SHOOT,targetX,targetY);}}else if(button==Input.Buttons.LEFT){targetX=targetY=-1;int dx=hoverX-state.playerX,dy=hoverY-state.playerY;if(Math.abs(dx)+Math.abs(dy)==1){previewAction=new PlayerAction(careful?PlayerAction.Type.CAREFUL_MOVE:PlayerAction.Type.MOVE,dx,dy,"");act(previewAction);}else{walkX=hoverX;walkY=hoverY;walkTo=walkX+":"+walkY;}}return true;}
+ private boolean inside(int x,int y){return state!=null&&x>=0&&y>=0&&x<state.width&&y<state.height;}
+ private boolean knownThreat(){return state.actors.stream().anyMatch(a->RunEngine.isThreat(state,a)&&state.visible[a.x][a.y]);}
+ private void walk(){if(walkTo.isEmpty()||!ready()||screen!=Screen.PLAY)return;if(knownThreat()){walkTo="";notice("Visible machine: automatic movement stopped. Choose each commitment.");return;}if(state.playerX==walkX&&state.playerY==walkY){walkTo="";return;}var route=engine.pathTo(walkX,walkY);if(route.isEmpty()){walkTo="";return;}var next=route.getFirst();if(careful&&next.type()==PlayerAction.Type.MOVE)next=new PlayerAction(PlayerAction.Type.CAREFUL_MOVE,next.x(),next.y(),"");if(!movementReady(next))return;int ox=state.playerX,oy=state.playerY;boolean accepted=act(next);if(!accepted||(next.type()==PlayerAction.Type.MOVE||next.type()==PlayerAction.Type.CAREFUL_MOVE)&&state.playerX==ox&&state.playerY==oy)walkTo="";}
+ @Override public void render(){
+  float actual=Gdx.graphics.getDeltaTime(),dt=offlineReview?1f/60:Math.min(.05f,actual);if(frame>120&&focused&&screen==Screen.PLAY){if(intervals.size()==8192)intervals.removeFirst();intervals.add(actual*1000);}
+  boolean freeze=!focused||screen==Screen.PAUSE||screen==Screen.SETTINGS||screen==Screen.TITLE;noticeTime-=dt;if(!freeze)clock+=dt;
+  if(writer!=null){writer.poll();savingSeconds=writer.status()==SaveCoordinator.Status.WRITING?savingSeconds+actual:0;if(writer.status()==SaveCoordinator.Status.FAILED&&writer.operation()==SaveCoordinator.Operation.LOAD){notice(writer.error());writer.dismissFailedLoad();}var loaded=writer.takeLoaded();if(loaded!=null){engine=new RunEngine(loaded);state=engine.saveState();resetRun();audio.resumeEssential(state);screen=state.dead?Screen.DEAD:state.victory?Screen.VICTORY:Screen.PLAY;notice(store.usedBackup()?"Recovered last good backup.":"Expedition resumed.");}if(viewAfterLoad>=0&&state!=null&&writer.status()==SaveCoordinator.Status.READY){open(Screen.values()[viewAfterLoad]);viewAfterLoad=-1;}}
+  if(!freeze)timeline.advance(dt,e->audio.event(e,state));audio.update(dt,state,freeze);bufferedMovement();replayContinuation();
+  if(state!=null&&state.dead&&screen==Screen.PLAY&&!officerPerformance.deathPending(timeline.elapsed()))screen=Screen.DEAD;
+  persistSpeechReceipts();if(state!=null&&ready()&&!timeline.busy()&&!freeze&&screen==Screen.PLAY&&!audio.speaking()&&(!exitAfterReplay||!replay.isEmpty())){String id=ConversationCatalog.next(state,audio.quietMillis(),settings.conversationFrequency);if(!id.isEmpty())act(PlayerAction.item(PlayerAction.Type.EXCHANGE,id));}
+  if(ready()&&!timeline.busy()&&focused&&screen==Screen.PLAY&&!replay.isEmpty()&&--replayDelay<=0){replayCommand(replay.removeFirst());replayDelay=Math.max(replayEvery,replayHold);replayHold=0;}
+  walk();if((closing||returnToTitle)&&writer!=null&&writer.status()==SaveCoordinator.Status.READY){if(closing){Gdx.app.exit();return;}returnToTitle=false;screen=Screen.TITLE;engine=null;state=null;audio.reset();}
+  ScreenUtils.clear(.018f,.027f,.033f,1);batch.setProjectionMatrix(new Matrix4().setToOrtho2D(0,0,width(),height()));scale=settings.uiScale;buttons.clear();batch.begin();
+  if(state!=null&&screen!=Screen.TITLE){world();if(screen==Screen.PLAY)hud();}
+  switch(screen){case TITLE->title();case PLAY->{}case PAUSE->pauseMenu();case INVENTORY->inventory();case JOURNAL->journal();case MAP->map();case RECORD->reading("SUIT EVENT LOG",String.join("\n\n",state.log)+"\n\n"+"PRESERVED COMPLETED VOICE SEGMENTS / BY TOPIC\n\n"+String.join("\n\n",audio.history(state)));case SETTINGS->settings();case HELP->reading("FIELD REFERENCE",help());case CREDITS->reading("ORIGIN WAR / CREDITS","An original systemic space horror game.\n\nPainted station, officer and machines: original generated artwork with preserved masters and provenance. Officer and hardware production: authored Blender suits, machinery and motion; anatomical head/body bases by Dan Ulrich (CC0). Editable sources and extraction receipts are preserved.\n\nOffline voices: Qwen3-TTS. No runtime generative conversation.\n\nTechnology: Java, libGDX, LWJGL3, SquidSquad and Temurin. Full source, licenses and exact asset provenance accompany the distribution.\n\nCreative references: classic Rogue, industrial space horror, DUSKERS, ROUTINE and Crown Trick's illustrated animation finish.");case SUIT->suit();case ACTIONS->actions();case CONFIRM->confirmation();case DEAD->ended(false);case VICTORY->ended(true);}
+  if(!fatal.isEmpty())reading("PROFILE UNAVAILABLE",fatal+"\n\nClose the other instance or use a separate profile. This instance has not read or written the active profile.");
+  if((screen==Screen.VICTORY||screen==Screen.DEAD)&&!audio.subtitle().isEmpty())wrapped(audio.subtitle(),65,170,width()-130,ink,.78f,2);
+  saveOverlay();batch.end();frame++;captures();if(exitAfterReplay&&state!=null&&replay.isEmpty()&&!timeline.busy()&&writer!=null&&writer.status()==SaveCoordinator.Status.READY&&++replayDrainedFrames>=replayTailFrames&&!closing){captureFile(screenshotDirectory.resolve("replay-complete.png"));requestClose();}if(maxFrames>0&&frame>=maxFrames)requestClose();
+ }
+ private float width(){return Gdx.graphics.getWidth();}private float height(){return Gdx.graphics.getHeight();}
+ private void world(){
+  mapX=0;mapY=screen==Screen.PLAY?(scale>1.4f?260:156):0;mapW=width();mapH=height()-mapY;cell=mapH/12f;
+  var pp=timeline.position("officer",state.playerX,state.playerY);cameraX=pp.x();cameraY=pp.y();originX=width()/2-(cameraX+.5f)*cell;originY=mapY+mapH/2+(cameraY+.5f)*cell;
+  String floor="floor."+new String[]{"security","habitation","medical","industrial","command"}[(state.deck-1)/2];
+  var objects=new ArrayList<WorldObject>();var furnished=new HashSet<Integer>();
+  var powerState=beforeWorkContact()?handlingBefore:state;var lighting=powerState.light;
+  if(comparisonStyle.equals("illustrated"))workplace.update(state);
+  for(var f:state.fixtures)if(Set.of("cargo","workbench","medical","locker","service-cart","life-support","equipment-rack").contains(f.kind)){
+   boolean known=true,seen=false;float light=.095f;for(int dx=0;dx<f.width;dx++){if(!inside(f.x+dx,f.y)||!state.explored[f.x+dx][f.y])known=false;else if(state.visible[f.x+dx][f.y]){seen=true;light=Math.max(light,lighting[f.x+dx][f.y]);}}
+   if(known){for(int dx=0;dx<f.width;dx++)furnished.add(f.y*state.width+f.x+dx);String furniture=Set.of("locker","service-cart","life-support","equipment-rack").contains(f.kind)?"prop."+f.kind:f.width==2?"prop.workbench":"prop.cargo";float artScale=1;
+    if(comparisonStyle.equals("illustrated")){String replacement=workplace.furniture(f);if(!replacement.isEmpty()){furniture=art.has(art.environment(replacement,true))?replacement:workplace.fallback(replacement);artScale=Math.min(1,f.width/art.regionWidth(art.environment(furniture,true)));}}
+    objects.add(new WorldObject(f.y,furniture,f.x+f.width*.5f,f.y+1,seen?Math.max(.2f,light):.095f,1,artScale));}
+  }
+  int minX=Math.max(0,(int)cameraX-(int)(mapW/cell/2)-2),maxX=Math.min(state.width-1,(int)cameraX+(int)(mapW/cell/2)+2),minY=Math.max(0,(int)cameraY-8),maxY=Math.min(state.height-1,(int)cameraY+8);
+  for(int y=minY;y<=maxY;y++)for(int x=minX;x<=maxX;x++){
+   if(!state.explored[x][y])continue;boolean seen=state.visible[x][y];float light=seen?Math.max(.20f,lighting[x][y]):.095f;float sx=originX+x*cell,sy=originY-(y+1)*cell;
+   Tile t=StationSystems.knownTile(state,x,y);if(t==null)continue;String ground=art.environment(t==Tile.LOW_GRAV||t==Tile.NO_GRAV?"floor.low-gravity":floor,!proofStyle.isEmpty());if(!proofStyle.isEmpty()&&floor.equals("floor.security")&&t!=Tile.LOW_GRAV&&t!=Tile.NO_GRAV){int variant=Math.floorMod(x*17+y*31,4);String alternative="proof.environment.floor.security"+(variant==0?"":".variant"+variant);if(art.has(alternative))ground=alternative;}if(proofStyle.isEmpty()||t!=Tile.WALL){if(proofStyle.isEmpty()||!seen||t.blocksMovement)art.draw(batch,ground,sx,sy,cell,tint(light,1));else art.litGround(batch,ground,sx,sy,cell,lightCorner(x,y,-1,1),lightCorner(x,y,-1,-1),lightCorner(x,y,1,-1),lightCorner(x,y,1,1));}
+   String region=switch(t){case WALL->proofStyle.isEmpty()?"wall.bulkhead":KnownArchitecture.wallRegion(state,x,y);case GLASS->"wall.glass";case COVER->"prop.cargo";case DOOR_CLOSED->"door.closed";case LOCKED_DOOR->"door.locked";case DOOR_OPEN->"door.open";case SWITCH->"control.switch";case TERMINAL->"terminal.console";case HATCH->"hatch.closed";default->"";};
+   if(comparisonStyle.equals("illustrated")&&t==Tile.SWITCH&&seen){String status=powerState.switchOn?StationSystems.powered(powerState,x,y)?"released":"released-unpowered":StationSystems.powered(powerState,x,y)?"powered":"unpowered";String candidate=art.environment("control.switch."+status,true);if(art.has(candidate))region=candidate;}
+   if(comparisonStyle.equals("illustrated")&&seen&&Set.of(Tile.DOOR_OPEN,Tile.DOOR_CLOSED,Tile.LOCKED_DOOR).contains(t)){
+    String status=state.flags.contains("damaged-door:"+state.deck+":"+x+":"+y)?"damaged":t==Tile.LOCKED_DOOR?"locked":t==Tile.DOOR_OPEN?"open":StationSystems.braced(state,x,y)?"braced":"closed";
+    var pose=settings.reducedDistortion?new StationPerformance.Pose(status,1,StationPerformance.doorFacing(state,x,y)):stationPerformance.door(state,x,y,timeline.elapsed(),status);
+    String candidate=art.stationFrame("door",pose.action(),pose.facing(),pose.progress());if(!candidate.isEmpty())region=candidate;
+   }
+   if(t==Tile.HATCH)art.draw(batch,art.environment(region,!proofStyle.isEmpty()),sx+cell*.5f,sy,cell,tint(light,1));
+   else if(!region.isEmpty()&&!(t==Tile.COVER&&furnished.contains(y*state.width+x))){float alpha=1;if((t==Tile.WALL||t==Tile.COVER||t==Tile.DOOR_CLOSED)&&x==state.playerX&&y==state.playerY+1)alpha=.30f;float anchor=region.equals("wall.side-left")?.8f:region.equals("wall.side-right")?.2f:.5f;objects.add(new WorldObject(y,region,x+anchor,y+1,light,alpha));}
+   if(t==Tile.HAZARD)art.rect(batch,sx,sy+cell*.03f,cell,cell*.035f,new Color(.65f,.30f,.11f,seen?.6f:.1f));
+  }
+  for(var f:state.fixtures)if(inside(f.x,f.y)&&state.visible[f.x][f.y]){
+   float sx=originX+(f.x+.5f)*cell,sy=originY-(f.y+.5f)*cell;boolean on=powerState.circuitPower[f.circuit];
+   if(f.kind.equals("light"))art.rect(batch,sx-cell*.12f,sy+cell*.3f,cell*.24f,cell*.025f,on?new Color(.72f,.84f,.69f,.65f):new Color(.22f,.27f,.25f,1));
+   else if(f.kind.equals("breaker")){String region=art.environment("control.switch."+(on?"powered":"unpowered"),comparisonStyle.equals("illustrated"));if(art.has(region))objects.add(new WorldObject(f.y,region,f.x+.5f,f.y+1,Math.max(.2f,lighting[f.x][f.y]),1));else{art.rect(batch,sx-cell*.09f,sy-cell*.05f,cell*.18f,cell*.19f,new Color(.12f,.18f,.18f,1));art.rect(batch,sx-cell*.03f,sy,cell*.06f,cell*.09f,on?amber:muted);}}
+  }
+  if(comparisonStyle.equals("illustrated"))for(var recess:workplace.recesses())if(state.visible[recess.x()][recess.y()]){
+   String region=art.has(art.environment(recess.region(),true))?recess.region():workplace.fallback(recess.region());float size=Math.min(1,.88f/art.regionWidth(art.environment(region,true)));
+   objects.add(new WorldObject(recess.y()+.001f,region,recess.x()+.5f,recess.y()+.96f,Math.max(.2f,lighting[recess.x()][recess.y()]),1,size));
+   String placard=art.environment("placard.department",true);if(art.has(placard))objects.add(new WorldObject(recess.y()+.002f,placard,recess.x()+.5f,recess.y()+.35f,Math.max(.2f,lighting[recess.x()][recess.y()]),1,.7f));
+  }
+  var itemState=beforeHandlingContact()?handlingBefore:state;for(var i:itemState.floorItems)if(state.visible[i.x][i.y]&&!itemState.flags.contains("installed:"+i.id))objects.add(new WorldObject(i.y-.04f,itemRegion(i),i.x+.5f,i.y+.8f,Math.max(.38f,lighting[i.x][i.y]),1));
+  for(var a:state.actors)if(state.visible[a.x][a.y]){var p=timeline.position(a.id,a.x,a.y);String actor=a.kind.name().toLowerCase(Locale.ROOT),base="machine."+actor;if(a.kind==GameState.ActorKind.CONTROLLER)base="terminal.console";String region=timeline.moving(a.id)?art.frame(base+".walk",timeline.machineGaitPhase(a.id),base):base;boolean authored=false;
+   if(comparisonStyle.equals("illustrated")){
+    String status=StationPerformance.status(powerState,a);
+    var pose=settings.reducedDistortion?new StationPerformance.Pose(status,1,a.facing):stationPerformance.machine(a,timeline.elapsed(),status);
+    if(a.kind==GameState.ActorKind.CAMERA&&pose.action().equals("destroyed"))pose=new StationPerformance.Pose("disabled",pose.progress(),pose.facing());
+    if(a.kind==GameState.ActorKind.CAMERA&&pose.action().equals("hit"))pose=new StationPerformance.Pose(status,1,pose.facing());
+    var locomotion=timeline.machineLocomotionPose(a.id);if(!locomotion.action().equals("idle")&&Set.of("idle","anticipate").contains(pose.action())&&!settings.reducedDistortion)pose=new StationPerformance.Pose(locomotion.action(),locomotion.progress(),a.facing);
+    String candidate=art.stationFrame(actor,pose.action(),pose.facing(),pose.progress());if(!candidate.isEmpty()){region=candidate;authored=true;}
+   }
+   objects.add(new WorldObject(p.y(),region,p.x()+.5f,p.y()+1,Math.max(.32f,lighting[a.x][a.y]),a.dead&&!authored?.3f:1));}
+  String dir=new String[]{"north","east","south","west"}[state.facing];
+  String idle=state.weapon.equals("pistol")?art.frame("officer.walk."+dir,timeline.gaitPhase(),"officer."+dir):"officer."+state.weapon+"."+dir;
+  String player=timeline.moving("officer")&&state.weapon.equals("pistol")&&!settings.reducedDistortion?art.frame("officer.walk."+dir,timeline.gaitPhase(),idle):idle;
+  if(state.weapon.equals("pistol")&&timeline.officerFiring()&&!settings.reducedDistortion)player=art.timedFrame("officer.fire."+dir,timeline.elapsed(),idle);
+  else if(state.weapon.equals("pistol")&&targetX>=0&&art.hasClip("officer.aim."+dir)&&!timeline.moving("officer"))player=art.frame("officer.aim."+dir,0,idle);
+  if(!proofStyle.isEmpty())player=proofOfficer(dir);
+  objects.add(new WorldObject(pp.y(),player,pp.x()+.5f,pp.y()+1,Math.max(.28f,lighting[state.playerX][state.playerY]),1));
+  objects.sort(Comparator.comparingDouble(WorldObject::depth));for(var o:objects){float sx=originX+o.x*cell,sy=originY-o.y*cell;if(proofStyle.isEmpty())art.rect(batch,sx-cell*.18f,sy-cell*.015f,cell*.36f,cell*.055f,new Color(0,0,0,.25f*o.alpha));else art.contactShadow(batch,sx,sy,cell*o.artScale,o.alpha);art.draw(batch,art.environment(o.region,!proofStyle.isEmpty()),sx,sy,cell*o.artScale,tint(o.light,o.alpha));}
+  if(!proofStyle.isEmpty()&&player.isEmpty()){float sx=originX+(pp.x()+.5f)*cell,sy=originY-(pp.y()+1)*cell;outline(sx-cell*.22f,sy,cell*.44f,cell*.23f,amber);text("ART?",sx-cell*.2f,sy+cell*.4f,amber,.45f);}
+  for(var a:state.actors)if(!a.dead&&state.visible[a.x][a.y]&&(a.fuse>=0||a.aiming)){float sx=originX+(a.x+.5f)*cell,sy=originY-(a.y+.05f)*cell;text(a.fuse>=0?"FUSE "+a.fuse:"AIM",sx-cell*.4f,sy,red,.65f);}
+  for(var e:timeline.effects())if(e.visible()&&inside(e.x(),e.y())&&state.visible[e.x()][e.y()]&&!authoredGun(e)){
+   float age=timeline.effectAge(e);String action=e.sourceId().equals("officer")&&Set.of("hit","death").contains(e.type())?"suit-impact":Set.of("explosion","death","gun").contains(e.type())?"sparks":"metal-impact";
+   String clip=comparisonStyle.equals("illustrated")?art.stationClip("effect",action,0):"";
+   if(!clip.isEmpty()){float span=art.clipSeconds(clip,.245f);if(age<span)art.draw(batch,art.frame(clip,age/span,""),originX+(e.x()+.5f)*cell,originY-(e.y()+.88f)*cell,cell,Color.WHITE);}
+   else if(age<.05f){float sx=originX+(e.x()+.5f)*cell,sy=originY-(e.y()+.4f)*cell,size=e.type().equals("explosion")?cell*.8f:cell*.10f;art.rect(batch,sx-size/2,sy-size/2,size,size,new Color(.98f,.69f,.32f,.65f));}
+  }
+  int ix=targetX>=0?targetX:hoverX,iy=targetY>=0?targetY:hoverY;if(inside(ix,iy)&&state.explored[ix][iy])outline(originX+ix*cell,originY-(iy+1)*cell,cell,cell,new Color(.63f,.77f,.71f,.5f));
+  var perception=PerceptionModel.sample(state,clock,settings.reducedDistortion);if(perception.intensity()>0){float v=perception.vignette();art.rect(batch,0,mapY,width(),18,new Color(.18f,.03f,.02f,v));art.rect(batch,0,height()-18,width(),18,new Color(.18f,.03f,.02f,v));}
+ }
+ private boolean authoredGun(GameEvent e){if(!e.type().equals("gun")||settings.reducedDistortion)return false;if(!proofStyle.isEmpty()&&e.sourceId().equals("officer"))return !art.proofClip(proofStyle,state.weapon,state.armor,"fire",new String[]{"north","east","south","west"}[state.facing]).isEmpty();if(!comparisonStyle.equals("illustrated"))return false;for(var a:state.actors)if(a.id.equals(e.sourceId())){var pose=stationPerformance.machine(a,timeline.elapsed(),StationPerformance.status(state,a));return pose.action().equals("fire")&&!art.stationClip(a.kind.name().toLowerCase(Locale.ROOT),"fire",pose.facing()).isEmpty();}return false;}
+ private Color tint(float light,float alpha){return new Color(Math.min(1,light*.95f),Math.min(1,light),Math.min(1,light*1.02f),alpha);}
+ private float lightCorner(int x,int y,int dx,int dy){var lighting=beforeWorkContact()?handlingBefore.light:state.light;float value=Math.max(.20f,lighting[x][y]);int count=1;for(int[] o:new int[][]{{dx,0},{0,dy},{dx,dy}}){int nx=x+o[0],ny=y+o[1];if(inside(nx,ny)&&state.visible[nx][ny]&&!state.tiles[nx][ny].blocksMovement){value+=Math.max(.20f,lighting[nx][ny]);count++;}}return value/count;}
+ private String proofOfficer(String dir){
+  String action=timeline.moving("officer")&&!settings.reducedDistortion?"walk":timeline.officerFiring()&&!settings.reducedDistortion?"fire":targetX>=0?"aim":"idle";
+  var pose=officerPerformance.pose(timeline.elapsed());
+  var equipment=beforeHandlingContact()?handlingBefore:state;String weapon=equipment.weapon,armor=equipment.armor;
+  art.officerEquipment(proofStyle,weapon,armor);
+  if(comparisonStyle.equals("illustrated")&&timeline.busy()&&!settings.reducedDistortion&&!pose.action().equals("idle")){action=pose.action();if(action.equals("walk")){var locomotion=timeline.locomotionPose();action=locomotion.action();pose=new OfficerPerformance.Pose(action,locomotion.progress());}}
+  if(comparisonStyle.equals("illustrated")&&state.dead&&(settings.reducedDistortion||!officerPerformance.deathPending(timeline.elapsed()))){action="death";pose=new OfficerPerformance.Pose("death",1);}
+  if(targetX!=proofAimX||targetY!=proofAimY||(action.equals("aim")&&!wasAiming)){proofAimX=targetX;proofAimY=targetY;proofAimSince=clock;}
+  proofAimDisplayed=false;wasAiming=action.equals("aim")||(action.equals("fire")&&firingFromAim);
+  if(action.equals("aim")&&!settings.reducedDistortion&&clock-proofAimSince<.28f){
+   float progress=Math.max(0,(clock-proofAimSince)/.28f);String ready=art.proofClip(proofStyle,weapon,armor,"ready",dir);
+   if(!ready.isEmpty()){proofCoverage=weapon+" / "+armor+" / ready / "+dir;return art.timedFrame(ready,progress*art.clipSeconds(ready,.28f),"");}
+   String preparation=art.proofClip(proofStyle,weapon,armor,"fire",dir);float release=art.markerSeconds(preparation,"release",0);
+   if(release>0){proofCoverage=weapon+" / "+armor+" / ready (authored preparation) / "+dir;return art.timedFrame(preparation,Math.min(release-.0001f,progress*release),"");}
+  }
+  proofAimDisplayed=action.equals("aim")&&!settings.reducedDistortion;
+  String clip=art.proofClip(proofStyle,weapon,armor,action,dir);
+  if(clip.isEmpty()&&action.equals("aim")&&weapon.equals("unarmed")){String guarded=art.proofClip(proofStyle,weapon,armor,"ready",dir);if(!guarded.isEmpty()){proofCoverage=weapon+" / "+armor+" / guarded ready / "+dir;return art.frame(guarded,1,"");}}
+  if(clip.isEmpty()&&action.equals("idle"))clip=art.proofClip(proofStyle,weapon,armor,"walk",dir);
+  if(clip.isEmpty()){String held=art.proofClip(proofStyle,weapon,armor,"idle",dir);proofCoverage="STATIC ONLY / authored equipment or motion unavailable: "+weapon+" / "+armor+" / "+action+" / "+dir;return held.isEmpty()?art.staticOfficer(weapon,dir):art.timedFrame(held,0,"");}
+  proofCoverage=weapon+" / "+armor+" / "+action+" / "+dir;
+  if(action.equals("fire")&&firingFromAim){String aimed=art.proofClip(proofStyle,weapon,armor,"aim",dir);if(!aimed.isEmpty()){String guard=art.timedFrame(aimed,0,""),shown=art.proofAimedFireFrame(clip,timeline.elapsed(),guard);proofAimDisplayed=shown.equals(guard);return shown;}}
+  return action.equals("walk")?art.frame(clip,timeline.gaitPhase(),""):action.equals("fire")?art.proofFireFrame(clip,timeline.elapsed()):(comparisonStyle.equals("illustrated")&&Set.of("start","stop","stop_phase_1","stop_phase_2","work","terminal","breaker","pickup","drop","equip","supply","hit","death","melee").contains(action)||action.startsWith("turn_from_"))?art.frame(clip,pose.progress(),""):art.timedFrame(clip,0,"");
+ }
+ private boolean beforeWorkContact(){return comparisonStyle.equals("illustrated")&&handlingWork&&handlingBefore!=null&&handlingBefore.deck==state.deck&&timeline.busy()&&timeline.elapsed()<timeline.workContactAt();}
+ private boolean beforeHandlingContact(){return handlingItems&&beforeWorkContact();}
+ private void hud(){
+  boolean large=scale>1.4f;float footer=large?260:156,header=large?142:66;
+  art.rect(batch,0,height()-header,width(),header,new Color(.025f,.043f,.05f,.86f));
+  if(!proofStyle.isEmpty()&&(artLab||offlineReview||reviewOverlay||state.flags.stream().anyMatch(f->f.startsWith("officer-review-fixture:"))||proofCoverage.startsWith("UNAVAILABLE")||proofCoverage.startsWith("STATIC ONLY"))){art.rect(batch,12,height()-header-53,Math.min(width()-24,1000),44,new Color(.035f,.065f,.065f,.96f));text((state.flags.stream().anyMatch(f->f.startsWith("officer-review-fixture:"))?"SYNTHETIC OFFICER REACTION TEST":artLab?"STAGED ART COMPARISON":"CAMPAIGN ART PREVIEW")+" / "+proofStyle.toUpperCase(Locale.ROOT)+" / F6 SWITCH"+(offlineReview?" / OFFLINE 60HZ REVIEW":""),22,height()-header-15,amber,.64f);text(proofCoverage,22,height()-header-35,(proofCoverage.startsWith("UNAVAILABLE")||proofCoverage.startsWith("STATIC ONLY"))?red:ink,.56f);}
+  text("D"+String.format("%02d",state.deck)+"  "+Campaign.sector(state.deck),20,height()-17,ink,.86f);wrapped("HP "+state.hp+"    OXYGEN "+state.reserve+" / 360    BODY "+state.oxygenation+"%    CELLS "+state.batteries+" / 12    PACK "+EquipmentRules.bulk(state)+" / 12",20,height()-(large?65:42),width()-40,state.reserve<90?amber:ink,.77f,2);
+  if(!large)text("T "+state.tick+"  |  "+(state.lampOn?"LAMP ON":"LAMP OFF")+"  |  "+(careful?"CAREFUL":"STANDARD"),width()-320,height()-22,muted,.7f);
+  art.rect(batch,0,0,width(),footer,new Color(.025f,.043f,.05f,.91f));wrapped(Campaign.objective(state),20,footer-12,width()-40,ink,.72f,large?2:1);
+  String subtitle=audio.subtitle();float speechY=large?182:116;if(!subtitle.isEmpty()){if(audio.aliceSpeaking()){String portrait=state.hp<25||state.oxygenation<30?"alice.concerned":"alice.avatar";art.rect(batch,width()-135,footer+4,123,128,new Color(.025f,.043f,.05f,.9f));art.draw(batch,portrait,width()-73,footer+12,52,Color.WHITE);text("ALICE / RADIO",width()-123,footer+117,muted,.5f);}wrapped(subtitle,20,speechY,width()-60,ink,.8f,2);}else if(noticeTime>0)wrapped(notice,20,speechY,width()-50,amber,.75f,2);else if(settings.soundCaptions&&!audio.caption().isEmpty())wrapped("[ "+audio.caption()+" ]",20,speechY,width()-50,muted,.7f,2);
+  String[] names={"E OPERATE","N LISTEN","L LAMP","G COLLECT","R REFILL","TAB PACK","J JOURNAL","K MAP","ACTIONS","ESC PAUSE"};Runnable[] actions={()->act(targeted(PlayerAction.Type.INTERACT)),()->act(PlayerAction.of(PlayerAction.Type.LISTEN)),()->act(PlayerAction.of(PlayerAction.Type.LAMP)),()->act(PlayerAction.of(PlayerAction.Type.PICKUP)),()->act(PlayerAction.of(PlayerAction.Type.USE)),()->open(Screen.INVENTORY),()->open(Screen.JOURNAL),()->open(Screen.MAP),()->open(Screen.ACTIONS),()->open(Screen.PAUSE)};
+  String[] compact={"OPERATE","LISTEN","LAMP","COLLECT","REFILL","PACK","JOURNAL","MAP","ACTIONS","PAUSE"};int columns=large?5:10;float bw=(width()-40)/columns;for(int i=0;i<names.length;i++)button(large?compact[i]:names[i],20+(i%columns)*bw,12+(i/columns)*40,bw-5,large?35:31,actions[i],.62f);
+  PlayerAction forecast=previewAction;if(targetX<0&&inside(hoverX,hoverY)&&Math.abs(hoverX-state.playerX)+Math.abs(hoverY-state.playerY)==1)forecast=new PlayerAction(careful?PlayerAction.Type.CAREFUL_MOVE:PlayerAction.Type.MOVE,hoverX-state.playerX,hoverY-state.playerY,"");
+  if(forecast!=null){var f=engine.forecast(forecast);String summary=(f.available()?f.ticks()+" ticks / cells "+f.cells()+" / noise "+f.noise():"UNAVAILABLE")+"  "+f.explanation();wrapped(summary,20,large?107:66,width()-40,f.available()?muted:amber,.67f,1);if(!f.warnings().isEmpty())wrapped(f.warnings().getFirst(),20,large?132:84,width()-40,amber,.65f,1);}else{
+   StringBuilder costs=new StringBuilder("STEP COST / ");int[][] directions={{0,-1},{1,0},{0,1},{-1,0}};String[] labels={"N ","E ","S ","W "};for(int n=0;n<4;n++){var f=engine.forecast(new PlayerAction(careful?PlayerAction.Type.CAREFUL_MOVE:PlayerAction.Type.MOVE,directions[n][0],directions[n][1],""));costs.append(labels[n]).append(f.available()?f.ticks():"blocked").append("   ");}text(costs.toString(),20,large?107:66,muted,.67f);
+  }
+  int x=targetX>=0?targetX:hoverX,y=targetY>=0?targetY:hoverY;if(inside(x,y)){float boxW=large?Math.min(680,width()*.5f):Math.min(340,width()*.29f),boxH=large?160:83;art.rect(batch,width()-boxW-12,height()-79-boxH,boxW,boxH,new Color(.025f,.043f,.05f,.85f));wrapped(describe(x,y),width()-boxW,height()-91,boxW-20,ink,.68f,3);}
+ }
+ private String describe(int x,int y){
+  if(!state.explored[x][y])return "UNEXPLORED / no current telemetry";
+  if(!state.visible[x][y])return "REMEMBERED TERRAIN / "+StationSystems.knownTile(state,x,y).name().replace('_',' ')+". Current objects and threats are unknown.";
+  for(var a:state.actors)if(a.x==x&&a.y==y&&!a.dead){if(a.kind==GameState.ActorKind.CONTROLLER)return "SUPERVISORY CONTROLLER / E physical shutdown. H redirects a unit: 3 ticks, 2 cells, local power required. P restores its circuit manually. E shuts down physically: 1 tick.";return a.kind+" / HP "+a.hp+" / SENSOR "+new String[]{"NORTH","EAST","SOUTH","WEST"}[a.facing]+" / "+(a.fuse>=0?"fuse "+a.fuse:a.aiming?"weapon aligned":"observed machine");}
+  for(var i:state.floorItems)if(i.x==x&&i.y==y&&!state.flags.contains("installed:"+i.id))return itemName(i)+" / bulk "+EquipmentRules.bulk(i.type)+". Stand here to collect or use.";
+  for(var f:state.fixtures)if(f.x==x&&f.y==y&&f.kind.equals("breaker"))return "LOCAL BREAKER / P toggles circuit "+(f.circuit+1)+". Its lights, fixed security and station links share power.";
+  if(state.tiles[x][y]==Tile.TERMINAL)return "TERMINAL / E copies records and public service plan. P toggles its local circuit. Medical analysis: V.";
+  if(state.tiles[x][y]==Tile.SWITCH)return "PHYSICAL HATCH RELEASE / E operates the mechanism. Powered: 1 tick. Unpowered manual work: 3 ticks.";
+  if(state.tiles[x][y]==Tile.HATCH)return "ONE-WAY DESCENT / reach the hatch and press E. The physical release must be operated first.";
+  if(state.tiles[x][y]==Tile.LOCKED_DOOR)return "LOCKED BULKHEAD / H probe: 3 ticks, 2 cells. O force: 4 ticks, noise9, damaged release. Actions shows current forecasts.";
+  if(state.tiles[x][y]==Tile.DOOR_CLOSED)return StationSystems.braced(state,x,y)?"BRACED BULKHEAD / B recovers the physical brace if the pack has room.":"CLOSED BULKHEAD / E: 1 tick, noise4. B: 1 tick to install a carried brace. Sound is attenuated; a brace seals the partition.";
+  return state.tiles[x][y].name().replace('_',' ')+" / light "+Math.round(state.light[x][y]*100)+"% / circuit "+(state.circuits[x][y]+1)+" "+(state.circuitPower[state.circuits[x][y]]?"powered":"isolated");
+ }
+ private String itemRegion(GameState.Item i){return "item."+switch(i.type){case OXYGEN->"oxygen";case CELL->"cells";case MEDICINE->"medicine";case PISTOL->"pistol";case RIFLE->"rifle";case SCATTERGUN->"scattergun";case ARMOR_LIGHT->"armor-light";case ARMOR_HEAVY->"armor-heavy";case SERVICE_PROBE->"probe";case DOOR_BRACE->"brace";};}
+ private String itemName(GameState.Item i){String name=i.name;if(i.type==GameState.ItemType.MEDICINE&&state.identifiedMedicine.contains(i.name))name+=" / "+state.medicineEffects.get(i.name);if(i.type==GameState.ItemType.OXYGEN||i.type==GameState.ItemType.CELL)name+=" ["+i.power+"]";if(InventoryStacks.equipped(i,state.flags))name+=" / equipped";return name;}
+ private List<GameState.Item> items(){var all=new ArrayList<>(state.inventory);for(var i:state.floorItems)if(i.x==state.playerX&&i.y==state.playerY&&!state.flags.contains("installed:"+i.id))all.add(i);return all;}
+ private void inventoryAction(PlayerAction.Type type){var all=items();if(all.isEmpty())return;selectedItem=MathUtils.clamp(selectedItem,0,all.size()-1);var i=all.get(selectedItem);if(act(PlayerAction.item(type,i.id)))selectedItem=Math.min(selectedItem,Math.max(0,items().size()-1));}
+ private void panel(String title){art.rect(batch,36,60,width()-72,height()-120,new Color(.025f,.043f,.05f,.98f));outline(36,60,width()-72,height()-120,new Color(.24f,.35f,.35f,.75f));text(title,64,height()-89,ink,1.06f);}
+ private void title(){
+  art.rect(batch,0,0,width(),height(),new Color(.018f,.028f,.035f,1));art.draw(batch,"wall.panel",width()*.77f,height()*.24f,height()*.55f,tint(.3f,1));art.draw(batch,"officer.south",width()*.79f,height()*.22f,height()*.28f,tint(.7f,1));
+  text("ORIGIN WAR",70,height()*.78f,ink,2);text("A STATION WITHOUT ANSWERS",73,height()*.78f-55,muted,.85f);text("SYSTEMIC SURVIVAL HORROR / 0.2",73,height()*.78f-87,muted,.7f);
+  float y=height()*.46f;if(scale>1.4f){float w=Math.min(610,width()-144);y=height()*.61f;button("RESUME EXPEDITION",72,y,w,47,this::resumeRun,.85f);button("BEGIN NEW DESCENT",72,y-56,w,47,this::askNew,.85f);button("SEED / "+seedText+(seedEditing?"_":""),72,y-112,w,47,()->seedEditing=!seedEditing,.75f);button("SETTINGS",72,y-168,w,47,()->open(Screen.SETTINGS),.75f);button("FIELD REFERENCE",72,y-224,w,47,()->open(Screen.HELP),.75f);button("CREDITS",72,y-280,w*.48f,47,()->open(Screen.CREDITS),.75f);button("QUIT",85+w*.48f,y-280,w*.48f,47,this::requestClose,.75f);}else{button("RESUME EXPEDITION",72,y,330,43,this::resumeRun,.85f);button("BEGIN NEW DESCENT",72,y-56,330,43,this::askNew,.85f);button("SEED / "+seedText+(seedEditing?"_":""),72,y-112,330,38,()->seedEditing=!seedEditing,.75f);button("SETTINGS",72,y-164,155,36,()->open(Screen.SETTINGS),.75f);button("FIELD REFERENCE",239,y-164,163,36,()->open(Screen.HELP),.69f);button("CREDITS",72,y-214,155,36,()->open(Screen.CREDITS),.75f);button("QUIT",239,y-214,163,36,this::requestClose,.75f);}
+  if(noticeTime>0)wrapped(notice,72,65,width()-140,amber,.75f,2);
+ }
+ private void pauseMenu(){panel("EXPEDITION PAUSED");float x=70,y=height()-168;String[] labels={"RETURN TO STATION","PHYSICAL PACK","SUIT JOURNAL","COMMUNICATION LOG","STATION MAP","SUIT TELEMETRY","SETTINGS","FIELD REFERENCE","SAVE / TITLE","QUIT"};Runnable[] run={this::back,()->open(Screen.INVENTORY),()->open(Screen.JOURNAL),()->open(Screen.RECORD),()->open(Screen.MAP),()->open(Screen.SUIT),()->open(Screen.SETTINGS),()->open(Screen.HELP),this::saveTitle,this::requestClose};for(int i=0;i<labels.length;i++)button(labels[i],x+(i/5)*(width()/2-50),y-(i%5)*65,width()/2-100,44,run[i],.82f);}
+ private void saveTitle(){if(writer==null){screen=Screen.TITLE;return;}if(writer.status()==SaveCoordinator.Status.FAILED){notice("Retry the pending snapshot before leaving this expedition.");return;}if(state!=null&&writer.status()==SaveCoordinator.Status.READY)writer.save(state);returnToTitle=true;}
+ private void inventory(){
+  panel("PHYSICAL PACK / "+EquipmentRules.bulk(state)+" OF 12 BULK");wrapped("Every item occupies space. Worn armor uses its own shell mount. Browsing is free.",65,height()-126,width()-130,muted,.76f,2);
+  var all=items();selectedItem=MathUtils.clamp(selectedItem,0,Math.max(0,all.size()-1));float row=35*scale,firstTop=height()-174-60*(scale-1),footerTop=370+52*(scale-1);int per=Math.max(1,(int)((firstTop-footerTop)/row)),start=selectedItem/per*per;
+  text("ITEMS "+(all.isEmpty()?0:start+1)+"-"+Math.min(all.size(),start+per)+" OF "+all.size()+" / UP, DOWN OR WHEEL SELECTS",65,firstTop+29,muted,.6f);
+  for(int n=start;n<Math.min(all.size(),start+per);n++){var i=all.get(n);final int index=n;float y=firstTop-(n-start+1)*row;String label=(i.x>=0?"FLOOR / ":"PACK / ")+itemName(i)+"   ["+EquipmentRules.bulk(i.type)+" bulk]";button(label,65,y,width()-130,row-4,()->selectedItem=index,.76f);if(n==selectedItem)outline(65,y,width()-130,row-4,amber);}
+  if(all.isEmpty())text("No carried or reachable items.",65,firstTop-10,muted,.9f);
+  String detail=all.isEmpty()?"":itemName(all.get(selectedItem))+". "+(all.get(selectedItem).type==GameState.ItemType.MEDICINE&&!state.identifiedMedicine.contains(all.get(selectedItem).name)?"Unknown compound. Medical analysis can identify it.":"U use / Q equip / X drop / G collect. Each commits time.");wrapped(detail,65,324+52*(scale-1),width()-130,muted,.78f,2);
+  if(!all.isEmpty()){var chosen=all.get(selectedItem);PlayerAction.Type[] operations={PlayerAction.Type.USE,PlayerAction.Type.EQUIP,PlayerAction.Type.DROP,PlayerAction.Type.PICKUP};float previewWidth=(width()-150)/2;for(int n=0;n<operations.length;n++){var f=engine.forecast(PlayerAction.item(operations[n],chosen.id));wrapped(InventoryPreview.describe(state,chosen,operations[n],f),65+(n%2)*(previewWidth+20),248+40*(scale-1)-(n/2)*(45+31*(scale-1)),previewWidth,f.available()?ink:muted,.58f,2);}}
+  boolean large=scale>1.4f;int columns=large?3:5;float w=(width()-130-10*(columns-1))/columns;
+  String[] labels={"USE [U]","EQUIP [Q]","DROP [X]","COLLECT [G]","BACK [ESC]"};Runnable[] run={()->inventoryAction(PlayerAction.Type.USE),()->inventoryAction(PlayerAction.Type.EQUIP),()->inventoryAction(PlayerAction.Type.DROP),()->inventoryAction(PlayerAction.Type.PICKUP),this::back};
+  for(int n=0;n<labels.length;n++){int slot=large&&n==4?5:n;button(labels[n],65+(slot%columns)*(w+10),116-(slot/columns)*50,w,40,run[n],.8f);}
+ }
+ private void journal(){if(state.journal.isEmpty()){reading("SUIT JOURNAL","No preserved records.");return;}journalEntry=MathUtils.clamp(journalEntry,0,state.journal.size()-1);reading("SUIT JOURNAL / "+(journalEntry+1)+" OF "+state.journal.size(),state.journal.get(journalEntry));button("PREVIOUS ENTRY [UP]",65,178,245,34,()->{journalEntry=Math.max(0,journalEntry-1);page=0;},.72f);button("NEXT ENTRY [DOWN]",325,178,245,34,()->{journalEntry=Math.min(state.journal.size()-1,journalEntry+1);page=0;},.72f);}
+ private void map(){
+  panel("STATION SERVICE PLAN / DECK "+state.deck);float size=Math.min((width()-150)/state.width,(height()-250)/state.height),sx=(width()-state.width*size)/2,sy=135;
+  for(int x=0;x<state.width;x++)for(int y=0;y<state.height;y++){var t=StationSystems.knownTile(state,x,y);if(t==null)continue;float brightness=state.visible[x][y]?1:state.explored[x][y]?.63f:.30f;var c=t.blocksMovement?new Color(.17f*brightness,.24f*brightness,.25f*brightness,1):new Color(.46f*brightness,.56f*brightness,.54f*brightness,1);if(t==Tile.HATCH)c=new Color(.94f*brightness,.68f*brightness,.36f*brightness,1);if(t==Tile.SWITCH)c=new Color(.28f*brightness,.63f*brightness,.48f*brightness,1);art.rect(batch,sx+x*size,sy+(state.height-y-1)*size,size-1,size-1,c);}
+  for(String fact:state.knowledge)if(fact.startsWith("supervisor-chart:")){String[] coordinates=fact.split(":");int x=Integer.parseInt(coordinates[1]),y=Integer.parseInt(coordinates[2]);if(inside(x,y))art.rect(batch,sx+x*size,sy+(state.height-y-1)*size,size-1,size-1,new Color(.65f,.53f,.88f,1));}art.rect(batch,sx+state.playerX*size,sy+(state.height-state.playerY-1)*size,size-1,size-1,Color.WHITE);wrapped("Bright: current sight. Dim: terrain memory. Purple: supervisory panel on the static chart. Concealed threats and current panel state remain unknown.",65,height()-131,width()-130,muted,.78f,2);button("BACK [ESC]",65,79,210,35,this::back,.8f);
+ }
+ private void reading(String title,String content){
+  panel(title);float available=height()-370;var lines=wrap(content,width()-140,.88f);int rows=Math.max(3,(int)(available/(26*scale))),pages=Math.max(1,(lines.size()+rows-1)/rows);page=MathUtils.clamp(page,0,pages-1);for(int i=page*rows;i<Math.min(lines.size(),(page+1)*rows);i++)text(lines.get(i),65,height()-145-(i-page*rows)*26*scale,ink,.88f);
+  button("ESC BACK",65,82,180,36,this::back,.8f);button("< PGUP",260,82,215,36,()->page=Math.max(0,page-1),.75f);button("PGDN >",490,82,215,36,()->page++, .75f);text((page+1)+" / "+pages,width()-140,108,muted,.8f);
+ }
+ private void suit(){reading("SUIT TELEMETRY","LIFE SIGNS / "+state.hp+" of "+state.maxHp+"\n\nRESERVE / "+state.reserve+" of "+state.maxReserve+" paid ticks\n\nOXYGENATION / "+state.oxygenation+"%\n\nPOWER BANK / "+state.batteries+" of twelve cells\n\nPRIMARY / "+state.weapon+". ARMOR / "+state.armor+"\n\nCARRYING / "+EquipmentRules.bulk(state)+" of twelve bulk\n\nA.L.I.C.E. LINK / "+(state.radioConnected?"CONNECTED":"NO RECEPTION")+"\n\nKnowledge, supplies and equipment determine your capabilities. All displayed readings remain dependable during hypoxia.");}
+ private void actions(){panel("COMMIT AN ACTION");String[] labels={"LISTEN / N","TOGGLE LAMP / L","TURN / ALT + ARROW","CAREFUL MODE / Q","LOCAL CIRCUIT / P","DOOR BRACE / B","SERVICE PROBE / H","FORCE LOCK / O","MEDICAL ANALYSIS / V","RADIO QUERY / T","SHOOT TARGET / F","EMERGENCY MELEE / M","WAIT / SPACE","DESCEND / CONFIRM","BACK / ESC"};Runnable[] actions={()->commit(PlayerAction.of(PlayerAction.Type.LISTEN)),()->commit(PlayerAction.of(PlayerAction.Type.LAMP)),()->commit(new PlayerAction(PlayerAction.Type.TURN,(state.facing+1)%4,0,"")),()->{careful=!careful;back();},()->commit(targeted(PlayerAction.Type.CIRCUIT)),()->commit(targeted(PlayerAction.Type.BRACE)),()->commit(targeted(PlayerAction.Type.HACK)),()->commit(targeted(PlayerAction.Type.FORCE)),()->commit(PlayerAction.of(PlayerAction.Type.ANALYZE)),()->commit(PlayerAction.of(PlayerAction.Type.RADIO)),()->{var p=aim();commit(PlayerAction.at(PlayerAction.Type.SHOOT,p[0],p[1]));},()->{var p=aim();commit(PlayerAction.at(PlayerAction.Type.MELEE,p[0],p[1]));},()->commit(PlayerAction.of(PlayerAction.Type.WAIT)),()->commit(PlayerAction.of(PlayerAction.Type.ADVANCE)),this::back};for(int i=0;i<labels.length;i++)button(labels[i],65+(i%3)*(width()-130)/3,height()-181-(i/3)*74,(width()-160)/3,51,actions[i],.73f);var preview=menuAction(selectedButton);if(preview!=null){var f=engine.forecast(preview);wrapped((f.available()?f.ticks()+" ticks / "+f.cells()+" cells / noise "+f.noise():"UNAVAILABLE")+" / "+f.explanation()+(f.warnings().isEmpty()?"":" / "+f.warnings().getFirst()),65,200,width()-130,f.available()?muted:amber,.67f,3);}}
+ private PlayerAction menuAction(int index){return switch(index){case 0->PlayerAction.of(PlayerAction.Type.LISTEN);case 1->PlayerAction.of(PlayerAction.Type.LAMP);case 2->new PlayerAction(PlayerAction.Type.TURN,(state.facing+1)%4,0,"");case 4->targeted(PlayerAction.Type.CIRCUIT);case 5->targeted(PlayerAction.Type.BRACE);case 6->targeted(PlayerAction.Type.HACK);case 7->targeted(PlayerAction.Type.FORCE);case 8->PlayerAction.of(PlayerAction.Type.ANALYZE);case 9->PlayerAction.of(PlayerAction.Type.RADIO);case 10->PlayerAction.at(PlayerAction.Type.SHOOT,aim()[0],aim()[1]);case 11->PlayerAction.at(PlayerAction.Type.MELEE,aim()[0],aim()[1]);case 12->PlayerAction.of(PlayerAction.Type.WAIT);case 13->PlayerAction.of(PlayerAction.Type.ADVANCE);default->null;};}
+ private void commit(PlayerAction a){back();previewAction=a;act(a);}
+ private void settings(){
+  panel("AUDIO / ACCESSIBILITY");float y=height()-166;float rowGap=settingsPage==0?52:66;String[] labels=settingsPage==0?new String[]{"MASTER","EFFECTS / SUIT","VOICE","RADIO INTERFERENCE","TEXT SCALE","INTERMITTENT SCORE"}:new String[]{"CLEAR SPEECH","SOUND CAPTIONS","REDUCED MOTION","DYNAMIC RANGE","CONVERSATION FREQUENCY"};
+  for(int i=0;i<labels.length;i++){final int index=i;text(labels[i],65,y-i*rowGap+29,ink,.82f);String value=settingsPage==0?switch(i){case 0->percent(settings.master);case 1->percent(settings.sfx);case 2->percent(settings.voice);case 3->percent(settings.radio);case 4->percent(settings.uiScale);default->percent(settings.music);}:switch(i){case 0->on(settings.clearSpeech);case 1->on(settings.soundCaptions);case 2->on(settings.reducedDistortion);case 3->on(settings.reducedDynamicRange);default->new String[]{"OFF","SPARSE","NORMAL"}[settings.conversationFrequency];};text(value,width()-285-90*(scale-1),y-i*rowGap+29,amber,.85f);button("-",width()-180,y-i*rowGap,42,40,()->adjust(index,-1),1);button("+",width()-126,y-i*rowGap,42,40,()->adjust(index,1),1);}
+  button("ESC BACK",65,82,290,40,this::back,.8f);button(settingsPage==0?"ACCESSIBILITY >":"< VOLUME",375,82,380,40,()->settingsPage=1-settingsPage,.8f);text("Changes save on exit. Arrows / Tab select; Enter activates.",65,175,muted,.7f);
+ }
+ private String percent(float v){return Math.round(v*100)+"%";}private String on(boolean v){return v?"ON":"OFF";}
+ private void adjust(int i,int d){if(settingsPage==0)switch(i){case 0->settings.master=MathUtils.clamp(settings.master+d*.1f,0,1);case 1->settings.sfx=MathUtils.clamp(settings.sfx+d*.1f,0,1);case 2->settings.voice=MathUtils.clamp(settings.voice+d*.1f,0,1);case 3->settings.radio=MathUtils.clamp(settings.radio+d*.1f,0,1);case 4->settings.uiScale=MathUtils.clamp(settings.uiScale+d*.1f,1,2);case 5->settings.music=MathUtils.clamp(settings.music+d*.1f,0,1);}else switch(i){case 0->settings.clearSpeech=!settings.clearSpeech;case 1->settings.soundCaptions=!settings.soundCaptions;case 2->settings.reducedDistortion=!settings.reducedDistortion;case 3->settings.reducedDynamicRange=!settings.reducedDynamicRange;case 4->settings.conversationFrequency=MathUtils.clamp(settings.conversationFrequency+d,0,2);}settingsDirty=true;}
+ private void saveSettings(){try{settings.save();settingsDirty=false;}catch(Exception e){notice("Settings were not saved: "+e.getMessage());}}
+ private void confirmation(){panel(confirmTitle);wrapped(confirmText,65,height()-158,width()-135,ink,.94f,8);button("CONFIRM [Y]",65,100,240,45,this::acceptConfirmation,.9f);button("CANCEL [N / ESC]",330,100,250,45,this::back,.9f);}
+ private void ended(boolean victory){reading(victory?"POD CLEAR / DESTINATION MARS":"LIFE SIGNS LOST",victory?Campaign.epilogue(state):"The station continues without you.\n\nDeck "+state.deck+". "+state.tick+" paid ticks.\n\nThis expedition has ended. Its final snapshot remains preserved.\n\n"+(state.log.isEmpty()?"":state.log.getLast()));button("RETURN TO TITLE",width()-320,82,245,36,this::saveTitle,.8f);}
+ private void saveOverlay(){if(writer==null)return;var status=writer.status();if(status!=SaveCoordinator.Status.FAILED)reportedSaveFailure=false;if(status==SaveCoordinator.Status.WRITING&&(savingSeconds>.75f||closing||returnToTitle)){art.rect(batch,width()-255,158,242,28,new Color(.03f,.06f,.07f,.9f));text((closing||returnToTitle?"FINISHING SAVE…":"SAVING EXPEDITION…"),width()-244,179,muted,.62f);}else if(status==SaveCoordinator.Status.FAILED){if(!reportedSaveFailure){saveFailures++;reportedSaveFailure=true;}art.rect(batch,0,height()-126,width(),60,new Color(.20f,.055f,.035f,.98f));wrapped("SAVE FAILED / "+writer.error()+". World actions are paused. Retry preserves your last action.",20,height()-77,width()-215,ink,.73f,2);button("RETRY [F5]",width()-190,height()-116,170,39,()->writer.retry(),.8f);}}
+ private void text(String text,float x,float y,Color color,float relative){font.getData().setScale(relative*scale*.4f);font.setColor(color);font.draw(batch,text,x,y);}
+ private void button(String label,float x,float y,float w,float h,Runnable action,float relative){int index=buttons.size();boolean selected=index==selectedButton&&screen!=Screen.PLAY&&screen!=Screen.INVENTORY;art.rect(batch,x,y,w,h,selected?new Color(.16f,.23f,.23f,.9f):new Color(.075f,.115f,.12f,.88f));if(selected)outline(x,y,w,h,amber);font.getData().setScale(relative*scale*.4f);String shown=label;glyph.setText(font,shown);while(glyph.width>w-18&&shown.length()>3){shown=shown.substring(0,shown.length()-1);glyph.setText(font,shown+"...");}if(!shown.equals(label))shown+="...";glyph.setText(font,shown);font.setColor(ink);font.draw(batch,shown,x+9,y+h/2+glyph.height/2);buttons.add(new Button(new Rectangle(x,y,w,h),label,action));}
+ private void outline(float x,float y,float w,float h,Color c){art.rect(batch,x,y,w,1,c);art.rect(batch,x,y+h-1,w,1,c);art.rect(batch,x,y,1,h,c);art.rect(batch,x+w-1,y,1,h,c);}
+ private List<String> wrap(String value,float w,float relative){font.getData().setScale(relative*scale*.4f);var lines=new ArrayList<String>();for(String paragraph:value.split("\n",-1)){if(paragraph.isBlank()){lines.add("");continue;}String line="";for(String word:paragraph.split("\\s+")){String next=line.isEmpty()?word:line+" "+word;glyph.setText(font,next);if(glyph.width>w&&!line.isEmpty()){lines.add(line);line=word;}else line=next;}lines.add(line);}return lines;}
+ private void wrapped(String text,float x,float y,float w,Color c,float relative,int max){var lines=wrap(text,w,relative);for(int i=0;i<Math.min(max,lines.size());i++)text(lines.get(i),x,y-i*25*relative*scale,c,relative);}
+ private String help(){return "WASD / arrows: commit a cardinal step. Hold Shift for careful movement; Q toggles careful mode. Alt + arrow turns your body and helmet beam for one tick. Ctrl + arrows move the free inspection/target cursor; Backspace clears it. Mouse inspection and aiming are free; they never move the lamp. Left-click requests a path, which stops before known threats and recalculates each step. Right-click selects a visible target.\n\nE / Enter: operate a nearby mechanism. G: collect underfoot. R: refill oxygen. N: listen. L: switch lamp. P: local circuit. B: brace or recover a closed door. H: local service probe. O: force a lock. V: medical analysis. T: radio query. F: shoot. M: emergency melee. Space: wait.\n\nTab: physical pack. J: journal. K: map. C: suit telemetry. Backslash: all actions. Escape: pause/back. F11: fullscreen. F12: screenshot.\n\nPack: Up/Down selects a physical item, including floor items underfoot. U uses, Q equips, X drops, G collects. Browsing is free. Equipment operations cost world time.\n\nReading: Page Up/Down changes page. Up/Down changes journal entry. Menus: arrows or Tab select, Enter activates. Buttons accept pointer input.\n\nTime advances only on committed actions. A long commitment lets machines act before its final result. Lighting and sound obey geometry. Darkness is concealment, never immunity. A newly armed R.O.V.E.R. reserves another decision before detonation.\n\nYour pack holds twelve bulk. Equipped weapons occupy space. Worn armor has its own mount. Power and oxygen transfers preserve remainder. Descent is permanent; supplies above cannot be reclaimed.\n\nALICE offers information and company. She cannot operate ordinary equipment for you. Optional speech requires no response, and completing a speech never unlocks the station.";}
+ private void replayCommand(String line){String[] p=line.split("\t",-1);if(p[0].equals("HOLD")){replayHold=Math.max(1,Math.min(3600,Integer.parseInt(p[1])));return;}if(p[0].equals("AIM")){targetX=Integer.parseInt(p[1]);targetY=Integer.parseInt(p[2]);return;}if(p[0].equals("CAPTURE")){captureFile(screenshotDirectory.resolve(p[1]+".png"));Gdx.app.log("Replay","Captured "+p[1]+" at tick="+state.tick);return;}var a=new PlayerAction(PlayerAction.Type.valueOf(p[0]),p.length>1&&!p[1].isEmpty()?Integer.parseInt(p[1]):0,p.length>2&&!p[2].isEmpty()?Integer.parseInt(p[2]):0,p.length>3?p[3]:"");if(!act(a))throw new IllegalStateException("Replay rejected "+line+" at tick "+state.tick);}
+ private void captures(){if(captureRequested){captureFile(screenshotDirectory.resolve("survival-"+System.currentTimeMillis()+".png"));captureRequested=false;}if(!capture.isEmpty()&&frame==captureFrame)captureFile(Path.of(capture));if(!sequenceDirectory.isEmpty()&&frame>=sequenceStart&&frame<sequenceStart+sequenceCount)captureFile(Path.of(sequenceDirectory,String.format("frame-%04d.png",frame-sequenceStart)));}
+ private void captureFile(Path path){var f=Gdx.files.absolute(path.toAbsolutePath().toString());f.parent().mkdirs();var p=Pixmap.createFromFrameBuffer(0,0,Gdx.graphics.getWidth(),Gdx.graphics.getHeight());PixmapIO.writePNG(f,p,6,true);p.dispose();}
+ private void fullscreen(){if(Gdx.graphics.isFullscreen())Gdx.graphics.setWindowedMode(1280,720);else Gdx.graphics.setFullscreenMode(Gdx.graphics.getDisplayMode());}
+ /** Native close requests wait for the pending immutable snapshot. */
+ public boolean requestClose(){if(disposed)return true;if(writer==null){Gdx.app.exit();return false;}if(writer.status()==SaveCoordinator.Status.FAILED){notice("Close is held until the committed snapshot can be retried.");return false;}if(!closing){closing=true;walkTo="";if(state!=null&&writer.status()==SaveCoordinator.Status.READY)writer.save(state);}return false;}
+ @Override public void pause(){focused=false;walkTo="";movementIntent.clear();}
+ @Override public void resume(){focused=true;}
+ @Override public void dispose(){if(disposed)return;disposed=true;var report=new StringBuilder("Origin War survival runtime\nframes="+frame+" replayRemaining="+replay.size()+" saveFailures="+saveFailures+"\n");if(state!=null)report.append("seed=").append(state.seed).append(" deck=").append(state.deck).append(" tick=").append(state.tick).append(" hp=").append(state.hp).append(" reserve=").append(state.reserve).append(" oxygenation=").append(state.oxygenation).append(" revision=").append(state.revision).append(" victory=").append(state.victory).append(" dead=").append(state.dead).append('\n');if(!intervals.isEmpty()){var sorted=new ArrayList<>(intervals);sorted.sort(Float::compare);report.append(String.format(Locale.ROOT,"Active foreground frame intervals: n=%d mean=%.2fms p95=%.2fms p99=%.2fms max=%.2fms%n",sorted.size(),sorted.stream().mapToDouble(Float::doubleValue).average().orElse(0),sorted.get((int)((sorted.size()-1)*.95)),sorted.get((int)((sorted.size()-1)*.99)),sorted.getLast()));}report.append("continuedOfficerSteps=").append(timeline.officerContinuations()).append('\n');report.append("artProof=").append(proofStyle).append(" staged=").append(artLab).append(" offlineReview=").append(offlineReview).append("\n");if(art!=null)report.append("artTextures=").append(art.textureCount()).append(" estimatedRGBABytes=").append(art.textureBytes()).append("\n");if(audio!=null)report.append(audio.summary()).append('\n');Gdx.app.log("Diagnostics",report.toString());if(!diagnostics.isEmpty())try{var f=Gdx.files.absolute(diagnostics);f.parent().mkdirs();f.writeString(report.toString(),false,"UTF-8");}catch(Exception e){Gdx.app.error("Diagnostics","Cannot write report",e);}if(settingsDirty&&lease!=null)saveSettings();if(audio!=null)audio.close();if(writer!=null)try{writer.close();}catch(Exception e){Gdx.app.error("Snapshot",e.getMessage(),e);}if(lease!=null)try{lease.close();}catch(Exception e){Gdx.app.error("Profile",e.getMessage(),e);}if(art!=null)art.close();if(font!=null)font.dispose();if(batch!=null)batch.dispose();}
+}

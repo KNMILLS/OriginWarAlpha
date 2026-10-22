@@ -1,0 +1,242 @@
+{
+  "scope": "Complete unprompted offline ASR screen; fallible transcription does not prove exact audible words, speaker continuity, emotion or listener comprehension.",
+  "model": {
+    "local_directory_name": "alice-asr-small.en",
+    "files": {
+      "config.json": "666a9605530ac1f61fa8177f3702b4dacec9966749e42610839fcc32661d5fae",
+      "model.bin": "62b2a45b05ee59acb4a5341b33ee35e041395d378d418a18acfe4c9e768ee37a",
+      "tokenizer.json": "929c5252409436dce1b38a75d1abbcb5e132d170d8e324e4e04ed915fa2d22df",
+      "vocabulary.txt": "ff77588746d3a2595d32ab5b69ffd7b95ce2441ac57533cb66fc3eb575a115cf"
+    }
+  },
+  "faster_whisper": "1.2.1",
+  "records": [
+    {
+      "source_key": "contact-officer",
+      "layer": "native",
+      "path": "assets/audio/survival/source/voice/contact-officer-dry.wav",
+      "sha256": "84f68b6ff09289f6fbfe18959f1c16eed6535f1e11d7f0000cc744c1258dfa43",
+      "expected": "Station, this is the boarding officer. Can anyone hear me?",
+      "recognized": "Station, this is the boarding officer. Can anyone hear me?",
+      "normalized_exact": true,
+      "differences": [],
+      "segments": [
+        {
+          "start": 0.0,
+          "end": 4.52,
+          "text": " Station, this is the boarding officer. Can anyone hear me?",
+          "avg_logprob": -0.29294620268046856,
+          "no_speech_prob": 0.017457135021686554
+        }
+      ]
+    },
+    {
+      "source_key": "contact-alice",
+      "layer": "native",
+      "path": "assets/audio/survival/source/voice/contact-alice-dry.wav",
+      "sha256": "b52a631cff47de86698278c7ca879a290736de85b28ec0a9911191b4406ff1c6",
+      "expected": "I can. A.L.I.C.E. Your connection is poor. Your timing is worse.",
+      "recognized": "I can. A-L-I-C-E. Your connection is poor. Your timing is worse.",
+      "normalized_exact": false,
+      "differences": [
+        {
+          "operation": "replace",
+          "expected": [
+            "alice"
+          ],
+          "recognized": [
+            "a",
+            "l",
+            "i",
+            "c",
+            "e"
+          ]
+        }
+      ],
+      "segments": [
+        {
+          "start": 0.0,
+          "end": 0.54,
+          "text": " I can.",
+          "avg_logprob": -0.2508173276980718,
+          "no_speech_prob": 0.009739509783685207
+        },
+        {
+          "start": 1.4,
+          "end": 4.54,
+          "text": " A-L-I-C-E. Your connection is poor.",
+          "avg_logprob": -0.2508173276980718,
+          "no_speech_prob": 0.009739509783685207
+        },
+        {
+          "start": 5.26,
+          "end": 6.66,
+          "text": " Your timing is worse.",
+          "avg_logprob": -0.2508173276980718,
+          "no_speech_prob": 0.009739509783685207
+        }
+      ]
+    },
+    {
+      "source_key": "quiet-officer",
+      "layer": "native",
+      "path": "assets/audio/survival/source/voice/quiet-officer-dry.wav",
+      "sha256": "f2714fd44ee93dd7eb6471ec0d99b15320f193ae045fd9ed8fb87656c64c7bb3",
+      "expected": "Just checking the channel.",
+      "recognized": "just checking the channel.",
+      "normalized_exact": true,
+      "differences": [],
+      "segments": [
+        {
+          "start": 0.0,
+          "end": 1.24,
+          "text": " just checking the channel.",
+          "avg_logprob": -0.48499076068401337,
+          "no_speech_prob": 0.11678162217140198
+        }
+      ]
+    },
+    {
+      "source_key": "quiet-alice",
+      "layer": "native",
+      "path": "assets/audio/survival/source/voice/quiet-alice-dry.wav",
+      "sha256": "fc6001f4d30944d98cb3fc3f9b6dd6ad94188ada5be6a12926b699bc7b8aed54",
+      "expected": "Still here. You needn't manufacture a technical reason.",
+      "recognized": "Still here, you needn't manufacture a technical reason.",
+      "normalized_exact": true,
+      "differences": [],
+      "segments": [
+        {
+          "start": 0.0,
+          "end": 4.04,
+          "text": " Still here, you needn't manufacture a technical reason.",
+          "avg_logprob": -0.2945175607999166,
+          "no_speech_prob": 0.007145029492676258
+        }
+      ]
+    },
+    {
+      "source_key": "careful-officer",
+      "layer": "native",
+      "path": "assets/audio/survival/source/voice/careful-officer-dry.wav",
+      "sha256": "72fcecdea67bbba1245fcaeb30314aa283290c4d0e12acf439ab8623559f3e06",
+      "expected": "That was quieter.",
+      "recognized": "That was quieter.",
+      "normalized_exact": true,
+      "differences": [],
+      "segments": [
+        {
+          "start": 0.0,
+          "end": 0.9,
+          "text": " That was quieter.",
+          "avg_logprob": -0.4461275339126587,
+          "no_speech_prob": 0.0014446757268160582
+        }
+      ]
+    },
+    {
+      "source_key": "careful-alice",
+      "layer": "native",
+      "path": "assets/audio/survival/source/voice/careful-alice-dry.wav",
+      "sha256": "1b465e7d05ab0b6a7113e2e63fdf30f186f09d0161442e6082f915f2c8e3d053",
+      "expected": "Yes. A rare achievement for this institution.",
+      "recognized": "Yes, a rare achievement for this institution.",
+      "normalized_exact": true,
+      "differences": [],
+      "segments": [
+        {
+          "start": 0.0,
+          "end": 3.22,
+          "text": " Yes, a rare achievement for this institution.",
+          "avg_logprob": -0.2705835998058319,
+          "no_speech_prob": 0.0040465425699949265
+        }
+      ]
+    },
+    {
+      "source_key": "force-officer",
+      "layer": "native",
+      "path": "assets/audio/survival/source/voice/force-officer-dry.wav",
+      "sha256": "675e3aede55417d48ee17fd67a9b5efbdde11547897cf37fd68af51384acbd44",
+      "expected": "That carried.",
+      "recognized": "That carried.",
+      "normalized_exact": true,
+      "differences": [],
+      "segments": [
+        {
+          "start": 0.0,
+          "end": 0.7,
+          "text": " That carried.",
+          "avg_logprob": -0.6029448409875234,
+          "no_speech_prob": 0.004307320807129145
+        }
+      ]
+    },
+    {
+      "source_key": "force-alice",
+      "layer": "native",
+      "path": "assets/audio/survival/source/voice/force-alice-dry.wav",
+      "sha256": "d20d79cd9a3bb1938bd0421b5e6a130ddf4e919c3a15daabe1a8a0e66f079f02",
+      "expected": "Subtlety was not among that door's remaining functions.",
+      "recognized": "Subtlety was not among that door's remaining functions.",
+      "normalized_exact": true,
+      "differences": [],
+      "segments": [
+        {
+          "start": 0.0,
+          "end": 3.86,
+          "text": " Subtlety was not among that door's remaining functions.",
+          "avg_logprob": -0.2524045705795288,
+          "no_speech_prob": 0.004448930267244577
+        }
+      ]
+    },
+    {
+      "source_key": "packdrop-officer",
+      "layer": "native",
+      "path": "assets/audio/survival/source/voice/packdrop-officer-dry.wav",
+      "sha256": "bd23a0ad9283f31562cadf24c11e4240ea0d60baafd2bb09362b0bce4a179957",
+      "expected": "Leaving it here.",
+      "recognized": "leaving it here.",
+      "normalized_exact": true,
+      "differences": [],
+      "segments": [
+        {
+          "start": 0.0,
+          "end": 1.06,
+          "text": " leaving it here.",
+          "avg_logprob": -0.5577518769672939,
+          "no_speech_prob": 0.055047497153282166
+        }
+      ]
+    },
+    {
+      "source_key": "packdrop-alice",
+      "layer": "native",
+      "path": "assets/audio/survival/source/voice/packdrop-alice-dry.wav",
+      "sha256": "9568c118b982006a31254ef14dd132c4ef2549e229681da7aa2c0c0663144b21",
+      "expected": "A full pack is an argument with the future. You don't have to win every point.",
+      "recognized": "A full pack is an argument with the future. You don't have to win every point.",
+      "normalized_exact": true,
+      "differences": [],
+      "segments": [
+        {
+          "start": 0.0,
+          "end": 2.52,
+          "text": " A full pack is an argument with the future.",
+          "avg_logprob": -0.2733394006888072,
+          "no_speech_prob": 0.005270123947411776
+        },
+        {
+          "start": 3.54,
+          "end": 5.28,
+          "text": " You don't have to win every point.",
+          "avg_logprob": -0.2733394006888072,
+          "no_speech_prob": 0.005270123947411776
+        }
+      ]
+    }
+  ],
+  "normalized_matches": 9,
+  "review_required": 1
+}

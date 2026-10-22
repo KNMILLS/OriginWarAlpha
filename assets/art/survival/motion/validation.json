@@ -1,0 +1,22 @@
+{
+  "technical": "PASS",
+  "clips": 13,
+  "uniquePaintedRegions": 84,
+  "frameBindings": 87,
+  "maxSolidSoleAnchorDriftReferencePixels": 1.0,
+  "sourceHashes": "PASS",
+  "byteRepeatableExports": "PASS",
+  "editableArchiveCRC": "PASS",
+  "browserPreview": "48 images loaded; phase2->5 in150ms; pause7->7 in150ms; another500ms cycle sampled; no image load failures",
+  "nativeGameMotion": "NOT_TESTED in this worker",
+  "commercialAnimationQuality": "NOT_ACCEPTED",
+  "remaining": [
+    "front/rear cycle choreography",
+    "equipment variants",
+    "machine cardinal facings",
+    "north pistol action service rejection",
+    "hit/interact/death/door actions",
+    "native foot planting and marker synchronization",
+    "owner artistic approval"
+  ]
+}

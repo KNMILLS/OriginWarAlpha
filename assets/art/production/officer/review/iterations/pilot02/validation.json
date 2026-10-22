@@ -1,0 +1,54 @@
+{
+  "scope": "Source render and analytical projection only; not native gameplay",
+  "artisticAcceptance": "OPEN",
+  "clips": 16,
+  "frames": 228,
+  "footCalibration": [
+    {
+      "clip": "officer.pistol.suit.walk.south",
+      "sampledStanceResidualPixels": 1.4199150939475658e-05,
+      "maximumHeldPoseRootTravelPixels": 3.5555555555555554,
+      "maximumHeldPoseRootTravelAt720p47pxCell": 0.6527777777777778
+    },
+    {
+      "clip": "officer.pistol.suit.walk.east",
+      "sampledStanceResidualPixels": 1.3565284399522952e-05,
+      "maximumHeldPoseRootTravelPixels": 3.5555555555555554,
+      "maximumHeldPoseRootTravelAt720p47pxCell": 0.6527777777777778
+    },
+    {
+      "clip": "officer.pistol.suit.walk.north",
+      "sampledStanceResidualPixels": 1.2167321801377265e-05,
+      "maximumHeldPoseRootTravelPixels": 3.5555555555555554,
+      "maximumHeldPoseRootTravelAt720p47pxCell": 0.6527777777777778
+    },
+    {
+      "clip": "officer.pistol.suit.walk.west",
+      "sampledStanceResidualPixels": 1.1170176498303431e-05,
+      "maximumHeldPoseRootTravelPixels": 3.5555555555555554,
+      "maximumHeldPoseRootTravelAt720p47pxCell": 0.6527777777777778
+    }
+  ],
+  "checked": [
+    {
+      "clip": "officer.pistol.suit.walk.south",
+      "distinctRenders": 36,
+      "count": 36
+    },
+    {
+      "clip": "officer.pistol.suit.walk.east",
+      "distinctRenders": 36,
+      "count": 36
+    },
+    {
+      "clip": "officer.pistol.suit.walk.north",
+      "distinctRenders": 36,
+      "count": 36
+    },
+    {
+      "clip": "officer.pistol.suit.walk.west",
+      "distinctRenders": 36,
+      "count": 36
+    }
+  ]
+}

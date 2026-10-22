@@ -1,0 +1,65 @@
+{
+  "scope": "authored phase0 bridges only; arbitrary interruption/native acceptance not inferred",
+  "checks": [
+    {
+      "facing": "north",
+      "transition": "start-end/walk0",
+      "maxBoneMatrixDelta": 0.0
+    },
+    {
+      "facing": "north",
+      "transition": "walk0/stop-start",
+      "maxBoneMatrixDelta": 0.0
+    },
+    {
+      "facing": "north",
+      "transition": "stop-end/idle",
+      "maxBoneMatrixDelta": 0.0
+    },
+    {
+      "facing": "east",
+      "transition": "start-end/walk0",
+      "maxBoneMatrixDelta": 0.0
+    },
+    {
+      "facing": "east",
+      "transition": "walk0/stop-start",
+      "maxBoneMatrixDelta": 0.0
+    },
+    {
+      "facing": "east",
+      "transition": "stop-end/idle",
+      "maxBoneMatrixDelta": 0.0
+    },
+    {
+      "facing": "south",
+      "transition": "start-end/walk0",
+      "maxBoneMatrixDelta": 0.0
+    },
+    {
+      "facing": "south",
+      "transition": "walk0/stop-start",
+      "maxBoneMatrixDelta": 0.0
+    },
+    {
+      "facing": "south",
+      "transition": "stop-end/idle",
+      "maxBoneMatrixDelta": 0.0
+    },
+    {
+      "facing": "west",
+      "transition": "start-end/walk0",
+      "maxBoneMatrixDelta": 0.0
+    },
+    {
+      "facing": "west",
+      "transition": "walk0/stop-start",
+      "maxBoneMatrixDelta": 0.0
+    },
+    {
+      "facing": "west",
+      "transition": "stop-end/idle",
+      "maxBoneMatrixDelta": 0.0
+    }
+  ]
+}

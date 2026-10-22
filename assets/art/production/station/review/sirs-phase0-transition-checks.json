@@ -1,0 +1,77 @@
+{
+  "scope": "source foot anchors and exact phase0 endpoint rasters; arbitrary interrupted phase/native acceptance not inferred",
+  "checks": [
+    {
+      "facing": "north",
+      "transition": "start-end/walk0",
+      "footAnchorMaximumWorldError": 0.0,
+      "identicalRGBAPixels": true
+    },
+    {
+      "facing": "north",
+      "transition": "walk0/stop-start",
+      "footAnchorMaximumWorldError": 0.0,
+      "identicalRGBAPixels": true
+    },
+    {
+      "facing": "north",
+      "transition": "stop-end/idle",
+      "footAnchorMaximumWorldError": 0.0,
+      "identicalRGBAPixels": true
+    },
+    {
+      "facing": "east",
+      "transition": "start-end/walk0",
+      "footAnchorMaximumWorldError": 0.0,
+      "identicalRGBAPixels": true
+    },
+    {
+      "facing": "east",
+      "transition": "walk0/stop-start",
+      "footAnchorMaximumWorldError": 0.0,
+      "identicalRGBAPixels": true
+    },
+    {
+      "facing": "east",
+      "transition": "stop-end/idle",
+      "footAnchorMaximumWorldError": 0.0,
+      "identicalRGBAPixels": true
+    },
+    {
+      "facing": "south",
+      "transition": "start-end/walk0",
+      "footAnchorMaximumWorldError": 0.0,
+      "identicalRGBAPixels": true
+    },
+    {
+      "facing": "south",
+      "transition": "walk0/stop-start",
+      "footAnchorMaximumWorldError": 0.0,
+      "identicalRGBAPixels": true
+    },
+    {
+      "facing": "south",
+      "transition": "stop-end/idle",
+      "footAnchorMaximumWorldError": 0.0,
+      "identicalRGBAPixels": true
+    },
+    {
+      "facing": "west",
+      "transition": "start-end/walk0",
+      "footAnchorMaximumWorldError": 0.0,
+      "identicalRGBAPixels": true
+    },
+    {
+      "facing": "west",
+      "transition": "walk0/stop-start",
+      "footAnchorMaximumWorldError": 0.0,
+      "identicalRGBAPixels": true
+    },
+    {
+      "facing": "west",
+      "transition": "stop-end/idle",
+      "footAnchorMaximumWorldError": 0.0,
+      "identicalRGBAPixels": true
+    }
+  ]
+}

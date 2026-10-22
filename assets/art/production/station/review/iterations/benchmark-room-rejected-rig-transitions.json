@@ -1,0 +1,245 @@
+{
+  "scope": "rig matrices at authored phase0 bridges only; source reach asserts execute during export; arbitrary phase interruption/native motion acceptance not inferred",
+  "checks": [
+    {
+      "facing": "north",
+      "transition": "start-end/walk0",
+      "maxBoneMatrixDelta": 0.0,
+      "boneErrors": {
+        "pelvis": 0.0,
+        "torso": 0.0,
+        "head": 0.0,
+        "upperarm.R": 0.0,
+        "forearm.R": 0.0,
+        "upperarm.L": 0.0,
+        "forearm.L": 0.0,
+        "thigh.R": 0.0,
+        "shin.R": 0.0,
+        "foot.R": 0.0,
+        "thigh.L": 0.0,
+        "shin.L": 0.0,
+        "foot.L": 0.0
+      }
+    },
+    {
+      "facing": "north",
+      "transition": "walk0/stop-start",
+      "maxBoneMatrixDelta": 0.0,
+      "boneErrors": {
+        "pelvis": 0.0,
+        "torso": 0.0,
+        "head": 0.0,
+        "upperarm.R": 0.0,
+        "forearm.R": 0.0,
+        "upperarm.L": 0.0,
+        "forearm.L": 0.0,
+        "thigh.R": 0.0,
+        "shin.R": 0.0,
+        "foot.R": 0.0,
+        "thigh.L": 0.0,
+        "shin.L": 0.0,
+        "foot.L": 0.0
+      }
+    },
+    {
+      "facing": "north",
+      "transition": "stop-end/idle",
+      "maxBoneMatrixDelta": 0.02552323043346405,
+      "boneErrors": {
+        "pelvis": 0.0015439391136169434,
+        "torso": 0.0015439391136169434,
+        "head": 0.001543879508972168,
+        "upperarm.R": 0.0015437602996826172,
+        "forearm.R": 0.0015438199043273926,
+        "upperarm.L": 0.0015437602996826172,
+        "forearm.L": 0.0015438199043273926,
+        "thigh.R": 0.02552323043346405,
+        "shin.R": 0.02484653890132904,
+        "foot.R": 1.7881393432617188e-07,
+        "thigh.L": 0.02552323043346405,
+        "shin.L": 0.02484653890132904,
+        "foot.L": 1.7881393432617188e-07
+      }
+    },
+    {
+      "facing": "east",
+      "transition": "start-end/walk0",
+      "maxBoneMatrixDelta": 0.0,
+      "boneErrors": {
+        "pelvis": 0.0,
+        "torso": 0.0,
+        "head": 0.0,
+        "upperarm.R": 0.0,
+        "forearm.R": 0.0,
+        "upperarm.L": 0.0,
+        "forearm.L": 0.0,
+        "thigh.R": 0.0,
+        "shin.R": 0.0,
+        "foot.R": 0.0,
+        "thigh.L": 0.0,
+        "shin.L": 0.0,
+        "foot.L": 0.0
+      }
+    },
+    {
+      "facing": "east",
+      "transition": "walk0/stop-start",
+      "maxBoneMatrixDelta": 0.0,
+      "boneErrors": {
+        "pelvis": 0.0,
+        "torso": 0.0,
+        "head": 0.0,
+        "upperarm.R": 0.0,
+        "forearm.R": 0.0,
+        "upperarm.L": 0.0,
+        "forearm.L": 0.0,
+        "thigh.R": 0.0,
+        "shin.R": 0.0,
+        "foot.R": 0.0,
+        "thigh.L": 0.0,
+        "shin.L": 0.0,
+        "foot.L": 0.0
+      }
+    },
+    {
+      "facing": "east",
+      "transition": "stop-end/idle",
+      "maxBoneMatrixDelta": 0.02552323043346405,
+      "boneErrors": {
+        "pelvis": 0.0015439391136169434,
+        "torso": 0.0015439391136169434,
+        "head": 0.001543879508972168,
+        "upperarm.R": 0.0015437602996826172,
+        "forearm.R": 0.0015438199043273926,
+        "upperarm.L": 0.0015437602996826172,
+        "forearm.L": 0.0015438199043273926,
+        "thigh.R": 0.02552323043346405,
+        "shin.R": 0.02484653890132904,
+        "foot.R": 1.7881393432617188e-07,
+        "thigh.L": 0.02552323043346405,
+        "shin.L": 0.02484653890132904,
+        "foot.L": 1.7881393432617188e-07
+      }
+    },
+    {
+      "facing": "south",
+      "transition": "start-end/walk0",
+      "maxBoneMatrixDelta": 0.0,
+      "boneErrors": {
+        "pelvis": 0.0,
+        "torso": 0.0,
+        "head": 0.0,
+        "upperarm.R": 0.0,
+        "forearm.R": 0.0,
+        "upperarm.L": 0.0,
+        "forearm.L": 0.0,
+        "thigh.R": 0.0,
+        "shin.R": 0.0,
+        "foot.R": 0.0,
+        "thigh.L": 0.0,
+        "shin.L": 0.0,
+        "foot.L": 0.0
+      }
+    },
+    {
+      "facing": "south",
+      "transition": "walk0/stop-start",
+      "maxBoneMatrixDelta": 0.0,
+      "boneErrors": {
+        "pelvis": 0.0,
+        "torso": 0.0,
+        "head": 0.0,
+        "upperarm.R": 0.0,
+        "forearm.R": 0.0,
+        "upperarm.L": 0.0,
+        "forearm.L": 0.0,
+        "thigh.R": 0.0,
+        "shin.R": 0.0,
+        "foot.R": 0.0,
+        "thigh.L": 0.0,
+        "shin.L": 0.0,
+        "foot.L": 0.0
+      }
+    },
+    {
+      "facing": "south",
+      "transition": "stop-end/idle",
+      "maxBoneMatrixDelta": 0.02552323043346405,
+      "boneErrors": {
+        "pelvis": 0.0015439391136169434,
+        "torso": 0.0015439391136169434,
+        "head": 0.001543879508972168,
+        "upperarm.R": 0.0015437602996826172,
+        "forearm.R": 0.0015438199043273926,
+        "upperarm.L": 0.0015437602996826172,
+        "forearm.L": 0.0015438199043273926,
+        "thigh.R": 0.02552323043346405,
+        "shin.R": 0.02484653890132904,
+        "foot.R": 1.7881393432617188e-07,
+        "thigh.L": 0.02552323043346405,
+        "shin.L": 0.02484653890132904,
+        "foot.L": 1.7881393432617188e-07
+      }
+    },
+    {
+      "facing": "west",
+      "transition": "start-end/walk0",
+      "maxBoneMatrixDelta": 0.0,
+      "boneErrors": {
+        "pelvis": 0.0,
+        "torso": 0.0,
+        "head": 0.0,
+        "upperarm.R": 0.0,
+        "forearm.R": 0.0,
+        "upperarm.L": 0.0,
+        "forearm.L": 0.0,
+        "thigh.R": 0.0,
+        "shin.R": 0.0,
+        "foot.R": 0.0,
+        "thigh.L": 0.0,
+        "shin.L": 0.0,
+        "foot.L": 0.0
+      }
+    },
+    {
+      "facing": "west",
+      "transition": "walk0/stop-start",
+      "maxBoneMatrixDelta": 0.0,
+      "boneErrors": {
+        "pelvis": 0.0,
+        "torso": 0.0,
+        "head": 0.0,
+        "upperarm.R": 0.0,
+        "forearm.R": 0.0,
+        "upperarm.L": 0.0,
+        "forearm.L": 0.0,
+        "thigh.R": 0.0,
+        "shin.R": 0.0,
+        "foot.R": 0.0,
+        "thigh.L": 0.0,
+        "shin.L": 0.0,
+        "foot.L": 0.0
+      }
+    },
+    {
+      "facing": "west",
+      "transition": "stop-end/idle",
+      "maxBoneMatrixDelta": 0.02552323043346405,
+      "boneErrors": {
+        "pelvis": 0.0015439391136169434,
+        "torso": 0.0015439391136169434,
+        "head": 0.001543879508972168,
+        "upperarm.R": 0.0015437602996826172,
+        "forearm.R": 0.0015438199043273926,
+        "upperarm.L": 0.0015437602996826172,
+        "forearm.L": 0.0015438199043273926,
+        "thigh.R": 0.02552323043346405,
+        "shin.R": 0.02484653890132904,
+        "foot.R": 1.7881393432617188e-07,
+        "thigh.L": 0.02552323043346405,
+        "shin.L": 0.02484653890132904,
+        "foot.L": 1.7881393432617188e-07
+      }
+    }
+  ]
+}

@@ -1,0 +1,4 @@
+{
+  "status": "REJECTED source export bounds",
+  "reason": "Longer.75cell cycle exceeds old1.75cell canvas at south contact. Keep pixel density and opaque height, expand transparent normal bounds to2cells high. Source endpoints were exact; this is framing correction, not cadence reduction."
+}

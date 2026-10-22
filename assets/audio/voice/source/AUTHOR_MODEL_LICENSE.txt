@@ -1,0 +1,3 @@
+Primary source: https://brycebeattie.com/files/tts/
+Verified 2026-10-21 UTC.
+Short license excerpt: LJSpeech (high) / License: public domain

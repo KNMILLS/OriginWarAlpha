@@ -1,0 +1,13 @@
+{
+  "base": "c3ad57376f083b5a05f3d81b11764f857c502bec",
+  "scope": "V3 canonical manifest/source/checks/idles; remaining frame bytes remain in base Git commit",
+  "sha256": {
+    "clips.json": "7fde9cd8dd913bfd09ceab53cafaa21e986590013da536c6f54770ba14064097",
+    "validation.json": "bb9cd4b5f2f3324bb5e484032c4ccbe63e3010f86cf3ae1957dcb7fab04b0858",
+    "officer-illustrated-pilot.blend": "47684376572a9a56afad17030a72c4a963ea941e8dab2c00b18d9009767c83f7",
+    "officer.pistol.suit.idle.south.00.png": "05e81cd04b9d9919a63388e08cc6fbb1372dbab5d483b6299c25ac9ac033e388",
+    "officer.pistol.suit.idle.east.00.png": "b6f8e9b00fc70b37b7849387c36e0804a6b559be3f299469346f310cc07b76bd",
+    "officer.pistol.suit.idle.north.00.png": "d73345fdf77d96796c4733af0b8be32b88ffe9e0884a28d5d604551ed024fbff",
+    "officer.pistol.suit.idle.west.00.png": "c1fbd1c8c0c21b04ae4944cf5d1eb11e787daef8c0cba4b3c43fb96e3fbe7f95"
+  }
+}

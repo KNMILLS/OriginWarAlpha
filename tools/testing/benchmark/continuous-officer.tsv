@@ -1,0 +1,28 @@
+# Explicit staged diagnostic; ordinary costs, free target cursor and bounded real-time holds.
+HOLD	60
+MOVE	1	0
+MOVE	1	0
+MOVE	0	-1
+MOVE	0	-1
+MOVE	-1	0
+MOVE	-1	0
+MOVE	0	1
+MOVE	0	1
+HOLD	30
+AIM	7	11
+HOLD	30
+SHOOT	7	11
+HOLD	60
+TURN	3
+AIM	4	9
+HOLD	20
+SHOOT	4	9
+TURN	0
+AIM	7	6
+HOLD	20
+SHOOT	7	6
+TURN	1
+AIM	10	9
+HOLD	20
+SHOOT	10	9
+HOLD	120

@@ -1,11 +1,11 @@
-apply plugin: "java"
+dependencies {
+    implementation "com.github.yellowstonegames.squidsquad:squidgrid:$squidVersion"
+    implementation "com.github.yellowstonegames.squidsquad:squidplace:$squidVersion"
+    implementation "com.github.yellowstonegames.squidsquad:squidpath:$squidVersion"
+}
 
-sourceCompatibility = 1.7
-[compileJava, compileTestJava]*.options*.encoding = 'UTF-8'
-
-sourceSets.main.java.srcDirs = [ "src/" ]
-
-
-eclipse.project {
-    name = appName + "-core"
+test {
+    // The requested sweep size changes verification work even when Java sources do not change.
+    inputs.property 'generationSeeds', System.getenv('ORIGINWAR_GENERATION_SEEDS') ?: '1000'
+    inputs.property 'observedPilotSeeds', System.getenv('ORIGINWAR_PILOT_SEEDS') ?: '0,1,6,14'
 }

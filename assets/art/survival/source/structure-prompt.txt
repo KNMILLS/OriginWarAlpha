@@ -1,0 +1,20 @@
+Use case: stylized-concept.
+Asset type: ORIGINAL PRODUCTION 2D GAME ENVIRONMENT CUTOUT SHEET for a square-grid top-down industrial survival horror game.
+Make TWELVE separately isolated hand-painted object sprites in a precise 4-column by 3-row grid on genuinely transparent background. Each object stays fully inside its equal cell, with wide transparent gutters; no overlaps. No labels or text.
+Camera for all: fixed orthographic 3/4 overhead game view, about35degrees looking down, square front-facing architecture not isometric diamonds. Vertical front faces and visible top planes; all floor footprints align to horizontal/vertical screen axes. Neutral diffuse upper-left light; no scenery, floor planes or cast ground shadows.
+TOP ROW, left to right:
+1 a straight ONE-CELL steel station bulkhead module, tall ribbed blue-gray front wall and dark upper cap, one continuous straight modular rectangular shape;
+2 L-shaped corner bulkhead with same materials and silhouette;
+3 ONE-CELL dark reinforced glass partition in steel frame, glass translucent blue-gray, no landscape reflection;
+4 a powered wall equipment panel with small inset monitor and recessed physical switches, dim amber indicator, same muted institutional steel.
+MIDDLE ROW:
+1 CLOSED full ONE-CELL double sliding industrial pressure door and fixed frame;
+2 SAME pressure door FULLY OPEN, identical fixed frame, clear transparent empty aperture (no wall/floor/background behind opening);
+3 SAME pressure door LOCKED, amber mechanical lock indicator, identical size/shape;
+4 ONE-CELL descent/escape hatch recessed frame with closed metal inner aperture and sturdy hinge/handle; clear raised lip, not a glowing portal.
+BOTTOM ROW:
+1 freestanding technician TERMINAL console, compact waist-high angled green-gray housing, small dark glass CRT, physical keys, service door and cable conduit;
+2 low armored CONTROL SWITCH pedestal, a clear stout lever under safety cage, amber status dot;
+3 worn CARGO CRATE, squat green-gray plastic/metal reinforced storage box, recessed handles and latches;
+4 long low MAINTENANCE WORKBENCH, two drawers, practical tools and one coiled cable, no readable writing.
+Style: detailed mature painted 2D game illustration; confident clean shape edges with restrained brush texture, broad values and believable utilitarian manufacture. Dark steel, faded sage enamel, bone-gray highlights, warm gray rubber. No pixel art, no 3D render, no fantasy ornament, no neon/glowing outlines. Background true alpha transparent. No ground, no pedestals outside each object's footprint. Preserve full object silhouettes and consistent scale. Each row's twelve objects are distinct exact described assets, NOT a finished room screenshot.

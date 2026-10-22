@@ -1,0 +1,179 @@
+{
+  "version": 1,
+  "referenceCellPixels": 256,
+  "runtimeReferenceCellPixels": 192,
+  "pivotOrigin": "bottom-left",
+  "clips": [
+    {
+      "id": "officer.pistol.suit.idle.south",
+      "frameSeconds": 0.016666666666666666,
+      "cycleCells": 0,
+      "cycleDistanceCells": 0,
+      "loop": false,
+      "equipment": "pistol",
+      "armor": "suit",
+      "frames": [
+        {
+          "path": "art/production/officer/review/iterations/v3-anatomical-suit/regions/officer.pistol.suit.idle.south.00.png",
+          "widthCells": 1.5,
+          "heightCells": 1.75,
+          "pivotX": 0.5,
+          "pivotY": 0.14500541985034943,
+          "pixelWidth": 288,
+          "pixelHeight": 336,
+          "sha256": "35398efe8582aedd12f50d4f925494ab73c18bc46c93eb22983762d42c57a170",
+          "feet": {
+            "left": {
+              "phase": 0,
+              "stance": true,
+              "anchorWorld": [
+                0.11500000208616257,
+                -0.0560000017285347,
+                0.012000000104308128
+              ],
+              "localPixels": [
+                25.017723083496094,
+                -6.403918266296387
+              ],
+              "screenCells": [
+                0.09772548079490662,
+                -0.02501530572772026
+              ],
+              "rootPixels": [
+                0.0,
+                0.0
+              ],
+              "rootPlusLocalPixels": [
+                25.017723083496094,
+                -6.403918266296387
+              ],
+              "liftWorld": 0
+            },
+            "right": {
+              "phase": 0.5,
+              "stance": true,
+              "anchorWorld": [
+                -0.11500000208616257,
+                -0.024000000208616257,
+                0.012000000104308128
+              ],
+              "localPixels": [
+                -25.017711639404297,
+                -1.6539897918701172
+              ],
+              "screenCells": [
+                -0.09772543609142303,
+                -0.006460897624492645
+              ],
+              "rootPixels": [
+                0.0,
+                0.0
+              ],
+              "rootPlusLocalPixels": [
+                -25.017711639404297,
+                -1.6539897918701172
+              ],
+              "liftWorld": 0
+            }
+          }
+        }
+      ],
+      "markers": []
+    },
+    {
+      "id": "officer.pistol.suit.idle.east",
+      "frameSeconds": 0.016666666666666666,
+      "cycleCells": 0,
+      "cycleDistanceCells": 0,
+      "loop": false,
+      "equipment": "pistol",
+      "armor": "suit",
+      "frames": [
+        {
+          "path": "art/production/officer/review/iterations/v3-anatomical-suit/regions/officer.pistol.suit.idle.east.00.png",
+          "widthCells": 1.5,
+          "heightCells": 1.75,
+          "pivotX": 0.5,
+          "pivotY": 0.14500541985034943,
+          "pixelWidth": 288,
+          "pixelHeight": 336,
+          "sha256": "84501284880499b8bc0e274bf804d93cd7ea41b1a154a0d0360de534384063b8",
+          "feet": {
+            "left": {
+              "phase": 0,
+              "stance": true,
+              "anchorWorld": [
+                0.056000009179115295,
+                0.11499999463558197,
+                0.012000000104308128
+              ],
+              "localPixels": [
+                12.182533264160156,
+                18.978498458862305
+              ],
+              "screenCells": [
+                0.04758802056312561,
+                0.07413475960493088
+              ],
+              "rootPixels": [
+                0.0,
+                0.0
+              ],
+              "rootPlusLocalPixels": [
+                12.182533264160156,
+                18.978498458862305
+              ],
+              "liftWorld": 0
+            },
+            "right": {
+              "phase": 0.5,
+              "stance": true,
+              "anchorWorld": [
+                0.02399999089539051,
+                -0.11500000208616257,
+                0.012000000104308128
+              ],
+              "localPixels": [
+                5.221092224121094,
+                -15.161585330963135
+              ],
+              "screenCells": [
+                0.020394891500473022,
+                -0.059224942699074745
+              ],
+              "rootPixels": [
+                0.0,
+                0.0
+              ],
+              "rootPlusLocalPixels": [
+                5.221092224121094,
+                -15.161585330963135
+              ],
+              "liftWorld": 0
+            }
+          }
+        }
+      ],
+      "markers": []
+    }
+  ],
+  "bindings": [
+    {
+      "actor": "officer",
+      "weapon": "pistol",
+      "armor": "suit",
+      "action": "idle",
+      "facing": "south",
+      "clip": "officer.pistol.suit.idle.south"
+    },
+    {
+      "actor": "officer",
+      "weapon": "pistol",
+      "armor": "suit",
+      "action": "idle",
+      "facing": "east",
+      "clip": "officer.pistol.suit.idle.east"
+    }
+  ],
+  "footCalibration": []
+}

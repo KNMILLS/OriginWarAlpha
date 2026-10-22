@@ -1,0 +1,41 @@
+{
+  "result": "PASS",
+  "scope": "Static export/layout/alpha/pair/anchor/source-hash/operator-identity and repeatability only; not runtime acceptance",
+  "size": [
+    1024,
+    128
+  ],
+  "native_size": [
+    256,
+    32
+  ],
+  "occupied_slots": 8,
+  "operator_exact_native_frames": 2,
+  "pairs": [
+    {
+      "family": "west",
+      "changed_native_pixels": 408,
+      "changed_solid_mask_pixels": 35
+    },
+    {
+      "family": "carmack",
+      "changed_native_pixels": 354,
+      "changed_solid_mask_pixels": 33
+    },
+    {
+      "family": "survivor",
+      "changed_native_pixels": 385,
+      "changed_solid_mask_pixels": 39
+    },
+    {
+      "family": "operator",
+      "changed_native_pixels": 380,
+      "changed_solid_mask_pixels": 76
+    }
+  ],
+  "packing_repeatability": "PASS",
+  "source_hashes_verified": true,
+  "reference_atlases_unchanged": true,
+  "atlas_sha256": "f42694c33c46c32fc3ca2f2612e8bae0f7b40e5f94a60183688daceb27103044",
+  "native_sha256": "f19adcbb4dbdc0a75a830ea8d0cd3d388387c4d5e09edd20d1ddef3c37628e0a"
+}

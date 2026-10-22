@@ -1,0 +1,460 @@
+{
+  "status": "candidate-not-artistic-acceptance",
+  "bindings": [
+    {
+      "actor": "sirs",
+      "action": "idle",
+      "facing": "north",
+      "clip": "machine.sirs.idle.north",
+      "status": "candidate"
+    },
+    {
+      "actor": "sirs",
+      "action": "idle",
+      "facing": "east",
+      "clip": "machine.sirs.idle.east",
+      "status": "candidate"
+    },
+    {
+      "actor": "sirs",
+      "action": "idle",
+      "facing": "south",
+      "clip": "machine.sirs.idle.south",
+      "status": "candidate"
+    },
+    {
+      "actor": "sirs",
+      "action": "idle",
+      "facing": "west",
+      "clip": "machine.sirs.idle.west",
+      "status": "candidate"
+    },
+    {
+      "actor": "sirs",
+      "action": "walk",
+      "facing": "north",
+      "clip": "machine.sirs.walk.north",
+      "status": "candidate"
+    },
+    {
+      "actor": "sirs",
+      "action": "start",
+      "facing": "north",
+      "clip": "machine.sirs.start.north",
+      "status": "candidate"
+    },
+    {
+      "actor": "sirs",
+      "action": "stop",
+      "facing": "north",
+      "clip": "machine.sirs.stop.north",
+      "status": "candidate"
+    },
+    {
+      "actor": "sirs",
+      "action": "anticipate",
+      "facing": "north",
+      "clip": "machine.sirs.anticipate.north",
+      "status": "candidate"
+    },
+    {
+      "actor": "sirs",
+      "action": "fire",
+      "facing": "north",
+      "clip": "machine.sirs.fire.north",
+      "status": "candidate"
+    },
+    {
+      "actor": "sirs",
+      "action": "hit",
+      "facing": "north",
+      "clip": "machine.sirs.hit.north",
+      "status": "candidate"
+    },
+    {
+      "actor": "sirs",
+      "action": "destroyed",
+      "facing": "north",
+      "clip": "machine.sirs.destroyed.north",
+      "status": "candidate"
+    },
+    {
+      "actor": "sirs",
+      "action": "walk",
+      "facing": "east",
+      "clip": "machine.sirs.walk.east",
+      "status": "candidate"
+    },
+    {
+      "actor": "sirs",
+      "action": "start",
+      "facing": "east",
+      "clip": "machine.sirs.start.east",
+      "status": "candidate"
+    },
+    {
+      "actor": "sirs",
+      "action": "stop",
+      "facing": "east",
+      "clip": "machine.sirs.stop.east",
+      "status": "candidate"
+    },
+    {
+      "actor": "sirs",
+      "action": "anticipate",
+      "facing": "east",
+      "clip": "machine.sirs.anticipate.east",
+      "status": "candidate"
+    },
+    {
+      "actor": "sirs",
+      "action": "fire",
+      "facing": "east",
+      "clip": "machine.sirs.fire.east",
+      "status": "candidate"
+    },
+    {
+      "actor": "sirs",
+      "action": "hit",
+      "facing": "east",
+      "clip": "machine.sirs.hit.east",
+      "status": "candidate"
+    },
+    {
+      "actor": "sirs",
+      "action": "destroyed",
+      "facing": "east",
+      "clip": "machine.sirs.destroyed.east",
+      "status": "candidate"
+    },
+    {
+      "actor": "sirs",
+      "action": "walk",
+      "facing": "south",
+      "clip": "machine.sirs.walk.south",
+      "status": "candidate"
+    },
+    {
+      "actor": "sirs",
+      "action": "start",
+      "facing": "south",
+      "clip": "machine.sirs.start.south",
+      "status": "candidate"
+    },
+    {
+      "actor": "sirs",
+      "action": "stop",
+      "facing": "south",
+      "clip": "machine.sirs.stop.south",
+      "status": "candidate"
+    },
+    {
+      "actor": "sirs",
+      "action": "anticipate",
+      "facing": "south",
+      "clip": "machine.sirs.anticipate.south",
+      "status": "candidate"
+    },
+    {
+      "actor": "sirs",
+      "action": "fire",
+      "facing": "south",
+      "clip": "machine.sirs.fire.south",
+      "status": "candidate"
+    },
+    {
+      "actor": "sirs",
+      "action": "hit",
+      "facing": "south",
+      "clip": "machine.sirs.hit.south",
+      "status": "candidate"
+    },
+    {
+      "actor": "sirs",
+      "action": "destroyed",
+      "facing": "south",
+      "clip": "machine.sirs.destroyed.south",
+      "status": "candidate"
+    },
+    {
+      "actor": "sirs",
+      "action": "walk",
+      "facing": "west",
+      "clip": "machine.sirs.walk.west",
+      "status": "candidate"
+    },
+    {
+      "actor": "sirs",
+      "action": "start",
+      "facing": "west",
+      "clip": "machine.sirs.start.west",
+      "status": "candidate"
+    },
+    {
+      "actor": "sirs",
+      "action": "stop",
+      "facing": "west",
+      "clip": "machine.sirs.stop.west",
+      "status": "candidate"
+    },
+    {
+      "actor": "sirs",
+      "action": "anticipate",
+      "facing": "west",
+      "clip": "machine.sirs.anticipate.west",
+      "status": "candidate"
+    },
+    {
+      "actor": "sirs",
+      "action": "fire",
+      "facing": "west",
+      "clip": "machine.sirs.fire.west",
+      "status": "candidate"
+    },
+    {
+      "actor": "sirs",
+      "action": "hit",
+      "facing": "west",
+      "clip": "machine.sirs.hit.west",
+      "status": "candidate"
+    },
+    {
+      "actor": "sirs",
+      "action": "destroyed",
+      "facing": "west",
+      "clip": "machine.sirs.destroyed.west",
+      "status": "candidate"
+    },
+    {
+      "actor": "door",
+      "action": "closed",
+      "facing": "north",
+      "clip": "door.closed.north",
+      "status": "candidate"
+    },
+    {
+      "actor": "door",
+      "action": "open",
+      "facing": "north",
+      "clip": "door.open.north",
+      "status": "candidate"
+    },
+    {
+      "actor": "door",
+      "action": "opening",
+      "facing": "north",
+      "clip": "door.opening.north",
+      "status": "candidate"
+    },
+    {
+      "actor": "door",
+      "action": "closing",
+      "facing": "north",
+      "clip": "door.closing.north",
+      "status": "candidate"
+    },
+    {
+      "actor": "door",
+      "action": "locked",
+      "facing": "north",
+      "clip": "door.locked.north",
+      "status": "candidate"
+    },
+    {
+      "actor": "door",
+      "action": "braced",
+      "facing": "north",
+      "clip": "door.braced.north",
+      "status": "candidate"
+    },
+    {
+      "actor": "door",
+      "action": "damaged",
+      "facing": "north",
+      "clip": "door.damaged.north",
+      "status": "candidate"
+    },
+    {
+      "actor": "door",
+      "action": "closed",
+      "facing": "east",
+      "clip": "door.closed.east",
+      "status": "candidate"
+    },
+    {
+      "actor": "door",
+      "action": "open",
+      "facing": "east",
+      "clip": "door.open.east",
+      "status": "candidate"
+    },
+    {
+      "actor": "door",
+      "action": "opening",
+      "facing": "east",
+      "clip": "door.opening.east",
+      "status": "candidate"
+    },
+    {
+      "actor": "door",
+      "action": "closing",
+      "facing": "east",
+      "clip": "door.closing.east",
+      "status": "candidate"
+    },
+    {
+      "actor": "door",
+      "action": "locked",
+      "facing": "east",
+      "clip": "door.locked.east",
+      "status": "candidate"
+    },
+    {
+      "actor": "door",
+      "action": "braced",
+      "facing": "east",
+      "clip": "door.braced.east",
+      "status": "candidate"
+    },
+    {
+      "actor": "door",
+      "action": "damaged",
+      "facing": "east",
+      "clip": "door.damaged.east",
+      "status": "candidate"
+    },
+    {
+      "actor": "camera",
+      "action": "on",
+      "facing": "north",
+      "clip": "machine.camera.on.north",
+      "status": "candidate"
+    },
+    {
+      "actor": "camera",
+      "action": "off",
+      "facing": "north",
+      "clip": "machine.camera.off.north",
+      "status": "candidate"
+    },
+    {
+      "actor": "camera",
+      "action": "aim",
+      "facing": "north",
+      "clip": "machine.camera.aim.north",
+      "status": "candidate"
+    },
+    {
+      "actor": "camera",
+      "action": "disabled",
+      "facing": "north",
+      "clip": "machine.camera.disabled.north",
+      "status": "candidate"
+    },
+    {
+      "actor": "camera",
+      "action": "on",
+      "facing": "east",
+      "clip": "machine.camera.on.east",
+      "status": "candidate"
+    },
+    {
+      "actor": "camera",
+      "action": "off",
+      "facing": "east",
+      "clip": "machine.camera.off.east",
+      "status": "candidate"
+    },
+    {
+      "actor": "camera",
+      "action": "aim",
+      "facing": "east",
+      "clip": "machine.camera.aim.east",
+      "status": "candidate"
+    },
+    {
+      "actor": "camera",
+      "action": "disabled",
+      "facing": "east",
+      "clip": "machine.camera.disabled.east",
+      "status": "candidate"
+    },
+    {
+      "actor": "camera",
+      "action": "on",
+      "facing": "south",
+      "clip": "machine.camera.on.south",
+      "status": "candidate"
+    },
+    {
+      "actor": "camera",
+      "action": "off",
+      "facing": "south",
+      "clip": "machine.camera.off.south",
+      "status": "candidate"
+    },
+    {
+      "actor": "camera",
+      "action": "aim",
+      "facing": "south",
+      "clip": "machine.camera.aim.south",
+      "status": "candidate"
+    },
+    {
+      "actor": "camera",
+      "action": "disabled",
+      "facing": "south",
+      "clip": "machine.camera.disabled.south",
+      "status": "candidate"
+    },
+    {
+      "actor": "camera",
+      "action": "on",
+      "facing": "west",
+      "clip": "machine.camera.on.west",
+      "status": "candidate"
+    },
+    {
+      "actor": "camera",
+      "action": "off",
+      "facing": "west",
+      "clip": "machine.camera.off.west",
+      "status": "candidate"
+    },
+    {
+      "actor": "camera",
+      "action": "aim",
+      "facing": "west",
+      "clip": "machine.camera.aim.west",
+      "status": "candidate"
+    },
+    {
+      "actor": "camera",
+      "action": "disabled",
+      "facing": "west",
+      "clip": "machine.camera.disabled.west",
+      "status": "candidate"
+    },
+    {
+      "actor": "effect",
+      "action": "metal-impact",
+      "facing": "north",
+      "clip": "effect.metal-impact",
+      "status": "candidate"
+    },
+    {
+      "actor": "effect",
+      "action": "suit-impact",
+      "facing": "north",
+      "clip": "effect.suit-impact",
+      "status": "candidate"
+    },
+    {
+      "actor": "effect",
+      "action": "sparks",
+      "facing": "north",
+      "clip": "effect.sparks",
+      "status": "candidate"
+    }
+  ]
+}

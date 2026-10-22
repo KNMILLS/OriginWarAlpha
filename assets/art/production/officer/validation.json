@@ -1,0 +1,6624 @@
+{
+  "scope": "Raw source sprites, rig contacts and source projection only; native/human/animator gates OPEN",
+  "artisticAcceptance": "OPEN",
+  "clips": 168,
+  "frameExposures": 2020,
+  "rawReferencedPNGs": 1756,
+  "endpointChecks": [
+    {
+      "clip": "officer.pistol.suit.start.south",
+      "frame": 0,
+      "expected": "idle",
+      "authoredRawPath": "art/production/officer/regions/officer.pistol.suit.start.south.00.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.pistol.suit.start.south",
+      "frame": -1,
+      "expected": "walk phase0",
+      "authoredRawPath": "art/production/officer/regions/officer.pistol.suit.start.south.05.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.pistol.suit.stop.south",
+      "frame": 0,
+      "expected": "walk phase0/3",
+      "authoredRawPath": "art/production/officer/regions/officer.pistol.suit.stop.south.00.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.pistol.suit.stop.south",
+      "frame": -1,
+      "expected": "idle",
+      "authoredRawPath": "art/production/officer/regions/officer.pistol.suit.stop.south.05.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.pistol.suit.stop_phase_1.south",
+      "frame": 0,
+      "expected": "walk phase1/3",
+      "authoredRawPath": "art/production/officer/regions/officer.pistol.suit.stop_phase_1.south.00.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.pistol.suit.stop_phase_1.south",
+      "frame": -1,
+      "expected": "idle",
+      "authoredRawPath": "art/production/officer/regions/officer.pistol.suit.stop_phase_1.south.05.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.pistol.suit.stop_phase_2.south",
+      "frame": 0,
+      "expected": "walk phase2/3",
+      "authoredRawPath": "art/production/officer/regions/officer.pistol.suit.stop_phase_2.south.00.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.pistol.suit.stop_phase_2.south",
+      "frame": -1,
+      "expected": "idle",
+      "authoredRawPath": "art/production/officer/regions/officer.pistol.suit.stop_phase_2.south.05.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.pistol.suit.work.south",
+      "frame": 0,
+      "expected": "idle",
+      "authoredRawPath": "art/production/officer/regions/officer.pistol.suit.work.south.00.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.pistol.suit.work.south",
+      "frame": -1,
+      "expected": "idle",
+      "authoredRawPath": "art/production/officer/regions/officer.pistol.suit.work.south.11.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.pistol.suit.terminal.south",
+      "frame": 0,
+      "expected": "idle",
+      "authoredRawPath": "art/production/officer/regions/officer.pistol.suit.terminal.south.00.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.pistol.suit.terminal.south",
+      "frame": -1,
+      "expected": "idle",
+      "authoredRawPath": "art/production/officer/regions/officer.pistol.suit.terminal.south.11.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.pistol.suit.breaker.south",
+      "frame": 0,
+      "expected": "idle",
+      "authoredRawPath": "art/production/officer/regions/officer.pistol.suit.breaker.south.00.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.pistol.suit.breaker.south",
+      "frame": -1,
+      "expected": "idle",
+      "authoredRawPath": "art/production/officer/regions/officer.pistol.suit.breaker.south.17.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.pistol.suit.pickup.south",
+      "frame": 0,
+      "expected": "idle",
+      "authoredRawPath": "art/production/officer/regions/officer.pistol.suit.pickup.south.00.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.pistol.suit.pickup.south",
+      "frame": -1,
+      "expected": "idle",
+      "authoredRawPath": "art/production/officer/regions/officer.pistol.suit.pickup.south.23.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.pistol.suit.drop.south",
+      "frame": 0,
+      "expected": "idle",
+      "authoredRawPath": "art/production/officer/regions/officer.pistol.suit.drop.south.00.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.pistol.suit.drop.south",
+      "frame": -1,
+      "expected": "idle",
+      "authoredRawPath": "art/production/officer/regions/officer.pistol.suit.drop.south.23.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.pistol.suit.supply.south",
+      "frame": 0,
+      "expected": "idle",
+      "authoredRawPath": "art/production/officer/regions/officer.pistol.suit.supply.south.00.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.pistol.suit.supply.south",
+      "frame": -1,
+      "expected": "idle",
+      "authoredRawPath": "art/production/officer/regions/officer.pistol.suit.supply.south.11.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.pistol.suit.equip.south",
+      "frame": 0,
+      "expected": "idle",
+      "authoredRawPath": "art/production/officer/regions/officer.pistol.suit.equip.south.00.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.pistol.suit.equip.south",
+      "frame": -1,
+      "expected": "idle",
+      "authoredRawPath": "art/production/officer/regions/officer.pistol.suit.equip.south.11.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.pistol.suit.hit.south",
+      "frame": 0,
+      "expected": "idle",
+      "authoredRawPath": "art/production/officer/regions/officer.pistol.suit.hit.south.00.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.pistol.suit.hit.south",
+      "frame": -1,
+      "expected": "idle",
+      "authoredRawPath": "art/production/officer/regions/officer.pistol.suit.hit.south.04.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.pistol.suit.fire.south",
+      "frame": 0,
+      "expected": "idle",
+      "authoredRawPath": "art/production/officer/regions/officer.pistol.suit.fire.south.00.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.pistol.suit.fire.south",
+      "frame": -1,
+      "expected": "idle",
+      "authoredRawPath": "art/production/officer/regions/officer.pistol.suit.fire.south.07.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.pistol.suit.melee.south",
+      "frame": 0,
+      "expected": "idle",
+      "authoredRawPath": "art/production/officer/regions/officer.pistol.suit.melee.south.00.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.pistol.suit.melee.south",
+      "frame": -1,
+      "expected": "idle",
+      "authoredRawPath": "art/production/officer/regions/officer.pistol.suit.melee.south.07.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.pistol.suit.start.east",
+      "frame": 0,
+      "expected": "idle",
+      "authoredRawPath": "art/production/officer/regions/officer.pistol.suit.start.east.00.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.pistol.suit.start.east",
+      "frame": -1,
+      "expected": "walk phase0",
+      "authoredRawPath": "art/production/officer/regions/officer.pistol.suit.start.east.05.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.pistol.suit.stop.east",
+      "frame": 0,
+      "expected": "walk phase0/3",
+      "authoredRawPath": "art/production/officer/regions/officer.pistol.suit.stop.east.00.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.pistol.suit.stop.east",
+      "frame": -1,
+      "expected": "idle",
+      "authoredRawPath": "art/production/officer/regions/officer.pistol.suit.stop.east.05.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.pistol.suit.stop_phase_1.east",
+      "frame": 0,
+      "expected": "walk phase1/3",
+      "authoredRawPath": "art/production/officer/regions/officer.pistol.suit.stop_phase_1.east.00.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.pistol.suit.stop_phase_1.east",
+      "frame": -1,
+      "expected": "idle",
+      "authoredRawPath": "art/production/officer/regions/officer.pistol.suit.stop_phase_1.east.05.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.pistol.suit.stop_phase_2.east",
+      "frame": 0,
+      "expected": "walk phase2/3",
+      "authoredRawPath": "art/production/officer/regions/officer.pistol.suit.stop_phase_2.east.00.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.pistol.suit.stop_phase_2.east",
+      "frame": -1,
+      "expected": "idle",
+      "authoredRawPath": "art/production/officer/regions/officer.pistol.suit.stop_phase_2.east.05.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.pistol.suit.work.east",
+      "frame": 0,
+      "expected": "idle",
+      "authoredRawPath": "art/production/officer/regions/officer.pistol.suit.work.east.00.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.pistol.suit.work.east",
+      "frame": -1,
+      "expected": "idle",
+      "authoredRawPath": "art/production/officer/regions/officer.pistol.suit.work.east.11.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.pistol.suit.terminal.east",
+      "frame": 0,
+      "expected": "idle",
+      "authoredRawPath": "art/production/officer/regions/officer.pistol.suit.terminal.east.00.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.pistol.suit.terminal.east",
+      "frame": -1,
+      "expected": "idle",
+      "authoredRawPath": "art/production/officer/regions/officer.pistol.suit.terminal.east.11.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.pistol.suit.breaker.east",
+      "frame": 0,
+      "expected": "idle",
+      "authoredRawPath": "art/production/officer/regions/officer.pistol.suit.breaker.east.00.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.pistol.suit.breaker.east",
+      "frame": -1,
+      "expected": "idle",
+      "authoredRawPath": "art/production/officer/regions/officer.pistol.suit.breaker.east.17.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.pistol.suit.pickup.east",
+      "frame": 0,
+      "expected": "idle",
+      "authoredRawPath": "art/production/officer/regions/officer.pistol.suit.pickup.east.00.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.pistol.suit.pickup.east",
+      "frame": -1,
+      "expected": "idle",
+      "authoredRawPath": "art/production/officer/regions/officer.pistol.suit.pickup.east.23.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.pistol.suit.drop.east",
+      "frame": 0,
+      "expected": "idle",
+      "authoredRawPath": "art/production/officer/regions/officer.pistol.suit.drop.east.00.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.pistol.suit.drop.east",
+      "frame": -1,
+      "expected": "idle",
+      "authoredRawPath": "art/production/officer/regions/officer.pistol.suit.drop.east.23.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.pistol.suit.supply.east",
+      "frame": 0,
+      "expected": "idle",
+      "authoredRawPath": "art/production/officer/regions/officer.pistol.suit.supply.east.00.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.pistol.suit.supply.east",
+      "frame": -1,
+      "expected": "idle",
+      "authoredRawPath": "art/production/officer/regions/officer.pistol.suit.supply.east.11.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.pistol.suit.equip.east",
+      "frame": 0,
+      "expected": "idle",
+      "authoredRawPath": "art/production/officer/regions/officer.pistol.suit.equip.east.00.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.pistol.suit.equip.east",
+      "frame": -1,
+      "expected": "idle",
+      "authoredRawPath": "art/production/officer/regions/officer.pistol.suit.equip.east.11.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.pistol.suit.hit.east",
+      "frame": 0,
+      "expected": "idle",
+      "authoredRawPath": "art/production/officer/regions/officer.pistol.suit.hit.east.00.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.pistol.suit.hit.east",
+      "frame": -1,
+      "expected": "idle",
+      "authoredRawPath": "art/production/officer/regions/officer.pistol.suit.hit.east.04.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.pistol.suit.fire.east",
+      "frame": 0,
+      "expected": "idle",
+      "authoredRawPath": "art/production/officer/regions/officer.pistol.suit.fire.east.00.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.pistol.suit.fire.east",
+      "frame": -1,
+      "expected": "idle",
+      "authoredRawPath": "art/production/officer/regions/officer.pistol.suit.fire.east.07.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.pistol.suit.melee.east",
+      "frame": 0,
+      "expected": "idle",
+      "authoredRawPath": "art/production/officer/regions/officer.pistol.suit.melee.east.00.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.pistol.suit.melee.east",
+      "frame": -1,
+      "expected": "idle",
+      "authoredRawPath": "art/production/officer/regions/officer.pistol.suit.melee.east.07.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.pistol.suit.start.north",
+      "frame": 0,
+      "expected": "idle",
+      "authoredRawPath": "art/production/officer/regions/officer.pistol.suit.start.north.00.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.pistol.suit.start.north",
+      "frame": -1,
+      "expected": "walk phase0",
+      "authoredRawPath": "art/production/officer/regions/officer.pistol.suit.start.north.05.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.pistol.suit.stop.north",
+      "frame": 0,
+      "expected": "walk phase0/3",
+      "authoredRawPath": "art/production/officer/regions/officer.pistol.suit.stop.north.00.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.pistol.suit.stop.north",
+      "frame": -1,
+      "expected": "idle",
+      "authoredRawPath": "art/production/officer/regions/officer.pistol.suit.stop.north.05.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.pistol.suit.stop_phase_1.north",
+      "frame": 0,
+      "expected": "walk phase1/3",
+      "authoredRawPath": "art/production/officer/regions/officer.pistol.suit.stop_phase_1.north.00.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.pistol.suit.stop_phase_1.north",
+      "frame": -1,
+      "expected": "idle",
+      "authoredRawPath": "art/production/officer/regions/officer.pistol.suit.stop_phase_1.north.05.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.pistol.suit.stop_phase_2.north",
+      "frame": 0,
+      "expected": "walk phase2/3",
+      "authoredRawPath": "art/production/officer/regions/officer.pistol.suit.stop_phase_2.north.00.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.pistol.suit.stop_phase_2.north",
+      "frame": -1,
+      "expected": "idle",
+      "authoredRawPath": "art/production/officer/regions/officer.pistol.suit.stop_phase_2.north.05.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.pistol.suit.work.north",
+      "frame": 0,
+      "expected": "idle",
+      "authoredRawPath": "art/production/officer/regions/officer.pistol.suit.work.north.00.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.pistol.suit.work.north",
+      "frame": -1,
+      "expected": "idle",
+      "authoredRawPath": "art/production/officer/regions/officer.pistol.suit.work.north.11.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.pistol.suit.terminal.north",
+      "frame": 0,
+      "expected": "idle",
+      "authoredRawPath": "art/production/officer/regions/officer.pistol.suit.terminal.north.00.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.pistol.suit.terminal.north",
+      "frame": -1,
+      "expected": "idle",
+      "authoredRawPath": "art/production/officer/regions/officer.pistol.suit.terminal.north.11.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.pistol.suit.breaker.north",
+      "frame": 0,
+      "expected": "idle",
+      "authoredRawPath": "art/production/officer/regions/officer.pistol.suit.breaker.north.00.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.pistol.suit.breaker.north",
+      "frame": -1,
+      "expected": "idle",
+      "authoredRawPath": "art/production/officer/regions/officer.pistol.suit.breaker.north.17.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.pistol.suit.pickup.north",
+      "frame": 0,
+      "expected": "idle",
+      "authoredRawPath": "art/production/officer/regions/officer.pistol.suit.pickup.north.00.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.pistol.suit.pickup.north",
+      "frame": -1,
+      "expected": "idle",
+      "authoredRawPath": "art/production/officer/regions/officer.pistol.suit.pickup.north.23.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.pistol.suit.drop.north",
+      "frame": 0,
+      "expected": "idle",
+      "authoredRawPath": "art/production/officer/regions/officer.pistol.suit.drop.north.00.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.pistol.suit.drop.north",
+      "frame": -1,
+      "expected": "idle",
+      "authoredRawPath": "art/production/officer/regions/officer.pistol.suit.drop.north.23.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.pistol.suit.supply.north",
+      "frame": 0,
+      "expected": "idle",
+      "authoredRawPath": "art/production/officer/regions/officer.pistol.suit.supply.north.00.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.pistol.suit.supply.north",
+      "frame": -1,
+      "expected": "idle",
+      "authoredRawPath": "art/production/officer/regions/officer.pistol.suit.supply.north.11.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.pistol.suit.equip.north",
+      "frame": 0,
+      "expected": "idle",
+      "authoredRawPath": "art/production/officer/regions/officer.pistol.suit.equip.north.00.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.pistol.suit.equip.north",
+      "frame": -1,
+      "expected": "idle",
+      "authoredRawPath": "art/production/officer/regions/officer.pistol.suit.equip.north.11.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.pistol.suit.hit.north",
+      "frame": 0,
+      "expected": "idle",
+      "authoredRawPath": "art/production/officer/regions/officer.pistol.suit.hit.north.00.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.pistol.suit.hit.north",
+      "frame": -1,
+      "expected": "idle",
+      "authoredRawPath": "art/production/officer/regions/officer.pistol.suit.hit.north.04.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.pistol.suit.fire.north",
+      "frame": 0,
+      "expected": "idle",
+      "authoredRawPath": "art/production/officer/regions/officer.pistol.suit.fire.north.00.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.pistol.suit.fire.north",
+      "frame": -1,
+      "expected": "idle",
+      "authoredRawPath": "art/production/officer/regions/officer.pistol.suit.fire.north.07.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.pistol.suit.melee.north",
+      "frame": 0,
+      "expected": "idle",
+      "authoredRawPath": "art/production/officer/regions/officer.pistol.suit.melee.north.00.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.pistol.suit.melee.north",
+      "frame": -1,
+      "expected": "idle",
+      "authoredRawPath": "art/production/officer/regions/officer.pistol.suit.melee.north.07.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.pistol.suit.start.west",
+      "frame": 0,
+      "expected": "idle",
+      "authoredRawPath": "art/production/officer/regions/officer.pistol.suit.start.west.00.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.pistol.suit.start.west",
+      "frame": -1,
+      "expected": "walk phase0",
+      "authoredRawPath": "art/production/officer/regions/officer.pistol.suit.start.west.05.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.pistol.suit.stop.west",
+      "frame": 0,
+      "expected": "walk phase0/3",
+      "authoredRawPath": "art/production/officer/regions/officer.pistol.suit.stop.west.00.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.pistol.suit.stop.west",
+      "frame": -1,
+      "expected": "idle",
+      "authoredRawPath": "art/production/officer/regions/officer.pistol.suit.stop.west.05.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.pistol.suit.stop_phase_1.west",
+      "frame": 0,
+      "expected": "walk phase1/3",
+      "authoredRawPath": "art/production/officer/regions/officer.pistol.suit.stop_phase_1.west.00.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.pistol.suit.stop_phase_1.west",
+      "frame": -1,
+      "expected": "idle",
+      "authoredRawPath": "art/production/officer/regions/officer.pistol.suit.stop_phase_1.west.05.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.pistol.suit.stop_phase_2.west",
+      "frame": 0,
+      "expected": "walk phase2/3",
+      "authoredRawPath": "art/production/officer/regions/officer.pistol.suit.stop_phase_2.west.00.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.pistol.suit.stop_phase_2.west",
+      "frame": -1,
+      "expected": "idle",
+      "authoredRawPath": "art/production/officer/regions/officer.pistol.suit.stop_phase_2.west.05.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.pistol.suit.work.west",
+      "frame": 0,
+      "expected": "idle",
+      "authoredRawPath": "art/production/officer/regions/officer.pistol.suit.work.west.00.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.pistol.suit.work.west",
+      "frame": -1,
+      "expected": "idle",
+      "authoredRawPath": "art/production/officer/regions/officer.pistol.suit.work.west.11.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.pistol.suit.terminal.west",
+      "frame": 0,
+      "expected": "idle",
+      "authoredRawPath": "art/production/officer/regions/officer.pistol.suit.terminal.west.00.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.pistol.suit.terminal.west",
+      "frame": -1,
+      "expected": "idle",
+      "authoredRawPath": "art/production/officer/regions/officer.pistol.suit.terminal.west.11.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.pistol.suit.breaker.west",
+      "frame": 0,
+      "expected": "idle",
+      "authoredRawPath": "art/production/officer/regions/officer.pistol.suit.breaker.west.00.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.pistol.suit.breaker.west",
+      "frame": -1,
+      "expected": "idle",
+      "authoredRawPath": "art/production/officer/regions/officer.pistol.suit.breaker.west.17.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.pistol.suit.pickup.west",
+      "frame": 0,
+      "expected": "idle",
+      "authoredRawPath": "art/production/officer/regions/officer.pistol.suit.pickup.west.00.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.pistol.suit.pickup.west",
+      "frame": -1,
+      "expected": "idle",
+      "authoredRawPath": "art/production/officer/regions/officer.pistol.suit.pickup.west.23.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.pistol.suit.drop.west",
+      "frame": 0,
+      "expected": "idle",
+      "authoredRawPath": "art/production/officer/regions/officer.pistol.suit.drop.west.00.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.pistol.suit.drop.west",
+      "frame": -1,
+      "expected": "idle",
+      "authoredRawPath": "art/production/officer/regions/officer.pistol.suit.drop.west.23.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.pistol.suit.supply.west",
+      "frame": 0,
+      "expected": "idle",
+      "authoredRawPath": "art/production/officer/regions/officer.pistol.suit.supply.west.00.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.pistol.suit.supply.west",
+      "frame": -1,
+      "expected": "idle",
+      "authoredRawPath": "art/production/officer/regions/officer.pistol.suit.supply.west.11.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.pistol.suit.equip.west",
+      "frame": 0,
+      "expected": "idle",
+      "authoredRawPath": "art/production/officer/regions/officer.pistol.suit.equip.west.00.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.pistol.suit.equip.west",
+      "frame": -1,
+      "expected": "idle",
+      "authoredRawPath": "art/production/officer/regions/officer.pistol.suit.equip.west.11.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.pistol.suit.hit.west",
+      "frame": 0,
+      "expected": "idle",
+      "authoredRawPath": "art/production/officer/regions/officer.pistol.suit.hit.west.00.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.pistol.suit.hit.west",
+      "frame": -1,
+      "expected": "idle",
+      "authoredRawPath": "art/production/officer/regions/officer.pistol.suit.hit.west.04.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.pistol.suit.fire.west",
+      "frame": 0,
+      "expected": "idle",
+      "authoredRawPath": "art/production/officer/regions/officer.pistol.suit.fire.west.00.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.pistol.suit.fire.west",
+      "frame": -1,
+      "expected": "idle",
+      "authoredRawPath": "art/production/officer/regions/officer.pistol.suit.fire.west.07.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.pistol.suit.melee.west",
+      "frame": 0,
+      "expected": "idle",
+      "authoredRawPath": "art/production/officer/regions/officer.pistol.suit.melee.west.00.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.pistol.suit.melee.west",
+      "frame": -1,
+      "expected": "idle",
+      "authoredRawPath": "art/production/officer/regions/officer.pistol.suit.melee.west.07.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.pistol.suit.turn_from_south.east",
+      "frame": 0,
+      "expected": "source idle",
+      "authoredRawPath": "art/production/officer/regions/officer.pistol.suit.turn_from_south.east.00.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.pistol.suit.turn_from_south.east",
+      "frame": -1,
+      "expected": "destination idle",
+      "authoredRawPath": "art/production/officer/regions/officer.pistol.suit.turn_from_south.east.07.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.pistol.suit.turn_from_south.north",
+      "frame": 0,
+      "expected": "source idle",
+      "authoredRawPath": "art/production/officer/regions/officer.pistol.suit.turn_from_south.north.00.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.pistol.suit.turn_from_south.north",
+      "frame": -1,
+      "expected": "destination idle",
+      "authoredRawPath": "art/production/officer/regions/officer.pistol.suit.turn_from_south.north.07.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.pistol.suit.turn_from_south.west",
+      "frame": 0,
+      "expected": "source idle",
+      "authoredRawPath": "art/production/officer/regions/officer.pistol.suit.turn_from_south.west.00.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.pistol.suit.turn_from_south.west",
+      "frame": -1,
+      "expected": "destination idle",
+      "authoredRawPath": "art/production/officer/regions/officer.pistol.suit.turn_from_south.west.07.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.pistol.suit.turn_from_east.south",
+      "frame": 0,
+      "expected": "source idle",
+      "authoredRawPath": "art/production/officer/regions/officer.pistol.suit.turn_from_east.south.00.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.pistol.suit.turn_from_east.south",
+      "frame": -1,
+      "expected": "destination idle",
+      "authoredRawPath": "art/production/officer/regions/officer.pistol.suit.turn_from_east.south.07.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.pistol.suit.turn_from_east.north",
+      "frame": 0,
+      "expected": "source idle",
+      "authoredRawPath": "art/production/officer/regions/officer.pistol.suit.turn_from_east.north.00.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.pistol.suit.turn_from_east.north",
+      "frame": -1,
+      "expected": "destination idle",
+      "authoredRawPath": "art/production/officer/regions/officer.pistol.suit.turn_from_east.north.07.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.pistol.suit.turn_from_east.west",
+      "frame": 0,
+      "expected": "source idle",
+      "authoredRawPath": "art/production/officer/regions/officer.pistol.suit.turn_from_east.west.00.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.pistol.suit.turn_from_east.west",
+      "frame": -1,
+      "expected": "destination idle",
+      "authoredRawPath": "art/production/officer/regions/officer.pistol.suit.turn_from_east.west.07.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.pistol.suit.turn_from_north.south",
+      "frame": 0,
+      "expected": "source idle",
+      "authoredRawPath": "art/production/officer/regions/officer.pistol.suit.turn_from_north.south.00.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.pistol.suit.turn_from_north.south",
+      "frame": -1,
+      "expected": "destination idle",
+      "authoredRawPath": "art/production/officer/regions/officer.pistol.suit.turn_from_north.south.07.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.pistol.suit.turn_from_north.east",
+      "frame": 0,
+      "expected": "source idle",
+      "authoredRawPath": "art/production/officer/regions/officer.pistol.suit.turn_from_north.east.00.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.pistol.suit.turn_from_north.east",
+      "frame": -1,
+      "expected": "destination idle",
+      "authoredRawPath": "art/production/officer/regions/officer.pistol.suit.turn_from_north.east.07.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.pistol.suit.turn_from_north.west",
+      "frame": 0,
+      "expected": "source idle",
+      "authoredRawPath": "art/production/officer/regions/officer.pistol.suit.turn_from_north.west.00.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.pistol.suit.turn_from_north.west",
+      "frame": -1,
+      "expected": "destination idle",
+      "authoredRawPath": "art/production/officer/regions/officer.pistol.suit.turn_from_north.west.07.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.pistol.suit.turn_from_west.south",
+      "frame": 0,
+      "expected": "source idle",
+      "authoredRawPath": "art/production/officer/regions/officer.pistol.suit.turn_from_west.south.00.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.pistol.suit.turn_from_west.south",
+      "frame": -1,
+      "expected": "destination idle",
+      "authoredRawPath": "art/production/officer/regions/officer.pistol.suit.turn_from_west.south.07.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.pistol.suit.turn_from_west.east",
+      "frame": 0,
+      "expected": "source idle",
+      "authoredRawPath": "art/production/officer/regions/officer.pistol.suit.turn_from_west.east.00.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.pistol.suit.turn_from_west.east",
+      "frame": -1,
+      "expected": "destination idle",
+      "authoredRawPath": "art/production/officer/regions/officer.pistol.suit.turn_from_west.east.07.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.pistol.suit.turn_from_west.north",
+      "frame": 0,
+      "expected": "source idle",
+      "authoredRawPath": "art/production/officer/regions/officer.pistol.suit.turn_from_west.north.00.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.pistol.suit.turn_from_west.north",
+      "frame": -1,
+      "expected": "destination idle",
+      "authoredRawPath": "art/production/officer/regions/officer.pistol.suit.turn_from_west.north.07.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.unarmed.suit.start.south",
+      "frame": 0,
+      "expected": "idle",
+      "authoredRawPath": "art/production/officer/regions/officer.unarmed.suit.start.south.00.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.unarmed.suit.start.south",
+      "frame": -1,
+      "expected": "walk phase0",
+      "authoredRawPath": "art/production/officer/regions/officer.unarmed.suit.start.south.05.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.unarmed.suit.stop.south",
+      "frame": 0,
+      "expected": "walk phase0/3",
+      "authoredRawPath": "art/production/officer/regions/officer.unarmed.suit.stop.south.00.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.unarmed.suit.stop.south",
+      "frame": -1,
+      "expected": "idle",
+      "authoredRawPath": "art/production/officer/regions/officer.unarmed.suit.stop.south.05.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.unarmed.suit.stop_phase_1.south",
+      "frame": 0,
+      "expected": "walk phase1/3",
+      "authoredRawPath": "art/production/officer/regions/officer.unarmed.suit.stop_phase_1.south.00.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.unarmed.suit.stop_phase_1.south",
+      "frame": -1,
+      "expected": "idle",
+      "authoredRawPath": "art/production/officer/regions/officer.unarmed.suit.stop_phase_1.south.05.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.unarmed.suit.stop_phase_2.south",
+      "frame": 0,
+      "expected": "walk phase2/3",
+      "authoredRawPath": "art/production/officer/regions/officer.unarmed.suit.stop_phase_2.south.00.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.unarmed.suit.stop_phase_2.south",
+      "frame": -1,
+      "expected": "idle",
+      "authoredRawPath": "art/production/officer/regions/officer.unarmed.suit.stop_phase_2.south.05.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.unarmed.suit.work.south",
+      "frame": 0,
+      "expected": "idle",
+      "authoredRawPath": "art/production/officer/regions/officer.unarmed.suit.work.south.00.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.unarmed.suit.work.south",
+      "frame": -1,
+      "expected": "idle",
+      "authoredRawPath": "art/production/officer/regions/officer.unarmed.suit.work.south.11.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.unarmed.suit.terminal.south",
+      "frame": 0,
+      "expected": "idle",
+      "authoredRawPath": "art/production/officer/regions/officer.unarmed.suit.terminal.south.00.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.unarmed.suit.terminal.south",
+      "frame": -1,
+      "expected": "idle",
+      "authoredRawPath": "art/production/officer/regions/officer.unarmed.suit.terminal.south.11.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.unarmed.suit.breaker.south",
+      "frame": 0,
+      "expected": "idle",
+      "authoredRawPath": "art/production/officer/regions/officer.unarmed.suit.breaker.south.00.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.unarmed.suit.breaker.south",
+      "frame": -1,
+      "expected": "idle",
+      "authoredRawPath": "art/production/officer/regions/officer.unarmed.suit.breaker.south.17.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.unarmed.suit.pickup.south",
+      "frame": 0,
+      "expected": "idle",
+      "authoredRawPath": "art/production/officer/regions/officer.unarmed.suit.pickup.south.00.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.unarmed.suit.pickup.south",
+      "frame": -1,
+      "expected": "idle",
+      "authoredRawPath": "art/production/officer/regions/officer.unarmed.suit.pickup.south.23.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.unarmed.suit.drop.south",
+      "frame": 0,
+      "expected": "idle",
+      "authoredRawPath": "art/production/officer/regions/officer.unarmed.suit.drop.south.00.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.unarmed.suit.drop.south",
+      "frame": -1,
+      "expected": "idle",
+      "authoredRawPath": "art/production/officer/regions/officer.unarmed.suit.drop.south.23.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.unarmed.suit.supply.south",
+      "frame": 0,
+      "expected": "idle",
+      "authoredRawPath": "art/production/officer/regions/officer.unarmed.suit.supply.south.00.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.unarmed.suit.supply.south",
+      "frame": -1,
+      "expected": "idle",
+      "authoredRawPath": "art/production/officer/regions/officer.unarmed.suit.supply.south.11.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.unarmed.suit.equip.south",
+      "frame": 0,
+      "expected": "idle",
+      "authoredRawPath": "art/production/officer/regions/officer.unarmed.suit.equip.south.00.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.unarmed.suit.equip.south",
+      "frame": -1,
+      "expected": "idle",
+      "authoredRawPath": "art/production/officer/regions/officer.unarmed.suit.equip.south.11.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.unarmed.suit.hit.south",
+      "frame": 0,
+      "expected": "idle",
+      "authoredRawPath": "art/production/officer/regions/officer.unarmed.suit.hit.south.00.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.unarmed.suit.hit.south",
+      "frame": -1,
+      "expected": "idle",
+      "authoredRawPath": "art/production/officer/regions/officer.unarmed.suit.hit.south.04.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.unarmed.suit.melee.south",
+      "frame": 0,
+      "expected": "idle",
+      "authoredRawPath": "art/production/officer/regions/officer.unarmed.suit.melee.south.00.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.unarmed.suit.melee.south",
+      "frame": -1,
+      "expected": "idle",
+      "authoredRawPath": "art/production/officer/regions/officer.unarmed.suit.melee.south.07.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.unarmed.suit.start.east",
+      "frame": 0,
+      "expected": "idle",
+      "authoredRawPath": "art/production/officer/regions/officer.unarmed.suit.start.east.00.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.unarmed.suit.start.east",
+      "frame": -1,
+      "expected": "walk phase0",
+      "authoredRawPath": "art/production/officer/regions/officer.unarmed.suit.start.east.05.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.unarmed.suit.stop.east",
+      "frame": 0,
+      "expected": "walk phase0/3",
+      "authoredRawPath": "art/production/officer/regions/officer.unarmed.suit.stop.east.00.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.unarmed.suit.stop.east",
+      "frame": -1,
+      "expected": "idle",
+      "authoredRawPath": "art/production/officer/regions/officer.unarmed.suit.stop.east.05.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.unarmed.suit.stop_phase_1.east",
+      "frame": 0,
+      "expected": "walk phase1/3",
+      "authoredRawPath": "art/production/officer/regions/officer.unarmed.suit.stop_phase_1.east.00.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.unarmed.suit.stop_phase_1.east",
+      "frame": -1,
+      "expected": "idle",
+      "authoredRawPath": "art/production/officer/regions/officer.unarmed.suit.stop_phase_1.east.05.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.unarmed.suit.stop_phase_2.east",
+      "frame": 0,
+      "expected": "walk phase2/3",
+      "authoredRawPath": "art/production/officer/regions/officer.unarmed.suit.stop_phase_2.east.00.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.unarmed.suit.stop_phase_2.east",
+      "frame": -1,
+      "expected": "idle",
+      "authoredRawPath": "art/production/officer/regions/officer.unarmed.suit.stop_phase_2.east.05.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.unarmed.suit.work.east",
+      "frame": 0,
+      "expected": "idle",
+      "authoredRawPath": "art/production/officer/regions/officer.unarmed.suit.work.east.00.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.unarmed.suit.work.east",
+      "frame": -1,
+      "expected": "idle",
+      "authoredRawPath": "art/production/officer/regions/officer.unarmed.suit.work.east.11.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.unarmed.suit.terminal.east",
+      "frame": 0,
+      "expected": "idle",
+      "authoredRawPath": "art/production/officer/regions/officer.unarmed.suit.terminal.east.00.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.unarmed.suit.terminal.east",
+      "frame": -1,
+      "expected": "idle",
+      "authoredRawPath": "art/production/officer/regions/officer.unarmed.suit.terminal.east.11.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.unarmed.suit.breaker.east",
+      "frame": 0,
+      "expected": "idle",
+      "authoredRawPath": "art/production/officer/regions/officer.unarmed.suit.breaker.east.00.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.unarmed.suit.breaker.east",
+      "frame": -1,
+      "expected": "idle",
+      "authoredRawPath": "art/production/officer/regions/officer.unarmed.suit.breaker.east.17.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.unarmed.suit.pickup.east",
+      "frame": 0,
+      "expected": "idle",
+      "authoredRawPath": "art/production/officer/regions/officer.unarmed.suit.pickup.east.00.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.unarmed.suit.pickup.east",
+      "frame": -1,
+      "expected": "idle",
+      "authoredRawPath": "art/production/officer/regions/officer.unarmed.suit.pickup.east.23.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.unarmed.suit.drop.east",
+      "frame": 0,
+      "expected": "idle",
+      "authoredRawPath": "art/production/officer/regions/officer.unarmed.suit.drop.east.00.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.unarmed.suit.drop.east",
+      "frame": -1,
+      "expected": "idle",
+      "authoredRawPath": "art/production/officer/regions/officer.unarmed.suit.drop.east.23.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.unarmed.suit.supply.east",
+      "frame": 0,
+      "expected": "idle",
+      "authoredRawPath": "art/production/officer/regions/officer.unarmed.suit.supply.east.00.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.unarmed.suit.supply.east",
+      "frame": -1,
+      "expected": "idle",
+      "authoredRawPath": "art/production/officer/regions/officer.unarmed.suit.supply.east.11.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.unarmed.suit.equip.east",
+      "frame": 0,
+      "expected": "idle",
+      "authoredRawPath": "art/production/officer/regions/officer.unarmed.suit.equip.east.00.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.unarmed.suit.equip.east",
+      "frame": -1,
+      "expected": "idle",
+      "authoredRawPath": "art/production/officer/regions/officer.unarmed.suit.equip.east.11.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.unarmed.suit.hit.east",
+      "frame": 0,
+      "expected": "idle",
+      "authoredRawPath": "art/production/officer/regions/officer.unarmed.suit.hit.east.00.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.unarmed.suit.hit.east",
+      "frame": -1,
+      "expected": "idle",
+      "authoredRawPath": "art/production/officer/regions/officer.unarmed.suit.hit.east.04.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.unarmed.suit.melee.east",
+      "frame": 0,
+      "expected": "idle",
+      "authoredRawPath": "art/production/officer/regions/officer.unarmed.suit.melee.east.00.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.unarmed.suit.melee.east",
+      "frame": -1,
+      "expected": "idle",
+      "authoredRawPath": "art/production/officer/regions/officer.unarmed.suit.melee.east.07.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.unarmed.suit.start.north",
+      "frame": 0,
+      "expected": "idle",
+      "authoredRawPath": "art/production/officer/regions/officer.unarmed.suit.start.north.00.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.unarmed.suit.start.north",
+      "frame": -1,
+      "expected": "walk phase0",
+      "authoredRawPath": "art/production/officer/regions/officer.unarmed.suit.start.north.05.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.unarmed.suit.stop.north",
+      "frame": 0,
+      "expected": "walk phase0/3",
+      "authoredRawPath": "art/production/officer/regions/officer.unarmed.suit.stop.north.00.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.unarmed.suit.stop.north",
+      "frame": -1,
+      "expected": "idle",
+      "authoredRawPath": "art/production/officer/regions/officer.unarmed.suit.stop.north.05.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.unarmed.suit.stop_phase_1.north",
+      "frame": 0,
+      "expected": "walk phase1/3",
+      "authoredRawPath": "art/production/officer/regions/officer.unarmed.suit.stop_phase_1.north.00.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.unarmed.suit.stop_phase_1.north",
+      "frame": -1,
+      "expected": "idle",
+      "authoredRawPath": "art/production/officer/regions/officer.unarmed.suit.stop_phase_1.north.05.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.unarmed.suit.stop_phase_2.north",
+      "frame": 0,
+      "expected": "walk phase2/3",
+      "authoredRawPath": "art/production/officer/regions/officer.unarmed.suit.stop_phase_2.north.00.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.unarmed.suit.stop_phase_2.north",
+      "frame": -1,
+      "expected": "idle",
+      "authoredRawPath": "art/production/officer/regions/officer.unarmed.suit.stop_phase_2.north.05.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.unarmed.suit.work.north",
+      "frame": 0,
+      "expected": "idle",
+      "authoredRawPath": "art/production/officer/regions/officer.unarmed.suit.work.north.00.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.unarmed.suit.work.north",
+      "frame": -1,
+      "expected": "idle",
+      "authoredRawPath": "art/production/officer/regions/officer.unarmed.suit.work.north.11.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.unarmed.suit.terminal.north",
+      "frame": 0,
+      "expected": "idle",
+      "authoredRawPath": "art/production/officer/regions/officer.unarmed.suit.terminal.north.00.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.unarmed.suit.terminal.north",
+      "frame": -1,
+      "expected": "idle",
+      "authoredRawPath": "art/production/officer/regions/officer.unarmed.suit.terminal.north.11.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.unarmed.suit.breaker.north",
+      "frame": 0,
+      "expected": "idle",
+      "authoredRawPath": "art/production/officer/regions/officer.unarmed.suit.breaker.north.00.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.unarmed.suit.breaker.north",
+      "frame": -1,
+      "expected": "idle",
+      "authoredRawPath": "art/production/officer/regions/officer.unarmed.suit.breaker.north.17.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.unarmed.suit.pickup.north",
+      "frame": 0,
+      "expected": "idle",
+      "authoredRawPath": "art/production/officer/regions/officer.unarmed.suit.pickup.north.00.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.unarmed.suit.pickup.north",
+      "frame": -1,
+      "expected": "idle",
+      "authoredRawPath": "art/production/officer/regions/officer.unarmed.suit.pickup.north.23.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.unarmed.suit.drop.north",
+      "frame": 0,
+      "expected": "idle",
+      "authoredRawPath": "art/production/officer/regions/officer.unarmed.suit.drop.north.00.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.unarmed.suit.drop.north",
+      "frame": -1,
+      "expected": "idle",
+      "authoredRawPath": "art/production/officer/regions/officer.unarmed.suit.drop.north.23.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.unarmed.suit.supply.north",
+      "frame": 0,
+      "expected": "idle",
+      "authoredRawPath": "art/production/officer/regions/officer.unarmed.suit.supply.north.00.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.unarmed.suit.supply.north",
+      "frame": -1,
+      "expected": "idle",
+      "authoredRawPath": "art/production/officer/regions/officer.unarmed.suit.supply.north.11.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.unarmed.suit.equip.north",
+      "frame": 0,
+      "expected": "idle",
+      "authoredRawPath": "art/production/officer/regions/officer.unarmed.suit.equip.north.00.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.unarmed.suit.equip.north",
+      "frame": -1,
+      "expected": "idle",
+      "authoredRawPath": "art/production/officer/regions/officer.unarmed.suit.equip.north.11.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.unarmed.suit.hit.north",
+      "frame": 0,
+      "expected": "idle",
+      "authoredRawPath": "art/production/officer/regions/officer.unarmed.suit.hit.north.00.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.unarmed.suit.hit.north",
+      "frame": -1,
+      "expected": "idle",
+      "authoredRawPath": "art/production/officer/regions/officer.unarmed.suit.hit.north.04.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.unarmed.suit.melee.north",
+      "frame": 0,
+      "expected": "idle",
+      "authoredRawPath": "art/production/officer/regions/officer.unarmed.suit.melee.north.00.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.unarmed.suit.melee.north",
+      "frame": -1,
+      "expected": "idle",
+      "authoredRawPath": "art/production/officer/regions/officer.unarmed.suit.melee.north.07.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.unarmed.suit.start.west",
+      "frame": 0,
+      "expected": "idle",
+      "authoredRawPath": "art/production/officer/regions/officer.unarmed.suit.start.west.00.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.unarmed.suit.start.west",
+      "frame": -1,
+      "expected": "walk phase0",
+      "authoredRawPath": "art/production/officer/regions/officer.unarmed.suit.start.west.05.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.unarmed.suit.stop.west",
+      "frame": 0,
+      "expected": "walk phase0/3",
+      "authoredRawPath": "art/production/officer/regions/officer.unarmed.suit.stop.west.00.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.unarmed.suit.stop.west",
+      "frame": -1,
+      "expected": "idle",
+      "authoredRawPath": "art/production/officer/regions/officer.unarmed.suit.stop.west.05.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.unarmed.suit.stop_phase_1.west",
+      "frame": 0,
+      "expected": "walk phase1/3",
+      "authoredRawPath": "art/production/officer/regions/officer.unarmed.suit.stop_phase_1.west.00.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.unarmed.suit.stop_phase_1.west",
+      "frame": -1,
+      "expected": "idle",
+      "authoredRawPath": "art/production/officer/regions/officer.unarmed.suit.stop_phase_1.west.05.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.unarmed.suit.stop_phase_2.west",
+      "frame": 0,
+      "expected": "walk phase2/3",
+      "authoredRawPath": "art/production/officer/regions/officer.unarmed.suit.stop_phase_2.west.00.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.unarmed.suit.stop_phase_2.west",
+      "frame": -1,
+      "expected": "idle",
+      "authoredRawPath": "art/production/officer/regions/officer.unarmed.suit.stop_phase_2.west.05.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.unarmed.suit.work.west",
+      "frame": 0,
+      "expected": "idle",
+      "authoredRawPath": "art/production/officer/regions/officer.unarmed.suit.work.west.00.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.unarmed.suit.work.west",
+      "frame": -1,
+      "expected": "idle",
+      "authoredRawPath": "art/production/officer/regions/officer.unarmed.suit.work.west.11.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.unarmed.suit.terminal.west",
+      "frame": 0,
+      "expected": "idle",
+      "authoredRawPath": "art/production/officer/regions/officer.unarmed.suit.terminal.west.00.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.unarmed.suit.terminal.west",
+      "frame": -1,
+      "expected": "idle",
+      "authoredRawPath": "art/production/officer/regions/officer.unarmed.suit.terminal.west.11.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.unarmed.suit.breaker.west",
+      "frame": 0,
+      "expected": "idle",
+      "authoredRawPath": "art/production/officer/regions/officer.unarmed.suit.breaker.west.00.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.unarmed.suit.breaker.west",
+      "frame": -1,
+      "expected": "idle",
+      "authoredRawPath": "art/production/officer/regions/officer.unarmed.suit.breaker.west.17.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.unarmed.suit.pickup.west",
+      "frame": 0,
+      "expected": "idle",
+      "authoredRawPath": "art/production/officer/regions/officer.unarmed.suit.pickup.west.00.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.unarmed.suit.pickup.west",
+      "frame": -1,
+      "expected": "idle",
+      "authoredRawPath": "art/production/officer/regions/officer.unarmed.suit.pickup.west.23.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.unarmed.suit.drop.west",
+      "frame": 0,
+      "expected": "idle",
+      "authoredRawPath": "art/production/officer/regions/officer.unarmed.suit.drop.west.00.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.unarmed.suit.drop.west",
+      "frame": -1,
+      "expected": "idle",
+      "authoredRawPath": "art/production/officer/regions/officer.unarmed.suit.drop.west.23.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.unarmed.suit.supply.west",
+      "frame": 0,
+      "expected": "idle",
+      "authoredRawPath": "art/production/officer/regions/officer.unarmed.suit.supply.west.00.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.unarmed.suit.supply.west",
+      "frame": -1,
+      "expected": "idle",
+      "authoredRawPath": "art/production/officer/regions/officer.unarmed.suit.supply.west.11.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.unarmed.suit.equip.west",
+      "frame": 0,
+      "expected": "idle",
+      "authoredRawPath": "art/production/officer/regions/officer.unarmed.suit.equip.west.00.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.unarmed.suit.equip.west",
+      "frame": -1,
+      "expected": "idle",
+      "authoredRawPath": "art/production/officer/regions/officer.unarmed.suit.equip.west.11.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.unarmed.suit.hit.west",
+      "frame": 0,
+      "expected": "idle",
+      "authoredRawPath": "art/production/officer/regions/officer.unarmed.suit.hit.west.00.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.unarmed.suit.hit.west",
+      "frame": -1,
+      "expected": "idle",
+      "authoredRawPath": "art/production/officer/regions/officer.unarmed.suit.hit.west.04.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.unarmed.suit.melee.west",
+      "frame": 0,
+      "expected": "idle",
+      "authoredRawPath": "art/production/officer/regions/officer.unarmed.suit.melee.west.00.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.unarmed.suit.melee.west",
+      "frame": -1,
+      "expected": "idle",
+      "authoredRawPath": "art/production/officer/regions/officer.unarmed.suit.melee.west.07.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.unarmed.suit.turn_from_south.east",
+      "frame": 0,
+      "expected": "source idle",
+      "authoredRawPath": "art/production/officer/regions/officer.unarmed.suit.turn_from_south.east.00.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.unarmed.suit.turn_from_south.east",
+      "frame": -1,
+      "expected": "destination idle",
+      "authoredRawPath": "art/production/officer/regions/officer.unarmed.suit.turn_from_south.east.07.png",
+      "maximumChannelDifference": 2,
+      "changedPixels": 7
+    },
+    {
+      "clip": "officer.unarmed.suit.turn_from_south.north",
+      "frame": 0,
+      "expected": "source idle",
+      "authoredRawPath": "art/production/officer/regions/officer.unarmed.suit.turn_from_south.north.00.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.unarmed.suit.turn_from_south.north",
+      "frame": -1,
+      "expected": "destination idle",
+      "authoredRawPath": "art/production/officer/regions/officer.unarmed.suit.turn_from_south.north.07.png",
+      "maximumChannelDifference": 1,
+      "changedPixels": 1
+    },
+    {
+      "clip": "officer.unarmed.suit.turn_from_south.west",
+      "frame": 0,
+      "expected": "source idle",
+      "authoredRawPath": "art/production/officer/regions/officer.unarmed.suit.turn_from_south.west.00.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.unarmed.suit.turn_from_south.west",
+      "frame": -1,
+      "expected": "destination idle",
+      "authoredRawPath": "art/production/officer/regions/officer.unarmed.suit.turn_from_south.west.07.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.unarmed.suit.turn_from_east.south",
+      "frame": 0,
+      "expected": "source idle",
+      "authoredRawPath": "art/production/officer/regions/officer.unarmed.suit.turn_from_east.south.00.png",
+      "maximumChannelDifference": 2,
+      "changedPixels": 7
+    },
+    {
+      "clip": "officer.unarmed.suit.turn_from_east.south",
+      "frame": -1,
+      "expected": "destination idle",
+      "authoredRawPath": "art/production/officer/regions/officer.unarmed.suit.turn_from_east.south.07.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.unarmed.suit.turn_from_east.north",
+      "frame": 0,
+      "expected": "source idle",
+      "authoredRawPath": "art/production/officer/regions/officer.unarmed.suit.turn_from_east.north.00.png",
+      "maximumChannelDifference": 2,
+      "changedPixels": 7
+    },
+    {
+      "clip": "officer.unarmed.suit.turn_from_east.north",
+      "frame": -1,
+      "expected": "destination idle",
+      "authoredRawPath": "art/production/officer/regions/officer.unarmed.suit.turn_from_east.north.07.png",
+      "maximumChannelDifference": 1,
+      "changedPixels": 1
+    },
+    {
+      "clip": "officer.unarmed.suit.turn_from_east.west",
+      "frame": 0,
+      "expected": "source idle",
+      "authoredRawPath": "art/production/officer/regions/officer.unarmed.suit.turn_from_east.west.00.png",
+      "maximumChannelDifference": 2,
+      "changedPixels": 7
+    },
+    {
+      "clip": "officer.unarmed.suit.turn_from_east.west",
+      "frame": -1,
+      "expected": "destination idle",
+      "authoredRawPath": "art/production/officer/regions/officer.unarmed.suit.turn_from_east.west.07.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.unarmed.suit.turn_from_north.south",
+      "frame": 0,
+      "expected": "source idle",
+      "authoredRawPath": "art/production/officer/regions/officer.unarmed.suit.turn_from_north.south.00.png",
+      "maximumChannelDifference": 1,
+      "changedPixels": 1
+    },
+    {
+      "clip": "officer.unarmed.suit.turn_from_north.south",
+      "frame": -1,
+      "expected": "destination idle",
+      "authoredRawPath": "art/production/officer/regions/officer.unarmed.suit.turn_from_north.south.07.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.unarmed.suit.turn_from_north.east",
+      "frame": 0,
+      "expected": "source idle",
+      "authoredRawPath": "art/production/officer/regions/officer.unarmed.suit.turn_from_north.east.00.png",
+      "maximumChannelDifference": 1,
+      "changedPixels": 1
+    },
+    {
+      "clip": "officer.unarmed.suit.turn_from_north.east",
+      "frame": -1,
+      "expected": "destination idle",
+      "authoredRawPath": "art/production/officer/regions/officer.unarmed.suit.turn_from_north.east.07.png",
+      "maximumChannelDifference": 2,
+      "changedPixels": 7
+    },
+    {
+      "clip": "officer.unarmed.suit.turn_from_north.west",
+      "frame": 0,
+      "expected": "source idle",
+      "authoredRawPath": "art/production/officer/regions/officer.unarmed.suit.turn_from_north.west.00.png",
+      "maximumChannelDifference": 1,
+      "changedPixels": 1
+    },
+    {
+      "clip": "officer.unarmed.suit.turn_from_north.west",
+      "frame": -1,
+      "expected": "destination idle",
+      "authoredRawPath": "art/production/officer/regions/officer.unarmed.suit.turn_from_north.west.07.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.unarmed.suit.turn_from_west.south",
+      "frame": 0,
+      "expected": "source idle",
+      "authoredRawPath": "art/production/officer/regions/officer.unarmed.suit.turn_from_west.south.00.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.unarmed.suit.turn_from_west.south",
+      "frame": -1,
+      "expected": "destination idle",
+      "authoredRawPath": "art/production/officer/regions/officer.unarmed.suit.turn_from_west.south.07.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.unarmed.suit.turn_from_west.east",
+      "frame": 0,
+      "expected": "source idle",
+      "authoredRawPath": "art/production/officer/regions/officer.unarmed.suit.turn_from_west.east.00.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.unarmed.suit.turn_from_west.east",
+      "frame": -1,
+      "expected": "destination idle",
+      "authoredRawPath": "art/production/officer/regions/officer.unarmed.suit.turn_from_west.east.07.png",
+      "maximumChannelDifference": 2,
+      "changedPixels": 7
+    },
+    {
+      "clip": "officer.unarmed.suit.turn_from_west.north",
+      "frame": 0,
+      "expected": "source idle",
+      "authoredRawPath": "art/production/officer/regions/officer.unarmed.suit.turn_from_west.north.00.png",
+      "maximumChannelDifference": 0,
+      "changedPixels": 0
+    },
+    {
+      "clip": "officer.unarmed.suit.turn_from_west.north",
+      "frame": -1,
+      "expected": "destination idle",
+      "authoredRawPath": "art/production/officer/regions/officer.unarmed.suit.turn_from_west.north.07.png",
+      "maximumChannelDifference": 1,
+      "changedPixels": 1
+    }
+  ],
+  "bounds": [
+    {
+      "clip": "officer.pistol.suit.idle.south",
+      "lastOpaqueBounds": [
+        87,
+        80,
+        201,
+        332
+      ]
+    },
+    {
+      "clip": "officer.pistol.suit.idle.east",
+      "lastOpaqueBounds": [
+        104,
+        83,
+        181,
+        335
+      ]
+    },
+    {
+      "clip": "officer.pistol.suit.idle.north",
+      "lastOpaqueBounds": [
+        87,
+        82,
+        201,
+        319
+      ]
+    },
+    {
+      "clip": "officer.pistol.suit.idle.west",
+      "lastOpaqueBounds": [
+        107,
+        81,
+        184,
+        335
+      ]
+    },
+    {
+      "clip": "officer.pistol.suit.start.south",
+      "lastOpaqueBounds": [
+        87,
+        85,
+        200,
+        362
+      ]
+    },
+    {
+      "clip": "officer.pistol.suit.stop.south",
+      "lastOpaqueBounds": [
+        87,
+        80,
+        201,
+        332
+      ]
+    },
+    {
+      "clip": "officer.pistol.suit.stop_phase_1.south",
+      "lastOpaqueBounds": [
+        87,
+        80,
+        201,
+        332
+      ]
+    },
+    {
+      "clip": "officer.pistol.suit.stop_phase_2.south",
+      "lastOpaqueBounds": [
+        87,
+        80,
+        201,
+        332
+      ]
+    },
+    {
+      "clip": "officer.pistol.suit.walk.south",
+      "lastOpaqueBounds": [
+        87,
+        85,
+        199,
+        361
+      ]
+    },
+    {
+      "clip": "officer.pistol.suit.ready.south",
+      "lastOpaqueBounds": [
+        89,
+        80,
+        194,
+        332
+      ]
+    },
+    {
+      "clip": "officer.pistol.suit.work.south",
+      "lastOpaqueBounds": [
+        87,
+        80,
+        201,
+        332
+      ]
+    },
+    {
+      "clip": "officer.pistol.suit.terminal.south",
+      "lastOpaqueBounds": [
+        87,
+        80,
+        201,
+        332
+      ]
+    },
+    {
+      "clip": "officer.pistol.suit.breaker.south",
+      "lastOpaqueBounds": [
+        87,
+        80,
+        201,
+        332
+      ]
+    },
+    {
+      "clip": "officer.pistol.suit.pickup.south",
+      "lastOpaqueBounds": [
+        87,
+        80,
+        201,
+        332
+      ]
+    },
+    {
+      "clip": "officer.pistol.suit.drop.south",
+      "lastOpaqueBounds": [
+        87,
+        80,
+        201,
+        332
+      ]
+    },
+    {
+      "clip": "officer.pistol.suit.supply.south",
+      "lastOpaqueBounds": [
+        87,
+        80,
+        201,
+        332
+      ]
+    },
+    {
+      "clip": "officer.pistol.suit.equip.south",
+      "lastOpaqueBounds": [
+        87,
+        80,
+        201,
+        332
+      ]
+    },
+    {
+      "clip": "officer.pistol.suit.hit.south",
+      "lastOpaqueBounds": [
+        87,
+        80,
+        201,
+        332
+      ]
+    },
+    {
+      "clip": "officer.pistol.suit.death.south",
+      "lastOpaqueBounds": [
+        348,
+        335,
+        482,
+        568
+      ]
+    },
+    {
+      "clip": "officer.pistol.suit.aim.south",
+      "lastOpaqueBounds": [
+        89,
+        80,
+        194,
+        332
+      ]
+    },
+    {
+      "clip": "officer.pistol.suit.fire.south",
+      "lastOpaqueBounds": [
+        87,
+        80,
+        201,
+        332
+      ]
+    },
+    {
+      "clip": "officer.pistol.suit.melee.south",
+      "lastOpaqueBounds": [
+        87,
+        80,
+        201,
+        332
+      ]
+    },
+    {
+      "clip": "officer.pistol.suit.start.east",
+      "lastOpaqueBounds": [
+        98,
+        88,
+        212,
+        334
+      ]
+    },
+    {
+      "clip": "officer.pistol.suit.stop.east",
+      "lastOpaqueBounds": [
+        104,
+        83,
+        181,
+        335
+      ]
+    },
+    {
+      "clip": "officer.pistol.suit.stop_phase_1.east",
+      "lastOpaqueBounds": [
+        104,
+        83,
+        181,
+        335
+      ]
+    },
+    {
+      "clip": "officer.pistol.suit.stop_phase_2.east",
+      "lastOpaqueBounds": [
+        104,
+        83,
+        181,
+        335
+      ]
+    },
+    {
+      "clip": "officer.pistol.suit.walk.east",
+      "lastOpaqueBounds": [
+        100,
+        88,
+        211,
+        334
+      ]
+    },
+    {
+      "clip": "officer.pistol.suit.ready.east",
+      "lastOpaqueBounds": [
+        104,
+        83,
+        236,
+        335
+      ]
+    },
+    {
+      "clip": "officer.pistol.suit.work.east",
+      "lastOpaqueBounds": [
+        104,
+        83,
+        181,
+        335
+      ]
+    },
+    {
+      "clip": "officer.pistol.suit.terminal.east",
+      "lastOpaqueBounds": [
+        104,
+        83,
+        181,
+        335
+      ]
+    },
+    {
+      "clip": "officer.pistol.suit.breaker.east",
+      "lastOpaqueBounds": [
+        104,
+        83,
+        181,
+        335
+      ]
+    },
+    {
+      "clip": "officer.pistol.suit.pickup.east",
+      "lastOpaqueBounds": [
+        104,
+        83,
+        181,
+        335
+      ]
+    },
+    {
+      "clip": "officer.pistol.suit.drop.east",
+      "lastOpaqueBounds": [
+        104,
+        83,
+        181,
+        335
+      ]
+    },
+    {
+      "clip": "officer.pistol.suit.supply.east",
+      "lastOpaqueBounds": [
+        104,
+        83,
+        181,
+        335
+      ]
+    },
+    {
+      "clip": "officer.pistol.suit.equip.east",
+      "lastOpaqueBounds": [
+        104,
+        83,
+        181,
+        335
+      ]
+    },
+    {
+      "clip": "officer.pistol.suit.hit.east",
+      "lastOpaqueBounds": [
+        104,
+        83,
+        181,
+        335
+      ]
+    },
+    {
+      "clip": "officer.pistol.suit.death.east",
+      "lastOpaqueBounds": [
+        379,
+        278,
+        672,
+        403
+      ]
+    },
+    {
+      "clip": "officer.pistol.suit.aim.east",
+      "lastOpaqueBounds": [
+        104,
+        83,
+        236,
+        335
+      ]
+    },
+    {
+      "clip": "officer.pistol.suit.fire.east",
+      "lastOpaqueBounds": [
+        104,
+        83,
+        181,
+        335
+      ]
+    },
+    {
+      "clip": "officer.pistol.suit.melee.east",
+      "lastOpaqueBounds": [
+        104,
+        83,
+        181,
+        335
+      ]
+    },
+    {
+      "clip": "officer.pistol.suit.start.north",
+      "lastOpaqueBounds": [
+        88,
+        87,
+        201,
+        348
+      ]
+    },
+    {
+      "clip": "officer.pistol.suit.stop.north",
+      "lastOpaqueBounds": [
+        87,
+        82,
+        201,
+        319
+      ]
+    },
+    {
+      "clip": "officer.pistol.suit.stop_phase_1.north",
+      "lastOpaqueBounds": [
+        87,
+        82,
+        201,
+        319
+      ]
+    },
+    {
+      "clip": "officer.pistol.suit.stop_phase_2.north",
+      "lastOpaqueBounds": [
+        87,
+        82,
+        201,
+        319
+      ]
+    },
+    {
+      "clip": "officer.pistol.suit.walk.north",
+      "lastOpaqueBounds": [
+        89,
+        87,
+        201,
+        345
+      ]
+    },
+    {
+      "clip": "officer.pistol.suit.ready.north",
+      "lastOpaqueBounds": [
+        94,
+        82,
+        199,
+        319
+      ]
+    },
+    {
+      "clip": "officer.pistol.suit.work.north",
+      "lastOpaqueBounds": [
+        87,
+        82,
+        201,
+        319
+      ]
+    },
+    {
+      "clip": "officer.pistol.suit.terminal.north",
+      "lastOpaqueBounds": [
+        87,
+        82,
+        201,
+        319
+      ]
+    },
+    {
+      "clip": "officer.pistol.suit.breaker.north",
+      "lastOpaqueBounds": [
+        87,
+        82,
+        201,
+        319
+      ]
+    },
+    {
+      "clip": "officer.pistol.suit.pickup.north",
+      "lastOpaqueBounds": [
+        87,
+        82,
+        201,
+        319
+      ]
+    },
+    {
+      "clip": "officer.pistol.suit.drop.north",
+      "lastOpaqueBounds": [
+        87,
+        82,
+        201,
+        319
+      ]
+    },
+    {
+      "clip": "officer.pistol.suit.supply.north",
+      "lastOpaqueBounds": [
+        87,
+        82,
+        201,
+        319
+      ]
+    },
+    {
+      "clip": "officer.pistol.suit.equip.north",
+      "lastOpaqueBounds": [
+        87,
+        82,
+        201,
+        319
+      ]
+    },
+    {
+      "clip": "officer.pistol.suit.hit.north",
+      "lastOpaqueBounds": [
+        87,
+        82,
+        201,
+        319
+      ]
+    },
+    {
+      "clip": "officer.pistol.suit.death.north",
+      "lastOpaqueBounds": [
+        286,
+        158,
+        420,
+        368
+      ]
+    },
+    {
+      "clip": "officer.pistol.suit.aim.north",
+      "lastOpaqueBounds": [
+        94,
+        82,
+        199,
+        319
+      ]
+    },
+    {
+      "clip": "officer.pistol.suit.fire.north",
+      "lastOpaqueBounds": [
+        87,
+        82,
+        201,
+        319
+      ]
+    },
+    {
+      "clip": "officer.pistol.suit.melee.north",
+      "lastOpaqueBounds": [
+        87,
+        82,
+        201,
+        319
+      ]
+    },
+    {
+      "clip": "officer.pistol.suit.start.west",
+      "lastOpaqueBounds": [
+        76,
+        85,
+        190,
+        333
+      ]
+    },
+    {
+      "clip": "officer.pistol.suit.stop.west",
+      "lastOpaqueBounds": [
+        107,
+        81,
+        184,
+        335
+      ]
+    },
+    {
+      "clip": "officer.pistol.suit.stop_phase_1.west",
+      "lastOpaqueBounds": [
+        107,
+        81,
+        184,
+        335
+      ]
+    },
+    {
+      "clip": "officer.pistol.suit.stop_phase_2.west",
+      "lastOpaqueBounds": [
+        107,
+        81,
+        184,
+        335
+      ]
+    },
+    {
+      "clip": "officer.pistol.suit.walk.west",
+      "lastOpaqueBounds": [
+        77,
+        85,
+        188,
+        332
+      ]
+    },
+    {
+      "clip": "officer.pistol.suit.ready.west",
+      "lastOpaqueBounds": [
+        52,
+        81,
+        184,
+        335
+      ]
+    },
+    {
+      "clip": "officer.pistol.suit.work.west",
+      "lastOpaqueBounds": [
+        107,
+        81,
+        184,
+        335
+      ]
+    },
+    {
+      "clip": "officer.pistol.suit.terminal.west",
+      "lastOpaqueBounds": [
+        107,
+        81,
+        184,
+        335
+      ]
+    },
+    {
+      "clip": "officer.pistol.suit.breaker.west",
+      "lastOpaqueBounds": [
+        107,
+        81,
+        184,
+        335
+      ]
+    },
+    {
+      "clip": "officer.pistol.suit.pickup.west",
+      "lastOpaqueBounds": [
+        107,
+        81,
+        184,
+        335
+      ]
+    },
+    {
+      "clip": "officer.pistol.suit.drop.west",
+      "lastOpaqueBounds": [
+        107,
+        81,
+        184,
+        335
+      ]
+    },
+    {
+      "clip": "officer.pistol.suit.supply.west",
+      "lastOpaqueBounds": [
+        107,
+        81,
+        184,
+        335
+      ]
+    },
+    {
+      "clip": "officer.pistol.suit.equip.west",
+      "lastOpaqueBounds": [
+        107,
+        81,
+        184,
+        335
+      ]
+    },
+    {
+      "clip": "officer.pistol.suit.hit.west",
+      "lastOpaqueBounds": [
+        107,
+        81,
+        184,
+        335
+      ]
+    },
+    {
+      "clip": "officer.pistol.suit.death.west",
+      "lastOpaqueBounds": [
+        96,
+        314,
+        389,
+        426
+      ]
+    },
+    {
+      "clip": "officer.pistol.suit.aim.west",
+      "lastOpaqueBounds": [
+        52,
+        81,
+        184,
+        335
+      ]
+    },
+    {
+      "clip": "officer.pistol.suit.fire.west",
+      "lastOpaqueBounds": [
+        107,
+        81,
+        184,
+        335
+      ]
+    },
+    {
+      "clip": "officer.pistol.suit.melee.west",
+      "lastOpaqueBounds": [
+        107,
+        81,
+        184,
+        335
+      ]
+    },
+    {
+      "clip": "officer.pistol.suit.turn_from_south.east",
+      "lastOpaqueBounds": [
+        104,
+        83,
+        181,
+        335
+      ]
+    },
+    {
+      "clip": "officer.pistol.suit.turn_from_south.north",
+      "lastOpaqueBounds": [
+        87,
+        82,
+        201,
+        319
+      ]
+    },
+    {
+      "clip": "officer.pistol.suit.turn_from_south.west",
+      "lastOpaqueBounds": [
+        107,
+        81,
+        184,
+        335
+      ]
+    },
+    {
+      "clip": "officer.pistol.suit.turn_from_east.south",
+      "lastOpaqueBounds": [
+        87,
+        80,
+        201,
+        332
+      ]
+    },
+    {
+      "clip": "officer.pistol.suit.turn_from_east.north",
+      "lastOpaqueBounds": [
+        87,
+        82,
+        201,
+        319
+      ]
+    },
+    {
+      "clip": "officer.pistol.suit.turn_from_east.west",
+      "lastOpaqueBounds": [
+        107,
+        81,
+        184,
+        335
+      ]
+    },
+    {
+      "clip": "officer.pistol.suit.turn_from_north.south",
+      "lastOpaqueBounds": [
+        87,
+        80,
+        201,
+        332
+      ]
+    },
+    {
+      "clip": "officer.pistol.suit.turn_from_north.east",
+      "lastOpaqueBounds": [
+        104,
+        83,
+        181,
+        335
+      ]
+    },
+    {
+      "clip": "officer.pistol.suit.turn_from_north.west",
+      "lastOpaqueBounds": [
+        107,
+        81,
+        184,
+        335
+      ]
+    },
+    {
+      "clip": "officer.pistol.suit.turn_from_west.south",
+      "lastOpaqueBounds": [
+        87,
+        80,
+        201,
+        332
+      ]
+    },
+    {
+      "clip": "officer.pistol.suit.turn_from_west.east",
+      "lastOpaqueBounds": [
+        104,
+        83,
+        181,
+        335
+      ]
+    },
+    {
+      "clip": "officer.pistol.suit.turn_from_west.north",
+      "lastOpaqueBounds": [
+        87,
+        82,
+        201,
+        319
+      ]
+    },
+    {
+      "clip": "officer.unarmed.suit.idle.south",
+      "lastOpaqueBounds": [
+        87,
+        80,
+        201,
+        332
+      ]
+    },
+    {
+      "clip": "officer.unarmed.suit.idle.east",
+      "lastOpaqueBounds": [
+        104,
+        83,
+        181,
+        335
+      ]
+    },
+    {
+      "clip": "officer.unarmed.suit.idle.north",
+      "lastOpaqueBounds": [
+        87,
+        82,
+        201,
+        319
+      ]
+    },
+    {
+      "clip": "officer.unarmed.suit.idle.west",
+      "lastOpaqueBounds": [
+        107,
+        81,
+        184,
+        335
+      ]
+    },
+    {
+      "clip": "officer.unarmed.suit.start.south",
+      "lastOpaqueBounds": [
+        87,
+        85,
+        200,
+        362
+      ]
+    },
+    {
+      "clip": "officer.unarmed.suit.stop.south",
+      "lastOpaqueBounds": [
+        87,
+        80,
+        201,
+        332
+      ]
+    },
+    {
+      "clip": "officer.unarmed.suit.stop_phase_1.south",
+      "lastOpaqueBounds": [
+        87,
+        80,
+        201,
+        332
+      ]
+    },
+    {
+      "clip": "officer.unarmed.suit.stop_phase_2.south",
+      "lastOpaqueBounds": [
+        87,
+        80,
+        201,
+        332
+      ]
+    },
+    {
+      "clip": "officer.unarmed.suit.walk.south",
+      "lastOpaqueBounds": [
+        86,
+        85,
+        199,
+        361
+      ]
+    },
+    {
+      "clip": "officer.unarmed.suit.ready.south",
+      "lastOpaqueBounds": [
+        78,
+        80,
+        210,
+        332
+      ]
+    },
+    {
+      "clip": "officer.unarmed.suit.work.south",
+      "lastOpaqueBounds": [
+        87,
+        80,
+        201,
+        332
+      ]
+    },
+    {
+      "clip": "officer.unarmed.suit.terminal.south",
+      "lastOpaqueBounds": [
+        87,
+        80,
+        201,
+        332
+      ]
+    },
+    {
+      "clip": "officer.unarmed.suit.breaker.south",
+      "lastOpaqueBounds": [
+        87,
+        80,
+        201,
+        332
+      ]
+    },
+    {
+      "clip": "officer.unarmed.suit.pickup.south",
+      "lastOpaqueBounds": [
+        87,
+        80,
+        201,
+        332
+      ]
+    },
+    {
+      "clip": "officer.unarmed.suit.drop.south",
+      "lastOpaqueBounds": [
+        87,
+        80,
+        201,
+        332
+      ]
+    },
+    {
+      "clip": "officer.unarmed.suit.supply.south",
+      "lastOpaqueBounds": [
+        87,
+        80,
+        201,
+        332
+      ]
+    },
+    {
+      "clip": "officer.unarmed.suit.equip.south",
+      "lastOpaqueBounds": [
+        87,
+        80,
+        201,
+        332
+      ]
+    },
+    {
+      "clip": "officer.unarmed.suit.hit.south",
+      "lastOpaqueBounds": [
+        87,
+        80,
+        201,
+        332
+      ]
+    },
+    {
+      "clip": "officer.unarmed.suit.death.south",
+      "lastOpaqueBounds": [
+        348,
+        335,
+        482,
+        568
+      ]
+    },
+    {
+      "clip": "officer.unarmed.suit.melee.south",
+      "lastOpaqueBounds": [
+        87,
+        80,
+        201,
+        332
+      ]
+    },
+    {
+      "clip": "officer.unarmed.suit.start.east",
+      "lastOpaqueBounds": [
+        98,
+        88,
+        212,
+        334
+      ]
+    },
+    {
+      "clip": "officer.unarmed.suit.stop.east",
+      "lastOpaqueBounds": [
+        104,
+        83,
+        181,
+        335
+      ]
+    },
+    {
+      "clip": "officer.unarmed.suit.stop_phase_1.east",
+      "lastOpaqueBounds": [
+        104,
+        83,
+        181,
+        335
+      ]
+    },
+    {
+      "clip": "officer.unarmed.suit.stop_phase_2.east",
+      "lastOpaqueBounds": [
+        104,
+        83,
+        181,
+        335
+      ]
+    },
+    {
+      "clip": "officer.unarmed.suit.walk.east",
+      "lastOpaqueBounds": [
+        100,
+        88,
+        211,
+        334
+      ]
+    },
+    {
+      "clip": "officer.unarmed.suit.ready.east",
+      "lastOpaqueBounds": [
+        104,
+        83,
+        196,
+        335
+      ]
+    },
+    {
+      "clip": "officer.unarmed.suit.work.east",
+      "lastOpaqueBounds": [
+        104,
+        83,
+        181,
+        335
+      ]
+    },
+    {
+      "clip": "officer.unarmed.suit.terminal.east",
+      "lastOpaqueBounds": [
+        104,
+        83,
+        181,
+        335
+      ]
+    },
+    {
+      "clip": "officer.unarmed.suit.breaker.east",
+      "lastOpaqueBounds": [
+        104,
+        83,
+        181,
+        335
+      ]
+    },
+    {
+      "clip": "officer.unarmed.suit.pickup.east",
+      "lastOpaqueBounds": [
+        104,
+        83,
+        181,
+        335
+      ]
+    },
+    {
+      "clip": "officer.unarmed.suit.drop.east",
+      "lastOpaqueBounds": [
+        104,
+        83,
+        181,
+        335
+      ]
+    },
+    {
+      "clip": "officer.unarmed.suit.supply.east",
+      "lastOpaqueBounds": [
+        104,
+        83,
+        181,
+        335
+      ]
+    },
+    {
+      "clip": "officer.unarmed.suit.equip.east",
+      "lastOpaqueBounds": [
+        104,
+        83,
+        181,
+        335
+      ]
+    },
+    {
+      "clip": "officer.unarmed.suit.hit.east",
+      "lastOpaqueBounds": [
+        104,
+        83,
+        181,
+        335
+      ]
+    },
+    {
+      "clip": "officer.unarmed.suit.death.east",
+      "lastOpaqueBounds": [
+        379,
+        278,
+        672,
+        396
+      ]
+    },
+    {
+      "clip": "officer.unarmed.suit.melee.east",
+      "lastOpaqueBounds": [
+        104,
+        83,
+        181,
+        335
+      ]
+    },
+    {
+      "clip": "officer.unarmed.suit.start.north",
+      "lastOpaqueBounds": [
+        88,
+        87,
+        201,
+        348
+      ]
+    },
+    {
+      "clip": "officer.unarmed.suit.stop.north",
+      "lastOpaqueBounds": [
+        87,
+        82,
+        201,
+        319
+      ]
+    },
+    {
+      "clip": "officer.unarmed.suit.stop_phase_1.north",
+      "lastOpaqueBounds": [
+        87,
+        82,
+        201,
+        319
+      ]
+    },
+    {
+      "clip": "officer.unarmed.suit.stop_phase_2.north",
+      "lastOpaqueBounds": [
+        87,
+        82,
+        201,
+        319
+      ]
+    },
+    {
+      "clip": "officer.unarmed.suit.walk.north",
+      "lastOpaqueBounds": [
+        89,
+        87,
+        202,
+        345
+      ]
+    },
+    {
+      "clip": "officer.unarmed.suit.ready.north",
+      "lastOpaqueBounds": [
+        78,
+        82,
+        210,
+        319
+      ]
+    },
+    {
+      "clip": "officer.unarmed.suit.work.north",
+      "lastOpaqueBounds": [
+        87,
+        82,
+        201,
+        319
+      ]
+    },
+    {
+      "clip": "officer.unarmed.suit.terminal.north",
+      "lastOpaqueBounds": [
+        87,
+        82,
+        201,
+        319
+      ]
+    },
+    {
+      "clip": "officer.unarmed.suit.breaker.north",
+      "lastOpaqueBounds": [
+        87,
+        82,
+        201,
+        319
+      ]
+    },
+    {
+      "clip": "officer.unarmed.suit.pickup.north",
+      "lastOpaqueBounds": [
+        87,
+        82,
+        201,
+        319
+      ]
+    },
+    {
+      "clip": "officer.unarmed.suit.drop.north",
+      "lastOpaqueBounds": [
+        87,
+        82,
+        201,
+        319
+      ]
+    },
+    {
+      "clip": "officer.unarmed.suit.supply.north",
+      "lastOpaqueBounds": [
+        87,
+        82,
+        201,
+        319
+      ]
+    },
+    {
+      "clip": "officer.unarmed.suit.equip.north",
+      "lastOpaqueBounds": [
+        87,
+        82,
+        201,
+        319
+      ]
+    },
+    {
+      "clip": "officer.unarmed.suit.hit.north",
+      "lastOpaqueBounds": [
+        87,
+        82,
+        201,
+        319
+      ]
+    },
+    {
+      "clip": "officer.unarmed.suit.death.north",
+      "lastOpaqueBounds": [
+        286,
+        158,
+        420,
+        368
+      ]
+    },
+    {
+      "clip": "officer.unarmed.suit.melee.north",
+      "lastOpaqueBounds": [
+        87,
+        82,
+        201,
+        319
+      ]
+    },
+    {
+      "clip": "officer.unarmed.suit.start.west",
+      "lastOpaqueBounds": [
+        76,
+        85,
+        190,
+        333
+      ]
+    },
+    {
+      "clip": "officer.unarmed.suit.stop.west",
+      "lastOpaqueBounds": [
+        107,
+        81,
+        184,
+        335
+      ]
+    },
+    {
+      "clip": "officer.unarmed.suit.stop_phase_1.west",
+      "lastOpaqueBounds": [
+        107,
+        81,
+        184,
+        335
+      ]
+    },
+    {
+      "clip": "officer.unarmed.suit.stop_phase_2.west",
+      "lastOpaqueBounds": [
+        107,
+        81,
+        184,
+        335
+      ]
+    },
+    {
+      "clip": "officer.unarmed.suit.walk.west",
+      "lastOpaqueBounds": [
+        77,
+        85,
+        188,
+        332
+      ]
+    },
+    {
+      "clip": "officer.unarmed.suit.ready.west",
+      "lastOpaqueBounds": [
+        92,
+        81,
+        184,
+        335
+      ]
+    },
+    {
+      "clip": "officer.unarmed.suit.work.west",
+      "lastOpaqueBounds": [
+        107,
+        81,
+        184,
+        335
+      ]
+    },
+    {
+      "clip": "officer.unarmed.suit.terminal.west",
+      "lastOpaqueBounds": [
+        107,
+        81,
+        184,
+        335
+      ]
+    },
+    {
+      "clip": "officer.unarmed.suit.breaker.west",
+      "lastOpaqueBounds": [
+        107,
+        81,
+        184,
+        335
+      ]
+    },
+    {
+      "clip": "officer.unarmed.suit.pickup.west",
+      "lastOpaqueBounds": [
+        107,
+        81,
+        184,
+        335
+      ]
+    },
+    {
+      "clip": "officer.unarmed.suit.drop.west",
+      "lastOpaqueBounds": [
+        107,
+        81,
+        184,
+        335
+      ]
+    },
+    {
+      "clip": "officer.unarmed.suit.supply.west",
+      "lastOpaqueBounds": [
+        107,
+        81,
+        184,
+        335
+      ]
+    },
+    {
+      "clip": "officer.unarmed.suit.equip.west",
+      "lastOpaqueBounds": [
+        107,
+        81,
+        184,
+        335
+      ]
+    },
+    {
+      "clip": "officer.unarmed.suit.hit.west",
+      "lastOpaqueBounds": [
+        107,
+        81,
+        184,
+        335
+      ]
+    },
+    {
+      "clip": "officer.unarmed.suit.death.west",
+      "lastOpaqueBounds": [
+        96,
+        314,
+        389,
+        426
+      ]
+    },
+    {
+      "clip": "officer.unarmed.suit.melee.west",
+      "lastOpaqueBounds": [
+        107,
+        81,
+        184,
+        335
+      ]
+    },
+    {
+      "clip": "officer.unarmed.suit.turn_from_south.east",
+      "lastOpaqueBounds": [
+        104,
+        83,
+        181,
+        335
+      ]
+    },
+    {
+      "clip": "officer.unarmed.suit.turn_from_south.north",
+      "lastOpaqueBounds": [
+        87,
+        82,
+        201,
+        319
+      ]
+    },
+    {
+      "clip": "officer.unarmed.suit.turn_from_south.west",
+      "lastOpaqueBounds": [
+        107,
+        81,
+        184,
+        335
+      ]
+    },
+    {
+      "clip": "officer.unarmed.suit.turn_from_east.south",
+      "lastOpaqueBounds": [
+        87,
+        80,
+        201,
+        332
+      ]
+    },
+    {
+      "clip": "officer.unarmed.suit.turn_from_east.north",
+      "lastOpaqueBounds": [
+        87,
+        82,
+        201,
+        319
+      ]
+    },
+    {
+      "clip": "officer.unarmed.suit.turn_from_east.west",
+      "lastOpaqueBounds": [
+        107,
+        81,
+        184,
+        335
+      ]
+    },
+    {
+      "clip": "officer.unarmed.suit.turn_from_north.south",
+      "lastOpaqueBounds": [
+        87,
+        80,
+        201,
+        332
+      ]
+    },
+    {
+      "clip": "officer.unarmed.suit.turn_from_north.east",
+      "lastOpaqueBounds": [
+        104,
+        83,
+        181,
+        335
+      ]
+    },
+    {
+      "clip": "officer.unarmed.suit.turn_from_north.west",
+      "lastOpaqueBounds": [
+        107,
+        81,
+        184,
+        335
+      ]
+    },
+    {
+      "clip": "officer.unarmed.suit.turn_from_west.south",
+      "lastOpaqueBounds": [
+        87,
+        80,
+        201,
+        332
+      ]
+    },
+    {
+      "clip": "officer.unarmed.suit.turn_from_west.east",
+      "lastOpaqueBounds": [
+        104,
+        83,
+        181,
+        335
+      ]
+    },
+    {
+      "clip": "officer.unarmed.suit.turn_from_west.north",
+      "lastOpaqueBounds": [
+        87,
+        82,
+        201,
+        319
+      ]
+    }
+  ],
+  "footCalibration": [
+    {
+      "clip": "officer.pistol.suit.walk.south",
+      "sampledStanceResidualPixels": 1.2715657561557236e-05,
+      "residualScope": "Each contiguous heel, flat-sole or toe support patch separately; patch positions differ during roll",
+      "maximumHeldPoseRootTravelPixels": 3.5555555555555554,
+      "maximumHeldPoseRootTravelAt720p47pxCell": 0.6527777777777778
+    },
+    {
+      "clip": "officer.pistol.suit.walk.east",
+      "sampledStanceResidualPixels": 1.8651299583250627e-05,
+      "residualScope": "Each contiguous heel, flat-sole or toe support patch separately; patch positions differ during roll",
+      "maximumHeldPoseRootTravelPixels": 3.5555555555555554,
+      "maximumHeldPoseRootTravelAt720p47pxCell": 0.6527777777777778
+    },
+    {
+      "clip": "officer.pistol.suit.walk.north",
+      "sampledStanceResidualPixels": 2.0246839403660965e-05,
+      "residualScope": "Each contiguous heel, flat-sole or toe support patch separately; patch positions differ during roll",
+      "maximumHeldPoseRootTravelPixels": 3.5555555555555554,
+      "maximumHeldPoseRootTravelAt720p47pxCell": 0.6527777777777778
+    },
+    {
+      "clip": "officer.pistol.suit.walk.west",
+      "sampledStanceResidualPixels": 1.1356770063897374e-05,
+      "residualScope": "Each contiguous heel, flat-sole or toe support patch separately; patch positions differ during roll",
+      "maximumHeldPoseRootTravelPixels": 3.5555555555555554,
+      "maximumHeldPoseRootTravelAt720p47pxCell": 0.6527777777777778
+    },
+    {
+      "clip": "officer.unarmed.suit.walk.south",
+      "sampledStanceResidualPixels": 1.2715657561557236e-05,
+      "residualScope": "Each contiguous heel, flat-sole or toe support patch separately; patch positions differ during roll",
+      "maximumHeldPoseRootTravelPixels": 3.5555555555555554,
+      "maximumHeldPoseRootTravelAt720p47pxCell": 0.6527777777777778
+    },
+    {
+      "clip": "officer.unarmed.suit.walk.east",
+      "sampledStanceResidualPixels": 1.8651299583250627e-05,
+      "residualScope": "Each contiguous heel, flat-sole or toe support patch separately; patch positions differ during roll",
+      "maximumHeldPoseRootTravelPixels": 3.5555555555555554,
+      "maximumHeldPoseRootTravelAt720p47pxCell": 0.6527777777777778
+    },
+    {
+      "clip": "officer.unarmed.suit.walk.north",
+      "sampledStanceResidualPixels": 2.0246839403660965e-05,
+      "residualScope": "Each contiguous heel, flat-sole or toe support patch separately; patch positions differ during roll",
+      "maximumHeldPoseRootTravelPixels": 3.5555555555555554,
+      "maximumHeldPoseRootTravelAt720p47pxCell": 0.6527777777777778
+    },
+    {
+      "clip": "officer.unarmed.suit.walk.west",
+      "sampledStanceResidualPixels": 1.1356770063897374e-05,
+      "residualScope": "Each contiguous heel, flat-sole or toe support patch separately; patch positions differ during roll",
+      "maximumHeldPoseRootTravelPixels": 3.5555555555555554,
+      "maximumHeldPoseRootTravelAt720p47pxCell": 0.6527777777777778
+    }
+  ],
+  "residencyByEquipment": {
+    "pistol": {
+      "exposures": 1028,
+      "uniqueExactRGBACrops": 752,
+      "deduplicatedPaddedRGBABytes": 80997256,
+      "minimum2048PagesByArea": 5,
+      "scope": "Exact-crop area lower bound; actual allocated packing is lead-owned"
+    },
+    "unarmed": {
+      "exposures": 992,
+      "uniqueExactRGBACrops": 732,
+      "deduplicatedPaddedRGBABytes": 78196872,
+      "minimum2048PagesByArea": 5,
+      "scope": "Exact-crop area lower bound; actual allocated packing is lead-owned"
+    }
+  },
+  "interactionContacts": [
+    {
+      "clip": "officer.pistol.suit.work.south",
+      "contactSeconds": 0.16666666666666666,
+      "recoverySeconds": 0.2916666666666667,
+      "leftHand": {
+        "wrist": {
+          "world": [
+            0.1199999451637268,
+            -0.2999998927116394,
+            1.2700001001358032
+          ],
+          "localPixels": [
+            26.09674072265625,
+            157.39488983154297
+          ],
+          "screenCells": [
+            0.10194039344787598,
+            0.6148237884044647
+          ]
+        },
+        "palm": {
+          "world": [
+            0.1199999451637268,
+            -0.33894965052604675,
+            1.275615930557251
+          ],
+          "localPixels": [
+            26.09674072265625,
+            152.50812530517578
+          ],
+          "screenCells": [
+            0.10194039344787598,
+            0.5957348644733429
+          ]
+        },
+        "fingerTip": {
+          "world": [
+            0.1199999451637268,
+            -0.37789952754974365,
+            1.2812317609786987
+          ],
+          "localPixels": [
+            26.09674072265625,
+            147.6213607788086
+          ],
+          "screenCells": [
+            0.10194039344787598,
+            0.5766459405422211
+          ]
+        }
+      }
+    },
+    {
+      "clip": "officer.pistol.suit.terminal.south",
+      "contactSeconds": 0.16666666666666666,
+      "recoverySeconds": 0.3333333333333333,
+      "leftHand": {
+        "wrist": {
+          "world": [
+            0.024999946355819702,
+            -0.38499993085861206,
+            1.1349999904632568
+          ],
+          "localPixels": [
+            5.4368133544921875,
+            123.31914520263672
+          ],
+          "screenCells": [
+            0.021237552165985107,
+            0.4817154109477997
+          ]
+        },
+        "palm": {
+          "world": [
+            0.024999946355819702,
+            -0.4239496886730194,
+            1.1406158208847046
+          ],
+          "localPixels": [
+            5.4368133544921875,
+            118.43238067626953
+          ],
+          "screenCells": [
+            0.021237552165985107,
+            0.46262648701667786
+          ]
+        },
+        "fingerTip": {
+          "world": [
+            0.024999946355819702,
+            -0.4628995656967163,
+            1.1462316513061523
+          ],
+          "localPixels": [
+            5.4368133544921875,
+            113.54561614990234
+          ],
+          "screenCells": [
+            0.021237552165985107,
+            0.44353756308555603
+          ]
+        }
+      }
+    },
+    {
+      "clip": "officer.pistol.suit.breaker.south",
+      "contactSeconds": 0.25,
+      "recoverySeconds": 0.5,
+      "leftHand": {
+        "wrist": {
+          "world": [
+            0.07999993860721588,
+            -0.39500001072883606,
+            1.3250001668930054
+          ],
+          "localPixels": [
+            17.397811889648438,
+            152.0423812866211
+          ],
+          "screenCells": [
+            0.06796020269393921,
+            0.5939155519008636
+          ]
+        },
+        "palm": {
+          "world": [
+            0.07999993860721588,
+            -0.4339498281478882,
+            1.3306159973144531
+          ],
+          "localPixels": [
+            17.397811889648438,
+            147.15563201904297
+          ],
+          "screenCells": [
+            0.06796020269393921,
+            0.5748266875743866
+          ]
+        },
+        "fingerTip": {
+          "world": [
+            0.07999993860721588,
+            -0.4728996157646179,
+            1.3362317085266113
+          ],
+          "localPixels": [
+            17.397811889648438,
+            142.26883697509766
+          ],
+          "screenCells": [
+            0.06796020269393921,
+            0.5557376444339752
+          ]
+        }
+      }
+    },
+    {
+      "clip": "officer.pistol.suit.pickup.south",
+      "contactSeconds": 0.4166666666666667,
+      "recoverySeconds": 0.7083333333333334,
+      "leftHand": {
+        "wrist": {
+          "world": [
+            0.21999993920326233,
+            -0.2850000262260437,
+            0.060000039637088776
+          ],
+          "localPixels": [
+            47.844017028808594,
+            -32.75084686279297
+          ],
+          "screenCells": [
+            0.18689069151878357,
+            -0.12793299555778503
+          ]
+        },
+        "palm": {
+          "world": [
+            0.21999993920326233,
+            -0.32394981384277344,
+            0.06561588495969772
+          ],
+          "localPixels": [
+            47.844017028808594,
+            -37.637603759765625
+          ],
+          "screenCells": [
+            0.18689069151878357,
+            -0.14702188968658447
+          ]
+        },
+        "fingerTip": {
+          "world": [
+            0.21999993920326233,
+            -0.36289963126182556,
+            0.0712316706776619
+          ],
+          "localPixels": [
+            47.844017028808594,
+            -42.524375915527344
+          ],
+          "screenCells": [
+            0.18689069151878357,
+            -0.1661108434200287
+          ]
+        }
+      }
+    },
+    {
+      "clip": "officer.pistol.suit.drop.south",
+      "contactSeconds": 0.4166666666666667,
+      "recoverySeconds": 0.7083333333333334,
+      "leftHand": {
+        "wrist": {
+          "world": [
+            0.21999993920326233,
+            -0.2850000262260437,
+            0.060000039637088776
+          ],
+          "localPixels": [
+            47.844017028808594,
+            -32.75084686279297
+          ],
+          "screenCells": [
+            0.18689069151878357,
+            -0.12793299555778503
+          ]
+        },
+        "palm": {
+          "world": [
+            0.21999993920326233,
+            -0.32394981384277344,
+            0.06561588495969772
+          ],
+          "localPixels": [
+            47.844017028808594,
+            -37.637603759765625
+          ],
+          "screenCells": [
+            0.18689069151878357,
+            -0.14702188968658447
+          ]
+        },
+        "fingerTip": {
+          "world": [
+            0.21999993920326233,
+            -0.36289963126182556,
+            0.0712316706776619
+          ],
+          "localPixels": [
+            47.844017028808594,
+            -42.524375915527344
+          ],
+          "screenCells": [
+            0.18689069151878357,
+            -0.1661108434200287
+          ]
+        }
+      }
+    },
+    {
+      "clip": "officer.pistol.suit.supply.south",
+      "contactSeconds": 0.16666666666666666,
+      "recoverySeconds": 0.3333333333333333,
+      "leftHand": {
+        "wrist": {
+          "world": [
+            -0.045000046491622925,
+            -0.1749998927116394,
+            1.2850000858306885
+          ],
+          "localPixels": [
+            -9.78628921508789,
+            178.3278579711914
+          ],
+          "screenCells": [
+            -0.03822769224643707,
+            0.6965931951999664
+          ]
+        },
+        "palm": {
+          "world": [
+            -0.045000046491622925,
+            -0.21394966542720795,
+            1.2906159162521362
+          ],
+          "localPixels": [
+            -9.78628921508789,
+            173.44110870361328
+          ],
+          "screenCells": [
+            -0.03822769224643707,
+            0.6775043308734894
+          ]
+        },
+        "fingerTip": {
+          "world": [
+            -0.045000046491622925,
+            -0.25289952754974365,
+            1.296231746673584
+          ],
+          "localPixels": [
+            -9.78628921508789,
+            168.55432891845703
+          ],
+          "screenCells": [
+            -0.03822769224643707,
+            0.6584153473377228
+          ]
+        }
+      }
+    },
+    {
+      "clip": "officer.pistol.suit.equip.south",
+      "contactSeconds": 0.16666666666666666,
+      "recoverySeconds": 0.3333333333333333,
+      "leftHand": {
+        "wrist": {
+          "world": [
+            -0.1600000560283661,
+            -0.10499995201826096,
+            1.0650001764297485
+          ],
+          "localPixels": [
+            -34.79566955566406,
+            153.73824310302734
+          ],
+          "screenCells": [
+            -0.13592058420181274,
+            0.6005400121212006
+          ]
+        },
+        "palm": {
+          "world": [
+            -0.1600000560283661,
+            -0.14394976198673248,
+            1.0706158876419067
+          ],
+          "localPixels": [
+            -34.79566955566406,
+            148.8514633178711
+          ],
+          "screenCells": [
+            -0.13592058420181274,
+            0.581451028585434
+          ]
+        },
+        "fingerTip": {
+          "world": [
+            -0.1600000560283661,
+            -0.1828995645046234,
+            1.076231598854065
+          ],
+          "localPixels": [
+            -34.79566955566406,
+            143.96466827392578
+          ],
+          "screenCells": [
+            -0.13592058420181274,
+            0.5623619854450226
+          ]
+        }
+      }
+    },
+    {
+      "clip": "officer.pistol.suit.work.east",
+      "contactSeconds": 0.16666666666666666,
+      "recoverySeconds": 0.2916666666666667,
+      "leftHand": {
+        "wrist": {
+          "world": [
+            0.2999999523162842,
+            0.1199999675154686,
+            1.2700001001358032
+          ],
+          "localPixels": [
+            65.24185180664062,
+            219.71686553955078
+          ],
+          "screenCells": [
+            0.25485098361968994,
+            0.8582690060138702
+          ]
+        },
+        "palm": {
+          "world": [
+            0.33894971013069153,
+            0.1199999675154686,
+            1.275615930557251
+          ],
+          "localPixels": [
+            73.7123794555664,
+            220.60968780517578
+          ],
+          "screenCells": [
+            0.2879389822483063,
+            0.8617565929889679
+          ]
+        },
+        "fingerTip": {
+          "world": [
+            0.3778995871543884,
+            0.1199999675154686,
+            1.2812317609786987
+          ],
+          "localPixels": [
+            82.18290710449219,
+            221.5025405883789
+          ],
+          "screenCells": [
+            0.3210269808769226,
+            0.8652442991733551
+          ]
+        }
+      }
+    },
+    {
+      "clip": "officer.pistol.suit.terminal.east",
+      "contactSeconds": 0.16666666666666666,
+      "recoverySeconds": 0.3333333333333333,
+      "leftHand": {
+        "wrist": {
+          "world": [
+            0.38499993085861206,
+            0.024999968707561493,
+            1.1349999904632568
+          ],
+          "localPixels": [
+            83.72705841064453,
+            184.15726470947266
+          ],
+          "screenCells": [
+            0.3270588219165802,
+            0.7193643152713776
+          ]
+        },
+        "palm": {
+          "world": [
+            0.4239496886730194,
+            0.024999970570206642,
+            1.1406158208847046
+          ],
+          "localPixels": [
+            92.19756317138672,
+            185.05008697509766
+          ],
+          "screenCells": [
+            0.36014673113822937,
+            0.7228519022464752
+          ]
+        },
+        "fingerTip": {
+          "world": [
+            0.4628995656967163,
+            0.024999970570206642,
+            1.1462316513061523
+          ],
+          "localPixels": [
+            100.6681137084961,
+            185.94293975830078
+          ],
+          "screenCells": [
+            0.39323481917381287,
+            0.7263396084308624
+          ]
+        }
+      }
+    },
+    {
+      "clip": "officer.pistol.suit.breaker.east",
+      "contactSeconds": 0.25,
+      "recoverySeconds": 0.5,
+      "leftHand": {
+        "wrist": {
+          "world": [
+            0.39500001072883606,
+            0.07999996095895767,
+            1.3250001668930054
+          ],
+          "localPixels": [
+            85.90180206298828,
+            222.5256118774414
+          ],
+          "screenCells": [
+            0.335553914308548,
+            0.8692406713962555
+          ]
+        },
+        "palm": {
+          "world": [
+            0.4339498281478882,
+            0.07999996095895767,
+            1.3306159973144531
+          ],
+          "localPixels": [
+            94.37232971191406,
+            223.4184341430664
+          ],
+          "screenCells": [
+            0.3686419129371643,
+            0.8727282583713531
+          ]
+        },
+        "fingerTip": {
+          "world": [
+            0.4728996157646179,
+            0.07999996095895767,
+            1.3362317085266113
+          ],
+          "localPixels": [
+            102.84285736083984,
+            224.3112564086914
+          ],
+          "screenCells": [
+            0.40172991156578064,
+            0.8762158453464508
+          ]
+        }
+      }
+    },
+    {
+      "clip": "officer.pistol.suit.pickup.east",
+      "contactSeconds": 0.4166666666666667,
+      "recoverySeconds": 0.7083333333333334,
+      "leftHand": {
+        "wrist": {
+          "world": [
+            0.2850000262260437,
+            0.21999995410442352,
+            0.060000039637088776
+          ],
+          "localPixels": [
+            61.97978210449219,
+            42.18395233154297
+          ],
+          "screenCells": [
+            0.2421085238456726,
+            0.16478106379508972
+          ]
+        },
+        "palm": {
+          "world": [
+            0.32394978404045105,
+            0.21999995410442352,
+            0.06561588495969772
+          ],
+          "localPixels": [
+            70.45028686523438,
+            43.07677459716797
+          ],
+          "screenCells": [
+            0.2751964330673218,
+            0.16826865077018738
+          ]
+        },
+        "fingerTip": {
+          "world": [
+            0.36289963126182556,
+            0.21999995410442352,
+            0.0712316706776619
+          ],
+          "localPixels": [
+            78.92083740234375,
+            43.96959686279297
+          ],
+          "screenCells": [
+            0.3082845211029053,
+            0.17175623774528503
+          ]
+        }
+      }
+    },
+    {
+      "clip": "officer.pistol.suit.drop.east",
+      "contactSeconds": 0.4166666666666667,
+      "recoverySeconds": 0.7083333333333334,
+      "leftHand": {
+        "wrist": {
+          "world": [
+            0.2850000262260437,
+            0.21999995410442352,
+            0.060000039637088776
+          ],
+          "localPixels": [
+            61.97978210449219,
+            42.18395233154297
+          ],
+          "screenCells": [
+            0.2421085238456726,
+            0.16478106379508972
+          ]
+        },
+        "palm": {
+          "world": [
+            0.32394978404045105,
+            0.21999995410442352,
+            0.06561588495969772
+          ],
+          "localPixels": [
+            70.45028686523438,
+            43.07677459716797
+          ],
+          "screenCells": [
+            0.2751964330673218,
+            0.16826865077018738
+          ]
+        },
+        "fingerTip": {
+          "world": [
+            0.36289963126182556,
+            0.21999995410442352,
+            0.0712316706776619
+          ],
+          "localPixels": [
+            78.92083740234375,
+            43.96959686279297
+          ],
+          "screenCells": [
+            0.3082845211029053,
+            0.17175623774528503
+          ]
+        }
+      }
+    },
+    {
+      "clip": "officer.pistol.suit.supply.east",
+      "contactSeconds": 0.16666666666666666,
+      "recoverySeconds": 0.3333333333333333,
+      "leftHand": {
+        "wrist": {
+          "world": [
+            0.1749998778104782,
+            -0.04500003904104233,
+            1.2850000858306885
+          ],
+          "localPixels": [
+            38.0577392578125,
+            197.61798858642578
+          ],
+          "screenCells": [
+            0.14866304397583008,
+            0.7719452679157257
+          ]
+        },
+        "palm": {
+          "world": [
+            0.21394965052604675,
+            -0.04500003904104233,
+            1.2906159162521362
+          ],
+          "localPixels": [
+            46.52824401855469,
+            198.51081085205078
+          ],
+          "screenCells": [
+            0.18175095319747925,
+            0.7754328548908234
+          ]
+        },
+        "fingerTip": {
+          "world": [
+            0.25289952754974365,
+            -0.04500003531575203,
+            1.296231746673584
+          ],
+          "localPixels": [
+            54.99879455566406,
+            199.4036636352539
+          ],
+          "screenCells": [
+            0.21483904123306274,
+            0.7789205610752106
+          ]
+        }
+      }
+    },
+    {
+      "clip": "officer.pistol.suit.equip.east",
+      "contactSeconds": 0.16666666666666666,
+      "recoverySeconds": 0.3333333333333333,
+      "leftHand": {
+        "wrist": {
+          "world": [
+            0.10499994456768036,
+            -0.1600000560283661,
+            1.0650001764297485
+          ],
+          "localPixels": [
+            22.83464813232422,
+            145.57701873779297
+          ],
+          "screenCells": [
+            0.08919784426689148,
+            0.5686602294445038
+          ]
+        },
+        "palm": {
+          "world": [
+            0.1439497470855713,
+            -0.1600000411272049,
+            1.0706158876419067
+          ],
+          "localPixels": [
+            31.30517578125,
+            146.4698257446289
+          ],
+          "screenCells": [
+            0.12228584289550781,
+            0.5721477568149567
+          ]
+        },
+        "fingerTip": {
+          "world": [
+            0.1828995645046234,
+            -0.1600000411272049,
+            1.076231598854065
+          ],
+          "localPixels": [
+            39.77570343017578,
+            147.36263275146484
+          ],
+          "screenCells": [
+            0.15537384152412415,
+            0.5756352841854095
+          ]
+        }
+      }
+    },
+    {
+      "clip": "officer.pistol.suit.work.north",
+      "contactSeconds": 0.16666666666666666,
+      "recoverySeconds": 0.2916666666666667,
+      "leftHand": {
+        "wrist": {
+          "world": [
+            -0.1199999749660492,
+            0.2999999225139618,
+            1.2700001001358032
+          ],
+          "localPixels": [
+            -26.09674072265625,
+            246.42630767822266
+          ],
+          "screenCells": [
+            -0.10194039344787598,
+            0.9626027643680573
+          ]
+        },
+        "palm": {
+          "world": [
+            -0.1199999749660492,
+            0.33894971013069153,
+            1.275615930557251
+          ],
+          "localPixels": [
+            -26.09674072265625,
+            253.09870147705078
+          ],
+          "screenCells": [
+            -0.10194039344787598,
+            0.9886668026447296
+          ]
+        },
+        "fingerTip": {
+          "world": [
+            -0.11999998241662979,
+            0.3778995871543884,
+            1.2812317609786987
+          ],
+          "localPixels": [
+            -26.09674072265625,
+            259.77115631103516
+          ],
+          "screenCells": [
+            -0.10194039344787598,
+            1.014731079339981
+          ]
+        }
+      }
+    },
+    {
+      "clip": "officer.pistol.suit.terminal.north",
+      "contactSeconds": 0.16666666666666666,
+      "recoverySeconds": 0.3333333333333333,
+      "leftHand": {
+        "wrist": {
+          "world": [
+            -0.02499997429549694,
+            0.3849999010562897,
+            1.1349999904632568
+          ],
+          "localPixels": [
+            -5.4368133544921875,
+            237.57611846923828
+          ],
+          "screenCells": [
+            -0.021237552165985107,
+            0.928031712770462
+          ]
+        },
+        "palm": {
+          "world": [
+            -0.02499997802078724,
+            0.4239496886730194,
+            1.1406158208847046
+          ],
+          "localPixels": [
+            -5.4368133544921875,
+            244.24854278564453
+          ],
+          "screenCells": [
+            -0.021237552165985107,
+            0.954095870256424
+          ]
+        },
+        "fingerTip": {
+          "world": [
+            -0.024999981746077538,
+            0.4628995656967163,
+            1.1462316513061523
+          ],
+          "localPixels": [
+            -5.4368133544921875,
+            250.9209976196289
+          ],
+          "screenCells": [
+            -0.021237552165985107,
+            0.9801601469516754
+          ]
+        }
+      }
+    },
+    {
+      "clip": "officer.pistol.suit.breaker.north",
+      "contactSeconds": 0.25,
+      "recoverySeconds": 0.5,
+      "leftHand": {
+        "wrist": {
+          "world": [
+            -0.07999998331069946,
+            0.39500007033348083,
+            1.3250001668930054
+          ],
+          "localPixels": [
+            -17.397823333740234,
+            269.26712799072266
+          ],
+          "screenCells": [
+            -0.06796024739742279,
+            1.0518247187137604
+          ]
+        },
+        "palm": {
+          "world": [
+            -0.07999998331069946,
+            0.43394985795021057,
+            1.3306159973144531
+          ],
+          "localPixels": [
+            -17.397823333740234,
+            275.9395523071289
+          ],
+          "screenCells": [
+            -0.06796024739742279,
+            1.0778888761997223
+          ]
+        },
+        "fingerTip": {
+          "world": [
+            -0.07999999076128006,
+            0.4728996753692627,
+            1.3362317085266113
+          ],
+          "localPixels": [
+            -17.39783477783203,
+            282.61194610595703
+          ],
+          "screenCells": [
+            -0.06796029210090637,
+            1.1039529144763947
+          ]
+        }
+      }
+    },
+    {
+      "clip": "officer.pistol.suit.pickup.north",
+      "contactSeconds": 0.4166666666666667,
+      "recoverySeconds": 0.7083333333333334,
+      "leftHand": {
+        "wrist": {
+          "world": [
+            -0.21999996900558472,
+            0.2850000262260437,
+            0.060000039637088776
+          ],
+          "localPixels": [
+            -47.84402847290039,
+            51.82903289794922
+          ],
+          "screenCells": [
+            -0.18689073622226715,
+            0.20245715975761414
+          ]
+        },
+        "palm": {
+          "world": [
+            -0.21999996900558472,
+            0.32394978404045105,
+            0.06561588495969772
+          ],
+          "localPixels": [
+            -47.84402847290039,
+            58.501441955566406
+          ],
+          "screenCells": [
+            -0.18689073622226715,
+            0.22852125763893127
+          ]
+        },
+        "fingerTip": {
+          "world": [
+            -0.21999996900558472,
+            0.3628996014595032,
+            0.0712316706776619
+          ],
+          "localPixels": [
+            -47.84402847290039,
+            65.17386627197266
+          ],
+          "screenCells": [
+            -0.18689073622226715,
+            0.2545854151248932
+          ]
+        }
+      }
+    },
+    {
+      "clip": "officer.pistol.suit.drop.north",
+      "contactSeconds": 0.4166666666666667,
+      "recoverySeconds": 0.7083333333333334,
+      "leftHand": {
+        "wrist": {
+          "world": [
+            -0.21999996900558472,
+            0.2850000262260437,
+            0.060000039637088776
+          ],
+          "localPixels": [
+            -47.84402847290039,
+            51.82903289794922
+          ],
+          "screenCells": [
+            -0.18689073622226715,
+            0.20245715975761414
+          ]
+        },
+        "palm": {
+          "world": [
+            -0.21999996900558472,
+            0.32394978404045105,
+            0.06561588495969772
+          ],
+          "localPixels": [
+            -47.84402847290039,
+            58.501441955566406
+          ],
+          "screenCells": [
+            -0.18689073622226715,
+            0.22852125763893127
+          ]
+        },
+        "fingerTip": {
+          "world": [
+            -0.21999996900558472,
+            0.3628996014595032,
+            0.0712316706776619
+          ],
+          "localPixels": [
+            -47.84402847290039,
+            65.17386627197266
+          ],
+          "screenCells": [
+            -0.18689073622226715,
+            0.2545854151248932
+          ]
+        }
+      }
+    },
+    {
+      "clip": "officer.pistol.suit.supply.north",
+      "contactSeconds": 0.16666666666666666,
+      "recoverySeconds": 0.3333333333333333,
+      "leftHand": {
+        "wrist": {
+          "world": [
+            0.04500003159046173,
+            0.17499993741512299,
+            1.2850000858306885
+          ],
+          "localPixels": [
+            9.786277770996094,
+            230.26285552978516
+          ],
+          "screenCells": [
+            0.03822764754295349,
+            0.8994642794132233
+          ]
+        },
+        "palm": {
+          "world": [
+            0.04500002786517143,
+            0.21394969522953033,
+            1.2906159162521362
+          ],
+          "localPixels": [
+            9.786277770996094,
+            236.93524932861328
+          ],
+          "screenCells": [
+            0.03822764754295349,
+            0.9255283176898956
+          ]
+        },
+        "fingerTip": {
+          "world": [
+            0.04500002786517143,
+            0.2528995871543884,
+            1.296231746673584
+          ],
+          "localPixels": [
+            9.786277770996094,
+            243.60770416259766
+          ],
+          "screenCells": [
+            0.03822764754295349,
+            0.9515925943851471
+          ]
+        }
+      }
+    },
+    {
+      "clip": "officer.pistol.suit.equip.north",
+      "contactSeconds": 0.16666666666666666,
+      "recoverySeconds": 0.3333333333333333,
+      "leftHand": {
+        "wrist": {
+          "world": [
+            0.1600000411272049,
+            0.10499998927116394,
+            1.0650001764297485
+          ],
+          "localPixels": [
+            34.79566955566406,
+            184.89923858642578
+          ],
+          "screenCells": [
+            0.13592058420181274,
+            0.7222626507282257
+          ]
+        },
+        "palm": {
+          "world": [
+            0.1600000411272049,
+            0.14394980669021606,
+            1.0706158876419067
+          ],
+          "localPixels": [
+            34.79566955566406,
+            191.5716323852539
+          ],
+          "screenCells": [
+            0.13592058420181274,
+            0.7483266890048981
+          ]
+        },
+        "fingerTip": {
+          "world": [
+            0.1600000411272049,
+            0.182899609208107,
+            1.076231598854065
+          ],
+          "localPixels": [
+            34.79566955566406,
+            198.24405670166016
+          ],
+          "screenCells": [
+            0.13592058420181274,
+            0.77439084649086
+          ]
+        }
+      }
+    },
+    {
+      "clip": "officer.pistol.suit.work.west",
+      "contactSeconds": 0.16666666666666666,
+      "recoverySeconds": 0.2916666666666667,
+      "leftHand": {
+        "wrist": {
+          "world": [
+            -0.2999999225139618,
+            -0.11999992281198502,
+            1.2700001001358032
+          ],
+          "localPixels": [
+            -65.24185180664062,
+            184.10431671142578
+          ],
+          "screenCells": [
+            -0.25485098361968994,
+            0.719157487154007
+          ]
+        },
+        "palm": {
+          "world": [
+            -0.33894968032836914,
+            -0.11999992281198502,
+            1.275615930557251
+          ],
+          "localPixels": [
+            -73.71236801147461,
+            184.99713897705078
+          ],
+          "screenCells": [
+            -0.2879389375448227,
+            0.7226450741291046
+          ]
+        },
+        "fingerTip": {
+          "world": [
+            -0.37789955735206604,
+            -0.11999992281198502,
+            1.2812317609786987
+          ],
+          "localPixels": [
+            -82.18290710449219,
+            185.88996124267578
+          ],
+          "screenCells": [
+            -0.3210269808769226,
+            0.7261326611042023
+          ]
+        }
+      }
+    },
+    {
+      "clip": "officer.pistol.suit.terminal.west",
+      "contactSeconds": 0.16666666666666666,
+      "recoverySeconds": 0.3333333333333333,
+      "leftHand": {
+        "wrist": {
+          "world": [
+            -0.38499996066093445,
+            -0.02499992400407791,
+            1.1349999904632568
+          ],
+          "localPixels": [
+            -83.72705841064453,
+            176.7380142211914
+          ],
+          "screenCells": [
+            -0.3270588219165802,
+            0.6903828680515289
+          ]
+        },
+        "palm": {
+          "world": [
+            -0.4239497184753418,
+            -0.024999922141432762,
+            1.1406158208847046
+          ],
+          "localPixels": [
+            -92.19757461547852,
+            177.6308364868164
+          ],
+          "screenCells": [
+            -0.36014677584171295,
+            0.6938704550266266
+          ]
+        },
+        "fingerTip": {
+          "world": [
+            -0.4628995954990387,
+            -0.024999922141432762,
+            1.1462316513061523
+          ],
+          "localPixels": [
+            -100.6681137084961,
+            178.5236587524414
+          ],
+          "screenCells": [
+            -0.39323481917381287,
+            0.6973580420017242
+          ]
+        }
+      }
+    },
+    {
+      "clip": "officer.pistol.suit.breaker.west",
+      "contactSeconds": 0.25,
+      "recoverySeconds": 0.5,
+      "leftHand": {
+        "wrist": {
+          "world": [
+            -0.39500004053115845,
+            -0.07999991625547409,
+            1.3250001668930054
+          ],
+          "localPixels": [
+            -85.90180206298828,
+            198.7839126586914
+          ],
+          "screenCells": [
+            -0.335553914308548,
+            0.7764996588230133
+          ]
+        },
+        "palm": {
+          "world": [
+            -0.4339498281478882,
+            -0.07999991625547409,
+            1.3306159973144531
+          ],
+          "localPixels": [
+            -94.37232971191406,
+            199.6767349243164
+          ],
+          "screenCells": [
+            -0.3686419129371643,
+            0.779987245798111
+          ]
+        },
+        "fingerTip": {
+          "world": [
+            -0.4728996455669403,
+            -0.07999991625547409,
+            1.3362317085266113
+          ],
+          "localPixels": [
+            -102.84285736083984,
+            200.5695571899414
+          ],
+          "screenCells": [
+            -0.40172991156578064,
+            0.7834748327732086
+          ]
+        }
+      }
+    },
+    {
+      "clip": "officer.pistol.suit.pickup.west",
+      "contactSeconds": 0.4166666666666667,
+      "recoverySeconds": 0.7083333333333334,
+      "leftHand": {
+        "wrist": {
+          "world": [
+            -0.2850000560283661,
+            -0.21999992430210114,
+            0.060000039637088776
+          ],
+          "localPixels": [
+            -61.97978210449219,
+            -23.105751037597656
+          ],
+          "screenCells": [
+            -0.2421085238456726,
+            -0.09025683999061584
+          ]
+        },
+        "palm": {
+          "world": [
+            -0.32394981384277344,
+            -0.21999992430210114,
+            0.06561588495969772
+          ],
+          "localPixels": [
+            -70.45029830932617,
+            -22.212928771972656
+          ],
+          "screenCells": [
+            -0.27519647777080536,
+            -0.08676925301551819
+          ]
+        },
+        "fingerTip": {
+          "world": [
+            -0.36289963126182556,
+            -0.21999992430210114,
+            0.0712316706776619
+          ],
+          "localPixels": [
+            -78.92083740234375,
+            -21.320106506347656
+          ],
+          "screenCells": [
+            -0.3082845211029053,
+            -0.08328166604042053
+          ]
+        }
+      }
+    },
+    {
+      "clip": "officer.pistol.suit.drop.west",
+      "contactSeconds": 0.4166666666666667,
+      "recoverySeconds": 0.7083333333333334,
+      "leftHand": {
+        "wrist": {
+          "world": [
+            -0.2850000560283661,
+            -0.21999992430210114,
+            0.060000039637088776
+          ],
+          "localPixels": [
+            -61.97978210449219,
+            -23.105751037597656
+          ],
+          "screenCells": [
+            -0.2421085238456726,
+            -0.09025683999061584
+          ]
+        },
+        "palm": {
+          "world": [
+            -0.32394981384277344,
+            -0.21999992430210114,
+            0.06561588495969772
+          ],
+          "localPixels": [
+            -70.45029830932617,
+            -22.212928771972656
+          ],
+          "screenCells": [
+            -0.27519647777080536,
+            -0.08676925301551819
+          ]
+        },
+        "fingerTip": {
+          "world": [
+            -0.36289963126182556,
+            -0.21999992430210114,
+            0.0712316706776619
+          ],
+          "localPixels": [
+            -78.92083740234375,
+            -21.320106506347656
+          ],
+          "screenCells": [
+            -0.3082845211029053,
+            -0.08328166604042053
+          ]
+        }
+      }
+    },
+    {
+      "clip": "officer.pistol.suit.supply.west",
+      "contactSeconds": 0.16666666666666666,
+      "recoverySeconds": 0.3333333333333333,
+      "leftHand": {
+        "wrist": {
+          "world": [
+            -0.1749999076128006,
+            0.04500005394220352,
+            1.2850000858306885
+          ],
+          "localPixels": [
+            -38.0577392578125,
+            210.97272491455078
+          ],
+          "screenCells": [
+            -0.14866304397583008,
+            0.824112206697464
+          ]
+        },
+        "palm": {
+          "world": [
+            -0.21394968032836914,
+            0.04500005394220352,
+            1.2906159162521362
+          ],
+          "localPixels": [
+            -46.528255462646484,
+            211.86554718017578
+          ],
+          "screenCells": [
+            -0.18175099790096283,
+            0.8275997936725616
+          ]
+        },
+        "fingerTip": {
+          "world": [
+            -0.25289955735206604,
+            0.04500005766749382,
+            1.296231746673584
+          ],
+          "localPixels": [
+            -54.99879455566406,
+            212.7583999633789
+          ],
+          "screenCells": [
+            -0.21483904123306274,
+            0.8310874998569489
+          ]
+        }
+      }
+    },
+    {
+      "clip": "officer.pistol.suit.equip.west",
+      "contactSeconds": 0.16666666666666666,
+      "recoverySeconds": 0.3333333333333333,
+      "leftHand": {
+        "wrist": {
+          "world": [
+            -0.10499996691942215,
+            0.1600000560283661,
+            1.0650001764297485
+          ],
+          "localPixels": [
+            -22.83464813232422,
+            193.06046295166016
+          ],
+          "screenCells": [
+            -0.08919784426689148,
+            0.7541424334049225
+          ]
+        },
+        "palm": {
+          "world": [
+            -0.14394977688789368,
+            0.16000007092952728,
+            1.0706158876419067
+          ],
+          "localPixels": [
+            -31.30517578125,
+            193.95328521728516
+          ],
+          "screenCells": [
+            -0.12228584289550781,
+            0.7576300203800201
+          ]
+        },
+        "fingerTip": {
+          "world": [
+            -0.1828995794057846,
+            0.16000007092952728,
+            1.076231598854065
+          ],
+          "localPixels": [
+            -39.77570343017578,
+            194.84607696533203
+          ],
+          "screenCells": [
+            -0.15537384152412415,
+            0.7611174881458282
+          ]
+        }
+      }
+    },
+    {
+      "clip": "officer.unarmed.suit.work.south",
+      "contactSeconds": 0.16666666666666666,
+      "recoverySeconds": 0.2916666666666667,
+      "leftHand": {
+        "wrist": {
+          "world": [
+            0.1199999451637268,
+            -0.2999998927116394,
+            1.2700001001358032
+          ],
+          "localPixels": [
+            26.09674072265625,
+            157.39488983154297
+          ],
+          "screenCells": [
+            0.10194039344787598,
+            0.6148237884044647
+          ]
+        },
+        "palm": {
+          "world": [
+            0.1199999451637268,
+            -0.33894965052604675,
+            1.275615930557251
+          ],
+          "localPixels": [
+            26.09674072265625,
+            152.50812530517578
+          ],
+          "screenCells": [
+            0.10194039344787598,
+            0.5957348644733429
+          ]
+        },
+        "fingerTip": {
+          "world": [
+            0.1199999451637268,
+            -0.37789952754974365,
+            1.2812317609786987
+          ],
+          "localPixels": [
+            26.09674072265625,
+            147.6213607788086
+          ],
+          "screenCells": [
+            0.10194039344787598,
+            0.5766459405422211
+          ]
+        }
+      }
+    },
+    {
+      "clip": "officer.unarmed.suit.terminal.south",
+      "contactSeconds": 0.16666666666666666,
+      "recoverySeconds": 0.3333333333333333,
+      "leftHand": {
+        "wrist": {
+          "world": [
+            0.024999946355819702,
+            -0.38499993085861206,
+            1.1349999904632568
+          ],
+          "localPixels": [
+            5.4368133544921875,
+            123.31914520263672
+          ],
+          "screenCells": [
+            0.021237552165985107,
+            0.4817154109477997
+          ]
+        },
+        "palm": {
+          "world": [
+            0.024999946355819702,
+            -0.4239496886730194,
+            1.1406158208847046
+          ],
+          "localPixels": [
+            5.4368133544921875,
+            118.43238067626953
+          ],
+          "screenCells": [
+            0.021237552165985107,
+            0.46262648701667786
+          ]
+        },
+        "fingerTip": {
+          "world": [
+            0.024999946355819702,
+            -0.4628995656967163,
+            1.1462316513061523
+          ],
+          "localPixels": [
+            5.4368133544921875,
+            113.54561614990234
+          ],
+          "screenCells": [
+            0.021237552165985107,
+            0.44353756308555603
+          ]
+        }
+      }
+    },
+    {
+      "clip": "officer.unarmed.suit.breaker.south",
+      "contactSeconds": 0.25,
+      "recoverySeconds": 0.5,
+      "leftHand": {
+        "wrist": {
+          "world": [
+            0.07999993860721588,
+            -0.39500001072883606,
+            1.3250001668930054
+          ],
+          "localPixels": [
+            17.397811889648438,
+            152.0423812866211
+          ],
+          "screenCells": [
+            0.06796020269393921,
+            0.5939155519008636
+          ]
+        },
+        "palm": {
+          "world": [
+            0.07999993860721588,
+            -0.4339498281478882,
+            1.3306159973144531
+          ],
+          "localPixels": [
+            17.397811889648438,
+            147.15563201904297
+          ],
+          "screenCells": [
+            0.06796020269393921,
+            0.5748266875743866
+          ]
+        },
+        "fingerTip": {
+          "world": [
+            0.07999993860721588,
+            -0.4728996157646179,
+            1.3362317085266113
+          ],
+          "localPixels": [
+            17.397811889648438,
+            142.26883697509766
+          ],
+          "screenCells": [
+            0.06796020269393921,
+            0.5557376444339752
+          ]
+        }
+      }
+    },
+    {
+      "clip": "officer.unarmed.suit.pickup.south",
+      "contactSeconds": 0.4166666666666667,
+      "recoverySeconds": 0.7083333333333334,
+      "leftHand": {
+        "wrist": {
+          "world": [
+            0.21999993920326233,
+            -0.2850000262260437,
+            0.060000039637088776
+          ],
+          "localPixels": [
+            47.844017028808594,
+            -32.75084686279297
+          ],
+          "screenCells": [
+            0.18689069151878357,
+            -0.12793299555778503
+          ]
+        },
+        "palm": {
+          "world": [
+            0.21999993920326233,
+            -0.32394981384277344,
+            0.06561588495969772
+          ],
+          "localPixels": [
+            47.844017028808594,
+            -37.637603759765625
+          ],
+          "screenCells": [
+            0.18689069151878357,
+            -0.14702188968658447
+          ]
+        },
+        "fingerTip": {
+          "world": [
+            0.21999993920326233,
+            -0.36289963126182556,
+            0.0712316706776619
+          ],
+          "localPixels": [
+            47.844017028808594,
+            -42.524375915527344
+          ],
+          "screenCells": [
+            0.18689069151878357,
+            -0.1661108434200287
+          ]
+        }
+      }
+    },
+    {
+      "clip": "officer.unarmed.suit.drop.south",
+      "contactSeconds": 0.4166666666666667,
+      "recoverySeconds": 0.7083333333333334,
+      "leftHand": {
+        "wrist": {
+          "world": [
+            0.21999993920326233,
+            -0.2850000262260437,
+            0.060000039637088776
+          ],
+          "localPixels": [
+            47.844017028808594,
+            -32.75084686279297
+          ],
+          "screenCells": [
+            0.18689069151878357,
+            -0.12793299555778503
+          ]
+        },
+        "palm": {
+          "world": [
+            0.21999993920326233,
+            -0.32394981384277344,
+            0.06561588495969772
+          ],
+          "localPixels": [
+            47.844017028808594,
+            -37.637603759765625
+          ],
+          "screenCells": [
+            0.18689069151878357,
+            -0.14702188968658447
+          ]
+        },
+        "fingerTip": {
+          "world": [
+            0.21999993920326233,
+            -0.36289963126182556,
+            0.0712316706776619
+          ],
+          "localPixels": [
+            47.844017028808594,
+            -42.524375915527344
+          ],
+          "screenCells": [
+            0.18689069151878357,
+            -0.1661108434200287
+          ]
+        }
+      }
+    },
+    {
+      "clip": "officer.unarmed.suit.supply.south",
+      "contactSeconds": 0.16666666666666666,
+      "recoverySeconds": 0.3333333333333333,
+      "leftHand": {
+        "wrist": {
+          "world": [
+            -0.045000046491622925,
+            -0.1749998927116394,
+            1.2850000858306885
+          ],
+          "localPixels": [
+            -9.78628921508789,
+            178.3278579711914
+          ],
+          "screenCells": [
+            -0.03822769224643707,
+            0.6965931951999664
+          ]
+        },
+        "palm": {
+          "world": [
+            -0.045000046491622925,
+            -0.21394966542720795,
+            1.2906159162521362
+          ],
+          "localPixels": [
+            -9.78628921508789,
+            173.44110870361328
+          ],
+          "screenCells": [
+            -0.03822769224643707,
+            0.6775043308734894
+          ]
+        },
+        "fingerTip": {
+          "world": [
+            -0.045000046491622925,
+            -0.25289952754974365,
+            1.296231746673584
+          ],
+          "localPixels": [
+            -9.78628921508789,
+            168.55432891845703
+          ],
+          "screenCells": [
+            -0.03822769224643707,
+            0.6584153473377228
+          ]
+        }
+      }
+    },
+    {
+      "clip": "officer.unarmed.suit.equip.south",
+      "contactSeconds": 0.16666666666666666,
+      "recoverySeconds": 0.3333333333333333,
+      "leftHand": {
+        "wrist": {
+          "world": [
+            -0.1600000560283661,
+            -0.10499995201826096,
+            1.0650001764297485
+          ],
+          "localPixels": [
+            -34.79566955566406,
+            153.73824310302734
+          ],
+          "screenCells": [
+            -0.13592058420181274,
+            0.6005400121212006
+          ]
+        },
+        "palm": {
+          "world": [
+            -0.1600000560283661,
+            -0.14394976198673248,
+            1.0706158876419067
+          ],
+          "localPixels": [
+            -34.79566955566406,
+            148.8514633178711
+          ],
+          "screenCells": [
+            -0.13592058420181274,
+            0.581451028585434
+          ]
+        },
+        "fingerTip": {
+          "world": [
+            -0.1600000560283661,
+            -0.1828995645046234,
+            1.076231598854065
+          ],
+          "localPixels": [
+            -34.79566955566406,
+            143.96466827392578
+          ],
+          "screenCells": [
+            -0.13592058420181274,
+            0.5623619854450226
+          ]
+        }
+      }
+    },
+    {
+      "clip": "officer.unarmed.suit.work.east",
+      "contactSeconds": 0.16666666666666666,
+      "recoverySeconds": 0.2916666666666667,
+      "leftHand": {
+        "wrist": {
+          "world": [
+            0.2999999523162842,
+            0.1199999675154686,
+            1.2700001001358032
+          ],
+          "localPixels": [
+            65.24185180664062,
+            219.71686553955078
+          ],
+          "screenCells": [
+            0.25485098361968994,
+            0.8582690060138702
+          ]
+        },
+        "palm": {
+          "world": [
+            0.33894971013069153,
+            0.1199999675154686,
+            1.275615930557251
+          ],
+          "localPixels": [
+            73.7123794555664,
+            220.60968780517578
+          ],
+          "screenCells": [
+            0.2879389822483063,
+            0.8617565929889679
+          ]
+        },
+        "fingerTip": {
+          "world": [
+            0.3778995871543884,
+            0.1199999675154686,
+            1.2812317609786987
+          ],
+          "localPixels": [
+            82.18290710449219,
+            221.5025405883789
+          ],
+          "screenCells": [
+            0.3210269808769226,
+            0.8652442991733551
+          ]
+        }
+      }
+    },
+    {
+      "clip": "officer.unarmed.suit.terminal.east",
+      "contactSeconds": 0.16666666666666666,
+      "recoverySeconds": 0.3333333333333333,
+      "leftHand": {
+        "wrist": {
+          "world": [
+            0.38499993085861206,
+            0.024999968707561493,
+            1.1349999904632568
+          ],
+          "localPixels": [
+            83.72705841064453,
+            184.15726470947266
+          ],
+          "screenCells": [
+            0.3270588219165802,
+            0.7193643152713776
+          ]
+        },
+        "palm": {
+          "world": [
+            0.4239496886730194,
+            0.024999970570206642,
+            1.1406158208847046
+          ],
+          "localPixels": [
+            92.19756317138672,
+            185.05008697509766
+          ],
+          "screenCells": [
+            0.36014673113822937,
+            0.7228519022464752
+          ]
+        },
+        "fingerTip": {
+          "world": [
+            0.4628995656967163,
+            0.024999970570206642,
+            1.1462316513061523
+          ],
+          "localPixels": [
+            100.6681137084961,
+            185.94293975830078
+          ],
+          "screenCells": [
+            0.39323481917381287,
+            0.7263396084308624
+          ]
+        }
+      }
+    },
+    {
+      "clip": "officer.unarmed.suit.breaker.east",
+      "contactSeconds": 0.25,
+      "recoverySeconds": 0.5,
+      "leftHand": {
+        "wrist": {
+          "world": [
+            0.39500001072883606,
+            0.07999996095895767,
+            1.3250001668930054
+          ],
+          "localPixels": [
+            85.90180206298828,
+            222.5256118774414
+          ],
+          "screenCells": [
+            0.335553914308548,
+            0.8692406713962555
+          ]
+        },
+        "palm": {
+          "world": [
+            0.4339498281478882,
+            0.07999996095895767,
+            1.3306159973144531
+          ],
+          "localPixels": [
+            94.37232971191406,
+            223.4184341430664
+          ],
+          "screenCells": [
+            0.3686419129371643,
+            0.8727282583713531
+          ]
+        },
+        "fingerTip": {
+          "world": [
+            0.4728996157646179,
+            0.07999996095895767,
+            1.3362317085266113
+          ],
+          "localPixels": [
+            102.84285736083984,
+            224.3112564086914
+          ],
+          "screenCells": [
+            0.40172991156578064,
+            0.8762158453464508
+          ]
+        }
+      }
+    },
+    {
+      "clip": "officer.unarmed.suit.pickup.east",
+      "contactSeconds": 0.4166666666666667,
+      "recoverySeconds": 0.7083333333333334,
+      "leftHand": {
+        "wrist": {
+          "world": [
+            0.2850000262260437,
+            0.21999995410442352,
+            0.060000039637088776
+          ],
+          "localPixels": [
+            61.97978210449219,
+            42.18395233154297
+          ],
+          "screenCells": [
+            0.2421085238456726,
+            0.16478106379508972
+          ]
+        },
+        "palm": {
+          "world": [
+            0.32394978404045105,
+            0.21999995410442352,
+            0.06561588495969772
+          ],
+          "localPixels": [
+            70.45028686523438,
+            43.07677459716797
+          ],
+          "screenCells": [
+            0.2751964330673218,
+            0.16826865077018738
+          ]
+        },
+        "fingerTip": {
+          "world": [
+            0.36289963126182556,
+            0.21999995410442352,
+            0.0712316706776619
+          ],
+          "localPixels": [
+            78.92083740234375,
+            43.96959686279297
+          ],
+          "screenCells": [
+            0.3082845211029053,
+            0.17175623774528503
+          ]
+        }
+      }
+    },
+    {
+      "clip": "officer.unarmed.suit.drop.east",
+      "contactSeconds": 0.4166666666666667,
+      "recoverySeconds": 0.7083333333333334,
+      "leftHand": {
+        "wrist": {
+          "world": [
+            0.2850000262260437,
+            0.21999995410442352,
+            0.060000039637088776
+          ],
+          "localPixels": [
+            61.97978210449219,
+            42.18395233154297
+          ],
+          "screenCells": [
+            0.2421085238456726,
+            0.16478106379508972
+          ]
+        },
+        "palm": {
+          "world": [
+            0.32394978404045105,
+            0.21999995410442352,
+            0.06561588495969772
+          ],
+          "localPixels": [
+            70.45028686523438,
+            43.07677459716797
+          ],
+          "screenCells": [
+            0.2751964330673218,
+            0.16826865077018738
+          ]
+        },
+        "fingerTip": {
+          "world": [
+            0.36289963126182556,
+            0.21999995410442352,
+            0.0712316706776619
+          ],
+          "localPixels": [
+            78.92083740234375,
+            43.96959686279297
+          ],
+          "screenCells": [
+            0.3082845211029053,
+            0.17175623774528503
+          ]
+        }
+      }
+    },
+    {
+      "clip": "officer.unarmed.suit.supply.east",
+      "contactSeconds": 0.16666666666666666,
+      "recoverySeconds": 0.3333333333333333,
+      "leftHand": {
+        "wrist": {
+          "world": [
+            0.1749998778104782,
+            -0.04500003904104233,
+            1.2850000858306885
+          ],
+          "localPixels": [
+            38.0577392578125,
+            197.61798858642578
+          ],
+          "screenCells": [
+            0.14866304397583008,
+            0.7719452679157257
+          ]
+        },
+        "palm": {
+          "world": [
+            0.21394965052604675,
+            -0.04500003904104233,
+            1.2906159162521362
+          ],
+          "localPixels": [
+            46.52824401855469,
+            198.51081085205078
+          ],
+          "screenCells": [
+            0.18175095319747925,
+            0.7754328548908234
+          ]
+        },
+        "fingerTip": {
+          "world": [
+            0.25289952754974365,
+            -0.04500003531575203,
+            1.296231746673584
+          ],
+          "localPixels": [
+            54.99879455566406,
+            199.4036636352539
+          ],
+          "screenCells": [
+            0.21483904123306274,
+            0.7789205610752106
+          ]
+        }
+      }
+    },
+    {
+      "clip": "officer.unarmed.suit.equip.east",
+      "contactSeconds": 0.16666666666666666,
+      "recoverySeconds": 0.3333333333333333,
+      "leftHand": {
+        "wrist": {
+          "world": [
+            0.10499994456768036,
+            -0.1600000560283661,
+            1.0650001764297485
+          ],
+          "localPixels": [
+            22.83464813232422,
+            145.57701873779297
+          ],
+          "screenCells": [
+            0.08919784426689148,
+            0.5686602294445038
+          ]
+        },
+        "palm": {
+          "world": [
+            0.1439497470855713,
+            -0.1600000411272049,
+            1.0706158876419067
+          ],
+          "localPixels": [
+            31.30517578125,
+            146.4698257446289
+          ],
+          "screenCells": [
+            0.12228584289550781,
+            0.5721477568149567
+          ]
+        },
+        "fingerTip": {
+          "world": [
+            0.1828995645046234,
+            -0.1600000411272049,
+            1.076231598854065
+          ],
+          "localPixels": [
+            39.77570343017578,
+            147.36263275146484
+          ],
+          "screenCells": [
+            0.15537384152412415,
+            0.5756352841854095
+          ]
+        }
+      }
+    },
+    {
+      "clip": "officer.unarmed.suit.work.north",
+      "contactSeconds": 0.16666666666666666,
+      "recoverySeconds": 0.2916666666666667,
+      "leftHand": {
+        "wrist": {
+          "world": [
+            -0.1199999749660492,
+            0.2999999225139618,
+            1.2700001001358032
+          ],
+          "localPixels": [
+            -26.09674072265625,
+            246.42630767822266
+          ],
+          "screenCells": [
+            -0.10194039344787598,
+            0.9626027643680573
+          ]
+        },
+        "palm": {
+          "world": [
+            -0.1199999749660492,
+            0.33894971013069153,
+            1.275615930557251
+          ],
+          "localPixels": [
+            -26.09674072265625,
+            253.09870147705078
+          ],
+          "screenCells": [
+            -0.10194039344787598,
+            0.9886668026447296
+          ]
+        },
+        "fingerTip": {
+          "world": [
+            -0.11999998241662979,
+            0.3778995871543884,
+            1.2812317609786987
+          ],
+          "localPixels": [
+            -26.09674072265625,
+            259.77115631103516
+          ],
+          "screenCells": [
+            -0.10194039344787598,
+            1.014731079339981
+          ]
+        }
+      }
+    },
+    {
+      "clip": "officer.unarmed.suit.terminal.north",
+      "contactSeconds": 0.16666666666666666,
+      "recoverySeconds": 0.3333333333333333,
+      "leftHand": {
+        "wrist": {
+          "world": [
+            -0.02499997429549694,
+            0.3849999010562897,
+            1.1349999904632568
+          ],
+          "localPixels": [
+            -5.4368133544921875,
+            237.57611846923828
+          ],
+          "screenCells": [
+            -0.021237552165985107,
+            0.928031712770462
+          ]
+        },
+        "palm": {
+          "world": [
+            -0.02499997802078724,
+            0.4239496886730194,
+            1.1406158208847046
+          ],
+          "localPixels": [
+            -5.4368133544921875,
+            244.24854278564453
+          ],
+          "screenCells": [
+            -0.021237552165985107,
+            0.954095870256424
+          ]
+        },
+        "fingerTip": {
+          "world": [
+            -0.024999981746077538,
+            0.4628995656967163,
+            1.1462316513061523
+          ],
+          "localPixels": [
+            -5.4368133544921875,
+            250.9209976196289
+          ],
+          "screenCells": [
+            -0.021237552165985107,
+            0.9801601469516754
+          ]
+        }
+      }
+    },
+    {
+      "clip": "officer.unarmed.suit.breaker.north",
+      "contactSeconds": 0.25,
+      "recoverySeconds": 0.5,
+      "leftHand": {
+        "wrist": {
+          "world": [
+            -0.07999998331069946,
+            0.39500007033348083,
+            1.3250001668930054
+          ],
+          "localPixels": [
+            -17.397823333740234,
+            269.26712799072266
+          ],
+          "screenCells": [
+            -0.06796024739742279,
+            1.0518247187137604
+          ]
+        },
+        "palm": {
+          "world": [
+            -0.07999998331069946,
+            0.43394985795021057,
+            1.3306159973144531
+          ],
+          "localPixels": [
+            -17.397823333740234,
+            275.9395523071289
+          ],
+          "screenCells": [
+            -0.06796024739742279,
+            1.0778888761997223
+          ]
+        },
+        "fingerTip": {
+          "world": [
+            -0.07999999076128006,
+            0.4728996753692627,
+            1.3362317085266113
+          ],
+          "localPixels": [
+            -17.39783477783203,
+            282.61194610595703
+          ],
+          "screenCells": [
+            -0.06796029210090637,
+            1.1039529144763947
+          ]
+        }
+      }
+    },
+    {
+      "clip": "officer.unarmed.suit.pickup.north",
+      "contactSeconds": 0.4166666666666667,
+      "recoverySeconds": 0.7083333333333334,
+      "leftHand": {
+        "wrist": {
+          "world": [
+            -0.21999996900558472,
+            0.2850000262260437,
+            0.060000039637088776
+          ],
+          "localPixels": [
+            -47.84402847290039,
+            51.82903289794922
+          ],
+          "screenCells": [
+            -0.18689073622226715,
+            0.20245715975761414
+          ]
+        },
+        "palm": {
+          "world": [
+            -0.21999996900558472,
+            0.32394978404045105,
+            0.06561588495969772
+          ],
+          "localPixels": [
+            -47.84402847290039,
+            58.501441955566406
+          ],
+          "screenCells": [
+            -0.18689073622226715,
+            0.22852125763893127
+          ]
+        },
+        "fingerTip": {
+          "world": [
+            -0.21999996900558472,
+            0.3628996014595032,
+            0.0712316706776619
+          ],
+          "localPixels": [
+            -47.84402847290039,
+            65.17386627197266
+          ],
+          "screenCells": [
+            -0.18689073622226715,
+            0.2545854151248932
+          ]
+        }
+      }
+    },
+    {
+      "clip": "officer.unarmed.suit.drop.north",
+      "contactSeconds": 0.4166666666666667,
+      "recoverySeconds": 0.7083333333333334,
+      "leftHand": {
+        "wrist": {
+          "world": [
+            -0.21999996900558472,
+            0.2850000262260437,
+            0.060000039637088776
+          ],
+          "localPixels": [
+            -47.84402847290039,
+            51.82903289794922
+          ],
+          "screenCells": [
+            -0.18689073622226715,
+            0.20245715975761414
+          ]
+        },
+        "palm": {
+          "world": [
+            -0.21999996900558472,
+            0.32394978404045105,
+            0.06561588495969772
+          ],
+          "localPixels": [
+            -47.84402847290039,
+            58.501441955566406
+          ],
+          "screenCells": [
+            -0.18689073622226715,
+            0.22852125763893127
+          ]
+        },
+        "fingerTip": {
+          "world": [
+            -0.21999996900558472,
+            0.3628996014595032,
+            0.0712316706776619
+          ],
+          "localPixels": [
+            -47.84402847290039,
+            65.17386627197266
+          ],
+          "screenCells": [
+            -0.18689073622226715,
+            0.2545854151248932
+          ]
+        }
+      }
+    },
+    {
+      "clip": "officer.unarmed.suit.supply.north",
+      "contactSeconds": 0.16666666666666666,
+      "recoverySeconds": 0.3333333333333333,
+      "leftHand": {
+        "wrist": {
+          "world": [
+            0.04500003159046173,
+            0.17499993741512299,
+            1.2850000858306885
+          ],
+          "localPixels": [
+            9.786277770996094,
+            230.26285552978516
+          ],
+          "screenCells": [
+            0.03822764754295349,
+            0.8994642794132233
+          ]
+        },
+        "palm": {
+          "world": [
+            0.04500002786517143,
+            0.21394969522953033,
+            1.2906159162521362
+          ],
+          "localPixels": [
+            9.786277770996094,
+            236.93524932861328
+          ],
+          "screenCells": [
+            0.03822764754295349,
+            0.9255283176898956
+          ]
+        },
+        "fingerTip": {
+          "world": [
+            0.04500002786517143,
+            0.2528995871543884,
+            1.296231746673584
+          ],
+          "localPixels": [
+            9.786277770996094,
+            243.60770416259766
+          ],
+          "screenCells": [
+            0.03822764754295349,
+            0.9515925943851471
+          ]
+        }
+      }
+    },
+    {
+      "clip": "officer.unarmed.suit.equip.north",
+      "contactSeconds": 0.16666666666666666,
+      "recoverySeconds": 0.3333333333333333,
+      "leftHand": {
+        "wrist": {
+          "world": [
+            0.1600000411272049,
+            0.10499998927116394,
+            1.0650001764297485
+          ],
+          "localPixels": [
+            34.79566955566406,
+            184.89923858642578
+          ],
+          "screenCells": [
+            0.13592058420181274,
+            0.7222626507282257
+          ]
+        },
+        "palm": {
+          "world": [
+            0.1600000411272049,
+            0.14394980669021606,
+            1.0706158876419067
+          ],
+          "localPixels": [
+            34.79566955566406,
+            191.5716323852539
+          ],
+          "screenCells": [
+            0.13592058420181274,
+            0.7483266890048981
+          ]
+        },
+        "fingerTip": {
+          "world": [
+            0.1600000411272049,
+            0.182899609208107,
+            1.076231598854065
+          ],
+          "localPixels": [
+            34.79566955566406,
+            198.24405670166016
+          ],
+          "screenCells": [
+            0.13592058420181274,
+            0.77439084649086
+          ]
+        }
+      }
+    },
+    {
+      "clip": "officer.unarmed.suit.work.west",
+      "contactSeconds": 0.16666666666666666,
+      "recoverySeconds": 0.2916666666666667,
+      "leftHand": {
+        "wrist": {
+          "world": [
+            -0.2999999225139618,
+            -0.11999992281198502,
+            1.2700001001358032
+          ],
+          "localPixels": [
+            -65.24185180664062,
+            184.10431671142578
+          ],
+          "screenCells": [
+            -0.25485098361968994,
+            0.719157487154007
+          ]
+        },
+        "palm": {
+          "world": [
+            -0.33894968032836914,
+            -0.11999992281198502,
+            1.275615930557251
+          ],
+          "localPixels": [
+            -73.71236801147461,
+            184.99713897705078
+          ],
+          "screenCells": [
+            -0.2879389375448227,
+            0.7226450741291046
+          ]
+        },
+        "fingerTip": {
+          "world": [
+            -0.37789955735206604,
+            -0.11999992281198502,
+            1.2812317609786987
+          ],
+          "localPixels": [
+            -82.18290710449219,
+            185.88996124267578
+          ],
+          "screenCells": [
+            -0.3210269808769226,
+            0.7261326611042023
+          ]
+        }
+      }
+    },
+    {
+      "clip": "officer.unarmed.suit.terminal.west",
+      "contactSeconds": 0.16666666666666666,
+      "recoverySeconds": 0.3333333333333333,
+      "leftHand": {
+        "wrist": {
+          "world": [
+            -0.38499996066093445,
+            -0.02499992400407791,
+            1.1349999904632568
+          ],
+          "localPixels": [
+            -83.72705841064453,
+            176.7380142211914
+          ],
+          "screenCells": [
+            -0.3270588219165802,
+            0.6903828680515289
+          ]
+        },
+        "palm": {
+          "world": [
+            -0.4239497184753418,
+            -0.024999922141432762,
+            1.1406158208847046
+          ],
+          "localPixels": [
+            -92.19757461547852,
+            177.6308364868164
+          ],
+          "screenCells": [
+            -0.36014677584171295,
+            0.6938704550266266
+          ]
+        },
+        "fingerTip": {
+          "world": [
+            -0.4628995954990387,
+            -0.024999922141432762,
+            1.1462316513061523
+          ],
+          "localPixels": [
+            -100.6681137084961,
+            178.5236587524414
+          ],
+          "screenCells": [
+            -0.39323481917381287,
+            0.6973580420017242
+          ]
+        }
+      }
+    },
+    {
+      "clip": "officer.unarmed.suit.breaker.west",
+      "contactSeconds": 0.25,
+      "recoverySeconds": 0.5,
+      "leftHand": {
+        "wrist": {
+          "world": [
+            -0.39500004053115845,
+            -0.07999991625547409,
+            1.3250001668930054
+          ],
+          "localPixels": [
+            -85.90180206298828,
+            198.7839126586914
+          ],
+          "screenCells": [
+            -0.335553914308548,
+            0.7764996588230133
+          ]
+        },
+        "palm": {
+          "world": [
+            -0.4339498281478882,
+            -0.07999991625547409,
+            1.3306159973144531
+          ],
+          "localPixels": [
+            -94.37232971191406,
+            199.6767349243164
+          ],
+          "screenCells": [
+            -0.3686419129371643,
+            0.779987245798111
+          ]
+        },
+        "fingerTip": {
+          "world": [
+            -0.4728996455669403,
+            -0.07999991625547409,
+            1.3362317085266113
+          ],
+          "localPixels": [
+            -102.84285736083984,
+            200.5695571899414
+          ],
+          "screenCells": [
+            -0.40172991156578064,
+            0.7834748327732086
+          ]
+        }
+      }
+    },
+    {
+      "clip": "officer.unarmed.suit.pickup.west",
+      "contactSeconds": 0.4166666666666667,
+      "recoverySeconds": 0.7083333333333334,
+      "leftHand": {
+        "wrist": {
+          "world": [
+            -0.2850000560283661,
+            -0.21999992430210114,
+            0.060000039637088776
+          ],
+          "localPixels": [
+            -61.97978210449219,
+            -23.105751037597656
+          ],
+          "screenCells": [
+            -0.2421085238456726,
+            -0.09025683999061584
+          ]
+        },
+        "palm": {
+          "world": [
+            -0.32394981384277344,
+            -0.21999992430210114,
+            0.06561588495969772
+          ],
+          "localPixels": [
+            -70.45029830932617,
+            -22.212928771972656
+          ],
+          "screenCells": [
+            -0.27519647777080536,
+            -0.08676925301551819
+          ]
+        },
+        "fingerTip": {
+          "world": [
+            -0.36289963126182556,
+            -0.21999992430210114,
+            0.0712316706776619
+          ],
+          "localPixels": [
+            -78.92083740234375,
+            -21.320106506347656
+          ],
+          "screenCells": [
+            -0.3082845211029053,
+            -0.08328166604042053
+          ]
+        }
+      }
+    },
+    {
+      "clip": "officer.unarmed.suit.drop.west",
+      "contactSeconds": 0.4166666666666667,
+      "recoverySeconds": 0.7083333333333334,
+      "leftHand": {
+        "wrist": {
+          "world": [
+            -0.2850000560283661,
+            -0.21999992430210114,
+            0.060000039637088776
+          ],
+          "localPixels": [
+            -61.97978210449219,
+            -23.105751037597656
+          ],
+          "screenCells": [
+            -0.2421085238456726,
+            -0.09025683999061584
+          ]
+        },
+        "palm": {
+          "world": [
+            -0.32394981384277344,
+            -0.21999992430210114,
+            0.06561588495969772
+          ],
+          "localPixels": [
+            -70.45029830932617,
+            -22.212928771972656
+          ],
+          "screenCells": [
+            -0.27519647777080536,
+            -0.08676925301551819
+          ]
+        },
+        "fingerTip": {
+          "world": [
+            -0.36289963126182556,
+            -0.21999992430210114,
+            0.0712316706776619
+          ],
+          "localPixels": [
+            -78.92083740234375,
+            -21.320106506347656
+          ],
+          "screenCells": [
+            -0.3082845211029053,
+            -0.08328166604042053
+          ]
+        }
+      }
+    },
+    {
+      "clip": "officer.unarmed.suit.supply.west",
+      "contactSeconds": 0.16666666666666666,
+      "recoverySeconds": 0.3333333333333333,
+      "leftHand": {
+        "wrist": {
+          "world": [
+            -0.1749999076128006,
+            0.04500005394220352,
+            1.2850000858306885
+          ],
+          "localPixels": [
+            -38.0577392578125,
+            210.97272491455078
+          ],
+          "screenCells": [
+            -0.14866304397583008,
+            0.824112206697464
+          ]
+        },
+        "palm": {
+          "world": [
+            -0.21394968032836914,
+            0.04500005394220352,
+            1.2906159162521362
+          ],
+          "localPixels": [
+            -46.528255462646484,
+            211.86554718017578
+          ],
+          "screenCells": [
+            -0.18175099790096283,
+            0.8275997936725616
+          ]
+        },
+        "fingerTip": {
+          "world": [
+            -0.25289955735206604,
+            0.04500005766749382,
+            1.296231746673584
+          ],
+          "localPixels": [
+            -54.99879455566406,
+            212.7583999633789
+          ],
+          "screenCells": [
+            -0.21483904123306274,
+            0.8310874998569489
+          ]
+        }
+      }
+    },
+    {
+      "clip": "officer.unarmed.suit.equip.west",
+      "contactSeconds": 0.16666666666666666,
+      "recoverySeconds": 0.3333333333333333,
+      "leftHand": {
+        "wrist": {
+          "world": [
+            -0.10499996691942215,
+            0.1600000560283661,
+            1.0650001764297485
+          ],
+          "localPixels": [
+            -22.83464813232422,
+            193.06046295166016
+          ],
+          "screenCells": [
+            -0.08919784426689148,
+            0.7541424334049225
+          ]
+        },
+        "palm": {
+          "world": [
+            -0.14394977688789368,
+            0.16000007092952728,
+            1.0706158876419067
+          ],
+          "localPixels": [
+            -31.30517578125,
+            193.95328521728516
+          ],
+          "screenCells": [
+            -0.12228584289550781,
+            0.7576300203800201
+          ]
+        },
+        "fingerTip": {
+          "world": [
+            -0.1828995794057846,
+            0.16000007092952728,
+            1.076231598854065
+          ],
+          "localPixels": [
+            -39.77570343017578,
+            194.84607696533203
+          ],
+          "screenCells": [
+            -0.15537384152412415,
+            0.7611174881458282
+          ]
+        }
+      }
+    }
+  ],
+  "canonicalSharing": "Only after original endpoint verified within2 channel values; original paths/hashes retained"
+}

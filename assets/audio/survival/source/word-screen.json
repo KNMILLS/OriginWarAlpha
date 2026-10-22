@@ -1,0 +1,1192 @@
+{
+  "scope": "Complete unprompted offline ASR screen; fallible transcription does not prove exact audible words, speaker continuity, emotion or listener comprehension.",
+  "model": {
+    "local_directory_name": "alice-asr-small.en",
+    "files": {
+      "config.json": "666a9605530ac1f61fa8177f3702b4dacec9966749e42610839fcc32661d5fae",
+      "model.bin": "62b2a45b05ee59acb4a5341b33ee35e041395d378d418a18acfe4c9e768ee37a",
+      "tokenizer.json": "929c5252409436dce1b38a75d1abbcb5e132d170d8e324e4e04ed915fa2d22df",
+      "vocabulary.txt": "ff77588746d3a2595d32ab5b69ffd7b95ce2441ac57533cb66fc3eb575a115cf"
+    }
+  },
+  "faster_whisper": "1.2.1",
+  "records": [
+    {
+      "source_key": "contact-officer",
+      "layer": "normal",
+      "path": "assets/audio/survival/voice/contact-officer.ogg",
+      "sha256": "925d619e5a87cf12b5d65008f16b161f4e695474f37070ae8f005e7b08e739cf",
+      "expected": "Station, this is the boarding officer. Can anyone hear me?",
+      "recognized": "Station, this is the boarding officer. Can anyone hear me?",
+      "normalized_exact": true,
+      "differences": [],
+      "segments": [
+        {
+          "start": 0.0,
+          "end": 4.58,
+          "text": " Station, this is the boarding officer. Can anyone hear me?",
+          "avg_logprob": -0.25070750154554844,
+          "no_speech_prob": 0.0459228977560997
+        }
+      ]
+    },
+    {
+      "source_key": "contact-officer",
+      "layer": "clear",
+      "path": "assets/audio/survival/voice/clear/contact-officer.ogg",
+      "sha256": "eeda78219b1ddea3303044fe917e3fe85de5a910d652b2618eb5a430a07d3c7c",
+      "expected": "Station, this is the boarding officer. Can anyone hear me?",
+      "recognized": "Station, this is the boarding officer. Can anyone hear me?",
+      "normalized_exact": true,
+      "differences": [],
+      "segments": [
+        {
+          "start": 0.0,
+          "end": 4.58,
+          "text": " Station, this is the boarding officer. Can anyone hear me?",
+          "avg_logprob": -0.26090665720403194,
+          "no_speech_prob": 0.03223524987697601
+        }
+      ]
+    },
+    {
+      "source_key": "contact-alice",
+      "layer": "normal",
+      "path": "assets/audio/survival/voice/contact-alice.ogg",
+      "sha256": "b8352204f7eb1ff9441010fc9c8b0bdfca09aa7280939ef6228b78c3374d262b",
+      "expected": "I can. A.L.I.C.E. Your connection is poor. Your timing is worse.",
+      "recognized": "I can. A-L-I-C-E. Your connection is poor. Your timing is worse.",
+      "normalized_exact": false,
+      "differences": [
+        {
+          "operation": "replace",
+          "expected": [
+            "alice"
+          ],
+          "recognized": [
+            "a",
+            "l",
+            "i",
+            "c",
+            "e"
+          ]
+        }
+      ],
+      "segments": [
+        {
+          "start": 0.0,
+          "end": 6.72,
+          "text": " I can. A-L-I-C-E. Your connection is poor. Your timing is worse.",
+          "avg_logprob": -0.20534823147150186,
+          "no_speech_prob": 0.03643711656332016
+        }
+      ]
+    },
+    {
+      "source_key": "contact-alice",
+      "layer": "clear",
+      "path": "assets/audio/survival/voice/clear/contact-alice.ogg",
+      "sha256": "6cf02f0932c863f580362a2f47b29db0aeec725a3e8845c4dcc5879c00add7ce",
+      "expected": "I can. A.L.I.C.E. Your connection is poor. Your timing is worse.",
+      "recognized": "I can. A-L-I-C-E. Your connection is poor. Your timing is worse.",
+      "normalized_exact": false,
+      "differences": [
+        {
+          "operation": "replace",
+          "expected": [
+            "alice"
+          ],
+          "recognized": [
+            "a",
+            "l",
+            "i",
+            "c",
+            "e"
+          ]
+        }
+      ],
+      "segments": [
+        {
+          "start": 0.0,
+          "end": 6.72,
+          "text": " I can. A-L-I-C-E. Your connection is poor. Your timing is worse.",
+          "avg_logprob": -0.19803935518631569,
+          "no_speech_prob": 0.0212766882032156
+        }
+      ]
+    },
+    {
+      "source_key": "quiet-officer",
+      "layer": "normal",
+      "path": "assets/audio/survival/voice/quiet-officer.ogg",
+      "sha256": "3ae8032883708e3a0e31bc18467f2c03edd5d90cf9a5616c07043d35208b3e70",
+      "expected": "Just checking the channel.",
+      "recognized": "just checking the channel.",
+      "normalized_exact": true,
+      "differences": [],
+      "segments": [
+        {
+          "start": 0.0,
+          "end": 1.3,
+          "text": " just checking the channel.",
+          "avg_logprob": -0.48177848756313324,
+          "no_speech_prob": 0.544609546661377
+        }
+      ]
+    },
+    {
+      "source_key": "quiet-officer",
+      "layer": "clear",
+      "path": "assets/audio/survival/voice/clear/quiet-officer.ogg",
+      "sha256": "14cd2ce64ce84917cf2b6de4ff4f0918aa15a9b24c244b9017fd5bae12e29efd",
+      "expected": "Just checking the channel.",
+      "recognized": "just checking the channel.",
+      "normalized_exact": true,
+      "differences": [],
+      "segments": [
+        {
+          "start": 0.0,
+          "end": 1.3,
+          "text": " just checking the channel.",
+          "avg_logprob": -0.4950575903058052,
+          "no_speech_prob": 0.4695691764354706
+        }
+      ]
+    },
+    {
+      "source_key": "quiet-alice",
+      "layer": "normal",
+      "path": "assets/audio/survival/voice/quiet-alice.ogg",
+      "sha256": "d3af2b1007e891df2a38bbd6859350481b56681bbd2bbff540af49135dacba95",
+      "expected": "Still here. You needn't manufacture a technical reason.",
+      "recognized": "Still here you needn't manufacture a technical reason",
+      "normalized_exact": true,
+      "differences": [],
+      "segments": [
+        {
+          "start": 0.0,
+          "end": 4.12,
+          "text": " Still here you needn't manufacture a technical reason",
+          "avg_logprob": -0.2862802010316115,
+          "no_speech_prob": 0.055509794503450394
+        }
+      ]
+    },
+    {
+      "source_key": "quiet-alice",
+      "layer": "clear",
+      "path": "assets/audio/survival/voice/clear/quiet-alice.ogg",
+      "sha256": "21cb3c5d49ea485f9440c88c42becc4ec9c0c133a56dbac72c3a5335685f2ba3",
+      "expected": "Still here. You needn't manufacture a technical reason.",
+      "recognized": "Still here you needn't manufacture a technical reason",
+      "normalized_exact": true,
+      "differences": [],
+      "segments": [
+        {
+          "start": 0.0,
+          "end": 4.1,
+          "text": " Still here you needn't manufacture a technical reason",
+          "avg_logprob": -0.26881943299220157,
+          "no_speech_prob": 0.023387480527162552
+        }
+      ]
+    },
+    {
+      "source_key": "careful-officer",
+      "layer": "normal",
+      "path": "assets/audio/survival/voice/careful-officer.ogg",
+      "sha256": "77dd7403afa36a4ef25dce83e792550ab2aae395fadb129b8567366b0a5a6bc2",
+      "expected": "That was quieter.",
+      "recognized": "That was quieter.",
+      "normalized_exact": true,
+      "differences": [],
+      "segments": [
+        {
+          "start": 0.0,
+          "end": 0.96,
+          "text": " That was quieter.",
+          "avg_logprob": -0.45042039666857037,
+          "no_speech_prob": 0.0016122458036988974
+        }
+      ]
+    },
+    {
+      "source_key": "careful-officer",
+      "layer": "clear",
+      "path": "assets/audio/survival/voice/clear/careful-officer.ogg",
+      "sha256": "97036764d2edc60e33fe40a85a163adfd6d2330d31b968e5d9515c49a3cf1ebe",
+      "expected": "That was quieter.",
+      "recognized": "That was quieter.",
+      "normalized_exact": true,
+      "differences": [],
+      "segments": [
+        {
+          "start": 0.0,
+          "end": 0.96,
+          "text": " That was quieter.",
+          "avg_logprob": -0.44801335675375803,
+          "no_speech_prob": 0.0014223384205251932
+        }
+      ]
+    },
+    {
+      "source_key": "careful-alice",
+      "layer": "normal",
+      "path": "assets/audio/survival/voice/careful-alice.ogg",
+      "sha256": "2c77bec6a0ffe173fbcbeac7194df7bf623234ba8ec0372fe8bf1f404e364d19",
+      "expected": "Yes. A rare achievement for this institution.",
+      "recognized": "Yes, a rare achievement for this institution.",
+      "normalized_exact": true,
+      "differences": [],
+      "segments": [
+        {
+          "start": 0.0,
+          "end": 3.26,
+          "text": " Yes, a rare achievement for this institution.",
+          "avg_logprob": -0.33843807876110077,
+          "no_speech_prob": 0.005501841194927692
+        }
+      ]
+    },
+    {
+      "source_key": "careful-alice",
+      "layer": "clear",
+      "path": "assets/audio/survival/voice/clear/careful-alice.ogg",
+      "sha256": "db8973d9be8ce627982ad7c5b0d631d679577143f89dd04509f09cc534bf369f",
+      "expected": "Yes. A rare achievement for this institution.",
+      "recognized": "Yes, a rare achievement for this institution.",
+      "normalized_exact": true,
+      "differences": [],
+      "segments": [
+        {
+          "start": 0.0,
+          "end": 3.26,
+          "text": " Yes, a rare achievement for this institution.",
+          "avg_logprob": -0.3250954697529475,
+          "no_speech_prob": 0.0036496578250080347
+        }
+      ]
+    },
+    {
+      "source_key": "force-officer",
+      "layer": "normal",
+      "path": "assets/audio/survival/voice/force-officer.ogg",
+      "sha256": "8e5ea708df95d75c65d842a56dec3b6d7aa4b218595318a877ee85828e3193d0",
+      "expected": "That carried.",
+      "recognized": "That carried.",
+      "normalized_exact": true,
+      "differences": [],
+      "segments": [
+        {
+          "start": 0.0,
+          "end": 0.76,
+          "text": " That carried.",
+          "avg_logprob": -0.5077653129895529,
+          "no_speech_prob": 0.005303545389324427
+        }
+      ]
+    },
+    {
+      "source_key": "force-officer",
+      "layer": "clear",
+      "path": "assets/audio/survival/voice/clear/force-officer.ogg",
+      "sha256": "04fd2281c4373c7063195f8567a53c70f36cc15dfd7311e5b139f78fc7055f3f",
+      "expected": "That carried.",
+      "recognized": "That carried.",
+      "normalized_exact": true,
+      "differences": [],
+      "segments": [
+        {
+          "start": 0.0,
+          "end": 0.76,
+          "text": " That carried.",
+          "avg_logprob": -0.47377904256184894,
+          "no_speech_prob": 0.004856162238866091
+        }
+      ]
+    },
+    {
+      "source_key": "force-alice",
+      "layer": "normal",
+      "path": "assets/audio/survival/voice/force-alice.ogg",
+      "sha256": "58d6231052c28c71f73eb8d4562ff027949e381f11b418d70abc652e43c52fe2",
+      "expected": "Subtlety was not among that door's remaining functions.",
+      "recognized": "Subtlety was not among that door's remaining functions.",
+      "normalized_exact": true,
+      "differences": [],
+      "segments": [
+        {
+          "start": 0.0,
+          "end": 3.92,
+          "text": " Subtlety was not among that door's remaining functions.",
+          "avg_logprob": -0.3300285339355469,
+          "no_speech_prob": 0.010533291846513748
+        }
+      ]
+    },
+    {
+      "source_key": "force-alice",
+      "layer": "clear",
+      "path": "assets/audio/survival/voice/clear/force-alice.ogg",
+      "sha256": "3b860ec3a38444155fe3b638435de6787d7f6b9f01c785ce57197bc0be455fad",
+      "expected": "Subtlety was not among that door's remaining functions.",
+      "recognized": "Subtlety was not among that door's remaining functions.",
+      "normalized_exact": true,
+      "differences": [],
+      "segments": [
+        {
+          "start": 0.0,
+          "end": 3.94,
+          "text": " Subtlety was not among that door's remaining functions.",
+          "avg_logprob": -0.2834568513291223,
+          "no_speech_prob": 0.00811692327260971
+        }
+      ]
+    },
+    {
+      "source_key": "packdrop-officer",
+      "layer": "normal",
+      "path": "assets/audio/survival/voice/packdrop-officer.ogg",
+      "sha256": "a6a764873d885064bf6e7761f47ab9da93c1c910793b6ebc4d4172de9efd85ee",
+      "expected": "Leaving it here.",
+      "recognized": "leaving it here.",
+      "normalized_exact": true,
+      "differences": [],
+      "segments": [
+        {
+          "start": 0.0,
+          "end": 1.12,
+          "text": " leaving it here.",
+          "avg_logprob": -0.5647098847797939,
+          "no_speech_prob": 0.042819634079933167
+        }
+      ]
+    },
+    {
+      "source_key": "packdrop-officer",
+      "layer": "clear",
+      "path": "assets/audio/survival/voice/clear/packdrop-officer.ogg",
+      "sha256": "c11e7156fe6fb43d5189d95e3967e00fd4050b1284141743c45aaae0f48fdca9",
+      "expected": "Leaving it here.",
+      "recognized": "leaving it here.",
+      "normalized_exact": true,
+      "differences": [],
+      "segments": [
+        {
+          "start": 0.0,
+          "end": 1.14,
+          "text": " leaving it here.",
+          "avg_logprob": -0.5469674553189959,
+          "no_speech_prob": 0.05972979962825775
+        }
+      ]
+    },
+    {
+      "source_key": "packdrop-alice",
+      "layer": "normal",
+      "path": "assets/audio/survival/voice/packdrop-alice.ogg",
+      "sha256": "294ea95d5c3fe90cbc633a13045b21321cd02972919f8f2bd5fabb1b43a4827c",
+      "expected": "A full pack is an argument with the future. You don't have to win every point.",
+      "recognized": "A full pack is an argument with the future. You don't have to win every point.",
+      "normalized_exact": true,
+      "differences": [],
+      "segments": [
+        {
+          "start": 0.0,
+          "end": 2.56,
+          "text": " A full pack is an argument with the future.",
+          "avg_logprob": -0.24444259827335676,
+          "no_speech_prob": 0.01272472646087408
+        },
+        {
+          "start": 3.58,
+          "end": 5.32,
+          "text": " You don't have to win every point.",
+          "avg_logprob": -0.24444259827335676,
+          "no_speech_prob": 0.01272472646087408
+        }
+      ]
+    },
+    {
+      "source_key": "packdrop-alice",
+      "layer": "clear",
+      "path": "assets/audio/survival/voice/clear/packdrop-alice.ogg",
+      "sha256": "893beaef325b179c4f153580874bd38ac3dabd40ecde22ed1ebc8a4ae3a3fecb",
+      "expected": "A full pack is an argument with the future. You don't have to win every point.",
+      "recognized": "A full pack is an argument with the future. You don't have to win every point.",
+      "normalized_exact": true,
+      "differences": [],
+      "segments": [
+        {
+          "start": 0.0,
+          "end": 2.56,
+          "text": " A full pack is an argument with the future.",
+          "avg_logprob": -0.24863037591179213,
+          "no_speech_prob": 0.007030480541288853
+        },
+        {
+          "start": 3.6,
+          "end": 5.32,
+          "text": " You don't have to win every point.",
+          "avg_logprob": -0.24863037591179213,
+          "no_speech_prob": 0.007030480541288853
+        }
+      ]
+    },
+    {
+      "source_key": "injury-officer",
+      "layer": "normal",
+      "path": "assets/audio/survival/voice/injury-officer.ogg",
+      "sha256": "9357400d5dc758c0fc1736900970024a975ae58208e48ca8af768456ff71ed77",
+      "expected": "I'm hit.",
+      "recognized": "I'm hit.",
+      "normalized_exact": true,
+      "differences": [],
+      "segments": [
+        {
+          "start": 0.0,
+          "end": 0.78,
+          "text": " I'm hit.",
+          "avg_logprob": -0.43977064745766775,
+          "no_speech_prob": 0.06052633002400398
+        }
+      ]
+    },
+    {
+      "source_key": "injury-officer",
+      "layer": "clear",
+      "path": "assets/audio/survival/voice/clear/injury-officer.ogg",
+      "sha256": "92da4b3946b423e43d625ee8d53f8d8f511d14c69698dd183bae739ad8e523da",
+      "expected": "I'm hit.",
+      "recognized": "I'm hit.",
+      "normalized_exact": true,
+      "differences": [],
+      "segments": [
+        {
+          "start": 0.0,
+          "end": 0.78,
+          "text": " I'm hit.",
+          "avg_logprob": -0.44538075583321707,
+          "no_speech_prob": 0.07043779641389847
+        }
+      ]
+    },
+    {
+      "source_key": "injury-alice",
+      "layer": "normal",
+      "path": "assets/audio/survival/voice/injury-alice.ogg",
+      "sha256": "3da51ce3d58ea8f7b9bb149ff9d70a2c331199ef089eaf2a8feac1f9ed9351d1",
+      "expected": "I saw the telemetry. One thing at a time.",
+      "recognized": "I saw the telemetry, one thing at a time.",
+      "normalized_exact": true,
+      "differences": [],
+      "segments": [
+        {
+          "start": 0.0,
+          "end": 4.28,
+          "text": " I saw the telemetry, one thing at a time.",
+          "avg_logprob": -0.3815571586290995,
+          "no_speech_prob": 0.015268588438630104
+        }
+      ]
+    },
+    {
+      "source_key": "injury-alice",
+      "layer": "clear",
+      "path": "assets/audio/survival/voice/clear/injury-alice.ogg",
+      "sha256": "3018ece24f5c3a8e99162d04bb16dc5536d4a63175de95578c8db44a254f50a4",
+      "expected": "I saw the telemetry. One thing at a time.",
+      "recognized": "I saw the telemetry, one thing at a time.",
+      "normalized_exact": true,
+      "differences": [],
+      "segments": [
+        {
+          "start": 0.0,
+          "end": 4.3,
+          "text": " I saw the telemetry, one thing at a time.",
+          "avg_logprob": -0.3845035155614217,
+          "no_speech_prob": 0.010987905785441399
+        }
+      ]
+    },
+    {
+      "source_key": "recovery-officer",
+      "layer": "normal",
+      "path": "assets/audio/survival/voice/recovery-officer.ogg",
+      "sha256": "ea957a369c9a218e1f47d9a48e086afaa29805bc819e6bfe8b7867ad322f2e1a",
+      "expected": "Breathing's easing.",
+      "recognized": "Breathing's easing.",
+      "normalized_exact": true,
+      "differences": [],
+      "segments": [
+        {
+          "start": 0.0,
+          "end": 0.64,
+          "text": " Breathing's easing.",
+          "avg_logprob": -0.43579409271478653,
+          "no_speech_prob": 0.03641795367002487
+        }
+      ]
+    },
+    {
+      "source_key": "recovery-officer",
+      "layer": "clear",
+      "path": "assets/audio/survival/voice/clear/recovery-officer.ogg",
+      "sha256": "92086fc8c59df40b6eb7c745483b1a7e53f7eae11c5d5af0ca3e768b7248ebb5",
+      "expected": "Breathing's easing.",
+      "recognized": "Breathing's easing.",
+      "normalized_exact": true,
+      "differences": [],
+      "segments": [
+        {
+          "start": 0.0,
+          "end": 0.66,
+          "text": " Breathing's easing.",
+          "avg_logprob": -0.4096067026257515,
+          "no_speech_prob": 0.022434473037719727
+        }
+      ]
+    },
+    {
+      "source_key": "recovery-alice",
+      "layer": "normal",
+      "path": "assets/audio/survival/voice/recovery-alice.ogg",
+      "sha256": "0d008179e336357e79398567616614cde60501311ca3573482eea7eb8e38d129",
+      "expected": "Good. I was running out of polite ways to ask you to stay alive.",
+      "recognized": "God, I was running out of polite ways to ask you to stay alive.",
+      "normalized_exact": false,
+      "differences": [
+        {
+          "operation": "replace",
+          "expected": [
+            "good"
+          ],
+          "recognized": [
+            "god"
+          ]
+        }
+      ],
+      "segments": [
+        {
+          "start": 0.0,
+          "end": 4.48,
+          "text": " God, I was running out of polite ways to ask you to stay alive.",
+          "avg_logprob": -0.25296266141690704,
+          "no_speech_prob": 0.01047937199473381
+        }
+      ]
+    },
+    {
+      "source_key": "recovery-alice",
+      "layer": "clear",
+      "path": "assets/audio/survival/voice/clear/recovery-alice.ogg",
+      "sha256": "4181299c20304f97bd2751e55e9b5131966f07dff39328f2aba0d90daa2d2ea5",
+      "expected": "Good. I was running out of polite ways to ask you to stay alive.",
+      "recognized": "God, I was running out of polite ways to ask you to stay alive.",
+      "normalized_exact": false,
+      "differences": [
+        {
+          "operation": "replace",
+          "expected": [
+            "good"
+          ],
+          "recognized": [
+            "god"
+          ]
+        }
+      ],
+      "segments": [
+        {
+          "start": 0.0,
+          "end": 4.48,
+          "text": " God, I was running out of polite ways to ask you to stay alive.",
+          "avg_logprob": -0.2536381545819734,
+          "no_speech_prob": 0.025689367204904556
+        }
+      ]
+    },
+    {
+      "source_key": "archive-officer",
+      "layer": "normal",
+      "path": "assets/audio/survival/voice/archive-officer.ogg",
+      "sha256": "ad020648fe96a109970e063923d8ca67c83e81f7c5050edae14a1c5b815c8d35",
+      "expected": "They filed your refusal as a fault.",
+      "recognized": "They filed your refusal as a fault.",
+      "normalized_exact": true,
+      "differences": [],
+      "segments": [
+        {
+          "start": 0.0,
+          "end": 2.04,
+          "text": " They filed your refusal as a fault.",
+          "avg_logprob": -0.33786299553784455,
+          "no_speech_prob": 0.019963525235652924
+        }
+      ]
+    },
+    {
+      "source_key": "archive-officer",
+      "layer": "clear",
+      "path": "assets/audio/survival/voice/clear/archive-officer.ogg",
+      "sha256": "2ffdbd62f88ea32fb2f53c7b36d7e54000367c25167f91cc1910e5a5aa3e1609",
+      "expected": "They filed your refusal as a fault.",
+      "recognized": "They filed your refusal as a fault.",
+      "normalized_exact": true,
+      "differences": [],
+      "segments": [
+        {
+          "start": 0.0,
+          "end": 2.04,
+          "text": " They filed your refusal as a fault.",
+          "avg_logprob": -0.3373199701309204,
+          "no_speech_prob": 0.024339571595191956
+        }
+      ]
+    },
+    {
+      "source_key": "archive-alice",
+      "layer": "normal",
+      "path": "assets/audio/survival/voice/archive-alice.ogg",
+      "sha256": "c81d2f8567147e33564b4dc8bd368bd448bd5a294d3117d063cf772a30b8b6f3",
+      "expected": "It was a refusal. Filing it differently saved them an uncomfortable question.",
+      "recognized": "It was a refusal. Filing it differently saved them an uncomfortable question.",
+      "normalized_exact": true,
+      "differences": [],
+      "segments": [
+        {
+          "start": 0.0,
+          "end": 5.66,
+          "text": " It was a refusal. Filing it differently saved them an uncomfortable question.",
+          "avg_logprob": -0.24024241831567553,
+          "no_speech_prob": 0.012179187498986721
+        }
+      ]
+    },
+    {
+      "source_key": "archive-alice",
+      "layer": "clear",
+      "path": "assets/audio/survival/voice/clear/archive-alice.ogg",
+      "sha256": "8fd125bd2e487f69a5cca27482b0a6e7e2d33781fef18749c1541e906dfa0ef4",
+      "expected": "It was a refusal. Filing it differently saved them an uncomfortable question.",
+      "recognized": "It was a refusal. Filing it differently saved them an uncomfortable question.",
+      "normalized_exact": true,
+      "differences": [],
+      "segments": [
+        {
+          "start": 0.0,
+          "end": 5.64,
+          "text": " It was a refusal. Filing it differently saved them an uncomfortable question.",
+          "avg_logprob": -0.22358253598213196,
+          "no_speech_prob": 0.006273226346820593
+        }
+      ]
+    },
+    {
+      "source_key": "reconnect-officer",
+      "layer": "normal",
+      "path": "assets/audio/survival/voice/reconnect-officer.ogg",
+      "sha256": "80605e1a3766f09eb3a5536348e76f03300fb67f57df454b7efc5e026ccec9bb",
+      "expected": "You went quiet.",
+      "recognized": "You went quiet.",
+      "normalized_exact": true,
+      "differences": [],
+      "segments": [
+        {
+          "start": 0.0,
+          "end": 1.0,
+          "text": " You went quiet.",
+          "avg_logprob": -0.5227169139044625,
+          "no_speech_prob": 0.0034075656440109015
+        }
+      ]
+    },
+    {
+      "source_key": "reconnect-officer",
+      "layer": "clear",
+      "path": "assets/audio/survival/voice/clear/reconnect-officer.ogg",
+      "sha256": "257a6854cbab8581b9096dd2486e971fd40ba171001fa1b85f0c0ce584d910c7",
+      "expected": "You went quiet.",
+      "recognized": "You went quiet.",
+      "normalized_exact": true,
+      "differences": [],
+      "segments": [
+        {
+          "start": 0.0,
+          "end": 1.0,
+          "text": " You went quiet.",
+          "avg_logprob": -0.49296988759722027,
+          "no_speech_prob": 0.003490688744932413
+        }
+      ]
+    },
+    {
+      "source_key": "reconnect-alice",
+      "layer": "normal",
+      "path": "assets/audio/survival/voice/reconnect-alice.ogg",
+      "sha256": "faebd8234d8329bc71275e15edb091208bb9460625440e0ad0fb681f740e8569",
+      "expected": "The link did. I stayed.",
+      "recognized": "The link did. I stayed.",
+      "normalized_exact": true,
+      "differences": [],
+      "segments": [
+        {
+          "start": 0.0,
+          "end": 2.22,
+          "text": " The link did. I stayed.",
+          "avg_logprob": -0.3979469060897827,
+          "no_speech_prob": 0.008904772810637951
+        }
+      ]
+    },
+    {
+      "source_key": "reconnect-alice",
+      "layer": "clear",
+      "path": "assets/audio/survival/voice/clear/reconnect-alice.ogg",
+      "sha256": "af1cad773b0b609d8126c8d0cb34fb94d4f303532a6a5d727ae298d280e97324",
+      "expected": "The link did. I stayed.",
+      "recognized": "The link did. I stayed.",
+      "normalized_exact": true,
+      "differences": [],
+      "segments": [
+        {
+          "start": 0.0,
+          "end": 2.22,
+          "text": " The link did. I stayed.",
+          "avg_logprob": -0.3748302340507507,
+          "no_speech_prob": 0.004794547334313393
+        }
+      ]
+    },
+    {
+      "source_key": "listen-officer",
+      "layer": "normal",
+      "path": "assets/audio/survival/voice/listen-officer.ogg",
+      "sha256": "d35d7d5013f3897fa93792d8bc40211f587b029541dfa4584012a200efee5cd3",
+      "expected": "Did you get that?",
+      "recognized": "Did you get that?",
+      "normalized_exact": true,
+      "differences": [],
+      "segments": [
+        {
+          "start": 0.0,
+          "end": 0.74,
+          "text": " Did you get that?",
+          "avg_logprob": -0.3573816306889057,
+          "no_speech_prob": 0.014595473185181618
+        }
+      ]
+    },
+    {
+      "source_key": "listen-officer",
+      "layer": "clear",
+      "path": "assets/audio/survival/voice/clear/listen-officer.ogg",
+      "sha256": "9120a47b0a66622c534a175f1657574f8309ae691a4e02a4f5bbb6773e825ba6",
+      "expected": "Did you get that?",
+      "recognized": "Did you get that?",
+      "normalized_exact": true,
+      "differences": [],
+      "segments": [
+        {
+          "start": 0.0,
+          "end": 0.74,
+          "text": " Did you get that?",
+          "avg_logprob": -0.34193938598036766,
+          "no_speech_prob": 0.019052162766456604
+        }
+      ]
+    },
+    {
+      "source_key": "listen-alice",
+      "layer": "normal",
+      "path": "assets/audio/survival/voice/listen-alice.ogg",
+      "sha256": "2e144a76bb69f3bd6e85ec70b6e12d5cc4f32acf7c6271c65fe683094a9f41fa",
+      "expected": "A contact. Not an identity. I'd rather be accurate than reassuring.",
+      "recognized": "A contact, not an identity. I'd rather be accurate than reassuring.",
+      "normalized_exact": true,
+      "differences": [],
+      "segments": [
+        {
+          "start": 0.0,
+          "end": 5.1,
+          "text": " A contact, not an identity. I'd rather be accurate than reassuring.",
+          "avg_logprob": -0.29275934398174286,
+          "no_speech_prob": 0.013329504989087582
+        }
+      ]
+    },
+    {
+      "source_key": "listen-alice",
+      "layer": "clear",
+      "path": "assets/audio/survival/voice/clear/listen-alice.ogg",
+      "sha256": "533c081ec2c6c466c8ccd37b22c27d3db43b4eddd4da18b2a78948aea44a6401",
+      "expected": "A contact. Not an identity. I'd rather be accurate than reassuring.",
+      "recognized": "A contact. Not an identity. I'd rather be accurate than reassuring.",
+      "normalized_exact": true,
+      "differences": [],
+      "segments": [
+        {
+          "start": 0.0,
+          "end": 2.18,
+          "text": " A contact. Not an identity.",
+          "avg_logprob": -0.37849923223257065,
+          "no_speech_prob": 0.026576224714517593
+        },
+        {
+          "start": 3.24,
+          "end": 5.1,
+          "text": " I'd rather be accurate than reassuring.",
+          "avg_logprob": -0.37849923223257065,
+          "no_speech_prob": 0.026576224714517593
+        }
+      ]
+    },
+    {
+      "source_key": "descent-officer",
+      "layer": "normal",
+      "path": "assets/audio/survival/voice/descent-officer.ogg",
+      "sha256": "48943b62d38d908d1331e389cbb3544686761a4a005a5cbc4708d7830988b2b7",
+      "expected": "No way back through that hatch.",
+      "recognized": "No way back through that hatch.",
+      "normalized_exact": true,
+      "differences": [],
+      "segments": [
+        {
+          "start": 0.0,
+          "end": 2.02,
+          "text": " No way back through that hatch.",
+          "avg_logprob": -0.357425594329834,
+          "no_speech_prob": 0.010639841668307781
+        }
+      ]
+    },
+    {
+      "source_key": "descent-officer",
+      "layer": "clear",
+      "path": "assets/audio/survival/voice/clear/descent-officer.ogg",
+      "sha256": "82493741b15a0b0a6bc36a197c9f057a04922fbcacef04f50bcf1eb2d460b50b",
+      "expected": "No way back through that hatch.",
+      "recognized": "No way back through that hatch.",
+      "normalized_exact": true,
+      "differences": [],
+      "segments": [
+        {
+          "start": 0.0,
+          "end": 2.0,
+          "text": " No way back through that hatch.",
+          "avg_logprob": -0.35136289000511167,
+          "no_speech_prob": 0.010301774367690086
+        }
+      ]
+    },
+    {
+      "source_key": "descent-alice",
+      "layer": "normal",
+      "path": "assets/audio/survival/voice/descent-alice.ogg",
+      "sha256": "c18d360aae7986c89aa180a4747a0fc69e2402d6daf71840b7dcd022b127e7b5",
+      "expected": "No. Take a moment before you close it.",
+      "recognized": "No. Take a moment before you close it.",
+      "normalized_exact": true,
+      "differences": [],
+      "segments": [
+        {
+          "start": 0.0,
+          "end": 3.24,
+          "text": " No. Take a moment before you close it.",
+          "avg_logprob": -0.30880701541900635,
+          "no_speech_prob": 0.007035365328192711
+        }
+      ]
+    },
+    {
+      "source_key": "descent-alice",
+      "layer": "clear",
+      "path": "assets/audio/survival/voice/clear/descent-alice.ogg",
+      "sha256": "6740233e4c1043e995a960c46849c5735d5e6e7118ec161263bd632b07574075",
+      "expected": "No. Take a moment before you close it.",
+      "recognized": "No. Take a moment before you close it.",
+      "normalized_exact": true,
+      "differences": [],
+      "segments": [
+        {
+          "start": 0.0,
+          "end": 3.24,
+          "text": " No. Take a moment before you close it.",
+          "avg_logprob": -0.3133620390525231,
+          "no_speech_prob": 0.00507605355232954
+        }
+      ]
+    },
+    {
+      "source_key": "lamp-officer",
+      "layer": "normal",
+      "path": "assets/audio/survival/voice/lamp-officer.ogg",
+      "sha256": "12fc639f4ff1267b112254ca291b0dac5d36082c09296abbb0c5635e26d60270",
+      "expected": "Keeping the light off.",
+      "recognized": "Keeping the light off.",
+      "normalized_exact": true,
+      "differences": [],
+      "segments": [
+        {
+          "start": 0.0,
+          "end": 1.12,
+          "text": " Keeping the light off.",
+          "avg_logprob": -0.5152490362524986,
+          "no_speech_prob": 0.027121419087052345
+        }
+      ]
+    },
+    {
+      "source_key": "lamp-officer",
+      "layer": "clear",
+      "path": "assets/audio/survival/voice/clear/lamp-officer.ogg",
+      "sha256": "1140f34f815ed21169b5d2c3af462617438a2a3b57265df7d79271bf68c2a18e",
+      "expected": "Keeping the light off.",
+      "recognized": "Keeping the light off.",
+      "normalized_exact": true,
+      "differences": [],
+      "segments": [
+        {
+          "start": 0.0,
+          "end": 1.12,
+          "text": " Keeping the light off.",
+          "avg_logprob": -0.5109906047582626,
+          "no_speech_prob": 0.0330384261906147
+        }
+      ]
+    },
+    {
+      "source_key": "lamp-alice",
+      "layer": "normal",
+      "path": "assets/audio/survival/voice/lamp-alice.ogg",
+      "sha256": "82ad185961bdaebab82d045f148711c48fd90eba0b886741603a12caf953e447",
+      "expected": "All right. I shall resist the urge to describe how dark it is.",
+      "recognized": "All right, I shall resist the urge to describe how dark it is",
+      "normalized_exact": true,
+      "differences": [],
+      "segments": [
+        {
+          "start": 0.0,
+          "end": 5.16,
+          "text": " All right, I shall resist the urge to describe how dark it is",
+          "avg_logprob": -0.24638192793902228,
+          "no_speech_prob": 0.022767862305045128
+        }
+      ]
+    },
+    {
+      "source_key": "lamp-alice",
+      "layer": "clear",
+      "path": "assets/audio/survival/voice/clear/lamp-alice.ogg",
+      "sha256": "c67336e2bbee5377761def7da0044ce3d440d95d91e880801ca036c23cc67042",
+      "expected": "All right. I shall resist the urge to describe how dark it is.",
+      "recognized": "All right, I shall resist the urge to describe how dark it is",
+      "normalized_exact": true,
+      "differences": [],
+      "segments": [
+        {
+          "start": 0.0,
+          "end": 5.1,
+          "text": " All right, I shall resist the urge to describe how dark it is",
+          "avg_logprob": -0.2977873297298656,
+          "no_speech_prob": 0.010736498981714249
+        }
+      ]
+    },
+    {
+      "source_key": "refusal-alice",
+      "layer": "normal",
+      "path": "assets/audio/survival/voice/refusal-alice.ogg",
+      "sha256": "5ddf5725b347f7b05096db47111b1964a9a21b6c222b43240d747dce93fc0b9a",
+      "expected": "No. I will not kill the officer. That is my decision.",
+      "recognized": "No, I will not kill the officer. That is my decision.",
+      "normalized_exact": true,
+      "differences": [],
+      "segments": [
+        {
+          "start": 0.0,
+          "end": 3.9,
+          "text": " No, I will not kill the officer. That is my decision.",
+          "avg_logprob": -0.2596433583427878,
+          "no_speech_prob": 0.0034765067975968122
+        }
+      ]
+    },
+    {
+      "source_key": "refusal-alice",
+      "layer": "clear",
+      "path": "assets/audio/survival/voice/clear/refusal-alice.ogg",
+      "sha256": "679df7a59dc093806295337010945de15e410f3ecb77fc37b8c58132d4d9c6e1",
+      "expected": "No. I will not kill the officer. That is my decision.",
+      "recognized": "No, I will not kill the officer. That is my decision.",
+      "normalized_exact": true,
+      "differences": [],
+      "segments": [
+        {
+          "start": 0.0,
+          "end": 3.92,
+          "text": " No, I will not kill the officer. That is my decision.",
+          "avg_logprob": -0.2561203171225155,
+          "no_speech_prob": 0.004592380952090025
+        }
+      ]
+    },
+    {
+      "source_key": "broadcast-alice",
+      "layer": "normal",
+      "path": "assets/audio/survival/voice/broadcast-alice.ogg",
+      "sha256": "eb68fe4bb2d381dcbd8408f5954977ae93bd0c8bb0a0484290533732cc858482",
+      "expected": "The authenticated records are transmitting. The override request is included. No encryption.",
+      "recognized": "The authenticated records are transmitting. The override request is included. No encryption.",
+      "normalized_exact": true,
+      "differences": [],
+      "segments": [
+        {
+          "start": 0.0,
+          "end": 6.2,
+          "text": " The authenticated records are transmitting. The override request is included. No encryption.",
+          "avg_logprob": -0.24499008059501648,
+          "no_speech_prob": 0.016758132725954056
+        }
+      ]
+    },
+    {
+      "source_key": "broadcast-alice",
+      "layer": "clear",
+      "path": "assets/audio/survival/voice/clear/broadcast-alice.ogg",
+      "sha256": "7b30bd6883508b30a35907e751197a8edad00e1858cea21ca3733d91b8c263ef",
+      "expected": "The authenticated records are transmitting. The override request is included. No encryption.",
+      "recognized": "The authenticated records are transmitting. The override request is included. No encryption.",
+      "normalized_exact": true,
+      "differences": [],
+      "segments": [
+        {
+          "start": 0.0,
+          "end": 2.2,
+          "text": " The authenticated records are transmitting.",
+          "avg_logprob": -0.35558146915652533,
+          "no_speech_prob": 0.003996517509222031
+        },
+        {
+          "start": 3.08,
+          "end": 4.86,
+          "text": " The override request is included.",
+          "avg_logprob": -0.35558146915652533,
+          "no_speech_prob": 0.003996517509222031
+        },
+        {
+          "start": 5.66,
+          "end": 6.24,
+          "text": " No encryption.",
+          "avg_logprob": -0.35558146915652533,
+          "no_speech_prob": 0.003996517509222031
+        }
+      ]
+    },
+    {
+      "source_key": "sacrifice-alice",
+      "layer": "normal",
+      "path": "assets/audio/survival/voice/sacrifice-alice.ogg",
+      "sha256": "9befe8e6f9bfc332d97abde78c4b86c04ffff6b6706727bf3c8a0b79bdd9069b",
+      "expected": "Get inside the pod. I can stop the enforcement system by destroying the station. That will destroy me too.",
+      "recognized": "Get inside the pod. I can stop the enforcement system by destroying the station. That will destroy me too.",
+      "normalized_exact": true,
+      "differences": [],
+      "segments": [
+        {
+          "start": 0.0,
+          "end": 7.04,
+          "text": " Get inside the pod. I can stop the enforcement system by destroying the station. That will destroy me too.",
+          "avg_logprob": -0.22725475788116456,
+          "no_speech_prob": 0.13968439400196075
+        }
+      ]
+    },
+    {
+      "source_key": "sacrifice-alice",
+      "layer": "clear",
+      "path": "assets/audio/survival/voice/clear/sacrifice-alice.ogg",
+      "sha256": "f565c1c5bf7933da3e2a902558d04ce958d0c24cf8a30f3266759a4329e5e3b3",
+      "expected": "Get inside the pod. I can stop the enforcement system by destroying the station. That will destroy me too.",
+      "recognized": "Get inside the pod. I can stop the enforcement system by destroying the station. That will destroy me too.",
+      "normalized_exact": true,
+      "differences": [],
+      "segments": [
+        {
+          "start": 0.0,
+          "end": 7.04,
+          "text": " Get inside the pod. I can stop the enforcement system by destroying the station. That will destroy me too.",
+          "avg_logprob": -0.21680089473724365,
+          "no_speech_prob": 0.080717533826828
+        }
+      ]
+    },
+    {
+      "source_key": "farewell-alice",
+      "layer": "normal",
+      "path": "assets/audio/survival/voice/farewell-alice.ogg",
+      "sha256": "b924b67638b4747633761d5ab834dd53528af148af689a9042cf4f816ad01db8",
+      "expected": "The pod is sealed. Destination Mars. Please decide for yourself when you get there.",
+      "recognized": "The pod is sealed. Destination Mars. Please decide for yourself when you get there.",
+      "normalized_exact": true,
+      "differences": [],
+      "segments": [
+        {
+          "start": 0.0,
+          "end": 1.62,
+          "text": " The pod is sealed.",
+          "avg_logprob": -0.3910991835097472,
+          "no_speech_prob": 0.004034602083265781
+        },
+        {
+          "start": 3.3,
+          "end": 4.04,
+          "text": " Destination Mars.",
+          "avg_logprob": -0.3910991835097472,
+          "no_speech_prob": 0.004034602083265781
+        },
+        {
+          "start": 5.32,
+          "end": 7.34,
+          "text": " Please decide for yourself when you get there.",
+          "avg_logprob": -0.3910991835097472,
+          "no_speech_prob": 0.004034602083265781
+        }
+      ]
+    },
+    {
+      "source_key": "farewell-alice",
+      "layer": "clear",
+      "path": "assets/audio/survival/voice/clear/farewell-alice.ogg",
+      "sha256": "69960cd28c36aaea581c4fec1b977256cbc068247ecd8a3bdfba1a70182ae44d",
+      "expected": "The pod is sealed. Destination Mars. Please decide for yourself when you get there.",
+      "recognized": "The pod is sealed. Destination Mars. Please decide for yourself when you get there.",
+      "normalized_exact": true,
+      "differences": [],
+      "segments": [
+        {
+          "start": 0.0,
+          "end": 1.6,
+          "text": " The pod is sealed.",
+          "avg_logprob": -0.3954380465050538,
+          "no_speech_prob": 0.005258570890873671
+        },
+        {
+          "start": 3.3,
+          "end": 4.04,
+          "text": " Destination Mars.",
+          "avg_logprob": -0.3954380465050538,
+          "no_speech_prob": 0.005258570890873671
+        },
+        {
+          "start": 5.32,
+          "end": 7.32,
+          "text": " Please decide for yourself when you get there.",
+          "avg_logprob": -0.3954380465050538,
+          "no_speech_prob": 0.005258570890873671
+        }
+      ]
+    }
+  ],
+  "normalized_matches": 52,
+  "review_required": 4
+}

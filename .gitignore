@@ -62,3 +62,13 @@ build/
 
 ## OS Specific
 .DS_Store
+
+# Modern reproducible project
+.gradle/
+**/build/
+.tools/
+.cache/
+userdata/
+evidence/raw/
+*.log
+*.jfr

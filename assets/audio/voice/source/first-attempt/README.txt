@@ -1,0 +1,1 @@
+First actual render: Piper noise_scale .40 / noise_w .55 produced different repeated WAV bytes. Both originals retained. Hypothesis corrected to deterministic noise_scale 0 / noise_w 0, also suitable for controlled robotic delivery. No listening claim.

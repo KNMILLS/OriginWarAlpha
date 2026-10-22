@@ -1,0 +1,8 @@
+{
+  "pistolClips": 88,
+  "status": "Stopped after complete pistol export to release render-driver memory",
+  "elapsedSeconds": 306.9118522,
+  "stoppedUtc": "2026-10-22T20:57:31.1909271Z",
+  "processStartUtc": "2026-10-22T20:52:24.2803779Z",
+  "scope": "Includes calibration, entire pistol set and first unarmed idle; source process walltime, not authoring labor"
+}

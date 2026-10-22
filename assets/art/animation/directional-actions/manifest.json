@@ -1,0 +1,801 @@
+{
+  "task": "M5-DIRECTED-ATTACKS",
+  "status": "native/4x export visually inspected; runtime saved-facing and attack timing acceptance pending",
+  "atlas": {
+    "path": "assets/art/animation/directional-actions/attack.png",
+    "size": [
+      1024,
+      384
+    ],
+    "native": "assets/art/animation/directional-actions/attack-native.png",
+    "native_size": [
+      512,
+      192
+    ],
+    "columns": 8,
+    "rows": 3,
+    "native_cell_pixels": 64,
+    "nearest_scale": 2,
+    "mode": "RGBA"
+  },
+  "layout": "Rows PLAYER,SIRS,ADD. Columns north2,east2,south2,west2; each pair ready then recoil/firing.",
+  "source_export": "tools/media/pack_attacks.py",
+  "provenance": "Original OpenAI built-in image_gen directional poses from recorded prompts and current selected original project actor references. No external pack, stock or legacy art.",
+  "previous_actors_native_sha256": "1ac2fa0ce473b1ec621821ced8f9d08763fdb3b966d4dd5dc824cdfc08fe92b3",
+  "source_rasters": [
+    {
+      "path": "assets/art/animation/directional-actions/source/add.png",
+      "sha256": "8b46b30c09cf04cfbc48d55679d0bc1d1554520c5bf5bc41564c56d7a77392d5"
+    },
+    {
+      "path": "assets/art/animation/directional-actions/source/compact-east-west.png",
+      "sha256": "dffaef3fb4d42d6868ca20cdf799e0d48646af8c4250a087675c49de6fb9221b"
+    },
+    {
+      "path": "assets/art/animation/directional-actions/source/compact-north.png",
+      "sha256": "93ae63affb33b8558faaf114fce5b80d7f5e9336b5b2a14ea3cc5436ae3b511b"
+    },
+    {
+      "path": "assets/art/animation/directional-actions/source/player.png",
+      "sha256": "f80decdc92b6c5039ecacdeb9aed2fc6d6bde651c4d15ee508628796d0ed2c70"
+    },
+    {
+      "path": "assets/art/animation/directional-actions/source/references/add.png",
+      "sha256": "8ee206a906f3fbd4b4345a2b835a76ba795471bae380e9a1f2eb554089fa04bb"
+    },
+    {
+      "path": "assets/art/animation/directional-actions/source/references/player.png",
+      "sha256": "274e689533715142d0a6ee5679d25de47baccad9a52217729278b008b115db5c"
+    },
+    {
+      "path": "assets/art/animation/directional-actions/source/references/sirs.png",
+      "sha256": "1dc738842b16a5585336861e41b5a33e767a3ceaa37917fecdeddd2a4cba47d6"
+    },
+    {
+      "path": "assets/art/animation/directional-actions/source/sirs.png",
+      "sha256": "ea050b2e56ea0d470b682e47d9269bcca349dd2c77961a1dbe4e81085328c6c6"
+    }
+  ],
+  "corrections": [
+    "Initial mixed-direction sources had oversized barrel/flash extents and north flash tips crossing their nominal row split; all three are preserved as first passes but are not selected for runtime.",
+    "A focused compact rear-attack sheet and compact east/west sheet supply new aimed pairs without shrinking the body around oversized effects; no front-facing pose was rotated or relabeled.",
+    "Foot/leg geometry anchors new frames at native16,30, so extending muzzle flash does not recenter the whole actor."
+  ],
+  "manual_review": [
+    "North actors show backs and aim upward; east/right and west/left guns and flash point the same way as the body.",
+    "Braced human/biped anatomy and recoil/arm/leg changes inspected in generated source and exported contact sheets.",
+    "South pairs are copied from accepted actors slots40/41,44/45,48/49 without raster changes."
+  ],
+  "limitations": [
+    "Two-frame attacks remain compact; gun extension/recoil pose can alter silhouette height/width within32px and needs actual game comparison.",
+    "No new death facings or weapon-specific rifle/scattergun/melee animations were requested; renderer event mapping remains root-owned.",
+    "No actual saved-target-facing, hit timing, FOV/occlusion or runtime acceptance is claimed."
+  ],
+  "slots": [
+    {
+      "id": 0,
+      "family": "player",
+      "direction": "north",
+      "phase": 0,
+      "source": "assets/art/animation/directional-actions/source/compact-north.png",
+      "source_pixel_box": [
+        0,
+        0,
+        512,
+        512
+      ],
+      "source_bbox": [
+        191,
+        94,
+        376,
+        443
+      ],
+      "source_foot_anchor": [
+        289.0,
+        443.0
+      ],
+      "scale": 0.07816712,
+      "native_foot_anchor": [
+        16,
+        30
+      ],
+      "paste": [
+        8,
+        3
+      ],
+      "native_glyph_size": [
+        14,
+        27
+      ],
+      "alpha_cutoff": 32
+    },
+    {
+      "id": 1,
+      "family": "player",
+      "direction": "north",
+      "phase": 1,
+      "source": "assets/art/animation/directional-actions/source/compact-north.png",
+      "source_pixel_box": [
+        0,
+        512,
+        512,
+        1024
+      ],
+      "source_bbox": [
+        191,
+        50,
+        376,
+        421
+      ],
+      "source_foot_anchor": [
+        289.0,
+        421.0
+      ],
+      "scale": 0.07816712,
+      "native_foot_anchor": [
+        16,
+        30
+      ],
+      "paste": [
+        8,
+        1
+      ],
+      "native_glyph_size": [
+        14,
+        29
+      ],
+      "alpha_cutoff": 32
+    },
+    {
+      "id": 2,
+      "family": "player",
+      "direction": "east",
+      "phase": 0,
+      "source": "assets/art/animation/directional-actions/source/compact-east-west.png",
+      "source_pixel_box": [
+        0,
+        0,
+        362,
+        362
+      ],
+      "source_bbox": [
+        98,
+        74,
+        259,
+        353
+      ],
+      "source_foot_anchor": [
+        172.5,
+        353.0
+      ],
+      "scale": 0.10394265,
+      "native_foot_anchor": [
+        16,
+        30
+      ],
+      "paste": [
+        8,
+        1
+      ],
+      "native_glyph_size": [
+        17,
+        29
+      ],
+      "alpha_cutoff": 32
+    },
+    {
+      "id": 3,
+      "family": "player",
+      "direction": "east",
+      "phase": 1,
+      "source": "assets/art/animation/directional-actions/source/compact-east-west.png",
+      "source_pixel_box": [
+        362,
+        0,
+        724,
+        362
+      ],
+      "source_bbox": [
+        60,
+        86,
+        280,
+        354
+      ],
+      "source_foot_anchor": [
+        140.5,
+        354.0
+      ],
+      "scale": 0.10394265,
+      "native_foot_anchor": [
+        16,
+        30
+      ],
+      "paste": [
+        8,
+        2
+      ],
+      "native_glyph_size": [
+        23,
+        28
+      ],
+      "alpha_cutoff": 32
+    },
+    {
+      "id": 4,
+      "family": "player",
+      "direction": "south",
+      "phase": 0,
+      "source": "existing actors-native.png",
+      "source_slot": 40,
+      "reuse": "exact native32 RGBA pixels; no re-export processing"
+    },
+    {
+      "id": 5,
+      "family": "player",
+      "direction": "south",
+      "phase": 1,
+      "source": "existing actors-native.png",
+      "source_slot": 41,
+      "reuse": "exact native32 RGBA pixels; no re-export processing"
+    },
+    {
+      "id": 6,
+      "family": "player",
+      "direction": "west",
+      "phase": 0,
+      "source": "assets/art/animation/directional-actions/source/compact-east-west.png",
+      "source_pixel_box": [
+        724,
+        0,
+        1086,
+        362
+      ],
+      "source_bbox": [
+        100,
+        86,
+        277,
+        353
+      ],
+      "source_foot_anchor": [
+        195.5,
+        353.0
+      ],
+      "scale": 0.10416667,
+      "native_foot_anchor": [
+        16,
+        30
+      ],
+      "paste": [
+        6,
+        2
+      ],
+      "native_glyph_size": [
+        18,
+        28
+      ],
+      "alpha_cutoff": 32
+    },
+    {
+      "id": 7,
+      "family": "player",
+      "direction": "west",
+      "phase": 1,
+      "source": "assets/art/animation/directional-actions/source/compact-east-west.png",
+      "source_pixel_box": [
+        1086,
+        0,
+        1448,
+        362
+      ],
+      "source_bbox": [
+        51,
+        86,
+        270,
+        354
+      ],
+      "source_foot_anchor": [
+        195.0,
+        354.0
+      ],
+      "scale": 0.10416667,
+      "native_foot_anchor": [
+        16,
+        30
+      ],
+      "paste": [
+        1,
+        2
+      ],
+      "native_glyph_size": [
+        23,
+        28
+      ],
+      "alpha_cutoff": 32
+    },
+    {
+      "id": 8,
+      "family": "sirs",
+      "direction": "north",
+      "phase": 0,
+      "source": "assets/art/animation/directional-actions/source/compact-north.png",
+      "source_pixel_box": [
+        512,
+        0,
+        1024,
+        512
+      ],
+      "source_bbox": [
+        144,
+        80,
+        366,
+        453
+      ],
+      "source_foot_anchor": [
+        266.0,
+        453.0
+      ],
+      "scale": 0.07455013,
+      "native_foot_anchor": [
+        16,
+        30
+      ],
+      "paste": [
+        7,
+        2
+      ],
+      "native_glyph_size": [
+        17,
+        28
+      ],
+      "alpha_cutoff": 32
+    },
+    {
+      "id": 9,
+      "family": "sirs",
+      "direction": "north",
+      "phase": 1,
+      "source": "assets/art/animation/directional-actions/source/compact-north.png",
+      "source_pixel_box": [
+        512,
+        512,
+        1024,
+        1024
+      ],
+      "source_bbox": [
+        144,
+        33,
+        364,
+        422
+      ],
+      "source_foot_anchor": [
+        262.0,
+        422.0
+      ],
+      "scale": 0.07455013,
+      "native_foot_anchor": [
+        16,
+        30
+      ],
+      "paste": [
+        7,
+        1
+      ],
+      "native_glyph_size": [
+        16,
+        29
+      ],
+      "alpha_cutoff": 32
+    },
+    {
+      "id": 10,
+      "family": "sirs",
+      "direction": "east",
+      "phase": 0,
+      "source": "assets/art/animation/directional-actions/source/compact-east-west.png",
+      "source_pixel_box": [
+        0,
+        362,
+        362,
+        724
+      ],
+      "source_bbox": [
+        93,
+        39,
+        282,
+        319
+      ],
+      "source_foot_anchor": [
+        178.5,
+        319.0
+      ],
+      "scale": 0.09803922,
+      "native_foot_anchor": [
+        16,
+        30
+      ],
+      "paste": [
+        8,
+        3
+      ],
+      "native_glyph_size": [
+        19,
+        27
+      ],
+      "alpha_cutoff": 32
+    },
+    {
+      "id": 11,
+      "family": "sirs",
+      "direction": "east",
+      "phase": 1,
+      "source": "assets/art/animation/directional-actions/source/compact-east-west.png",
+      "source_pixel_box": [
+        362,
+        362,
+        724,
+        724
+      ],
+      "source_bbox": [
+        56,
+        46,
+        303,
+        319
+      ],
+      "source_foot_anchor": [
+        150.0,
+        319.0
+      ],
+      "scale": 0.09803922,
+      "native_foot_anchor": [
+        16,
+        30
+      ],
+      "paste": [
+        7,
+        3
+      ],
+      "native_glyph_size": [
+        24,
+        27
+      ],
+      "alpha_cutoff": 32
+    },
+    {
+      "id": 12,
+      "family": "sirs",
+      "direction": "south",
+      "phase": 0,
+      "source": "existing actors-native.png",
+      "source_slot": 44,
+      "reuse": "exact native32 RGBA pixels; no re-export processing"
+    },
+    {
+      "id": 13,
+      "family": "sirs",
+      "direction": "south",
+      "phase": 1,
+      "source": "existing actors-native.png",
+      "source_slot": 45,
+      "reuse": "exact native32 RGBA pixels; no re-export processing"
+    },
+    {
+      "id": 14,
+      "family": "sirs",
+      "direction": "west",
+      "phase": 0,
+      "source": "assets/art/animation/directional-actions/source/compact-east-west.png",
+      "source_pixel_box": [
+        724,
+        362,
+        1086,
+        724
+      ],
+      "source_bbox": [
+        92,
+        45,
+        307,
+        319
+      ],
+      "source_foot_anchor": [
+        209.5,
+        319.0
+      ],
+      "scale": 0.10583942,
+      "native_foot_anchor": [
+        16,
+        30
+      ],
+      "paste": [
+        4,
+        1
+      ],
+      "native_glyph_size": [
+        23,
+        29
+      ],
+      "alpha_cutoff": 32
+    },
+    {
+      "id": 15,
+      "family": "sirs",
+      "direction": "west",
+      "phase": 1,
+      "source": "assets/art/animation/directional-actions/source/compact-east-west.png",
+      "source_pixel_box": [
+        1086,
+        362,
+        1448,
+        724
+      ],
+      "source_bbox": [
+        61,
+        45,
+        285,
+        318
+      ],
+      "source_foot_anchor": [
+        202.0,
+        318.0
+      ],
+      "scale": 0.10583942,
+      "native_foot_anchor": [
+        16,
+        30
+      ],
+      "paste": [
+        1,
+        1
+      ],
+      "native_glyph_size": [
+        24,
+        29
+      ],
+      "alpha_cutoff": 32
+    },
+    {
+      "id": 16,
+      "family": "add",
+      "direction": "north",
+      "phase": 0,
+      "source": "assets/art/animation/directional-actions/source/compact-north.png",
+      "source_pixel_box": [
+        1024,
+        0,
+        1536,
+        512
+      ],
+      "source_bbox": [
+        71,
+        94,
+        368,
+        453
+      ],
+      "source_foot_anchor": [
+        218.5,
+        453.0
+      ],
+      "scale": 0.07945205,
+      "native_foot_anchor": [
+        16,
+        30
+      ],
+      "paste": [
+        4,
+        1
+      ],
+      "native_glyph_size": [
+        24,
+        29
+      ],
+      "alpha_cutoff": 32
+    },
+    {
+      "id": 17,
+      "family": "add",
+      "direction": "north",
+      "phase": 1,
+      "source": "assets/art/animation/directional-actions/source/compact-north.png",
+      "source_pixel_box": [
+        1024,
+        512,
+        1536,
+        1024
+      ],
+      "source_bbox": [
+        71,
+        57,
+        368,
+        422
+      ],
+      "source_foot_anchor": [
+        219.0,
+        422.0
+      ],
+      "scale": 0.07945205,
+      "native_foot_anchor": [
+        16,
+        30
+      ],
+      "paste": [
+        4,
+        1
+      ],
+      "native_glyph_size": [
+        24,
+        29
+      ],
+      "alpha_cutoff": 32
+    },
+    {
+      "id": 18,
+      "family": "add",
+      "direction": "east",
+      "phase": 0,
+      "source": "assets/art/animation/directional-actions/source/compact-east-west.png",
+      "source_pixel_box": [
+        0,
+        724,
+        362,
+        1086
+      ],
+      "source_bbox": [
+        64,
+        8,
+        315,
+        279
+      ],
+      "source_foot_anchor": [
+        180.0,
+        279.0
+      ],
+      "scale": 0.09090909,
+      "native_foot_anchor": [
+        16,
+        30
+      ],
+      "paste": [
+        5,
+        5
+      ],
+      "native_glyph_size": [
+        23,
+        25
+      ],
+      "alpha_cutoff": 32
+    },
+    {
+      "id": 19,
+      "family": "add",
+      "direction": "east",
+      "phase": 1,
+      "source": "assets/art/animation/directional-actions/source/compact-east-west.png",
+      "source_pixel_box": [
+        362,
+        724,
+        724,
+        1086
+      ],
+      "source_bbox": [
+        47,
+        13,
+        329,
+        282
+      ],
+      "source_foot_anchor": [
+        164.0,
+        282.0
+      ],
+      "scale": 0.09090909,
+      "native_foot_anchor": [
+        16,
+        30
+      ],
+      "paste": [
+        5,
+        6
+      ],
+      "native_glyph_size": [
+        26,
+        24
+      ],
+      "alpha_cutoff": 32
+    },
+    {
+      "id": 20,
+      "family": "add",
+      "direction": "south",
+      "phase": 0,
+      "source": "existing actors-native.png",
+      "source_slot": 48,
+      "reuse": "exact native32 RGBA pixels; no re-export processing"
+    },
+    {
+      "id": 21,
+      "family": "add",
+      "direction": "south",
+      "phase": 1,
+      "source": "existing actors-native.png",
+      "source_slot": 49,
+      "reuse": "exact native32 RGBA pixels; no re-export processing"
+    },
+    {
+      "id": 22,
+      "family": "add",
+      "direction": "west",
+      "phase": 0,
+      "source": "assets/art/animation/directional-actions/source/compact-east-west.png",
+      "source_pixel_box": [
+        724,
+        724,
+        1086,
+        1086
+      ],
+      "source_bbox": [
+        60,
+        12,
+        309,
+        281
+      ],
+      "source_foot_anchor": [
+        192.0,
+        281.0
+      ],
+      "scale": 0.09836066,
+      "native_foot_anchor": [
+        16,
+        30
+      ],
+      "paste": [
+        3,
+        4
+      ],
+      "native_glyph_size": [
+        24,
+        26
+      ],
+      "alpha_cutoff": 32
+    },
+    {
+      "id": 23,
+      "family": "add",
+      "direction": "west",
+      "phase": 1,
+      "source": "assets/art/animation/directional-actions/source/compact-east-west.png",
+      "source_pixel_box": [
+        1086,
+        724,
+        1448,
+        1086
+      ],
+      "source_bbox": [
+        41,
+        9,
+        307,
+        281
+      ],
+      "source_foot_anchor": [
+        193.5,
+        281.0
+      ],
+      "scale": 0.09836066,
+      "native_foot_anchor": [
+        16,
+        30
+      ],
+      "paste": [
+        1,
+        3
+      ],
+      "native_glyph_size": [
+        26,
+        27
+      ],
+      "alpha_cutoff": 32
+    }
+  ],
+  "atmosphere_override": "assets/art/atmosphere/manifest.json",
+  "atmosphere_note": "Historical source/layout entries below describe the preserved prior pass. The ATM-ART override identifies current64px native crops and changed slots; runtime128px cells are unchanged.",
+  "current_export": "tools/media/pack_atmosphere.py then tools/media/pack_material_separation.py",
+  "current_reference_station_sha256": "6c02073664d4b56b05959899cdf07f2cd3c49cda2d66abde205c5a253f2b0c5d",
+  "material_separation_override": "assets/art/material-separation/manifest.json"
+}

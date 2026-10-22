@@ -1,0 +1,128 @@
+{
+  "version": 1,
+  "referenceCellPixels": 192,
+  "editableReferenceCellPixels": 256,
+  "pivotOrigin": "bottom-left",
+  "clips": [
+    {
+      "id": "machine.sirs.idle.north",
+      "frameSeconds": 0.5,
+      "loop": false,
+      "frames": [
+        {
+          "name": "machine.sirs.idle.north",
+          "path": "art/production/station/regions/machine.sirs.idle.north.png",
+          "widthCells": 1.5,
+          "heightCells": 2.0,
+          "pivotX": 0.5,
+          "pivotY": 0.2125542163848877,
+          "pixelWidth": 288,
+          "pixelHeight": 384,
+          "layer": "world",
+          "sha256": "8ad9360c212b4d49cf7f75616dccc7aea0a8c46234a97f6241c0552649d3d303",
+          "asset": "sirs"
+        }
+      ],
+      "markers": [],
+      "cycleCells": 0
+    },
+    {
+      "id": "machine.sirs.idle.east",
+      "frameSeconds": 0.5,
+      "loop": false,
+      "frames": [
+        {
+          "name": "machine.sirs.idle.east",
+          "path": "art/production/station/regions/machine.sirs.idle.east.png",
+          "widthCells": 1.5,
+          "heightCells": 2.0,
+          "pivotX": 0.5,
+          "pivotY": 0.2125542163848877,
+          "pixelWidth": 288,
+          "pixelHeight": 384,
+          "layer": "world",
+          "sha256": "5435da9e34ca852d0ff55edc4a465d5c30d5fd0f12bd1b0faafa77a32cf4d624",
+          "asset": "sirs"
+        }
+      ],
+      "markers": [],
+      "cycleCells": 0
+    },
+    {
+      "id": "machine.sirs.idle.south",
+      "frameSeconds": 0.5,
+      "loop": false,
+      "frames": [
+        {
+          "name": "machine.sirs.idle.south",
+          "path": "art/production/station/regions/machine.sirs.idle.south.png",
+          "widthCells": 1.5,
+          "heightCells": 2.0,
+          "pivotX": 0.5,
+          "pivotY": 0.2125542163848877,
+          "pixelWidth": 288,
+          "pixelHeight": 384,
+          "layer": "world",
+          "sha256": "ae94bca0b5e04685735d66f45870a7c31abe9423f3c2f5e0d4337a3c40a2c7f5",
+          "asset": "sirs"
+        }
+      ],
+      "markers": [],
+      "cycleCells": 0
+    },
+    {
+      "id": "machine.sirs.idle.west",
+      "frameSeconds": 0.5,
+      "loop": false,
+      "frames": [
+        {
+          "name": "machine.sirs.idle.west",
+          "path": "art/production/station/regions/machine.sirs.idle.west.png",
+          "widthCells": 1.5,
+          "heightCells": 2.0,
+          "pivotX": 0.5,
+          "pivotY": 0.2125542163848877,
+          "pixelWidth": 288,
+          "pixelHeight": 384,
+          "layer": "world",
+          "sha256": "456342e23d2b0578a5fecbfc009fb0a79bcb8903ce0cf0a9e24b05d75dfccf73",
+          "asset": "sirs"
+        }
+      ],
+      "markers": [],
+      "cycleCells": 0
+    }
+  ],
+  "bindings": [
+    {
+      "actor": "SIRS",
+      "action": "idle",
+      "facing": "north",
+      "clip": "machine.sirs.idle.north"
+    },
+    {
+      "actor": "SIRS",
+      "action": "idle",
+      "facing": "east",
+      "clip": "machine.sirs.idle.east"
+    },
+    {
+      "actor": "SIRS",
+      "action": "idle",
+      "facing": "south",
+      "clip": "machine.sirs.idle.south"
+    },
+    {
+      "actor": "SIRS",
+      "action": "idle",
+      "facing": "west",
+      "clip": "machine.sirs.idle.west"
+    }
+  ],
+  "status": "pilot-only; no artistic acceptance",
+  "missing": [
+    "SIRS movement/anticipation/attack/hit/destroyed",
+    "all camera and mechanism states",
+    "door motion/locked/braced/damaged"
+  ]
+}

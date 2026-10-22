@@ -1,67 +1,122 @@
-buildscript {
-    repositories {
-        mavenCentral()
-        maven { url "https://oss.sonatype.org/content/repositories/snapshots/" }
-    }
-    dependencies {
-    }
-}
-
 allprojects {
-    apply plugin: "eclipse"
-    apply plugin: "idea"
-
-    version = '1.0'
-    ext {
-        appName = "originwaralpha"
-        squidlibVersion = '3.0.0-b6'
-        gdxVersion = '1.9.3'
-        roboVMVersion = '1.12.0'
-        box2DLightsVersion = '1.4'
-        ashleyVersion = '1.7.0'
-        aiVersion = '1.8.0'
-        regexodusVersion = '0.1.5'
-    }
-
-    repositories {
-        mavenCentral()
-        maven { url "https://jitpack.io" }
-        maven { url "https://oss.sonatype.org/content/repositories/snapshots/" }
-        maven { url "https://oss.sonatype.org/content/repositories/releases/" }
-    }
+    group = 'io.zipcoder.originwar'
+    version = '0.2.0'
+    repositories { mavenCentral(); maven { url = uri('https://jitpack.io') } }
 }
-
-project(":desktop") {
-    apply plugin: "java"
-
+subprojects {
+    apply plugin: 'java'
+    java { toolchain { languageVersion = JavaLanguageVersion.of(21) } }
+    tasks.withType(JavaCompile).configureEach { options.encoding = 'UTF-8' }
     dependencies {
-        compile project(":core")
-        compile "com.badlogicgames.gdx:gdx-backend-lwjgl:$gdxVersion"
-        compile "com.badlogicgames.gdx:gdx-platform:$gdxVersion:natives-desktop"
-        compile "com.badlogicgames.gdx:gdx-freetype-platform:$gdxVersion:natives-desktop"
-        compile "com.badlogicgames.gdx:gdx-tools:$gdxVersion"
-        compile "com.badlogicgames.gdx:gdx-box2d-platform:$gdxVersion:natives-desktop"
-        testCompile 'junit:junit:4.12'
+        testImplementation platform('org.junit:junit-bom:5.12.2')
+        testImplementation 'org.junit.jupiter:junit-jupiter'
+        testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
     }
+    test { useJUnitPlatform(); testLogging { events 'failed', 'skipped' } }
 }
 
-project(":core") {
-    apply plugin: "java"
-
-    dependencies {
-        compile "com.squidpony:squidlib:$squidlibVersion"
-        compile "com.badlogicgames.gdx:gdx:$gdxVersion"
-        compile "com.squidpony:squidlib-util:$squidlibVersion"
-        compile "com.github.tommyettinger:regexodus:$regexodusVersion"
-        compile "com.badlogicgames.gdx:gdx-freetype:$gdxVersion"
-        compile "com.badlogicgames.ashley:ashley:$ashleyVersion"
-        compile "com.badlogicgames.gdx:gdx-ai:$aiVersion"
-        compile "com.badlogicgames.box2dlights:box2dlights:$box2DLightsVersion"
-        compile "com.badlogicgames.gdx:gdx-box2d:$gdxVersion"
-        testCompile 'junit:junit:4.12'
+tasks.register('verifyAssets') {
+    group='verification'
+    description='Validate the active illustrated survival regions, motion, voice bindings and provenance.'
+    doLast {
+        def digest={f -> java.security.MessageDigest.getInstance('SHA-256').digest(f.bytes).encodeHex().toString()}
+        def assetRoot=file('assets').canonicalPath+File.separator
+        def check={path,hash ->
+            def payload=file('assets/'+path)
+            if(!payload.canonicalPath.startsWith(assetRoot)||!payload.isFile()||digest(payload)!=hash)throw new GradleException('Missing/mismatched survival asset: '+path)
+        }
+        def art=new groovy.json.JsonSlurper().parse(file('assets/art/survival/regions.json'))
+        if(art.version!=1||art.regions.size()<42)throw new GradleException('Incomplete illustrated region contract')
+        art.regions.each { item ->
+            check(item.path,item.sha256)
+            def raster=javax.imageio.ImageIO.read(file('assets/'+item.path))
+            if(raster==null||raster.width!=item.pixelWidth||raster.height!=item.pixelHeight||item.widthCells<=0||item.heightCells<=0)throw new GradleException('Invalid illustrated bounds: '+item.name)
+        }
+        def equipment=new groovy.json.JsonSlurper().parse(file('assets/art/survival/equipment-motion/regions.json'))
+        def expectedEquipment=['unarmed','rifle','scattergun'].collectMany { weapon -> ['north','east','south','west'].collect { face -> 'officer.'+weapon+'.'+face } }.toSet()
+        if(equipment.version!=1||equipment.regions.size()!=12||equipment.regions.collect{it.name}.toSet()!=expectedEquipment)throw new GradleException('Incomplete equipment silhouettes')
+        equipment.regions.each { item ->
+            check(item.path,item.sha256)
+            def raster=javax.imageio.ImageIO.read(file('assets/'+item.path))
+            if(raster==null||raster.width!=item.pixelWidth||raster.height!=item.pixelHeight||item.widthCells<=0||item.heightCells<=0||item.pivotX<0||item.pivotX>1||item.pivotY<0||item.pivotY>1)throw new GradleException('Invalid equipment bounds: '+item.name)
+        }
+        def equipmentMotion=new groovy.json.JsonSlurper().parse(file('assets/art/survival/equipment-motion/clips.json'))
+        if(equipmentMotion.clips.collect{it.id}.toSet()!=['officer.fire.north','officer.aim.north'].toSet())throw new GradleException('Incomplete north pistol action')
+        equipmentMotion.clips.each { clip -> clip.frames.each { frame -> check(frame.path,frame.sha256) } }
+        def speech=new groovy.json.JsonSlurper().parse(file('assets/audio/survival/exchanges.json'))
+        if(speech.exchanges.size()!=16||speech.exchanges.sum{it.lines.size()}!=28)throw new GradleException('Incomplete survival performance catalog')
+        speech.exchanges.each { exchange -> exchange.lines.each { line ->
+            check(line.path,line.sha256);check(line.clear_path,line.clear_sha256)
+            if(java.security.MessageDigest.getInstance('SHA-256').digest(line.text.getBytes('UTF-8')).encodeHex().toString()!=line.text_sha256)throw new GradleException('Changed speech text: '+exchange.id)
+        }}
+        (speech.sfx.values()+speech.ambience.values()).each { item -> check(item.path,item.sha256) }
+        def motionFile=file('assets/art/survival/motion/clips.json')
+        if(motionFile.isFile()){
+            def motion=new groovy.json.JsonSlurper().parse(motionFile)
+            ['north','east','south','west'].each { face ->
+                def clip=motion.clips.find{it.id=='officer.walk.'+face}
+                if(clip==null||clip.frames.size()!=12)throw new GradleException('Missing twelve-phase gait: '+face)
+            }
+            motion.clips.each { clip -> clip.frames.each { frame ->
+                def raster=file('assets/'+frame.path)
+                if(!raster.canonicalPath.startsWith(assetRoot)||!raster.isFile()||frame.widthCells<=0||frame.heightCells<=0)throw new GradleException('Invalid motion frame: '+frame.path)
+                if(frame.sha256!=null)check(frame.path,frame.sha256)
+            }}
+        } else throw new GradleException('Missing illustrated motion candidate. Source validation never implies artistic acceptance.')
+        def retainedAudio=new groovy.json.JsonSlurper().parse(file('assets/audio/manifest.json'))
+        (retainedAudio.music.values()+retainedAudio.sfx.values()+retainedAudio.ambience.values()).each { item -> check(item.path.replaceFirst('^assets/',''),item.sha256) }
+        def uiFont=new groovy.json.JsonSlurper().parse(file('assets/ui/manifest.json'))
+        uiFont.outputs.each { path,hash -> check('ui/'+path,hash) }
+        def proofCatalog=file('assets/art/proof/catalog.json')
+        if(proofCatalog.isFile()){
+            def proof=new groovy.json.JsonSlurper().parse(proofCatalog)
+            if(proof.packs.collect{it.name}.toSet()!=['environment','painted','rendered'].toSet())throw new GradleException('Incomplete A/B comparison packs')
+            proof.packs.each { pack ->
+                check(pack.manifest,pack.sha256)
+                def catalog=new groovy.json.JsonSlurper().parse(file('assets/'+pack.manifest))
+                check(catalog.sourceManifest.path,catalog.sourceManifest.sha256)
+                catalog.atlasPages.each { page -> check(page.path,page.sha256) }
+                def ids=[] as Set
+                (catalog.clips?:[]).each { clip ->
+                    if(!ids.add(clip.id)||clip.frames.isEmpty())throw new GradleException('Duplicate/empty proof clip: '+clip.id)
+                    clip.frames.each { frame -> if(frame.path!=null){check(frame.sourcePath,frame.sourceSha256);if(frame.widthCells<=0||frame.heightCells<=0)throw new GradleException('Invalid proof bounds')} }
+                }
+                (catalog.bindings?:[]).each { binding -> if(!ids.contains(binding.clip))throw new GradleException('Missing proof binding: '+binding.clip) }
+            }
+        }
+        def productionPacks=['officer','station']
+        def loadoutIndex=file('assets/art/production/officer/loadouts/index.json')
+        if(loadoutIndex.isFile())new groovy.json.JsonSlurper().parse(loadoutIndex).sets.keySet().each{ name ->
+            if(!(name==~ /[a-z]+-[a-z]+/))throw new GradleException('Invalid officer loadout name')
+            productionPacks.add('officer/loadouts/'+name)
+        }
+        productionPacks.each { packName ->
+        def kind=packName.startsWith('officer')?'officer':'station'
+        def productionAtlas=file('assets/art/production/'+packName+'/atlas.json')
+        if(productionAtlas.isFile()){
+            def production=new groovy.json.JsonSlurper().parse(productionAtlas)
+            check(production.sourceManifest.path,production.sourceManifest.sha256)
+            if(production.sourceRegionsManifest!=null)check(production.sourceRegionsManifest.path,production.sourceRegionsManifest.sha256)
+            if(production.atlasPages.isEmpty()||production.atlasPages.size()>8||production.memoryBudget.actualRgbaBytes!=production.atlasPages.size()*2048L*2048*4)throw new GradleException(kind+' texture residency exceeds declared budget')
+            production.atlasPages.each{page->check(page.path,page.sha256)}
+            def ids=[] as Set
+            (production.regions?:[]).each { region -> check(region.sourcePath,region.sourceSha256);if(region.widthCells<=0||region.heightCells<=0||region.pivotX<0||region.pivotX>1||region.pivotY<0||region.pivotY>1)throw new GradleException('Invalid station region origin') }
+            production.clips.each{clip->
+                if(!ids.add(clip.id)||clip.frames.isEmpty())throw new GradleException('Invalid production clip '+clip.id)
+                clip.frames.each{frame->
+                    check(frame.sourcePath,frame.sourceSha256)
+                    if(frame.widthCells<=0||frame.heightCells<=0||frame.pivotX<0||frame.pivotX>1||frame.pivotY<0||frame.pivotY>1)throw new GradleException('Invalid trimmed officer origin')
+                }
+            }
+            def bound=[] as Set
+            production.bindings.each{binding->
+                def key=kind=='officer'?[binding.weapon,binding.armor,binding.action,binding.facing]:[binding.actor,binding.action,binding.facing]
+                if(!ids.contains(binding.clip)||!bound.add(key))throw new GradleException('Invalid/duplicate '+kind+' binding')
+            }
+        }
+        }
+        def notices=new groovy.json.JsonSlurper().parse(file('licenses/MANIFEST.json'))
+        notices.each { path,entry -> if(!file('licenses/'+path).isFile()||digest(file('licenses/'+path))!=entry.sha256)throw new GradleException('Notice mismatch: '+path) }
+        logger.lifecycle('Validated '+art.regions.size()+' illustrated regions, 12 equipment silhouettes, north pistol action, 28 exact normal/clear performances, 16 effects, 3 station beds and dependency notices.')
     }
-}
-
-tasks.eclipse.doLast {
-    delete ".project"
 }

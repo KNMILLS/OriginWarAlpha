@@ -1,0 +1,23 @@
+{
+  "task": "AR-STATION",
+  "base": "d80aa83b32706b7058e80176befe73468592765f",
+  "tool": "4.5.3 LTS",
+  "medium": "original Blender mechanical meshes/materials/armature; offline rendered candidate, not hand-painted brushwork",
+  "externalAssets": [],
+  "rights": "Original authored construction from project visual identity references; no outside model/texture/animation",
+  "sourceBlend": {
+    "path": "origin-war-opening-station.blend",
+    "sha256": "47e81f663544d552c79e3410b6f2ba7b2b77a2b5b886e94f0e1ca1f2b96820c2"
+  },
+  "scriptSha256": "d31ad0ff2680bca4cc767534df3816b3722fb2c3421e5b6d5b327043d604f89b",
+  "motionScriptSha256": "e4974a7b71634f2245f8472cfa15936e16f5a184ebb2bfe5e2302645ef819af2",
+  "referencePaths": [
+    "art/survival/regions/machine.sirs.png",
+    "art/survival/regions/machine.camera.png",
+    "art/survival/regions/door.closed.png",
+    "art/survival/regions/door.open.png",
+    "art/survival/regions/hatch.closed.png",
+    "art/survival/regions/control.switch.png"
+  ],
+  "limitations": "Opening hardware development candidate only; source contact calibration is not native or commercial acceptance."
+}

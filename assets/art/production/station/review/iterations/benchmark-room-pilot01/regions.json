@@ -1,0 +1,1497 @@
+{
+  "version": 1,
+  "referenceCellPixels": 192,
+  "editableReferenceCellPixels": 256,
+  "pivotOrigin": "bottom-left",
+  "pathRoot": "assets",
+  "regions": [
+    {
+      "name": "machine.sirs.idle.north",
+      "path": "art/production/station/review/iterations/benchmark-room-pilot01/regions/machine.sirs.idle.north.png",
+      "widthCells": 1.5,
+      "heightCells": 2.0,
+      "pivotX": 0.5,
+      "pivotY": 0.2125542163848877,
+      "pixelWidth": 288,
+      "pixelHeight": 384,
+      "layer": "world",
+      "sha256": "403a753138924cbe6e5089529fc1008b5f8a9edddd235ae78bd1c19fbd0affed",
+      "asset": "sirs",
+      "feet": {
+        "left": {
+          "phase": 0,
+          "stance": true,
+          "anchorWorld": [
+            -0.2150000035762787,
+            0.05500001832842827,
+            0.006000000052154064
+          ],
+          "localPixels": [
+            -32.83446979522705,
+            5.831302642822266
+          ],
+          "screenCells": [
+            -0.17101286351680756,
+            0.030371367931365967
+          ],
+          "rootPixels": [
+            0.0,
+            0.0
+          ],
+          "rootPlusLocalPixels": [
+            -32.83446979522705,
+            5.831302642822266
+          ],
+          "liftWorld": 0
+        },
+        "right": {
+          "phase": 0.5,
+          "stance": true,
+          "anchorWorld": [
+            0.2150000035762787,
+            0.054999981075525284,
+            0.006000000052154064
+          ],
+          "localPixels": [
+            32.8344612121582,
+            5.831302642822266
+          ],
+          "screenCells": [
+            0.17101281881332397,
+            0.030371367931365967
+          ],
+          "rootPixels": [
+            0.0,
+            0.0
+          ],
+          "rootPlusLocalPixels": [
+            32.8344612121582,
+            5.831302642822266
+          ],
+          "liftWorld": 0
+        }
+      }
+    },
+    {
+      "name": "machine.sirs.idle.east",
+      "path": "art/production/station/review/iterations/benchmark-room-pilot01/regions/machine.sirs.idle.east.png",
+      "widthCells": 1.5,
+      "heightCells": 2.0,
+      "pivotX": 0.5,
+      "pivotY": 0.2125542163848877,
+      "pixelWidth": 288,
+      "pixelHeight": 384,
+      "layer": "world",
+      "sha256": "c6629c38600df2c603ecca7de3b6ff7e9f276a9f110729e495187c08f73e3b1b",
+      "asset": "sirs",
+      "feet": {
+        "left": {
+          "phase": 0,
+          "stance": true,
+          "anchorWorld": [
+            0.05500001460313797,
+            0.2150000035762787,
+            0.006000000052154064
+          ],
+          "localPixels": [
+            8.399511337280273,
+            20.67791748046875
+          ],
+          "screenCells": [
+            0.04374745488166809,
+            0.1076974868774414
+          ],
+          "rootPixels": [
+            0.0,
+            0.0
+          ],
+          "rootPlusLocalPixels": [
+            8.399511337280273,
+            20.67791748046875
+          ],
+          "liftWorld": 0
+        },
+        "right": {
+          "phase": 0.5,
+          "stance": true,
+          "anchorWorld": [
+            0.05499998480081558,
+            -0.2150000035762787,
+            0.006000000052154064
+          ],
+          "localPixels": [
+            8.399511337280273,
+            -19.222366333007812
+          ],
+          "screenCells": [
+            0.04374745488166809,
+            -0.10011649131774902
+          ],
+          "rootPixels": [
+            0.0,
+            0.0
+          ],
+          "rootPlusLocalPixels": [
+            8.399511337280273,
+            -19.222366333007812
+          ],
+          "liftWorld": 0
+        }
+      }
+    },
+    {
+      "name": "machine.sirs.idle.south",
+      "path": "art/production/station/review/iterations/benchmark-room-pilot01/regions/machine.sirs.idle.south.png",
+      "widthCells": 1.5,
+      "heightCells": 2.0,
+      "pivotX": 0.5,
+      "pivotY": 0.2125542163848877,
+      "pixelWidth": 288,
+      "pixelHeight": 384,
+      "layer": "world",
+      "sha256": "9a871c081c3143cc9ced629d212ecf93df435087aa81208670b20abbafaf3b3f",
+      "asset": "sirs",
+      "feet": {
+        "left": {
+          "phase": 0,
+          "stance": true,
+          "anchorWorld": [
+            0.2150000035762787,
+            -0.054999999701976776,
+            0.006000000052154064
+          ],
+          "localPixels": [
+            32.8344612121582,
+            -4.37574577331543
+          ],
+          "screenCells": [
+            0.17101281881332397,
+            -0.022790342569351196
+          ],
+          "rootPixels": [
+            0.0,
+            0.0
+          ],
+          "rootPlusLocalPixels": [
+            32.8344612121582,
+            -4.37574577331543
+          ],
+          "liftWorld": 0
+        },
+        "right": {
+          "phase": 0.5,
+          "stance": true,
+          "anchorWorld": [
+            -0.2150000035762787,
+            -0.054999999701976776,
+            0.006000000052154064
+          ],
+          "localPixels": [
+            -32.83446979522705,
+            -4.37574577331543
+          ],
+          "screenCells": [
+            -0.17101286351680756,
+            -0.022790342569351196
+          ],
+          "rootPixels": [
+            0.0,
+            0.0
+          ],
+          "rootPlusLocalPixels": [
+            -32.83446979522705,
+            -4.37574577331543
+          ],
+          "liftWorld": 0
+        }
+      }
+    },
+    {
+      "name": "machine.sirs.idle.west",
+      "path": "art/production/station/review/iterations/benchmark-room-pilot01/regions/machine.sirs.idle.west.png",
+      "widthCells": 1.5,
+      "heightCells": 2.0,
+      "pivotX": 0.5,
+      "pivotY": 0.2125542163848877,
+      "pixelWidth": 288,
+      "pixelHeight": 384,
+      "layer": "world",
+      "sha256": "ab1d638c364246956e9d53711faa5a3ad2d0a55579d63c55b66c9da114fb5262",
+      "asset": "sirs",
+      "feet": {
+        "left": {
+          "phase": 0,
+          "stance": true,
+          "anchorWorld": [
+            -0.05500001087784767,
+            -0.2150000035762787,
+            0.006000000052154064
+          ],
+          "localPixels": [
+            -8.399519920349121,
+            -19.222366333007812
+          ],
+          "screenCells": [
+            -0.04374749958515167,
+            -0.10011649131774902
+          ],
+          "rootPixels": [
+            0.0,
+            0.0
+          ],
+          "rootPlusLocalPixels": [
+            -8.399519920349121,
+            -19.222366333007812
+          ],
+          "liftWorld": 0
+        },
+        "right": {
+          "phase": 0.5,
+          "stance": true,
+          "anchorWorld": [
+            -0.05499998852610588,
+            0.2150000035762787,
+            0.006000000052154064
+          ],
+          "localPixels": [
+            -8.399511337280273,
+            20.67791748046875
+          ],
+          "screenCells": [
+            -0.04374745488166809,
+            0.1076974868774414
+          ],
+          "rootPixels": [
+            0.0,
+            0.0
+          ],
+          "rootPlusLocalPixels": [
+            -8.399511337280273,
+            20.67791748046875
+          ],
+          "liftWorld": 0
+        }
+      }
+    },
+    {
+      "name": "door.closed",
+      "path": "art/production/station/review/iterations/benchmark-room-pilot01/regions/door.closed.png",
+      "widthCells": 1.5,
+      "heightCells": 2.5,
+      "pivotX": 0.5,
+      "pivotY": 0.17630767822265625,
+      "pixelWidth": 288,
+      "pixelHeight": 480,
+      "layer": "world",
+      "sha256": "2275e3f59f383c37524c2e1193585fb0f10a33f8fd812f91a401de0065cd475a",
+      "asset": "door"
+    },
+    {
+      "name": "door.open",
+      "path": "art/production/station/review/iterations/benchmark-room-pilot01/regions/door.open.png",
+      "widthCells": 1.5,
+      "heightCells": 2.5,
+      "pivotX": 0.5,
+      "pivotY": 0.17630767822265625,
+      "pixelWidth": 288,
+      "pixelHeight": 480,
+      "layer": "world",
+      "sha256": "737d53c9cb01f7d42b5049c6dee7f89c951f1e6d19d529d4fb5ec5f0fb79a355",
+      "asset": "door"
+    },
+    {
+      "name": "door.opening.north.00",
+      "path": "art/production/station/review/iterations/benchmark-room-pilot01/regions/door.opening.north.00.png",
+      "widthCells": 1.5,
+      "heightCells": 2.5,
+      "pivotX": 0.5,
+      "pivotY": 0.17630767822265625,
+      "pixelWidth": 288,
+      "pixelHeight": 480,
+      "layer": "world",
+      "sha256": "082df74c9c7a88d81e26f749bc0e6a5190830c9b91f79f32544a40bc8f423730",
+      "asset": "door",
+      "physicalState": "opening",
+      "passageOpen": false,
+      "forcedOpen": false,
+      "hasPhysicalBrace": false,
+      "poweredIndicators": false,
+      "orientationDegrees": 0,
+      "sameCamera": true,
+      "foregroundCutaway": false,
+      "footprintCells": [
+        1,
+        1
+      ]
+    },
+    {
+      "name": "door.opening.north.01",
+      "path": "art/production/station/review/iterations/benchmark-room-pilot01/regions/door.opening.north.01.png",
+      "widthCells": 1.5,
+      "heightCells": 2.5,
+      "pivotX": 0.5,
+      "pivotY": 0.17630767822265625,
+      "pixelWidth": 288,
+      "pixelHeight": 480,
+      "layer": "world",
+      "sha256": "c4caccfdab3d628a2129f15a2cfe6382a227695d68f2e61d26df77e734f30525",
+      "asset": "door",
+      "physicalState": "opening",
+      "passageOpen": false,
+      "forcedOpen": false,
+      "hasPhysicalBrace": false,
+      "poweredIndicators": false,
+      "orientationDegrees": 0,
+      "sameCamera": true,
+      "foregroundCutaway": false,
+      "footprintCells": [
+        1,
+        1
+      ]
+    },
+    {
+      "name": "door.opening.north.02",
+      "path": "art/production/station/review/iterations/benchmark-room-pilot01/regions/door.opening.north.02.png",
+      "widthCells": 1.5,
+      "heightCells": 2.5,
+      "pivotX": 0.5,
+      "pivotY": 0.17630767822265625,
+      "pixelWidth": 288,
+      "pixelHeight": 480,
+      "layer": "world",
+      "sha256": "ca565a37d0ef8fee899451d1dfaa4e05ca3031a457b32f39c60dbf826d4d84a5",
+      "asset": "door",
+      "physicalState": "opening",
+      "passageOpen": false,
+      "forcedOpen": false,
+      "hasPhysicalBrace": false,
+      "poweredIndicators": false,
+      "orientationDegrees": 0,
+      "sameCamera": true,
+      "foregroundCutaway": false,
+      "footprintCells": [
+        1,
+        1
+      ]
+    },
+    {
+      "name": "door.opening.north.03",
+      "path": "art/production/station/review/iterations/benchmark-room-pilot01/regions/door.opening.north.03.png",
+      "widthCells": 1.5,
+      "heightCells": 2.5,
+      "pivotX": 0.5,
+      "pivotY": 0.17630767822265625,
+      "pixelWidth": 288,
+      "pixelHeight": 480,
+      "layer": "world",
+      "sha256": "700abf2a08dc821106e059705332d97c49704a492fd55e9e4451086da73a6428",
+      "asset": "door",
+      "physicalState": "opening",
+      "passageOpen": false,
+      "forcedOpen": false,
+      "hasPhysicalBrace": false,
+      "poweredIndicators": false,
+      "orientationDegrees": 0,
+      "sameCamera": true,
+      "foregroundCutaway": false,
+      "footprintCells": [
+        1,
+        1
+      ]
+    },
+    {
+      "name": "door.opening.north.04",
+      "path": "art/production/station/review/iterations/benchmark-room-pilot01/regions/door.opening.north.04.png",
+      "widthCells": 1.5,
+      "heightCells": 2.5,
+      "pivotX": 0.5,
+      "pivotY": 0.17630767822265625,
+      "pixelWidth": 288,
+      "pixelHeight": 480,
+      "layer": "world",
+      "sha256": "cd57e96bc483a21760f5c0691d6e2fd291765f32172883421a31f49559b51493",
+      "asset": "door",
+      "physicalState": "opening",
+      "passageOpen": false,
+      "forcedOpen": false,
+      "hasPhysicalBrace": false,
+      "poweredIndicators": false,
+      "orientationDegrees": 0,
+      "sameCamera": true,
+      "foregroundCutaway": false,
+      "footprintCells": [
+        1,
+        1
+      ]
+    },
+    {
+      "name": "door.opening.north.05",
+      "path": "art/production/station/review/iterations/benchmark-room-pilot01/regions/door.opening.north.05.png",
+      "widthCells": 1.5,
+      "heightCells": 2.5,
+      "pivotX": 0.5,
+      "pivotY": 0.17630767822265625,
+      "pixelWidth": 288,
+      "pixelHeight": 480,
+      "layer": "world",
+      "sha256": "a27fd6a4a7f77de9dc1fe47c599343ae423301fb9446731e2ebb434b35cab737",
+      "asset": "door",
+      "physicalState": "opening",
+      "passageOpen": false,
+      "forcedOpen": false,
+      "hasPhysicalBrace": false,
+      "poweredIndicators": false,
+      "orientationDegrees": 0,
+      "sameCamera": true,
+      "foregroundCutaway": false,
+      "footprintCells": [
+        1,
+        1
+      ]
+    },
+    {
+      "name": "door.opening.north.06",
+      "path": "art/production/station/review/iterations/benchmark-room-pilot01/regions/door.opening.north.06.png",
+      "widthCells": 1.5,
+      "heightCells": 2.5,
+      "pivotX": 0.5,
+      "pivotY": 0.17630767822265625,
+      "pixelWidth": 288,
+      "pixelHeight": 480,
+      "layer": "world",
+      "sha256": "67236a1c8010c9ce8f8fa13b6eb766f92fe5943ca037b762a0bf70ec1a9a970b",
+      "asset": "door",
+      "physicalState": "opening",
+      "passageOpen": false,
+      "forcedOpen": false,
+      "hasPhysicalBrace": false,
+      "poweredIndicators": false,
+      "orientationDegrees": 0,
+      "sameCamera": true,
+      "foregroundCutaway": false,
+      "footprintCells": [
+        1,
+        1
+      ]
+    },
+    {
+      "name": "door.opening.north.07",
+      "path": "art/production/station/review/iterations/benchmark-room-pilot01/regions/door.opening.north.07.png",
+      "widthCells": 1.5,
+      "heightCells": 2.5,
+      "pivotX": 0.5,
+      "pivotY": 0.17630767822265625,
+      "pixelWidth": 288,
+      "pixelHeight": 480,
+      "layer": "world",
+      "sha256": "0e35407355800c4e0fff49e5a162ddc3a5e183e05213853eae13c649ac52450c",
+      "asset": "door",
+      "physicalState": "opening",
+      "passageOpen": false,
+      "forcedOpen": false,
+      "hasPhysicalBrace": false,
+      "poweredIndicators": false,
+      "orientationDegrees": 0,
+      "sameCamera": true,
+      "foregroundCutaway": false,
+      "footprintCells": [
+        1,
+        1
+      ]
+    },
+    {
+      "name": "door.closing.north.00",
+      "path": "art/production/station/review/iterations/benchmark-room-pilot01/regions/door.closing.north.00.png",
+      "widthCells": 1.5,
+      "heightCells": 2.5,
+      "pivotX": 0.5,
+      "pivotY": 0.17630767822265625,
+      "pixelWidth": 288,
+      "pixelHeight": 480,
+      "layer": "world",
+      "sha256": "d687ccb54f79fe5e092d3921e496370ca03c18661a05ccd6392ee5d7337e1c8c",
+      "asset": "door",
+      "physicalState": "closing",
+      "passageOpen": false,
+      "forcedOpen": false,
+      "hasPhysicalBrace": false,
+      "poweredIndicators": false,
+      "orientationDegrees": 0,
+      "sameCamera": true,
+      "foregroundCutaway": false,
+      "footprintCells": [
+        1,
+        1
+      ]
+    },
+    {
+      "name": "door.closing.north.01",
+      "path": "art/production/station/review/iterations/benchmark-room-pilot01/regions/door.closing.north.01.png",
+      "widthCells": 1.5,
+      "heightCells": 2.5,
+      "pivotX": 0.5,
+      "pivotY": 0.17630767822265625,
+      "pixelWidth": 288,
+      "pixelHeight": 480,
+      "layer": "world",
+      "sha256": "1bfc08d3b33d4b992f38b57dc94e2a6546dc0b0891ad4d890efe1be3c5a2600c",
+      "asset": "door",
+      "physicalState": "closing",
+      "passageOpen": false,
+      "forcedOpen": false,
+      "hasPhysicalBrace": false,
+      "poweredIndicators": false,
+      "orientationDegrees": 0,
+      "sameCamera": true,
+      "foregroundCutaway": false,
+      "footprintCells": [
+        1,
+        1
+      ]
+    },
+    {
+      "name": "door.closing.north.02",
+      "path": "art/production/station/review/iterations/benchmark-room-pilot01/regions/door.closing.north.02.png",
+      "widthCells": 1.5,
+      "heightCells": 2.5,
+      "pivotX": 0.5,
+      "pivotY": 0.17630767822265625,
+      "pixelWidth": 288,
+      "pixelHeight": 480,
+      "layer": "world",
+      "sha256": "57e1285cf7c4f11cc62d23ec0998b489adfb6d155850344e2048cc932e4592f4",
+      "asset": "door",
+      "physicalState": "closing",
+      "passageOpen": false,
+      "forcedOpen": false,
+      "hasPhysicalBrace": false,
+      "poweredIndicators": false,
+      "orientationDegrees": 0,
+      "sameCamera": true,
+      "foregroundCutaway": false,
+      "footprintCells": [
+        1,
+        1
+      ]
+    },
+    {
+      "name": "door.closing.north.03",
+      "path": "art/production/station/review/iterations/benchmark-room-pilot01/regions/door.closing.north.03.png",
+      "widthCells": 1.5,
+      "heightCells": 2.5,
+      "pivotX": 0.5,
+      "pivotY": 0.17630767822265625,
+      "pixelWidth": 288,
+      "pixelHeight": 480,
+      "layer": "world",
+      "sha256": "613f43f23732154351ac3bacc443d6409159a866a54c7b56d8550131df723a23",
+      "asset": "door",
+      "physicalState": "closing",
+      "passageOpen": false,
+      "forcedOpen": false,
+      "hasPhysicalBrace": false,
+      "poweredIndicators": false,
+      "orientationDegrees": 0,
+      "sameCamera": true,
+      "foregroundCutaway": false,
+      "footprintCells": [
+        1,
+        1
+      ]
+    },
+    {
+      "name": "door.closing.north.04",
+      "path": "art/production/station/review/iterations/benchmark-room-pilot01/regions/door.closing.north.04.png",
+      "widthCells": 1.5,
+      "heightCells": 2.5,
+      "pivotX": 0.5,
+      "pivotY": 0.17630767822265625,
+      "pixelWidth": 288,
+      "pixelHeight": 480,
+      "layer": "world",
+      "sha256": "c21bc540db71ddd499c277475ff7fc63b6dec3ed224137f89482bd0b51dab512",
+      "asset": "door",
+      "physicalState": "closing",
+      "passageOpen": false,
+      "forcedOpen": false,
+      "hasPhysicalBrace": false,
+      "poweredIndicators": false,
+      "orientationDegrees": 0,
+      "sameCamera": true,
+      "foregroundCutaway": false,
+      "footprintCells": [
+        1,
+        1
+      ]
+    },
+    {
+      "name": "door.closing.north.05",
+      "path": "art/production/station/review/iterations/benchmark-room-pilot01/regions/door.closing.north.05.png",
+      "widthCells": 1.5,
+      "heightCells": 2.5,
+      "pivotX": 0.5,
+      "pivotY": 0.17630767822265625,
+      "pixelWidth": 288,
+      "pixelHeight": 480,
+      "layer": "world",
+      "sha256": "7496ba16ec1abf24d0e10670acdb155718e2ebeeb86adedbaa6a92701e291a73",
+      "asset": "door",
+      "physicalState": "closing",
+      "passageOpen": false,
+      "forcedOpen": false,
+      "hasPhysicalBrace": false,
+      "poweredIndicators": false,
+      "orientationDegrees": 0,
+      "sameCamera": true,
+      "foregroundCutaway": false,
+      "footprintCells": [
+        1,
+        1
+      ]
+    },
+    {
+      "name": "door.closing.north.06",
+      "path": "art/production/station/review/iterations/benchmark-room-pilot01/regions/door.closing.north.06.png",
+      "widthCells": 1.5,
+      "heightCells": 2.5,
+      "pivotX": 0.5,
+      "pivotY": 0.17630767822265625,
+      "pixelWidth": 288,
+      "pixelHeight": 480,
+      "layer": "world",
+      "sha256": "7b0efabb749189c2ff4f42155baec43c8c25ca17522afc2695fd9dc98490debd",
+      "asset": "door",
+      "physicalState": "closing",
+      "passageOpen": false,
+      "forcedOpen": false,
+      "hasPhysicalBrace": false,
+      "poweredIndicators": false,
+      "orientationDegrees": 0,
+      "sameCamera": true,
+      "foregroundCutaway": false,
+      "footprintCells": [
+        1,
+        1
+      ]
+    },
+    {
+      "name": "door.closing.north.07",
+      "path": "art/production/station/review/iterations/benchmark-room-pilot01/regions/door.closing.north.07.png",
+      "widthCells": 1.5,
+      "heightCells": 2.5,
+      "pivotX": 0.5,
+      "pivotY": 0.17630767822265625,
+      "pixelWidth": 288,
+      "pixelHeight": 480,
+      "layer": "world",
+      "sha256": "ffa17c4f277f87d587e1429b6d37b6cc52ed21c875e3324e38a2437dde4e6b3b",
+      "asset": "door",
+      "physicalState": "closing",
+      "passageOpen": false,
+      "forcedOpen": false,
+      "hasPhysicalBrace": false,
+      "poweredIndicators": false,
+      "orientationDegrees": 0,
+      "sameCamera": true,
+      "foregroundCutaway": false,
+      "footprintCells": [
+        1,
+        1
+      ]
+    },
+    {
+      "name": "door.locked.north",
+      "path": "art/production/station/review/iterations/benchmark-room-pilot01/regions/door.locked.north.png",
+      "widthCells": 1.5,
+      "heightCells": 2.5,
+      "pivotX": 0.5,
+      "pivotY": 0.17630767822265625,
+      "pixelWidth": 288,
+      "pixelHeight": 480,
+      "layer": "world",
+      "sha256": "c95fab2c5799e4c13c1e8497a16ab10b96f686c1bfafedbc76326a57964b076e",
+      "asset": "door",
+      "physicalState": "locked",
+      "passageOpen": false,
+      "forcedOpen": false,
+      "hasPhysicalBrace": false,
+      "poweredIndicators": false,
+      "orientationDegrees": 0,
+      "sameCamera": true,
+      "foregroundCutaway": false,
+      "footprintCells": [
+        1,
+        1
+      ]
+    },
+    {
+      "name": "door.braced.north",
+      "path": "art/production/station/review/iterations/benchmark-room-pilot01/regions/door.braced.north.png",
+      "widthCells": 1.5,
+      "heightCells": 2.5,
+      "pivotX": 0.5,
+      "pivotY": 0.17630767822265625,
+      "pixelWidth": 288,
+      "pixelHeight": 480,
+      "layer": "world",
+      "sha256": "f80fd38b0092a9cb12e8b0487f697a73c507842c6e4741b6e31e48fb347617fb",
+      "asset": "door",
+      "physicalState": "braced",
+      "passageOpen": false,
+      "forcedOpen": false,
+      "hasPhysicalBrace": true,
+      "poweredIndicators": false,
+      "orientationDegrees": 0,
+      "sameCamera": true,
+      "foregroundCutaway": false,
+      "footprintCells": [
+        1,
+        1
+      ]
+    },
+    {
+      "name": "door.damaged.north",
+      "path": "art/production/station/review/iterations/benchmark-room-pilot01/regions/door.damaged.north.png",
+      "widthCells": 1.5,
+      "heightCells": 2.5,
+      "pivotX": 0.5,
+      "pivotY": 0.17630767822265625,
+      "pixelWidth": 288,
+      "pixelHeight": 480,
+      "layer": "world",
+      "sha256": "b641bf869d755d5ddf5719b674324e99ad4fb274864dc106a692034cc6a21a10",
+      "asset": "door",
+      "physicalState": "damaged",
+      "passageOpen": true,
+      "forcedOpen": true,
+      "hasPhysicalBrace": false,
+      "poweredIndicators": false,
+      "orientationDegrees": 0,
+      "sameCamera": true,
+      "foregroundCutaway": false,
+      "footprintCells": [
+        1,
+        1
+      ]
+    },
+    {
+      "name": "door.closed.east",
+      "path": "art/production/station/review/iterations/benchmark-room-pilot01/regions/door.closed.east.png",
+      "widthCells": 1.5,
+      "heightCells": 3.0,
+      "pivotX": 0.5,
+      "pivotY": 0.23025639355182648,
+      "pixelWidth": 288,
+      "pixelHeight": 576,
+      "layer": "world",
+      "sha256": "4695663e3dc89431d0743638eab70dbcf44138581ebeaad80f455099f3bc9724",
+      "asset": "door",
+      "physicalState": "closed",
+      "passageOpen": false,
+      "forcedOpen": false,
+      "hasPhysicalBrace": false,
+      "poweredIndicators": false,
+      "orientationDegrees": 90,
+      "sameCamera": true,
+      "foregroundCutaway": true,
+      "footprintCells": [
+        1,
+        1
+      ]
+    },
+    {
+      "name": "door.open.east",
+      "path": "art/production/station/review/iterations/benchmark-room-pilot01/regions/door.open.east.png",
+      "widthCells": 1.5,
+      "heightCells": 3.0,
+      "pivotX": 0.5,
+      "pivotY": 0.23025639355182648,
+      "pixelWidth": 288,
+      "pixelHeight": 576,
+      "layer": "world",
+      "sha256": "4c7dbed0596d56573007041c3bc12e043508208ba78571a1197f28f5982a7393",
+      "asset": "door",
+      "physicalState": "open",
+      "passageOpen": true,
+      "forcedOpen": false,
+      "hasPhysicalBrace": false,
+      "poweredIndicators": false,
+      "orientationDegrees": 90,
+      "sameCamera": true,
+      "foregroundCutaway": true,
+      "footprintCells": [
+        1,
+        1
+      ]
+    },
+    {
+      "name": "door.opening.east.00",
+      "path": "art/production/station/review/iterations/benchmark-room-pilot01/regions/door.opening.east.00.png",
+      "widthCells": 1.5,
+      "heightCells": 3.0,
+      "pivotX": 0.5,
+      "pivotY": 0.23025639355182648,
+      "pixelWidth": 288,
+      "pixelHeight": 576,
+      "layer": "world",
+      "sha256": "32855360492cd9d96e0bb47f0c215fd4228ff0fda56dacc67b9e43663cc458c4",
+      "asset": "door",
+      "physicalState": "opening",
+      "passageOpen": false,
+      "forcedOpen": false,
+      "hasPhysicalBrace": false,
+      "poweredIndicators": false,
+      "orientationDegrees": 90,
+      "sameCamera": true,
+      "foregroundCutaway": true,
+      "footprintCells": [
+        1,
+        1
+      ]
+    },
+    {
+      "name": "door.opening.east.01",
+      "path": "art/production/station/review/iterations/benchmark-room-pilot01/regions/door.opening.east.01.png",
+      "widthCells": 1.5,
+      "heightCells": 3.0,
+      "pivotX": 0.5,
+      "pivotY": 0.23025639355182648,
+      "pixelWidth": 288,
+      "pixelHeight": 576,
+      "layer": "world",
+      "sha256": "24662725b7e757c0e6725a2c7741f873a17ef06f403f331577fc62e9209bf9a6",
+      "asset": "door",
+      "physicalState": "opening",
+      "passageOpen": false,
+      "forcedOpen": false,
+      "hasPhysicalBrace": false,
+      "poweredIndicators": false,
+      "orientationDegrees": 90,
+      "sameCamera": true,
+      "foregroundCutaway": true,
+      "footprintCells": [
+        1,
+        1
+      ]
+    },
+    {
+      "name": "door.opening.east.02",
+      "path": "art/production/station/review/iterations/benchmark-room-pilot01/regions/door.opening.east.02.png",
+      "widthCells": 1.5,
+      "heightCells": 3.0,
+      "pivotX": 0.5,
+      "pivotY": 0.23025639355182648,
+      "pixelWidth": 288,
+      "pixelHeight": 576,
+      "layer": "world",
+      "sha256": "d11a4e49a5757f99faa9c05fa0b67cfec4deb3cb67f36b673ec34553881e18e8",
+      "asset": "door",
+      "physicalState": "opening",
+      "passageOpen": false,
+      "forcedOpen": false,
+      "hasPhysicalBrace": false,
+      "poweredIndicators": false,
+      "orientationDegrees": 90,
+      "sameCamera": true,
+      "foregroundCutaway": true,
+      "footprintCells": [
+        1,
+        1
+      ]
+    },
+    {
+      "name": "door.opening.east.03",
+      "path": "art/production/station/review/iterations/benchmark-room-pilot01/regions/door.opening.east.03.png",
+      "widthCells": 1.5,
+      "heightCells": 3.0,
+      "pivotX": 0.5,
+      "pivotY": 0.23025639355182648,
+      "pixelWidth": 288,
+      "pixelHeight": 576,
+      "layer": "world",
+      "sha256": "b035407bed143db2dff26e831d98fae634d6e86cdbb6361937948db919dea2eb",
+      "asset": "door",
+      "physicalState": "opening",
+      "passageOpen": false,
+      "forcedOpen": false,
+      "hasPhysicalBrace": false,
+      "poweredIndicators": false,
+      "orientationDegrees": 90,
+      "sameCamera": true,
+      "foregroundCutaway": true,
+      "footprintCells": [
+        1,
+        1
+      ]
+    },
+    {
+      "name": "door.opening.east.04",
+      "path": "art/production/station/review/iterations/benchmark-room-pilot01/regions/door.opening.east.04.png",
+      "widthCells": 1.5,
+      "heightCells": 3.0,
+      "pivotX": 0.5,
+      "pivotY": 0.23025639355182648,
+      "pixelWidth": 288,
+      "pixelHeight": 576,
+      "layer": "world",
+      "sha256": "f29d77b53bd872451fbe3794b265c9edd2598b09cf39fb0828446691d0999864",
+      "asset": "door",
+      "physicalState": "opening",
+      "passageOpen": false,
+      "forcedOpen": false,
+      "hasPhysicalBrace": false,
+      "poweredIndicators": false,
+      "orientationDegrees": 90,
+      "sameCamera": true,
+      "foregroundCutaway": true,
+      "footprintCells": [
+        1,
+        1
+      ]
+    },
+    {
+      "name": "door.opening.east.05",
+      "path": "art/production/station/review/iterations/benchmark-room-pilot01/regions/door.opening.east.05.png",
+      "widthCells": 1.5,
+      "heightCells": 3.0,
+      "pivotX": 0.5,
+      "pivotY": 0.23025639355182648,
+      "pixelWidth": 288,
+      "pixelHeight": 576,
+      "layer": "world",
+      "sha256": "651f05d448a7ffc1929dbf621dcae861d9857540d4561a3a8ffc989af3864d8c",
+      "asset": "door",
+      "physicalState": "opening",
+      "passageOpen": false,
+      "forcedOpen": false,
+      "hasPhysicalBrace": false,
+      "poweredIndicators": false,
+      "orientationDegrees": 90,
+      "sameCamera": true,
+      "foregroundCutaway": true,
+      "footprintCells": [
+        1,
+        1
+      ]
+    },
+    {
+      "name": "door.opening.east.06",
+      "path": "art/production/station/review/iterations/benchmark-room-pilot01/regions/door.opening.east.06.png",
+      "widthCells": 1.5,
+      "heightCells": 3.0,
+      "pivotX": 0.5,
+      "pivotY": 0.23025639355182648,
+      "pixelWidth": 288,
+      "pixelHeight": 576,
+      "layer": "world",
+      "sha256": "0c5009a413ff13796da8f7d41e55ecc2e25ec672de5834f6f14d9363e7ecfcbf",
+      "asset": "door",
+      "physicalState": "opening",
+      "passageOpen": false,
+      "forcedOpen": false,
+      "hasPhysicalBrace": false,
+      "poweredIndicators": false,
+      "orientationDegrees": 90,
+      "sameCamera": true,
+      "foregroundCutaway": true,
+      "footprintCells": [
+        1,
+        1
+      ]
+    },
+    {
+      "name": "door.opening.east.07",
+      "path": "art/production/station/review/iterations/benchmark-room-pilot01/regions/door.opening.east.07.png",
+      "widthCells": 1.5,
+      "heightCells": 3.0,
+      "pivotX": 0.5,
+      "pivotY": 0.23025639355182648,
+      "pixelWidth": 288,
+      "pixelHeight": 576,
+      "layer": "world",
+      "sha256": "0c5009a413ff13796da8f7d41e55ecc2e25ec672de5834f6f14d9363e7ecfcbf",
+      "asset": "door",
+      "physicalState": "opening",
+      "passageOpen": false,
+      "forcedOpen": false,
+      "hasPhysicalBrace": false,
+      "poweredIndicators": false,
+      "orientationDegrees": 90,
+      "sameCamera": true,
+      "foregroundCutaway": true,
+      "footprintCells": [
+        1,
+        1
+      ]
+    },
+    {
+      "name": "door.closing.east.00",
+      "path": "art/production/station/review/iterations/benchmark-room-pilot01/regions/door.closing.east.00.png",
+      "widthCells": 1.5,
+      "heightCells": 3.0,
+      "pivotX": 0.5,
+      "pivotY": 0.23025639355182648,
+      "pixelWidth": 288,
+      "pixelHeight": 576,
+      "layer": "world",
+      "sha256": "337547e3e08c0aad900ad8563204a4397a95ab215af3cd23507ae9f13b80a272",
+      "asset": "door",
+      "physicalState": "closing",
+      "passageOpen": false,
+      "forcedOpen": false,
+      "hasPhysicalBrace": false,
+      "poweredIndicators": false,
+      "orientationDegrees": 90,
+      "sameCamera": true,
+      "foregroundCutaway": true,
+      "footprintCells": [
+        1,
+        1
+      ]
+    },
+    {
+      "name": "door.closing.east.01",
+      "path": "art/production/station/review/iterations/benchmark-room-pilot01/regions/door.closing.east.01.png",
+      "widthCells": 1.5,
+      "heightCells": 3.0,
+      "pivotX": 0.5,
+      "pivotY": 0.23025639355182648,
+      "pixelWidth": 288,
+      "pixelHeight": 576,
+      "layer": "world",
+      "sha256": "550e80252d54d1f9cd9a54e9e319e42dbebc00e2ce9b30368613959a9a1f761d",
+      "asset": "door",
+      "physicalState": "closing",
+      "passageOpen": false,
+      "forcedOpen": false,
+      "hasPhysicalBrace": false,
+      "poweredIndicators": false,
+      "orientationDegrees": 90,
+      "sameCamera": true,
+      "foregroundCutaway": true,
+      "footprintCells": [
+        1,
+        1
+      ]
+    },
+    {
+      "name": "door.closing.east.02",
+      "path": "art/production/station/review/iterations/benchmark-room-pilot01/regions/door.closing.east.02.png",
+      "widthCells": 1.5,
+      "heightCells": 3.0,
+      "pivotX": 0.5,
+      "pivotY": 0.23025639355182648,
+      "pixelWidth": 288,
+      "pixelHeight": 576,
+      "layer": "world",
+      "sha256": "7c9ad4cea84160116cc23a1076b003c1cf16bd7a1b652a0dfb9d1f48201c01f8",
+      "asset": "door",
+      "physicalState": "closing",
+      "passageOpen": false,
+      "forcedOpen": false,
+      "hasPhysicalBrace": false,
+      "poweredIndicators": false,
+      "orientationDegrees": 90,
+      "sameCamera": true,
+      "foregroundCutaway": true,
+      "footprintCells": [
+        1,
+        1
+      ]
+    },
+    {
+      "name": "door.closing.east.03",
+      "path": "art/production/station/review/iterations/benchmark-room-pilot01/regions/door.closing.east.03.png",
+      "widthCells": 1.5,
+      "heightCells": 3.0,
+      "pivotX": 0.5,
+      "pivotY": 0.23025639355182648,
+      "pixelWidth": 288,
+      "pixelHeight": 576,
+      "layer": "world",
+      "sha256": "77a1bb55d419ea5f1be3a51ca0ee726fcdf392eabd4f13ed21e5cf07811afb92",
+      "asset": "door",
+      "physicalState": "closing",
+      "passageOpen": false,
+      "forcedOpen": false,
+      "hasPhysicalBrace": false,
+      "poweredIndicators": false,
+      "orientationDegrees": 90,
+      "sameCamera": true,
+      "foregroundCutaway": true,
+      "footprintCells": [
+        1,
+        1
+      ]
+    },
+    {
+      "name": "door.closing.east.04",
+      "path": "art/production/station/review/iterations/benchmark-room-pilot01/regions/door.closing.east.04.png",
+      "widthCells": 1.5,
+      "heightCells": 3.0,
+      "pivotX": 0.5,
+      "pivotY": 0.23025639355182648,
+      "pixelWidth": 288,
+      "pixelHeight": 576,
+      "layer": "world",
+      "sha256": "73c92c46de60d442b6d1f071c5f879dcc8b2255107704de4ed4555c4871c0559",
+      "asset": "door",
+      "physicalState": "closing",
+      "passageOpen": false,
+      "forcedOpen": false,
+      "hasPhysicalBrace": false,
+      "poweredIndicators": false,
+      "orientationDegrees": 90,
+      "sameCamera": true,
+      "foregroundCutaway": true,
+      "footprintCells": [
+        1,
+        1
+      ]
+    },
+    {
+      "name": "door.closing.east.05",
+      "path": "art/production/station/review/iterations/benchmark-room-pilot01/regions/door.closing.east.05.png",
+      "widthCells": 1.5,
+      "heightCells": 3.0,
+      "pivotX": 0.5,
+      "pivotY": 0.23025639355182648,
+      "pixelWidth": 288,
+      "pixelHeight": 576,
+      "layer": "world",
+      "sha256": "31f7591e30a193d368763338c9b84c4b76c06c397e8f1b335f83c92cc1cfcd94",
+      "asset": "door",
+      "physicalState": "closing",
+      "passageOpen": false,
+      "forcedOpen": false,
+      "hasPhysicalBrace": false,
+      "poweredIndicators": false,
+      "orientationDegrees": 90,
+      "sameCamera": true,
+      "foregroundCutaway": true,
+      "footprintCells": [
+        1,
+        1
+      ]
+    },
+    {
+      "name": "door.closing.east.06",
+      "path": "art/production/station/review/iterations/benchmark-room-pilot01/regions/door.closing.east.06.png",
+      "widthCells": 1.5,
+      "heightCells": 3.0,
+      "pivotX": 0.5,
+      "pivotY": 0.23025639355182648,
+      "pixelWidth": 288,
+      "pixelHeight": 576,
+      "layer": "world",
+      "sha256": "7d59e5ac4b2f016fe525981e8a7e90e9fe2ef74351501eb7287055b403f1ca2e",
+      "asset": "door",
+      "physicalState": "closing",
+      "passageOpen": false,
+      "forcedOpen": false,
+      "hasPhysicalBrace": false,
+      "poweredIndicators": false,
+      "orientationDegrees": 90,
+      "sameCamera": true,
+      "foregroundCutaway": true,
+      "footprintCells": [
+        1,
+        1
+      ]
+    },
+    {
+      "name": "door.closing.east.07",
+      "path": "art/production/station/review/iterations/benchmark-room-pilot01/regions/door.closing.east.07.png",
+      "widthCells": 1.5,
+      "heightCells": 3.0,
+      "pivotX": 0.5,
+      "pivotY": 0.23025639355182648,
+      "pixelWidth": 288,
+      "pixelHeight": 576,
+      "layer": "world",
+      "sha256": "916720fd578a5b2cdc0a8d3ae1a57c5a7f53491a9a732cc40f85d89cf04402d6",
+      "asset": "door",
+      "physicalState": "closing",
+      "passageOpen": false,
+      "forcedOpen": false,
+      "hasPhysicalBrace": false,
+      "poweredIndicators": false,
+      "orientationDegrees": 90,
+      "sameCamera": true,
+      "foregroundCutaway": true,
+      "footprintCells": [
+        1,
+        1
+      ]
+    },
+    {
+      "name": "door.locked.east",
+      "path": "art/production/station/review/iterations/benchmark-room-pilot01/regions/door.locked.east.png",
+      "widthCells": 1.5,
+      "heightCells": 3.0,
+      "pivotX": 0.5,
+      "pivotY": 0.23025639355182648,
+      "pixelWidth": 288,
+      "pixelHeight": 576,
+      "layer": "world",
+      "sha256": "b5e757a19627322b496c398d6143744f3d01e0b28a5fa5b0092ade222679f9af",
+      "asset": "door",
+      "physicalState": "locked",
+      "passageOpen": false,
+      "forcedOpen": false,
+      "hasPhysicalBrace": false,
+      "poweredIndicators": false,
+      "orientationDegrees": 90,
+      "sameCamera": true,
+      "foregroundCutaway": true,
+      "footprintCells": [
+        1,
+        1
+      ]
+    },
+    {
+      "name": "door.braced.east",
+      "path": "art/production/station/review/iterations/benchmark-room-pilot01/regions/door.braced.east.png",
+      "widthCells": 1.5,
+      "heightCells": 3.0,
+      "pivotX": 0.5,
+      "pivotY": 0.23025639355182648,
+      "pixelWidth": 288,
+      "pixelHeight": 576,
+      "layer": "world",
+      "sha256": "961631a6fbfc0f1316d64f879df3ffbe0a86b0fa29cf240631515d99b6340d16",
+      "asset": "door",
+      "physicalState": "braced",
+      "passageOpen": false,
+      "forcedOpen": false,
+      "hasPhysicalBrace": true,
+      "poweredIndicators": false,
+      "orientationDegrees": 90,
+      "sameCamera": true,
+      "foregroundCutaway": true,
+      "footprintCells": [
+        1,
+        1
+      ]
+    },
+    {
+      "name": "door.damaged.east",
+      "path": "art/production/station/review/iterations/benchmark-room-pilot01/regions/door.damaged.east.png",
+      "widthCells": 1.5,
+      "heightCells": 3.0,
+      "pivotX": 0.5,
+      "pivotY": 0.23025639355182648,
+      "pixelWidth": 288,
+      "pixelHeight": 576,
+      "layer": "world",
+      "sha256": "9349fc2e0da4532c7fde0e25e69d50fd8a302610398b31d56c44e6dd99432804",
+      "asset": "door",
+      "physicalState": "damaged",
+      "passageOpen": true,
+      "forcedOpen": true,
+      "hasPhysicalBrace": false,
+      "poweredIndicators": false,
+      "orientationDegrees": 90,
+      "sameCamera": true,
+      "foregroundCutaway": true,
+      "footprintCells": [
+        1,
+        1
+      ]
+    },
+    {
+      "name": "prop.inspection-desk",
+      "path": "art/production/station/review/iterations/benchmark-room-pilot01/regions/prop.inspection-desk.png",
+      "widthCells": 1.5,
+      "heightCells": 2.0,
+      "pivotX": 0.5,
+      "pivotY": 0.22725941240787506,
+      "pixelWidth": 288,
+      "pixelHeight": 384,
+      "layer": "world",
+      "sha256": "b08eca11dda511c7a6bafd23e40552c677ae2ac498223ab12764fd691a145ffc",
+      "asset": "inspection-desk",
+      "footprintCells": [
+        1,
+        1
+      ],
+      "poweredIndicators": false,
+      "contactWorld": null
+    },
+    {
+      "name": "prop.maintenance-bench",
+      "path": "art/production/station/review/iterations/benchmark-room-pilot01/regions/prop.maintenance-bench.png",
+      "widthCells": 1.5,
+      "heightCells": 2.0,
+      "pivotX": 0.5,
+      "pivotY": 0.22725941240787506,
+      "pixelWidth": 288,
+      "pixelHeight": 384,
+      "layer": "world",
+      "sha256": "5e6b39764859d2ad6dbc5e420f789f14a048ad139c10795ebebd7a6ade7c0e00",
+      "asset": "maintenance-bench",
+      "footprintCells": [
+        1,
+        1
+      ],
+      "poweredIndicators": false,
+      "contactWorld": null
+    },
+    {
+      "name": "prop.inspection-terminal",
+      "path": "art/production/station/review/iterations/benchmark-room-pilot01/regions/prop.inspection-terminal.png",
+      "widthCells": 1.5,
+      "heightCells": 2.0,
+      "pivotX": 0.5,
+      "pivotY": 0.22725941240787506,
+      "pixelWidth": 288,
+      "pixelHeight": 384,
+      "layer": "world",
+      "sha256": "1cc98605bca91d7965c490d07e4a68c27095aa90d2747701d258e54bef3859ee",
+      "asset": "inspection-terminal",
+      "footprintCells": [
+        1,
+        1
+      ],
+      "poweredIndicators": false,
+      "contactWorld": [
+        0,
+        -0.2,
+        0.92
+      ]
+    },
+    {
+      "name": "prop.receiving-bulkhead",
+      "path": "art/production/station/review/iterations/benchmark-room-pilot01/regions/prop.receiving-bulkhead.png",
+      "widthCells": 1.5,
+      "heightCells": 2.0,
+      "pivotX": 0.5,
+      "pivotY": 0.22725941240787506,
+      "pixelWidth": 288,
+      "pixelHeight": 384,
+      "layer": "world",
+      "sha256": "8bad24d8e4a004b6f6a4aeee1b7dc1f81da0579eef12e18d5aff2523ea84fa9b",
+      "asset": "receiving-bulkhead",
+      "footprintCells": [
+        0,
+        0
+      ],
+      "poweredIndicators": false,
+      "contactWorld": null
+    },
+    {
+      "name": "prop.cargo-cradle",
+      "path": "art/production/station/review/iterations/benchmark-room-pilot01/regions/prop.cargo-cradle.png",
+      "widthCells": 1.5,
+      "heightCells": 2.0,
+      "pivotX": 0.5,
+      "pivotY": 0.22725941240787506,
+      "pixelWidth": 288,
+      "pixelHeight": 384,
+      "layer": "world",
+      "sha256": "0c2b97ef2fe5f3631fcc49607d5addddd69177f0fc2c655dd6a0bc91446ba15b",
+      "asset": "cargo-cradle",
+      "footprintCells": [
+        1,
+        1
+      ],
+      "poweredIndicators": false,
+      "contactWorld": null
+    },
+    {
+      "name": "placard.department",
+      "path": "art/production/station/review/iterations/benchmark-room-pilot01/regions/placard.department.png",
+      "widthCells": 1.5,
+      "heightCells": 2.0,
+      "pivotX": 0.5,
+      "pivotY": 0.22725941240787506,
+      "pixelWidth": 288,
+      "pixelHeight": 384,
+      "layer": "world",
+      "sha256": "e360312ef563b0129adb2dbe467e183117d03b7b000bd9676acd032c4e7f142d",
+      "asset": "placard",
+      "footprintCells": [
+        0,
+        0
+      ],
+      "poweredIndicators": false,
+      "contactWorld": null
+    },
+    {
+      "name": "control.switch.unpowered",
+      "path": "art/production/station/review/iterations/benchmark-room-pilot01/regions/control.switch.unpowered.png",
+      "widthCells": 1.5,
+      "heightCells": 2.0,
+      "pivotX": 0.5,
+      "pivotY": 0.22725941240787506,
+      "pixelWidth": 288,
+      "pixelHeight": 384,
+      "layer": "world",
+      "sha256": "2041617b9ebfe6993d26af0d415677b759f95d3582cb9ea9b5e2b7a401424a45",
+      "asset": "mechanism",
+      "powered": false,
+      "released": false,
+      "footprintCells": [
+        0,
+        0
+      ]
+    },
+    {
+      "name": "control.switch.powered",
+      "path": "art/production/station/review/iterations/benchmark-room-pilot01/regions/control.switch.powered.png",
+      "widthCells": 1.5,
+      "heightCells": 2.0,
+      "pivotX": 0.5,
+      "pivotY": 0.22725941240787506,
+      "pixelWidth": 288,
+      "pixelHeight": 384,
+      "layer": "world",
+      "sha256": "a4c574e462cba3eb54094a156b81c9b0ed1f3f35f6afa33c0b7801a1c6b7645f",
+      "asset": "mechanism",
+      "powered": true,
+      "released": false,
+      "footprintCells": [
+        0,
+        0
+      ]
+    },
+    {
+      "name": "control.switch.released",
+      "path": "art/production/station/review/iterations/benchmark-room-pilot01/regions/control.switch.released.png",
+      "widthCells": 1.5,
+      "heightCells": 2.0,
+      "pivotX": 0.5,
+      "pivotY": 0.22725941240787506,
+      "pixelWidth": 288,
+      "pixelHeight": 384,
+      "layer": "world",
+      "sha256": "a253c86f7611d9078d847c9f9f8d0a43f96d944e351c48ba48ed9986f9e91d92",
+      "asset": "mechanism",
+      "powered": true,
+      "released": true,
+      "footprintCells": [
+        0,
+        0
+      ]
+    },
+    {
+      "name": "control.switch.released-unpowered",
+      "path": "art/production/station/review/iterations/benchmark-room-pilot01/regions/control.switch.released-unpowered.png",
+      "widthCells": 1.5,
+      "heightCells": 2.0,
+      "pivotX": 0.5,
+      "pivotY": 0.22725941240787506,
+      "pixelWidth": 288,
+      "pixelHeight": 384,
+      "layer": "world",
+      "sha256": "923155b3ad6a764334d9f34e9e4477419066481f3884f4b71cacc3be4ef508ff",
+      "asset": "mechanism",
+      "powered": false,
+      "released": true,
+      "footprintCells": [
+        0,
+        0
+      ]
+    }
+  ]
+}

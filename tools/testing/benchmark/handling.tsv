@@ -1,0 +1,12 @@
+# Staged geometry, actual inventory and mechanism commands.
+DROP	0	0	starter-pistol
+PICKUP	0	0	starter-pistol
+EQUIP	0	0	starter-pistol
+USE	0	0	oxygen-d0-starter
+MOVE	1	0
+MOVE	0	-1
+MOVE	0	-1
+TURN	0
+INTERACT	8	6
+CIRCUIT	8	6
+CIRCUIT	8	6

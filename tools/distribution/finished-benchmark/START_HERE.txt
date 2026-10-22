@@ -1,0 +1,20 @@
+Origin War room and motion benchmark candidate
+
+PlayBenchmark.cmd begins the seed-zero expedition in a separate benchmark profile.
+ResumeBenchmark.cmd continues it. BenchmarkRoom.cmd opens the staged diagnostic.
+Review/index.html contains footage, comparisons, references and the assessment.
+
+The production gate is HOLD. The candidate improves the officer, gait, doorway
+and machinery, but it has not reached the requested illustrated finish or full
+physical-contact standard. Owner and experienced-animator review remain open.
+
+WASD / arrows move. Holding a direction carries consecutive safe travel;
+release stops it. Visible threats stop held repetition. Each step still costs
+its ordinary tactical time. Shift is careful movement; Q toggles careful mode.
+Alt + arrows turns the body/lamp. Ctrl + arrows aims; F fires. L changes lamp.
+E operates, P handles a local circuit, G collects, R refills, Tab opens the pack.
+In the pack: Q equips, U uses and X drops. Escape pauses. F11 changes fullscreen.
+
+The staged room contains a rifle/heavy shell underfoot and a live SIRS beyond
+the side door. It uses real rules but does not establish campaign pacing.
+Editable sources and reproduction tools are in Source/OriginWarSource.zip.

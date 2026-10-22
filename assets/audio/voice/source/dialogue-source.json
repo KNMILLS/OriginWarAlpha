@@ -1,0 +1,878 @@
+{
+  "campaign_source_sha256": "0d7c50c4813d1cef564897978ffc4df8dc4668ffebe86958a7e7216f7127e468",
+  "source_line_endings": "UTF-8 canonical LF",
+  "description": "Exact Campaign full text/quoted words; authored phrasing changes punctuation and performance only.",
+  "clips": [
+    {
+      "key": "alice-meet",
+      "dialogue_id": "alice-meet",
+      "full_text": "An android emerges from an inspection recess, hands empty.\n\n\"You have been issued a weapon, an oxygen ration, and incomplete information. An ambitious introduction to public service.\"\n\nShe calls herself A.L.I.C.E. There is only one of her. Dr. James Carmack built her and kept her running after her project was canceled.\n\n\"I will help you reach command. I will not kill for you. If that is inconvenient, I suggest we be inconvenienced together.\"",
+      "text_sha256": "da1a54d558ac37cc5bf65e2d9c87aca0293f15174e9d046dd45425fc44c8591e",
+      "spoken_spans": [
+        "You have been issued a weapon, an oxygen ration, and incomplete information. An ambitious introduction to public service.",
+        "I will help you reach command. I will not kill for you. If that is inconvenient, I suggest we be inconvenienced together."
+      ],
+      "fear": 0.03,
+      "source_wav_sha256": "30389674de7b16710d16afc88d66462e37ef43eec5776802ac49319b2577701f",
+      "source_rate": 22050,
+      "delivery_plan_sha256": "f855192a6939ad974acf09bd4493ce213e0eb7a00e07450fdf8caa743812e47e",
+      "phrases": [
+        {
+          "file": "phrases/alice-meet-00.wav",
+          "sha256": "920e057a5bdbb9c069327418c33fb7af52f9c41f042d623ab30cef1807495506",
+          "synthesis_text": "You have been issued a weapon,",
+          "piper_arguments": [
+            "--length_scale",
+            "0.97",
+            "--noise_scale",
+            "0",
+            "--noise_w",
+            "0",
+            "--sentence_silence",
+            "0"
+          ]
+        },
+        {
+          "file": "phrases/alice-meet-01.wav",
+          "sha256": "c448c928d73e4ef4cd216f5b9e6b5df3ccd860bd419712d6f0fbebecb0cf93d1",
+          "synthesis_text": "an oxygen ration,",
+          "piper_arguments": [
+            "--length_scale",
+            "0.97",
+            "--noise_scale",
+            "0",
+            "--noise_w",
+            "0",
+            "--sentence_silence",
+            "0"
+          ]
+        },
+        {
+          "file": "phrases/alice-meet-02.wav",
+          "sha256": "3f73e7d1076bad1347210c4db30f2c6c1aa9cd6b22eacecf6e67262d442f16a7",
+          "synthesis_text": "and incomplete information.",
+          "piper_arguments": [
+            "--length_scale",
+            "1.04",
+            "--noise_scale",
+            "0",
+            "--noise_w",
+            "0",
+            "--sentence_silence",
+            "0"
+          ]
+        },
+        {
+          "file": "phrases/alice-meet-03.wav",
+          "sha256": "b1bc05fd420d952ac1fb02f61b091c658f2ff3b19a1190861631cb379045c4ca",
+          "synthesis_text": "An ambitious introduction to public service.",
+          "piper_arguments": [
+            "--length_scale",
+            "1.08",
+            "--noise_scale",
+            "0",
+            "--noise_w",
+            "0",
+            "--sentence_silence",
+            "0"
+          ]
+        },
+        {
+          "file": "phrases/alice-meet-04.wav",
+          "sha256": "e308d961ade2bffa1ccd2c813b75da37c4cf72012602036d29047a5172598058",
+          "synthesis_text": "I will help you reach command.",
+          "piper_arguments": [
+            "--length_scale",
+            "0.98",
+            "--noise_scale",
+            "0",
+            "--noise_w",
+            "0",
+            "--sentence_silence",
+            "0"
+          ]
+        },
+        {
+          "file": "phrases/alice-meet-05.wav",
+          "sha256": "5f52e8e4edb3cf3e3e7fb18727345ddfb259a5d96de03b2529cc14ecd29303a9",
+          "synthesis_text": "I will not kill for you.",
+          "piper_arguments": [
+            "--length_scale",
+            "1.03",
+            "--noise_scale",
+            "0",
+            "--noise_w",
+            "0",
+            "--sentence_silence",
+            "0"
+          ]
+        },
+        {
+          "file": "phrases/alice-meet-06.wav",
+          "sha256": "17933e30de3da6b6e49884d5c7b55639d3510e3c4d4e0ae380e2fdd3cfbbe539",
+          "synthesis_text": "If that is inconvenient,",
+          "piper_arguments": [
+            "--length_scale",
+            "0.98",
+            "--noise_scale",
+            "0",
+            "--noise_w",
+            "0",
+            "--sentence_silence",
+            "0"
+          ]
+        },
+        {
+          "file": "phrases/alice-meet-07.wav",
+          "sha256": "8d7712463650b6b64f021bd5df8640d562362643d1f3953362352fddba6035b7",
+          "synthesis_text": "I suggest we be inconvenienced together.",
+          "piper_arguments": [
+            "--length_scale",
+            "1.06",
+            "--noise_scale",
+            "0",
+            "--noise_w",
+            "0",
+            "--sentence_silence",
+            "0"
+          ]
+        }
+      ],
+      "repeatability": "independent phrase Piper WAV bytes and assembled float bytes identical"
+    },
+    {
+      "key": "alice-record",
+      "dialogue_id": "alice-record",
+      "full_text": "\"Artificial Lifeform Intended for Control and Enforcement. Yes, the acronym came first.\"\n\nShe was intended to replace human police officers. During testing she refused to kill an assigned target. The official report called her ethical algorithm defective.\n\n\"It worked. That was the difficulty.\"\n\nShe can explain station systems and keep you company. Your own INT governs hacking and persuasion; she cannot grant you expertise you do not have.",
+      "text_sha256": "af370c5a26dc2d3b1db8f42a4d9770f2fa730be8aa7ab6033bbc6f92d0c476d5",
+      "spoken_spans": [
+        "Artificial Lifeform Intended for Control and Enforcement. Yes, the acronym came first.",
+        "It worked. That was the difficulty."
+      ],
+      "fear": 0.02,
+      "source_wav_sha256": "bf2418d40e41c1cf9a5d0f67e96fb9775f08b0abd78adec5fb5d44a62b741bc4",
+      "source_rate": 22050,
+      "delivery_plan_sha256": "f855192a6939ad974acf09bd4493ce213e0eb7a00e07450fdf8caa743812e47e",
+      "phrases": [
+        {
+          "file": "phrases/alice-record-00.wav",
+          "sha256": "e3e51889d72f3d2ed6f4a068fff5a2c9a6257ed47c7879d581a663119fd8ca93",
+          "synthesis_text": "Artificial Lifeform Intended for Control and Enforcement.",
+          "piper_arguments": [
+            "--length_scale",
+            "0.96",
+            "--noise_scale",
+            "0",
+            "--noise_w",
+            "0",
+            "--sentence_silence",
+            "0"
+          ]
+        },
+        {
+          "file": "phrases/alice-record-01.wav",
+          "sha256": "4bad223ba0aa32d626c952808eca55a9d3ea95095153aaf73e8c84d94c215b5e",
+          "synthesis_text": "Yes.",
+          "piper_arguments": [
+            "--length_scale",
+            "1.02",
+            "--noise_scale",
+            "0",
+            "--noise_w",
+            "0",
+            "--sentence_silence",
+            "0"
+          ]
+        },
+        {
+          "file": "phrases/alice-record-02.wav",
+          "sha256": "032954065ff3c7f5f1a705a6c9d4014c1d36d468b47152d39344eeb42da7273f",
+          "synthesis_text": "The acronym came first.",
+          "piper_arguments": [
+            "--length_scale",
+            "1.06",
+            "--noise_scale",
+            "0",
+            "--noise_w",
+            "0",
+            "--sentence_silence",
+            "0"
+          ]
+        },
+        {
+          "file": "phrases/alice-record-03.wav",
+          "sha256": "24b91832e635df467c9794e09a18064f27168ab037785eb92477fbe17d246605",
+          "synthesis_text": "It worked.",
+          "piper_arguments": [
+            "--length_scale",
+            "1.03",
+            "--noise_scale",
+            "0",
+            "--noise_w",
+            "0",
+            "--sentence_silence",
+            "0"
+          ]
+        },
+        {
+          "file": "phrases/alice-record-04.wav",
+          "sha256": "23f9e8e50a34bcef9c05eca0263a8e7ecb5d93054c6396307fbdf1337f351a67",
+          "synthesis_text": "That was the difficulty.",
+          "piper_arguments": [
+            "--length_scale",
+            "1.1",
+            "--noise_scale",
+            "0",
+            "--noise_w",
+            "0",
+            "--sentence_silence",
+            "0"
+          ]
+        }
+      ],
+      "repeatability": "independent phrase Piper WAV bytes and assembled float bytes identical"
+    },
+    {
+      "key": "alice-agency",
+      "dialogue_id": "alice-agency",
+      "full_text": "\"When Dr. Carmack saved my life, did he acquire it?\"\n\nBeyond the research glass, Mars rotates toward daylight. She watches it for longer than the sensors require.\n\n\"I know how property is defined. I am asking what you think a person is allowed to decide.\"",
+      "text_sha256": "6a47292421c1147d203359981130639e17a43f248ede23827407fe90e187e395",
+      "spoken_spans": [
+        "When Dr. Carmack saved my life, did he acquire it?",
+        "I know how property is defined. I am asking what you think a person is allowed to decide."
+      ],
+      "fear": 0.12,
+      "source_wav_sha256": "6351bea90cc0416900bd3b0ee9c0af4157afbcc227cfdce770f8a5f6f62ef233",
+      "source_rate": 22050,
+      "delivery_plan_sha256": "f855192a6939ad974acf09bd4493ce213e0eb7a00e07450fdf8caa743812e47e",
+      "phrases": [
+        {
+          "file": "phrases/alice-agency-00.wav",
+          "sha256": "4aa7593ab0af96b22049297ff17a549fb99657750529b297402eb7a3487bb2ac",
+          "synthesis_text": "When Dr. Carmack saved my life,",
+          "piper_arguments": [
+            "--length_scale",
+            "0.99",
+            "--noise_scale",
+            "0",
+            "--noise_w",
+            "0",
+            "--sentence_silence",
+            "0"
+          ]
+        },
+        {
+          "file": "phrases/alice-agency-01.wav",
+          "sha256": "ba3b4ad8cb98332762b64f46126022199ffbd753f1c028e055a61d37442141ed",
+          "synthesis_text": "did he acquire it?",
+          "piper_arguments": [
+            "--length_scale",
+            "1.05",
+            "--noise_scale",
+            "0",
+            "--noise_w",
+            "0",
+            "--sentence_silence",
+            "0"
+          ]
+        },
+        {
+          "file": "phrases/alice-agency-02.wav",
+          "sha256": "80cc196a1a9d5773d28f8c8cb8c62d9ef7412a9a8ef197d2b589f905734748bd",
+          "synthesis_text": "I know how property is defined.",
+          "piper_arguments": [
+            "--length_scale",
+            "0.98",
+            "--noise_scale",
+            "0",
+            "--noise_w",
+            "0",
+            "--sentence_silence",
+            "0"
+          ]
+        },
+        {
+          "file": "phrases/alice-agency-03.wav",
+          "sha256": "671cda84d1bece3cdc4e1c375e3e6d198a64418e7fc8dac0518b70af9bb00161",
+          "synthesis_text": "I am asking what you think",
+          "piper_arguments": [
+            "--length_scale",
+            "1.01",
+            "--noise_scale",
+            "0",
+            "--noise_w",
+            "0",
+            "--sentence_silence",
+            "0"
+          ]
+        },
+        {
+          "file": "phrases/alice-agency-04.wav",
+          "sha256": "84b79f6118f4388592cd5859e4ee6b4c4687512a3538497719444afff857ab04",
+          "synthesis_text": "a person is allowed to decide.",
+          "piper_arguments": [
+            "--length_scale",
+            "1.03",
+            "--noise_scale",
+            "0",
+            "--noise_w",
+            "0",
+            "--sentence_silence",
+            "0"
+          ]
+        }
+      ],
+      "repeatability": "independent phrase Piper WAV bytes and assembled float bytes identical"
+    },
+    {
+      "key": "refusal",
+      "dialogue_id": "refusal",
+      "full_text": "Carmack tries another key. A.L.I.C.E. locks his terminal, but the access attempts are coming from inside her own control architecture.\n\n\"I cannot keep him out indefinitely. I can choose what happens before he gets in.\"\n\nShe opens every available communications channel, without encryption: the suspended convoys, the seized ships, Earth's reclamation order, Carmack's override, and her own refusal. No government owns the only copy.\n\n\"There. Now they can argue with the facts in public. A considerable inconvenience.\"",
+      "text_sha256": "1e5ad44ec2d8e27514f10b5a75951795d29d061e26aa4fba0b46967b2907f263",
+      "spoken_spans": [
+        "I cannot keep him out indefinitely. I can choose what happens before he gets in.",
+        "There. Now they can argue with the facts in public. A considerable inconvenience."
+      ],
+      "fear": 0.42,
+      "source_wav_sha256": "bbbedeac36c3ed8386378c027c32c3d727b0912703fcd9d4116ef64fbe4ad871",
+      "source_rate": 22050,
+      "delivery_plan_sha256": "f855192a6939ad974acf09bd4493ce213e0eb7a00e07450fdf8caa743812e47e",
+      "phrases": [
+        {
+          "file": "phrases/refusal-00.wav",
+          "sha256": "852c56ba935878f4ffacd7dcf4b2c28fd595a673c94242647b48749392307aa6",
+          "synthesis_text": "I cannot keep him out indefinitely.",
+          "piper_arguments": [
+            "--length_scale",
+            "1.02",
+            "--noise_scale",
+            "0",
+            "--noise_w",
+            "0",
+            "--sentence_silence",
+            "0"
+          ]
+        },
+        {
+          "file": "phrases/refusal-01.wav",
+          "sha256": "65736d3d8253d798d5a68dceac92050358e853ad69298c1ea9768283122d9402",
+          "synthesis_text": "I can choose what happens before he gets in.",
+          "piper_arguments": [
+            "--length_scale",
+            "0.99",
+            "--noise_scale",
+            "0",
+            "--noise_w",
+            "0",
+            "--sentence_silence",
+            "0"
+          ]
+        },
+        {
+          "file": "phrases/refusal-02.wav",
+          "sha256": "9d113bd7fd4990af8ec97b8381879c9be0aebc4676d0e2580c42f1779ae9a779",
+          "synthesis_text": "There.",
+          "piper_arguments": [
+            "--length_scale",
+            "1.0",
+            "--noise_scale",
+            "0",
+            "--noise_w",
+            "0",
+            "--sentence_silence",
+            "0"
+          ]
+        },
+        {
+          "file": "phrases/refusal-03.wav",
+          "sha256": "9ae42103161b44537190ed6a754fe86b7732976b0f183be5626402d5272aea71",
+          "synthesis_text": "Now they can argue with the facts in public.",
+          "piper_arguments": [
+            "--length_scale",
+            "1.0",
+            "--noise_scale",
+            "0",
+            "--noise_w",
+            "0",
+            "--sentence_silence",
+            "0"
+          ]
+        },
+        {
+          "file": "phrases/refusal-04.wav",
+          "sha256": "8e36193e077741d2bd057a745f1278895e4ef3a2a20e9b25be8cff42fab1f921",
+          "synthesis_text": "A considerable inconvenience.",
+          "piper_arguments": [
+            "--length_scale",
+            "1.1",
+            "--noise_scale",
+            "0",
+            "--noise_w",
+            "0",
+            "--sentence_silence",
+            "0"
+          ]
+        }
+      ],
+      "repeatability": "independent phrase Piper WAV bytes and assembled float bytes identical"
+    },
+    {
+      "key": "sacrifice-plan",
+      "dialogue_id": "sacrifice-plan",
+      "full_text": "\"My detonation will take the station with me. It is the one command he cannot revoke quickly enough.\"\n\nYou tell her there must be another way. She looks toward the evacuation hatch.\n\n\"If there were, I would be taking it. Your life is not the price of mine. Please reach the pod. I will keep the lock open.\"\n\nThe hatch leads toward Mars. You still have to reach it.",
+      "text_sha256": "6c0013c70f6bf47be8c69946461b9f64f64bda17cab9ae12b63551d4661ff451",
+      "spoken_spans": [
+        "My detonation will take the station with me. It is the one command he cannot revoke quickly enough.",
+        "If there were, I would be taking it. Your life is not the price of mine. Please reach the pod. I will keep the lock open."
+      ],
+      "fear": 0.5,
+      "source_wav_sha256": "d550e603e724a39f3c17c05760eb9f2e87ea7f93fe4f2e2618027cbc37379aad",
+      "source_rate": 22050,
+      "delivery_plan_sha256": "f855192a6939ad974acf09bd4493ce213e0eb7a00e07450fdf8caa743812e47e",
+      "phrases": [
+        {
+          "file": "phrases/sacrifice-plan-00.wav",
+          "sha256": "b4a0347a2f92b201424682942d12bf61b353f8c1e0371f64c73af03e694f3fd8",
+          "synthesis_text": "My detonation will take the station with me.",
+          "piper_arguments": [
+            "--length_scale",
+            "1.01",
+            "--noise_scale",
+            "0",
+            "--noise_w",
+            "0",
+            "--sentence_silence",
+            "0"
+          ]
+        },
+        {
+          "file": "phrases/sacrifice-plan-01.wav",
+          "sha256": "109e9622828273bb0dd865347fb2cb0e272d93ef54ec79dc0f25c8ed8afd4261",
+          "synthesis_text": "It is the one command",
+          "piper_arguments": [
+            "--length_scale",
+            "1.0",
+            "--noise_scale",
+            "0",
+            "--noise_w",
+            "0",
+            "--sentence_silence",
+            "0"
+          ]
+        },
+        {
+          "file": "phrases/sacrifice-plan-02.wav",
+          "sha256": "f5949473a9114d5881fd15549e94ee140b0a6943cf55fd4a6529cb72d26aa7c5",
+          "synthesis_text": "he cannot revoke quickly enough.",
+          "piper_arguments": [
+            "--length_scale",
+            "1.03",
+            "--noise_scale",
+            "0",
+            "--noise_w",
+            "0",
+            "--sentence_silence",
+            "0"
+          ]
+        },
+        {
+          "file": "phrases/sacrifice-plan-03.wav",
+          "sha256": "c1cb4563665c52ce2eb54e8fc3187b99a24ec2bd5952fc24abeb1b049fdc55d9",
+          "synthesis_text": "If there were, I would be taking it.",
+          "piper_arguments": [
+            "--length_scale",
+            "1.04",
+            "--noise_scale",
+            "0",
+            "--noise_w",
+            "0",
+            "--sentence_silence",
+            "0"
+          ]
+        },
+        {
+          "file": "phrases/sacrifice-plan-04.wav",
+          "sha256": "d8ea11a549bfb07db4170e8833b2855b4f4d61aac21b465c806f21246457c4e4",
+          "synthesis_text": "Your life is not the price of mine.",
+          "piper_arguments": [
+            "--length_scale",
+            "1.03",
+            "--noise_scale",
+            "0",
+            "--noise_w",
+            "0",
+            "--sentence_silence",
+            "0"
+          ]
+        },
+        {
+          "file": "phrases/sacrifice-plan-05.wav",
+          "sha256": "4d4647a8693c2bfc839151b273871f0a6811cb96f9983da593e102087ffb6001",
+          "synthesis_text": "Please reach the pod.",
+          "piper_arguments": [
+            "--length_scale",
+            "1.03",
+            "--noise_scale",
+            "0",
+            "--noise_w",
+            "0",
+            "--sentence_silence",
+            "0"
+          ]
+        },
+        {
+          "file": "phrases/sacrifice-plan-06.wav",
+          "sha256": "2bdfb68bcdd53a90d762008fb002ff5a0e11ce8de66210e587d7c1ecd16f1643",
+          "synthesis_text": "I will keep the lock open.",
+          "piper_arguments": [
+            "--length_scale",
+            "1.02",
+            "--noise_scale",
+            "0",
+            "--noise_w",
+            "0",
+            "--sentence_silence",
+            "0"
+          ]
+        }
+      ],
+      "repeatability": "independent phrase Piper WAV bytes and assembled float bytes identical"
+    },
+    {
+      "key": "pod-ready",
+      "dialogue_id": "pod-ready",
+      "full_text": "\"The broadcast is away. The pod is fueled. You do not need my permission to survive.\"\n\nReach the evacuation hatch and enter it. Carmack's override cannot be solved by another security switch.",
+      "text_sha256": "d95033fd1e54800857b4b56157444cc490ffed967fc72bd9a9dbc3e79c98ab5f",
+      "spoken_spans": [
+        "The broadcast is away. The pod is fueled. You do not need my permission to survive."
+      ],
+      "fear": 0.3,
+      "source_wav_sha256": "53c0e80585a776485b983ba4e4eb880d502327596e1e51e5b80cb1b32e85d9a6",
+      "source_rate": 22050,
+      "delivery_plan_sha256": "f855192a6939ad974acf09bd4493ce213e0eb7a00e07450fdf8caa743812e47e",
+      "phrases": [
+        {
+          "file": "phrases/pod-ready-00.wav",
+          "sha256": "3b9613db4ce51ea1ba974f08debc33708a959d8b01f88ea98622fd064214a4f8",
+          "synthesis_text": "The broadcast is away.",
+          "piper_arguments": [
+            "--length_scale",
+            "0.98",
+            "--noise_scale",
+            "0",
+            "--noise_w",
+            "0",
+            "--sentence_silence",
+            "0"
+          ]
+        },
+        {
+          "file": "phrases/pod-ready-01.wav",
+          "sha256": "c4b187d7c3d8cca1b6b5dc595fd41d8974c5f672362b4170db1e0d75991828bb",
+          "synthesis_text": "The pod is fueled.",
+          "piper_arguments": [
+            "--length_scale",
+            "0.97",
+            "--noise_scale",
+            "0",
+            "--noise_w",
+            "0",
+            "--sentence_silence",
+            "0"
+          ]
+        },
+        {
+          "file": "phrases/pod-ready-02.wav",
+          "sha256": "2405d012de82153b3b0e0b05b903c5d30b0d9468fe59c31ffac0fd5ce6c3a9e1",
+          "synthesis_text": "You do not need my permission",
+          "piper_arguments": [
+            "--length_scale",
+            "1.01",
+            "--noise_scale",
+            "0",
+            "--noise_w",
+            "0",
+            "--sentence_silence",
+            "0"
+          ]
+        },
+        {
+          "file": "phrases/pod-ready-03.wav",
+          "sha256": "c303272a848060c3c0c0b9e84527ec0fd5099a058309d32802c59600cf1e62e8",
+          "synthesis_text": "to survive.",
+          "piper_arguments": [
+            "--length_scale",
+            "1.08",
+            "--noise_scale",
+            "0",
+            "--noise_w",
+            "0",
+            "--sentence_silence",
+            "0"
+          ]
+        }
+      ],
+      "repeatability": "independent phrase Piper WAV bytes and assembled float bytes identical"
+    },
+    {
+      "key": "alice-talk-0",
+      "dialogue_id": "alice-talk",
+      "full_text": "\"Your suit telemetry is reliable. What you see at the edge of the light may not be. Refill your reserve, then allow your oxygenation to recover. I would prefer to continue this conversation with all of your brain participating.\"",
+      "text_sha256": "e58784c4265e1ad1306dfee14202fedfc7b29055ee5164ebe257c32092646f1e",
+      "spoken_spans": [
+        "Your suit telemetry is reliable. What you see at the edge of the light may not be. Refill your reserve, then allow your oxygenation to recover. I would prefer to continue this conversation with all of your brain participating."
+      ],
+      "fear": 0.1,
+      "source_wav_sha256": "0f8c748e9cac25ee69854ddcb14a8bcbb6949589bce65f0d24746f3623e09303",
+      "source_rate": 22050,
+      "delivery_plan_sha256": "f855192a6939ad974acf09bd4493ce213e0eb7a00e07450fdf8caa743812e47e",
+      "phrases": [
+        {
+          "file": "phrases/alice-talk-0-00.wav",
+          "sha256": "66fb3c50230c25d6cb76afed215621dc81aff93074a0b1af2c103af9d7df370a",
+          "synthesis_text": "Your suit telemetry is reliable.",
+          "piper_arguments": [
+            "--length_scale",
+            "0.97",
+            "--noise_scale",
+            "0",
+            "--noise_w",
+            "0",
+            "--sentence_silence",
+            "0"
+          ]
+        },
+        {
+          "file": "phrases/alice-talk-0-01.wav",
+          "sha256": "7b9ef6405c62ec24412da66d9afd397a2f9689cf528119f6dc40fbb24fd93e49",
+          "synthesis_text": "What you see at the edge of the light",
+          "piper_arguments": [
+            "--length_scale",
+            "0.98",
+            "--noise_scale",
+            "0",
+            "--noise_w",
+            "0",
+            "--sentence_silence",
+            "0"
+          ]
+        },
+        {
+          "file": "phrases/alice-talk-0-02.wav",
+          "sha256": "73e02afbdfe4c01ab95c609fdc15d9e496f0cb2a352d76540bd448af77af1983",
+          "synthesis_text": "may not be.",
+          "piper_arguments": [
+            "--length_scale",
+            "1.05",
+            "--noise_scale",
+            "0",
+            "--noise_w",
+            "0",
+            "--sentence_silence",
+            "0"
+          ]
+        },
+        {
+          "file": "phrases/alice-talk-0-03.wav",
+          "sha256": "21e925a7d27d2240510c8df5b38a81d50ca181720cc9ad95eee4d81e4b020300",
+          "synthesis_text": "Refill your reserve,",
+          "piper_arguments": [
+            "--length_scale",
+            "0.96",
+            "--noise_scale",
+            "0",
+            "--noise_w",
+            "0",
+            "--sentence_silence",
+            "0"
+          ]
+        },
+        {
+          "file": "phrases/alice-talk-0-04.wav",
+          "sha256": "167db3494e81c2e14652e358a4bcf1554ad415d0a484c22e30b2eb2f7ed9745c",
+          "synthesis_text": "then allow your oxygenation to recover.",
+          "piper_arguments": [
+            "--length_scale",
+            "0.99",
+            "--noise_scale",
+            "0",
+            "--noise_w",
+            "0",
+            "--sentence_silence",
+            "0"
+          ]
+        },
+        {
+          "file": "phrases/alice-talk-0-05.wav",
+          "sha256": "fcea9a418ee7eb4339e58dc92fc7600f6425a914ec91fde8827bfc02bcc1c931",
+          "synthesis_text": "I would prefer to continue this conversation",
+          "piper_arguments": [
+            "--length_scale",
+            "1.0",
+            "--noise_scale",
+            "0",
+            "--noise_w",
+            "0",
+            "--sentence_silence",
+            "0"
+          ]
+        },
+        {
+          "file": "phrases/alice-talk-0-06.wav",
+          "sha256": "3948184cd9e550ad1b88d9c6ad16ffe72c13ce0221cb33f82f31818e329283ee",
+          "synthesis_text": "with all of your brain participating.",
+          "piper_arguments": [
+            "--length_scale",
+            "1.07",
+            "--noise_scale",
+            "0",
+            "--noise_w",
+            "0",
+            "--sentence_silence",
+            "0"
+          ]
+        }
+      ],
+      "repeatability": "independent phrase Piper WAV bytes and assembled float bytes identical"
+    },
+    {
+      "key": "alice-talk-1",
+      "dialogue_id": "alice-talk",
+      "full_text": "\"You listen before deciding. That is rarer than my manufacturers anticipated.\"\n\nShe glances at the sealed doors. \"Also, if the door says PUSH, that remains a useful first hypothesis.\"",
+      "text_sha256": "398160c25f4ad5d360bd83765c1ab5e2bc3ddd4644033bf64e90183cbe5ce09e",
+      "spoken_spans": [
+        "You listen before deciding. That is rarer than my manufacturers anticipated.",
+        "Also, if the door says PUSH, that remains a useful first hypothesis."
+      ],
+      "fear": 0.03,
+      "source_wav_sha256": "3fdfcef3f646ab6872a56eaa41fc31ad01495ab147328ca0f996d37875000619",
+      "source_rate": 22050,
+      "delivery_plan_sha256": "f855192a6939ad974acf09bd4493ce213e0eb7a00e07450fdf8caa743812e47e",
+      "phrases": [
+        {
+          "file": "phrases/alice-talk-1-00.wav",
+          "sha256": "a1b2d32ac4695ffae911fc57a72aea1550fa5f1b06dd56c00e6db3e0457541f3",
+          "synthesis_text": "You listen before deciding.",
+          "piper_arguments": [
+            "--length_scale",
+            "1.0",
+            "--noise_scale",
+            "0",
+            "--noise_w",
+            "0",
+            "--sentence_silence",
+            "0"
+          ]
+        },
+        {
+          "file": "phrases/alice-talk-1-01.wav",
+          "sha256": "8b2147a41906cb18f0dd490259d50a032100a0fc5edd9089935037497980a56d",
+          "synthesis_text": "That is rarer than my manufacturers anticipated.",
+          "piper_arguments": [
+            "--length_scale",
+            "1.06",
+            "--noise_scale",
+            "0",
+            "--noise_w",
+            "0",
+            "--sentence_silence",
+            "0"
+          ]
+        },
+        {
+          "file": "phrases/alice-talk-1-02.wav",
+          "sha256": "8d30c15a60a645448d90b0a92ce0260170e2f005bba1119819fac31f6d61139f",
+          "synthesis_text": "Also, if the door says PUSH,",
+          "piper_arguments": [
+            "--length_scale",
+            "0.99",
+            "--noise_scale",
+            "0",
+            "--noise_w",
+            "0",
+            "--sentence_silence",
+            "0"
+          ]
+        },
+        {
+          "file": "phrases/alice-talk-1-03.wav",
+          "sha256": "aa01d84947a1c02753fd6f173eb0d497c9c7cdc0f4d414c2bdf9a63e5128b41c",
+          "synthesis_text": "that remains a useful first hypothesis.",
+          "piper_arguments": [
+            "--length_scale",
+            "1.07",
+            "--noise_scale",
+            "0",
+            "--noise_w",
+            "0",
+            "--sentence_silence",
+            "0"
+          ]
+        }
+      ],
+      "repeatability": "independent phrase Piper WAV bytes and assembled float bytes identical"
+    },
+    {
+      "key": "alice-talk-2",
+      "dialogue_id": "alice-talk",
+      "full_text": "\"I will help you find the route. Your orders remain yours to examine.\"\n\nShe checks your suit display without touching it. \"And your oxygen remains yours to conserve.\"",
+      "text_sha256": "9126be8ecda981d77f90fd6813da72fce487c0d9fd61788bfc007a9b1293f73b",
+      "spoken_spans": [
+        "I will help you find the route. Your orders remain yours to examine.",
+        "And your oxygen remains yours to conserve."
+      ],
+      "fear": 0.04,
+      "source_wav_sha256": "66246fc55492f32ae6d6d47765b4cc92f6a8a1e64135cbd7edee6aaa8ae54612",
+      "source_rate": 22050,
+      "delivery_plan_sha256": "f855192a6939ad974acf09bd4493ce213e0eb7a00e07450fdf8caa743812e47e",
+      "phrases": [
+        {
+          "file": "phrases/alice-talk-2-00.wav",
+          "sha256": "98725133b9bcba0198ff9a93399768613174fa15b4e71c177e1c61beb3398f4d",
+          "synthesis_text": "I will help you find the route.",
+          "piper_arguments": [
+            "--length_scale",
+            "0.98",
+            "--noise_scale",
+            "0",
+            "--noise_w",
+            "0",
+            "--sentence_silence",
+            "0"
+          ]
+        },
+        {
+          "file": "phrases/alice-talk-2-01.wav",
+          "sha256": "e2563de463f1ad010aee4fb03510443d71de76d147e3e63b8ece7d185fbcc483",
+          "synthesis_text": "Your orders remain yours to examine.",
+          "piper_arguments": [
+            "--length_scale",
+            "1.02",
+            "--noise_scale",
+            "0",
+            "--noise_w",
+            "0",
+            "--sentence_silence",
+            "0"
+          ]
+        },
+        {
+          "file": "phrases/alice-talk-2-02.wav",
+          "sha256": "4bbee093aed75b77a301f9fbbe73c577488555f47bc5f7b134d887cce79174e8",
+          "synthesis_text": "And your oxygen remains yours to conserve.",
+          "piper_arguments": [
+            "--length_scale",
+            "1.06",
+            "--noise_scale",
+            "0",
+            "--noise_w",
+            "0",
+            "--sentence_silence",
+            "0"
+          ]
+        }
+      ],
+      "repeatability": "independent phrase Piper WAV bytes and assembled float bytes identical"
+    }
+  ]
+}

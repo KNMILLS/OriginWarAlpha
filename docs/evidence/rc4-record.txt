@@ -1,0 +1,4 @@
+Origin War runtime diagnostics
+frames=150 replayRemaining=0 saveFailures=0
+seed=0 deck=10 tick=1937 hp=96 reserve=183 oxygenation=100 dialogue= victory=true dead=false
+Playback summary: sounds=0, failed=0, musicLoops=0

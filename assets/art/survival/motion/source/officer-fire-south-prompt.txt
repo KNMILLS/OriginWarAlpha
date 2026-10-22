@@ -1,0 +1,7 @@
+Use case: identity-preserve. Original game animation sheet. Match the exact mature white pressure-suited officer in reference, sealed helmet, black rubber joints, belt and harness/backpack. Small BLACK PISTOL in RIGHT hand, LEFT hand supports wrist/grip during aiming.
+Four sequential shooting poses, STRICT4 columns1row equalcells, true alpha transparent background. ALL SOUTH facing, front view facing toward viewer/down-screen; pistol barrel and hands foreshortened toward camera, same elevated orthographic camera, entire body, fixed size/baseline/center, no ground/shadow/text.
+Cell1: raising pistol from low-ready to chest level; elbows bend, legs planted shoulderwidth.
+Cell2: full stable AIM; bothhands hold SAME small pistol at eye/chestlevel oriented south; shoulders forward, legspose same.
+Cell3: tiny authentic RECOIL at release; arms flex, chest takes load, pistol muzzle lifts ONLY slightly, same gun, no magic effects; no baked flash/projectile/smoke.
+Cell4: RECOVERY, muzzle settles to Cell2 aim, wrists/shoulders return, same feet and silhouette.
+Important: all four are the SAME facing, no turnaround, do not switch grip hands or weapons. Adult realistic proportions, neutral consistent diffuse lighting, polished illustrated handpainted2D. Offwhite suit plates exactly same design, no giant gun, no extra limb, no wideaimangles or exaggerated backward lean. Distinct anatomically painted arm/shoulder changes, no warped sprites. Keep helmet and feet stationary; frames differ only necessary action.

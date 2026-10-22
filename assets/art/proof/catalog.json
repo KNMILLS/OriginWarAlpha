@@ -1,0 +1,30 @@
+{
+  "version": 1,
+  "status": "comparison-candidates-owner-selection-open",
+  "packs": [
+    {
+      "name": "environment",
+      "manifest": "art/proof/environment/atlas.json",
+      "sha256": "d53df015b8605cc615705fd175f4339170a9734613ae75df2635ee8d995b3851",
+      "pages": 1,
+      "uniqueSourceImages": 17,
+      "clips": 0
+    },
+    {
+      "name": "painted",
+      "manifest": "art/proof/painted/atlas.json",
+      "sha256": "55f57462021a8804c57647f34d3b2d91420b17558b0cff5a132e2535586aeb63",
+      "pages": 2,
+      "uniqueSourceImages": 72,
+      "clips": 24
+    },
+    {
+      "name": "rendered",
+      "manifest": "art/proof/rendered/atlas.json",
+      "sha256": "fd8d4f4e7f5c44b35ee0a4342f525eedd64e23c9607e16468b3675c33f6ff007",
+      "pages": 13,
+      "uniqueSourceImages": 252,
+      "clips": 52
+    }
+  ]
+}

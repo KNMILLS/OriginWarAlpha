@@ -1,0 +1,12 @@
+{
+  "regions": 42,
+  "opaqueFloors": 6,
+  "alphaCutouts": 36,
+  "distinctOfficerFacings": 4,
+  "doorApertureTransparent": true,
+  "sourceAndPromptHashes": "PASS",
+  "manifestAndBounds": "PASS",
+  "editableAssetLayers": 42,
+  "byteRepeatability": "PASS",
+  "runtimeMotionLightingAndOwnerAcceptance": "NOT_TESTED"
+}

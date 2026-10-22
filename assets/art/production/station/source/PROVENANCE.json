@@ -1,0 +1,23 @@
+{
+  "task": "BM-ROOM",
+  "base": "c3ad573",
+  "tool": "4.5.3 LTS",
+  "medium": "original Blender mechanical meshes/materials/armature; offline rendered candidate, not hand-painted brushwork",
+  "externalAssets": [],
+  "rights": "Original authored construction from project visual identity references; no outside model/texture/animation",
+  "sourceBlend": {
+    "path": "origin-war-opening-station.blend",
+    "sha256": "8d064b9deb7801bba1e195d7e3ab7f74a89885591dc5ee57b810f490b17f8a89"
+  },
+  "scriptSha256": "89d27e1b998a78007b6306983ace92d7e7c2c4ad4de0dd31a8ee23fd5b7b1119",
+  "motionScriptSha256": "5097778e549d8fefc97eb22e2e8442aaba41f0ebe756a72ad39c6a43d1127d55",
+  "referencePaths": [
+    "art/survival/regions/machine.sirs.png",
+    "art/survival/regions/machine.camera.png",
+    "art/survival/regions/door.closed.png",
+    "art/survival/regions/door.open.png",
+    "art/survival/regions/hatch.closed.png",
+    "art/survival/regions/control.switch.png"
+  ],
+  "limitations": "Bounded receiving benchmark candidate; source boards/contact calibration are not native-play or commercial acceptance."
+}

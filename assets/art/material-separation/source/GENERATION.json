@@ -1,0 +1,36 @@
+{
+  "task": "MAT2",
+  "date": "2026-10-21",
+  "tool": "OpenAI built-in image_gen",
+  "model_identifier": "not exposed; not inferred",
+  "reference_inputs": {
+    "floors": "new generation from exact recorded brief; no external reference",
+    "walls": "new generation from exact recorded brief; no external reference",
+    "special": "new generation with selected walls.png/floors.png as material references"
+  },
+  "sources": [
+    {
+      "path": "floors.png",
+      "tool_output_name": "exec-51fcd2fc-9fb1-4dc0-a3fb-8f60074d6e38.png",
+      "selection": "five new warm flat walking materials; centered square crops preserve fine grain",
+      "sha256": "2dd350a7ded34b71284149d26c29d1e3a877d1606265826192d7d10f8d7055a1"
+    },
+    {
+      "path": "walls.png",
+      "tool_output_name": "exec-30400fe6-f02c-43a5-b85a-5a5b0d13da79.png",
+      "selection": "five new cool raised bulkhead faces with cap/ribs/foot; whole-height cell crops",
+      "sha256": "465cbaeeb056a9b7715f29ac0df19d3b962f7d9e82bba5aee8adfdb0b038984e"
+    },
+    {
+      "path": "special.png",
+      "tool_output_name": "exec-edc67ea1-4e5b-4df3-b671-54948594d822.png",
+      "selection": "new corner/glass/low-gravity/zero-gravity/hazard paths; row content y66:657 omits outer padding",
+      "sha256": "037c14449328bc78a04c805882fed0eab3a2b9976a40e07417bc5685681ee525"
+    }
+  ],
+  "prompt_set": "prompts/{floors,walls,special}-exact.txt; exact tool prompts, UTF-8/LF",
+  "attempts": "one generated source per requested sheet; no failed generated variants discarded or hidden",
+  "methods": "Production artwork generated only by built-in image_gen. Python crops/resamples/packs and creates explicitly synthetic technical review composites, not production painting.",
+  "rights": "Original generated remake materials; no third-party/franchise assets imported. Existing owner reference/actors/props and their provenance remain unchanged.",
+  "acceptance": "Source/export/dark-composite review only; real game shader and owner artistic acceptance remain separate."
+}

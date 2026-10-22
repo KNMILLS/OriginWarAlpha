@@ -1,0 +1,17 @@
+# Honest illustrated equipment candidates
+
+Run `python -B tools/media/survival_equipment_motion/build.py`, then `python -B tools/media/survival_equipment_motion/validate.py` from a complete checkout. Requires Python 3.11+, Pillow, NumPy and SciPy. The builder owns only `assets/art/survival/equipment-motion`; it never edits shared registries, existing animation masters or Java.
+
+Four bounded built-in image_gen edits supply twelve static equipment facings and four north-facing pistol action drawings. Original output bytes, exact prompts, original reference copies, tool/output identities and source hashes remain in `source`. Extraction isolates original alpha components, retains antialias fringe, uniformly resizes and places them on padded canvases. It never paints, composites a weapon into a hand, mirrors, hinges, warps or interpolates a new pose.
+
+`regions.json` uses the existing named-region contract. It supplies `officer.unarmed.north/east/south/west`, `officer.rifle.*` and `officer.scattergun.*`. Runtime equipment state is spelled `unarmed`, not `none`. These are honest static equipment silhouettes. They are **not** equipment walk or firing animations and must not be advertised as such. Use their static region during movement/actions rather than showing the wrong pistol drawing.
+
+The static solid silhouette is calibrated to 1.3 reference cells; a 256-pixel reference cell defines dimensions. The ground contact uses the solid painted sole; the horizontal body anchor uses the helmet axis instead of the asymmetric weapon bounding box. Preserve each region's width, height and pivot. Do not center the image's changing equipment bounds or resize it independently in the renderer.
+
+`clips.json` supplies `officer.fire.north`: four distinct rear-facing pistol drawings, 70ms each, release at frame 2 (140ms), recovery at frame 3 (210ms). The one-frame `officer.aim.north` aliases its second authored drawing. All frames share one scale, canvas and pivot. The source body calibration excludes the gun/flash above the helmet, so discharge cannot shrink the body. This preparation begins with arms already raised; it does not establish a complete low-ready-to-aim transition.
+
+The editable OpenRaster archive exposes the sixteen exported poses as independent layers. It is an editable extraction document, not a claim of brushstroke layers or a full animation-authoring project. `review/equipment-contact.jpg` and `review/north-fire-contact.jpg` show the exported candidates. `review/north-fire.gif` plays the four source drawings at their declared timing; these are technical previews, not native gameplay evidence.
+
+Validation checks source/output hashes, true alpha, source-bounded paths, expected named coverage, 1.3-cell static scale, solid-sole anchors, shared north-action calibration, four unique drawings, 280ms playback, editable archive CRC and byte-identical rebuilds. It cannot certify anatomical performance, proper perspective under live lighting, normal-speed contact/audio alignment or commercial quality. Worker native-game verification is NOT_TESTED. Owner artistic acceptance remains OPEN.
+
+Remaining production gaps: unarmed/rifle/scattergun walking and action clips; rifle/scattergun aim; machine cardinal facings; hit, interaction and death animation; full north pistol preparation; native pacing and owner artistic review. Existing source/failed historical requests remain preserved; no rejected historical source is silently replaced.

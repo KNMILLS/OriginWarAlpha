@@ -1,0 +1,25 @@
+{
+  "sequence": [
+    "before from039bebc8e0d36ab2497bd648c46da6de67d0fe2b",
+    "0.8seconds silence",
+    "VOICE2 phrased candidate"
+  ],
+  "before_seconds": 9.414784580498866,
+  "after_seconds": 9.223401360544218,
+  "combined_seconds": 19.438185941043084,
+  "files": {
+    "alice-record-after.ogg": {
+      "sha256": "1e66c62914b858ef31b99d02f996b0e857df28921e0d4347817586765c333ce6",
+      "bytes": 72750
+    },
+    "alice-record-before-after.ogg": {
+      "sha256": "d158b686c48641baa449d410aaa067c140f682c35fe308a0ced28a29c5b7b1dc",
+      "bytes": 141262
+    },
+    "alice-record-before.ogg": {
+      "sha256": "57892c1f12d9e00826820aab8ddd7d578639421250a646e6e220ae43ca74d3cd",
+      "bytes": 76255
+    }
+  },
+  "acceptance": "Generated comparison only; no claim of heard sarcasm or owner approval."
+}

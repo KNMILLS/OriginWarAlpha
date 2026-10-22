@@ -1,0 +1,30 @@
+{
+  "modelAndCalibrationSeconds": 6.339563600020483,
+  "totalProcessSeconds": 51.33020409999881,
+  "renderSeconds": 44.99064199998975,
+  "status": "Development candidate for native evaluation; artistic finish OPEN",
+  "totalProcessSecondsMeaning": "Latest resumed process only, not the complete2020exposure primary batch",
+  "legacyExporterCounters": {
+    "geometryIterations": 3,
+    "boundedLookCorrections": 5
+  },
+  "primaryCompletedProcessSegments": [
+    {
+      "kind": "pistol completed batch plus first unarmed idle",
+      "processWindowSeconds": 306.9118522,
+      "method": "Process StartTime to exact boundary stop"
+    },
+    {
+      "kind": "unarmed interrupted after west drop",
+      "processWindowSeconds": 255.1025538444519,
+      "method": "Observed log creation to last-write window, not separate render instrumentation"
+    },
+    {
+      "kind": "unarmed remaining145exposures",
+      "processWindowSeconds": 51.33020409999881,
+      "method": "Authored exporter perf_counter"
+    }
+  ],
+  "sumObservedPrimaryProcessWindowsSeconds": 613.3446101444507,
+  "effortLimits": "Includes machine time and waits; no billable human labor or campaign cost is inferred. Authoring/correction/integration effort must be measured separately."
+}

@@ -1,0 +1,20 @@
+{
+  "technical": "PASS",
+  "staticEquipmentFacings": 12,
+  "northPistolDrawings": 4,
+  "aimAliases": 1,
+  "sourceHashes": "PASS",
+  "groundAnchors": "PASS",
+  "trueTransparentAlpha": "PASS",
+  "byteRepeatableExport": "PASS",
+  "editableArchiveCRC": "PASS",
+  "nativeGame": "NOT_TESTED by this worker",
+  "ownerArtisticAcceptance": "OPEN",
+  "limitations": [
+    "unarmed/rifle/scattergun remain static during movement/actions",
+    "no rifle/scattergun aim/fire clips",
+    "north pistol preparation begins already raised",
+    "machine cardinal facing coverage unchanged",
+    "normal-speed synchronization awaits native review"
+  ]
+}

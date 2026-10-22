@@ -1,0 +1,859 @@
+{
+  "task": "M5-ART",
+  "status": "five-sector dressing source/native export inspected; in-game acceptance pending",
+  "atlas": {
+    "path": "assets/art/sectors/sectors.png",
+    "native": "assets/art/sectors/sectors-native.png",
+    "columns": 8,
+    "rows": 4,
+    "cell_pixels": 128,
+    "native_cell_pixels": 64,
+    "nearest_scale": 2
+  },
+  "layout": "0-4 floors;5-9 matching walls;10-14 furniture;15-19 console/light;20-24 clutter;25-29 story anchors, always docking/habitation/medical/industry/command.30 escapePod,31 MarsWindow.",
+  "provenance": "Original OpenAI built-in image_gen artwork using existing original project art as palette/material reference, with recorded prompts. No external pack, stock or legacy artwork.",
+  "source_export": "tools/media/pack_animation.py",
+  "reference_station_sha256": "4c256eb65f22457d3ffa6591fd124982f76b54b6f5706f3a5d8899b8d5d78794",
+  "export_notes": [
+    "Opaque floors are sampled from actual opaque interiors of generated floor cells; no opaque black sheet padding is used.",
+    "Decorative props have true transparent empty space, fixed native anchors and low-alpha speck cleanup.",
+    "Raw source sheets are unchanged; explicit inspected row boundaries, regions/anchors and 4x nearest export are deterministic.",
+    "First equal-row pack included neighboring prop fragments because the source ignored equal row spacing; selected source row edges are0,202,404,631,858,1072,1374."
+  ],
+  "manual_review": [
+    "Five sectors differ in panel structure, materials, furniture, equipment and clutter, not only hue.",
+    "Arrival, abandoned personal objects, research cradle, industrial control and broadcast interlock are visual story dressing; no invented text/lore is embedded.",
+    "Escape pod and Mars observation viewport are distinct illustrated objects with opaque interiors/transparent outside."
+  ],
+  "limitations": [
+    "Generated dressing uses shallow three-quarter depth consistent with existing props; verify occlusion and scale in actual overhead gameplay.",
+    "Floors use cropped repeating panels; final seam/repetition quality and lighting require real floor-per-sector captures.",
+    "The five style sets supplement existing doors/corners/terrain; they do not replace every combination of directional wall/corner/door art.",
+    "Story-anchor placement and narrative behavior remain lead-owned; dressing is not proof of implemented story beats.",
+    "No actual gameplay screenshots or final-art acceptance are claimed."
+  ],
+  "source_rasters": [
+    {
+      "path": "assets/art/sectors/source/sector-kit.png",
+      "size": [
+        1145,
+        1374
+      ],
+      "sha256": "bcd1a83bf946451a85a0f4586b6c2a837feef4b999ceffd1fc3725bd133b93da"
+    },
+    {
+      "path": "assets/art/sectors/source/escape-mars.png",
+      "size": [
+        1774,
+        887
+      ],
+      "sha256": "fe6ba3db5cc0252c5573b09d1db5326bf3d461b2a64d28fc694ab5c2a75572a6"
+    }
+  ],
+  "slots": [
+    {
+      "id": 0,
+      "name": "docking_security_floor",
+      "column": 0,
+      "row": 0,
+      "source_cell": 0,
+      "source_grid": [
+        5,
+        6
+      ],
+      "source_pixel_box": [
+        0,
+        0,
+        229,
+        202
+      ],
+      "source": "sector-kit.png",
+      "opaque_source_interior_crop_on_128px": [
+        19,
+        14,
+        108,
+        110
+      ]
+    },
+    {
+      "id": 1,
+      "name": "habitation_maintenance_floor",
+      "column": 1,
+      "row": 0,
+      "source_cell": 1,
+      "source_grid": [
+        5,
+        6
+      ],
+      "source_pixel_box": [
+        229,
+        0,
+        458,
+        202
+      ],
+      "source": "sector-kit.png",
+      "opaque_source_interior_crop_on_128px": [
+        21,
+        14,
+        107,
+        110
+      ]
+    },
+    {
+      "id": 2,
+      "name": "medical_research_floor",
+      "column": 2,
+      "row": 0,
+      "source_cell": 2,
+      "source_grid": [
+        5,
+        6
+      ],
+      "source_pixel_box": [
+        458,
+        0,
+        687,
+        202
+      ],
+      "source": "sector-kit.png",
+      "opaque_source_interior_crop_on_128px": [
+        22,
+        14,
+        108,
+        110
+      ]
+    },
+    {
+      "id": 3,
+      "name": "defense_industry_floor",
+      "column": 3,
+      "row": 0,
+      "source_cell": 3,
+      "source_grid": [
+        5,
+        6
+      ],
+      "source_pixel_box": [
+        687,
+        0,
+        916,
+        202
+      ],
+      "source": "sector-kit.png",
+      "opaque_source_interior_crop_on_128px": [
+        22,
+        14,
+        110,
+        110
+      ]
+    },
+    {
+      "id": 4,
+      "name": "command_evacuation_floor",
+      "column": 4,
+      "row": 0,
+      "source_cell": 4,
+      "source_grid": [
+        5,
+        6
+      ],
+      "source_pixel_box": [
+        916,
+        0,
+        1145,
+        202
+      ],
+      "source": "sector-kit.png",
+      "opaque_source_interior_crop_on_128px": [
+        21,
+        13,
+        110,
+        109
+      ]
+    },
+    {
+      "id": 5,
+      "name": "docking_security_wall",
+      "column": 5,
+      "row": 0,
+      "source_cell": 5,
+      "source_grid": [
+        5,
+        6
+      ],
+      "source_pixel_box": [
+        0,
+        202,
+        229,
+        404
+      ],
+      "source": "sector-kit.png",
+      "wall_fit": "cell fill"
+    },
+    {
+      "id": 6,
+      "name": "habitation_maintenance_wall",
+      "column": 6,
+      "row": 0,
+      "source_cell": 6,
+      "source_grid": [
+        5,
+        6
+      ],
+      "source_pixel_box": [
+        229,
+        202,
+        458,
+        404
+      ],
+      "source": "sector-kit.png",
+      "wall_fit": "cell fill"
+    },
+    {
+      "id": 7,
+      "name": "medical_research_wall",
+      "column": 7,
+      "row": 0,
+      "source_cell": 7,
+      "source_grid": [
+        5,
+        6
+      ],
+      "source_pixel_box": [
+        458,
+        202,
+        687,
+        404
+      ],
+      "source": "sector-kit.png",
+      "wall_fit": "cell fill"
+    },
+    {
+      "id": 8,
+      "name": "defense_industry_wall",
+      "column": 0,
+      "row": 1,
+      "source_cell": 8,
+      "source_grid": [
+        5,
+        6
+      ],
+      "source_pixel_box": [
+        687,
+        202,
+        916,
+        404
+      ],
+      "source": "sector-kit.png",
+      "wall_fit": "cell fill"
+    },
+    {
+      "id": 9,
+      "name": "command_evacuation_wall",
+      "column": 1,
+      "row": 1,
+      "source_cell": 9,
+      "source_grid": [
+        5,
+        6
+      ],
+      "source_pixel_box": [
+        916,
+        202,
+        1145,
+        404
+      ],
+      "source": "sector-kit.png",
+      "wall_fit": "cell fill"
+    },
+    {
+      "id": 10,
+      "name": "docking_security_furniture",
+      "column": 2,
+      "row": 1,
+      "source_cell": 10,
+      "source_grid": [
+        5,
+        6
+      ],
+      "source_pixel_box": [
+        0,
+        404,
+        229,
+        631
+      ],
+      "source": "sector-kit.png",
+      "prop_size_native": [
+        28,
+        27
+      ],
+      "anchor": [
+        16,
+        30
+      ],
+      "alpha_cutoff": 32
+    },
+    {
+      "id": 11,
+      "name": "habitation_maintenance_furniture",
+      "column": 3,
+      "row": 1,
+      "source_cell": 11,
+      "source_grid": [
+        5,
+        6
+      ],
+      "source_pixel_box": [
+        229,
+        404,
+        458,
+        631
+      ],
+      "source": "sector-kit.png",
+      "prop_size_native": [
+        28,
+        25
+      ],
+      "anchor": [
+        16,
+        30
+      ],
+      "alpha_cutoff": 32
+    },
+    {
+      "id": 12,
+      "name": "medical_research_furniture",
+      "column": 4,
+      "row": 1,
+      "source_cell": 12,
+      "source_grid": [
+        5,
+        6
+      ],
+      "source_pixel_box": [
+        458,
+        404,
+        687,
+        631
+      ],
+      "source": "sector-kit.png",
+      "prop_size_native": [
+        28,
+        28
+      ],
+      "anchor": [
+        16,
+        30
+      ],
+      "alpha_cutoff": 32
+    },
+    {
+      "id": 13,
+      "name": "defense_industry_furniture",
+      "column": 5,
+      "row": 1,
+      "source_cell": 13,
+      "source_grid": [
+        5,
+        6
+      ],
+      "source_pixel_box": [
+        687,
+        404,
+        916,
+        631
+      ],
+      "source": "sector-kit.png",
+      "prop_size_native": [
+        28,
+        27
+      ],
+      "anchor": [
+        16,
+        30
+      ],
+      "alpha_cutoff": 32
+    },
+    {
+      "id": 14,
+      "name": "command_evacuation_furniture",
+      "column": 6,
+      "row": 1,
+      "source_cell": 14,
+      "source_grid": [
+        5,
+        6
+      ],
+      "source_pixel_box": [
+        916,
+        404,
+        1145,
+        631
+      ],
+      "source": "sector-kit.png",
+      "prop_size_native": [
+        28,
+        27
+      ],
+      "anchor": [
+        16,
+        30
+      ],
+      "alpha_cutoff": 32
+    },
+    {
+      "id": 15,
+      "name": "docking_security_console_lighting",
+      "column": 7,
+      "row": 1,
+      "source_cell": 15,
+      "source_grid": [
+        5,
+        6
+      ],
+      "source_pixel_box": [
+        0,
+        631,
+        229,
+        858
+      ],
+      "source": "sector-kit.png",
+      "prop_size_native": [
+        28,
+        28
+      ],
+      "anchor": [
+        16,
+        30
+      ],
+      "alpha_cutoff": 32
+    },
+    {
+      "id": 16,
+      "name": "habitation_maintenance_console_lighting",
+      "column": 0,
+      "row": 2,
+      "source_cell": 16,
+      "source_grid": [
+        5,
+        6
+      ],
+      "source_pixel_box": [
+        229,
+        631,
+        458,
+        858
+      ],
+      "source": "sector-kit.png",
+      "prop_size_native": [
+        22,
+        28
+      ],
+      "anchor": [
+        16,
+        30
+      ],
+      "alpha_cutoff": 32
+    },
+    {
+      "id": 17,
+      "name": "medical_research_console_lighting",
+      "column": 1,
+      "row": 2,
+      "source_cell": 17,
+      "source_grid": [
+        5,
+        6
+      ],
+      "source_pixel_box": [
+        458,
+        631,
+        687,
+        858
+      ],
+      "source": "sector-kit.png",
+      "prop_size_native": [
+        20,
+        28
+      ],
+      "anchor": [
+        16,
+        30
+      ],
+      "alpha_cutoff": 32
+    },
+    {
+      "id": 18,
+      "name": "defense_industry_console_lighting",
+      "column": 2,
+      "row": 2,
+      "source_cell": 18,
+      "source_grid": [
+        5,
+        6
+      ],
+      "source_pixel_box": [
+        687,
+        631,
+        916,
+        858
+      ],
+      "source": "sector-kit.png",
+      "prop_size_native": [
+        28,
+        28
+      ],
+      "anchor": [
+        16,
+        30
+      ],
+      "alpha_cutoff": 32
+    },
+    {
+      "id": 19,
+      "name": "command_evacuation_console_lighting",
+      "column": 3,
+      "row": 2,
+      "source_cell": 19,
+      "source_grid": [
+        5,
+        6
+      ],
+      "source_pixel_box": [
+        916,
+        631,
+        1145,
+        858
+      ],
+      "source": "sector-kit.png",
+      "prop_size_native": [
+        25,
+        28
+      ],
+      "anchor": [
+        16,
+        30
+      ],
+      "alpha_cutoff": 32
+    },
+    {
+      "id": 20,
+      "name": "docking_security_clutter",
+      "column": 4,
+      "row": 2,
+      "source_cell": 20,
+      "source_grid": [
+        5,
+        6
+      ],
+      "source_pixel_box": [
+        0,
+        858,
+        229,
+        1072
+      ],
+      "source": "sector-kit.png",
+      "prop_size_native": [
+        27,
+        28
+      ],
+      "anchor": [
+        16,
+        30
+      ],
+      "alpha_cutoff": 32
+    },
+    {
+      "id": 21,
+      "name": "habitation_maintenance_clutter",
+      "column": 5,
+      "row": 2,
+      "source_cell": 21,
+      "source_grid": [
+        5,
+        6
+      ],
+      "source_pixel_box": [
+        229,
+        858,
+        458,
+        1072
+      ],
+      "source": "sector-kit.png",
+      "prop_size_native": [
+        26,
+        28
+      ],
+      "anchor": [
+        16,
+        30
+      ],
+      "alpha_cutoff": 32
+    },
+    {
+      "id": 22,
+      "name": "medical_research_clutter",
+      "column": 6,
+      "row": 2,
+      "source_cell": 22,
+      "source_grid": [
+        5,
+        6
+      ],
+      "source_pixel_box": [
+        458,
+        858,
+        687,
+        1072
+      ],
+      "source": "sector-kit.png",
+      "prop_size_native": [
+        28,
+        28
+      ],
+      "anchor": [
+        16,
+        30
+      ],
+      "alpha_cutoff": 32
+    },
+    {
+      "id": 23,
+      "name": "defense_industry_clutter",
+      "column": 7,
+      "row": 2,
+      "source_cell": 23,
+      "source_grid": [
+        5,
+        6
+      ],
+      "source_pixel_box": [
+        687,
+        858,
+        916,
+        1072
+      ],
+      "source": "sector-kit.png",
+      "prop_size_native": [
+        28,
+        28
+      ],
+      "anchor": [
+        16,
+        30
+      ],
+      "alpha_cutoff": 32
+    },
+    {
+      "id": 24,
+      "name": "command_evacuation_clutter",
+      "column": 0,
+      "row": 3,
+      "source_cell": 24,
+      "source_grid": [
+        5,
+        6
+      ],
+      "source_pixel_box": [
+        916,
+        858,
+        1145,
+        1072
+      ],
+      "source": "sector-kit.png",
+      "prop_size_native": [
+        28,
+        28
+      ],
+      "anchor": [
+        16,
+        30
+      ],
+      "alpha_cutoff": 32
+    },
+    {
+      "id": 25,
+      "name": "docking_security_story_anchor",
+      "column": 1,
+      "row": 3,
+      "source_cell": 25,
+      "source_grid": [
+        5,
+        6
+      ],
+      "source_pixel_box": [
+        0,
+        1072,
+        229,
+        1374
+      ],
+      "source": "sector-kit.png",
+      "prop_size_native": [
+        28,
+        21
+      ],
+      "anchor": [
+        16,
+        30
+      ],
+      "alpha_cutoff": 32
+    },
+    {
+      "id": 26,
+      "name": "habitation_maintenance_story_anchor",
+      "column": 2,
+      "row": 3,
+      "source_cell": 26,
+      "source_grid": [
+        5,
+        6
+      ],
+      "source_pixel_box": [
+        229,
+        1072,
+        458,
+        1374
+      ],
+      "source": "sector-kit.png",
+      "prop_size_native": [
+        28,
+        19
+      ],
+      "anchor": [
+        16,
+        30
+      ],
+      "alpha_cutoff": 32
+    },
+    {
+      "id": 27,
+      "name": "medical_research_story_anchor",
+      "column": 3,
+      "row": 3,
+      "source_cell": 27,
+      "source_grid": [
+        5,
+        6
+      ],
+      "source_pixel_box": [
+        458,
+        1072,
+        687,
+        1374
+      ],
+      "source": "sector-kit.png",
+      "prop_size_native": [
+        28,
+        27
+      ],
+      "anchor": [
+        16,
+        30
+      ],
+      "alpha_cutoff": 32
+    },
+    {
+      "id": 28,
+      "name": "defense_industry_story_anchor",
+      "column": 4,
+      "row": 3,
+      "source_cell": 28,
+      "source_grid": [
+        5,
+        6
+      ],
+      "source_pixel_box": [
+        687,
+        1072,
+        916,
+        1374
+      ],
+      "source": "sector-kit.png",
+      "prop_size_native": [
+        28,
+        22
+      ],
+      "anchor": [
+        16,
+        30
+      ],
+      "alpha_cutoff": 32
+    },
+    {
+      "id": 29,
+      "name": "command_evacuation_story_anchor",
+      "column": 5,
+      "row": 3,
+      "source_cell": 29,
+      "source_grid": [
+        5,
+        6
+      ],
+      "source_pixel_box": [
+        916,
+        1072,
+        1145,
+        1374
+      ],
+      "source": "sector-kit.png",
+      "prop_size_native": [
+        28,
+        25
+      ],
+      "anchor": [
+        16,
+        30
+      ],
+      "alpha_cutoff": 32
+    },
+    {
+      "id": 30,
+      "name": "escape_pod",
+      "column": 6,
+      "row": 3,
+      "source_cell": 0,
+      "source_grid": [
+        2,
+        1
+      ],
+      "source_pixel_box": null,
+      "source": "escape-mars.png",
+      "prop_size_native": [
+        27,
+        28
+      ],
+      "anchor": [
+        16,
+        30
+      ],
+      "alpha_cutoff": 32
+    },
+    {
+      "id": 31,
+      "name": "mars_window",
+      "column": 7,
+      "row": 3,
+      "source_cell": 1,
+      "source_grid": [
+        2,
+        1
+      ],
+      "source_pixel_box": null,
+      "source": "escape-mars.png",
+      "prop_size_native": [
+        28,
+        25
+      ],
+      "anchor": [
+        16,
+        30
+      ],
+      "alpha_cutoff": 32
+    }
+  ],
+  "atmosphere_override": "assets/art/atmosphere/manifest.json",
+  "atmosphere_note": "Historical source/layout entries below describe the preserved prior pass. The ATM-ART override identifies current64px native crops and changed slots; runtime128px cells are unchanged.",
+  "current_export": "tools/media/pack_atmosphere.py then tools/media/pack_material_separation.py",
+  "current_reference_station_sha256": "6c02073664d4b56b05959899cdf07f2cd3c49cda2d66abde205c5a253f2b0c5d",
+  "material_separation_override": "assets/art/material-separation/manifest.json"
+}

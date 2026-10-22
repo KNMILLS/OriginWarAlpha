@@ -1,0 +1,13 @@
+{
+  "observedRawRenderDifference": {
+    "maximumChannelValue": 1,
+    "changedPixels": 3,
+    "clips": [
+      "officer.pistol.suit.work.west",
+      "officer.unarmed.suit.work.west"
+    ]
+  },
+  "hypothesisChange": "Canonical actual Blender-render idle frame shared by first/last work exposures; all raw work PNGs retained with authoredSourceRender hashes",
+  "method": "Asset/reference deduplication; no pixel filtering or generated pose correction",
+  "neutralEndpointPolicy": "Exact canonical reference; clip remains12exposures at24fps"
+}

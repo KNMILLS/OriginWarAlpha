@@ -1,0 +1,49 @@
+{
+  "task": "AP-PAINTED shared environment",
+  "sources": [
+    {
+      "source": "environment-master.png",
+      "sha256": "ec8e551398e595b4c712cf5188f1e18e08ea7d1f902b57519bb1db8567316ecd",
+      "prompt": "environment-prompt.txt",
+      "promptSha256NormalizedLF": "5574e8180a714e23cf67fc32499e9f88cef7d8ab95faa2a9e8aad842da85d229",
+      "tool": "built-in image_gen",
+      "selected": true,
+      "limitations": "Generated diffuse paintings; runtime lighting, native integration and owner acceptance remain open."
+    },
+    {
+      "source": "floor-master.png",
+      "sha256": "24abdfb4431242cf0a413582727c65282e77dadb328dbc76bab044dc4a6b0a6b",
+      "prompt": "floor-prompt.txt",
+      "promptSha256NormalizedLF": "10502897ebbe55f8a8757544e6414c7e804af00d85a66cba27bdee6b85cbe242",
+      "tool": "built-in image_gen",
+      "selected": true,
+      "limitations": "Generated diffuse paintings; runtime lighting, native integration and owner acceptance remain open."
+    },
+    {
+      "source": "workplace-props-master.png",
+      "sha256": "646aa7f3382f9cdb66a31c1aec5725d1264259708304ab1d3c370876c606cd6d",
+      "prompt": "workplace-props-prompt.txt",
+      "promptSha256NormalizedLF": "5095082aa501e1d594413a5d700d1219cbf5375d6225f37c7ada70db4a9e7b2e",
+      "tool": "built-in image_gen",
+      "selected": true,
+      "limitations": "Generated diffuse paintings; runtime lighting, native integration and owner acceptance remain open."
+    },
+    {
+      "source": "side-console-master.png",
+      "sha256": "93fc2d970b0d7deebf70a065679bbe34938f206d79374c2cbe12d65ab201c65e",
+      "prompt": "side-console-prompt.txt",
+      "promptSha256NormalizedLF": "bdcc2ad5c9f2de094479fd60720c5f8a20dbeb53d0488c6ebaf40f3be5b48e17",
+      "tool": "built-in image_gen",
+      "selected": true,
+      "limitations": "Generated diffuse paintings; runtime lighting, native integration and owner acceptance remain open."
+    }
+  ],
+  "medium": "original generated raster painting",
+  "rights": "No third-party reference images used; workplace-props and side-console masters reference own environment-master for material/camera only; original imagegen output; preserve generation provenance.",
+  "supersededAlias": "source/terminal-workbench-alias-v1.json preserves the initial terminal.console/workbench alias; current terminal.console is distinct upright artwork.",
+  "supersededAliasRecord": {
+    "path": "source/terminal-workbench-alias-v1.json",
+    "sha256NormalizedLF": "637d65b2524b762ece84e4cef151d6c5f7f77f2f28325ad6ab6b6cb281b2009f"
+  },
+  "editableCatalog": "Region layers only; original brushstroke layers do not exist."
+}

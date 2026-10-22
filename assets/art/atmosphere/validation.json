@@ -1,0 +1,326 @@
+{
+  "task": "ATM-ART",
+  "result": "PASS",
+  "scope": "Static source hashes, RGBA/dimensions, exact nearest2x export, unchanged-slot pixels, complete terrain replacement, open-door transparency, player anchor/phase differences and deterministic packing only. Contact-sheet inspection is separately recorded in the handoff; no runtime/gameplay/emotional acceptance.",
+  "repeatability": "PASS",
+  "atlases": {
+    "station": {
+      "native": [
+        512,
+        512
+      ],
+      "runtime": [
+        1024,
+        1024
+      ],
+      "nearest_scale": 2,
+      "sha256": "6c02073664d4b56b05959899cdf07f2cd3c49cda2d66abde205c5a253f2b0c5d",
+      "changed_slots": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        29,
+        30,
+        32,
+        33,
+        34,
+        35
+      ],
+      "unchanged_slots_preserved_at_runtime": true
+    },
+    "sectors": {
+      "native": [
+        512,
+        256
+      ],
+      "runtime": [
+        1024,
+        512
+      ],
+      "nearest_scale": 2,
+      "sha256": "05eeb11508acde70bf9589efcf19f410a38c407b372fb4eb233f23200d2cf937",
+      "changed_slots": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29
+      ],
+      "unchanged_slots_preserved_at_runtime": true
+    },
+    "actors": {
+      "native": [
+        512,
+        512
+      ],
+      "runtime": [
+        1024,
+        1024
+      ],
+      "nearest_scale": 2,
+      "sha256": "01f155bdf0f2f3caec1984aa11907b5cab50aeef944d92018b92f88b53b4f80e",
+      "changed_slots": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        40,
+        41,
+        42,
+        43
+      ],
+      "unchanged_slots_preserved_at_runtime": true
+    },
+    "attacks": {
+      "native": [
+        512,
+        192
+      ],
+      "runtime": [
+        1024,
+        384
+      ],
+      "nearest_scale": 2,
+      "sha256": "373ed5d05f111acb4eac7769fc9c346e58772a70b4cb207e0ab0af735c453b30",
+      "changed_slots": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unchanged_slots_preserved_at_runtime": true
+    },
+    "walk": {
+      "native": [
+        256,
+        256
+      ],
+      "runtime": [
+        512,
+        512
+      ],
+      "nearest_scale": 2,
+      "sha256": "8d3edaddc833fc37a077682b7faabcbeccc01c751c5fdb8f17074f8cd144df17",
+      "new_slots": 16
+    },
+    "humans": {
+      "native": [
+        256,
+        32
+      ],
+      "runtime": [
+        1024,
+        128
+      ],
+      "nearest_scale": 4,
+      "sha256": "f42694c33c46c32fc3ca2f2612e8bae0f7b40e5f94a60183688daceb27103044",
+      "modified": false
+    },
+    "finale": {
+      "native": [
+        512,
+        256
+      ],
+      "runtime": [
+        1024,
+        512
+      ],
+      "nearest_scale": 2,
+      "sha256": "7ee807f12d49e09597c684dc7caa1488864c3160b8cf9315eb4a47fba07e0737",
+      "modified": false
+    }
+  },
+  "player_walk": [
+    {
+      "facing": 0,
+      "bounding_boxes": [
+        [
+          18,
+          2,
+          47,
+          60
+        ],
+        [
+          18,
+          2,
+          47,
+          60
+        ],
+        [
+          17,
+          2,
+          47,
+          60
+        ],
+        [
+          17,
+          2,
+          47,
+          60
+        ]
+      ],
+      "adjacent_phase_changed_pixels": [
+        1098,
+        1162,
+        1156,
+        1089
+      ]
+    },
+    {
+      "facing": 1,
+      "bounding_boxes": [
+        [
+          12,
+          3,
+          53,
+          60
+        ],
+        [
+          20,
+          2,
+          45,
+          60
+        ],
+        [
+          12,
+          3,
+          53,
+          60
+        ],
+        [
+          20,
+          2,
+          44,
+          60
+        ]
+      ],
+      "adjacent_phase_changed_pixels": [
+        1300,
+        1303,
+        1322,
+        1319
+      ]
+    },
+    {
+      "facing": 2,
+      "bounding_boxes": [
+        [
+          17,
+          2,
+          47,
+          60
+        ],
+        [
+          17,
+          2,
+          47,
+          60
+        ],
+        [
+          16,
+          2,
+          48,
+          60
+        ],
+        [
+          17,
+          2,
+          47,
+          60
+        ]
+      ],
+      "adjacent_phase_changed_pixels": [
+        1095,
+        1151,
+        1165,
+        1143
+      ]
+    },
+    {
+      "facing": 3,
+      "bounding_boxes": [
+        [
+          11,
+          3,
+          52,
+          60
+        ],
+        [
+          19,
+          2,
+          44,
+          60
+        ],
+        [
+          11,
+          3,
+          52,
+          60
+        ],
+        [
+          20,
+          2,
+          44,
+          60
+        ]
+      ],
+      "adjacent_phase_changed_pixels": [
+        1300,
+        1303,
+        1322,
+        1319
+      ]
+    }
+  ],
+  "source_hashes_verified": 14
+}

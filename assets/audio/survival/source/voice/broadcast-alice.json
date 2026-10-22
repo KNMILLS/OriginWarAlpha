@@ -1,0 +1,43 @@
+{
+  "speaker": "alice",
+  "text": "The authenticated records are transmitting. The override request is included. No encryption.",
+  "text_sha256": "d3de582a979dfad9c4a6ff187475d6dfda81e5a08aab83ccd67515a4309821eb",
+  "source_key": "broadcast-alice",
+  "engine": "Qwen3-TTS-VoiceDesign",
+  "model_revision": "5ecdb67327fd37bb2e042aab12ff7391903235d3",
+  "instruct": "An adult woman with a cool low American voice. Clear precise diction. She is deeply frightened and trying to remain composed. Her dry irony gives way to sincere quiet resolve. Restrained, intimate, deliberate speech; no shouting or melodrama.",
+  "seed": 2115,
+  "language": "English",
+  "generation": {
+    "non_streaming_mode": true,
+    "max_new_tokens": 512,
+    "do_sample": true,
+    "temperature": 0.9,
+    "top_p": 1.0,
+    "top_k": 50,
+    "repetition_penalty": 1.05,
+    "subtalker_dosample": true,
+    "subtalker_temperature": 0.9,
+    "subtalker_top_k": 50,
+    "subtalker_top_p": 1.0
+  },
+  "source_wav": "broadcast-alice-dry.wav",
+  "source_rate": 24000,
+  "source_subtype": "PCM_24",
+  "seconds": 6.56,
+  "finite": true,
+  "peak_linear": 0.5625,
+  "sha256": "544ca7fc8154c1a2491f0d389626dc7c05f99a8c40b9a449b2e06154276d1c29",
+  "elapsed_seconds": 22.70400000002701,
+  "versions": {
+    "qwen-tts": "0.1.1",
+    "torch": "2.6.0+cu124",
+    "transformers": "4.57.3",
+    "accelerate": "1.12.0",
+    "numpy": "2.5.4",
+    "soundfile": "0.14.0"
+  },
+  "plan_sha256": "36491130765dcdd43ced6d81ad1a65091f0caaee49fe243484a993f4665eafd3",
+  "generator_sha256": "e59f6674b3c302944f1d18792b6d3752ae63b313c36bd7a1439b387710f97550",
+  "quality_scope": "Generated candidate. Exact input/hash/header is not proof of output words, voice consistency or acting quality."
+}

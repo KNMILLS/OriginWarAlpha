@@ -1,0 +1,166 @@
+{
+  "libgdx/LICENSE": {
+    "source": "libgdx-1.14.2-source.zip:libgdx-1.14.2/LICENSE",
+    "sha256": "0d542e0c8804e39aa7f37eb00da5a762149dc682d7829451287e11b938e94594"
+  },
+  "libgdx/AUTHORS": {
+    "source": "libgdx-1.14.2-source.zip:libgdx-1.14.2/AUTHORS",
+    "sha256": "59ab39cd73be064e50bb876a5e25d0ec366397616f11a6dc9e6135853b8c55b3"
+  },
+  "libgdx/CC-LICENSE": {
+    "source": "libgdx-1.14.2-source.zip:libgdx-1.14.2/CC-LICENSE",
+    "sha256": "e550f7bd34d25b04bb0a3fac7f3981d51b41df363d21f35952ee27da259039a2"
+  },
+  "lwjgl/LICENSE.md": {
+    "source": "lwjgl-3.4.3-source.zip:lwjgl3-3.4.3/LICENSE.md",
+    "sha256": "4c2f770897d0cfda4d9a65bb4d6d6983dccfd57d4c7eb74ea5ded0762cbc0e75"
+  },
+  "lwjgl/core-libffi_license.txt": {
+    "source": "lwjgl-3.4.3-source.zip:lwjgl3-3.4.3/modules/lwjgl/core/libffi_license.txt",
+    "sha256": "d66f6a020ebb611afe64b93270d447aa32a9345d2d3a43d296493e9806b944f8"
+  },
+  "lwjgl/core-liburing_license.txt": {
+    "source": "lwjgl-3.4.3-source.zip:lwjgl3-3.4.3/modules/lwjgl/core/liburing_license.txt",
+    "sha256": "1ec30e534aecb8eef3439fe3e36b20be20461bb758ca85107602fdaa3e23d274"
+  },
+  "lwjgl/glfw-glfw_license.txt": {
+    "source": "lwjgl-3.4.3-source.zip:lwjgl3-3.4.3/modules/lwjgl/glfw/glfw_license.txt",
+    "sha256": "12db5bb3f12c0793117746211cfa360a4c5067173b85f330d89552424c56be91"
+  },
+  "lwjgl/jemalloc-jemalloc_license.txt": {
+    "source": "lwjgl-3.4.3-source.zip:lwjgl3-3.4.3/modules/lwjgl/jemalloc/jemalloc_license.txt",
+    "sha256": "9daf68c8419f148737e4be0aaf4a9e97b4c2346836bfe2ac57f741cbf94cc3a1"
+  },
+  "lwjgl/openal-openal_soft_license.txt": {
+    "source": "lwjgl-3.4.3-source.zip:lwjgl3-3.4.3/modules/lwjgl/openal/openal_soft_license.txt",
+    "sha256": "b7993225104d90ddd8024fd838faf300bea5e83d91203eab98e29512acebd69c"
+  },
+  "lwjgl/opengl-khronos_license.txt": {
+    "source": "lwjgl-3.4.3-source.zip:lwjgl3-3.4.3/modules/lwjgl/opengl/khronos_license.txt",
+    "sha256": "f3857759226191860119a14e6cc0420df506c10a5c1b6b2ff8abc8f8d31920fb"
+  },
+  "openal/COPYING": {
+    "source": "openal-soft-lwjgl-b874cc37.zip:openal-soft-b874cc37a1ea0c094e7d369d892d37d2cda29239/COPYING",
+    "sha256": "d808ce217e5b611854da622b57ec29fe545584c48bc5352fae72a4b6e5074a15"
+  },
+  "openal/BSD-3Clause": {
+    "source": "openal-soft-lwjgl-b874cc37.zip:openal-soft-b874cc37a1ea0c094e7d369d892d37d2cda29239/BSD-3Clause",
+    "sha256": "b5a08cf98996dd83aa906a72c163600f6cb17a65ce546a553815a1267abd43ff"
+  },
+  "openal/LICENSE-pffft": {
+    "source": "openal-soft-lwjgl-b874cc37.zip:openal-soft-b874cc37a1ea0c094e7d369d892d37d2cda29239/LICENSE-pffft",
+    "sha256": "64056328b3e7bc104e24ef96accc1a7abead156f0c02d1b87c97e3f3a28030de"
+  },
+  "openal/fmt-11.2.0-LICENSE": {
+    "source": "openal-soft-lwjgl-b874cc37.zip:openal-soft-b874cc37a1ea0c094e7d369d892d37d2cda29239/fmt-11.2.0/LICENSE",
+    "sha256": "07580f2a3b35709ce703d523f447b242f6dfec7582a8c0df102c7fa2849375f8"
+  },
+  "openal/gsl-LICENSE": {
+    "source": "openal-soft-lwjgl-b874cc37.zip:openal-soft-b874cc37a1ea0c094e7d369d892d37d2cda29239/gsl/LICENSE",
+    "sha256": "4c21dc82a1c7186ea754fd59d504c00947953a3401fe8e24eaa44109ef8e2555"
+  },
+  "libgdx/SOURCE_HEADERS.txt": {
+    "source": "libgdx-1.14.2-source.zip: original source headers, deduplicated",
+    "sha256": "26a0d7cfd3f778bc958406aa80ee4c49f3511dad93ad175127ee29c9a2622a3c"
+  },
+  "lwjgl/STB_NOTICES.txt": {
+    "source": "lwjgl-3.4.3-source.zip: bundled STB header ending license blocks",
+    "sha256": "5e62cb496acfcf80a7a56b3e8e42fdf1e4ee5b91919423efed272d57e87d660c"
+  },
+  "SquidSquad/LICENSE": {
+    "source": "https://raw.githubusercontent.com/yellowstonegames/SquidSquad/883a335218c8beffc41c95b0263881910928150b/LICENSE",
+    "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+  },
+  "digital/LICENSE": {
+    "source": "https://raw.githubusercontent.com/tommyettinger/digital/22cbccede42d2a61216bedb3c03b8d5cbc97e274/LICENSE",
+    "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+  },
+  "digital/AUTHORS": {
+    "source": "https://raw.githubusercontent.com/tommyettinger/digital/22cbccede42d2a61216bedb3c03b8d5cbc97e274/AUTHORS",
+    "sha256": "b1a08cbc5a64032576a4865c3086da34cf02d307c6b8c2f5c71e0e06431bf7c6"
+  },
+  "jdkgdxds/LICENSE": {
+    "source": "https://raw.githubusercontent.com/tommyettinger/jdkgdxds/82c3fe77756ba1cbe951c77db5615236f46e92b2/LICENSE",
+    "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+  },
+  "jdkgdxds/AUTHORS": {
+    "source": "https://raw.githubusercontent.com/tommyettinger/jdkgdxds/82c3fe77756ba1cbe951c77db5615236f46e92b2/AUTHORS",
+    "sha256": "e378158337f77d66d7f7867da9341185699cd8b19cba42096e4e738352782b6f"
+  },
+  "juniper/LICENSE": {
+    "source": "https://raw.githubusercontent.com/tommyettinger/juniper/aa469ee349e3480dbbb69caa33ac4bd18d3098b2/LICENSE",
+    "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+  },
+  "juniper/AUTHORS": {
+    "source": "https://raw.githubusercontent.com/tommyettinger/juniper/aa469ee349e3480dbbb69caa33ac4bd18d3098b2/AUTHORS",
+    "sha256": "140eb6e632f4b8208efd72e9dab02a4acf492308d0799bf8828a75c3c8c2b9cc"
+  },
+  "crux/LICENSE": {
+    "source": "https://raw.githubusercontent.com/tommyettinger/crux/master/LICENSE",
+    "sha256": "a2010f343487d3f7618affe54f789f5487602331c0a8d03f49e9a7c547cf0499"
+  },
+  "regexodus/LICENSE": {
+    "source": "https://raw.githubusercontent.com/tommyettinger/regexodus/master/LICENSE",
+    "sha256": "0349779d7b9b311e43bb4afb87c14928069b9f2f091203bfc7eb501041e69ead"
+  },
+  "funderby/LICENSE": {
+    "source": "https://raw.githubusercontent.com/tommyettinger/funderby/master/LICENSE",
+    "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+  },
+  "font/LICENSE-OFL-1.1": {
+    "source": "https://raw.githubusercontent.com/liberationfonts/liberation-fonts/4b0192046158094654e865245832c66d2104219e/LICENSE",
+    "sha256": "93fed46019c38bbe566b479d22148e2e8a1e85ada614accb0211c37b2c61c19b"
+  },
+  "gdx-jnigen/LICENSE": {
+    "source": "https://raw.githubusercontent.com/libgdx/gdx-jnigen/be21532209a3735c01c2a804a0e48d1a20dbb0de/LICENSE",
+    "sha256": "0d542e0c8804e39aa7f37eb00da5a762149dc682d7829451287e11b938e94594"
+  },
+  "gdx-jnigen/AUTHORS": {
+    "source": "https://raw.githubusercontent.com/libgdx/gdx-jnigen/be21532209a3735c01c2a804a0e48d1a20dbb0de/AUTHORS",
+    "sha256": "59ab39cd73be064e50bb876a5e25d0ec366397616f11a6dc9e6135853b8c55b3"
+  },
+  "LGPL-2.1.txt": {
+    "source": "https://www.gnu.org/licenses/old-licenses/lgpl-2.1.txt",
+    "sha256": "20e50fe7aae3e56378ebf0417d9de904f55a0e61e4df315333e632a4d3555d95"
+  },
+  "temurin/NOTICE": {
+    "source": "Temurin21.0.12.1+1 original distribution NOTICE",
+    "sha256": "c02756bcd9fa8191bf0fda4451bc018414dd44ee35bf09922c24377a475e4b5a"
+  },
+  "temurin/RELEASE_IDENTITY.txt": {
+    "source": "Temurin21.0.12.1+1 original release metadata",
+    "sha256": "07117c72ce033949c14878e07fbf2fe23f59a1f8c90a6d1351b5c89099847ce7"
+  },
+  "alice/MODEL_CARD.md": {
+    "sha256": "289f7421072d689a3d91f6c632f486af46f9b8b04417536104a4ea667b8a394b",
+    "source": "https://huggingface.co/rhasspy/piper-voices/resolve/5041a7a49ae5b3a0f30e6837769eb03fdbb231bd/en/en_US/ljspeech/high/MODEL_CARD"
+  },
+  "alice/VOICE_REPOSITORY_README.md": {
+    "sha256": "33e93643fce5180886300f9f0070eeeab8af148efb8e84361f8904def80fd9fb",
+    "source": "https://huggingface.co/rhasspy/piper-voices/resolve/5041a7a49ae5b3a0f30e6837769eb03fdbb231bd/README.md"
+  },
+  "alice/PIPER_MIT_LICENSE.txt": {
+    "sha256": "4cd71dece7037f1d6d93cce7570c57ab75ea9ac566fd4990be2f3ab08d15b47f",
+    "source": "https://raw.githubusercontent.com/rhasspy/piper/2023.11.14-2/LICENSE.md"
+  },
+  "alice/AUTHOR_MODEL_LICENSE.txt": {
+    "sha256": "dc65a260afc4056261774f5612eadd50fbd1e251cf0f30d8620faddbce325dd1",
+    "source": "https://brycebeattie.com/files/tts/"
+  },
+  "alice/LJ_SPEECH_DATASET_LICENSE.txt": {
+    "sha256": "7cb6e2aff5440d50054be7c455a7c10cf51679e90ec58d6d1eaf5fca52b8ed3d",
+    "source": "https://keithito.com/LJ-Speech-Dataset/"
+  },
+  "alice/QWEN_APACHE_LICENSE.txt": {
+    "sha256": "a44a6081c73ad75f0255bb2bb5cab74ef1829565a895a24e53a4f11290ab7655",
+    "source": "https://github.com/QwenLM/Qwen3-TTS/blob/022e286b98fbec7e1e916cb940cdf532cd9f488e/LICENSE"
+  },
+  "alice/QWEN_VOICE_DESIGN_MODEL_CARD.md": {
+    "sha256": "acfaf6c0d433866cb5e2bb73e7915ea3767f5a2e3abca413b485635a2c72b5e6",
+    "source": "https://huggingface.co/Qwen/Qwen3-TTS-12Hz-1.7B-VoiceDesign/blob/5ecdb67327fd37bb2e042aab12ff7391903235d3/README.md"
+  },
+  "art/BLENDER_ANATOMY_CC0.txt": {
+    "source": "Blender Human Base Meshes v1.4.1; embedded selected CC0 collection metadata and extraction receipts",
+    "sha256": "c07908c9d76fe1fbbd8e7676ad551ab39295700b0137ccbb63e628f51b49b119"
+  }
+}

@@ -1,0 +1,4 @@
+Use case: precise-object-edit
+Edit target: attached 4columns by2rows machine/NPC sprite sheet.
+Change ONLY the painted GRAY GROUND PATCHES/OVALS beneath the objects, replacing all such ground/shadow backdrop pixels with true transparent alpha. Remove all fake floor, ground haze, solid gray cast-shadow blobs and detached noisy specks. No shadows are wanted. Preserve actual gray/steel object material pixels.
+Keep all EIGHT objects, cell layout, identities, pose differences, palettes, silhouettes and sizes unchanged. Camera pair, turret/fire pair, human operator walk pair and cyan-core Constructor moving-arm pair must remain intact. Clean genuinely transparent empty space tightly around each illustrated object, no gray opaque puddle underneath, no checkerboard, no text, no background. Do not redesign any actor/object or merge cells.

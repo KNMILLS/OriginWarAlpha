@@ -1,0 +1,153 @@
+{
+  "version": 1,
+  "referenceCellPixels": 256,
+  "pivotOrigin": "bottom-left",
+  "clips": [
+    {
+      "id": "officer.fire.north",
+      "equipment": "pistol",
+      "facing": "north",
+      "loop": false,
+      "frameSeconds": 0.07,
+      "frames": [
+        {
+          "name": "officer.fire.north.00",
+          "path": "art/survival/equipment-motion/regions/officer.fire.north.00.png",
+          "widthCells": 0.6328125,
+          "heightCells": 1.5234375,
+          "pivotX": 0.5,
+          "pivotY": 0.02564102564102564,
+          "layer": "world",
+          "pixelWidth": 162,
+          "pixelHeight": 390,
+          "source": "officer-fire-north-v1.png",
+          "sourceComponent": 1,
+          "sourceCrop": [
+            97,
+            38,
+            416,
+            843
+          ],
+          "sourceScale": 0.44972972972972974,
+          "sourceAnchorX": 157,
+          "referenceBodyHeightCells": 1.3,
+          "sha256": "c11cb5431d0bea1ab2661704a365fe74079e8f2ea14b29bd7da1403125e3ec67"
+        },
+        {
+          "name": "officer.fire.north.01",
+          "path": "art/survival/equipment-motion/regions/officer.fire.north.01.png",
+          "widthCells": 0.6328125,
+          "heightCells": 1.5234375,
+          "pivotX": 0.5,
+          "pivotY": 0.02564102564102564,
+          "layer": "world",
+          "pixelWidth": 162,
+          "pixelHeight": 390,
+          "source": "officer-fire-north-v1.png",
+          "sourceComponent": 2,
+          "sourceCrop": [
+            523,
+            37,
+            839,
+            843
+          ],
+          "sourceScale": 0.44972972972972974,
+          "sourceAnchorX": 154,
+          "referenceBodyHeightCells": 1.3,
+          "sha256": "21c9ff0ca8a173048ebfa60ba5458bd6744310c66b677c8158372a887749da21"
+        },
+        {
+          "name": "officer.fire.north.02",
+          "path": "art/survival/equipment-motion/regions/officer.fire.north.02.png",
+          "widthCells": 0.6328125,
+          "heightCells": 1.5234375,
+          "pivotX": 0.5,
+          "pivotY": 0.02564102564102564,
+          "layer": "world",
+          "pixelWidth": 162,
+          "pixelHeight": 390,
+          "source": "officer-fire-north-v1.png",
+          "sourceComponent": 3,
+          "sourceCrop": [
+            947,
+            12,
+            1258,
+            843
+          ],
+          "sourceScale": 0.44972972972972974,
+          "sourceAnchorX": 154,
+          "referenceBodyHeightCells": 1.3,
+          "sha256": "f303bd2a78075e1ab240c5531195cc50b5c094b4f4df3b632a9e3109107898ff"
+        },
+        {
+          "name": "officer.fire.north.03",
+          "path": "art/survival/equipment-motion/regions/officer.fire.north.03.png",
+          "widthCells": 0.6328125,
+          "heightCells": 1.5234375,
+          "pivotX": 0.5,
+          "pivotY": 0.02564102564102564,
+          "layer": "world",
+          "pixelWidth": 162,
+          "pixelHeight": 390,
+          "source": "officer-fire-north-v1.png",
+          "sourceComponent": 4,
+          "sourceCrop": [
+            1379,
+            39,
+            1697,
+            843
+          ],
+          "sourceScale": 0.44972972972972974,
+          "sourceAnchorX": 159,
+          "referenceBodyHeightCells": 1.3,
+          "sha256": "bde69f9a17ad80223560feaccf39c4062979032937b1f1f7cb25f51e0369b86e"
+        }
+      ],
+      "markers": [
+        {
+          "frame": 2,
+          "kind": "release"
+        },
+        {
+          "frame": 3,
+          "kind": "recovery"
+        }
+      ],
+      "artisticAcceptance": "candidate: no native synchronization or owner acceptance"
+    },
+    {
+      "id": "officer.aim.north",
+      "equipment": "pistol",
+      "facing": "north",
+      "loop": false,
+      "frameSeconds": 1,
+      "frames": [
+        {
+          "name": "officer.fire.north.01",
+          "path": "art/survival/equipment-motion/regions/officer.fire.north.01.png",
+          "widthCells": 0.6328125,
+          "heightCells": 1.5234375,
+          "pivotX": 0.5,
+          "pivotY": 0.02564102564102564,
+          "layer": "world",
+          "pixelWidth": 162,
+          "pixelHeight": 390,
+          "source": "officer-fire-north-v1.png",
+          "sourceComponent": 2,
+          "sourceCrop": [
+            523,
+            37,
+            839,
+            843
+          ],
+          "sourceScale": 0.44972972972972974,
+          "sourceAnchorX": 154,
+          "referenceBodyHeightCells": 1.3,
+          "sha256": "21c9ff0ca8a173048ebfa60ba5458bd6744310c66b677c8158372a887749da21"
+        }
+      ],
+      "markers": [],
+      "artisticAcceptance": "authored aim drawing; not a second animation"
+    }
+  ]
+}

@@ -1,0 +1,94 @@
+{
+  "scope": "Static file/layout/alpha/source/pair-difference/south-identity/packing-repeatability only; no runtime animation acceptance.",
+  "size": [
+    1024,
+    384
+  ],
+  "native_size": [
+    256,
+    96
+  ],
+  "native_cell_pixels": 32,
+  "nearest_scale": 4,
+  "occupied_slots": 24,
+  "atlas_sha256": "558653f8113d6d1e29a6f21a92b0db203cb166442d5a92b6f2a57215070fe68f",
+  "native_sha256": "cbdfd8beb8b44f8fe5ed7fcff0cc625f722f8a9da07315264b012f79fd3a46a2",
+  "packing_repeatability": "PASS",
+  "source_hashes_verified": true,
+  "previous_actors_unchanged": true,
+  "south_native_frames_byte_identical": 6,
+  "pairs": [
+    {
+      "family": "player",
+      "direction": "north",
+      "changed_native_pixels": 277,
+      "south_pixel_identity": false
+    },
+    {
+      "family": "player",
+      "direction": "east",
+      "changed_native_pixels": 407,
+      "south_pixel_identity": false
+    },
+    {
+      "family": "player",
+      "direction": "south",
+      "changed_native_pixels": 375,
+      "south_pixel_identity": true
+    },
+    {
+      "family": "player",
+      "direction": "west",
+      "changed_native_pixels": 392,
+      "south_pixel_identity": false
+    },
+    {
+      "family": "sirs",
+      "direction": "north",
+      "changed_native_pixels": 327,
+      "south_pixel_identity": false
+    },
+    {
+      "family": "sirs",
+      "direction": "east",
+      "changed_native_pixels": 408,
+      "south_pixel_identity": false
+    },
+    {
+      "family": "sirs",
+      "direction": "south",
+      "changed_native_pixels": 301,
+      "south_pixel_identity": true
+    },
+    {
+      "family": "sirs",
+      "direction": "west",
+      "changed_native_pixels": 456,
+      "south_pixel_identity": false
+    },
+    {
+      "family": "add",
+      "direction": "north",
+      "changed_native_pixels": 445,
+      "south_pixel_identity": false
+    },
+    {
+      "family": "add",
+      "direction": "east",
+      "changed_native_pixels": 439,
+      "south_pixel_identity": false
+    },
+    {
+      "family": "add",
+      "direction": "south",
+      "changed_native_pixels": 576,
+      "south_pixel_identity": true
+    },
+    {
+      "family": "add",
+      "direction": "west",
+      "changed_native_pixels": 502,
+      "south_pixel_identity": false
+    }
+  ]
+}
