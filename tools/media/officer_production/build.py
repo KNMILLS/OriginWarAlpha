@@ -9,6 +9,10 @@ import numpy as np
 from mathutils import Vector, Matrix
 from bpy_extras.object_utils import world_to_camera_view
 
+# Keep pre-existing untracked .blend1 files immutable; only the named source is saved.
+# This is process-local and does not save or change the user's Blender preferences.
+bpy.context.preferences.filepaths.save_version=0
+
 START=time.perf_counter()
 LOOK_ONLY='--look-only' in sys.argv
 PILOT_V2='--pilot-v2' in sys.argv

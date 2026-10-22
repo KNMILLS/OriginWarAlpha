@@ -46,13 +46,13 @@
     "assets/art/production/officer/source/anatomy/realistic-body-male-cc0.blend": "6bab9747e3651cf34bbf42a4cd26958236d22edc27cab5be2b99da4138902bc6",
     "tools/media/officer_production/anatomical_head.py": "99d3459036ac3e48b4e86b8b9a7b08f053dfdad827570a360f162ef7b2e60b25",
     "tools/media/officer_production/anatomical_suit.py": "f3ff5c28b9f08d6c783c13d1e51da8fd23957e38b0223db35e3d81d851d1c0a8",
-    "tools/media/officer_production/build.py": "69dd5a70446048e348a1d66490d5f73881f49ce308214e1793a5d1b185dd1cb3",
-    "tools/media/officer_production/finalize.py": "b058b68b5cebeefbc69c0c93baad15680411a8a96a5123c8195af27740957ccd",
+    "tools/media/officer_production/build.py": "0ed26eface60a864605acc5038b37452cf1dac8bfe448ada76132be4c3e6e7e9",
+    "tools/media/officer_production/finalize.py": "075340ebbbf6f220572345b5fc2629a3cc51449e2c8e550415d517c23164b3a2",
     "tools/media/officer_production/inspect_anatomy.py": "c50e16ba7f6d130f23966c0b8dff4f29d70fe256315eddc2aef70cc88aa9f242",
     "tools/media/officer_production/inspect_body.py": "6cae92f592aae5e3006cf7e96000e9168e75b8f1614ab602e3e4151dd76a1f39",
     "tools/media/officer_production/model.py": "138fe5056553c2f7d18c6118d1cd957f9cc8727d48d559a8d82864c22816a146",
     "tools/media/officer_production/motion.py": "2c58e6209e9b5895e0e02ab6c8571318fd5cfe1ad7b7c3c27e8e72bdcdc915f4",
-    "tools/media/officer_production/prepare_body.py": "933cefd8a393c212e3a41b471b9c04b83fbcd9dbb6e55fac419117c95edc3462",
+    "tools/media/officer_production/prepare_body.py": "2991a6f57c255d2736ad0c7b8ca3895b872712bcf9852e83cbf160fa00e5b898",
     "tools/media/officer_production/previous_exporter_reference.py": "28a01871865a6c8741aac2dca6a51f417a9d83cd37ef593dd38350117c29ba70",
     "tools/media/officer_production/review.py": "1e39bc1e7999814a684340e8a1836346b7ce332a49c6f47ccadba0851acab799",
     "tools/media/officer_production/review_v2.py": "e0e8ed735179951af5b8783b4bfca665230a528a9577a3042aacc37b8208d331"
@@ -248,5 +248,22 @@
     "quarterTurnSeconds": 0.4,
     "halfTurnSeconds": 0.6,
     "method": "Alternating world-planted two-/three-step placements with exact neutral endpoints"
+  },
+  "preservation": {
+    "automaticBackupRotationDisabled": true,
+    "guardScope": "Process-local Blender filepaths.save_version=0 in authored build and anatomy extraction; user preferences are not saved",
+    "overwrittenUntrackedBackup": "assets/art/production/officer/source/officer-illustrated-pilot.blend1",
+    "cause": "Blender automatic backup rotation during production saves before the guard",
+    "priorUntrackedBackupBytePreservation": "UNVERIFIED; not captured before rotation",
+    "approvedV1Preservation": {
+      "workerCommit": "6d9aee8be070923fa290590dd18ccf8ef6eea275",
+      "integrationCommit": "d80aa83b32706b7058e80176befe73468592765f",
+      "snapshot": "assets/art/production/officer/review/iterations/v1-delivered"
+    },
+    "untouchedBackups": [
+      "assets/art/proof/rendered/source/origin-war-officer.blend1",
+      "assets/art/production/officer/review/iterations/pilot02/source/officer-illustrated-pilot.blend1"
+    ],
+    "scope": "Approved V1 Git/snapshot preservation is distinct from the overwritten untracked backup; no claim that its prior bytes were preserved"
   }
 }

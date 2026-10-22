@@ -2,6 +2,8 @@
 from pathlib import Path
 import bpy,json,hashlib
 import numpy as np
+# Process-local guard: extraction must not rotate pre-existing untracked backups.
+bpy.context.preferences.filepaths.save_version=0
 root=Path(__file__).resolve().parents[3];out=root/'assets/art/production/officer/source/anatomy'
 source=Path('C:/OriginWarReboot/.tools/human-base-meshes/human-base-meshes-bundle-v1.4.1/human_base_meshes_bundle.blend')
 bpy.ops.object.select_all(action='SELECT');bpy.ops.object.delete(use_global=False)
