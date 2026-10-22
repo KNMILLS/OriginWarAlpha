@@ -1,0 +1,85 @@
+{
+  "task": "OFFICER-PRODUCTION",
+  "integrationBase": "814253f",
+  "status": "Approved development candidate for native evaluation; commercial finish OPEN",
+  "tool": {
+    "name": "Blender",
+    "version": "4.5.3 LTS",
+    "buildHash": "67807e1800cc",
+    "officialArchive": "https://download.blender.org/release/Blender4.5/blender-4.5.3-windows-x64.zip",
+    "archiveSha256": "6b657c8bdd3a7b65b07b9e1ae17eb4be7dd4aa23121da7f3d3354fc2551330a7",
+    "runtimeDependency": false
+  },
+  "anatomy": {
+    "source": "https://www.blender.org/download/demo-files/",
+    "officialArchive": "https://download.blender.org/demo/asset-bundles/human-base-meshes/human-base-meshes-bundle-v1.4.1.zip",
+    "collection": "Head (Animation) - Realistic",
+    "author": "Dan Ulrich",
+    "license": "CC0",
+    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "selectedObjects": [
+      "GEO-head_animation_realistic",
+      "GEO-head_animation_realistic.iris.L",
+      "GEO-head_animation_realistic.iris.R",
+      "GEO-head_animation_realistic.sclera.L",
+      "GEO-head_animation_realistic.sclera.R"
+    ],
+    "productionChanges": [
+      "Multires evaluated",
+      "Uniform fit and parent-transform correction",
+      "Project materials and head-bone binding"
+    ],
+    "unrelatedRainRigImported": false
+  },
+  "originalProjectWork": [
+    "Suit and practical shell geometry",
+    "Helmet and U-shaped visor enclosure",
+    "Equipment and rig",
+    "Authored motion rules and projected foot calibration",
+    "Cel materials, selected model-space edges and lighting"
+  ],
+  "purchaseSpend": 0,
+  "sourceHashPolicy": "Binary files exact bytes; Python source canonicalLF",
+  "sources": {
+    "assets/art/production/officer/source/officer-illustrated-pilot.blend": "440ee67346e95d4f40987c5d110a2edbba7cfc9fcbbc8e72c5672c173b85a42d",
+    "assets/art/production/officer/source/anatomy/realistic-head-animation-cc0.blend": "ea1a71ded363d4ae32248e914ea9e9c23e04a834692bdf85b4eedbb70abe6cff",
+    "tools/media/officer_production/anatomical_head.py": "99d3459036ac3e48b4e86b8b9a7b08f053dfdad827570a360f162ef7b2e60b25",
+    "tools/media/officer_production/build.py": "2b20a8e7aa6c6acf09f8207194a2cb0ac25ff22f8c52bf6c7e5341d66794b244",
+    "tools/media/officer_production/finalize.py": "b5be279a2eb70457cce0653bdcd620cc676e333a726db26f51e3758fa33e747a",
+    "tools/media/officer_production/inspect_anatomy.py": "c50e16ba7f6d130f23966c0b8dff4f29d70fe256315eddc2aef70cc88aa9f242",
+    "tools/media/officer_production/model.py": "cfe1e926d70830b55b177ab3b17467b3e7cdf4a6dcc72c1aaf6af991c179f652",
+    "tools/media/officer_production/motion.py": "b6fdee32ee7887552048449d200bece5a40da948ca8cbd57d4f27ccc4bd98f80",
+    "tools/media/officer_production/previous_exporter_reference.py": "28a01871865a6c8741aac2dca6a51f417a9d83cd37ef593dd38350117c29ba70",
+    "tools/media/officer_production/review.py": "d48e44f5a5fc09f6b46447da629143539cb0a51bf75660e976673afc01961870"
+  },
+  "raster": {
+    "editableMasterReferenceCellPixels": 256,
+    "editableMasterCanvas": [
+      384,
+      448
+    ],
+    "runtimeReferenceCellPixels": 192,
+    "runtimeCanvas": [
+      288,
+      336
+    ],
+    "method": "Direct75% Blender render, no per-frame pixel filtering"
+  },
+  "timing": {
+    "modelAndCalibrationSeconds": 2.31193720002193,
+    "totalProcessSeconds": 148.58386370004155,
+    "renderSeconds": 146.27192770002875,
+    "geometryIterations": 3,
+    "status": "Development candidate for native evaluation; artistic finish OPEN",
+    "boundedLookCorrections": 4,
+    "authoringReviewWallMinutes": 32.94,
+    "wallTimeMeaning": "Elapsed since new tool subtree creation; includes source authoring, rendering, review and waits; not a billed labor claim"
+  },
+  "limits": [
+    "No native runtime evidence by worker",
+    "No commercial illustration or animation acceptance",
+    "No90/180degree turns",
+    "Death is slumped collapse, not full prone acting",
+    "Other equipment/armor and campaign art remain outside bounded opening coverage"
+  ]
+}

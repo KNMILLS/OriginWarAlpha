@@ -1,0 +1,22 @@
+{
+  "sourceBlend": "C:\\OriginWarReboot\\.tools\\human-base-meshes\\human-base-meshes-bundle-v1.4.1\\human_base_meshes_bundle.blend",
+  "sourceBlendSha256": "3c121505651140ceb4d69fd1d8923f7788ffadd81672f5be14845a5f2c75c137",
+  "derivedBlend": "C:\\OriginWarReboot\\.tools\\human-base-meshes\\realistic-head-animation-cc0.blend",
+  "derivedBlendSha256": "ea1a71ded363d4ae32248e914ea9e9c23e04a834692bdf85b4eedbb70abe6cff",
+  "collection": "Head (Animation) - Realistic",
+  "assetAuthor": "Dan Ulrich",
+  "assetLicense": "CC0",
+  "objects": [
+    "GEO-head_animation_realistic",
+    "GEO-head_animation_realistic.iris.L",
+    "GEO-head_animation_realistic.iris.R",
+    "GEO-head_animation_realistic.sclera.L",
+    "GEO-head_animation_realistic.sclera.R"
+  ],
+  "externalLibraries": [],
+  "armatures": [],
+  "geometryChanges": false,
+  "materialsChanged": false,
+  "transformsChanged": false,
+  "rendered": false
+}

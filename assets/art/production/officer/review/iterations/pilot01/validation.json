@@ -1,0 +1,76 @@
+{
+  "scope": "Source render and analytical projection only; not native gameplay",
+  "artisticAcceptance": "OPEN",
+  "clips": 10,
+  "frames": 148,
+  "footCalibration": [
+    {
+      "clip": "officer.pistol.suit.walk.south",
+      "sampledStanceResidualPixels": 1.675287882108023e-05,
+      "maximumHeldPoseRootTravelPixels": 8.533333333333333,
+      "maximumHeldPoseRootTravelAt720p47pxCell": 1.5666666666666667
+    },
+    {
+      "clip": "officer.pistol.suit.walk.east",
+      "sampledStanceResidualPixels": 2.212628526328829e-05,
+      "maximumHeldPoseRootTravelPixels": 8.533333333333333,
+      "maximumHeldPoseRootTravelAt720p47pxCell": 1.5666666666666667
+    },
+    {
+      "clip": "officer.pistol.suit.walk.north",
+      "sampledStanceResidualPixels": 2.1709966193700576e-05,
+      "maximumHeldPoseRootTravelPixels": 8.533333333333333,
+      "maximumHeldPoseRootTravelAt720p47pxCell": 1.5666666666666667
+    },
+    {
+      "clip": "officer.pistol.suit.walk.west",
+      "sampledStanceResidualPixels": 9.544140461418286e-06,
+      "maximumHeldPoseRootTravelPixels": 8.533333333333333,
+      "maximumHeldPoseRootTravelAt720p47pxCell": 1.5666666666666667
+    },
+    {
+      "clip": "officer.pistol.suit.walk24.south",
+      "sampledStanceResidualPixels": 1.700719198538536e-05,
+      "maximumHeldPoseRootTravelPixels": 21.333333333333332,
+      "maximumHeldPoseRootTravelAt720p47pxCell": 3.9166666666666665
+    },
+    {
+      "clip": "officer.pistol.suit.walk24.east",
+      "sampledStanceResidualPixels": 2.0988294579582945e-05,
+      "maximumHeldPoseRootTravelPixels": 21.333333333333332,
+      "maximumHeldPoseRootTravelAt720p47pxCell": 3.9166666666666665
+    }
+  ],
+  "checked": [
+    {
+      "clip": "officer.pistol.suit.walk.south",
+      "distinctRenders": 30,
+      "count": 30
+    },
+    {
+      "clip": "officer.pistol.suit.walk.east",
+      "distinctRenders": 30,
+      "count": 30
+    },
+    {
+      "clip": "officer.pistol.suit.walk.north",
+      "distinctRenders": 30,
+      "count": 30
+    },
+    {
+      "clip": "officer.pistol.suit.walk.west",
+      "distinctRenders": 30,
+      "count": 30
+    },
+    {
+      "clip": "officer.pistol.suit.walk24.south",
+      "distinctRenders": 12,
+      "count": 12
+    },
+    {
+      "clip": "officer.pistol.suit.walk24.east",
+      "distinctRenders": 12,
+      "count": 12
+    }
+  ]
+}
