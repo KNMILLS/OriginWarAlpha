@@ -321,7 +321,9 @@ if RIFLE_SAMPLE:
         export(d,8,16,'fire',weapon='rifle',exposures=[.07,.07,.04,.04,.06,.07,.07,.08])
     for source in ([] if RIFLE_LOOK else directions):
         for destination in directions:
-            if source!=destination:export(destination,8,20,'turn','turn_from_'+source,'rifle')
+            if source!=destination:
+                half=abs((directions[destination]-directions[source]+math.pi)%math.tau-math.pi)>math.pi*.75
+                export(destination,8,8/(.6 if half else .4),'turn','turn_from_'+source,'rifle')
 for weapon in ([] if PILOT_V2 or BODY_LOOK or BODY_MOTION or BENCHMARK or RIFLE_SAMPLE or FLOOR_ONLY or DEATH_ONLY or WORK_ONLY else ['pistol'] if LOOK_ONLY or PRIMARY_PISTOL else ['unarmed'] if PRIMARY_UNARMED else ['pistol','unarmed']):
     for d in directions:export(d,1,60,'idle',weapon=weapon)
     if not LOOK_ONLY:

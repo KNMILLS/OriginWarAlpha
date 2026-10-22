@@ -434,6 +434,27 @@
       "facing": "west",
       "clip": "machine.camera.disabled.west",
       "status": "candidate"
+    },
+    {
+      "actor": "effect",
+      "action": "metal-impact",
+      "facing": "north",
+      "clip": "effect.metal-impact",
+      "status": "candidate"
+    },
+    {
+      "actor": "effect",
+      "action": "suit-impact",
+      "facing": "north",
+      "clip": "effect.suit-impact",
+      "status": "candidate"
+    },
+    {
+      "actor": "effect",
+      "action": "sparks",
+      "facing": "north",
+      "clip": "effect.sparks",
+      "status": "candidate"
     }
   ]
 }

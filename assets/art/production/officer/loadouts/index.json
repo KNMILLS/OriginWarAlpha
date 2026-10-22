@@ -1,0 +1,27 @@
+{
+  "version": 1,
+  "sets": {
+    "pistol-suit": {
+      "clips": 88,
+      "sourceFrames": 1028,
+      "uniqueCrops": 752,
+      "pages": 6,
+      "rgbaBytes": 100663296
+    },
+    "rifle-heavy": {
+      "clips": 48,
+      "sourceFrames": 472,
+      "uniqueCrops": 380,
+      "pages": 4,
+      "rgbaBytes": 67108864
+    },
+    "unarmed-suit": {
+      "clips": 80,
+      "sourceFrames": 992,
+      "uniqueCrops": 732,
+      "pages": 6,
+      "rgbaBytes": 100663296
+    }
+  },
+  "activeSetLimit": 1
+}

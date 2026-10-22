@@ -2,6 +2,10 @@
   "scope": "Source candidate paths; shared atlas/coverage remain lead-owned",
   "paths": [
     "assets/art/production/officer/clips.json",
+    "assets/art/production/officer/loadouts/index.json",
+    "assets/art/production/officer/loadouts/pistol-suit/clips.json",
+    "assets/art/production/officer/loadouts/rifle-heavy/clips.json",
+    "assets/art/production/officer/loadouts/unarmed-suit/clips.json",
     "assets/art/production/officer/regions/officer.pistol.suit.aim.east.00.png",
     "assets/art/production/officer/regions/officer.pistol.suit.aim.north.00.png",
     "assets/art/production/officer/regions/officer.pistol.suit.aim.south.00.png",

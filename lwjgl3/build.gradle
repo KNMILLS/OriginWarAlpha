@@ -54,6 +54,9 @@ tasks.register('packageWindows', Exec) {
         copy { from rootProject.files('MANUAL.md','README.md'); into destination }
         copy { from rootProject.file('tools/distribution/art-comparison'); into destination }
         copy { from rootProject.file('tools/distribution/illustrated-officer'); into destination }
+        copy { from rootProject.file('tools/distribution/finished-benchmark'); into destination }
+        copy { from rootProject.file('docs/design/art/FINISHED_ROOM_BENCHMARK.md'); into new File(destination,'Evidence') }
+        copy { from rootProject.file('docs/design/art/BENCHMARK_SPECIALIST_BRIEFS.md'); into new File(destination,'Evidence') }
         copy { from rootProject.file('docs'); into new File(destination,'docs') }
         copy { from rootProject.file('licenses'); into new File(destination,'licenses') }
         copy { from sourceDir; include(sourceFiles as String[]); into new File(destination,'DependencySources') }

@@ -64539,7 +64539,7 @@
     },
     {
       "id": "officer.rifle.heavy.turn_from_south.north",
-      "frameSeconds": 0.05,
+      "frameSeconds": 0.075,
       "cycleCells": 0,
       "cycleDistanceCells": 0,
       "loop": false,
@@ -70036,7 +70036,7 @@
     },
     {
       "id": "officer.rifle.heavy.turn_from_east.west",
-      "frameSeconds": 0.05,
+      "frameSeconds": 0.075,
       "cycleCells": 0,
       "cycleDistanceCells": 0,
       "loop": false,
@@ -71414,7 +71414,7 @@
     },
     {
       "id": "officer.rifle.heavy.turn_from_north.south",
-      "frameSeconds": 0.05,
+      "frameSeconds": 0.075,
       "cycleCells": 0,
       "cycleDistanceCells": 0,
       "loop": false,
@@ -76911,7 +76911,7 @@
     },
     {
       "id": "officer.rifle.heavy.turn_from_west.east",
-      "frameSeconds": 0.05,
+      "frameSeconds": 0.075,
       "cycleCells": 0,
       "cycleDistanceCells": 0,
       "loop": false,
