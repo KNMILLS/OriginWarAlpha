@@ -11,6 +11,7 @@ public final class OfficerReviewFixture {
   Path profile=Path.of(args[0]).toAbsolutePath().normalize();if(Files.exists(profile))throw new IllegalArgumentException("Fixture requires a fresh directory; existing profiles are preserved");
   String mode=args[1];if(!java.util.Set.of("injury","fatal","early-hit").contains(mode))throw new IllegalArgumentException("Unknown fixture mode");
   var state=ArtProofScenario.create();state.hp=mode.equals("fatal")?1:100;
+  state.flags.add("officer-review-fixture:"+mode);
   var machine=state.actors.getFirst();machine.x=machine.homeX=10;machine.y=machine.homeY=9;machine.facing=3;machine.aiming=true;machine.nextActTick=0;
   PlayerAction command=new PlayerAction(mode.equals("early-hit")?PlayerAction.Type.CAREFUL_MOVE:PlayerAction.Type.MOVE,1,0,"");
   boolean found=false;for(long seed=1;seed<100;seed++){

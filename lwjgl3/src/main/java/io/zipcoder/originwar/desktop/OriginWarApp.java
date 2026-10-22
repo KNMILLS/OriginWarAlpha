@@ -203,6 +203,7 @@ public final class OriginWarApp extends ApplicationAdapter {
   if(!proofStyle.isEmpty())player=proofOfficer(dir);
   objects.add(new WorldObject(pp.y(),player,pp.x()+.5f,pp.y()+1,Math.max(.28f,state.light[state.playerX][state.playerY]),1));
   objects.sort(Comparator.comparingDouble(WorldObject::depth));for(var o:objects){float sx=originX+o.x*cell,sy=originY-o.y*cell;if(proofStyle.isEmpty())art.rect(batch,sx-cell*.18f,sy-cell*.015f,cell*.36f,cell*.055f,new Color(0,0,0,.25f*o.alpha));else art.contactShadow(batch,sx,sy,cell,o.alpha);art.draw(batch,art.environment(o.region,!proofStyle.isEmpty()),sx,sy,cell,tint(o.light,o.alpha));}
+  if(!proofStyle.isEmpty()&&player.isEmpty()){float sx=originX+(pp.x()+.5f)*cell,sy=originY-(pp.y()+1)*cell;outline(sx-cell*.22f,sy,cell*.44f,cell*.23f,amber);text("ART?",sx-cell*.2f,sy+cell*.4f,amber,.45f);}
   for(var a:state.actors)if(!a.dead&&state.visible[a.x][a.y]&&(a.fuse>=0||a.aiming)){float sx=originX+(a.x+.5f)*cell,sy=originY-(a.y+.05f)*cell;text(a.fuse>=0?"FUSE "+a.fuse:"AIM",sx-cell*.4f,sy,red,.65f);}
   for(var e:timeline.effects())if(e.visible()&&inside(e.x(),e.y())&&state.visible[e.x()][e.y()]&&(proofStyle.isEmpty()||!e.type().equals("gun")||!e.sourceId().equals("officer"))){float sx=originX+(e.x()+.5f)*cell,sy=originY-(e.y()+.4f)*cell;float size=e.type().equals("explosion")?cell*.8f:cell*.10f;art.rect(batch,sx-size/2,sy-size/2,size,size,new Color(.98f,.69f,.32f,.65f));}
   int ix=targetX>=0?targetX:hoverX,iy=targetY>=0?targetY:hoverY;if(inside(ix,iy)&&state.explored[ix][iy])outline(originX+ix*cell,originY-(iy+1)*cell,cell,cell,new Color(.63f,.77f,.71f,.5f));
@@ -213,8 +214,8 @@ public final class OriginWarApp extends ApplicationAdapter {
  private String proofOfficer(String dir){
   String action=timeline.moving("officer")&&!settings.reducedDistortion?"walk":timeline.officerFiring()&&!settings.reducedDistortion?"fire":targetX>=0?"aim":"idle";
   var pose=officerPerformance.pose(timeline.elapsed());
-  if(proofStyle.equals("illustrated")&&timeline.busy()&&!settings.reducedDistortion&&!pose.action().equals("idle")){action=pose.action();if(action.equals("walk")){var locomotion=timeline.locomotionPose();action=locomotion.action();pose=new OfficerPerformance.Pose(action,locomotion.progress());}}
-  if(proofStyle.equals("illustrated")&&state.dead&&(settings.reducedDistortion||!officerPerformance.deathPending(timeline.elapsed()))){action="death";pose=new OfficerPerformance.Pose("death",1);}
+  if(comparisonStyle.equals("illustrated")&&timeline.busy()&&!settings.reducedDistortion&&!pose.action().equals("idle")){action=pose.action();if(action.equals("walk")){var locomotion=timeline.locomotionPose();action=locomotion.action();pose=new OfficerPerformance.Pose(action,locomotion.progress());}}
+  if(comparisonStyle.equals("illustrated")&&state.dead&&(settings.reducedDistortion||!officerPerformance.deathPending(timeline.elapsed()))){action="death";pose=new OfficerPerformance.Pose("death",1);}
   if(targetX!=proofAimX||targetY!=proofAimY){proofAimX=targetX;proofAimY=targetY;proofAimSince=clock;}
   if(action.equals("aim")&&!settings.reducedDistortion&&clock-proofAimSince<.28f){
    float progress=Math.max(0,(clock-proofAimSince)/.28f);String ready=art.proofClip(proofStyle,state.weapon,state.armor,"ready",dir);
@@ -226,12 +227,12 @@ public final class OriginWarApp extends ApplicationAdapter {
   if(clip.isEmpty()&&action.equals("idle"))clip=art.proofClip(proofStyle,state.weapon,state.armor,"walk",dir);
   if(clip.isEmpty()){String held=art.proofClip(proofStyle,state.weapon,state.armor,"idle",dir);proofCoverage=(held.isEmpty()?"UNAVAILABLE: ":"STATIC ONLY / motion unavailable: ")+state.weapon+" / "+state.armor+" / "+action+" / "+dir;return art.timedFrame(held,0,"");}
   proofCoverage=state.weapon+" / "+state.armor+" / "+action+" / "+dir;
-  return action.equals("walk")?art.frame(clip,timeline.gaitPhase(),""):action.equals("fire")?art.proofFireFrame(clip,timeline.elapsed()):(proofStyle.equals("illustrated")&&Set.of("start","stop","work","hit","death","melee").contains(action)||action.startsWith("turn_from_"))?art.frame(clip,pose.progress(),""):art.timedFrame(clip,0,"");
+  return action.equals("walk")?art.frame(clip,timeline.gaitPhase(),""):action.equals("fire")?art.proofFireFrame(clip,timeline.elapsed()):(comparisonStyle.equals("illustrated")&&Set.of("start","stop","work","hit","death","melee").contains(action)||action.startsWith("turn_from_"))?art.frame(clip,pose.progress(),""):art.timedFrame(clip,0,"");
  }
  private void hud(){
   boolean large=scale>1.4f;float footer=large?260:156,header=large?142:66;
   art.rect(batch,0,height()-header,width(),header,new Color(.025f,.043f,.05f,.86f));
-  if(!proofStyle.isEmpty()){art.rect(batch,12,height()-header-53,Math.min(width()-24,1000),44,new Color(.035f,.065f,.065f,.96f));text((artLab?"STAGED ART COMPARISON":"CAMPAIGN ART PREVIEW")+" / "+proofStyle.toUpperCase(Locale.ROOT)+" / F6 SWITCH"+(offlineReview?" / OFFLINE 60HZ REVIEW":""),22,height()-header-15,amber,.64f);text(proofCoverage,22,height()-header-35,(proofCoverage.startsWith("UNAVAILABLE")||proofCoverage.startsWith("STATIC ONLY"))?red:ink,.56f);}
+  if(!proofStyle.isEmpty()){art.rect(batch,12,height()-header-53,Math.min(width()-24,1000),44,new Color(.035f,.065f,.065f,.96f));text((state.flags.stream().anyMatch(f->f.startsWith("officer-review-fixture:"))?"SYNTHETIC OFFICER REACTION TEST":artLab?"STAGED ART COMPARISON":"CAMPAIGN ART PREVIEW")+" / "+proofStyle.toUpperCase(Locale.ROOT)+" / F6 SWITCH"+(offlineReview?" / OFFLINE 60HZ REVIEW":""),22,height()-header-15,amber,.64f);text(proofCoverage,22,height()-header-35,(proofCoverage.startsWith("UNAVAILABLE")||proofCoverage.startsWith("STATIC ONLY"))?red:ink,.56f);}
   text("D"+String.format("%02d",state.deck)+"  "+Campaign.sector(state.deck),20,height()-17,ink,.86f);wrapped("HP "+state.hp+"    OXYGEN "+state.reserve+" / 360    BODY "+state.oxygenation+"%    CELLS "+state.batteries+" / 12    PACK "+EquipmentRules.bulk(state)+" / 12",20,height()-(large?65:42),width()-40,state.reserve<90?amber:ink,.77f,2);
   if(!large)text("T "+state.tick+"  |  "+(state.lampOn?"LAMP ON":"LAMP OFF")+"  |  "+(careful?"CAREFUL":"STANDARD"),width()-320,height()-22,muted,.7f);
   art.rect(batch,0,0,width(),footer,new Color(.025f,.043f,.05f,.91f));wrapped(Campaign.objective(state),20,footer-12,width()-40,ink,.72f,large?2:1);
