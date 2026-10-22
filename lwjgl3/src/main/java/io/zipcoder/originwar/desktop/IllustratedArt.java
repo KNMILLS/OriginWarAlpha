@@ -14,11 +14,12 @@ public final class IllustratedArt implements AutoCloseable {
  private final Map<String,Texture> textures=new HashMap<>();
  private final Map<String,AnimationClip> clips=new HashMap<>();
  private final Map<String,String> proofBindings=new HashMap<>();
+ private final Map<String,String> stationBindings=new HashMap<>();
  private final Set<String> proofStyles=new HashSet<>();
  private final Map<String,Motion> motionReferences=new HashMap<>();
  private final Map<String,Float> durationReferences=new HashMap<>();
  private final Texture white,shadow;
- private boolean proofLoaded;
+ private boolean proofLoaded,stationLoaded;
  public IllustratedArt(){
   var p=new Pixmap(1,1,Pixmap.Format.RGBA8888);p.setColor(Color.WHITE);p.fill();white=new Texture(p);p.dispose();
   var s=new Pixmap(64,24,Pixmap.Format.RGBA8888);s.setBlending(Pixmap.Blending.None);
@@ -52,6 +53,7 @@ public final class IllustratedArt implements AutoCloseable {
    for(String path:List.copyOf(textures.keySet()))if(path.startsWith(oldFolder))textures.remove(path).dispose();proofStyles.remove(old);
   }
   var root=new JsonReader().parse(pack);String prefix="proof."+style+".";loadMotion(root,prefix);proofStyles.add(style);var bindings=root.get("bindings");if(bindings!=null)for(var b:bindings){String clip=prefix+b.getString("clip");if(!clips.containsKey(clip))throw new GdxRuntimeException("Unbound proof animation "+clip);String key=proofKey(style,b.getString("weapon","pistol"),b.getString("armor","suit"),b.getString("action"),b.getString("facing"));if(proofBindings.putIfAbsent(key,clip)!=null)throw new GdxRuntimeException("Duplicate proof binding "+key);}
+  loadStation();
   if(style.equals("illustrated")&&textureBytes()>192L*1024*1024)throw new GdxRuntimeException("Active art texture budget exceeded; revise atlas residency before campaign expansion");
   if(bindings!=null)for(var b:bindings)durationReferences.put(proofKey(style,b.getString("weapon","pistol"),b.getString("armor","suit"),b.getString("action"),b.getString("facing")),clipSeconds(prefix+b.getString("clip"),0));
   if(bindings!=null)for(var b:bindings)if(b.getString("action").equals("walk")){
@@ -59,13 +61,22 @@ public final class IllustratedArt implements AutoCloseable {
    motionReferences.put(proofKey(style,weapon,armor,"walk",face),new Motion(seconds/cells,cells,clipSeconds(proofClip(style,weapon,armor,"start",face),0),clipSeconds(proofClip(style,weapon,armor,"stop",face),0),markers(walk).stream().filter(m->m.kind().equals("contact")).map(m->m.seconds()/seconds).toList()));
   }
  }
+ private void loadStation(){
+  if(stationLoaded)return;var file=Gdx.files.internal("art/production/station/atlas.json");if(!file.exists())return;
+  var root=new JsonReader().parse(file);String prefix="production.station.";loadMotion(root,prefix);
+  for(var b:root.get("bindings")){String clip=prefix+b.getString("clip"),key=String.join(":",b.getString("actor"),b.getString("action"),b.getString("facing"));if(!clips.containsKey(clip)||stationBindings.putIfAbsent(key,clip)!=null)throw new GdxRuntimeException("Invalid station binding "+key);}
+  stationLoaded=true;
+ }
+ public String stationClip(String actor,String action,int facing){return stationBindings.getOrDefault(String.join(":",actor,action,new String[]{"north","east","south","west"}[facing]),"");}
+ public String stationFrame(String actor,String action,int facing,float progress){return frame(stationClip(actor,action,facing),progress,"");}
  public Motion proofMotion(String style,String weapon,String armor,String face){return motionReferences.getOrDefault(proofKey(style,weapon,armor,"walk",face),new Motion(.5f,1,0,0,List.of()));}
  public float proofReferenceSeconds(String style,String weapon,String armor,String action,String face,float fallback){return durationReferences.getOrDefault(proofKey(style,weapon,armor,action,face),fallback);}
  private String proofKey(String style,String weapon,String armor,String action,String facing){return String.join(":",style,weapon,armor,action,facing);}
  public String proofClip(String style,String weapon,String armor,String action,String facing){String prefix="proof."+style+".";String bound=proofBindings.get(proofKey(style,weapon,armor,action,facing));if(bound!=null)return bound;String full=prefix+"officer."+weapon+"."+armor+"."+action+"."+facing;if(hasClip(full))return full;if(armor.equals("suit")){String equipment=prefix+"officer."+weapon+"."+action+"."+facing;if(hasClip(equipment))return equipment;if(weapon.equals("pistol")){String old=prefix+"officer."+action+"."+facing;if(hasClip(old))return old;}}return "";}
  public boolean proofAvailable(String style){return proofStyles.contains(style);}
- public String environment(String name,boolean active){String replacement="proof.environment."+name;return active&&has(replacement)?replacement:name;}
+ public String environment(String name,boolean active){String station="production.station."+name,replacement="proof.environment."+name;return active&&has(station)?station:active&&has(replacement)?replacement:name;}
  public boolean has(String name){return regions.containsKey(name);}
+ public float regionWidth(String name){var value=regions.get(name);return value==null?1:value.width;}
  public String frame(String clip,float progress,String fallback){var c=clips.get(clip);return c==null?fallback:c.phase(progress);}
  public String timedFrame(String clip,float seconds,String fallback){var c=clips.get(clip);return c==null?fallback:c.at(seconds);}
  public String proofFireFrame(String clip,float seconds){var c=clips.get(clip);return c==null?"":c.retimedFire(seconds,.5f,.14f);}

@@ -6,8 +6,8 @@ from PIL import Image
 from pack import ASSETS, FOLDER, MAX_PAGES, PAGE, source, sha
 
 
-def validate():
-    data=json.loads((FOLDER/"atlas.json").read_text(encoding="utf-8"))
+def validate(folder=FOLDER, kind="officer"):
+    data=json.loads((folder/"atlas.json").read_text(encoding="utf-8"))
     assert sha(source(data["sourceManifest"]["path"])) == data["sourceManifest"]["sha256"]
     assert len(data["atlasPages"]) <= MAX_PAGES
     pages={}
@@ -16,6 +16,7 @@ def validate():
         assert sha(path)==entry["sha256"]
         pages[entry["path"]]=Image.open(path).convert("RGBA")
     ids=set()
+    frames=list(data.get("regions", []))
     for clip in data["clips"]:
         assert clip["id"] not in ids
         ids.add(clip["id"])
@@ -24,7 +25,8 @@ def validate():
         for marker in clip.get("markers",[]):
             at=marker.get("seconds",sum(f.get("seconds",clip.get("frameSeconds",1/24))*f.get("hold",1) for f in clip["frames"][:marker.get("frame",0)]))
             assert 0<=at<=span+1e-5
-        for frame in clip["frames"]:
+        frames.extend(clip["frames"])
+    for frame in frames:
             path=source(frame["sourcePath"])
             assert sha(path)==frame["sourceSha256"]
             original=Image.open(path).convert("RGBA")
@@ -42,7 +44,7 @@ def validate():
     keys=set()
     for binding in data["bindings"]:
         assert binding["clip"] in ids
-        key=tuple(binding[k] for k in ("weapon","armor","action","facing"))
+        key=tuple(binding[k] for k in (("weapon","armor","action","facing") if kind=="officer" else ("actor","action","facing")))
         assert key not in keys,key
         keys.add(key)
     assert data["memoryBudget"]["actualRgbaBytes"]==len(pages)*PAGE*PAGE*4

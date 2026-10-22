@@ -67,10 +67,10 @@ def extrude(page, image, x, y):
                 page.putpixel((tx,ty), image.getpixel((sx,sy)))
 
 
-def pack():
-    manifest = FOLDER / "clips.json"
+def pack(folder=FOLDER, kind="officer"):
+    manifest = folder / "clips.json"
     data = json.loads(manifest.read_text(encoding="utf-8-sig"))
-    frames = [frame for clip in data["clips"] for frame in clip["frames"]]
+    frames = list(data.get("regions", [])) + [frame for clip in data["clips"] for frame in clip["frames"]]
     images, placements, aliases, metadata = {}, {}, {}, {}
     for frame in frames:
         original = source(frame["path"])
@@ -104,8 +104,8 @@ def pack():
         row = max(row, h)
     pages.append(page)
     if len(pages) > MAX_PAGES:
-        raise ValueError(f"Officer texture budget exceeded: {len(pages)} > {MAX_PAGES} pages; revise packing/residency before expanding")
-    output = FOLDER / "atlases"
+        raise ValueError(f"{kind} texture budget exceeded: {len(pages)} > {MAX_PAGES} pages; revise packing/residency before expanding")
+    output = folder / "atlases"
     output.mkdir(exist_ok=True)
     records = []
     for i, page in enumerate(pages):
@@ -116,21 +116,31 @@ def pack():
         path = frame["path"]
         index, x, y, w, h = placements[aliases[path]]
         frame.update(metadata[path], sourcePath=path, sourceSha256=sha(source(path)), path=records[index]["path"], sha256=records[index]["sha256"], x=x, y=y, pixelWidth=w, pixelHeight=h)
-    data.update(atlasPages=records, sourceManifest=dict(path=manifest.relative_to(ASSETS).as_posix(), sha256=sha(manifest)), memoryBudget=dict(maxPages=MAX_PAGES, maxRgbaBytes=MAX_PAGES*PAGE*PAGE*4, actualRgbaBytes=len(pages)*PAGE*PAGE*4, residency="selected officer candidate only"))
-    write(FOLDER / "atlas.json", data)
+    data.update(atlasPages=records, sourceManifest=dict(path=manifest.relative_to(ASSETS).as_posix(), sha256=sha(manifest)), memoryBudget=dict(maxPages=MAX_PAGES, maxRgbaBytes=MAX_PAGES*PAGE*PAGE*4, actualRgbaBytes=len(pages)*PAGE*PAGE*4, residency="selected production candidate only"))
+    write(folder / "atlas.json", data)
+    if kind == "officer":
+        coverage = officer_coverage(data)
+    else:
+        coverage = [dict(b, status="candidate") for b in data["bindings"]]
+    write(folder / "coverage.json",dict(status="candidate-not-artistic-acceptance",bindings=coverage))
+    summary=dict(clips=len(data["clips"]),sourceFrames=len(frames),uniqueCrops=len(images),pages=len(pages),rgbaBytes=len(pages)*PAGE*PAGE*4)
+    print(json.dumps(summary,indent=2))
+    return summary
+
+
+def officer_coverage(data):
     bound = {(b["weapon"], b["armor"], b["action"], b["facing"]): b["clip"] for b in data["bindings"]}
     coverage=[]
     for weapon in ("unarmed","pistol","rifle","scattergun"):
         for armor in ("suit","light","heavy"):
-            for action in ("idle","start","walk","stop","ready","aim","fire","melee","work","hit","death"):
+            for action in ("idle","start","walk","stop","ready","aim","fire","melee","work","hit","death","turn_from_north","turn_from_east","turn_from_south","turn_from_west"):
                 for facing in ("north","east","south","west"):
+                    if action == "turn_from_" + facing:
+                        continue
                     clip=bound.get((weapon,armor,action,facing),"")
                     opening=armor=="suit" and weapon in ("unarmed","pistol")
                     coverage.append(dict(weapon=weapon,armor=armor,action=action,facing=facing,openingReachable=opening,status="candidate" if clip else "missing",clip=clip))
-    write(FOLDER / "coverage.json",dict(status="candidate-not-artistic-acceptance",bindings=coverage))
-    summary=dict(clips=len(data["clips"]),sourceFrames=len(frames),uniqueCrops=len(images),pages=len(pages),rgbaBytes=len(pages)*PAGE*PAGE*4)
-    print(json.dumps(summary,indent=2))
-    return summary
+    return coverage
 
 
 if __name__ == "__main__":

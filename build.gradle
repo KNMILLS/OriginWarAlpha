@@ -84,13 +84,15 @@ tasks.register('verifyAssets') {
                 (catalog.bindings?:[]).each { binding -> if(!ids.contains(binding.clip))throw new GradleException('Missing proof binding: '+binding.clip) }
             }
         }
-        def officerAtlas=file('assets/art/production/officer/atlas.json')
-        if(officerAtlas.isFile()){
-            def production=new groovy.json.JsonSlurper().parse(officerAtlas)
+        ['officer','station'].each { kind ->
+        def productionAtlas=file('assets/art/production/'+kind+'/atlas.json')
+        if(productionAtlas.isFile()){
+            def production=new groovy.json.JsonSlurper().parse(productionAtlas)
             check(production.sourceManifest.path,production.sourceManifest.sha256)
-            if(production.atlasPages.isEmpty()||production.atlasPages.size()>8||production.memoryBudget.actualRgbaBytes!=production.atlasPages.size()*2048L*2048*4)throw new GradleException('Officer texture residency exceeds declared budget')
+            if(production.atlasPages.isEmpty()||production.atlasPages.size()>8||production.memoryBudget.actualRgbaBytes!=production.atlasPages.size()*2048L*2048*4)throw new GradleException(kind+' texture residency exceeds declared budget')
             production.atlasPages.each{page->check(page.path,page.sha256)}
             def ids=[] as Set
+            (production.regions?:[]).each { region -> check(region.sourcePath,region.sourceSha256);if(region.widthCells<=0||region.heightCells<=0||region.pivotX<0||region.pivotX>1||region.pivotY<0||region.pivotY>1)throw new GradleException('Invalid station region origin') }
             production.clips.each{clip->
                 if(!ids.add(clip.id)||clip.frames.isEmpty())throw new GradleException('Invalid production clip '+clip.id)
                 clip.frames.each{frame->
@@ -100,8 +102,10 @@ tasks.register('verifyAssets') {
             }
             def bound=[] as Set
             production.bindings.each{binding->
-                if(!ids.contains(binding.clip)||!bound.add([binding.weapon,binding.armor,binding.action,binding.facing]))throw new GradleException('Invalid/duplicate officer binding')
+                def key=kind=='officer'?[binding.weapon,binding.armor,binding.action,binding.facing]:[binding.actor,binding.action,binding.facing]
+                if(!ids.contains(binding.clip)||!bound.add(key))throw new GradleException('Invalid/duplicate '+kind+' binding')
             }
+        }
         }
         def notices=new groovy.json.JsonSlurper().parse(file('licenses/MANIFEST.json'))
         notices.each { path,entry -> if(!file('licenses/'+path).isFile()||digest(file('licenses/'+path))!=entry.sha256)throw new GradleException('Notice mismatch: '+path) }

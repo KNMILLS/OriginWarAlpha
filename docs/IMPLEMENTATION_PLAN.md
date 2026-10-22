@@ -8,7 +8,8 @@ Owner supplied a production review selecting Blender-driven animation with an il
 | --- | --- | --- | --- |
 | AR-LEAD | lead; client/timeline, new atlas tooling, contracts/build/registries/docs/integration/native captures | preserved tactical state; truthful work/hit/death selection; selected-only loading and texture budget; actual normal-speed review | in progress from814253f; no purchases |
 | AR-OFFICER | animation specialist; `worktrees/art-proof-rendered`; new `assets/art/production/officer/**`, `tools/media/officer_production/**`, `OFFICER_PRODUCTION.md` only | human construction/material pilot before full export; source rig, calibrated contacts; opening pistol/unarmed coverage | in progress; no re-delegation; old proof preserved |
-| AR-REVIEW | art/research specialists; read-only | actual footage and pilot review; reachable opening states; independent source review | in progress; no write leases |
+| AR-STATION | art specialist; `worktrees/art-proof-painted`; new `assets/art/production/station/**`, `tools/media/station_production/**`, `STATION_PRODUCTION.md` only | four true SIRS bearings/actions; camera power/facing; physical door states and clearance; compact workplace props | in progress from d80aa83; pilot reviewed; no re-delegation/purchase/push; root retains derived atlases/coverage |
+| AR-REVIEW | research specialist; read-only | actual footage and pilot review; reachable opening states; independent source review | in progress; no write lease |
 
 ## Art production proof (owner approved 21 October 2026)
 

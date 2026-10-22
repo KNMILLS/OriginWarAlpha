@@ -7,6 +7,24 @@ import java.util.*;
 import static org.junit.jupiter.api.Assertions.*;
 
 final class SurvivalTimelineTest {
+    @Test void machineStrideAndContactsUseAuthoredDistanceAtActualTravelSpeed(){
+        var before=new RunEngine(2115).saveState();var a=before.actors.getFirst();before.visible[a.x][a.y]=true;var after=before.copy();var b=after.actors.getFirst();b.x++;after.visible[b.x][b.y]=true;
+        var step=new GameEvent("robot_step",b.x,b.y,"Move",a.id,a.x,a.y,1,1,1,true,true,"contact");var t=new SurvivalTimeline();t.locomotionTiming(.5f,1);t.machineMotionTiming(Map.of(a.id,new SurvivalTimeline.MachineMotion(.5f,List.of(0f,.5f))));t.accept(before,after,new TurnResult(true,1,List.of(step),"",1,true));var heard=new ArrayList<GameEvent>();t.advance(.125f,heard::add);assertEquals(.5f,t.machineGaitPhase(a.id),.0001);assertEquals(a.x+.25f,t.position(a.id,b.x,b.y).x(),.0001);assertEquals(1,heard.size());t.advance(.375f,heard::add);assertEquals(4,heard.size());assertFalse(t.moving(a.id));assertEquals(0,before.tick);
+    }
+    @Test void carefulCornerHoldsItsOldFacingUntilTheFinalTickTurn(){
+        var before=new RunEngine(2115).saveState();before.facing=2;var after=before.copy();after.playerX++;after.facing=1;after.tick+=2;
+        var t=new SurvivalTimeline();t.locomotionTiming(.5f,.5f);t.officerMovementSeconds(1.2f);t.locomotionTransitions(.15f,.15f);t.officerTurnSeconds(.3f);t.accept(before,after,new TurnResult(true,2,List.of(),"",1,true));t.advance(.2f,e->{});assertEquals("turn_from_south",t.locomotionPose().action());assertEquals(0,t.locomotionPose().progress());assertFalse(t.moving("officer"));t.advance(.45f,e->{});assertEquals(.5f,t.locomotionPose().progress(),.0001);
+    }
+    @Test void standingOfficerImpactCannotPrecedeTheIncomingAuthoredRelease(){
+        var s=new RunEngine(2115).saveState();var gun=new GameEvent("gun",s.playerX+2,s.playerY,"Incoming","sirs",0,0,3,1,1,true,true,"contact");var hit=new GameEvent("hit",s.playerX,s.playerY,"Injury","officer",0,0,0,1,1,true,true,"contact");
+        var t=new SurvivalTimeline();t.machineReleaseTimings(Map.of("sirs",.18f));t.accept(s,s,new TurnResult(true,1,List.of(gun,hit),"",1,true));assertEquals(.18f,t.cueTime(gun,0),.0001);assertTrue(t.cueTime(hit,0)>t.cueTime(gun,0));
+    }
+    @Test void cornerPlantsAndTurnsBeforeStartupWithoutAddingAPaidTick(){
+        var before=new RunEngine(2115).saveState();before.facing=2;var after=before.copy();after.playerX++;after.facing=1;after.tick++;
+        var t=new SurvivalTimeline();t.locomotionTiming(.5f,.5f);t.officerMovementSeconds(1.2f);t.locomotionTransitions(.15f,.15f);t.officerTurnSeconds(.3f);t.accept(before,after,new TurnResult(true,1,List.of(),"",1,true));
+        t.advance(.15f,e->{});assertEquals("turn_from_south",t.locomotionPose().action());assertEquals(.5f,t.locomotionPose().progress(),.0001);assertEquals(before.playerX,t.position("officer",after.playerX,after.playerY).x());
+        t.advance(.16f,e->{});assertEquals("start",t.locomotionPose().action());t.advance(.15f,e->{});assertEquals("walk",t.locomotionPose().action());assertEquals(1.8f,t.duration(),.0001);assertEquals(1,after.tick);assertEquals(0,before.tick);
+    }
     @Test void guardedTravelDoesNotSlowFiringOrOtherPaidCommitments(){
         var before=new RunEngine(2115).saveState();var t=new SurvivalTimeline();t.locomotionTiming(.5f,.5f);t.officerMovementSeconds(1.2f);t.locomotionTransitions(.15f,.15f);
         var after=before.copy();after.playerX++;t.accept(before,after,new TurnResult(true,1,List.of(),"",1,true));assertEquals(1.5f,t.duration(),.0001);
