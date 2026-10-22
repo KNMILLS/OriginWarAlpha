@@ -1,0 +1,7 @@
+{
+  "approximateLogIntervalSeconds": 197.1978506,
+  "startedUtc": "2026-10-22T17:35:29.0996115Z",
+  "lastOutputUtc": "2026-10-22T17:38:46.2974621Z",
+  "method": "Approximate UTC log creation/last-write interval. Original phase timer was replaced during subsequent cutaway iteration.",
+  "scope": "Complete full05 offline raster export, not authoring or total task duration"
+}

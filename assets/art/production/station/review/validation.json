@@ -1,0 +1,15 @@
+{
+  "scope": "package truth only; not visual, native-play or owner acceptance",
+  "regions": 297,
+  "clips": 62,
+  "bindings": 62,
+  "checks": [
+    "192 px/cell actual raster",
+    "256 px/cell separately rendered masters",
+    "source hashes",
+    "true alpha",
+    "four distinct SIRS bearings",
+    "open/closed physical aperture",
+    "valid named clips and explicit bindings"
+  ]
+}
