@@ -7,6 +7,12 @@ import java.util.*;
 import static org.junit.jupiter.api.Assertions.*;
 
 final class SurvivalTimelineTest {
+    @Test void flashAgeUsesScheduledReleaseAndCannotRestartAfterTheClip(){
+        var s=new RunEngine(2115).saveState();var gun=new GameEvent("gun",s.playerX,s.playerY,"Shot","sirs",0,0,0,1,1,true,true,"contact");
+        var t=new SurvivalTimeline();t.machineReleaseTimings(Map.of("sirs",.18f));t.accept(s,s,new TurnResult(true,1,List.of(gun),"",1,true));
+        assertEquals(Float.POSITIVE_INFINITY,t.effectAge(gun));t.advance(.2f,e->{});assertEquals(.02f,t.effectAge(gun),.0001);
+        t.advance(.05f,e->{});assertTrue(t.effectAge(gun)>.05f);t.advance(.5f,e->{});assertEquals(Float.POSITIVE_INFINITY,t.effectAge(gun));
+    }
     @Test void consecutiveMachineStepsWalkThroughTheirSharedBoundary(){
         var before=new RunEngine(2115).saveState();var a=before.actors.getFirst();for(int dx=0;dx<=2;dx++)before.visible[a.x+dx][a.y]=true;
         var after=before.copy();var b=after.actors.getFirst();b.x+=2;after.tick+=2;

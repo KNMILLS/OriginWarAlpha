@@ -14,6 +14,7 @@ public final class SurvivalTimeline {
     private final Map<String,List<Track>> tracks=new HashMap<>();
     private final ArrayDeque<Cue> cues=new ArrayDeque<>();
     private final ArrayList<GameEvent> effects=new ArrayList<>();
+    private final Map<GameEvent,Float> effectStarts=new IdentityHashMap<>();
     private float elapsed,duration,gaitStart;private int plantedSteps;
     private boolean officerFiring,orderedOfficerResponses;private float releaseSeconds=.08f,fireSeconds=.25f;
     private float stepSeconds=.25f,movementSeconds=.25f,cycleCells=2,startSeconds,stopSeconds,turnSeconds;private String turnAction="";private List<Float> contactPhases=List.of();
@@ -24,7 +25,7 @@ public final class SurvivalTimeline {
     private static final Set<String> WORK_EVENTS=Set.of("door","switch","circuit","hack","brace_place","brace_recover","pickup","drop","oxygen","medicine","analyze");
     private float machineStart(String id){var value=machineMotions.get(id);return value==null?0:value.startSeconds;}
     private float machineStop(String id){var value=machineMotions.get(id);return value==null?0:value.stopSeconds;}
-    public void reset(){tracks.clear();cues.clear();effects.clear();machineSteps.clear();machineGaits.clear();elapsed=duration=gaitStart=0;plantedSteps=0;officerFiring=false;}
+    public void reset(){tracks.clear();cues.clear();effects.clear();effectStarts.clear();machineSteps.clear();machineGaits.clear();elapsed=duration=gaitStart=0;plantedSteps=0;officerFiring=false;}
     public void officerFireTiming(float release,float span){releaseSeconds=release;fireSeconds=span;}
     public void orderedOfficerResponses(boolean enabled){orderedOfficerResponses=enabled;}
     public void machineReleaseTimings(Map<String,Float> values){if(values.values().stream().anyMatch(v->!Float.isFinite(v)||v<0||v>1))throw new IllegalArgumentException("Invalid machine release");machineReleases=Map.copyOf(values);}
@@ -37,7 +38,7 @@ public final class SurvivalTimeline {
     public void locomotionTransitions(float start,float stop){if(!Float.isFinite(start)||!Float.isFinite(stop)||start<0||stop<0||start>.5f||stop>.5f)throw new IllegalArgumentException("Invalid movement transition");startSeconds=start;stopSeconds=stop;}
     public void officerTurnSeconds(float seconds){if(!Float.isFinite(seconds)||seconds<0||seconds>1)throw new IllegalArgumentException("Invalid planted turn");turnSeconds=seconds;}
     public void accept(GameState before,GameState after,TurnResult result){
-        tracks.clear();cues.clear();effects.clear();elapsed=0;duration=result.cost()*stepSeconds;workContactAt=workContact<0?0:Math.max(0,duration-stepSeconds)+workContact;gaitStart=(plantedSteps/cycleCells)%1;turnAction=before.facing!=after.facing&&turnSeconds>0?"turn_from_"+new String[]{"north","east","south","west"}[before.facing]:"";
+        tracks.clear();cues.clear();effects.clear();effectStarts.clear();elapsed=0;duration=result.cost()*stepSeconds;workContactAt=workContact<0?0:Math.max(0,duration-stepSeconds)+workContact;gaitStart=(plantedSteps/cycleCells)%1;turnAction=before.facing!=after.facing&&turnSeconds>0?"turn_from_"+new String[]{"north","east","south","west"}[before.facing]:"";
         officerFiring=result.events().stream().anyMatch(e->e.type().equals("gun")&&e.sourceId().equals("officer"));if(officerFiring)duration=Math.max(duration,fireSeconds);
         if(before.deck==after.deck){
             if(before.playerX!=after.playerX||before.playerY!=after.playerY){gaitStart=(plantedSteps++/cycleCells)%1;tracks.put("officer",List.of(new Track(before.playerX,before.playerY,after.playerX,after.playerY,Math.max(0,duration-stepSeconds)+startSeconds+(turnAction.isEmpty()?0:turnSeconds),movementSeconds)));}
@@ -75,8 +76,8 @@ public final class SurvivalTimeline {
         for(String id:tracks.keySet())if(!id.equals("officer")){int count=machineSteps.getOrDefault(id,0);float cells=machineMotions.containsKey(id)?machineMotions.get(id).cycleCells:2;machineGaits.put(id,count/cells%1);machineSteps.put(id,count+tracks.get(id).size());for(var t:tracks.get(id))duration=Math.max(duration,t.start+t.span+machineStop(id));}
     }
     public void advance(float dt,Consumer<GameEvent> deliver){
-        elapsed+=dt;while(!cues.isEmpty()&&cues.peek().at<=elapsed){var e=cues.remove().event;if(e.visible()&&Set.of("gun","hit","impact","explosion","death").contains(e.type()))effects.add(e);deliver.accept(e);}
-        if(elapsed>duration+.18f)effects.clear();
+        elapsed+=dt;while(!cues.isEmpty()&&cues.peek().at<=elapsed){var cue=cues.remove();var e=cue.event;if(e.visible()&&Set.of("gun","hit","impact","explosion","death").contains(e.type())){effects.add(e);effectStarts.put(e,cue.at);}deliver.accept(e);}
+        if(elapsed>duration+.18f){effects.clear();effectStarts.clear();}
     }
     public Position position(String id,int x,int y){var list=tracks.get(id);if(list==null)return new Position(x,y);Position p=new Position(x,y);for(var t:list){if(elapsed<t.start)return new Position(t.fromX,t.fromY);float f=Math.min(1,(elapsed-t.start)/t.span);p=new Position(t.fromX+(t.toX-t.fromX)*f,t.fromY+(t.toY-t.fromY)*f);if(f<1)return p;}return p;}
     public boolean moving(String id){var list=tracks.get(id);return list!=null&&list.stream().anyMatch(t->elapsed>=t.start&&elapsed<t.start+t.span);}
@@ -104,4 +105,5 @@ public final class SurvivalTimeline {
     public float machineGaitPhase(String id){var list=tracks.get(id);if(list==null)return 0;float cells=machineMotions.containsKey(id)?machineMotions.get(id).cycleCells:2;int index=0;for(var t:list){if(elapsed<t.start)return (machineGaits.getOrDefault(id,0f)+index/cells)%1;float f=Math.max(0,Math.min(1,(elapsed-t.start)/t.span));if(f<1)return (machineGaits.getOrDefault(id,0f)+(index+f)/cells)%1;index++;}return (machineGaits.getOrDefault(id,0f)+index/cells)%1;}
     public boolean busy(){return elapsed<duration||!cues.isEmpty();}
     public List<GameEvent> effects(){return List.copyOf(effects);}
+    public float effectAge(GameEvent event){var at=effectStarts.get(event);return at==null?Float.POSITIVE_INFINITY:Math.max(0,elapsed-at);}
 }
