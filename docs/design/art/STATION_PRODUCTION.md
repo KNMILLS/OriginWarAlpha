@@ -18,7 +18,7 @@ The original project SIRS, camera, pressure door, hatch and switch images were i
 
 ## Runtime contract
 
-`clips.json` contains explicit actor/action/facing bindings. SIRS actor is `sirs`, with actions `idle`, `walk`, `anticipate`, `fire`, `hit`, `destroyed`. Camera actor is `camera`, with actions `on`, `off`, `aim`, `disabled`. Door actor is `door`, with actions `closed`, `open`, `opening`, `closing`, `locked`, `braced`, `damaged`.
+`clips.json` contains explicit actor/action/facing bindings. SIRS actor is `sirs`, with actions `idle`, `start`, `walk`, `stop`, `anticipate`, `fire`, `hit`, `destroyed`. Camera actor is `camera`, with actions `on`, `off`, `aim`, `disabled`. Door actor is `door`, with actions `closed`, `open`, `opening`, `closing`, `locked`, `braced`, `damaged`.
 
 North doors have a horizontal frame (walls left/right, passage north/south). East doors have a separate model render rotated 90 degrees under the same fixed camera (walls above/below, passage east/west). The threshold remains on the map north/south axis. Its authored structural cutaway retains both low jamb bases and threshold while omitting the tall jambs/header. Retracted leaves are hidden only inside those cutaway housings. Closed leaf obstruction remains visible. The intact geometry stays editable in the source. An east door never borrows a north image or changes camera to impersonate a north doorway.
 
