@@ -158,7 +158,7 @@ public final class RunEngine {
   if(prior>90&&state.reserve<=90)e.add(new GameEvent("warning",state.playerX,state.playerY,"Oxygen reserve low."));
   if(prior>0&&state.reserve==0)e.add(new GameEvent("warning",state.playerX,state.playerY,"Reserve empty. Oxygenation is falling."));
   if(old>=70&&state.oxygenation<70)e.add(new GameEvent("warning",state.playerX,state.playerY,"Hypoxia. Verify perceptions with suit telemetry."));
-  if(state.hp==0){state.dead=true;e.add(new GameEvent("death",state.playerX,state.playerY,"Life signs lost."));return;}
+  if(state.hp==0){state.dead=true;e.add(new GameEvent("death",state.playerX,state.playerY,"Life signs lost.","officer",state.playerX,state.playerY,state.facing,state.tick,state.actionSerial,true,true,"contact"));return;}
   EnemyTurns.advance(state,e);
  }
  private boolean near(int x,int y){return GridRoutes.inside(state,x,y)&&CombatRules.distance(x,y,state.playerX,state.playerY)<=1;}

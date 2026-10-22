@@ -16,6 +16,7 @@ sourceSets.main.resources {
         'audio/survival/exchanges.json','audio/survival/voice/*.ogg','audio/survival/voice/clear/*.ogg','audio/survival/sfx/*.wav','audio/survival/ambience/*.ogg'
     include 'art/survival/equipment-motion/regions.json','art/survival/equipment-motion/clips.json','art/survival/equipment-motion/regions/*.png'
     include 'art/proof/catalog.json','art/proof/**/atlas.json','art/proof/**/regions.json','art/proof/**/clips.json','art/proof/**/atlases/*.png'
+    include 'art/production/officer/atlas.json','art/production/officer/coverage.json','art/production/officer/atlases/*.png'
 }
 run { workingDir rootProject.projectDir }
 tasks.named('installDist') { dependsOn rootProject.tasks.named('verifyAssets') }
@@ -49,11 +50,13 @@ tasks.register('packageWindows', Exec) {
         def destination=new File(imageDir,'OriginWar')
         copy { from rootProject.files('MANUAL.md','README.md'); into destination }
         copy { from rootProject.file('tools/distribution/art-comparison'); into destination }
+        copy { from rootProject.file('tools/distribution/illustrated-officer'); into destination }
         copy { from rootProject.file('docs'); into new File(destination,'docs') }
         copy { from rootProject.file('licenses'); into new File(destination,'licenses') }
         copy { from sourceDir; include(sourceFiles as String[]); into new File(destination,'DependencySources') }
         copy { from rootProject.files('assets/ASSET_PROVENANCE.md','assets/AUDIO_PROVENANCE.md','docs/VERIFICATION.md'); into new File(destination,'Evidence') }
         copy { from rootProject.file('assets/art/proof/coverage.json'); into new File(destination,'Evidence'); rename { 'ArtCoverage.json' } }
+        copy { from rootProject.file('assets/art/production/officer/coverage.json'); into new File(destination,'Evidence'); rename { 'OfficerCoverage.json' } }
         copy { from rootProject.file('docs/screenshots'); into new File(destination,'Evidence/Screenshots') }
         def gameSource=rootProject.layout.buildDirectory.file('OriginWarSource.zip').get().asFile
         gameSource.parentFile.mkdirs()

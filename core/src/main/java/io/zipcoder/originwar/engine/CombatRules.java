@@ -46,8 +46,8 @@ final class CombatRules{
  }
  static void damagePlayer(GameState s,int damage,List<GameEvent> e,String source){
   if(s.dead)return;int amount=Math.max(1,damage-EquipmentRules.protection(s.armor));s.hp=Math.max(0,s.hp-amount);s.memoryTicks.put("injury",s.tick);
-  e.add(new GameEvent("hit",s.playerX,s.playerY,source+": "+amount+" damage."));
-  if(s.hp==0){s.dead=true;e.add(new GameEvent("death",s.playerX,s.playerY,"Life signs lost. The expedition has ended."));}
+  e.add(new GameEvent("hit",s.playerX,s.playerY,source+": "+amount+" damage.","officer",s.playerX,s.playerY,s.facing,s.tick,s.actionSerial,true,true,"contact"));
+  if(s.hp==0){s.dead=true;e.add(new GameEvent("death",s.playerX,s.playerY,"Life signs lost. The expedition has ended.","officer",s.playerX,s.playerY,s.facing,s.tick,s.actionSerial,true,true,"contact"));}
  }
  static void explode(GameState s,GameState.Actor rover,List<GameEvent> e){
   rover.dead=true;rover.hp=0;

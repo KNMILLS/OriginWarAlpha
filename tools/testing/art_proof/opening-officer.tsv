@@ -1,0 +1,33 @@
+# Real accepted commands. Drop/pickup/equip makes immediate unarmed state explicit.
+DROP	0	0	starter-pistol
+MOVE	1	0
+MOVE	1	0
+MOVE	0	-1
+MOVE	0	-1
+MOVE	-1	0
+MOVE	-1	0
+MOVE	0	1
+MOVE	0	1
+PICKUP	0	0	starter-pistol
+EQUIP	0	0	starter-pistol
+MOVE	1	0
+MOVE	1	0
+MOVE	0	-1
+MOVE	0	-1
+MOVE	-1	0
+MOVE	-1	0
+MOVE	0	1
+MOVE	0	1
+TURN	0
+SHOOT	7	6
+TURN	1
+SHOOT	10	9
+TURN	2
+SHOOT	7	11
+TURN	3
+SHOOT	4	9
+MOVE	1	0
+MOVE	0	-1
+MOVE	0	-1
+CIRCUIT	8	6
+CIRCUIT	8	6

@@ -7,6 +7,34 @@ import java.util.*;
 import static org.junit.jupiter.api.Assertions.*;
 
 final class SurvivalTimelineTest {
+    @Test void guardedTravelDoesNotSlowFiringOrOtherPaidCommitments(){
+        var before=new RunEngine(2115).saveState();var t=new SurvivalTimeline();t.locomotionTiming(.5f,.5f);t.officerMovementSeconds(1.2f);t.locomotionTransitions(.15f,.15f);
+        var after=before.copy();after.playerX++;t.accept(before,after,new TurnResult(true,1,List.of(),"",1,true));assertEquals(1.5f,t.duration(),.0001);
+        t.accept(before,before,new TurnResult(true,1,List.of(),"",2,true));assertEquals(.5f,t.duration(),.0001);assertEquals("idle",t.locomotionPose().action());
+    }
+    @Test void incomingFinalTickImpactAndReactionShareAClockAfterThePlantedEndpoint(){
+        var before=new RunEngine(2115).saveState();var after=before.copy();after.playerX++;after.hp--;after.tick++;
+        var gun=new GameEvent("gun",10,9,"Machine fires.","sirs",10,9,0,after.tick,1,true,true,"contact");
+        var hit=new GameEvent("hit",after.playerX,after.playerY,"Impact","officer",after.playerX,after.playerY,0,after.tick,1,true,true,"contact");
+        var t=new SurvivalTimeline();t.locomotionTiming(.5f,.5f);t.officerMovementSeconds(1.2f);t.locomotionTransitions(.15f,.15f);t.orderedOfficerResponses(true);t.accept(before,after,new TurnResult(true,1,List.of(gun,hit),"",1,true));
+        assertEquals(1.5f,t.cueTime("gun","sirs",0),.0001);assertEquals(1.58f,t.cueTime("hit","officer",0),.0001);
+        var p=new OfficerPerformance();p.accept(before,after,PlayerAction.move(1,0),new TurnResult(true,1,List.of(gun,hit),"",1,true),t.duration(),.3f,.8f,t.cueTime("hit","officer",0),2);t.holdUntil(p.seconds());
+        var heard=new ArrayList<GameEvent>();t.advance(1.57f,heard::add);assertEquals(List.of(gun),heard);assertFalse(t.moving("officer"));assertEquals("walk",p.pose(t.elapsed()).action());
+        t.advance(.02f,heard::add);assertEquals(List.of(gun,hit),heard);assertEquals("hit",p.pose(t.elapsed()).action());
+    }
+    @Test void taggedOwnInjuryCannotInterruptItsCommittedShotBeforeRelease(){
+        var s=new RunEngine(2115).saveState();var gun=new GameEvent("gun",s.playerX,s.playerY,"Shot","officer",0,0,0,1,1,true,true,"release");var hit=new GameEvent("hit",s.playerX,s.playerY,"Impact","officer",0,0,0,1,1,true,true,"contact");
+        var t=new SurvivalTimeline();t.officerFireTiming(.14f,.5f);t.accept(s,s,new TurnResult(true,1,List.of(gun,hit),"",1,true));assertTrue(t.cueTime("hit","officer",0)>t.cueTime("gun","officer",0));
+    }
+    @Test void halfCellGaitKeepsStartupAndSettleStillAndOrdersFourContacts(){
+        var before=new RunEngine(2115).saveState();var after=before.copy();after.playerX++;after.tick++;
+        var event=new GameEvent("step",after.playerX,after.playerY,"FLOOR","officer",before.playerX,before.playerY,1,1,1,true,true,"contact");
+        var t=new SurvivalTimeline();t.locomotionTiming(1.2f,.5f);t.locomotionTransitions(.15f,.15f);t.locomotionContacts(List.of(0f,.5f));t.accept(before,after,new TurnResult(true,1,List.of(event),"",1,true));
+        var heard=new ArrayList<GameEvent>();t.advance(.1f,heard::add);assertEquals("start",t.locomotionPose().action());assertEquals(before.playerX,t.position("officer",after.playerX,after.playerY).x());
+        t.advance(.65f,heard::add);assertEquals("walk",t.locomotionPose().action());assertEquals(before.playerX+.5f,t.position("officer",after.playerX,after.playerY).x(),.0001);assertEquals(2,heard.size());
+        t.advance(.61f,heard::add);assertEquals("stop",t.locomotionPose().action());assertEquals(after.playerX,t.position("officer",after.playerX,after.playerY).x());assertEquals(4,heard.size());
+        t.advance(.15f,heard::add);assertEquals("idle",t.locomotionPose().action());assertFalse(t.busy());assertEquals(1,after.tick);assertEquals(0,before.tick);
+    }
     @Test void proofStrideUsesRealAuthoredContactsWithoutChangingWorldTicks(){var before=new RunEngine(2115).saveState();var after=before.copy();after.playerX++;after.tick++;var event=new GameEvent("step",after.playerX,after.playerY,"FLOOR","officer",before.playerX,before.playerY,1,1,1,true,true,"contact");var t=new SurvivalTimeline();t.locomotionTiming(.5f,1);t.locomotionContacts(List.of(0f,.5f));t.accept(before,after,new TurnResult(true,1,List.of(event),"",1,true));var heard=new ArrayList<GameEvent>();t.advance(.25f,heard::add);assertEquals(before.playerX+.5f,t.position("officer",after.playerX,after.playerY).x(),.001);assertEquals(1,heard.size());t.advance(.25f,heard::add);assertEquals(2,heard.size());assertEquals(0,before.tick);assertEquals(1,after.tick);assertFalse(t.busy());}
     @Test void carefulCrossingHoldsAtSourceUntilItsFinalTickThenPlantsAtContact(){
         var before=new RunEngine(2016).saveState();var after=before.copy();after.playerX++;after.tick+=2;

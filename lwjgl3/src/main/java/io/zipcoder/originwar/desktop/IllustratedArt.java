@@ -9,11 +9,14 @@ import java.util.*;
 /** Named illustrated regions retain author-defined bounds and planted foot anchors. */
 public final class IllustratedArt implements AutoCloseable {
  public record Region(TextureRegion texture,float width,float height,float pivotX,float pivotY,String layer) {}
+ public record Motion(float cellSeconds,float cycleCells,float startSeconds,float stopSeconds,List<Float> contacts) {}
  private final Map<String,Region> regions=new HashMap<>();
  private final Map<String,Texture> textures=new HashMap<>();
  private final Map<String,AnimationClip> clips=new HashMap<>();
  private final Map<String,String> proofBindings=new HashMap<>();
  private final Set<String> proofStyles=new HashSet<>();
+ private final Map<String,Motion> motionReferences=new HashMap<>();
+ private final Map<String,Float> durationReferences=new HashMap<>();
  private final Texture white,shadow;
  private boolean proofLoaded;
  public IllustratedArt(){
@@ -37,10 +40,27 @@ public final class IllustratedArt implements AutoCloseable {
    clips.put(id,new AnimationClip(frames,marks,clip.getBoolean("loop",false),clip.getFloat("cycleCells",0)));
   }
  }
- /** Proof resources are opt-in; the preserved campaign keeps its existing art. */
- public void loadProof(){if(proofLoaded)return;proofLoaded=true;var environment=Gdx.files.internal("art/proof/environment/atlas.json");if(!environment.exists())environment=Gdx.files.internal("art/proof/environment/regions.json");if(environment.exists())loadRegions(new JsonReader().parse(environment),"proof.environment.");
-  for(String style:List.of("painted","rendered")){var pack=Gdx.files.internal("art/proof/"+style+"/atlas.json");if(!pack.exists())pack=Gdx.files.internal("art/proof/"+style+"/clips.json");if(!pack.exists())continue;var root=new JsonReader().parse(pack);String prefix="proof."+style+".";loadMotion(root,prefix);proofStyles.add(style);var bindings=root.get("bindings");if(bindings!=null)for(var b:bindings){String clip=prefix+b.getString("clip");if(!clips.containsKey(clip))throw new GdxRuntimeException("Unbound proof animation "+clip);String key=proofKey(style,b.getString("weapon","pistol"),b.getString("armor","suit"),b.getString("action"),b.getString("facing"));if(proofBindings.putIfAbsent(key,clip)!=null)throw new GdxRuntimeException("Duplicate proof binding "+key);}}
+ /** Load just the selected candidate. Switching frees its predecessor's GPU pages. */
+ public void loadProof(String style){
+  if(proofStyles.contains(style))return;
+  if(!proofLoaded){proofLoaded=true;var environment=Gdx.files.internal("art/proof/environment/atlas.json");if(environment.exists())loadRegions(new JsonReader().parse(environment),"proof.environment.");}
+  String folder=style.equals("illustrated")?"art/production/officer/":"art/proof/"+style+"/";
+  var pack=Gdx.files.internal(folder+"atlas.json");if(!pack.exists())throw new GdxRuntimeException("Missing candidate atlas "+pack);
+  for(String old:List.copyOf(proofStyles)){
+   String prefix="proof."+old+".",oldFolder=old.equals("illustrated")?"art/production/officer/":"art/proof/"+old+"/";
+   regions.keySet().removeIf(k->k.startsWith(prefix));clips.keySet().removeIf(k->k.startsWith(prefix));proofBindings.keySet().removeIf(k->k.startsWith(old+":"));
+   for(String path:List.copyOf(textures.keySet()))if(path.startsWith(oldFolder))textures.remove(path).dispose();proofStyles.remove(old);
+  }
+  var root=new JsonReader().parse(pack);String prefix="proof."+style+".";loadMotion(root,prefix);proofStyles.add(style);var bindings=root.get("bindings");if(bindings!=null)for(var b:bindings){String clip=prefix+b.getString("clip");if(!clips.containsKey(clip))throw new GdxRuntimeException("Unbound proof animation "+clip);String key=proofKey(style,b.getString("weapon","pistol"),b.getString("armor","suit"),b.getString("action"),b.getString("facing"));if(proofBindings.putIfAbsent(key,clip)!=null)throw new GdxRuntimeException("Duplicate proof binding "+key);}
+  if(style.equals("illustrated")&&textureBytes()>192L*1024*1024)throw new GdxRuntimeException("Active art texture budget exceeded; revise atlas residency before campaign expansion");
+  if(bindings!=null)for(var b:bindings)durationReferences.put(proofKey(style,b.getString("weapon","pistol"),b.getString("armor","suit"),b.getString("action"),b.getString("facing")),clipSeconds(prefix+b.getString("clip"),0));
+  if(bindings!=null)for(var b:bindings)if(b.getString("action").equals("walk")){
+   String weapon=b.getString("weapon","pistol"),armor=b.getString("armor","suit"),face=b.getString("facing"),walk=prefix+b.getString("clip");float seconds=clipSeconds(walk,.5f),cells=cycleCells(walk,1);
+   motionReferences.put(proofKey(style,weapon,armor,"walk",face),new Motion(seconds/cells,cells,clipSeconds(proofClip(style,weapon,armor,"start",face),0),clipSeconds(proofClip(style,weapon,armor,"stop",face),0),markers(walk).stream().filter(m->m.kind().equals("contact")).map(m->m.seconds()/seconds).toList()));
+  }
  }
+ public Motion proofMotion(String style,String weapon,String armor,String face){return motionReferences.getOrDefault(proofKey(style,weapon,armor,"walk",face),new Motion(.5f,1,0,0,List.of()));}
+ public float proofReferenceSeconds(String style,String weapon,String armor,String action,String face,float fallback){return durationReferences.getOrDefault(proofKey(style,weapon,armor,action,face),fallback);}
  private String proofKey(String style,String weapon,String armor,String action,String facing){return String.join(":",style,weapon,armor,action,facing);}
  public String proofClip(String style,String weapon,String armor,String action,String facing){String prefix="proof."+style+".";String bound=proofBindings.get(proofKey(style,weapon,armor,action,facing));if(bound!=null)return bound;String full=prefix+"officer."+weapon+"."+armor+"."+action+"."+facing;if(hasClip(full))return full;if(armor.equals("suit")){String equipment=prefix+"officer."+weapon+"."+action+"."+facing;if(hasClip(equipment))return equipment;if(weapon.equals("pistol")){String old=prefix+"officer."+action+"."+facing;if(hasClip(old))return old;}}return "";}
  public boolean proofAvailable(String style){return proofStyles.contains(style);}
@@ -51,6 +71,7 @@ public final class IllustratedArt implements AutoCloseable {
  public String proofFireFrame(String clip,float seconds){var c=clips.get(clip);return c==null?"":c.retimedFire(seconds,.5f,.14f);}
  public boolean hasClip(String id){return clips.containsKey(id);}
  public float clipSeconds(String id,float fallback){var c=clips.get(id);return c==null?fallback:c.seconds();}
+ public float cycleCells(String id,float fallback){var c=clips.get(id);return c==null||c.cycleCells()<=0?fallback:c.cycleCells();}
  public float markerSeconds(String clip,String marker,float fallback){var c=clips.get(clip);return c==null?fallback:c.marker(marker,fallback);}
  public List<AnimationClip.Marker> markers(String clip){var c=clips.get(clip);return c==null?List.of():c.markers();}
  public void draw(SpriteBatch batch,String name,float x,float y,float cell,Color tint){var r=regions.get(name);if(r==null)return;float w=r.width*cell,h=r.height*cell;batch.setColor(tint);batch.draw(r.texture,x-r.pivotX*w,y-r.pivotY*h,w,h);batch.setColor(Color.WHITE);}

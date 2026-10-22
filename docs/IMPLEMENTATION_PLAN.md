@@ -1,5 +1,15 @@
 # Implementation task ledger
 
+## Illustrated rig production (owner direction 22 October 2026)
+
+Owner supplied a production review selecting Blender-driven animation with an illustrated finish as the working foundation, conditional on appearance. Painted officer identity and painted environments remain the targets. This selects the development method; it does not accept either proof's artistic quality or authorize campaign-wide expansion.
+
+| ID | Exclusive owner / paths | Acceptance | State |
+| --- | --- | --- | --- |
+| AR-LEAD | lead; client/timeline, new atlas tooling, contracts/build/registries/docs/integration/native captures | preserved tactical state; truthful work/hit/death selection; selected-only loading and texture budget; actual normal-speed review | in progress from814253f; no purchases |
+| AR-OFFICER | animation specialist; `worktrees/art-proof-rendered`; new `assets/art/production/officer/**`, `tools/media/officer_production/**`, `OFFICER_PRODUCTION.md` only | human construction/material pilot before full export; source rig, calibrated contacts; opening pistol/unarmed coverage | in progress; no re-delegation; old proof preserved |
+| AR-REVIEW | art/research specialists; read-only | actual footage and pilot review; reachable opening states; independent source review | in progress; no write leases |
+
 ## Art production proof (owner approved 21 October 2026)
 
 Baseline `604c910`. Owner requests implementation of the art production plan, beginning with a $0 native comparison of painted frames and Blender-rendered sprites in the same room. Owner selection gates campaign-wide expansion; existing releases and production art remain preserved.

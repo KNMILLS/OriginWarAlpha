@@ -84,6 +84,25 @@ tasks.register('verifyAssets') {
                 (catalog.bindings?:[]).each { binding -> if(!ids.contains(binding.clip))throw new GradleException('Missing proof binding: '+binding.clip) }
             }
         }
+        def officerAtlas=file('assets/art/production/officer/atlas.json')
+        if(officerAtlas.isFile()){
+            def production=new groovy.json.JsonSlurper().parse(officerAtlas)
+            check(production.sourceManifest.path,production.sourceManifest.sha256)
+            if(production.atlasPages.isEmpty()||production.atlasPages.size()>8||production.memoryBudget.actualRgbaBytes!=production.atlasPages.size()*2048L*2048*4)throw new GradleException('Officer texture residency exceeds declared budget')
+            production.atlasPages.each{page->check(page.path,page.sha256)}
+            def ids=[] as Set
+            production.clips.each{clip->
+                if(!ids.add(clip.id)||clip.frames.isEmpty())throw new GradleException('Invalid production clip '+clip.id)
+                clip.frames.each{frame->
+                    check(frame.sourcePath,frame.sourceSha256)
+                    if(frame.widthCells<=0||frame.heightCells<=0||frame.pivotX<0||frame.pivotX>1||frame.pivotY<0||frame.pivotY>1)throw new GradleException('Invalid trimmed officer origin')
+                }
+            }
+            def bound=[] as Set
+            production.bindings.each{binding->
+                if(!ids.contains(binding.clip)||!bound.add([binding.weapon,binding.armor,binding.action,binding.facing]))throw new GradleException('Invalid/duplicate officer binding')
+            }
+        }
         def notices=new groovy.json.JsonSlurper().parse(file('licenses/MANIFEST.json'))
         notices.each { path,entry -> if(!file('licenses/'+path).isFile()||digest(file('licenses/'+path))!=entry.sha256)throw new GradleException('Notice mismatch: '+path) }
         logger.lifecycle('Validated '+art.regions.size()+' illustrated regions, 12 equipment silhouettes, north pistol action, 28 exact normal/clear performances, 16 effects, 3 station beds and dependency notices.')
