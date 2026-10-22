@@ -7,6 +7,10 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.*;
 
 class OfficerPerformanceTest {
+ @Test void longMaintenanceReachesAndHoldsItsToolThenRecoversOnTheFinalTick(){
+  var s=new RunEngine(2115).saveState();var p=new OfficerPerformance();p.workTiming(.5f,1f/6);p.accept(s,s,PlayerAction.of(PlayerAction.Type.HACK),accepted(3),1.5f,.3f,.8f);
+  assertEquals(.2f,p.pose(.1f).progress(),.0001);assertEquals(1f/3,p.pose(.8f).progress(),.0001);assertEquals(1f/3,p.pose(1+1f/6).progress(),.0001);assertEquals(.8f,p.pose(1.4f).progress(),.0001);assertEquals(1,p.pose(1.5f).progress());assertEquals(0,s.tick);
+ }
  @Test void anEarlyNonfatalReactionEndsBeforeLaterMovementResumes(){
   var before=new RunEngine(2115).saveState();var after=before.copy();after.playerX++;after.hp--;var p=new OfficerPerformance();
   p.accept(before,after,PlayerAction.of(PlayerAction.Type.CAREFUL_MOVE),accepted(2),2,.3f,.8f,.12f,2);
@@ -30,7 +34,7 @@ class OfficerPerformanceTest {
  @Test void deathIsAuthoritativeWhileItsBoundedPresentationRemainsVisible(){
   var before=new RunEngine(2115).saveState();var after=before.copy();after.hp=0;after.dead=true;var p=new OfficerPerformance();
   p.accept(before,after,PlayerAction.of(PlayerAction.Type.WAIT),accepted(1),.5f,.3f,.8f);
-  assertTrue(after.dead);assertTrue(p.deathPending(.6f));assertEquals("death",p.pose(.6f).action());assertFalse(p.deathPending(1.3f));assertEquals(1,p.pose(2).progress());assertEquals(100,before.hp);
+  assertTrue(after.dead);assertTrue(p.deathPending(.6f));assertEquals("death",p.pose(.6f).action());assertTrue(p.deathPending(1.3f));assertEquals(1,p.pose(1.3f).progress(),.0001);assertFalse(p.deathPending(1.66f));assertEquals(1,p.pose(2).progress());assertEquals(100,before.hp);
  }
  @Test void extendingReactionDoesNotDelayAPlantedStepOrConsumeWorldTime(){
   var before=new RunEngine(2115).saveState();var after=before.copy();after.playerX++;after.hp--;after.tick++;

@@ -67,9 +67,47 @@ def extrude(page, image, x, y):
                 page.putpixel((tx,ty), image.getpixel((sx,sy)))
 
 
+def place_images(images, order):
+    """Deterministic MaxRects placement without rotation or resampling."""
+    free_pages, placements = [], {}
+    for key in order:
+        width, height = images[key].size
+        w, h = width + PAD*2, height + PAD*2
+        if max(w, h) > PAGE:
+            raise ValueError("Production frame exceeds page")
+        best = None
+        for index, free in enumerate(free_pages):
+            for x,y,fw,fh in free:
+                if w <= fw and h <= fh:
+                    score=(min(fw-w,fh-h),max(fw-w,fh-h),index,y,x)
+                    if best is None or score < best[0]:
+                        best=(score,index,x,y)
+        if best is None:
+            index=len(free_pages);free_pages.append([(0,0,PAGE,PAGE)]);x=y=0
+        else:
+            _,index,x,y=best
+        split=[]
+        for fx,fy,fw,fh in free_pages[index]:
+            if x>=fx+fw or x+w<=fx or y>=fy+fh or y+h<=fy:
+                split.append((fx,fy,fw,fh));continue
+            if x>fx:split.append((fx,fy,x-fx,fh))
+            if x+w<fx+fw:split.append((x+w,fy,fx+fw-x-w,fh))
+            if y>fy:split.append((fx,fy,fw,y-fy))
+            if y+h<fy+fh:split.append((fx,y+h,fw,fy+fh-y-h))
+        split=sorted(set(split))
+        free_pages[index]=[a for a in split if not any(a!=b and a[0]>=b[0] and a[1]>=b[1] and a[0]+a[2]<=b[0]+b[2] and a[1]+a[3]<=b[1]+b[3] for b in split)]
+        placements[key]=(index,x+PAD,y+PAD,width,height)
+    return len(free_pages),placements
+
+
 def pack(folder=FOLDER, kind="officer"):
     manifest = folder / "clips.json"
     data = json.loads(manifest.read_text(encoding="utf-8-sig"))
+    regions_manifest = folder / "regions.json"
+    if kind == "station" and regions_manifest.is_file():
+        animated_paths = {f["path"] for c in data["clips"] for f in c["frames"]}
+        data["regions"] = list(data.get("regions", [])) + [r for r in json.loads(regions_manifest.read_text(encoding="utf-8-sig"))["regions"] if r["path"] not in animated_paths]
+        data["sourceRegionsManifest"] = dict(path=regions_manifest.relative_to(ASSETS).as_posix(), sha256=sha(regions_manifest))
     frames = list(data.get("regions", [])) + [frame for clip in data["clips"] for frame in clip["frames"]]
     images, placements, aliases, metadata = {}, {}, {}, {}
     for frame in frames:
@@ -84,25 +122,11 @@ def pack(folder=FOLDER, kind="officer"):
         if frame["path"] in metadata and metadata[frame["path"]] != meta:
             raise ValueError(f"Inconsistent source bounds/anchor for {frame['path']}")
         metadata[frame["path"]] = meta
-    # Larger first, deterministic shelf packing; identical pixels share a placement.
-    pages, page = [], Image.new("RGBA", (PAGE, PAGE))
-    x = y = PAD
-    row = 0
-    for key in sorted(images, key=lambda k: (-k[0][1], -k[0][0], k[1])):
-        image = images[key]
-        w, h = image.size
-        if max(w,h) + PAD*2 > PAGE:
-            raise ValueError("Production frame exceeds page")
-        if x + w + PAD > PAGE:
-            x, y, row = PAD, y + row + PAD*2, 0
-        if y + h + PAD > PAGE:
-            pages.append(page)
-            page, x, y, row = Image.new("RGBA", (PAGE,PAGE)), PAD, PAD, 0
-        extrude(page, image, x, y)
-        placements[key] = (len(pages), x, y, w, h)
-        x += w + PAD*2
-        row = max(row, h)
-    pages.append(page)
+    # Compare three fixed orders; all preserve pixels, origins and transparent padding.
+    orders=[sorted(images,key=lambda k:(-k[0][0]*k[0][1],-max(k[0]),k[1])),sorted(images,key=lambda k:(-k[0][1],-k[0][0],k[1])),sorted(images,key=lambda k:(-max(k[0]),-min(k[0]),k[1]))]
+    count,placements=min((place_images(images,order) for order in orders),key=lambda result:result[0])
+    pages=[Image.new("RGBA",(PAGE,PAGE)) for _ in range(count)]
+    for key,(index,x,y,w,h) in placements.items():extrude(pages[index],images[key],x,y)
     if len(pages) > MAX_PAGES:
         raise ValueError(f"{kind} texture budget exceeded: {len(pages)} > {MAX_PAGES} pages; revise packing/residency before expanding")
     output = folder / "atlases"
@@ -138,8 +162,9 @@ def officer_coverage(data):
                     if action == "turn_from_" + facing:
                         continue
                     clip=bound.get((weapon,armor,action,facing),"")
-                    opening=armor=="suit" and weapon in ("unarmed","pistol")
-                    coverage.append(dict(weapon=weapon,armor=armor,action=action,facing=facing,openingReachable=opening,status="candidate" if clip else "missing",clip=clip))
+                    applicable=not(weapon=="unarmed" and action in ("aim","fire"))
+                    opening=armor=="suit" and weapon in ("unarmed","pistol") and applicable
+                    coverage.append(dict(weapon=weapon,armor=armor,action=action,facing=facing,openingReachable=opening,status="not-applicable" if not applicable else "candidate" if clip else "missing",clip=clip))
     return coverage
 
 

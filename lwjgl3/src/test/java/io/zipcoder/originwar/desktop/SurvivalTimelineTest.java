@@ -7,6 +7,23 @@ import java.util.*;
 import static org.junit.jupiter.api.Assertions.*;
 
 final class SurvivalTimelineTest {
+    @Test void consecutiveMachineStepsWalkThroughTheirSharedBoundary(){
+        var before=new RunEngine(2115).saveState();var a=before.actors.getFirst();for(int dx=0;dx<=2;dx++)before.visible[a.x+dx][a.y]=true;
+        var after=before.copy();var b=after.actors.getFirst();b.x+=2;after.tick+=2;
+        var first=new GameEvent("robot_step",a.x+1,a.y,"Move",a.id,a.x,a.y,1,1,1,true,true,"contact");
+        var second=new GameEvent("robot_step",a.x+2,a.y,"Move",a.id,a.x+1,a.y,1,2,1,true,true,"contact");
+        var t=new SurvivalTimeline();t.locomotionTiming(.5f,1);t.machineMotionTiming(Map.of(a.id,new SurvivalTimeline.MachineMotion(.5f,List.of(0f,.5f),.15f,.15f)));
+        t.accept(before,after,new TurnResult(true,2,List.of(first,second),"",1,true));t.advance(.70f,e->{});
+        assertEquals("walk",t.machineLocomotionPose(a.id).action());assertEquals(a.x+1.1f,t.position(a.id,b.x,b.y).x(),.0001);assertTrue(t.moving(a.id));
+        t.advance(.46f,e->{});assertEquals("stop",t.machineLocomotionPose(a.id).action());assertEquals(b.x,t.position(a.id,b.x,b.y).x());
+    }
+    @Test void longWorkSoundUsesTheFinalTicksAuthoredContact(){
+        var before=new RunEngine(2115).saveState();var after=before.copy();after.tick+=3;var door=new GameEvent("door",before.playerX+1,before.playerY,"Forced open").atTick(after.tick);
+        var t=new SurvivalTimeline();t.locomotionTiming(.5f,1);t.officerWorkContact(1f/6);t.accept(before,after,new TurnResult(true,3,List.of(door),"",1,true));assertEquals(1+1f/6,t.cueTime(door,0),.0001);assertEquals(1+1f/6,t.workContactAt(),.0001);
+    }
+    @Test void machineStartupAndSettleKeepTheChassisPlantedAroundTravel(){
+        var before=new RunEngine(2115).saveState();var a=before.actors.getFirst();before.visible[a.x][a.y]=true;var after=before.copy();var b=after.actors.getFirst();b.x++;after.visible[b.x][b.y]=true;var step=new GameEvent("robot_step",b.x,b.y,"Move",a.id,a.x,a.y,1,1,1,true,true,"contact");var t=new SurvivalTimeline();t.locomotionTiming(.5f,1);t.machineMotionTiming(Map.of(a.id,new SurvivalTimeline.MachineMotion(.5f,List.of(0f,.5f),.1f,.1f)));t.accept(before,after,new TurnResult(true,1,List.of(step),"",1,true));t.advance(.05f,e->{});assertEquals("start",t.machineLocomotionPose(a.id).action());assertEquals(a.x,t.position(a.id,b.x,b.y).x());t.advance(.56f,e->{});assertEquals("stop",t.machineLocomotionPose(a.id).action());assertEquals(b.x,t.position(a.id,b.x,b.y).x());assertEquals(.7f,t.duration(),.0001);
+    }
     @Test void machineStrideAndContactsUseAuthoredDistanceAtActualTravelSpeed(){
         var before=new RunEngine(2115).saveState();var a=before.actors.getFirst();before.visible[a.x][a.y]=true;var after=before.copy();var b=after.actors.getFirst();b.x++;after.visible[b.x][b.y]=true;
         var step=new GameEvent("robot_step",b.x,b.y,"Move",a.id,a.x,a.y,1,1,1,true,true,"contact");var t=new SurvivalTimeline();t.locomotionTiming(.5f,1);t.machineMotionTiming(Map.of(a.id,new SurvivalTimeline.MachineMotion(.5f,List.of(0f,.5f))));t.accept(before,after,new TurnResult(true,1,List.of(step),"",1,true));var heard=new ArrayList<GameEvent>();t.advance(.125f,heard::add);assertEquals(.5f,t.machineGaitPhase(a.id),.0001);assertEquals(a.x+.25f,t.position(a.id,b.x,b.y).x(),.0001);assertEquals(1,heard.size());t.advance(.375f,heard::add);assertEquals(4,heard.size());assertFalse(t.moving(a.id));assertEquals(0,before.tick);

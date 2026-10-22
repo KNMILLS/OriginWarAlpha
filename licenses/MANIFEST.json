@@ -158,5 +158,9 @@
   "alice/QWEN_VOICE_DESIGN_MODEL_CARD.md": {
     "sha256": "acfaf6c0d433866cb5e2bb73e7915ea3767f5a2e3abca413b485635a2c72b5e6",
     "source": "https://huggingface.co/Qwen/Qwen3-TTS-12Hz-1.7B-VoiceDesign/blob/5ecdb67327fd37bb2e042aab12ff7391903235d3/README.md"
+  },
+  "art/BLENDER_ANATOMY_CC0.txt": {
+    "source": "Blender Human Base Meshes v1.4.1; embedded selected CC0 collection metadata and extraction receipts",
+    "sha256": "c07908c9d76fe1fbbd8e7676ad551ab39295700b0137ccbb63e628f51b49b119"
   }
 }

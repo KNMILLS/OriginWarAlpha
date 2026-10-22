@@ -89,6 +89,7 @@ tasks.register('verifyAssets') {
         if(productionAtlas.isFile()){
             def production=new groovy.json.JsonSlurper().parse(productionAtlas)
             check(production.sourceManifest.path,production.sourceManifest.sha256)
+            if(production.sourceRegionsManifest!=null)check(production.sourceRegionsManifest.path,production.sourceRegionsManifest.sha256)
             if(production.atlasPages.isEmpty()||production.atlasPages.size()>8||production.memoryBudget.actualRgbaBytes!=production.atlasPages.size()*2048L*2048*4)throw new GradleException(kind+' texture residency exceeds declared budget')
             production.atlasPages.each{page->check(page.path,page.sha256)}
             def ids=[] as Set

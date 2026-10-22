@@ -186,8 +186,8 @@
       "armor": "suit",
       "action": "aim",
       "facing": "north",
-      "openingReachable": true,
-      "status": "missing",
+      "openingReachable": false,
+      "status": "not-applicable",
       "clip": ""
     },
     {
@@ -195,8 +195,8 @@
       "armor": "suit",
       "action": "aim",
       "facing": "east",
-      "openingReachable": true,
-      "status": "missing",
+      "openingReachable": false,
+      "status": "not-applicable",
       "clip": ""
     },
     {
@@ -204,8 +204,8 @@
       "armor": "suit",
       "action": "aim",
       "facing": "south",
-      "openingReachable": true,
-      "status": "missing",
+      "openingReachable": false,
+      "status": "not-applicable",
       "clip": ""
     },
     {
@@ -213,8 +213,8 @@
       "armor": "suit",
       "action": "aim",
       "facing": "west",
-      "openingReachable": true,
-      "status": "missing",
+      "openingReachable": false,
+      "status": "not-applicable",
       "clip": ""
     },
     {
@@ -222,8 +222,8 @@
       "armor": "suit",
       "action": "fire",
       "facing": "north",
-      "openingReachable": true,
-      "status": "missing",
+      "openingReachable": false,
+      "status": "not-applicable",
       "clip": ""
     },
     {
@@ -231,8 +231,8 @@
       "armor": "suit",
       "action": "fire",
       "facing": "east",
-      "openingReachable": true,
-      "status": "missing",
+      "openingReachable": false,
+      "status": "not-applicable",
       "clip": ""
     },
     {
@@ -240,8 +240,8 @@
       "armor": "suit",
       "action": "fire",
       "facing": "south",
-      "openingReachable": true,
-      "status": "missing",
+      "openingReachable": false,
+      "status": "not-applicable",
       "clip": ""
     },
     {
@@ -249,8 +249,8 @@
       "armor": "suit",
       "action": "fire",
       "facing": "west",
-      "openingReachable": true,
-      "status": "missing",
+      "openingReachable": false,
+      "status": "not-applicable",
       "clip": ""
     },
     {
@@ -399,6 +399,114 @@
     },
     {
       "weapon": "unarmed",
+      "armor": "suit",
+      "action": "turn_from_north",
+      "facing": "east",
+      "openingReachable": true,
+      "status": "candidate",
+      "clip": "officer.unarmed.suit.turn_from_north.east"
+    },
+    {
+      "weapon": "unarmed",
+      "armor": "suit",
+      "action": "turn_from_north",
+      "facing": "south",
+      "openingReachable": true,
+      "status": "candidate",
+      "clip": "officer.unarmed.suit.turn_from_north.south"
+    },
+    {
+      "weapon": "unarmed",
+      "armor": "suit",
+      "action": "turn_from_north",
+      "facing": "west",
+      "openingReachable": true,
+      "status": "candidate",
+      "clip": "officer.unarmed.suit.turn_from_north.west"
+    },
+    {
+      "weapon": "unarmed",
+      "armor": "suit",
+      "action": "turn_from_east",
+      "facing": "north",
+      "openingReachable": true,
+      "status": "candidate",
+      "clip": "officer.unarmed.suit.turn_from_east.north"
+    },
+    {
+      "weapon": "unarmed",
+      "armor": "suit",
+      "action": "turn_from_east",
+      "facing": "south",
+      "openingReachable": true,
+      "status": "candidate",
+      "clip": "officer.unarmed.suit.turn_from_east.south"
+    },
+    {
+      "weapon": "unarmed",
+      "armor": "suit",
+      "action": "turn_from_east",
+      "facing": "west",
+      "openingReachable": true,
+      "status": "candidate",
+      "clip": "officer.unarmed.suit.turn_from_east.west"
+    },
+    {
+      "weapon": "unarmed",
+      "armor": "suit",
+      "action": "turn_from_south",
+      "facing": "north",
+      "openingReachable": true,
+      "status": "candidate",
+      "clip": "officer.unarmed.suit.turn_from_south.north"
+    },
+    {
+      "weapon": "unarmed",
+      "armor": "suit",
+      "action": "turn_from_south",
+      "facing": "east",
+      "openingReachable": true,
+      "status": "candidate",
+      "clip": "officer.unarmed.suit.turn_from_south.east"
+    },
+    {
+      "weapon": "unarmed",
+      "armor": "suit",
+      "action": "turn_from_south",
+      "facing": "west",
+      "openingReachable": true,
+      "status": "candidate",
+      "clip": "officer.unarmed.suit.turn_from_south.west"
+    },
+    {
+      "weapon": "unarmed",
+      "armor": "suit",
+      "action": "turn_from_west",
+      "facing": "north",
+      "openingReachable": true,
+      "status": "candidate",
+      "clip": "officer.unarmed.suit.turn_from_west.north"
+    },
+    {
+      "weapon": "unarmed",
+      "armor": "suit",
+      "action": "turn_from_west",
+      "facing": "east",
+      "openingReachable": true,
+      "status": "candidate",
+      "clip": "officer.unarmed.suit.turn_from_west.east"
+    },
+    {
+      "weapon": "unarmed",
+      "armor": "suit",
+      "action": "turn_from_west",
+      "facing": "south",
+      "openingReachable": true,
+      "status": "candidate",
+      "clip": "officer.unarmed.suit.turn_from_west.south"
+    },
+    {
+      "weapon": "unarmed",
       "armor": "light",
       "action": "idle",
       "facing": "north",
@@ -583,7 +691,7 @@
       "action": "aim",
       "facing": "north",
       "openingReachable": false,
-      "status": "missing",
+      "status": "not-applicable",
       "clip": ""
     },
     {
@@ -592,7 +700,7 @@
       "action": "aim",
       "facing": "east",
       "openingReachable": false,
-      "status": "missing",
+      "status": "not-applicable",
       "clip": ""
     },
     {
@@ -601,7 +709,7 @@
       "action": "aim",
       "facing": "south",
       "openingReachable": false,
-      "status": "missing",
+      "status": "not-applicable",
       "clip": ""
     },
     {
@@ -610,7 +718,7 @@
       "action": "aim",
       "facing": "west",
       "openingReachable": false,
-      "status": "missing",
+      "status": "not-applicable",
       "clip": ""
     },
     {
@@ -619,7 +727,7 @@
       "action": "fire",
       "facing": "north",
       "openingReachable": false,
-      "status": "missing",
+      "status": "not-applicable",
       "clip": ""
     },
     {
@@ -628,7 +736,7 @@
       "action": "fire",
       "facing": "east",
       "openingReachable": false,
-      "status": "missing",
+      "status": "not-applicable",
       "clip": ""
     },
     {
@@ -637,7 +745,7 @@
       "action": "fire",
       "facing": "south",
       "openingReachable": false,
-      "status": "missing",
+      "status": "not-applicable",
       "clip": ""
     },
     {
@@ -646,7 +754,7 @@
       "action": "fire",
       "facing": "west",
       "openingReachable": false,
-      "status": "missing",
+      "status": "not-applicable",
       "clip": ""
     },
     {
@@ -789,6 +897,114 @@
       "armor": "light",
       "action": "death",
       "facing": "west",
+      "openingReachable": false,
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "weapon": "unarmed",
+      "armor": "light",
+      "action": "turn_from_north",
+      "facing": "east",
+      "openingReachable": false,
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "weapon": "unarmed",
+      "armor": "light",
+      "action": "turn_from_north",
+      "facing": "south",
+      "openingReachable": false,
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "weapon": "unarmed",
+      "armor": "light",
+      "action": "turn_from_north",
+      "facing": "west",
+      "openingReachable": false,
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "weapon": "unarmed",
+      "armor": "light",
+      "action": "turn_from_east",
+      "facing": "north",
+      "openingReachable": false,
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "weapon": "unarmed",
+      "armor": "light",
+      "action": "turn_from_east",
+      "facing": "south",
+      "openingReachable": false,
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "weapon": "unarmed",
+      "armor": "light",
+      "action": "turn_from_east",
+      "facing": "west",
+      "openingReachable": false,
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "weapon": "unarmed",
+      "armor": "light",
+      "action": "turn_from_south",
+      "facing": "north",
+      "openingReachable": false,
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "weapon": "unarmed",
+      "armor": "light",
+      "action": "turn_from_south",
+      "facing": "east",
+      "openingReachable": false,
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "weapon": "unarmed",
+      "armor": "light",
+      "action": "turn_from_south",
+      "facing": "west",
+      "openingReachable": false,
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "weapon": "unarmed",
+      "armor": "light",
+      "action": "turn_from_west",
+      "facing": "north",
+      "openingReachable": false,
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "weapon": "unarmed",
+      "armor": "light",
+      "action": "turn_from_west",
+      "facing": "east",
+      "openingReachable": false,
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "weapon": "unarmed",
+      "armor": "light",
+      "action": "turn_from_west",
+      "facing": "south",
       "openingReachable": false,
       "status": "missing",
       "clip": ""
@@ -979,7 +1195,7 @@
       "action": "aim",
       "facing": "north",
       "openingReachable": false,
-      "status": "missing",
+      "status": "not-applicable",
       "clip": ""
     },
     {
@@ -988,7 +1204,7 @@
       "action": "aim",
       "facing": "east",
       "openingReachable": false,
-      "status": "missing",
+      "status": "not-applicable",
       "clip": ""
     },
     {
@@ -997,7 +1213,7 @@
       "action": "aim",
       "facing": "south",
       "openingReachable": false,
-      "status": "missing",
+      "status": "not-applicable",
       "clip": ""
     },
     {
@@ -1006,7 +1222,7 @@
       "action": "aim",
       "facing": "west",
       "openingReachable": false,
-      "status": "missing",
+      "status": "not-applicable",
       "clip": ""
     },
     {
@@ -1015,7 +1231,7 @@
       "action": "fire",
       "facing": "north",
       "openingReachable": false,
-      "status": "missing",
+      "status": "not-applicable",
       "clip": ""
     },
     {
@@ -1024,7 +1240,7 @@
       "action": "fire",
       "facing": "east",
       "openingReachable": false,
-      "status": "missing",
+      "status": "not-applicable",
       "clip": ""
     },
     {
@@ -1033,7 +1249,7 @@
       "action": "fire",
       "facing": "south",
       "openingReachable": false,
-      "status": "missing",
+      "status": "not-applicable",
       "clip": ""
     },
     {
@@ -1042,7 +1258,7 @@
       "action": "fire",
       "facing": "west",
       "openingReachable": false,
-      "status": "missing",
+      "status": "not-applicable",
       "clip": ""
     },
     {
@@ -1185,6 +1401,114 @@
       "armor": "heavy",
       "action": "death",
       "facing": "west",
+      "openingReachable": false,
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "weapon": "unarmed",
+      "armor": "heavy",
+      "action": "turn_from_north",
+      "facing": "east",
+      "openingReachable": false,
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "weapon": "unarmed",
+      "armor": "heavy",
+      "action": "turn_from_north",
+      "facing": "south",
+      "openingReachable": false,
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "weapon": "unarmed",
+      "armor": "heavy",
+      "action": "turn_from_north",
+      "facing": "west",
+      "openingReachable": false,
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "weapon": "unarmed",
+      "armor": "heavy",
+      "action": "turn_from_east",
+      "facing": "north",
+      "openingReachable": false,
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "weapon": "unarmed",
+      "armor": "heavy",
+      "action": "turn_from_east",
+      "facing": "south",
+      "openingReachable": false,
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "weapon": "unarmed",
+      "armor": "heavy",
+      "action": "turn_from_east",
+      "facing": "west",
+      "openingReachable": false,
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "weapon": "unarmed",
+      "armor": "heavy",
+      "action": "turn_from_south",
+      "facing": "north",
+      "openingReachable": false,
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "weapon": "unarmed",
+      "armor": "heavy",
+      "action": "turn_from_south",
+      "facing": "east",
+      "openingReachable": false,
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "weapon": "unarmed",
+      "armor": "heavy",
+      "action": "turn_from_south",
+      "facing": "west",
+      "openingReachable": false,
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "weapon": "unarmed",
+      "armor": "heavy",
+      "action": "turn_from_west",
+      "facing": "north",
+      "openingReachable": false,
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "weapon": "unarmed",
+      "armor": "heavy",
+      "action": "turn_from_west",
+      "facing": "east",
+      "openingReachable": false,
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "weapon": "unarmed",
+      "armor": "heavy",
+      "action": "turn_from_west",
+      "facing": "south",
       "openingReachable": false,
       "status": "missing",
       "clip": ""
@@ -1447,8 +1771,8 @@
       "action": "melee",
       "facing": "north",
       "openingReachable": true,
-      "status": "missing",
-      "clip": ""
+      "status": "candidate",
+      "clip": "officer.pistol.suit.melee.north"
     },
     {
       "weapon": "pistol",
@@ -1456,8 +1780,8 @@
       "action": "melee",
       "facing": "east",
       "openingReachable": true,
-      "status": "missing",
-      "clip": ""
+      "status": "candidate",
+      "clip": "officer.pistol.suit.melee.east"
     },
     {
       "weapon": "pistol",
@@ -1465,8 +1789,8 @@
       "action": "melee",
       "facing": "south",
       "openingReachable": true,
-      "status": "missing",
-      "clip": ""
+      "status": "candidate",
+      "clip": "officer.pistol.suit.melee.south"
     },
     {
       "weapon": "pistol",
@@ -1474,8 +1798,8 @@
       "action": "melee",
       "facing": "west",
       "openingReachable": true,
-      "status": "missing",
-      "clip": ""
+      "status": "candidate",
+      "clip": "officer.pistol.suit.melee.west"
     },
     {
       "weapon": "pistol",
@@ -1587,6 +1911,114 @@
     },
     {
       "weapon": "pistol",
+      "armor": "suit",
+      "action": "turn_from_north",
+      "facing": "east",
+      "openingReachable": true,
+      "status": "candidate",
+      "clip": "officer.pistol.suit.turn_from_north.east"
+    },
+    {
+      "weapon": "pistol",
+      "armor": "suit",
+      "action": "turn_from_north",
+      "facing": "south",
+      "openingReachable": true,
+      "status": "candidate",
+      "clip": "officer.pistol.suit.turn_from_north.south"
+    },
+    {
+      "weapon": "pistol",
+      "armor": "suit",
+      "action": "turn_from_north",
+      "facing": "west",
+      "openingReachable": true,
+      "status": "candidate",
+      "clip": "officer.pistol.suit.turn_from_north.west"
+    },
+    {
+      "weapon": "pistol",
+      "armor": "suit",
+      "action": "turn_from_east",
+      "facing": "north",
+      "openingReachable": true,
+      "status": "candidate",
+      "clip": "officer.pistol.suit.turn_from_east.north"
+    },
+    {
+      "weapon": "pistol",
+      "armor": "suit",
+      "action": "turn_from_east",
+      "facing": "south",
+      "openingReachable": true,
+      "status": "candidate",
+      "clip": "officer.pistol.suit.turn_from_east.south"
+    },
+    {
+      "weapon": "pistol",
+      "armor": "suit",
+      "action": "turn_from_east",
+      "facing": "west",
+      "openingReachable": true,
+      "status": "candidate",
+      "clip": "officer.pistol.suit.turn_from_east.west"
+    },
+    {
+      "weapon": "pistol",
+      "armor": "suit",
+      "action": "turn_from_south",
+      "facing": "north",
+      "openingReachable": true,
+      "status": "candidate",
+      "clip": "officer.pistol.suit.turn_from_south.north"
+    },
+    {
+      "weapon": "pistol",
+      "armor": "suit",
+      "action": "turn_from_south",
+      "facing": "east",
+      "openingReachable": true,
+      "status": "candidate",
+      "clip": "officer.pistol.suit.turn_from_south.east"
+    },
+    {
+      "weapon": "pistol",
+      "armor": "suit",
+      "action": "turn_from_south",
+      "facing": "west",
+      "openingReachable": true,
+      "status": "candidate",
+      "clip": "officer.pistol.suit.turn_from_south.west"
+    },
+    {
+      "weapon": "pistol",
+      "armor": "suit",
+      "action": "turn_from_west",
+      "facing": "north",
+      "openingReachable": true,
+      "status": "candidate",
+      "clip": "officer.pistol.suit.turn_from_west.north"
+    },
+    {
+      "weapon": "pistol",
+      "armor": "suit",
+      "action": "turn_from_west",
+      "facing": "east",
+      "openingReachable": true,
+      "status": "candidate",
+      "clip": "officer.pistol.suit.turn_from_west.east"
+    },
+    {
+      "weapon": "pistol",
+      "armor": "suit",
+      "action": "turn_from_west",
+      "facing": "south",
+      "openingReachable": true,
+      "status": "candidate",
+      "clip": "officer.pistol.suit.turn_from_west.south"
+    },
+    {
+      "weapon": "pistol",
       "armor": "light",
       "action": "idle",
       "facing": "north",
@@ -1983,6 +2415,114 @@
     },
     {
       "weapon": "pistol",
+      "armor": "light",
+      "action": "turn_from_north",
+      "facing": "east",
+      "openingReachable": false,
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "weapon": "pistol",
+      "armor": "light",
+      "action": "turn_from_north",
+      "facing": "south",
+      "openingReachable": false,
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "weapon": "pistol",
+      "armor": "light",
+      "action": "turn_from_north",
+      "facing": "west",
+      "openingReachable": false,
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "weapon": "pistol",
+      "armor": "light",
+      "action": "turn_from_east",
+      "facing": "north",
+      "openingReachable": false,
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "weapon": "pistol",
+      "armor": "light",
+      "action": "turn_from_east",
+      "facing": "south",
+      "openingReachable": false,
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "weapon": "pistol",
+      "armor": "light",
+      "action": "turn_from_east",
+      "facing": "west",
+      "openingReachable": false,
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "weapon": "pistol",
+      "armor": "light",
+      "action": "turn_from_south",
+      "facing": "north",
+      "openingReachable": false,
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "weapon": "pistol",
+      "armor": "light",
+      "action": "turn_from_south",
+      "facing": "east",
+      "openingReachable": false,
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "weapon": "pistol",
+      "armor": "light",
+      "action": "turn_from_south",
+      "facing": "west",
+      "openingReachable": false,
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "weapon": "pistol",
+      "armor": "light",
+      "action": "turn_from_west",
+      "facing": "north",
+      "openingReachable": false,
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "weapon": "pistol",
+      "armor": "light",
+      "action": "turn_from_west",
+      "facing": "east",
+      "openingReachable": false,
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "weapon": "pistol",
+      "armor": "light",
+      "action": "turn_from_west",
+      "facing": "south",
+      "openingReachable": false,
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "weapon": "pistol",
       "armor": "heavy",
       "action": "idle",
       "facing": "north",
@@ -2378,6 +2918,114 @@
       "clip": ""
     },
     {
+      "weapon": "pistol",
+      "armor": "heavy",
+      "action": "turn_from_north",
+      "facing": "east",
+      "openingReachable": false,
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "weapon": "pistol",
+      "armor": "heavy",
+      "action": "turn_from_north",
+      "facing": "south",
+      "openingReachable": false,
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "weapon": "pistol",
+      "armor": "heavy",
+      "action": "turn_from_north",
+      "facing": "west",
+      "openingReachable": false,
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "weapon": "pistol",
+      "armor": "heavy",
+      "action": "turn_from_east",
+      "facing": "north",
+      "openingReachable": false,
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "weapon": "pistol",
+      "armor": "heavy",
+      "action": "turn_from_east",
+      "facing": "south",
+      "openingReachable": false,
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "weapon": "pistol",
+      "armor": "heavy",
+      "action": "turn_from_east",
+      "facing": "west",
+      "openingReachable": false,
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "weapon": "pistol",
+      "armor": "heavy",
+      "action": "turn_from_south",
+      "facing": "north",
+      "openingReachable": false,
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "weapon": "pistol",
+      "armor": "heavy",
+      "action": "turn_from_south",
+      "facing": "east",
+      "openingReachable": false,
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "weapon": "pistol",
+      "armor": "heavy",
+      "action": "turn_from_south",
+      "facing": "west",
+      "openingReachable": false,
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "weapon": "pistol",
+      "armor": "heavy",
+      "action": "turn_from_west",
+      "facing": "north",
+      "openingReachable": false,
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "weapon": "pistol",
+      "armor": "heavy",
+      "action": "turn_from_west",
+      "facing": "east",
+      "openingReachable": false,
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "weapon": "pistol",
+      "armor": "heavy",
+      "action": "turn_from_west",
+      "facing": "south",
+      "openingReachable": false,
+      "status": "missing",
+      "clip": ""
+    },
+    {
       "weapon": "rifle",
       "armor": "suit",
       "action": "idle",
@@ -2775,6 +3423,114 @@
     },
     {
       "weapon": "rifle",
+      "armor": "suit",
+      "action": "turn_from_north",
+      "facing": "east",
+      "openingReachable": false,
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "weapon": "rifle",
+      "armor": "suit",
+      "action": "turn_from_north",
+      "facing": "south",
+      "openingReachable": false,
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "weapon": "rifle",
+      "armor": "suit",
+      "action": "turn_from_north",
+      "facing": "west",
+      "openingReachable": false,
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "weapon": "rifle",
+      "armor": "suit",
+      "action": "turn_from_east",
+      "facing": "north",
+      "openingReachable": false,
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "weapon": "rifle",
+      "armor": "suit",
+      "action": "turn_from_east",
+      "facing": "south",
+      "openingReachable": false,
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "weapon": "rifle",
+      "armor": "suit",
+      "action": "turn_from_east",
+      "facing": "west",
+      "openingReachable": false,
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "weapon": "rifle",
+      "armor": "suit",
+      "action": "turn_from_south",
+      "facing": "north",
+      "openingReachable": false,
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "weapon": "rifle",
+      "armor": "suit",
+      "action": "turn_from_south",
+      "facing": "east",
+      "openingReachable": false,
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "weapon": "rifle",
+      "armor": "suit",
+      "action": "turn_from_south",
+      "facing": "west",
+      "openingReachable": false,
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "weapon": "rifle",
+      "armor": "suit",
+      "action": "turn_from_west",
+      "facing": "north",
+      "openingReachable": false,
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "weapon": "rifle",
+      "armor": "suit",
+      "action": "turn_from_west",
+      "facing": "east",
+      "openingReachable": false,
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "weapon": "rifle",
+      "armor": "suit",
+      "action": "turn_from_west",
+      "facing": "south",
+      "openingReachable": false,
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "weapon": "rifle",
       "armor": "light",
       "action": "idle",
       "facing": "north",
@@ -3171,6 +3927,114 @@
     },
     {
       "weapon": "rifle",
+      "armor": "light",
+      "action": "turn_from_north",
+      "facing": "east",
+      "openingReachable": false,
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "weapon": "rifle",
+      "armor": "light",
+      "action": "turn_from_north",
+      "facing": "south",
+      "openingReachable": false,
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "weapon": "rifle",
+      "armor": "light",
+      "action": "turn_from_north",
+      "facing": "west",
+      "openingReachable": false,
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "weapon": "rifle",
+      "armor": "light",
+      "action": "turn_from_east",
+      "facing": "north",
+      "openingReachable": false,
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "weapon": "rifle",
+      "armor": "light",
+      "action": "turn_from_east",
+      "facing": "south",
+      "openingReachable": false,
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "weapon": "rifle",
+      "armor": "light",
+      "action": "turn_from_east",
+      "facing": "west",
+      "openingReachable": false,
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "weapon": "rifle",
+      "armor": "light",
+      "action": "turn_from_south",
+      "facing": "north",
+      "openingReachable": false,
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "weapon": "rifle",
+      "armor": "light",
+      "action": "turn_from_south",
+      "facing": "east",
+      "openingReachable": false,
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "weapon": "rifle",
+      "armor": "light",
+      "action": "turn_from_south",
+      "facing": "west",
+      "openingReachable": false,
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "weapon": "rifle",
+      "armor": "light",
+      "action": "turn_from_west",
+      "facing": "north",
+      "openingReachable": false,
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "weapon": "rifle",
+      "armor": "light",
+      "action": "turn_from_west",
+      "facing": "east",
+      "openingReachable": false,
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "weapon": "rifle",
+      "armor": "light",
+      "action": "turn_from_west",
+      "facing": "south",
+      "openingReachable": false,
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "weapon": "rifle",
       "armor": "heavy",
       "action": "idle",
       "facing": "north",
@@ -3566,6 +4430,114 @@
       "clip": ""
     },
     {
+      "weapon": "rifle",
+      "armor": "heavy",
+      "action": "turn_from_north",
+      "facing": "east",
+      "openingReachable": false,
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "weapon": "rifle",
+      "armor": "heavy",
+      "action": "turn_from_north",
+      "facing": "south",
+      "openingReachable": false,
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "weapon": "rifle",
+      "armor": "heavy",
+      "action": "turn_from_north",
+      "facing": "west",
+      "openingReachable": false,
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "weapon": "rifle",
+      "armor": "heavy",
+      "action": "turn_from_east",
+      "facing": "north",
+      "openingReachable": false,
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "weapon": "rifle",
+      "armor": "heavy",
+      "action": "turn_from_east",
+      "facing": "south",
+      "openingReachable": false,
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "weapon": "rifle",
+      "armor": "heavy",
+      "action": "turn_from_east",
+      "facing": "west",
+      "openingReachable": false,
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "weapon": "rifle",
+      "armor": "heavy",
+      "action": "turn_from_south",
+      "facing": "north",
+      "openingReachable": false,
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "weapon": "rifle",
+      "armor": "heavy",
+      "action": "turn_from_south",
+      "facing": "east",
+      "openingReachable": false,
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "weapon": "rifle",
+      "armor": "heavy",
+      "action": "turn_from_south",
+      "facing": "west",
+      "openingReachable": false,
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "weapon": "rifle",
+      "armor": "heavy",
+      "action": "turn_from_west",
+      "facing": "north",
+      "openingReachable": false,
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "weapon": "rifle",
+      "armor": "heavy",
+      "action": "turn_from_west",
+      "facing": "east",
+      "openingReachable": false,
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "weapon": "rifle",
+      "armor": "heavy",
+      "action": "turn_from_west",
+      "facing": "south",
+      "openingReachable": false,
+      "status": "missing",
+      "clip": ""
+    },
+    {
       "weapon": "scattergun",
       "armor": "suit",
       "action": "idle",
@@ -3963,6 +4935,114 @@
     },
     {
       "weapon": "scattergun",
+      "armor": "suit",
+      "action": "turn_from_north",
+      "facing": "east",
+      "openingReachable": false,
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "weapon": "scattergun",
+      "armor": "suit",
+      "action": "turn_from_north",
+      "facing": "south",
+      "openingReachable": false,
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "weapon": "scattergun",
+      "armor": "suit",
+      "action": "turn_from_north",
+      "facing": "west",
+      "openingReachable": false,
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "weapon": "scattergun",
+      "armor": "suit",
+      "action": "turn_from_east",
+      "facing": "north",
+      "openingReachable": false,
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "weapon": "scattergun",
+      "armor": "suit",
+      "action": "turn_from_east",
+      "facing": "south",
+      "openingReachable": false,
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "weapon": "scattergun",
+      "armor": "suit",
+      "action": "turn_from_east",
+      "facing": "west",
+      "openingReachable": false,
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "weapon": "scattergun",
+      "armor": "suit",
+      "action": "turn_from_south",
+      "facing": "north",
+      "openingReachable": false,
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "weapon": "scattergun",
+      "armor": "suit",
+      "action": "turn_from_south",
+      "facing": "east",
+      "openingReachable": false,
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "weapon": "scattergun",
+      "armor": "suit",
+      "action": "turn_from_south",
+      "facing": "west",
+      "openingReachable": false,
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "weapon": "scattergun",
+      "armor": "suit",
+      "action": "turn_from_west",
+      "facing": "north",
+      "openingReachable": false,
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "weapon": "scattergun",
+      "armor": "suit",
+      "action": "turn_from_west",
+      "facing": "east",
+      "openingReachable": false,
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "weapon": "scattergun",
+      "armor": "suit",
+      "action": "turn_from_west",
+      "facing": "south",
+      "openingReachable": false,
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "weapon": "scattergun",
       "armor": "light",
       "action": "idle",
       "facing": "north",
@@ -4359,6 +5439,114 @@
     },
     {
       "weapon": "scattergun",
+      "armor": "light",
+      "action": "turn_from_north",
+      "facing": "east",
+      "openingReachable": false,
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "weapon": "scattergun",
+      "armor": "light",
+      "action": "turn_from_north",
+      "facing": "south",
+      "openingReachable": false,
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "weapon": "scattergun",
+      "armor": "light",
+      "action": "turn_from_north",
+      "facing": "west",
+      "openingReachable": false,
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "weapon": "scattergun",
+      "armor": "light",
+      "action": "turn_from_east",
+      "facing": "north",
+      "openingReachable": false,
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "weapon": "scattergun",
+      "armor": "light",
+      "action": "turn_from_east",
+      "facing": "south",
+      "openingReachable": false,
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "weapon": "scattergun",
+      "armor": "light",
+      "action": "turn_from_east",
+      "facing": "west",
+      "openingReachable": false,
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "weapon": "scattergun",
+      "armor": "light",
+      "action": "turn_from_south",
+      "facing": "north",
+      "openingReachable": false,
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "weapon": "scattergun",
+      "armor": "light",
+      "action": "turn_from_south",
+      "facing": "east",
+      "openingReachable": false,
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "weapon": "scattergun",
+      "armor": "light",
+      "action": "turn_from_south",
+      "facing": "west",
+      "openingReachable": false,
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "weapon": "scattergun",
+      "armor": "light",
+      "action": "turn_from_west",
+      "facing": "north",
+      "openingReachable": false,
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "weapon": "scattergun",
+      "armor": "light",
+      "action": "turn_from_west",
+      "facing": "east",
+      "openingReachable": false,
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "weapon": "scattergun",
+      "armor": "light",
+      "action": "turn_from_west",
+      "facing": "south",
+      "openingReachable": false,
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "weapon": "scattergun",
       "armor": "heavy",
       "action": "idle",
       "facing": "north",
@@ -4749,6 +5937,114 @@
       "armor": "heavy",
       "action": "death",
       "facing": "west",
+      "openingReachable": false,
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "weapon": "scattergun",
+      "armor": "heavy",
+      "action": "turn_from_north",
+      "facing": "east",
+      "openingReachable": false,
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "weapon": "scattergun",
+      "armor": "heavy",
+      "action": "turn_from_north",
+      "facing": "south",
+      "openingReachable": false,
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "weapon": "scattergun",
+      "armor": "heavy",
+      "action": "turn_from_north",
+      "facing": "west",
+      "openingReachable": false,
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "weapon": "scattergun",
+      "armor": "heavy",
+      "action": "turn_from_east",
+      "facing": "north",
+      "openingReachable": false,
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "weapon": "scattergun",
+      "armor": "heavy",
+      "action": "turn_from_east",
+      "facing": "south",
+      "openingReachable": false,
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "weapon": "scattergun",
+      "armor": "heavy",
+      "action": "turn_from_east",
+      "facing": "west",
+      "openingReachable": false,
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "weapon": "scattergun",
+      "armor": "heavy",
+      "action": "turn_from_south",
+      "facing": "north",
+      "openingReachable": false,
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "weapon": "scattergun",
+      "armor": "heavy",
+      "action": "turn_from_south",
+      "facing": "east",
+      "openingReachable": false,
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "weapon": "scattergun",
+      "armor": "heavy",
+      "action": "turn_from_south",
+      "facing": "west",
+      "openingReachable": false,
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "weapon": "scattergun",
+      "armor": "heavy",
+      "action": "turn_from_west",
+      "facing": "north",
+      "openingReachable": false,
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "weapon": "scattergun",
+      "armor": "heavy",
+      "action": "turn_from_west",
+      "facing": "east",
+      "openingReachable": false,
+      "status": "missing",
+      "clip": ""
+    },
+    {
+      "weapon": "scattergun",
+      "armor": "heavy",
+      "action": "turn_from_west",
+      "facing": "south",
       "openingReachable": false,
       "status": "missing",
       "clip": ""

@@ -21,7 +21,7 @@ final class StationGenerator{
   if(count>0&&cumulative-lastTime>300)throw new IllegalStateException("Unbounded final supply gap");
  }
  static void generate(GameState s){
-  build(s);supplies(s);RunContent.populate(s);s.blueprintTiles=new Tile[s.width][];for(int x=0;x<s.width;x++)s.blueprintTiles[x]=s.tiles[x].clone();Visibility.refresh(s);
+  build(s);supplies(s);RunContent.populate(s);WorkplaceDressing.apply(s);s.blueprintTiles=new Tile[s.width][];for(int x=0;x<s.width;x++)s.blueprintTiles[x]=s.tiles[x].clone();Visibility.refresh(s);
  }
  private static void build(GameState s){
   var rng=new WhiskerRandom(DeterministicRandom.mix(s.seed^(s.deck*0xD1B54A32D192ED03L)));

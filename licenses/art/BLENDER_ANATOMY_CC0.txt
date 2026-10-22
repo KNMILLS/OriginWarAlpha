@@ -1,0 +1,20 @@
+Origin War officer anatomy sources
+
+Head (Animation) - Realistic and Body Male - Realistic
+Author: Dan Ulrich
+Declared asset license: CC0 1.0 Universal
+https://creativecommons.org/publicdomain/zero/1.0/
+
+Official Blender Human Base Meshes bundle v1.4.1:
+https://www.blender.org/download/demo-files/
+https://download.blender.org/demo/asset-bundles/human-base-meshes/human-base-meshes-bundle-v1.4.1.zip
+Archive SHA256: 811f43accbb31a88266d932f8f5563b2d13586fca0ba2693aad1f5fe582b3515
+
+Only the explicitly CC0 head/body collections were extracted. The unrelated
+Rain Rig and its separate license are not dependencies of these derivatives.
+Selected-object metadata, hashes and extraction receipts are preserved in
+assets/art/production/officer/source/anatomy/ and source/PROVENANCE.json.
+
+Origin War adds fitted pressure clothing, helmet, reinforcement, equipment,
+materials, rig, authored performances and offline rendered sprites. Blender
+is an authoring tool; the game does not require it at runtime.

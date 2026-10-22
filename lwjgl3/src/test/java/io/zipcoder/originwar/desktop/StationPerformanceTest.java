@@ -7,6 +7,7 @@ import java.util.*;
 import static org.junit.jupiter.api.Assertions.*;
 
 final class StationPerformanceTest {
+ @Test void observedEastWestApproachDeterminesBearingWithoutSeeingThroughClosedDoor(){var s=new RunEngine(8).saveState();int x=s.playerX,y=s.playerY;s.visible[x-1][y]=true;s.tiles[x-1][y]=Tile.FLOOR;s.visible[x+1][y]=false;s.rememberedTiles[x+1][y]=null;assertEquals(1,StationPerformance.doorFacing(s,x,y));s.tiles[x+1][y]=Tile.WALL;assertEquals(1,StationPerformance.doorFacing(s,x,y));}
  private final StationPerformance.Timing timing=new StationPerformance.Timing(){public float seconds(String actor,String action,int face,float fallback){return action.equals("destroyed")?.6f:.3f;}public float marker(String actor,String action,int face,String marker,float fallback){return .1f;}};
  @Test void unobservedNeighborsCannotSelectTheDoorBearing(){var s=new RunEngine(8).saveState();int x=s.playerX,y=s.playerY;s.visible[x-1][y]=s.visible[x+1][y]=false;s.rememberedTiles[x-1][y]=s.rememberedTiles[x+1][y]=null;int facing=StationPerformance.doorFacing(s,x,y);s.tiles[x-1][y]=Tile.WALL;s.tiles[x+1][y]=Tile.FLOOR;assertEquals(facing,StationPerformance.doorFacing(s,x,y));}
  @Test void unpoweredCameraKeepsItsDarkPoseUntilObservedImpact(){

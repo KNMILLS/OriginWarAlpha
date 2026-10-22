@@ -9,6 +9,8 @@ from pack import ASSETS, FOLDER, MAX_PAGES, PAGE, source, sha
 def validate(folder=FOLDER, kind="officer"):
     data=json.loads((folder/"atlas.json").read_text(encoding="utf-8"))
     assert sha(source(data["sourceManifest"]["path"])) == data["sourceManifest"]["sha256"]
+    if "sourceRegionsManifest" in data:
+        assert sha(source(data["sourceRegionsManifest"]["path"])) == data["sourceRegionsManifest"]["sha256"]
     assert len(data["atlasPages"]) <= MAX_PAGES
     pages={}
     for entry in data["atlasPages"]:

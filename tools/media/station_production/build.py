@@ -8,6 +8,9 @@ import numpy as np
 from mathutils import Vector, Matrix
 from bpy_extras.object_utils import world_to_camera_view
 
+# Process-local authoring guard; preserve any existing automatic backup bytes.
+bpy.context.preferences.filepaths.save_version=0
+
 ROOT=Path(__file__).resolve().parents[3]
 START=time.perf_counter();FULL='--full' in sys.argv;MOTION_PILOT='--motion-pilot' in sys.argv
 REUSE_NON_DOOR='--door-cutaway-only' in sys.argv

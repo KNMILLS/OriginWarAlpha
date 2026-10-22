@@ -7,8 +7,8 @@ Owner supplied a production review selecting Blender-driven animation with an il
 | ID | Exclusive owner / paths | Acceptance | State |
 | --- | --- | --- | --- |
 | AR-LEAD | lead; client/timeline, new atlas tooling, contracts/build/registries/docs/integration/native captures | preserved tactical state; truthful work/hit/death selection; selected-only loading and texture budget; actual normal-speed review | in progress from814253f; no purchases |
-| AR-OFFICER | animation specialist; `worktrees/art-proof-rendered`; new `assets/art/production/officer/**`, `tools/media/officer_production/**`, `OFFICER_PRODUCTION.md` only | human construction/material pilot before full export; source rig, calibrated contacts; opening pistol/unarmed coverage | in progress; no re-delegation; old proof preserved |
-| AR-STATION | art specialist; `worktrees/art-proof-painted`; new `assets/art/production/station/**`, `tools/media/station_production/**`, `STATION_PRODUCTION.md` only | four true SIRS bearings/actions; camera power/facing; physical door states and clearance; compact workplace props | in progress from d80aa83; pilot reviewed; no re-delegation/purchase/push; root retains derived atlases/coverage |
+| AR-OFFICER | animation specialist; `worktrees/art-proof-rendered`; new officer assets/tools/handoff only; lease released | human construction/material pilot before full export; source rig, calibrated contacts; opening pistol/unarmed coverage | integrated bfed000 +2674885;104clips/964exposures; native/artistic gates remain open |
+| AR-STATION | art specialist; `worktrees/art-proof-painted`; new station assets/tools/handoff only; lease released | four true SIRS bearings/actions; camera power/facing; physical door states and clearance; compact workplace props | integrated3b93b60;62clips/297regions; source checks pass; native/artistic gates remain open |
 | AR-REVIEW | research specialist; read-only | actual footage and pilot review; reachable opening states; independent source review | in progress; no write lease |
 
 ## Art production proof (owner approved 21 October 2026)
