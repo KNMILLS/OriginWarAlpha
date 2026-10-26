@@ -1,0 +1,3 @@
+Private complete PC backup: https://github.com/KNMILLS/OriginWarReboot-backup/releases/tag/pc-backup-20261025-originwar-df35c2b1
+Backup branch: backup/pc-cleanup-2026-10-25-originwar-df35c2b1
+Full archive includes private files and is stored in the private companion repository.
